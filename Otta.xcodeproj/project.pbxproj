@@ -28,6 +28,11 @@
 		F0BC6558198620860097A87C /* OttaGreenBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = F0BC6557198620860097A87C /* OttaGreenBackground.png */; };
 		F0BC655B1986215C0097A87C /* OttaLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F0BC655A1986215C0097A87C /* OttaLoginViewController.m */; };
 		F0D6B1F219862B4D0077E30E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F0D6B1F119862B4D0077E30E /* Main.storyboard */; };
+		F0D6B1FA1986F71F0077E30E /* JoinButton.png in Resources */ = {isa = PBXBuildFile; fileRef = F0D6B1F61986F71F0077E30E /* JoinButton.png */; };
+		F0D6B1FB1986F71F0077E30E /* LoginButton.png in Resources */ = {isa = PBXBuildFile; fileRef = F0D6B1F71986F71F0077E30E /* LoginButton.png */; };
+		F0D6B1FC1986F71F0077E30E /* OttaLeftSidebar.png in Resources */ = {isa = PBXBuildFile; fileRef = F0D6B1F81986F71F0077E30E /* OttaLeftSidebar.png */; };
+		F0D6B1FD1986F71F0077E30E /* OttaRightSidebar.png in Resources */ = {isa = PBXBuildFile; fileRef = F0D6B1F91986F71F0077E30E /* OttaRightSidebar.png */; };
+		F0D6B2001986F8EA0077E30E /* OttaTutorialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F0D6B1FF1986F8EA0077E30E /* OttaTutorialViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,6 +75,12 @@
 		F0BC65591986215C0097A87C /* OttaLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OttaLoginViewController.h; sourceTree = "<group>"; };
 		F0BC655A1986215C0097A87C /* OttaLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OttaLoginViewController.m; sourceTree = "<group>"; };
 		F0D6B1F119862B4D0077E30E /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		F0D6B1F61986F71F0077E30E /* JoinButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = JoinButton.png; sourceTree = "<group>"; };
+		F0D6B1F71986F71F0077E30E /* LoginButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LoginButton.png; sourceTree = "<group>"; };
+		F0D6B1F81986F71F0077E30E /* OttaLeftSidebar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = OttaLeftSidebar.png; sourceTree = "<group>"; };
+		F0D6B1F91986F71F0077E30E /* OttaRightSidebar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = OttaRightSidebar.png; sourceTree = "<group>"; };
+		F0D6B1FE1986F8EA0077E30E /* OttaTutorialViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OttaTutorialViewController.h; sourceTree = "<group>"; };
+		F0D6B1FF1986F8EA0077E30E /* OttaTutorialViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OttaTutorialViewController.m; sourceTree = "<group>"; };
 		FEA38D9950CA47A48FF7D9DA /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -141,6 +152,8 @@
 				F0BC655A1986215C0097A87C /* OttaLoginViewController.m */,
 				F0BC654A19860D4D0097A87C /* SideMenuViewController.h */,
 				F0BC654B19860D4D0097A87C /* SideMenuViewController.m */,
+				F0D6B1FE1986F8EA0077E30E /* OttaTutorialViewController.h */,
+				F0D6B1FF1986F8EA0077E30E /* OttaTutorialViewController.m */,
 				F0BC652A198606BD0097A87C /* OttaViewController.h */,
 				F0BC652B198606BD0097A87C /* OttaViewController.m */,
 				F0BC652D198606BD0097A87C /* Images.xcassets */,
@@ -184,6 +197,10 @@
 			isa = PBXGroup;
 			children = (
 				F0BC655519861BE20097A87C /* OttaSideMenuBackground.png */,
+				F0D6B1F61986F71F0077E30E /* JoinButton.png */,
+				F0D6B1F71986F71F0077E30E /* LoginButton.png */,
+				F0D6B1F81986F71F0077E30E /* OttaLeftSidebar.png */,
+				F0D6B1F91986F71F0077E30E /* OttaRightSidebar.png */,
 				F0BC6557198620860097A87C /* OttaGreenBackground.png */,
 				F0BC6553198618A30097A87C /* OttaLandingTopLogo.png */,
 			);
@@ -272,9 +289,13 @@
 				F0D6B1F219862B4D0077E30E /* Main.storyboard in Resources */,
 				F0BC652E198606BD0097A87C /* Images.xcassets in Resources */,
 				F0BC6520198606BD0097A87C /* InfoPlist.strings in Resources */,
+				F0D6B1FD1986F71F0077E30E /* OttaRightSidebar.png in Resources */,
 				F0BC6554198618A30097A87C /* OttaLandingTopLogo.png in Resources */,
+				F0D6B1FC1986F71F0077E30E /* OttaLeftSidebar.png in Resources */,
 				F0BC655619861BE20097A87C /* OttaSideMenuBackground.png in Resources */,
 				F0BC6558198620860097A87C /* OttaGreenBackground.png in Resources */,
+				F0D6B1FA1986F71F0077E30E /* JoinButton.png in Resources */,
+				F0D6B1FB1986F71F0077E30E /* LoginButton.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -329,6 +350,7 @@
 				F0BC655B1986215C0097A87C /* OttaLoginViewController.m in Sources */,
 				F0BC654C19860D4D0097A87C /* SideMenuViewController.m in Sources */,
 				F0BC6526198606BD0097A87C /* OttaAppDelegate.m in Sources */,
+				F0D6B2001986F8EA0077E30E /* OttaTutorialViewController.m in Sources */,
 				F0BC6522198606BD0097A87C /* main.m in Sources */,
 				F0BC654F198611D20097A87C /* OttaSessionManager.m in Sources */,
 				F0BC652C198606BD0097A87C /* OttaViewController.m in Sources */,
