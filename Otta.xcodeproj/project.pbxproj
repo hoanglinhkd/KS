@@ -1,0 +1,547 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0B140940A13047B280C5584B /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D075C858A4214DDABEDE0CDD /* libPods.a */; };
+		F0BC6516198606BD0097A87C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0BC6515198606BD0097A87C /* Foundation.framework */; };
+		F0BC6518198606BD0097A87C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0BC6517198606BD0097A87C /* CoreGraphics.framework */; };
+		F0BC651A198606BD0097A87C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0BC6519198606BD0097A87C /* UIKit.framework */; };
+		F0BC6520198606BD0097A87C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F0BC651E198606BD0097A87C /* InfoPlist.strings */; };
+		F0BC6522198606BD0097A87C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F0BC6521198606BD0097A87C /* main.m */; };
+		F0BC6526198606BD0097A87C /* OttaAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F0BC6525198606BD0097A87C /* OttaAppDelegate.m */; };
+		F0BC652C198606BD0097A87C /* OttaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F0BC652B198606BD0097A87C /* OttaViewController.m */; };
+		F0BC652E198606BD0097A87C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F0BC652D198606BD0097A87C /* Images.xcassets */; };
+		F0BC6535198606BD0097A87C /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0BC6534198606BD0097A87C /* XCTest.framework */; };
+		F0BC6536198606BD0097A87C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0BC6515198606BD0097A87C /* Foundation.framework */; };
+		F0BC6537198606BD0097A87C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0BC6519198606BD0097A87C /* UIKit.framework */; };
+		F0BC653F198606BD0097A87C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F0BC653D198606BD0097A87C /* InfoPlist.strings */; };
+		F0BC6541198606BD0097A87C /* OttaTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F0BC6540198606BD0097A87C /* OttaTests.m */; };
+		F0BC654C19860D4D0097A87C /* SideMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F0BC654B19860D4D0097A87C /* SideMenuViewController.m */; };
+		F0BC654F198611D20097A87C /* OttaSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F0BC654E198611D20097A87C /* OttaSessionManager.m */; };
+		F0BC6554198618A30097A87C /* OttaLandingTopLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = F0BC6553198618A30097A87C /* OttaLandingTopLogo.png */; };
+		F0BC655619861BE20097A87C /* OttaSideMenuBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = F0BC655519861BE20097A87C /* OttaSideMenuBackground.png */; };
+		F0BC6558198620860097A87C /* OttaGreenBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = F0BC6557198620860097A87C /* OttaGreenBackground.png */; };
+		F0BC655B1986215C0097A87C /* OttaLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F0BC655A1986215C0097A87C /* OttaLoginViewController.m */; };
+		F0D6B1F219862B4D0077E30E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F0D6B1F119862B4D0077E30E /* Main.storyboard */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		F0BC6538198606BD0097A87C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F0BC650A198606BD0097A87C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F0BC6511198606BD0097A87C;
+			remoteInfo = Otta;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		D075C858A4214DDABEDE0CDD /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		F0BC6512198606BD0097A87C /* Otta.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Otta.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F0BC6515198606BD0097A87C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		F0BC6517198606BD0097A87C /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		F0BC6519198606BD0097A87C /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		F0BC651D198606BD0097A87C /* Otta-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Otta-Info.plist"; sourceTree = "<group>"; };
+		F0BC651F198606BD0097A87C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		F0BC6521198606BD0097A87C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		F0BC6523198606BD0097A87C /* Otta-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Otta-Prefix.pch"; sourceTree = "<group>"; };
+		F0BC6524198606BD0097A87C /* OttaAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OttaAppDelegate.h; sourceTree = "<group>"; };
+		F0BC6525198606BD0097A87C /* OttaAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OttaAppDelegate.m; sourceTree = "<group>"; };
+		F0BC652A198606BD0097A87C /* OttaViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OttaViewController.h; sourceTree = "<group>"; };
+		F0BC652B198606BD0097A87C /* OttaViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OttaViewController.m; sourceTree = "<group>"; };
+		F0BC652D198606BD0097A87C /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		F0BC6533198606BD0097A87C /* OttaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OttaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F0BC6534198606BD0097A87C /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		F0BC653C198606BD0097A87C /* OttaTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "OttaTests-Info.plist"; sourceTree = "<group>"; };
+		F0BC653E198606BD0097A87C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		F0BC6540198606BD0097A87C /* OttaTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OttaTests.m; sourceTree = "<group>"; };
+		F0BC654A19860D4D0097A87C /* SideMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SideMenuViewController.h; sourceTree = "<group>"; };
+		F0BC654B19860D4D0097A87C /* SideMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SideMenuViewController.m; sourceTree = "<group>"; };
+		F0BC654D198611D20097A87C /* OttaSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OttaSessionManager.h; sourceTree = "<group>"; };
+		F0BC654E198611D20097A87C /* OttaSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OttaSessionManager.m; sourceTree = "<group>"; };
+		F0BC6553198618A30097A87C /* OttaLandingTopLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = OttaLandingTopLogo.png; sourceTree = "<group>"; };
+		F0BC655519861BE20097A87C /* OttaSideMenuBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = OttaSideMenuBackground.png; sourceTree = "<group>"; };
+		F0BC6557198620860097A87C /* OttaGreenBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = OttaGreenBackground.png; sourceTree = "<group>"; };
+		F0BC65591986215C0097A87C /* OttaLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OttaLoginViewController.h; sourceTree = "<group>"; };
+		F0BC655A1986215C0097A87C /* OttaLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OttaLoginViewController.m; sourceTree = "<group>"; };
+		F0D6B1F119862B4D0077E30E /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		FEA38D9950CA47A48FF7D9DA /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F0BC650F198606BD0097A87C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F0BC6518198606BD0097A87C /* CoreGraphics.framework in Frameworks */,
+				F0BC651A198606BD0097A87C /* UIKit.framework in Frameworks */,
+				F0BC6516198606BD0097A87C /* Foundation.framework in Frameworks */,
+				0B140940A13047B280C5584B /* libPods.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F0BC6530198606BD0097A87C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F0BC6535198606BD0097A87C /* XCTest.framework in Frameworks */,
+				F0BC6537198606BD0097A87C /* UIKit.framework in Frameworks */,
+				F0BC6536198606BD0097A87C /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		F0BC6509198606BD0097A87C = {
+			isa = PBXGroup;
+			children = (
+				F0BC651B198606BD0097A87C /* Otta */,
+				F0BC653A198606BD0097A87C /* OttaTests */,
+				F0BC6514198606BD0097A87C /* Frameworks */,
+				F0BC6513198606BD0097A87C /* Products */,
+				FEA38D9950CA47A48FF7D9DA /* Pods.xcconfig */,
+			);
+			sourceTree = "<group>";
+		};
+		F0BC6513198606BD0097A87C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F0BC6512198606BD0097A87C /* Otta.app */,
+				F0BC6533198606BD0097A87C /* OttaTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F0BC6514198606BD0097A87C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F0BC6515198606BD0097A87C /* Foundation.framework */,
+				F0BC6517198606BD0097A87C /* CoreGraphics.framework */,
+				F0BC6519198606BD0097A87C /* UIKit.framework */,
+				F0BC6534198606BD0097A87C /* XCTest.framework */,
+				D075C858A4214DDABEDE0CDD /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F0BC651B198606BD0097A87C /* Otta */ = {
+			isa = PBXGroup;
+			children = (
+				F0BC65501986159A0097A87C /* Image Assets */,
+				F0BC6524198606BD0097A87C /* OttaAppDelegate.h */,
+				F0BC6525198606BD0097A87C /* OttaAppDelegate.m */,
+				F0D6B1F119862B4D0077E30E /* Main.storyboard */,
+				F0BC65591986215C0097A87C /* OttaLoginViewController.h */,
+				F0BC655A1986215C0097A87C /* OttaLoginViewController.m */,
+				F0BC654A19860D4D0097A87C /* SideMenuViewController.h */,
+				F0BC654B19860D4D0097A87C /* SideMenuViewController.m */,
+				F0BC652A198606BD0097A87C /* OttaViewController.h */,
+				F0BC652B198606BD0097A87C /* OttaViewController.m */,
+				F0BC652D198606BD0097A87C /* Images.xcassets */,
+				F0BC651C198606BD0097A87C /* Supporting Files */,
+				F0BC654D198611D20097A87C /* OttaSessionManager.h */,
+				F0BC654E198611D20097A87C /* OttaSessionManager.m */,
+			);
+			path = Otta;
+			sourceTree = "<group>";
+		};
+		F0BC651C198606BD0097A87C /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				F0BC651D198606BD0097A87C /* Otta-Info.plist */,
+				F0BC651E198606BD0097A87C /* InfoPlist.strings */,
+				F0BC6521198606BD0097A87C /* main.m */,
+				F0BC6523198606BD0097A87C /* Otta-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		F0BC653A198606BD0097A87C /* OttaTests */ = {
+			isa = PBXGroup;
+			children = (
+				F0BC6540198606BD0097A87C /* OttaTests.m */,
+				F0BC653B198606BD0097A87C /* Supporting Files */,
+			);
+			path = OttaTests;
+			sourceTree = "<group>";
+		};
+		F0BC653B198606BD0097A87C /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				F0BC653C198606BD0097A87C /* OttaTests-Info.plist */,
+				F0BC653D198606BD0097A87C /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		F0BC65501986159A0097A87C /* Image Assets */ = {
+			isa = PBXGroup;
+			children = (
+				F0BC655519861BE20097A87C /* OttaSideMenuBackground.png */,
+				F0BC6557198620860097A87C /* OttaGreenBackground.png */,
+				F0BC6553198618A30097A87C /* OttaLandingTopLogo.png */,
+			);
+			name = "Image Assets";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		F0BC6511198606BD0097A87C /* Otta */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F0BC6544198606BD0097A87C /* Build configuration list for PBXNativeTarget "Otta" */;
+			buildPhases = (
+				DDE9B982DF28450B936D2CE9 /* Check Pods Manifest.lock */,
+				F0BC650E198606BD0097A87C /* Sources */,
+				F0BC650F198606BD0097A87C /* Frameworks */,
+				F0BC6510198606BD0097A87C /* Resources */,
+				0780ED4913C8457C96559DBB /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Otta;
+			productName = Otta;
+			productReference = F0BC6512198606BD0097A87C /* Otta.app */;
+			productType = "com.apple.product-type.application";
+		};
+		F0BC6532198606BD0097A87C /* OttaTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F0BC6547198606BD0097A87C /* Build configuration list for PBXNativeTarget "OttaTests" */;
+			buildPhases = (
+				F0BC652F198606BD0097A87C /* Sources */,
+				F0BC6530198606BD0097A87C /* Frameworks */,
+				F0BC6531198606BD0097A87C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F0BC6539198606BD0097A87C /* PBXTargetDependency */,
+			);
+			name = OttaTests;
+			productName = OttaTests;
+			productReference = F0BC6533198606BD0097A87C /* OttaTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F0BC650A198606BD0097A87C /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = Otta;
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = SojoDigital;
+				TargetAttributes = {
+					F0BC6532198606BD0097A87C = {
+						TestTargetID = F0BC6511198606BD0097A87C;
+					};
+				};
+			};
+			buildConfigurationList = F0BC650D198606BD0097A87C /* Build configuration list for PBXProject "Otta" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = F0BC6509198606BD0097A87C;
+			productRefGroup = F0BC6513198606BD0097A87C /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F0BC6511198606BD0097A87C /* Otta */,
+				F0BC6532198606BD0097A87C /* OttaTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F0BC6510198606BD0097A87C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F0D6B1F219862B4D0077E30E /* Main.storyboard in Resources */,
+				F0BC652E198606BD0097A87C /* Images.xcassets in Resources */,
+				F0BC6520198606BD0097A87C /* InfoPlist.strings in Resources */,
+				F0BC6554198618A30097A87C /* OttaLandingTopLogo.png in Resources */,
+				F0BC655619861BE20097A87C /* OttaSideMenuBackground.png in Resources */,
+				F0BC6558198620860097A87C /* OttaGreenBackground.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F0BC6531198606BD0097A87C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F0BC653F198606BD0097A87C /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0780ED4913C8457C96559DBB /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DDE9B982DF28450B936D2CE9 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F0BC650E198606BD0097A87C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F0BC655B1986215C0097A87C /* OttaLoginViewController.m in Sources */,
+				F0BC654C19860D4D0097A87C /* SideMenuViewController.m in Sources */,
+				F0BC6526198606BD0097A87C /* OttaAppDelegate.m in Sources */,
+				F0BC6522198606BD0097A87C /* main.m in Sources */,
+				F0BC654F198611D20097A87C /* OttaSessionManager.m in Sources */,
+				F0BC652C198606BD0097A87C /* OttaViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F0BC652F198606BD0097A87C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F0BC6541198606BD0097A87C /* OttaTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		F0BC6539198606BD0097A87C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F0BC6511198606BD0097A87C /* Otta */;
+			targetProxy = F0BC6538198606BD0097A87C /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		F0BC651E198606BD0097A87C /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F0BC651F198606BD0097A87C /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		F0BC653D198606BD0097A87C /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F0BC653E198606BD0097A87C /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		F0BC6542198606BD0097A87C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		F0BC6543198606BD0097A87C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		F0BC6545198606BD0097A87C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = FEA38D9950CA47A48FF7D9DA /* Pods.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Otta/Otta-Prefix.pch";
+				INFOPLIST_FILE = "Otta/Otta-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		F0BC6546198606BD0097A87C /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = FEA38D9950CA47A48FF7D9DA /* Pods.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Otta/Otta-Prefix.pch";
+				INFOPLIST_FILE = "Otta/Otta-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		F0BC6548198606BD0097A87C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Otta.app/Otta";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Otta/Otta-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "OttaTests/OttaTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		F0BC6549198606BD0097A87C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Otta.app/Otta";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Otta/Otta-Prefix.pch";
+				INFOPLIST_FILE = "OttaTests/OttaTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F0BC650D198606BD0097A87C /* Build configuration list for PBXProject "Otta" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F0BC6542198606BD0097A87C /* Debug */,
+				F0BC6543198606BD0097A87C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F0BC6544198606BD0097A87C /* Build configuration list for PBXNativeTarget "Otta" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F0BC6545198606BD0097A87C /* Debug */,
+				F0BC6546198606BD0097A87C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F0BC6547198606BD0097A87C /* Build configuration list for PBXNativeTarget "OttaTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F0BC6548198606BD0097A87C /* Debug */,
+				F0BC6549198606BD0097A87C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = F0BC650A198606BD0097A87C /* Project object */;
+}
