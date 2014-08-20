@@ -9,7 +9,27 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Pods-Bolts.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-ECSlidingViewController.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-Facebook-iOS-SDK.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-SDWebImage.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-libwebp.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -22,17 +42,37 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>635A1451A94A480595BEC6F8</key>
+		<key>1C7B33F30BB34F8F927EBF06</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>93314760919F4F1FAB6C6D3C</key>
+		<key>3D6B8B38CA6248C59BE2C003</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>AA98268AA98E4D12B3D54668</key>
+		<key>67C91247FB294AEF90E1C58A</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>70E6A7D5CD4348FD9B7EE16A</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>97E52EAA52A6407FA15C0618</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>B7BFCA9EDF2447C7963F339E</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>B85B9FC9C4FB483583DA549C</key>
 		<dict>
 			<key>primary</key>
 			<true/>

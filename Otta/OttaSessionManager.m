@@ -29,4 +29,18 @@
     
     return sharedManager;
 }
+
+
+-(void)loginWithFacebookAndResult:(OttaLoginResultBlock)resultblock;
+{
+  
+
+}
+
+-(void)loginWithUsername:(NSString *)emailAddress andPassword:(NSString *)password withResult:(OttaLoginResultBlock)resultblock
+{
+
+}
+
+
 @end

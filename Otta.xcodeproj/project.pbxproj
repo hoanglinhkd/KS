@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		0B140940A13047B280C5584B /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D075C858A4214DDABEDE0CDD /* libPods.a */; };
+		F080762F19A4C89700D0EA39 /* OttaAskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F080762E19A4C89700D0EA39 /* OttaAskViewController.m */; };
+		F080763119A4CAA900D0EA39 /* OttaAskheader.png in Resources */ = {isa = PBXBuildFile; fileRef = F080763019A4CAA900D0EA39 /* OttaAskheader.png */; };
+		F080763319A4CF6700D0EA39 /* AskAQuestion.png in Resources */ = {isa = PBXBuildFile; fileRef = F080763219A4CF6700D0EA39 /* AskAQuestion.png */; };
 		F0BC6516198606BD0097A87C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0BC6515198606BD0097A87C /* Foundation.framework */; };
 		F0BC6518198606BD0097A87C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0BC6517198606BD0097A87C /* CoreGraphics.framework */; };
 		F0BC651A198606BD0097A87C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0BC6519198606BD0097A87C /* UIKit.framework */; };
@@ -33,6 +36,10 @@
 		F0D6B1FC1986F71F0077E30E /* OttaLeftSidebar.png in Resources */ = {isa = PBXBuildFile; fileRef = F0D6B1F81986F71F0077E30E /* OttaLeftSidebar.png */; };
 		F0D6B1FD1986F71F0077E30E /* OttaRightSidebar.png in Resources */ = {isa = PBXBuildFile; fileRef = F0D6B1F91986F71F0077E30E /* OttaRightSidebar.png */; };
 		F0D6B2001986F8EA0077E30E /* OttaTutorialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F0D6B1FF1986F8EA0077E30E /* OttaTutorialViewController.m */; };
+		F0D6B2021986FE3F0077E30E /* FBConnect.png in Resources */ = {isa = PBXBuildFile; fileRef = F0D6B2011986FE3F0077E30E /* FBConnect.png */; };
+		F0D6B2041986FEDB0077E30E /* OttaFacebookButton2.png in Resources */ = {isa = PBXBuildFile; fileRef = F0D6B2031986FEDB0077E30E /* OttaFacebookButton2.png */; };
+		F0D6B2061987025B0077E30E /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0D6B2051987025B0077E30E /* Parse.framework */; };
+		F0D6B20919870CBC0077E30E /* OttaUser.m in Sources */ = {isa = PBXBuildFile; fileRef = F0D6B20819870CBC0077E30E /* OttaUser.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +54,10 @@
 
 /* Begin PBXFileReference section */
 		D075C858A4214DDABEDE0CDD /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		F080762D19A4C89600D0EA39 /* OttaAskViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OttaAskViewController.h; sourceTree = "<group>"; };
+		F080762E19A4C89700D0EA39 /* OttaAskViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OttaAskViewController.m; sourceTree = "<group>"; };
+		F080763019A4CAA900D0EA39 /* OttaAskheader.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = OttaAskheader.png; sourceTree = "<group>"; };
+		F080763219A4CF6700D0EA39 /* AskAQuestion.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AskAQuestion.png; sourceTree = "<group>"; };
 		F0BC6512198606BD0097A87C /* Otta.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Otta.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F0BC6515198606BD0097A87C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		F0BC6517198606BD0097A87C /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -81,6 +92,11 @@
 		F0D6B1F91986F71F0077E30E /* OttaRightSidebar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = OttaRightSidebar.png; sourceTree = "<group>"; };
 		F0D6B1FE1986F8EA0077E30E /* OttaTutorialViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OttaTutorialViewController.h; sourceTree = "<group>"; };
 		F0D6B1FF1986F8EA0077E30E /* OttaTutorialViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OttaTutorialViewController.m; sourceTree = "<group>"; };
+		F0D6B2011986FE3F0077E30E /* FBConnect.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FBConnect.png; sourceTree = "<group>"; };
+		F0D6B2031986FEDB0077E30E /* OttaFacebookButton2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = OttaFacebookButton2.png; sourceTree = "<group>"; };
+		F0D6B2051987025B0077E30E /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
+		F0D6B20719870CBC0077E30E /* OttaUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OttaUser.h; sourceTree = "<group>"; };
+		F0D6B20819870CBC0077E30E /* OttaUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OttaUser.m; sourceTree = "<group>"; };
 		FEA38D9950CA47A48FF7D9DA /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -93,6 +109,7 @@
 				F0BC651A198606BD0097A87C /* UIKit.framework in Frameworks */,
 				F0BC6516198606BD0097A87C /* Foundation.framework in Frameworks */,
 				0B140940A13047B280C5584B /* libPods.a in Frameworks */,
+				F0D6B2061987025B0077E30E /* Parse.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -132,6 +149,7 @@
 		F0BC6514198606BD0097A87C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F0D6B2051987025B0077E30E /* Parse.framework */,
 				F0BC6515198606BD0097A87C /* Foundation.framework */,
 				F0BC6517198606BD0097A87C /* CoreGraphics.framework */,
 				F0BC6519198606BD0097A87C /* UIKit.framework */,
@@ -147,6 +165,8 @@
 				F0BC65501986159A0097A87C /* Image Assets */,
 				F0BC6524198606BD0097A87C /* OttaAppDelegate.h */,
 				F0BC6525198606BD0097A87C /* OttaAppDelegate.m */,
+				F080762D19A4C89600D0EA39 /* OttaAskViewController.h */,
+				F080762E19A4C89700D0EA39 /* OttaAskViewController.m */,
 				F0D6B1F119862B4D0077E30E /* Main.storyboard */,
 				F0BC65591986215C0097A87C /* OttaLoginViewController.h */,
 				F0BC655A1986215C0097A87C /* OttaLoginViewController.m */,
@@ -159,6 +179,8 @@
 				F0BC652D198606BD0097A87C /* Images.xcassets */,
 				F0BC651C198606BD0097A87C /* Supporting Files */,
 				F0BC654D198611D20097A87C /* OttaSessionManager.h */,
+				F0D6B20719870CBC0077E30E /* OttaUser.h */,
+				F0D6B20819870CBC0077E30E /* OttaUser.m */,
 				F0BC654E198611D20097A87C /* OttaSessionManager.m */,
 			);
 			path = Otta;
@@ -198,7 +220,11 @@
 			children = (
 				F0BC655519861BE20097A87C /* OttaSideMenuBackground.png */,
 				F0D6B1F61986F71F0077E30E /* JoinButton.png */,
+				F080763219A4CF6700D0EA39 /* AskAQuestion.png */,
+				F080763019A4CAA900D0EA39 /* OttaAskheader.png */,
+				F0D6B2031986FEDB0077E30E /* OttaFacebookButton2.png */,
 				F0D6B1F71986F71F0077E30E /* LoginButton.png */,
+				F0D6B2011986FE3F0077E30E /* FBConnect.png */,
 				F0D6B1F81986F71F0077E30E /* OttaLeftSidebar.png */,
 				F0D6B1F91986F71F0077E30E /* OttaRightSidebar.png */,
 				F0BC6557198620860097A87C /* OttaGreenBackground.png */,
@@ -289,8 +315,12 @@
 				F0D6B1F219862B4D0077E30E /* Main.storyboard in Resources */,
 				F0BC652E198606BD0097A87C /* Images.xcassets in Resources */,
 				F0BC6520198606BD0097A87C /* InfoPlist.strings in Resources */,
+				F0D6B2021986FE3F0077E30E /* FBConnect.png in Resources */,
 				F0D6B1FD1986F71F0077E30E /* OttaRightSidebar.png in Resources */,
 				F0BC6554198618A30097A87C /* OttaLandingTopLogo.png in Resources */,
+				F0D6B2041986FEDB0077E30E /* OttaFacebookButton2.png in Resources */,
+				F080763319A4CF6700D0EA39 /* AskAQuestion.png in Resources */,
+				F080763119A4CAA900D0EA39 /* OttaAskheader.png in Resources */,
 				F0D6B1FC1986F71F0077E30E /* OttaLeftSidebar.png in Resources */,
 				F0BC655619861BE20097A87C /* OttaSideMenuBackground.png in Resources */,
 				F0BC6558198620860097A87C /* OttaGreenBackground.png in Resources */,
@@ -349,8 +379,10 @@
 			files = (
 				F0BC655B1986215C0097A87C /* OttaLoginViewController.m in Sources */,
 				F0BC654C19860D4D0097A87C /* SideMenuViewController.m in Sources */,
+				F080762F19A4C89700D0EA39 /* OttaAskViewController.m in Sources */,
 				F0BC6526198606BD0097A87C /* OttaAppDelegate.m in Sources */,
 				F0D6B2001986F8EA0077E30E /* OttaTutorialViewController.m in Sources */,
+				F0D6B20919870CBC0077E30E /* OttaUser.m in Sources */,
 				F0BC6522198606BD0097A87C /* main.m in Sources */,
 				F0BC654F198611D20097A87C /* OttaSessionManager.m in Sources */,
 				F0BC652C198606BD0097A87C /* OttaViewController.m in Sources */,
@@ -471,6 +503,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Otta/Otta-Prefix.pch";
 				INFOPLIST_FILE = "Otta/Otta-Info.plist";
@@ -485,6 +521,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Otta/Otta-Prefix.pch";
 				INFOPLIST_FILE = "Otta/Otta-Info.plist";
