@@ -302,6 +302,10 @@ THE SOFTWARE.
 
 
 
+## YIPopupTextView
+
+If we meet some day, and you think this stuff is worth it, you can buy me a beer in return.
+
 ## libwebp
 
 Copyright (c) 2010, Google Inc. All rights reserved.

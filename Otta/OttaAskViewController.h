@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "OttaAnswerTableController.h"
 @interface OttaAskViewController : UIViewController
+@property (nonatomic,strong)OttaAnswerTableController * answerViewController;
+@property (nonatomic,strong)IBOutlet UITableView * answerTableView;
+-(IBAction)addQuestionButtonText:(id)sender;
 
 @end

@@ -52,7 +52,7 @@
 #define COCOAPODS_POD_AVAILABLE_Bolts
 #define COCOAPODS_VERSION_MAJOR_Bolts 1
 #define COCOAPODS_VERSION_MINOR_Bolts 1
-#define COCOAPODS_VERSION_PATCH_Bolts 1
+#define COCOAPODS_VERSION_PATCH_Bolts 2
 
 // ECSlidingViewController
 #define COCOAPODS_POD_AVAILABLE_ECSlidingViewController
@@ -89,6 +89,12 @@
 #define COCOAPODS_VERSION_MAJOR_SDWebImage_WebP 3
 #define COCOAPODS_VERSION_MINOR_SDWebImage_WebP 7
 #define COCOAPODS_VERSION_PATCH_SDWebImage_WebP 1
+
+// YIPopupTextView
+#define COCOAPODS_POD_AVAILABLE_YIPopupTextView
+#define COCOAPODS_VERSION_MAJOR_YIPopupTextView 1
+#define COCOAPODS_VERSION_MINOR_YIPopupTextView 1
+#define COCOAPODS_VERSION_PATCH_YIPopupTextView 1
 
 // libwebp
 #define COCOAPODS_POD_AVAILABLE_libwebp
