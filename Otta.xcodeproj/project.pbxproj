@@ -11,6 +11,14 @@
 		F080762F19A4C89700D0EA39 /* OttaAskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F080762E19A4C89700D0EA39 /* OttaAskViewController.m */; };
 		F080763119A4CAA900D0EA39 /* OttaAskheader.png in Resources */ = {isa = PBXBuildFile; fileRef = F080763019A4CAA900D0EA39 /* OttaAskheader.png */; };
 		F080763319A4CF6700D0EA39 /* AskAQuestion.png in Resources */ = {isa = PBXBuildFile; fileRef = F080763219A4CF6700D0EA39 /* AskAQuestion.png */; };
+		F080763519A4D26800D0EA39 /* OttaAskSeparator.png in Resources */ = {isa = PBXBuildFile; fileRef = F080763419A4D26800D0EA39 /* OttaAskSeparator.png */; };
+		F080763719A4D81F00D0EA39 /* OttaNumberBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = F080763619A4D81F00D0EA39 /* OttaNumberBackground.png */; };
+		F080763A19A4DF3200D0EA39 /* OttaQuestion.m in Sources */ = {isa = PBXBuildFile; fileRef = F080763919A4DF3200D0EA39 /* OttaQuestion.m */; };
+		F080763D19A4E02D00D0EA39 /* OttaAnswer.m in Sources */ = {isa = PBXBuildFile; fileRef = F080763C19A4E02D00D0EA39 /* OttaAnswer.m */; };
+		F0B6412119A57A24007C4373 /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F0B6411B19A57A24007C4373 /* libTestFlight.a */; };
+		F0B6412219A57A24007C4373 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = F0B6411C19A57A24007C4373 /* README.md */; };
+		F0B6412319A57A24007C4373 /* release_notes.md in Resources */ = {isa = PBXBuildFile; fileRef = F0B6411D19A57A24007C4373 /* release_notes.md */; };
+		F0B6412519A57B11007C4373 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F0B6412419A57B11007C4373 /* libz.dylib */; };
 		F0BC6516198606BD0097A87C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0BC6515198606BD0097A87C /* Foundation.framework */; };
 		F0BC6518198606BD0097A87C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0BC6517198606BD0097A87C /* CoreGraphics.framework */; };
 		F0BC651A198606BD0097A87C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0BC6519198606BD0097A87C /* UIKit.framework */; };
@@ -40,6 +48,7 @@
 		F0D6B2041986FEDB0077E30E /* OttaFacebookButton2.png in Resources */ = {isa = PBXBuildFile; fileRef = F0D6B2031986FEDB0077E30E /* OttaFacebookButton2.png */; };
 		F0D6B2061987025B0077E30E /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0D6B2051987025B0077E30E /* Parse.framework */; };
 		F0D6B20919870CBC0077E30E /* OttaUser.m in Sources */ = {isa = PBXBuildFile; fileRef = F0D6B20819870CBC0077E30E /* OttaUser.m */; };
+		F0FCC21019A64BFB00C404AA /* universalSidebar.png in Resources */ = {isa = PBXBuildFile; fileRef = F0FCC20F19A64BFB00C404AA /* universalSidebar.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +67,19 @@
 		F080762E19A4C89700D0EA39 /* OttaAskViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OttaAskViewController.m; sourceTree = "<group>"; };
 		F080763019A4CAA900D0EA39 /* OttaAskheader.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = OttaAskheader.png; sourceTree = "<group>"; };
 		F080763219A4CF6700D0EA39 /* AskAQuestion.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AskAQuestion.png; sourceTree = "<group>"; };
+		F080763419A4D26800D0EA39 /* OttaAskSeparator.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = OttaAskSeparator.png; sourceTree = "<group>"; };
+		F080763619A4D81F00D0EA39 /* OttaNumberBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = OttaNumberBackground.png; sourceTree = "<group>"; };
+		F080763819A4DF3200D0EA39 /* OttaQuestion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OttaQuestion.h; sourceTree = "<group>"; };
+		F080763919A4DF3200D0EA39 /* OttaQuestion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OttaQuestion.m; sourceTree = "<group>"; };
+		F080763B19A4E02D00D0EA39 /* OttaAnswer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OttaAnswer.h; sourceTree = "<group>"; };
+		F080763C19A4E02D00D0EA39 /* OttaAnswer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OttaAnswer.m; sourceTree = "<group>"; };
+		F0B6411B19A57A24007C4373 /* libTestFlight.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libTestFlight.a; sourceTree = "<group>"; };
+		F0B6411C19A57A24007C4373 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
+		F0B6411D19A57A24007C4373 /* release_notes.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = release_notes.md; sourceTree = "<group>"; };
+		F0B6411E19A57A24007C4373 /* TestFlight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestFlight.h; sourceTree = "<group>"; };
+		F0B6411F19A57A24007C4373 /* TestFlight+AsyncLogging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TestFlight+AsyncLogging.h"; sourceTree = "<group>"; };
+		F0B6412019A57A24007C4373 /* TestFlight+ManualSessions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TestFlight+ManualSessions.h"; sourceTree = "<group>"; };
+		F0B6412419A57B11007C4373 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		F0BC6512198606BD0097A87C /* Otta.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Otta.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F0BC6515198606BD0097A87C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		F0BC6517198606BD0097A87C /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -97,6 +119,7 @@
 		F0D6B2051987025B0077E30E /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		F0D6B20719870CBC0077E30E /* OttaUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OttaUser.h; sourceTree = "<group>"; };
 		F0D6B20819870CBC0077E30E /* OttaUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OttaUser.m; sourceTree = "<group>"; };
+		F0FCC20F19A64BFB00C404AA /* universalSidebar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = universalSidebar.png; sourceTree = "<group>"; };
 		FEA38D9950CA47A48FF7D9DA /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -105,9 +128,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F0B6412519A57B11007C4373 /* libz.dylib in Frameworks */,
 				F0BC6518198606BD0097A87C /* CoreGraphics.framework in Frameworks */,
 				F0BC651A198606BD0097A87C /* UIKit.framework in Frameworks */,
 				F0BC6516198606BD0097A87C /* Foundation.framework in Frameworks */,
+				F0B6412119A57A24007C4373 /* libTestFlight.a in Frameworks */,
 				0B140940A13047B280C5584B /* libPods.a in Frameworks */,
 				F0D6B2061987025B0077E30E /* Parse.framework in Frameworks */,
 			);
@@ -126,9 +151,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F0B6411A19A57A18007C4373 /* Testflight */ = {
+			isa = PBXGroup;
+			children = (
+				F0B6411B19A57A24007C4373 /* libTestFlight.a */,
+				F0B6411C19A57A24007C4373 /* README.md */,
+				F0B6411D19A57A24007C4373 /* release_notes.md */,
+				F0B6411E19A57A24007C4373 /* TestFlight.h */,
+				F0B6411F19A57A24007C4373 /* TestFlight+AsyncLogging.h */,
+				F0B6412019A57A24007C4373 /* TestFlight+ManualSessions.h */,
+			);
+			name = Testflight;
+			sourceTree = "<group>";
+		};
 		F0BC6509198606BD0097A87C = {
 			isa = PBXGroup;
 			children = (
+				F0B6411A19A57A18007C4373 /* Testflight */,
 				F0BC651B198606BD0097A87C /* Otta */,
 				F0BC653A198606BD0097A87C /* OttaTests */,
 				F0BC6514198606BD0097A87C /* Frameworks */,
@@ -149,6 +188,7 @@
 		F0BC6514198606BD0097A87C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F0B6412419A57B11007C4373 /* libz.dylib */,
 				F0D6B2051987025B0077E30E /* Parse.framework */,
 				F0BC6515198606BD0097A87C /* Foundation.framework */,
 				F0BC6517198606BD0097A87C /* CoreGraphics.framework */,
@@ -182,6 +222,10 @@
 				F0D6B20719870CBC0077E30E /* OttaUser.h */,
 				F0D6B20819870CBC0077E30E /* OttaUser.m */,
 				F0BC654E198611D20097A87C /* OttaSessionManager.m */,
+				F080763819A4DF3200D0EA39 /* OttaQuestion.h */,
+				F080763B19A4E02D00D0EA39 /* OttaAnswer.h */,
+				F080763C19A4E02D00D0EA39 /* OttaAnswer.m */,
+				F080763919A4DF3200D0EA39 /* OttaQuestion.m */,
 			);
 			path = Otta;
 			sourceTree = "<group>";
@@ -223,7 +267,10 @@
 				F080763219A4CF6700D0EA39 /* AskAQuestion.png */,
 				F080763019A4CAA900D0EA39 /* OttaAskheader.png */,
 				F0D6B2031986FEDB0077E30E /* OttaFacebookButton2.png */,
+				F0FCC20F19A64BFB00C404AA /* universalSidebar.png */,
 				F0D6B1F71986F71F0077E30E /* LoginButton.png */,
+				F080763619A4D81F00D0EA39 /* OttaNumberBackground.png */,
+				F080763419A4D26800D0EA39 /* OttaAskSeparator.png */,
 				F0D6B2011986FE3F0077E30E /* FBConnect.png */,
 				F0D6B1F81986F71F0077E30E /* OttaLeftSidebar.png */,
 				F0D6B1F91986F71F0077E30E /* OttaRightSidebar.png */,
@@ -283,6 +330,9 @@
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = SojoDigital;
 				TargetAttributes = {
+					F0BC6511198606BD0097A87C = {
+						DevelopmentTeam = NJYXP339SK;
+					};
 					F0BC6532198606BD0097A87C = {
 						TestTargetID = F0BC6511198606BD0097A87C;
 					};
@@ -312,6 +362,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F0B6412319A57A24007C4373 /* release_notes.md in Resources */,
 				F0D6B1F219862B4D0077E30E /* Main.storyboard in Resources */,
 				F0BC652E198606BD0097A87C /* Images.xcassets in Resources */,
 				F0BC6520198606BD0097A87C /* InfoPlist.strings in Resources */,
@@ -322,9 +373,13 @@
 				F080763319A4CF6700D0EA39 /* AskAQuestion.png in Resources */,
 				F080763119A4CAA900D0EA39 /* OttaAskheader.png in Resources */,
 				F0D6B1FC1986F71F0077E30E /* OttaLeftSidebar.png in Resources */,
+				F0FCC21019A64BFB00C404AA /* universalSidebar.png in Resources */,
 				F0BC655619861BE20097A87C /* OttaSideMenuBackground.png in Resources */,
+				F0B6412219A57A24007C4373 /* README.md in Resources */,
 				F0BC6558198620860097A87C /* OttaGreenBackground.png in Resources */,
+				F080763719A4D81F00D0EA39 /* OttaNumberBackground.png in Resources */,
 				F0D6B1FA1986F71F0077E30E /* JoinButton.png in Resources */,
+				F080763519A4D26800D0EA39 /* OttaAskSeparator.png in Resources */,
 				F0D6B1FB1986F71F0077E30E /* LoginButton.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -382,6 +437,8 @@
 				F080762F19A4C89700D0EA39 /* OttaAskViewController.m in Sources */,
 				F0BC6526198606BD0097A87C /* OttaAppDelegate.m in Sources */,
 				F0D6B2001986F8EA0077E30E /* OttaTutorialViewController.m in Sources */,
+				F080763D19A4E02D00D0EA39 /* OttaAnswer.m in Sources */,
+				F080763A19A4DF3200D0EA39 /* OttaQuestion.m in Sources */,
 				F0D6B20919870CBC0077E30E /* OttaUser.m in Sources */,
 				F0BC6522198606BD0097A87C /* main.m in Sources */,
 				F0BC654F198611D20097A87C /* OttaSessionManager.m in Sources */,
@@ -503,6 +560,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -510,6 +568,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Otta/Otta-Prefix.pch";
 				INFOPLIST_FILE = "Otta/Otta-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -521,6 +583,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Sojo Digital Inc. (NJYXP339SK)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Sojo Digital Inc. (NJYXP339SK)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -528,7 +592,12 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Otta/Otta-Prefix.pch";
 				INFOPLIST_FILE = "Otta/Otta-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "809ab396-582e-4ab9-903a-141994317fc0";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

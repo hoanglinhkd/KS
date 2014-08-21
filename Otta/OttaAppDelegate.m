@@ -5,13 +5,15 @@
 //  Created by Steven Ojo on 7/27/14.
 //  Copyright (c) 2014 SojoDigital. All rights reserved.
 //
-
+#import "TestFlight.h"
 #import "OttaAppDelegate.h"
 
 @implementation OttaAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    [TestFlight takeOff:@"975d26e9-a545-4c2b-9aa8-2193aeabcf78"];
+
     // Override point for customization after application launch.
     self.sessionManager = [OttaSessionManager sharedManager];
     
