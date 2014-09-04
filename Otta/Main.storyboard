@@ -84,6 +84,31 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="t28-TZ-26J">
+                                <rect key="frame" x="0.0" y="289" width="320" height="150"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hb9-AQ-6bB">
+                                        <rect key="frame" x="20" y="43" width="280" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="rFF-Yf-sGT" id="yTf-hJ-rSP"/>
+                                        </connections>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CAW-C4-yXb">
+                                        <rect key="frame" x="20" y="87" width="280" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="rFF-Yf-sGT" id="Oem-Am-yu8"/>
+                                        </connections>
+                                    </textField>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </view>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="OttaLandingTopLogo.png" translatesAutoresizingMaskIntoConstraints="NO" id="ELB-5s-pRn">
                                 <rect key="frame" x="108" y="118" width="103" height="43"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -112,16 +137,21 @@
                                     <action selector="facebookLogin:" destination="rFF-Yf-sGT" eventType="touchUpInside" id="Xiy-d1-bks"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="OttaRightSidebar.png" translatesAutoresizingMaskIntoConstraints="NO" id="Uw6-qn-Xff">
+                                <rect key="frame" x="109" y="179" width="101" height="101"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <connections>
+                        <outlet property="ottaBackingView" destination="t28-TZ-26J" id="PdY-A1-dOp"/>
                         <segue destination="CY8-rH-5qL" kind="modal" identifier="AskViewControllerSegue" id="2RC-RW-FQw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GKs-gp-Jie" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="47" y="417"/>
+            <point key="canvasLocation" x="25" y="395"/>
         </scene>
         <!--Otta Ask View Controller-->
         <scene sceneID="mz0-S9-i3T">
@@ -159,7 +189,7 @@
                                 <fontDescription key="fontDescription" name="Avenir-Roman" family="Avenir" pointSize="17"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Ask a question..." translatesAutoresizingMaskIntoConstraints="NO" id="L23-ab-CjQ">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="L23-ab-CjQ">
                                 <rect key="frame" x="5" y="88" width="302" height="87"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -190,6 +220,7 @@
                     <navigationItem key="navigationItem" id="SX5-PI-AJq"/>
                     <connections>
                         <outlet property="answerTableView" destination="LEm-ZW-BM5" id="Hdb-l5-S2B"/>
+                        <outlet property="itsTextView" destination="L23-ab-CjQ" id="J3T-4f-eqv"/>
                         <segue destination="CY8-rH-5qL" kind="modal" identifier="AskViewControllerSegue" id="Otx-XB-LPz"/>
                     </connections>
                 </viewController>
@@ -221,6 +252,7 @@
         <image name="OttaAskheader.png" width="640" height="123"/>
         <image name="OttaFacebookButton2.png" width="252" height="72"/>
         <image name="OttaLandingTopLogo.png" width="206" height="86"/>
+        <image name="OttaRightSidebar.png" width="250" height="250"/>
         <image name="universalSidebar.png" width="478" height="960"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
@@ -229,6 +261,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="Otx-XB-LPz"/>
+        <segue reference="2RC-RW-FQw"/>
     </inferredMetricsTieBreakers>
 </document>

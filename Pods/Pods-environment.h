@@ -54,11 +54,23 @@
 #define COCOAPODS_VERSION_MINOR_Bolts 1
 #define COCOAPODS_VERSION_PATCH_Bolts 2
 
+// CZPhotoPickerController
+#define COCOAPODS_POD_AVAILABLE_CZPhotoPickerController
+#define COCOAPODS_VERSION_MAJOR_CZPhotoPickerController 1
+#define COCOAPODS_VERSION_MINOR_CZPhotoPickerController 2
+#define COCOAPODS_VERSION_PATCH_CZPhotoPickerController 2
+
+// EAIntroView
+#define COCOAPODS_POD_AVAILABLE_EAIntroView
+#define COCOAPODS_VERSION_MAJOR_EAIntroView 2
+#define COCOAPODS_VERSION_MINOR_EAIntroView 5
+#define COCOAPODS_VERSION_PATCH_EAIntroView 1
+
 // ECSlidingViewController
 #define COCOAPODS_POD_AVAILABLE_ECSlidingViewController
 #define COCOAPODS_VERSION_MAJOR_ECSlidingViewController 2
 #define COCOAPODS_VERSION_MINOR_ECSlidingViewController 0
-#define COCOAPODS_VERSION_PATCH_ECSlidingViewController 2
+#define COCOAPODS_VERSION_PATCH_ECSlidingViewController 3
 
 // Facebook-iOS-SDK
 #define COCOAPODS_POD_AVAILABLE_Facebook_iOS_SDK

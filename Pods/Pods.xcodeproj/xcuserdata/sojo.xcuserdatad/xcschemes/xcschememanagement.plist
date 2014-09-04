@@ -4,12 +4,27 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>CZPhotoPickerController.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-AFNetworking.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
 		<key>Pods-Bolts.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-CZPhotoPickerController.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-EAIntroView.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -47,42 +62,57 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>21EA6D6E450941FBAAD77C9A</key>
+		<key>38E38D49ED8C4644B1111DAF</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>3593E99667CC43759C207EA1</key>
+		<key>4F52D44738B743A3A8FC379B</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>7E548BFB6E314C5285FBEBB5</key>
+		<key>6FCBC2B3AA9C4C16B0CC1636</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>8B18C052AD7C40EA8844B540</key>
+		<key>80426B4EE5ED4E64845F9250</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>BE853B550079466390B249C0</key>
+		<key>8BCC88FDD0FB4118A59066C0</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>D030613D8C514311A1ADDEFF</key>
+		<key>A5EAE62062234C91AA68547B</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>D2EEB12260A04752B26EA4FC</key>
+		<key>AD6D9B97BAC24CF7877A5F0F</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>FD47208E4C024E45B0AAD454</key>
+		<key>BE60D9C28C9540708A71DD89</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>C8131148ED234679BC28BFA7</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>C92F28E104F9452990C4FE9C</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>D161EF746B9842ECBD273346</key>
 		<dict>
 			<key>primary</key>
 			<true/>

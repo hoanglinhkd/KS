@@ -19,7 +19,9 @@ PODS:
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
   - Bolts (1.1.2)
-  - ECSlidingViewController (2.0.2)
+  - CZPhotoPickerController (1.2.2)
+  - EAIntroView (2.5.1)
+  - ECSlidingViewController (2.0.3)
   - Facebook-iOS-SDK (3.17.0):
     - Bolts
   - libwebp (0.4.1):
@@ -61,6 +63,8 @@ PODS:
 
 DEPENDENCIES:
   - AFNetworking (~> 2.2.4)
+  - CZPhotoPickerController
+  - EAIntroView (~> 2.5.0)
   - ECSlidingViewController (~> 2.0)
   - Facebook-iOS-SDK (~> 3.16)
   - SDWebImage (~> 3.7)
@@ -69,7 +73,9 @@ DEPENDENCIES:
 SPEC CHECKSUMS:
   AFNetworking: ab63e259fe91eef4519b371ef0a4955af0e73e64
   Bolts: 2635e8698a630774689441047f3465d78c48d485
-  ECSlidingViewController: 6c11fadb10d720c2d48bc577962332bdd4264c9f
+  CZPhotoPickerController: 7b8ad1f19fb51bb63deb0f362a9d1532b8646a47
+  EAIntroView: 9586107ac7a6e849fb985c8d62109a9da649136b
+  ECSlidingViewController: e79fe856bfb1a99a39c995377a1943e50f7647eb
   Facebook-iOS-SDK: f20274d809f112ba540842e2b6cbe50128d51b7b
   libwebp: 88e6e172a01df354b0a78400d2e5b87a9f2796cb
   SDWebImage: 116e88633b5b416ea0ca4b334a4ac59cf72dd38d

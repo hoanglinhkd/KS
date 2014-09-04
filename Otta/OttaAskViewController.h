@@ -8,9 +8,13 @@
 
 #import <UIKit/UIKit.h>
 #import "OttaAnswerTableController.h"
+#import "CZPhotoPickerController.h"
+
 @interface OttaAskViewController : UIViewController
 @property (nonatomic,strong)OttaAnswerTableController * answerViewController;
 @property (nonatomic,strong)IBOutlet UITableView * answerTableView;
 -(IBAction)addQuestionButtonText:(id)sender;
+@property (nonatomic,strong)CZPhotoPickerController * photoPicker;
+@property (nonatomic,strong) IBOutlet UITextView * itsTextView;
 
 @end

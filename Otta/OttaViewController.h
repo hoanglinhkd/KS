@@ -8,8 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import <Parse/Parse.h>
+#import <EAIntroView.h>
 #import "OttaSessionManager.h"
 @interface OttaViewController : UIViewController
 -(IBAction)facebookLogin:(id)sender;
+@property (nonatomic,strong) IBOutlet UIView * ottaBackingView;
 
 @end
