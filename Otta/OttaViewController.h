@@ -13,5 +13,6 @@
 @interface OttaViewController : UIViewController
 -(IBAction)facebookLogin:(id)sender;
 @property (nonatomic,strong) IBOutlet UIView * ottaBackingView;
-
+@property (nonatomic,strong)IBOutlet UITextField * usernameTextField;
+@property (nonatomic,strong)IBOutlet UITextField * passwordTextField;
 @end

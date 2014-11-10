@@ -12,5 +12,5 @@
 @property (nonatomic,strong)UIImage * answerImage;
 @property (nonatomic,strong)NSString * answerText;
 @property (nonatomic,assign) BOOL answerHasContent;
-
+@property (nonatomic, assign) BOOL answerHasphoto; 
 @end

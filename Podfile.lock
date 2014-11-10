@@ -18,12 +18,12 @@ PODS:
   - AFNetworking/UIKit (2.2.4):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
-  - Bolts (1.1.2)
+  - Bolts (1.1.3)
   - CZPhotoPickerController (1.2.2)
   - EAIntroView (2.5.1)
   - ECSlidingViewController (2.0.3)
-  - Facebook-iOS-SDK (3.17.0):
-    - Bolts
+  - Facebook-iOS-SDK (3.19.0):
+    - Bolts (~> 1.0)
   - libwebp (0.4.1):
     - libwebp/dec
     - libwebp/demux
@@ -59,6 +59,7 @@ PODS:
   - SDWebImage/WebP (3.7.1):
     - libwebp
     - SDWebImage/Core
+  - TPKeyboardAvoiding (1.2.4)
   - YIPopupTextView (1.1.1)
 
 DEPENDENCIES:
@@ -68,17 +69,19 @@ DEPENDENCIES:
   - ECSlidingViewController (~> 2.0)
   - Facebook-iOS-SDK (~> 3.16)
   - SDWebImage (~> 3.7)
+  - TPKeyboardAvoiding (~> 1.2)
   - YIPopupTextView (~> 1.1.0)
 
 SPEC CHECKSUMS:
   AFNetworking: ab63e259fe91eef4519b371ef0a4955af0e73e64
-  Bolts: 2635e8698a630774689441047f3465d78c48d485
+  Bolts: 3db0a875235e0c9042b013af13af0f00f79b102c
   CZPhotoPickerController: 7b8ad1f19fb51bb63deb0f362a9d1532b8646a47
   EAIntroView: 9586107ac7a6e849fb985c8d62109a9da649136b
   ECSlidingViewController: e79fe856bfb1a99a39c995377a1943e50f7647eb
-  Facebook-iOS-SDK: f20274d809f112ba540842e2b6cbe50128d51b7b
+  Facebook-iOS-SDK: cb7d74759d0b1ba546e6e6f1dde407b0d4e448d6
   libwebp: 88e6e172a01df354b0a78400d2e5b87a9f2796cb
   SDWebImage: 116e88633b5b416ea0ca4b334a4ac59cf72dd38d
+  TPKeyboardAvoiding: 925e1e1912597d1a4956697eec3bd9656552153c
   YIPopupTextView: 608b1f61349a1838e6c11e773fdd4c5104db6b37
 
 COCOAPODS: 0.32.1

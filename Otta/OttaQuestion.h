@@ -14,4 +14,5 @@
 @property (nonatomic,strong)NSString * askerID;
 @property (nonatomic,assign) int * expirationDate;
 @property (nonatomic,strong) NSString * questionText;
+
 @end

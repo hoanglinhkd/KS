@@ -8,8 +8,11 @@
 
 #import <Foundation/Foundation.h>
 #import "OttaAnswer.h"
+#import "CZPhotoPickerController.h"
+
 @interface OttaAnswerTableController : NSObject
 @property (nonatomic, strong) NSMutableArray * ottaAnswers;
-
+@property (nonatomic, weak) UIViewController * mainViewController; 
+@property (nonatomic,strong)CZPhotoPickerController * photoPicker;
 
 @end

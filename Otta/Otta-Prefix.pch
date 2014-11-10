@@ -14,3 +14,6 @@
     #import <UIKit/UIKit.h>
     #import <Foundation/Foundation.h>
 #endif
+
+#define openSansFontRegular [UIFont fontWithName:@"OpenSans-Light" size:18.00f]
+

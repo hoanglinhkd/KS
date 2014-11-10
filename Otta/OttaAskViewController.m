@@ -10,14 +10,13 @@
 #import "OttaAnswer.h"
 #import "YIPopupTextView.h"
 
-#define openSansFontRegular [UIFont fontWithName:@"OpenSans-Light" size:18.00f]
 
 @interface OttaAskViewController ()
 
 @end
 
 @implementation OttaAskViewController
-@synthesize itsTextView;
+@synthesize itsTextView,answerTableView,activeTextField;
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -26,13 +25,64 @@
     }
     return self;
 }
+/*
+- (void)keyboardWasShown:(NSNotification *)notification
+{
+    
+    // Step 1: Get the size of the keyboard.
+    CGSize keyboardSize = [[[notification userInfo] objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
+    
+    
+    // Step 2: Adjust the bottom content inset of your scroll view by the keyboard height.
+    UIEdgeInsets contentInsets = UIEdgeInsetsMake(0.0, 0.0, keyboardSize.height, 0.0);
+    answerTableView.contentInset = contentInsets;
+    answerTableView.scrollIndicatorInsets = contentInsets;
+    
+    
+    // Step 3: Scroll the target text field into view.
+    CGRect aRect = self.view.frame;
+    aRect.size.height -= keyboardSize.height;
+   // if (!CGRectContainsPoint(aRect, activeTextField.frame.origin) ) {
+    CGPoint scrollPoint = CGPointMake(0.0, activeTextField.frame.origin.y - (keyboardSize.height-15));
+        [answerTableView setContentOffset:scrollPoint animated:YES];
+   // }
+}
 
+- (void) keyboardWillHide:(NSNotification *)notification {
+    
+    UIEdgeInsets contentInsets = UIEdgeInsetsZero;
+    answerTableView.contentInset = contentInsets;
+    answerTableView.scrollIndicatorInsets = contentInsets;
+}
+ */
+- (IBAction)dismissKeyboard:(id)sender
+{
+    [activeTextField resignFirstResponder];
+}
+
+- (void)viewDidLayoutSubviews
+{
+    [super viewDidLayoutSubviews];
+    [self.theScrollView setContentSize:CGSizeMake(320, 550)];
+}
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     [self.navigationController setNavigationBarHidden:YES];
     self.answerViewController = [[OttaAnswerTableController alloc]init];
+    CGPoint bottomOffset = CGPointMake(0, self.theScrollView.contentSize.height - self.theScrollView.bounds.size.height);
+    [self.theScrollView setContentOffset:bottomOffset animated:YES];
+  /*  [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWasShown:)
+                                                 name:UIKeyboardDidShowNotification
+                                               object:nil];
     
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWillHide:)
+                                                 name:UIKeyboardWillHideNotification
+                                               object:nil];
+   */
+   
   /*  OttaAnswer * testAnswer = [[OttaAnswer alloc]init];
     OttaAnswer * testAnswer2 = [[OttaAnswer alloc]init];
     OttaAnswer * testAnswer3 = [[OttaAnswer alloc]init];
@@ -53,16 +103,38 @@ testAnswer.answerText = @"Creme Brelee";
    self.answerTableView.delegate = self.answerViewController;
     self.answerTableView.dataSource = self.answerViewController;
     [self.answerTableView reloadData];
-    
+    self.answerViewController.mainViewController = self;
     [itsTextView setReturnKeyType:UIReturnKeyDone];
     [itsTextView setFont:openSansFontRegular];
     
     [itsTextView setText:@"Ask a question..."];
     [itsTextView setTextColor:[UIColor lightGrayColor]];
     
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(reloadQuestions)
+                                                 name:@"reloadQuestions"
+                                               object:nil];
+    
     // Do any additional setup after loading the view.
 }
-
+-(void)reloadQuestions
+{
+    [self.answerTableView reloadData];
+    
+    NSLog(@"Questions reloaded:%@",self.answerViewController.ottaAnswers);
+  
+    /*OttaAnswer * testAnswer = [self.answerViewController.ottaAnswers objectAtIndex:0
+                               ];
+    if(testAnswer.answerHasContent == YES)
+    {
+        NSLog(@"It has content wtf");
+    }
+    if(testAnswer.answerHasContent == NO)
+    {
+        NSLog(@"It doesnt have content");
+    }
+     */
+}
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -79,7 +151,7 @@ testAnswer.answerText = @"Creme Brelee";
 
 -(IBAction)addQuestionButtonText:(id)sender
 {
-    YIPopupTextView* popupTextView = [[YIPopupTextView alloc] initWithPlaceHolder:@"Add answer here." maxCount:0];
+   /* YIPopupTextView* popupTextView = [[YIPopupTextView alloc] initWithPlaceHolder:@"Add answer here." maxCount:0];
     popupTextView.delegate = self;
     popupTextView.caretShiftGestureEnabled = YES;   // default = NO
     
@@ -88,8 +160,20 @@ testAnswer.answerText = @"Creme Brelee";
     
     //[popupTextView showInView:self.view];
     [popupTextView showInViewController:self]; // recommended, especially for iOS7
-}
+    */
+    
+    if([self.answerViewController.ottaAnswers count]<4)
+    {
+    OttaAnswer * newAnswer = [[OttaAnswer alloc]init];
+    newAnswer.answerHasContent = NO;
+    newAnswer.answerImage = nil;
+    [self.answerViewController.ottaAnswers addObject:newAnswer];
+    [self.answerTableView reloadData];
+       
+    }
 
+}
+/*
 - (void)popupTextView:(YIPopupTextView*)textView didDismissWithText:(NSString*)text cancelled:(BOOL)cancelled;
 
 {
@@ -129,6 +213,7 @@ testAnswer.answerText = @"Creme Brelee";
     [self.photoPicker showFromBarButtonItem:somebarbutton];
     
 }
+ /*
 
 /*
 #pragma mark - Navigation
@@ -152,8 +237,27 @@ UITextView itsTextView = [[UITextView alloc] initWithFrame:CGRectMake(0, 0, itsT
 [itsTextView setTextColor:[UIColor lightGrayColor]];
  */
 
+/*- (void) textViewDidBeginEditing:(UITextField *)textView {
+    UITableViewCell *cell;
+    
+    if (floor(NSFoundationVersionNumber) <= NSFoundationVersionNumber_iOS_6_1) {
+        // Load resources for iOS 6.1 or earlier
+        cell = (UITableViewCell *) textView.superview.superview;
+        
+    } else {
+        // Load resources for iOS 7 or later
+        cell = (UITableViewCell *) textView.superview.superview.superview;
+        // TextField -> UITableVieCellContentView -> (in iOS 7!)ScrollView -> Cell!
+    }
+    [self.answerTableView scrollToRowAtIndexPath:[self.answerTableView indexPathForCell:cell] atScrollPosition:UITableViewScrollPositionBottom animated:YES];
+}
+ */
+
 - (BOOL) textViewShouldBeginEditing:(UITextView *)textView
 {
+    
+    self.activeTextField = textView;
+
     if (itsTextView.textColor == [UIColor lightGrayColor]) {
         itsTextView.text = @"";
         itsTextView.textColor = [UIColor blackColor];
@@ -162,17 +266,10 @@ UITextView itsTextView = [[UITextView alloc] initWithFrame:CGRectMake(0, 0, itsT
     return YES;
 }
 
--(void) textViewDidChange:(UITextView *)textView
-{
-    if(itsTextView.text.length == 0){
-        itsTextView.textColor = [UIColor lightGrayColor];
-        itsTextView.text = @"Ask a question...";
-        [itsTextView resignFirstResponder];
-    }
-}
+
 
 - (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text {
-    
+
     if([text isEqualToString:@"\n"]) {
         [textView resignFirstResponder];
         if(itsTextView.text.length == 0){

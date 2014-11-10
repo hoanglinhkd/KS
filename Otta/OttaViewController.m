@@ -51,6 +51,7 @@
 
     
     [super viewDidLoad];
+   // sleep(1);
 	// Do any additional setup after loading the view, typically from a nib.
 }
 
@@ -110,30 +111,46 @@
     }];
 }
 
-- (void)textViewDidBeginEditing:(UITextView *)textView
+- (BOOL) textViewShouldBeginEditing:(UITextView *)textView
 {
-    [self animateTextView: YES];
-}
-
-- (void)textViewDidEndEditing:(UITextView *)textView
-{
-    [self animateTextView:NO];
-}
-
-- (void) animateTextView:(BOOL) up
-{
-    const int movementDistance =200.00; // tweak as needed
-    const float movementDuration = 0.3f; // tweak as needed
-    int movement= movement = (up ? -movementDistance : movementDistance);
-    NSLog(@"%d",movement);
+    if (textView.textColor == [UIColor lightGrayColor]) {
+        textView.text = @"";
+        textView.textColor = [UIColor blackColor];
+    }
     
-    [UIView beginAnimations: @"anim" context: nil];
-    [UIView setAnimationBeginsFromCurrentState: YES];
-    [UIView setAnimationDuration: movementDuration];
-    self.view.frame = CGRectOffset(self.inputView.frame, 0, movement);
-    [UIView commitAnimations];
+    return YES;
 }
 
+-(void) textViewDidChange:(UITextView *)textView
+{
+    if(textView.text.length == 0){
+        textView.textColor = [UIColor lightGrayColor];
+      //  itsTextView.text = @"Ask a question...";
+        [textView resignFirstResponder];
+    }
+}
+
+- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text {
+    
+    if([text isEqualToString:@"\n"]) {
+        [textView resignFirstResponder];
+        if(textView.text.length == 0){
+            textView.textColor = [UIColor lightGrayColor];
+           // itsTextView.text = @"Ask a question...";
+            [textView resignFirstResponder];
+        }
+        return NO;
+    }
+    
+    return YES;
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [textField resignFirstResponder];
+    
+    return YES;
+}
 
 
 @end
