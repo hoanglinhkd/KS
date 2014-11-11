@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 
 @interface OttaUser : NSObject
+
 @property (nonatomic,strong)NSString * ottaUserID;
 @property (nonatomic,strong)NSString * firstName;
 @property (nonatomic,strong)NSString * lastName;

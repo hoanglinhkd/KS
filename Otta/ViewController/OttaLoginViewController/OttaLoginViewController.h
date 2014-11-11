@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <Parse/Parse.h>
 @interface OttaLoginViewController : UIViewController
+
 @property (nonatomic,assign) BOOL viewUp;
 
 @end

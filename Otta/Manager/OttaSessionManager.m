@@ -9,6 +9,7 @@
 #import "OttaSessionManager.h"
 
 @implementation OttaSessionManager
+
 +(id)sharedManager{
     
     static OttaSessionManager *sharedManager = nil;

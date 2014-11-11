@@ -9,10 +9,12 @@
 #import <Foundation/Foundation.h>
 #import <Parse/Parse.h>
 #import "OttaUser.h"
+
 @interface OttaSessionManager : NSObject
-+(id)sharedManager;
+
 typedef void(^OttaLoginResultBlock)(BOOL loginSucceeded, OttaUser *ottaUser, NSString * failureReason);
 
++(id)sharedManager;
 -(void)loginWithFacebook;
 
 @end

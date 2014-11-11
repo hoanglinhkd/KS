@@ -9,9 +9,10 @@
 #import <Foundation/Foundation.h>
 
 @interface OttaQuestion : NSObject
+
 @property (nonatomic,strong) NSString * questionID;
 @property (nonatomic,strong) NSMutableArray * ottaAnswers;
-@property (nonatomic,strong)NSString * askerID;
+@property (nonatomic,strong) NSString * askerID;
 @property (nonatomic,assign) int * expirationDate;
 @property (nonatomic,strong) NSString * questionText;
 
