@@ -8,7 +8,7 @@
 #define openSansFontRegular [UIFont fontWithName:@"OpenSans-Light" size:18.00f];
 #import "OttaViewController.h"
 
-@interface OttaViewController ()
+@interface OttaViewController ()<EAIntroDelegate>
 
 @end
 
@@ -17,45 +17,44 @@
 
 - (void)viewDidLoad
 {
-  
+    [super viewDidLoad];
+    
     [self.navigationController setNavigationBarHidden:YES];
     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"OttaGreenBackground.png"]];
     
+    [self initIntroViews];
+}
+
+
+-(void) initIntroViews
+{
     EAIntroPage *page1 = [EAIntroPage page];
     page1.title = @"";
     page1.descFont = openSansFontRegular;
-
-    page1.desc = @"Decision-making gone social for the indecisive, the curious, and the practical.";
-    
+    page1.desc = @"Ask a question.";
     page1.bgImage = [UIImage imageNamed:@"OttaGreenBackground.png"];
+    page1.titleIconView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"OttaIntroImage.png"]];
+    
     EAIntroPage *page2 = [EAIntroPage page];
     page2.title = @"";
     page2.descFont = openSansFontRegular;
-    page2.desc = @"Ask a question, specify the options, give a deadline, and get your friends' input.";
+    page2.desc = @"Get input.";
     page2.bgImage = [UIImage imageNamed:@"OttaGreenBackground.png"];
-    
-    [UIFont fontWithName:@"OpenSans-Extrabold" size:13.0f];
+    page2.titleIconView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"OttaIntroMessage.png"]];
     
     EAIntroPage *page3 = [EAIntroPage page];
     page3.title = @"";
     page3.descFont = openSansFontRegular;
-    page3.desc = @"Select and send an answer to your friends' questions to help them decide. ";
+    page3.desc = @"Answer your friends’ questions";
     page3.bgImage = [UIImage imageNamed:@"OttaGreenBackground.png"];
-
+    page3.titleIconView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"OttaIntroAnswer.png"]];
+    
     EAIntroView *intro = [[EAIntroView alloc] initWithFrame:self.ottaBackingView.bounds andPages:@[page1,page2,page3]];
     intro.swipeToExit = NO;
     
     [intro setDelegate:self];
     [intro showInView:self.ottaBackingView animateDuration:0.6];
-
-
-    
-    [super viewDidLoad];
-   // sleep(1);
-	// Do any additional setup after loading the view, typically from a nib.
 }
-
-
 
 - (void)didReceiveMemoryWarning
 {
