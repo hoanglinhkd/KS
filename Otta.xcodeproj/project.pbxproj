@@ -8,6 +8,15 @@
 
 /* Begin PBXBuildFile section */
 		0B140940A13047B280C5584B /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D075C858A4214DDABEDE0CDD /* libPods.a */; };
+		386E89AF1A124EAF00459171 /* btn_facebook.png in Resources */ = {isa = PBXBuildFile; fileRef = 386E89A61A124EAF00459171 /* btn_facebook.png */; };
+		386E89B01A124EAF00459171 /* btn_join.png in Resources */ = {isa = PBXBuildFile; fileRef = 386E89A71A124EAF00459171 /* btn_join.png */; };
+		386E89B11A124EAF00459171 /* btn_login.png in Resources */ = {isa = PBXBuildFile; fileRef = 386E89A81A124EAF00459171 /* btn_login.png */; };
+		386E89B21A124EAF00459171 /* con_question.png in Resources */ = {isa = PBXBuildFile; fileRef = 386E89A91A124EAF00459171 /* con_question.png */; };
+		386E89B31A124EAF00459171 /* greenLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 386E89AA1A124EAF00459171 /* greenLogo.png */; };
+		386E89B41A124EAF00459171 /* icon_check.png in Resources */ = {isa = PBXBuildFile; fileRef = 386E89AB1A124EAF00459171 /* icon_check.png */; };
+		386E89B51A124EAF00459171 /* icon_email.png in Resources */ = {isa = PBXBuildFile; fileRef = 386E89AC1A124EAF00459171 /* icon_email.png */; };
+		386E89B61A124EAF00459171 /* icon_open_mail.png in Resources */ = {isa = PBXBuildFile; fileRef = 386E89AD1A124EAF00459171 /* icon_open_mail.png */; };
+		386E89B71A124EAF00459171 /* image_line.png in Resources */ = {isa = PBXBuildFile; fileRef = 386E89AE1A124EAF00459171 /* image_line.png */; };
 		66FD4B051A11A6CC005ACD58 /* angry_birds_cake.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 66FD4AD81A11A6CC005ACD58 /* angry_birds_cake.jpg */; };
 		66FD4B061A11A6CC005ACD58 /* creme_brelee.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 66FD4AD91A11A6CC005ACD58 /* creme_brelee.jpg */; };
 		66FD4B071A11A6CC005ACD58 /* egg_benedict.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 66FD4ADA1A11A6CC005ACD58 /* egg_benedict.jpg */; };
@@ -98,6 +107,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		386E89A61A124EAF00459171 /* btn_facebook.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_facebook.png; sourceTree = "<group>"; };
+		386E89A71A124EAF00459171 /* btn_join.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_join.png; sourceTree = "<group>"; };
+		386E89A81A124EAF00459171 /* btn_login.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_login.png; sourceTree = "<group>"; };
+		386E89A91A124EAF00459171 /* con_question.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = con_question.png; sourceTree = "<group>"; };
+		386E89AA1A124EAF00459171 /* greenLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = greenLogo.png; sourceTree = "<group>"; };
+		386E89AB1A124EAF00459171 /* icon_check.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_check.png; sourceTree = "<group>"; };
+		386E89AC1A124EAF00459171 /* icon_email.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_email.png; sourceTree = "<group>"; };
+		386E89AD1A124EAF00459171 /* icon_open_mail.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_open_mail.png; sourceTree = "<group>"; };
+		386E89AE1A124EAF00459171 /* image_line.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = image_line.png; sourceTree = "<group>"; };
 		66FD4AD81A11A6CC005ACD58 /* angry_birds_cake.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = angry_birds_cake.jpg; sourceTree = "<group>"; };
 		66FD4AD91A11A6CC005ACD58 /* creme_brelee.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = creme_brelee.jpg; sourceTree = "<group>"; };
 		66FD4ADA1A11A6CC005ACD58 /* egg_benedict.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = egg_benedict.jpg; sourceTree = "<group>"; };
@@ -226,6 +244,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		386E89A51A124EAF00459171 /* Intro */ = {
+			isa = PBXGroup;
+			children = (
+				386E89A61A124EAF00459171 /* btn_facebook.png */,
+				386E89A71A124EAF00459171 /* btn_join.png */,
+				386E89A81A124EAF00459171 /* btn_login.png */,
+				386E89A91A124EAF00459171 /* con_question.png */,
+				386E89AA1A124EAF00459171 /* greenLogo.png */,
+				386E89AB1A124EAF00459171 /* icon_check.png */,
+				386E89AC1A124EAF00459171 /* icon_email.png */,
+				386E89AD1A124EAF00459171 /* icon_open_mail.png */,
+				386E89AE1A124EAF00459171 /* image_line.png */,
+			);
+			path = Intro;
+			sourceTree = "<group>";
+		};
 		66FD4AD61A11A6CC005ACD58 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
@@ -279,6 +313,7 @@
 		66FD4AF31A11A6CC005ACD58 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				386E89A51A124EAF00459171 /* Intro */,
 				D93EECF51A12447C00126B74 /* OttaIntroAnswer.png */,
 				D93EECF61A12447C00126B74 /* OttaIntroCompleted.png */,
 				D93EECF71A12447C00126B74 /* OttaIntroImage.png */,
@@ -580,11 +615,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				386E89AF1A124EAF00459171 /* btn_facebook.png in Resources */,
 				66FD4B0C1A11A6CC005ACD58 /* hamburger.jpg in Resources */,
+				386E89B41A124EAF00459171 /* icon_check.png in Resources */,
 				66FD4B221A11A6CC005ACD58 /* JoinButton.png in Resources */,
 				66FD4B201A11A6CC005ACD58 /* AskAQuestion.png in Resources */,
 				66FD4B141A11A6CC005ACD58 /* white_chocolate_donut.jpg in Resources */,
 				66FD4B101A11A6CC005ACD58 /* noodle_with_bbq_pork.jpg in Resources */,
+				386E89B11A124EAF00459171 /* btn_login.png in Resources */,
 				66FD4B2A1A11A6CC005ACD58 /* OttaLandingTopLogo.png in Resources */,
 				66FD4B171A11A6CC005ACD58 /* OpenSans-ExtraBold.ttf in Resources */,
 				66FD4B1B1A11A6CC005ACD58 /* OpenSans-LightItalic.ttf in Resources */,
@@ -604,18 +642,23 @@
 				66FD4B281A11A6CC005ACD58 /* OttaFacebookButton2.png in Resources */,
 				66FD4B271A11A6CC005ACD58 /* OttaAskSeparator.png in Resources */,
 				66FD4B251A11A6CC005ACD58 /* OttaAddTextButton.png in Resources */,
+				386E89B51A124EAF00459171 /* icon_email.png in Resources */,
+				386E89B01A124EAF00459171 /* btn_join.png in Resources */,
 				66FD4B061A11A6CC005ACD58 /* creme_brelee.jpg in Resources */,
 				F0BC6520198606BD0097A87C /* InfoPlist.strings in Resources */,
+				386E89B21A124EAF00459171 /* con_question.png in Resources */,
 				D93EECFC1A12447D00126B74 /* OttaIntroMessage.png in Resources */,
 				66FD4B211A11A6CC005ACD58 /* FBConnect.png in Resources */,
 				66FD4B241A11A6CC005ACD58 /* OttaAddAnswerButton.png in Resources */,
 				66FD4B181A11A6CC005ACD58 /* OpenSans-ExtraBoldItalic.ttf in Resources */,
+				386E89B31A124EAF00459171 /* greenLogo.png in Resources */,
 				66FD4B161A11A6CC005ACD58 /* OpenSans-BoldItalic.ttf in Resources */,
 				66FD4B0D1A11A6CC005ACD58 /* instant_noodle_with_egg.jpg in Resources */,
 				66FD4B1E1A11A6CC005ACD58 /* OpenSans-SemiboldItalic.ttf in Resources */,
 				66FD4B0F1A11A6CC005ACD58 /* mushroom_risotto.jpg in Resources */,
 				66FD4B2E1A11A6CC005ACD58 /* OttaSideMenuBackground.png in Resources */,
 				66FD4B261A11A6CC005ACD58 /* OttaAskheader.png in Resources */,
+				386E89B71A124EAF00459171 /* image_line.png in Resources */,
 				66FD4B291A11A6CC005ACD58 /* OttaGreenBackground.png in Resources */,
 				66FD4B1F1A11A6CC005ACD58 /* addPhotoOtta.png in Resources */,
 				66FD4B2B1A11A6CC005ACD58 /* OttaLeftSidebar.png in Resources */,
@@ -626,6 +669,7 @@
 				66FD4B231A11A6CC005ACD58 /* LoginButton.png in Resources */,
 				66FD4B0A1A11A6CC005ACD58 /* ham_and_cheese_panini.jpg in Resources */,
 				D93EECFB1A12447D00126B74 /* OttaIntroImage.png in Resources */,
+				386E89B61A124EAF00459171 /* icon_open_mail.png in Resources */,
 				66FD4B121A11A6CC005ACD58 /* thai_shrimp_cake.jpg in Resources */,
 				66FD4B191A11A6CC005ACD58 /* OpenSans-Italic.ttf in Resources */,
 				66FD4B1A1A11A6CC005ACD58 /* OpenSans-Light.ttf in Resources */,
