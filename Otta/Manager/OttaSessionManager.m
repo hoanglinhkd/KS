@@ -18,11 +18,6 @@
         {
             sharedManager = [[self alloc] init];
             
-            
-            
-            
-            
-            
         }
     }
     

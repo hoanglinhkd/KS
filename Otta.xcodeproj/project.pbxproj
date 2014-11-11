@@ -60,11 +60,12 @@
 		66FD4B4B1A11AAED005ACD58 /* OttaTutorialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 66FD4B4A1A11AAED005ACD58 /* OttaTutorialViewController.m */; };
 		66FD4B541A11AB02005ACD58 /* OttaAnswer.m in Sources */ = {isa = PBXBuildFile; fileRef = 66FD4B4D1A11AB02005ACD58 /* OttaAnswer.m */; };
 		66FD4B551A11AB02005ACD58 /* OttaQuestion.m in Sources */ = {isa = PBXBuildFile; fileRef = 66FD4B4F1A11AB02005ACD58 /* OttaQuestion.m */; };
-		66FD4B561A11AB02005ACD58 /* OttaSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 66FD4B511A11AB02005ACD58 /* OttaSessionManager.m */; };
 		66FD4B571A11AB02005ACD58 /* OttaUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 66FD4B531A11AB02005ACD58 /* OttaUser.m */; };
 		66FD4B5A1A11ABF9005ACD58 /* OttaAnswerTableController.m in Sources */ = {isa = PBXBuildFile; fileRef = 66FD4B591A11ABF9005ACD58 /* OttaAnswerTableController.m */; };
 		66FD4B621A11AD6B005ACD58 /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FD4B5D1A11AD6B005ACD58 /* libTestFlight.a */; };
 		66FD4B631A11AD6B005ACD58 /* release_notes.md in Sources */ = {isa = PBXBuildFile; fileRef = 66FD4B5E1A11AD6B005ACD58 /* release_notes.md */; };
+		D9286F401A12187F00C28770 /* OttaSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D9286F3F1A12187F00C28770 /* OttaSessionManager.m */; };
+		D9286F431A12190500C28770 /* OttaParseClientManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D9286F421A12190500C28770 /* OttaParseClientManager.m */; };
 		F0B6412519A57B11007C4373 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F0B6412419A57B11007C4373 /* libz.dylib */; };
 		F0BC6516198606BD0097A87C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0BC6515198606BD0097A87C /* Foundation.framework */; };
 		F0BC6518198606BD0097A87C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0BC6517198606BD0097A87C /* CoreGraphics.framework */; };
@@ -153,8 +154,6 @@
 		66FD4B4D1A11AB02005ACD58 /* OttaAnswer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OttaAnswer.m; sourceTree = "<group>"; };
 		66FD4B4E1A11AB02005ACD58 /* OttaQuestion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OttaQuestion.h; sourceTree = "<group>"; };
 		66FD4B4F1A11AB02005ACD58 /* OttaQuestion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OttaQuestion.m; sourceTree = "<group>"; };
-		66FD4B501A11AB02005ACD58 /* OttaSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OttaSessionManager.h; sourceTree = "<group>"; };
-		66FD4B511A11AB02005ACD58 /* OttaSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OttaSessionManager.m; sourceTree = "<group>"; };
 		66FD4B521A11AB02005ACD58 /* OttaUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OttaUser.h; sourceTree = "<group>"; };
 		66FD4B531A11AB02005ACD58 /* OttaUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OttaUser.m; sourceTree = "<group>"; };
 		66FD4B581A11ABF9005ACD58 /* OttaAnswerTableController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OttaAnswerTableController.h; sourceTree = "<group>"; };
@@ -165,6 +164,10 @@
 		66FD4B601A11AD6B005ACD58 /* TestFlight+ManualSessions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TestFlight+ManualSessions.h"; sourceTree = "<group>"; };
 		66FD4B611A11AD6B005ACD58 /* TestFlight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestFlight.h; sourceTree = "<group>"; };
 		D075C858A4214DDABEDE0CDD /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		D9286F3E1A12187F00C28770 /* OttaSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OttaSessionManager.h; sourceTree = "<group>"; };
+		D9286F3F1A12187F00C28770 /* OttaSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OttaSessionManager.m; sourceTree = "<group>"; };
+		D9286F411A12190500C28770 /* OttaParseClientManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OttaParseClientManager.h; sourceTree = "<group>"; };
+		D9286F421A12190500C28770 /* OttaParseClientManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OttaParseClientManager.m; sourceTree = "<group>"; };
 		F0B6412419A57B11007C4373 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		F0BC6512198606BD0097A87C /* Otta.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Otta.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F0BC6515198606BD0097A87C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -308,8 +311,6 @@
 				66FD4B4D1A11AB02005ACD58 /* OttaAnswer.m */,
 				66FD4B4E1A11AB02005ACD58 /* OttaQuestion.h */,
 				66FD4B4F1A11AB02005ACD58 /* OttaQuestion.m */,
-				66FD4B501A11AB02005ACD58 /* OttaSessionManager.h */,
-				66FD4B511A11AB02005ACD58 /* OttaSessionManager.m */,
 				66FD4B521A11AB02005ACD58 /* OttaUser.h */,
 				66FD4B531A11AB02005ACD58 /* OttaUser.m */,
 			);
@@ -394,6 +395,17 @@
 			path = Testflight;
 			sourceTree = "<group>";
 		};
+		D9286F3D1A12187F00C28770 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				D9286F3E1A12187F00C28770 /* OttaSessionManager.h */,
+				D9286F3F1A12187F00C28770 /* OttaSessionManager.m */,
+				D9286F411A12190500C28770 /* OttaParseClientManager.h */,
+				D9286F421A12190500C28770 /* OttaParseClientManager.m */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
 		F0BC6509198606BD0097A87C = {
 			isa = PBXGroup;
 			children = (
@@ -431,6 +443,7 @@
 		F0BC651B198606BD0097A87C /* Otta */ = {
 			isa = PBXGroup;
 			children = (
+				D9286F3D1A12187F00C28770 /* Manager */,
 				66FD4B311A11A83A005ACD58 /* Modal */,
 				66FD4B301A11A7FC005ACD58 /* ViewController */,
 				66FD4B321A11A83A005ACD58 /* View */,
@@ -654,13 +667,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				F0BC6526198606BD0097A87C /* OttaAppDelegate.m in Sources */,
-				66FD4B561A11AB02005ACD58 /* OttaSessionManager.m in Sources */,
 				66FD4B471A11AAAF005ACD58 /* OttaViewController.m in Sources */,
 				66FD4B551A11AB02005ACD58 /* OttaQuestion.m in Sources */,
 				66FD4B631A11AD6B005ACD58 /* release_notes.md in Sources */,
 				66FD4B571A11AB02005ACD58 /* OttaUser.m in Sources */,
 				66FD4B541A11AB02005ACD58 /* OttaAnswer.m in Sources */,
 				F0BC6522198606BD0097A87C /* main.m in Sources */,
+				D9286F431A12190500C28770 /* OttaParseClientManager.m in Sources */,
+				D9286F401A12187F00C28770 /* OttaSessionManager.m in Sources */,
 				66FD4B3F1A11A923005ACD58 /* OttaLoginViewController.m in Sources */,
 				66FD4B4B1A11AAED005ACD58 /* OttaTutorialViewController.m in Sources */,
 				66FD4B3A1A11A8F0005ACD58 /* OttaQuestionTableViewCell.m in Sources */,
