@@ -59,7 +59,7 @@
     page4.title = @"";
     page4.descFont = [UIFont fontWithName:@"OpenSans-Light" size:24.00f];
     page4.desc = @"Decision-making gone social for the indecisive, the curious, and the practical. ";
-    page4.descPositionY = 125;
+    page4.descPositionY = 155;
     page4.bgImage = [UIImage imageNamed:@"OttaSideMenuBackground.png"];
     page4.titleIconView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"icon_check.png"]];
     [page4.titleIconView setFrame:CGRectMake(0, 0, 75, 75)];

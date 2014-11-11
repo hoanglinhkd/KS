@@ -10,14 +10,13 @@
 #import <Parse/Parse.h>
 #import <EAIntroView.h>
 #import "OttaSessionManager.h"
+
 @interface OttaViewController : UIViewController
 {
     EAIntroView *intro;
 }
 
--(IBAction)facebookLogin:(id)sender;
 @property (nonatomic,strong) IBOutlet UIView * ottaBackingView;
-
 @property (nonatomic,strong)IBOutlet UITextField * usernameTextField;
 @property (nonatomic,strong)IBOutlet UIView *usernameLine;
 @property (nonatomic,strong)IBOutlet UITextField * passwordTextField;
@@ -32,5 +31,7 @@
 @property (nonatomic,strong)IBOutlet UIButton *btnForgotPassword;
 @property (nonatomic,strong)IBOutlet UIScrollView *scrlUserInformation;
 
+
+-(IBAction)facebookLogin:(id)sender;
 
 @end
