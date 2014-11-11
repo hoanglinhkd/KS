@@ -11,8 +11,26 @@
 #import <EAIntroView.h>
 #import "OttaSessionManager.h"
 @interface OttaViewController : UIViewController
+{
+    EAIntroView *intro;
+}
+
 -(IBAction)facebookLogin:(id)sender;
 @property (nonatomic,strong) IBOutlet UIView * ottaBackingView;
+
 @property (nonatomic,strong)IBOutlet UITextField * usernameTextField;
+@property (nonatomic,strong)IBOutlet UIView *usernameLine;
 @property (nonatomic,strong)IBOutlet UITextField * passwordTextField;
+@property (nonatomic,strong)IBOutlet UIView *passwordLine;
+@property (nonatomic,strong)IBOutlet UITextField * emailTextField;
+@property (nonatomic,strong)IBOutlet UIView *emailLine;
+
+@property (nonatomic,strong)IBOutlet UIButton *btnLogin;
+@property (nonatomic,strong)IBOutlet UIButton *btnJoin;
+@property (nonatomic,strong)IBOutlet UIButton *btnFacebook;
+@property (nonatomic,strong)IBOutlet UIButton *btnBackPage;
+@property (nonatomic,strong)IBOutlet UIButton *btnForgotPassword;
+@property (nonatomic,strong)IBOutlet UIScrollView *scrlUserInformation;
+
+
 @end

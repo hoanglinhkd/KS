@@ -5,7 +5,6 @@
 //  Created by Steven Ojo on 7/27/14.
 //  Copyright (c) 2014 SojoDigital. All rights reserved.
 //
-#define openSansFontRegular [UIFont fontWithName:@"OpenSans-Light" size:18.00f];
 #import "OttaViewController.h"
 
 @interface OttaViewController ()<EAIntroDelegate>
@@ -20,9 +19,10 @@
     [super viewDidLoad];
     
     [self.navigationController setNavigationBarHidden:YES];
-    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"OttaGreenBackground.png"]];
+    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"OttaSideMenuBackground.png"]];
     
     [self initIntroViews];
+    [self showFirstIntroPage];
 }
 
 
@@ -30,26 +30,41 @@
 {
     EAIntroPage *page1 = [EAIntroPage page];
     page1.title = @"";
-    page1.descFont = openSansFontRegular;
+    page1.descFont = [UIFont fontWithName:@"OpenSans-Light" size:24.00f];
     page1.desc = @"Ask a question.";
-    page1.bgImage = [UIImage imageNamed:@"OttaGreenBackground.png"];
-    page1.titleIconView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"OttaIntroImage.png"]];
+    page1.descPositionY = 120;
+    page1.bgImage = [UIImage imageNamed:@"OttaSideMenuBackground.png"];
+    page1.titleIconView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"con_question.png"]];
+    [page1.titleIconView setFrame:CGRectMake(0, 0, 75, 75)];
     
     EAIntroPage *page2 = [EAIntroPage page];
     page2.title = @"";
-    page2.descFont = openSansFontRegular;
+    page2.descFont = [UIFont fontWithName:@"OpenSans-Light" size:24.00f];
     page2.desc = @"Get input.";
-    page2.bgImage = [UIImage imageNamed:@"OttaGreenBackground.png"];
-    page2.titleIconView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"OttaIntroMessage.png"]];
+    page2.descPositionY = 120;
+    page2.bgImage = [UIImage imageNamed:@"OttaSideMenuBackground.png"];
+    page2.titleIconView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"icon_email.png"]];
+    [page2.titleIconView setFrame:CGRectMake(0, 0, 75, 75)];
     
     EAIntroPage *page3 = [EAIntroPage page];
     page3.title = @"";
-    page3.descFont = openSansFontRegular;
+    page3.descFont = [UIFont fontWithName:@"OpenSans-Light" size:24.00f];
     page3.desc = @"Answer your friends’ questions";
-    page3.bgImage = [UIImage imageNamed:@"OttaGreenBackground.png"];
-    page3.titleIconView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"OttaIntroAnswer.png"]];
+    page3.descPositionY = 130;
+    page3.bgImage = [UIImage imageNamed:@"OttaSideMenuBackground.png"];
+    page3.titleIconView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"icon_open_mail.png"]];
+    [page3.titleIconView setFrame:CGRectMake(0, 0, 75, 75)];
     
-    EAIntroView *intro = [[EAIntroView alloc] initWithFrame:self.ottaBackingView.bounds andPages:@[page1,page2,page3]];
+    EAIntroPage *page4 = [EAIntroPage page];
+    page4.title = @"";
+    page4.descFont = [UIFont fontWithName:@"OpenSans-Light" size:24.00f];
+    page4.desc = @"Decision-making gone social for the indecisive, the curious, and the practical. ";
+    page4.descPositionY = 125;
+    page4.bgImage = [UIImage imageNamed:@"OttaSideMenuBackground.png"];
+    page4.titleIconView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"icon_check.png"]];
+    [page4.titleIconView setFrame:CGRectMake(0, 0, 75, 75)];
+    
+    intro = [[EAIntroView alloc] initWithFrame:self.ottaBackingView.bounds andPages:@[page1,page2,page3, page4]];
     intro.swipeToExit = NO;
     
     [intro setDelegate:self];
@@ -63,6 +78,8 @@
 }
 
 
+#pragma mark - Instro Page Delegate
+
 -(void)introDidFinish
 {
     NSLog(@"Intro finished...");
@@ -74,6 +91,115 @@
 {
     NSLog(@"Page appeared...");
 }
+
+#pragma mark - Page Opening
+
+-(void) showFirstIntroPage
+{
+    [self.ottaBackingView setUserInteractionEnabled:YES];
+    [_btnBackPage setHidden:YES];
+    [_emailTextField setHidden:YES];
+    [_emailLine setHidden:YES];
+    [_usernameTextField setHidden:YES];
+    [_usernameLine setHidden:YES];
+    [_passwordTextField setHidden:YES];
+    [_passwordLine setHidden:YES];
+    [_btnFacebook setHidden:YES];
+    [_btnJoin setHidden:NO];
+    [_btnForgotPassword setHidden:YES];
+    [intro showInView:self.ottaBackingView animateDuration:0.4f];
+}
+
+-(void) showLoginView
+{
+    [self.ottaBackingView setUserInteractionEnabled:NO];
+    [_usernameTextField setHidden:NO];
+    [_usernameLine setHidden:NO];
+    if ([_usernameTextField respondsToSelector:@selector(setAttributedPlaceholder:)]) {
+        UIColor *color = [UIColor whiteColor];
+        _usernameTextField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"Username or Email" attributes:@{NSForegroundColorAttributeName: color, NSFontAttributeName : [UIFont fontWithName:@"OpenSans-Light" size:20.0]}];
+    }
+    
+    [_passwordTextField setHidden:NO];
+    [_passwordLine setHidden:NO];
+    if ([_passwordTextField respondsToSelector:@selector(setAttributedPlaceholder:)]) {
+        UIColor *color = [UIColor whiteColor];
+        _passwordTextField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"Password" attributes:@{NSForegroundColorAttributeName: color, NSFontAttributeName : [UIFont fontWithName:@"OpenSans-Light" size:20.0]}];
+    }
+    
+    [_emailTextField setHidden:YES];
+    [_emailLine setHidden:YES];
+    
+    [_btnJoin setHidden:YES];
+    [_btnFacebook setHidden:NO];
+    [_btnLogin setHidden:NO];
+    [_btnBackPage setHidden:NO];
+    [_btnForgotPassword setHidden:NO];
+    
+    if (![intro isHidden]) {
+        [intro hideWithFadeOutDuration:0.4f];
+    }
+}
+
+-(void) showJoinView
+{
+    [self.ottaBackingView setUserInteractionEnabled:NO];
+    [_emailTextField setHidden:NO];
+    [_emailLine setHidden:NO];
+    if ([_emailTextField respondsToSelector:@selector(setAttributedPlaceholder:)]) {
+        UIColor *color = [UIColor whiteColor];
+        _emailTextField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"Username or Email" attributes:@{NSForegroundColorAttributeName: color, NSFontAttributeName : [UIFont fontWithName:@"OpenSans-Light" size:20.0]}];
+    }
+    
+    [_usernameTextField setHidden:NO];
+    [_usernameLine setHidden:NO];
+    if ([_usernameTextField respondsToSelector:@selector(setAttributedPlaceholder:)]) {
+        UIColor *color = [UIColor whiteColor];
+        _usernameTextField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"Username" attributes:@{NSForegroundColorAttributeName: color, NSFontAttributeName : [UIFont fontWithName:@"OpenSans-Light" size:20.0]}];
+    }
+    
+    [_passwordTextField setHidden:NO];
+    [_passwordLine setHidden:NO];
+    if ([_passwordTextField respondsToSelector:@selector(setAttributedPlaceholder:)]) {
+        UIColor *color = [UIColor whiteColor];
+        _passwordTextField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"Password" attributes:@{NSForegroundColorAttributeName: color, NSFontAttributeName : [UIFont fontWithName:@"OpenSans-Light" size:20.0]}];
+    }
+    
+    [_btnJoin setHidden:YES];
+    [_btnFacebook setHidden:NO];
+    [_btnLogin setHidden:NO];
+    [_btnBackPage setHidden:NO];
+    [_btnForgotPassword setHidden:NO];
+    
+    if (![intro isHidden]) {
+        [intro hideWithFadeOutDuration:0.4f];
+    }
+}
+
+#pragma mark - Event Button
+
+-(IBAction)btnForgotPasswordTapped:(id)sender
+{
+    
+}
+
+-(IBAction)btnBackTapped:(id)sender
+{
+    [self showFirstIntroPage];
+    
+}
+
+-(IBAction)btnLoginTapped:(id)sender
+{
+    [self showLoginView];
+}
+
+-(IBAction)btnJoinTapped:(id)sender
+{
+    [self showJoinView];
+}
+
+#pragma mark - Facebook
 -(IBAction)facebookLogin:(id)sender
 {
     //[[OttaSessionManager sharedManager]loginWithFacebook];
@@ -110,6 +236,7 @@
     }];
 }
 
+#pragma mark - Text Field
 - (BOOL) textViewShouldBeginEditing:(UITextView *)textView
 {
     if (textView.textColor == [UIColor lightGrayColor]) {
