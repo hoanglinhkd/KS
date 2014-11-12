@@ -28,7 +28,7 @@
 {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"OttaSideMenuBackground.png"]];
-    
+    self.menuTableView.backgroundColor = [UIColor clearColor];
     // Do any additional setup after loading the view.
 }
 
@@ -45,7 +45,7 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 75.0;
+    return 62.0;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -72,6 +72,30 @@
             cell.lblText.text = @"Ask a question";
         }
             break;
+        case 1:
+        {
+            cell.imgIcon.image = [UIImage imageNamed:@"menu_home.png"];
+            cell.lblText.text = @"Question feed";
+        }
+            break;
+        case 2:
+        {
+            cell.imgIcon.image = [UIImage imageNamed:@"menu_mail.png"];
+            cell.lblText.text = @"My questions";
+        }
+            break;
+        case 3:
+        {
+            cell.imgIcon.image = [UIImage imageNamed:@"menu_heart.png"];
+            cell.lblText.text = @"Friends";
+        }
+            break;
+        case 4:
+        {
+            cell.imgIcon.image = [UIImage imageNamed:@"menu_weel.png"];
+            cell.lblText.text = @"Settings";
+        }
+            break;
             
         default:
             break;
@@ -80,6 +104,13 @@
     return cell;
 }
 
+/*- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    cell.backgroundColor = [UIColor clearColor];
+    cell.textLabel.backgroundColor = [UIColor clearColor];
+    cell.detailTextLabel.backgroundColor = [UIColor clearColor];
+}
+*/
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [self performSegueWithIdentifier:@"segueAskQuestion" sender:nil];
 }

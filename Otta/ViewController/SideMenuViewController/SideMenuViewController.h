@@ -11,6 +11,7 @@
 
 @interface SideMenuViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 
+@property (weak, nonatomic) IBOutlet UITableView *menuTableView;
 
 
 @end
