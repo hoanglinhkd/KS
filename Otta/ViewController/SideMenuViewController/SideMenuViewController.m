@@ -8,6 +8,7 @@
 
 #import "SideMenuViewController.h"
 
+
 @interface SideMenuViewController ()
 
 @end
@@ -27,7 +28,7 @@
 {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"OttaSideMenuBackground.png"]];
-    
+    self.menuTableView.backgroundColor = [UIColor clearColor];
     // Do any additional setup after loading the view.
 }
 
@@ -36,21 +37,82 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
 - (IBAction)unwindToSideMenu:(UIStoryboardSegue *)unwindSegue
-//Do Something
 {
 
 
 }
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 62.0;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return 5;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    static NSString *cellIdentifier = @"OttaMenuCellID";
+    
+
+    OttaMenuCell *cell = [tableView dequeueReusableCellWithIdentifier:
+                             cellIdentifier];
+    
+    if (cell == nil) {
+        cell = [[OttaMenuCell alloc]initWithStyle:
+                UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
+    }
+    
+    switch (indexPath.row) {
+        case 0:
+        {
+            cell.imgIcon.image = [UIImage imageNamed:@"menu_question.png"];
+            cell.lblText.text = @"Ask a question";
+        }
+            break;
+        case 1:
+        {
+            cell.imgIcon.image = [UIImage imageNamed:@"menu_home.png"];
+            cell.lblText.text = @"Question feed";
+        }
+            break;
+        case 2:
+        {
+            cell.imgIcon.image = [UIImage imageNamed:@"menu_mail.png"];
+            cell.lblText.text = @"My questions";
+        }
+            break;
+        case 3:
+        {
+            cell.imgIcon.image = [UIImage imageNamed:@"menu_heart.png"];
+            cell.lblText.text = @"Friends";
+        }
+            break;
+        case 4:
+        {
+            cell.imgIcon.image = [UIImage imageNamed:@"menu_weel.png"];
+            cell.lblText.text = @"Settings";
+        }
+            break;
+            
+        default:
+            break;
+    }
+    
+    return cell;
+}
+
+/*- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    cell.backgroundColor = [UIColor clearColor];
+    cell.textLabel.backgroundColor = [UIColor clearColor];
+    cell.detailTextLabel.backgroundColor = [UIColor clearColor];
 }
 */
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [self performSegueWithIdentifier:@"segueAskQuestion" sender:nil];
+}
 
 @end

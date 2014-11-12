@@ -1,3115 +1,1056 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-<plist version="1.0">
-<dict>
-	<key>archiveVersion</key>
-	<string>1</string>
-	<key>classes</key>
-	<dict/>
-	<key>objectVersion</key>
-	<string>46</string>
-	<key>objects</key>
-	<dict>
-		<key>0780ED4913C8457C96559DBB</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array/>
-			<key>inputPaths</key>
-			<array/>
-			<key>isa</key>
-			<string>PBXShellScriptBuildPhase</string>
-			<key>name</key>
-			<string>Copy Pods Resources</string>
-			<key>outputPaths</key>
-			<array/>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-			<key>shellPath</key>
-			<string>/bin/sh</string>
-			<key>shellScript</key>
-			<string>"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh"
-</string>
-			<key>showEnvVarsInLog</key>
-			<string>0</string>
-		</dict>
-		<key>0B140940A13047B280C5584B</key>
-		<dict>
-			<key>fileRef</key>
-			<string>D075C858A4214DDABEDE0CDD</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>2B44FB140FA4CD4C52631A33</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>C1E9BE3193743527323F1CDA</string>
-				<string>D45B044B7810A706377E3F1A</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Pods</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>386E89A51A124EAF00459171</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>386E89B81A12591A00459171</string>
-				<string>386E89A61A124EAF00459171</string>
-				<string>386E89A71A124EAF00459171</string>
-				<string>386E89A81A124EAF00459171</string>
-				<string>386E89A91A124EAF00459171</string>
-				<string>386E89AA1A124EAF00459171</string>
-				<string>386E89AB1A124EAF00459171</string>
-				<string>386E89AC1A124EAF00459171</string>
-				<string>386E89AD1A124EAF00459171</string>
-				<string>386E89AE1A124EAF00459171</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>path</key>
-			<string>Intro</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>386E89A61A124EAF00459171</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>image.png</string>
-			<key>path</key>
-			<string>btn_facebook.png</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>386E89A71A124EAF00459171</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>image.png</string>
-			<key>path</key>
-			<string>btn_join.png</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>386E89A81A124EAF00459171</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>image.png</string>
-			<key>path</key>
-			<string>btn_login.png</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>386E89A91A124EAF00459171</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>image.png</string>
-			<key>path</key>
-			<string>con_question.png</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>386E89AA1A124EAF00459171</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>image.png</string>
-			<key>path</key>
-			<string>greenLogo.png</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>386E89AB1A124EAF00459171</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>image.png</string>
-			<key>path</key>
-			<string>icon_check.png</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>386E89AC1A124EAF00459171</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>image.png</string>
-			<key>path</key>
-			<string>icon_email.png</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>386E89AD1A124EAF00459171</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>image.png</string>
-			<key>path</key>
-			<string>icon_open_mail.png</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>386E89AE1A124EAF00459171</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>image.png</string>
-			<key>path</key>
-			<string>image_line.png</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>386E89AF1A124EAF00459171</key>
-		<dict>
-			<key>fileRef</key>
-			<string>386E89A61A124EAF00459171</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>386E89B01A124EAF00459171</key>
-		<dict>
-			<key>fileRef</key>
-			<string>386E89A71A124EAF00459171</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>386E89B11A124EAF00459171</key>
-		<dict>
-			<key>fileRef</key>
-			<string>386E89A81A124EAF00459171</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>386E89B21A124EAF00459171</key>
-		<dict>
-			<key>fileRef</key>
-			<string>386E89A91A124EAF00459171</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>386E89B31A124EAF00459171</key>
-		<dict>
-			<key>fileRef</key>
-			<string>386E89AA1A124EAF00459171</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>386E89B41A124EAF00459171</key>
-		<dict>
-			<key>fileRef</key>
-			<string>386E89AB1A124EAF00459171</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>386E89B51A124EAF00459171</key>
-		<dict>
-			<key>fileRef</key>
-			<string>386E89AC1A124EAF00459171</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>386E89B61A124EAF00459171</key>
-		<dict>
-			<key>fileRef</key>
-			<string>386E89AD1A124EAF00459171</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>386E89B71A124EAF00459171</key>
-		<dict>
-			<key>fileRef</key>
-			<string>386E89AE1A124EAF00459171</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>386E89B81A12591A00459171</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>image.png</string>
-			<key>path</key>
-			<string>btn_back.png</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>386E89B91A12591A00459171</key>
-		<dict>
-			<key>fileRef</key>
-			<string>386E89B81A12591A00459171</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>386E89BA1A12606000459171</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>386E89C91A126DEF00459171</string>
-				<string>386E89BB1A12606000459171</string>
-				<string>386E89BC1A12606000459171</string>
-				<string>386E89BD1A12606000459171</string>
-				<string>386E89BE1A12606000459171</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>path</key>
-			<string>AddFriend</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>386E89BB1A12606000459171</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>image.png</string>
-			<key>path</key>
-			<string>btn_start.png</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>386E89BC1A12606000459171</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>image.png</string>
-			<key>path</key>
-			<string>icon_add.png</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>386E89BD1A12606000459171</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>image.png</string>
-			<key>path</key>
-			<string>icon_find.png</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>386E89BE1A12606000459171</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>image.png</string>
-			<key>path</key>
-			<string>icon_uncheck.png</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>386E89BF1A12606000459171</key>
-		<dict>
-			<key>fileRef</key>
-			<string>386E89BB1A12606000459171</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>386E89C01A12606000459171</key>
-		<dict>
-			<key>fileRef</key>
-			<string>386E89BC1A12606000459171</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>386E89C11A12606000459171</key>
-		<dict>
-			<key>fileRef</key>
-			<string>386E89BD1A12606000459171</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>386E89C21A12606000459171</key>
-		<dict>
-			<key>fileRef</key>
-			<string>386E89BE1A12606000459171</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>386E89C51A126AA400459171</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>386E89C61A126AC100459171</string>
-				<string>386E89C71A126AC100459171</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>path</key>
-			<string>OttaAddFriendViewController</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>386E89C61A126AC100459171</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>OttAddFriendViewController.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>386E89C71A126AC100459171</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>OttAddFriendViewController.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>386E89C81A126AC100459171</key>
-		<dict>
-			<key>fileRef</key>
-			<string>386E89C71A126AC100459171</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>386E89C91A126DEF00459171</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>image.png</string>
-			<key>path</key>
-			<string>icon_check2.png</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>386E89CA1A126DEF00459171</key>
-		<dict>
-			<key>fileRef</key>
-			<string>386E89C91A126DEF00459171</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>66FD4AD61A11A6CC005ACD58</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>66FD4AD71A11A6CC005ACD58</string>
-				<string>66FD4AE81A11A6CC005ACD58</string>
-				<string>66FD4AF31A11A6CC005ACD58</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>path</key>
-			<string>Resource</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>66FD4AD71A11A6CC005ACD58</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>66FD4AD81A11A6CC005ACD58</string>
-				<string>66FD4AD91A11A6CC005ACD58</string>
-				<string>66FD4ADA1A11A6CC005ACD58</string>
-				<string>66FD4ADB1A11A6CC005ACD58</string>
-				<string>66FD4ADC1A11A6CC005ACD58</string>
-				<string>66FD4ADD1A11A6CC005ACD58</string>
-				<string>66FD4ADE1A11A6CC005ACD58</string>
-				<string>66FD4ADF1A11A6CC005ACD58</string>
-				<string>66FD4AE01A11A6CC005ACD58</string>
-				<string>66FD4AE11A11A6CC005ACD58</string>
-				<string>66FD4AE21A11A6CC005ACD58</string>
-				<string>66FD4AE31A11A6CC005ACD58</string>
-				<string>66FD4AE41A11A6CC005ACD58</string>
-				<string>66FD4AE51A11A6CC005ACD58</string>
-				<string>66FD4AE61A11A6CC005ACD58</string>
-				<string>66FD4AE71A11A6CC005ACD58</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>path</key>
-			<string>Dummy Content</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>66FD4AD81A11A6CC005ACD58</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>image.jpeg</string>
-			<key>path</key>
-			<string>angry_birds_cake.jpg</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>66FD4AD91A11A6CC005ACD58</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>image.jpeg</string>
-			<key>path</key>
-			<string>creme_brelee.jpg</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>66FD4ADA1A11A6CC005ACD58</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>image.jpeg</string>
-			<key>path</key>
-			<string>egg_benedict.jpg</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>66FD4ADB1A11A6CC005ACD58</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>image.jpeg</string>
-			<key>path</key>
-			<string>full_breakfast.jpg</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>66FD4ADC1A11A6CC005ACD58</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>image.jpeg</string>
-			<key>path</key>
-			<string>green_tea.jpg</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>66FD4ADD1A11A6CC005ACD58</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>image.jpeg</string>
-			<key>path</key>
-			<string>ham_and_cheese_panini.jpg</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>66FD4ADE1A11A6CC005ACD58</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>image.jpeg</string>
-			<key>path</key>
-			<string>ham_and_egg_sandwich.jpg</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>66FD4ADF1A11A6CC005ACD58</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>image.jpeg</string>
-			<key>path</key>
-			<string>hamburger.jpg</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>66FD4AE01A11A6CC005ACD58</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>image.jpeg</string>
-			<key>path</key>
-			<string>instant_noodle_with_egg.jpg</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>66FD4AE11A11A6CC005ACD58</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>image.jpeg</string>
-			<key>path</key>
-			<string>japanese_noodle_with_pork.jpg</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>66FD4AE21A11A6CC005ACD58</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>image.jpeg</string>
-			<key>path</key>
-			<string>mushroom_risotto.jpg</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>66FD4AE31A11A6CC005ACD58</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>image.jpeg</string>
-			<key>path</key>
-			<string>noodle_with_bbq_pork.jpg</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>66FD4AE41A11A6CC005ACD58</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>image.jpeg</string>
-			<key>path</key>
-			<string>starbucks_coffee.jpg</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>66FD4AE51A11A6CC005ACD58</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>image.jpeg</string>
-			<key>path</key>
-			<string>thai_shrimp_cake.jpg</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>66FD4AE61A11A6CC005ACD58</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>image.jpeg</string>
-			<key>path</key>
-			<string>vegetable_curry.jpg</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>66FD4AE71A11A6CC005ACD58</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>image.jpeg</string>
-			<key>path</key>
-			<string>white_chocolate_donut.jpg</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>66FD4AE81A11A6CC005ACD58</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>66FD4AE91A11A6CC005ACD58</string>
-				<string>66FD4AEA1A11A6CC005ACD58</string>
-				<string>66FD4AEB1A11A6CC005ACD58</string>
-				<string>66FD4AEC1A11A6CC005ACD58</string>
-				<string>66FD4AED1A11A6CC005ACD58</string>
-				<string>66FD4AEE1A11A6CC005ACD58</string>
-				<string>66FD4AEF1A11A6CC005ACD58</string>
-				<string>66FD4AF01A11A6CC005ACD58</string>
-				<string>66FD4AF11A11A6CC005ACD58</string>
-				<string>66FD4AF21A11A6CC005ACD58</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>path</key>
-			<string>Fonts</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>66FD4AE91A11A6CC005ACD58</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>file</string>
-			<key>path</key>
-			<string>OpenSans-Bold.ttf</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>66FD4AEA1A11A6CC005ACD58</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>file</string>
-			<key>path</key>
-			<string>OpenSans-BoldItalic.ttf</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>66FD4AEB1A11A6CC005ACD58</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>file</string>
-			<key>path</key>
-			<string>OpenSans-ExtraBold.ttf</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>66FD4AEC1A11A6CC005ACD58</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>file</string>
-			<key>path</key>
-			<string>OpenSans-ExtraBoldItalic.ttf</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>66FD4AED1A11A6CC005ACD58</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>file</string>
-			<key>path</key>
-			<string>OpenSans-Italic.ttf</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>66FD4AEE1A11A6CC005ACD58</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>file</string>
-			<key>path</key>
-			<string>OpenSans-Light.ttf</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>66FD4AEF1A11A6CC005ACD58</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>file</string>
-			<key>path</key>
-			<string>OpenSans-LightItalic.ttf</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>66FD4AF01A11A6CC005ACD58</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>file</string>
-			<key>path</key>
-			<string>OpenSans-Regular.ttf</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>66FD4AF11A11A6CC005ACD58</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>file</string>
-			<key>path</key>
-			<string>OpenSans-Semibold.ttf</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>66FD4AF21A11A6CC005ACD58</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>file</string>
-			<key>path</key>
-			<string>OpenSans-SemiboldItalic.ttf</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>66FD4AF31A11A6CC005ACD58</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>386E89BA1A12606000459171</string>
-				<string>386E89A51A124EAF00459171</string>
-				<string>66FD4AF41A11A6CC005ACD58</string>
-				<string>66FD4AF51A11A6CC005ACD58</string>
-				<string>66FD4AF61A11A6CC005ACD58</string>
-				<string>66FD4AF71A11A6CC005ACD58</string>
-				<string>66FD4AF81A11A6CC005ACD58</string>
-				<string>66FD4AF91A11A6CC005ACD58</string>
-				<string>66FD4AFA1A11A6CC005ACD58</string>
-				<string>66FD4AFB1A11A6CC005ACD58</string>
-				<string>66FD4AFC1A11A6CC005ACD58</string>
-				<string>66FD4AFD1A11A6CC005ACD58</string>
-				<string>66FD4AFE1A11A6CC005ACD58</string>
-				<string>66FD4AFF1A11A6CC005ACD58</string>
-				<string>66FD4B001A11A6CC005ACD58</string>
-				<string>66FD4B011A11A6CC005ACD58</string>
-				<string>66FD4B021A11A6CC005ACD58</string>
-				<string>66FD4B031A11A6CC005ACD58</string>
-				<string>66FD4B041A11A6CC005ACD58</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>path</key>
-			<string>images</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>66FD4AF41A11A6CC005ACD58</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>image.png</string>
-			<key>path</key>
-			<string>addPhotoOtta.png</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>66FD4AF51A11A6CC005ACD58</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>image.png</string>
-			<key>path</key>
-			<string>AskAQuestion.png</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>66FD4AF61A11A6CC005ACD58</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>image.png</string>
-			<key>path</key>
-			<string>FBConnect.png</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>66FD4AF71A11A6CC005ACD58</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>image.png</string>
-			<key>path</key>
-			<string>JoinButton.png</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>66FD4AF81A11A6CC005ACD58</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>image.png</string>
-			<key>path</key>
-			<string>LoginButton.png</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>66FD4AF91A11A6CC005ACD58</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>image.png</string>
-			<key>path</key>
-			<string>OttaAddAnswerButton.png</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>66FD4AFA1A11A6CC005ACD58</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>image.png</string>
-			<key>path</key>
-			<string>OttaAddTextButton.png</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>66FD4AFB1A11A6CC005ACD58</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>image.png</string>
-			<key>path</key>
-			<string>OttaAskheader.png</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>66FD4AFC1A11A6CC005ACD58</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>image.png</string>
-			<key>path</key>
-			<string>OttaAskSeparator.png</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>66FD4AFD1A11A6CC005ACD58</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>image.png</string>
-			<key>path</key>
-			<string>OttaFacebookButton2.png</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>66FD4AFE1A11A6CC005ACD58</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>image.png</string>
-			<key>path</key>
-			<string>OttaGreenBackground.png</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>66FD4AFF1A11A6CC005ACD58</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>image.png</string>
-			<key>path</key>
-			<string>OttaLandingTopLogo.png</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>66FD4B001A11A6CC005ACD58</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>image.png</string>
-			<key>path</key>
-			<string>OttaLeftSidebar.png</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>66FD4B011A11A6CC005ACD58</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>image.png</string>
-			<key>path</key>
-			<string>OttaNumberBackground.png</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>66FD4B021A11A6CC005ACD58</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>image.png</string>
-			<key>path</key>
-			<string>OttaRightSidebar.png</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>66FD4B031A11A6CC005ACD58</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>image.png</string>
-			<key>path</key>
-			<string>OttaSideMenuBackground.png</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>66FD4B041A11A6CC005ACD58</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>image.png</string>
-			<key>path</key>
-			<string>universalSidebar.png</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>66FD4B051A11A6CC005ACD58</key>
-		<dict>
-			<key>fileRef</key>
-			<string>66FD4AD81A11A6CC005ACD58</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>66FD4B061A11A6CC005ACD58</key>
-		<dict>
-			<key>fileRef</key>
-			<string>66FD4AD91A11A6CC005ACD58</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>66FD4B071A11A6CC005ACD58</key>
-		<dict>
-			<key>fileRef</key>
-			<string>66FD4ADA1A11A6CC005ACD58</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>66FD4B081A11A6CC005ACD58</key>
-		<dict>
-			<key>fileRef</key>
-			<string>66FD4ADB1A11A6CC005ACD58</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>66FD4B091A11A6CC005ACD58</key>
-		<dict>
-			<key>fileRef</key>
-			<string>66FD4ADC1A11A6CC005ACD58</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>66FD4B0A1A11A6CC005ACD58</key>
-		<dict>
-			<key>fileRef</key>
-			<string>66FD4ADD1A11A6CC005ACD58</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>66FD4B0B1A11A6CC005ACD58</key>
-		<dict>
-			<key>fileRef</key>
-			<string>66FD4ADE1A11A6CC005ACD58</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>66FD4B0C1A11A6CC005ACD58</key>
-		<dict>
-			<key>fileRef</key>
-			<string>66FD4ADF1A11A6CC005ACD58</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>66FD4B0D1A11A6CC005ACD58</key>
-		<dict>
-			<key>fileRef</key>
-			<string>66FD4AE01A11A6CC005ACD58</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>66FD4B0E1A11A6CC005ACD58</key>
-		<dict>
-			<key>fileRef</key>
-			<string>66FD4AE11A11A6CC005ACD58</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>66FD4B0F1A11A6CC005ACD58</key>
-		<dict>
-			<key>fileRef</key>
-			<string>66FD4AE21A11A6CC005ACD58</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>66FD4B101A11A6CC005ACD58</key>
-		<dict>
-			<key>fileRef</key>
-			<string>66FD4AE31A11A6CC005ACD58</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>66FD4B111A11A6CC005ACD58</key>
-		<dict>
-			<key>fileRef</key>
-			<string>66FD4AE41A11A6CC005ACD58</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>66FD4B121A11A6CC005ACD58</key>
-		<dict>
-			<key>fileRef</key>
-			<string>66FD4AE51A11A6CC005ACD58</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>66FD4B131A11A6CC005ACD58</key>
-		<dict>
-			<key>fileRef</key>
-			<string>66FD4AE61A11A6CC005ACD58</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>66FD4B141A11A6CC005ACD58</key>
-		<dict>
-			<key>fileRef</key>
-			<string>66FD4AE71A11A6CC005ACD58</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>66FD4B151A11A6CC005ACD58</key>
-		<dict>
-			<key>fileRef</key>
-			<string>66FD4AE91A11A6CC005ACD58</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>66FD4B161A11A6CC005ACD58</key>
-		<dict>
-			<key>fileRef</key>
-			<string>66FD4AEA1A11A6CC005ACD58</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>66FD4B171A11A6CC005ACD58</key>
-		<dict>
-			<key>fileRef</key>
-			<string>66FD4AEB1A11A6CC005ACD58</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>66FD4B181A11A6CC005ACD58</key>
-		<dict>
-			<key>fileRef</key>
-			<string>66FD4AEC1A11A6CC005ACD58</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>66FD4B191A11A6CC005ACD58</key>
-		<dict>
-			<key>fileRef</key>
-			<string>66FD4AED1A11A6CC005ACD58</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>66FD4B1A1A11A6CC005ACD58</key>
-		<dict>
-			<key>fileRef</key>
-			<string>66FD4AEE1A11A6CC005ACD58</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>66FD4B1B1A11A6CC005ACD58</key>
-		<dict>
-			<key>fileRef</key>
-			<string>66FD4AEF1A11A6CC005ACD58</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>66FD4B1C1A11A6CC005ACD58</key>
-		<dict>
-			<key>fileRef</key>
-			<string>66FD4AF01A11A6CC005ACD58</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>66FD4B1D1A11A6CC005ACD58</key>
-		<dict>
-			<key>fileRef</key>
-			<string>66FD4AF11A11A6CC005ACD58</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>66FD4B1E1A11A6CC005ACD58</key>
-		<dict>
-			<key>fileRef</key>
-			<string>66FD4AF21A11A6CC005ACD58</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>66FD4B1F1A11A6CC005ACD58</key>
-		<dict>
-			<key>fileRef</key>
-			<string>66FD4AF41A11A6CC005ACD58</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>66FD4B201A11A6CC005ACD58</key>
-		<dict>
-			<key>fileRef</key>
-			<string>66FD4AF51A11A6CC005ACD58</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>66FD4B211A11A6CC005ACD58</key>
-		<dict>
-			<key>fileRef</key>
-			<string>66FD4AF61A11A6CC005ACD58</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>66FD4B221A11A6CC005ACD58</key>
-		<dict>
-			<key>fileRef</key>
-			<string>66FD4AF71A11A6CC005ACD58</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>66FD4B231A11A6CC005ACD58</key>
-		<dict>
-			<key>fileRef</key>
-			<string>66FD4AF81A11A6CC005ACD58</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>66FD4B241A11A6CC005ACD58</key>
-		<dict>
-			<key>fileRef</key>
-			<string>66FD4AF91A11A6CC005ACD58</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>66FD4B251A11A6CC005ACD58</key>
-		<dict>
-			<key>fileRef</key>
-			<string>66FD4AFA1A11A6CC005ACD58</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>66FD4B261A11A6CC005ACD58</key>
-		<dict>
-			<key>fileRef</key>
-			<string>66FD4AFB1A11A6CC005ACD58</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>66FD4B271A11A6CC005ACD58</key>
-		<dict>
-			<key>fileRef</key>
-			<string>66FD4AFC1A11A6CC005ACD58</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>66FD4B281A11A6CC005ACD58</key>
-		<dict>
-			<key>fileRef</key>
-			<string>66FD4AFD1A11A6CC005ACD58</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>66FD4B291A11A6CC005ACD58</key>
-		<dict>
-			<key>fileRef</key>
-			<string>66FD4AFE1A11A6CC005ACD58</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>66FD4B2A1A11A6CC005ACD58</key>
-		<dict>
-			<key>fileRef</key>
-			<string>66FD4AFF1A11A6CC005ACD58</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>66FD4B2B1A11A6CC005ACD58</key>
-		<dict>
-			<key>fileRef</key>
-			<string>66FD4B001A11A6CC005ACD58</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>66FD4B2C1A11A6CC005ACD58</key>
-		<dict>
-			<key>fileRef</key>
-			<string>66FD4B011A11A6CC005ACD58</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>66FD4B2D1A11A6CC005ACD58</key>
-		<dict>
-			<key>fileRef</key>
-			<string>66FD4B021A11A6CC005ACD58</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>66FD4B2E1A11A6CC005ACD58</key>
-		<dict>
-			<key>fileRef</key>
-			<string>66FD4B031A11A6CC005ACD58</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>66FD4B2F1A11A6CC005ACD58</key>
-		<dict>
-			<key>fileRef</key>
-			<string>66FD4B041A11A6CC005ACD58</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>66FD4B301A11A7FC005ACD58</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>386E89C51A126AA400459171</string>
-				<string>66FD4B481A11AAED005ACD58</string>
-				<string>66FD4B441A11AAAF005ACD58</string>
-				<string>66FD4B401A11A962005ACD58</string>
-				<string>66FD4B3C1A11A923005ACD58</string>
-				<string>66FD4B331A11A8A5005ACD58</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>path</key>
-			<string>ViewController</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>66FD4B311A11A83A005ACD58</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>66FD4B4C1A11AB02005ACD58</string>
-				<string>66FD4B4D1A11AB02005ACD58</string>
-				<string>66FD4B4E1A11AB02005ACD58</string>
-				<string>66FD4B4F1A11AB02005ACD58</string>
-				<string>66FD4B521A11AB02005ACD58</string>
-				<string>66FD4B531A11AB02005ACD58</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>path</key>
-			<string>Modal</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>66FD4B321A11A83A005ACD58</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>F0D6B1F119862B4D0077E30E</string>
-				<string>66FD4B371A11A8F0005ACD58</string>
-				<string>66FD4B381A11A8F0005ACD58</string>
-				<string>66FD4B391A11A8F0005ACD58</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>path</key>
-			<string>View</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>66FD4B331A11A8A5005ACD58</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>66FD4B581A11ABF9005ACD58</string>
-				<string>66FD4B591A11ABF9005ACD58</string>
-				<string>66FD4B341A11A8A5005ACD58</string>
-				<string>66FD4B351A11A8A5005ACD58</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>path</key>
-			<string>OttaAskViewController</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>66FD4B341A11A8A5005ACD58</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>OttaAskViewController.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>66FD4B351A11A8A5005ACD58</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>OttaAskViewController.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>66FD4B361A11A8A5005ACD58</key>
-		<dict>
-			<key>fileRef</key>
-			<string>66FD4B351A11A8A5005ACD58</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>66FD4B371A11A8F0005ACD58</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>OttaQuestionTableViewCell.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>66FD4B381A11A8F0005ACD58</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>OttaQuestionTableViewCell.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>66FD4B391A11A8F0005ACD58</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>file.xib</string>
-			<key>path</key>
-			<string>OttaQuestionTableViewCell.xib</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>66FD4B3A1A11A8F0005ACD58</key>
-		<dict>
-			<key>fileRef</key>
-			<string>66FD4B381A11A8F0005ACD58</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>66FD4B3B1A11A8F0005ACD58</key>
-		<dict>
-			<key>fileRef</key>
-			<string>66FD4B391A11A8F0005ACD58</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>66FD4B3C1A11A923005ACD58</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>66FD4B3D1A11A923005ACD58</string>
-				<string>66FD4B3E1A11A923005ACD58</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>path</key>
-			<string>OttaLoginViewController</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>66FD4B3D1A11A923005ACD58</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>OttaLoginViewController.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>66FD4B3E1A11A923005ACD58</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>OttaLoginViewController.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>66FD4B3F1A11A923005ACD58</key>
-		<dict>
-			<key>fileRef</key>
-			<string>66FD4B3E1A11A923005ACD58</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>66FD4B401A11A962005ACD58</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>66FD4B411A11A962005ACD58</string>
-				<string>66FD4B421A11A962005ACD58</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>path</key>
-			<string>SideMenuViewController</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>66FD4B411A11A962005ACD58</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>SideMenuViewController.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>66FD4B421A11A962005ACD58</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>SideMenuViewController.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>66FD4B431A11A962005ACD58</key>
-		<dict>
-			<key>fileRef</key>
-			<string>66FD4B421A11A962005ACD58</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>66FD4B441A11AAAF005ACD58</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>66FD4B451A11AAAF005ACD58</string>
-				<string>66FD4B461A11AAAF005ACD58</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>path</key>
-			<string>OttaViewController</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>66FD4B451A11AAAF005ACD58</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>OttaViewController.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>66FD4B461A11AAAF005ACD58</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>OttaViewController.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>66FD4B471A11AAAF005ACD58</key>
-		<dict>
-			<key>fileRef</key>
-			<string>66FD4B461A11AAAF005ACD58</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>66FD4B481A11AAED005ACD58</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>66FD4B491A11AAED005ACD58</string>
-				<string>66FD4B4A1A11AAED005ACD58</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>path</key>
-			<string>OttaTutorialViewController</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>66FD4B491A11AAED005ACD58</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>OttaTutorialViewController.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>66FD4B4A1A11AAED005ACD58</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>OttaTutorialViewController.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>66FD4B4B1A11AAED005ACD58</key>
-		<dict>
-			<key>fileRef</key>
-			<string>66FD4B4A1A11AAED005ACD58</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>66FD4B4C1A11AB02005ACD58</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>OttaAnswer.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>66FD4B4D1A11AB02005ACD58</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>OttaAnswer.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>66FD4B4E1A11AB02005ACD58</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>OttaQuestion.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>66FD4B4F1A11AB02005ACD58</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>OttaQuestion.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>66FD4B521A11AB02005ACD58</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>OttaUser.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>66FD4B531A11AB02005ACD58</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>OttaUser.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>66FD4B541A11AB02005ACD58</key>
-		<dict>
-			<key>fileRef</key>
-			<string>66FD4B4D1A11AB02005ACD58</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>66FD4B551A11AB02005ACD58</key>
-		<dict>
-			<key>fileRef</key>
-			<string>66FD4B4F1A11AB02005ACD58</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>66FD4B571A11AB02005ACD58</key>
-		<dict>
-			<key>fileRef</key>
-			<string>66FD4B531A11AB02005ACD58</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>66FD4B581A11ABF9005ACD58</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>OttaAnswerTableController.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>66FD4B591A11ABF9005ACD58</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>OttaAnswerTableController.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>66FD4B5A1A11ABF9005ACD58</key>
-		<dict>
-			<key>fileRef</key>
-			<string>66FD4B591A11ABF9005ACD58</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>66FD4B5B1A11AD6B005ACD58</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>66FD4B5C1A11AD6B005ACD58</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>path</key>
-			<string>Lib</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>66FD4B5C1A11AD6B005ACD58</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>66FD4B5D1A11AD6B005ACD58</string>
-				<string>66FD4B5E1A11AD6B005ACD58</string>
-				<string>66FD4B5F1A11AD6B005ACD58</string>
-				<string>66FD4B601A11AD6B005ACD58</string>
-				<string>66FD4B611A11AD6B005ACD58</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>path</key>
-			<string>Testflight</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>66FD4B5D1A11AD6B005ACD58</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>archive.ar</string>
-			<key>path</key>
-			<string>libTestFlight.a</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>66FD4B5E1A11AD6B005ACD58</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>net.daringfireball.markdown</string>
-			<key>path</key>
-			<string>release_notes.md</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>66FD4B5F1A11AD6B005ACD58</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>TestFlight+AsyncLogging.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>66FD4B601A11AD6B005ACD58</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>TestFlight+ManualSessions.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>66FD4B611A11AD6B005ACD58</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>TestFlight.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>66FD4B621A11AD6B005ACD58</key>
-		<dict>
-			<key>fileRef</key>
-			<string>66FD4B5D1A11AD6B005ACD58</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>66FD4B631A11AD6B005ACD58</key>
-		<dict>
-			<key>fileRef</key>
-			<string>66FD4B5E1A11AD6B005ACD58</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>C1E9BE3193743527323F1CDA</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.xcconfig</string>
-			<key>name</key>
-			<string>Pods.debug.xcconfig</string>
-			<key>path</key>
-			<string>Pods/Target Support Files/Pods/Pods.debug.xcconfig</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>D075C858A4214DDABEDE0CDD</key>
-		<dict>
-			<key>explicitFileType</key>
-			<string>archive.ar</string>
-			<key>includeInIndex</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>path</key>
-			<string>libPods.a</string>
-			<key>sourceTree</key>
-			<string>BUILT_PRODUCTS_DIR</string>
-		</dict>
-		<key>D45B044B7810A706377E3F1A</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.xcconfig</string>
-			<key>name</key>
-			<string>Pods.release.xcconfig</string>
-			<key>path</key>
-			<string>Pods/Target Support Files/Pods/Pods.release.xcconfig</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>D9286F3D1A12187F00C28770</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>D9286F3E1A12187F00C28770</string>
-				<string>D9286F3F1A12187F00C28770</string>
-				<string>D9286F411A12190500C28770</string>
-				<string>D9286F421A12190500C28770</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>path</key>
-			<string>Manager</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>D9286F3E1A12187F00C28770</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>OttaSessionManager.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>D9286F3F1A12187F00C28770</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>OttaSessionManager.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>D9286F401A12187F00C28770</key>
-		<dict>
-			<key>fileRef</key>
-			<string>D9286F3F1A12187F00C28770</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>D9286F411A12190500C28770</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>OttaParseClientManager.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>D9286F421A12190500C28770</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>OttaParseClientManager.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>D9286F431A12190500C28770</key>
-		<dict>
-			<key>fileRef</key>
-			<string>D9286F421A12190500C28770</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>DDE9B982DF28450B936D2CE9</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array/>
-			<key>inputPaths</key>
-			<array/>
-			<key>isa</key>
-			<string>PBXShellScriptBuildPhase</string>
-			<key>name</key>
-			<string>Check Pods Manifest.lock</string>
-			<key>outputPaths</key>
-			<array/>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-			<key>shellPath</key>
-			<string>/bin/sh</string>
-			<key>shellScript</key>
-			<string>diff "${PODS_ROOT}/../Podfile.lock" "${PODS_ROOT}/Manifest.lock" &gt; /dev/null
-if [[ $? != 0 ]] ; then
-    cat &lt;&lt; EOM
-error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.
-EOM
-    exit 1
-fi
-</string>
-			<key>showEnvVarsInLog</key>
-			<string>0</string>
-		</dict>
-		<key>F0B6412419A57B11007C4373</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>compiled.mach-o.dylib</string>
-			<key>name</key>
-			<string>libz.dylib</string>
-			<key>path</key>
-			<string>usr/lib/libz.dylib</string>
-			<key>sourceTree</key>
-			<string>SDKROOT</string>
-		</dict>
-		<key>F0B6412519A57B11007C4373</key>
-		<dict>
-			<key>fileRef</key>
-			<string>F0B6412419A57B11007C4373</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>F0BC6509198606BD0097A87C</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>F0BC651B198606BD0097A87C</string>
-				<string>F0BC653A198606BD0097A87C</string>
-				<string>F0BC6514198606BD0097A87C</string>
-				<string>F0BC6513198606BD0097A87C</string>
-				<string>2B44FB140FA4CD4C52631A33</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>F0BC650A198606BD0097A87C</key>
-		<dict>
-			<key>attributes</key>
-			<dict>
-				<key>CLASSPREFIX</key>
-				<string>Otta</string>
-				<key>LastUpgradeCheck</key>
-				<string>0510</string>
-				<key>ORGANIZATIONNAME</key>
-				<string>SojoDigital</string>
-				<key>TargetAttributes</key>
-				<dict>
-					<key>F0BC6511198606BD0097A87C</key>
-					<dict>
-						<key>DevelopmentTeam</key>
-						<string>NJYXP339SK</string>
-					</dict>
-					<key>F0BC6532198606BD0097A87C</key>
-					<dict>
-						<key>TestTargetID</key>
-						<string>F0BC6511198606BD0097A87C</string>
-					</dict>
-				</dict>
-			</dict>
-			<key>buildConfigurationList</key>
-			<string>F0BC650D198606BD0097A87C</string>
-			<key>compatibilityVersion</key>
-			<string>Xcode 3.2</string>
-			<key>developmentRegion</key>
-			<string>English</string>
-			<key>hasScannedForEncodings</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>PBXProject</string>
-			<key>knownRegions</key>
-			<array>
-				<string>en</string>
-				<string>Base</string>
-			</array>
-			<key>mainGroup</key>
-			<string>F0BC6509198606BD0097A87C</string>
-			<key>productRefGroup</key>
-			<string>F0BC6513198606BD0097A87C</string>
-			<key>projectDirPath</key>
-			<string></string>
-			<key>projectReferences</key>
-			<array/>
-			<key>projectRoot</key>
-			<string></string>
-			<key>targets</key>
-			<array>
-				<string>F0BC6511198606BD0097A87C</string>
-				<string>F0BC6532198606BD0097A87C</string>
-			</array>
-		</dict>
-		<key>F0BC650D198606BD0097A87C</key>
-		<dict>
-			<key>buildConfigurations</key>
-			<array>
-				<string>F0BC6542198606BD0097A87C</string>
-				<string>F0BC6543198606BD0097A87C</string>
-			</array>
-			<key>defaultConfigurationIsVisible</key>
-			<string>0</string>
-			<key>defaultConfigurationName</key>
-			<string>Release</string>
-			<key>isa</key>
-			<string>XCConfigurationList</string>
-		</dict>
-		<key>F0BC650E198606BD0097A87C</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>F0BC6526198606BD0097A87C</string>
-				<string>66FD4B471A11AAAF005ACD58</string>
-				<string>66FD4B551A11AB02005ACD58</string>
-				<string>66FD4B631A11AD6B005ACD58</string>
-				<string>66FD4B571A11AB02005ACD58</string>
-				<string>66FD4B541A11AB02005ACD58</string>
-				<string>F0BC6522198606BD0097A87C</string>
-				<string>D9286F431A12190500C28770</string>
-				<string>D9286F401A12187F00C28770</string>
-				<string>66FD4B3F1A11A923005ACD58</string>
-				<string>66FD4B4B1A11AAED005ACD58</string>
-				<string>66FD4B3A1A11A8F0005ACD58</string>
-				<string>66FD4B431A11A962005ACD58</string>
-				<string>66FD4B361A11A8A5005ACD58</string>
-				<string>386E89C81A126AC100459171</string>
-				<string>66FD4B5A1A11ABF9005ACD58</string>
-			</array>
-			<key>isa</key>
-			<string>PBXSourcesBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>F0BC650F198606BD0097A87C</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>F0B6412519A57B11007C4373</string>
-				<string>66FD4B621A11AD6B005ACD58</string>
-				<string>F0BC6518198606BD0097A87C</string>
-				<string>F0BC651A198606BD0097A87C</string>
-				<string>F0BC6516198606BD0097A87C</string>
-				<string>0B140940A13047B280C5584B</string>
-				<string>F0D6B2061987025B0077E30E</string>
-			</array>
-			<key>isa</key>
-			<string>PBXFrameworksBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>F0BC6510198606BD0097A87C</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>386E89AF1A124EAF00459171</string>
-				<string>66FD4B0C1A11A6CC005ACD58</string>
-				<string>386E89B41A124EAF00459171</string>
-				<string>66FD4B221A11A6CC005ACD58</string>
-				<string>66FD4B201A11A6CC005ACD58</string>
-				<string>66FD4B141A11A6CC005ACD58</string>
-				<string>66FD4B101A11A6CC005ACD58</string>
-				<string>386E89CA1A126DEF00459171</string>
-				<string>386E89B11A124EAF00459171</string>
-				<string>66FD4B2A1A11A6CC005ACD58</string>
-				<string>386E89BF1A12606000459171</string>
-				<string>66FD4B171A11A6CC005ACD58</string>
-				<string>66FD4B1B1A11A6CC005ACD58</string>
-				<string>66FD4B051A11A6CC005ACD58</string>
-				<string>66FD4B0B1A11A6CC005ACD58</string>
-				<string>66FD4B2D1A11A6CC005ACD58</string>
-				<string>F0D6B1F219862B4D0077E30E</string>
-				<string>66FD4B2F1A11A6CC005ACD58</string>
-				<string>386E89C01A12606000459171</string>
-				<string>F0BC652E198606BD0097A87C</string>
-				<string>66FD4B111A11A6CC005ACD58</string>
-				<string>66FD4B131A11A6CC005ACD58</string>
-				<string>66FD4B3B1A11A8F0005ACD58</string>
-				<string>386E89B91A12591A00459171</string>
-				<string>66FD4B151A11A6CC005ACD58</string>
-				<string>66FD4B081A11A6CC005ACD58</string>
-				<string>66FD4B281A11A6CC005ACD58</string>
-				<string>66FD4B271A11A6CC005ACD58</string>
-				<string>66FD4B251A11A6CC005ACD58</string>
-				<string>386E89B51A124EAF00459171</string>
-				<string>386E89B01A124EAF00459171</string>
-				<string>66FD4B061A11A6CC005ACD58</string>
-				<string>F0BC6520198606BD0097A87C</string>
-				<string>386E89B21A124EAF00459171</string>
-				<string>66FD4B211A11A6CC005ACD58</string>
-				<string>66FD4B241A11A6CC005ACD58</string>
-				<string>66FD4B181A11A6CC005ACD58</string>
-				<string>386E89B31A124EAF00459171</string>
-				<string>66FD4B161A11A6CC005ACD58</string>
-				<string>386E89C11A12606000459171</string>
-				<string>66FD4B0D1A11A6CC005ACD58</string>
-				<string>66FD4B1E1A11A6CC005ACD58</string>
-				<string>66FD4B0F1A11A6CC005ACD58</string>
-				<string>66FD4B2E1A11A6CC005ACD58</string>
-				<string>66FD4B261A11A6CC005ACD58</string>
-				<string>386E89B71A124EAF00459171</string>
-				<string>66FD4B291A11A6CC005ACD58</string>
-				<string>66FD4B1F1A11A6CC005ACD58</string>
-				<string>66FD4B2B1A11A6CC005ACD58</string>
-				<string>66FD4B1D1A11A6CC005ACD58</string>
-				<string>66FD4B091A11A6CC005ACD58</string>
-				<string>66FD4B0E1A11A6CC005ACD58</string>
-				<string>66FD4B2C1A11A6CC005ACD58</string>
-				<string>66FD4B231A11A6CC005ACD58</string>
-				<string>66FD4B0A1A11A6CC005ACD58</string>
-				<string>386E89C21A12606000459171</string>
-				<string>386E89B61A124EAF00459171</string>
-				<string>66FD4B121A11A6CC005ACD58</string>
-				<string>66FD4B191A11A6CC005ACD58</string>
-				<string>66FD4B1A1A11A6CC005ACD58</string>
-				<string>66FD4B071A11A6CC005ACD58</string>
-				<string>66FD4B1C1A11A6CC005ACD58</string>
-			</array>
-			<key>isa</key>
-			<string>PBXResourcesBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>F0BC6511198606BD0097A87C</key>
-		<dict>
-			<key>buildConfigurationList</key>
-			<string>F0BC6544198606BD0097A87C</string>
-			<key>buildPhases</key>
-			<array>
-				<string>DDE9B982DF28450B936D2CE9</string>
-				<string>F0BC650E198606BD0097A87C</string>
-				<string>F0BC650F198606BD0097A87C</string>
-				<string>F0BC6510198606BD0097A87C</string>
-				<string>0780ED4913C8457C96559DBB</string>
-			</array>
-			<key>buildRules</key>
-			<array/>
-			<key>dependencies</key>
-			<array/>
-			<key>isa</key>
-			<string>PBXNativeTarget</string>
-			<key>name</key>
-			<string>Otta</string>
-			<key>productName</key>
-			<string>Otta</string>
-			<key>productReference</key>
-			<string>F0BC6512198606BD0097A87C</string>
-			<key>productType</key>
-			<string>com.apple.product-type.application</string>
-		</dict>
-		<key>F0BC6512198606BD0097A87C</key>
-		<dict>
-			<key>explicitFileType</key>
-			<string>wrapper.application</string>
-			<key>includeInIndex</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>path</key>
-			<string>Otta.app</string>
-			<key>sourceTree</key>
-			<string>BUILT_PRODUCTS_DIR</string>
-		</dict>
-		<key>F0BC6513198606BD0097A87C</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>F0BC6512198606BD0097A87C</string>
-				<string>F0BC6533198606BD0097A87C</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Products</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>F0BC6514198606BD0097A87C</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>F0B6412419A57B11007C4373</string>
-				<string>F0D6B2051987025B0077E30E</string>
-				<string>F0BC6515198606BD0097A87C</string>
-				<string>F0BC6517198606BD0097A87C</string>
-				<string>F0BC6519198606BD0097A87C</string>
-				<string>F0BC6534198606BD0097A87C</string>
-				<string>D075C858A4214DDABEDE0CDD</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Frameworks</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>F0BC6515198606BD0097A87C</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>wrapper.framework</string>
-			<key>name</key>
-			<string>Foundation.framework</string>
-			<key>path</key>
-			<string>System/Library/Frameworks/Foundation.framework</string>
-			<key>sourceTree</key>
-			<string>SDKROOT</string>
-		</dict>
-		<key>F0BC6516198606BD0097A87C</key>
-		<dict>
-			<key>fileRef</key>
-			<string>F0BC6515198606BD0097A87C</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>F0BC6517198606BD0097A87C</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>wrapper.framework</string>
-			<key>name</key>
-			<string>CoreGraphics.framework</string>
-			<key>path</key>
-			<string>System/Library/Frameworks/CoreGraphics.framework</string>
-			<key>sourceTree</key>
-			<string>SDKROOT</string>
-		</dict>
-		<key>F0BC6518198606BD0097A87C</key>
-		<dict>
-			<key>fileRef</key>
-			<string>F0BC6517198606BD0097A87C</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>F0BC6519198606BD0097A87C</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>wrapper.framework</string>
-			<key>name</key>
-			<string>UIKit.framework</string>
-			<key>path</key>
-			<string>System/Library/Frameworks/UIKit.framework</string>
-			<key>sourceTree</key>
-			<string>SDKROOT</string>
-		</dict>
-		<key>F0BC651A198606BD0097A87C</key>
-		<dict>
-			<key>fileRef</key>
-			<string>F0BC6519198606BD0097A87C</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>F0BC651B198606BD0097A87C</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>D9286F3D1A12187F00C28770</string>
-				<string>66FD4B311A11A83A005ACD58</string>
-				<string>66FD4B301A11A7FC005ACD58</string>
-				<string>66FD4B321A11A83A005ACD58</string>
-				<string>66FD4B5B1A11AD6B005ACD58</string>
-				<string>66FD4AD61A11A6CC005ACD58</string>
-				<string>F0BC651C198606BD0097A87C</string>
-				<string>F0BC6524198606BD0097A87C</string>
-				<string>F0BC6525198606BD0097A87C</string>
-				<string>F0BC652D198606BD0097A87C</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>path</key>
-			<string>Otta</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>F0BC651C198606BD0097A87C</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>F0BC651D198606BD0097A87C</string>
-				<string>F0BC651E198606BD0097A87C</string>
-				<string>F0BC6521198606BD0097A87C</string>
-				<string>F0BC6523198606BD0097A87C</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Supporting Files</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>F0BC651D198606BD0097A87C</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.plist.xml</string>
-			<key>path</key>
-			<string>Otta-Info.plist</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>F0BC651E198606BD0097A87C</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>F0BC651F198606BD0097A87C</string>
-			</array>
-			<key>isa</key>
-			<string>PBXVariantGroup</string>
-			<key>name</key>
-			<string>InfoPlist.strings</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>F0BC651F198606BD0097A87C</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.plist.strings</string>
-			<key>name</key>
-			<string>en</string>
-			<key>path</key>
-			<string>en.lproj/InfoPlist.strings</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>F0BC6520198606BD0097A87C</key>
-		<dict>
-			<key>fileRef</key>
-			<string>F0BC651E198606BD0097A87C</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>F0BC6521198606BD0097A87C</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>main.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>F0BC6522198606BD0097A87C</key>
-		<dict>
-			<key>fileRef</key>
-			<string>F0BC6521198606BD0097A87C</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>F0BC6523198606BD0097A87C</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>Otta-Prefix.pch</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>F0BC6524198606BD0097A87C</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>OttaAppDelegate.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>F0BC6525198606BD0097A87C</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>OttaAppDelegate.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>F0BC6526198606BD0097A87C</key>
-		<dict>
-			<key>fileRef</key>
-			<string>F0BC6525198606BD0097A87C</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>F0BC652D198606BD0097A87C</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>folder.assetcatalog</string>
-			<key>path</key>
-			<string>Images.xcassets</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>F0BC652E198606BD0097A87C</key>
-		<dict>
-			<key>fileRef</key>
-			<string>F0BC652D198606BD0097A87C</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>F0BC652F198606BD0097A87C</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>F0BC6541198606BD0097A87C</string>
-			</array>
-			<key>isa</key>
-			<string>PBXSourcesBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>F0BC6530198606BD0097A87C</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>F0BC6535198606BD0097A87C</string>
-				<string>F0BC6537198606BD0097A87C</string>
-				<string>F0BC6536198606BD0097A87C</string>
-			</array>
-			<key>isa</key>
-			<string>PBXFrameworksBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>F0BC6531198606BD0097A87C</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>F0BC653F198606BD0097A87C</string>
-			</array>
-			<key>isa</key>
-			<string>PBXResourcesBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>F0BC6532198606BD0097A87C</key>
-		<dict>
-			<key>buildConfigurationList</key>
-			<string>F0BC6547198606BD0097A87C</string>
-			<key>buildPhases</key>
-			<array>
-				<string>F0BC652F198606BD0097A87C</string>
-				<string>F0BC6530198606BD0097A87C</string>
-				<string>F0BC6531198606BD0097A87C</string>
-			</array>
-			<key>buildRules</key>
-			<array/>
-			<key>dependencies</key>
-			<array>
-				<string>F0BC6539198606BD0097A87C</string>
-			</array>
-			<key>isa</key>
-			<string>PBXNativeTarget</string>
-			<key>name</key>
-			<string>OttaTests</string>
-			<key>productName</key>
-			<string>OttaTests</string>
-			<key>productReference</key>
-			<string>F0BC6533198606BD0097A87C</string>
-			<key>productType</key>
-			<string>com.apple.product-type.bundle.unit-test</string>
-		</dict>
-		<key>F0BC6533198606BD0097A87C</key>
-		<dict>
-			<key>explicitFileType</key>
-			<string>wrapper.cfbundle</string>
-			<key>includeInIndex</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>path</key>
-			<string>OttaTests.xctest</string>
-			<key>sourceTree</key>
-			<string>BUILT_PRODUCTS_DIR</string>
-		</dict>
-		<key>F0BC6534198606BD0097A87C</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>wrapper.framework</string>
-			<key>name</key>
-			<string>XCTest.framework</string>
-			<key>path</key>
-			<string>Library/Frameworks/XCTest.framework</string>
-			<key>sourceTree</key>
-			<string>DEVELOPER_DIR</string>
-		</dict>
-		<key>F0BC6535198606BD0097A87C</key>
-		<dict>
-			<key>fileRef</key>
-			<string>F0BC6534198606BD0097A87C</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>F0BC6536198606BD0097A87C</key>
-		<dict>
-			<key>fileRef</key>
-			<string>F0BC6515198606BD0097A87C</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>F0BC6537198606BD0097A87C</key>
-		<dict>
-			<key>fileRef</key>
-			<string>F0BC6519198606BD0097A87C</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>F0BC6538198606BD0097A87C</key>
-		<dict>
-			<key>containerPortal</key>
-			<string>F0BC650A198606BD0097A87C</string>
-			<key>isa</key>
-			<string>PBXContainerItemProxy</string>
-			<key>proxyType</key>
-			<string>1</string>
-			<key>remoteGlobalIDString</key>
-			<string>F0BC6511198606BD0097A87C</string>
-			<key>remoteInfo</key>
-			<string>Otta</string>
-		</dict>
-		<key>F0BC6539198606BD0097A87C</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXTargetDependency</string>
-			<key>target</key>
-			<string>F0BC6511198606BD0097A87C</string>
-			<key>targetProxy</key>
-			<string>F0BC6538198606BD0097A87C</string>
-		</dict>
-		<key>F0BC653A198606BD0097A87C</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>F0BC6540198606BD0097A87C</string>
-				<string>F0BC653B198606BD0097A87C</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>path</key>
-			<string>OttaTests</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>F0BC653B198606BD0097A87C</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>F0BC653C198606BD0097A87C</string>
-				<string>F0BC653D198606BD0097A87C</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Supporting Files</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>F0BC653C198606BD0097A87C</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.plist.xml</string>
-			<key>path</key>
-			<string>OttaTests-Info.plist</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>F0BC653D198606BD0097A87C</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>F0BC653E198606BD0097A87C</string>
-			</array>
-			<key>isa</key>
-			<string>PBXVariantGroup</string>
-			<key>name</key>
-			<string>InfoPlist.strings</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>F0BC653E198606BD0097A87C</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.plist.strings</string>
-			<key>name</key>
-			<string>en</string>
-			<key>path</key>
-			<string>en.lproj/InfoPlist.strings</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>F0BC653F198606BD0097A87C</key>
-		<dict>
-			<key>fileRef</key>
-			<string>F0BC653D198606BD0097A87C</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>F0BC6540198606BD0097A87C</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>OttaTests.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>F0BC6541198606BD0097A87C</key>
-		<dict>
-			<key>fileRef</key>
-			<string>F0BC6540198606BD0097A87C</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>F0BC6542198606BD0097A87C</key>
-		<dict>
-			<key>buildSettings</key>
-			<dict>
-				<key>ALWAYS_SEARCH_USER_PATHS</key>
-				<string>NO</string>
-				<key>CLANG_CXX_LANGUAGE_STANDARD</key>
-				<string>gnu++0x</string>
-				<key>CLANG_CXX_LIBRARY</key>
-				<string>libc++</string>
-				<key>CLANG_ENABLE_MODULES</key>
-				<string>YES</string>
-				<key>CLANG_ENABLE_OBJC_ARC</key>
-				<string>YES</string>
-				<key>CLANG_WARN_BOOL_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_CONSTANT_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_DIRECT_OBJC_ISA_USAGE</key>
-				<string>YES_ERROR</string>
-				<key>CLANG_WARN_EMPTY_BODY</key>
-				<string>YES</string>
-				<key>CLANG_WARN_ENUM_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_INT_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_OBJC_ROOT_CLASS</key>
-				<string>YES_ERROR</string>
-				<key>CLANG_WARN__DUPLICATE_METHOD_MATCH</key>
-				<string>YES</string>
-				<key>CODE_SIGN_IDENTITY[sdk=iphoneos*]</key>
-				<string>iPhone Developer</string>
-				<key>COPY_PHASE_STRIP</key>
-				<string>NO</string>
-				<key>GCC_C_LANGUAGE_STANDARD</key>
-				<string>gnu99</string>
-				<key>GCC_DYNAMIC_NO_PIC</key>
-				<string>NO</string>
-				<key>GCC_OPTIMIZATION_LEVEL</key>
-				<string>0</string>
-				<key>GCC_PREPROCESSOR_DEFINITIONS</key>
-				<array>
-					<string>DEBUG=1</string>
-					<string>$(inherited)</string>
-				</array>
-				<key>GCC_SYMBOLS_PRIVATE_EXTERN</key>
-				<string>NO</string>
-				<key>GCC_WARN_64_TO_32_BIT_CONVERSION</key>
-				<string>YES</string>
-				<key>GCC_WARN_ABOUT_RETURN_TYPE</key>
-				<string>YES_ERROR</string>
-				<key>GCC_WARN_UNDECLARED_SELECTOR</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNINITIALIZED_AUTOS</key>
-				<string>YES_AGGRESSIVE</string>
-				<key>GCC_WARN_UNUSED_FUNCTION</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNUSED_VARIABLE</key>
-				<string>YES</string>
-				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
-				<string>7.1</string>
-				<key>ONLY_ACTIVE_ARCH</key>
-				<string>YES</string>
-				<key>SDKROOT</key>
-				<string>iphoneos</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Debug</string>
-		</dict>
-		<key>F0BC6543198606BD0097A87C</key>
-		<dict>
-			<key>buildSettings</key>
-			<dict>
-				<key>ALWAYS_SEARCH_USER_PATHS</key>
-				<string>NO</string>
-				<key>CLANG_CXX_LANGUAGE_STANDARD</key>
-				<string>gnu++0x</string>
-				<key>CLANG_CXX_LIBRARY</key>
-				<string>libc++</string>
-				<key>CLANG_ENABLE_MODULES</key>
-				<string>YES</string>
-				<key>CLANG_ENABLE_OBJC_ARC</key>
-				<string>YES</string>
-				<key>CLANG_WARN_BOOL_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_CONSTANT_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_DIRECT_OBJC_ISA_USAGE</key>
-				<string>YES_ERROR</string>
-				<key>CLANG_WARN_EMPTY_BODY</key>
-				<string>YES</string>
-				<key>CLANG_WARN_ENUM_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_INT_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_OBJC_ROOT_CLASS</key>
-				<string>YES_ERROR</string>
-				<key>CLANG_WARN__DUPLICATE_METHOD_MATCH</key>
-				<string>YES</string>
-				<key>CODE_SIGN_IDENTITY[sdk=iphoneos*]</key>
-				<string>iPhone Developer</string>
-				<key>COPY_PHASE_STRIP</key>
-				<string>YES</string>
-				<key>ENABLE_NS_ASSERTIONS</key>
-				<string>NO</string>
-				<key>GCC_C_LANGUAGE_STANDARD</key>
-				<string>gnu99</string>
-				<key>GCC_WARN_64_TO_32_BIT_CONVERSION</key>
-				<string>YES</string>
-				<key>GCC_WARN_ABOUT_RETURN_TYPE</key>
-				<string>YES_ERROR</string>
-				<key>GCC_WARN_UNDECLARED_SELECTOR</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNINITIALIZED_AUTOS</key>
-				<string>YES_AGGRESSIVE</string>
-				<key>GCC_WARN_UNUSED_FUNCTION</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNUSED_VARIABLE</key>
-				<string>YES</string>
-				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
-				<string>7.1</string>
-				<key>SDKROOT</key>
-				<string>iphoneos</string>
-				<key>VALIDATE_PRODUCT</key>
-				<string>YES</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Release</string>
-		</dict>
-		<key>F0BC6544198606BD0097A87C</key>
-		<dict>
-			<key>buildConfigurations</key>
-			<array>
-				<string>F0BC6545198606BD0097A87C</string>
-				<string>F0BC6546198606BD0097A87C</string>
-			</array>
-			<key>defaultConfigurationIsVisible</key>
-			<string>0</string>
-			<key>defaultConfigurationName</key>
-			<string>Release</string>
-			<key>isa</key>
-			<string>XCConfigurationList</string>
-		</dict>
-		<key>F0BC6545198606BD0097A87C</key>
-		<dict>
-			<key>baseConfigurationReference</key>
-			<string>C1E9BE3193743527323F1CDA</string>
-			<key>buildSettings</key>
-			<dict>
-				<key>ASSETCATALOG_COMPILER_APPICON_NAME</key>
-				<string>AppIcon</string>
-				<key>ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME</key>
-				<string>LaunchImage</string>
-				<key>CODE_SIGN_IDENTITY</key>
-				<string>iPhone Developer</string>
-				<key>FRAMEWORK_SEARCH_PATHS</key>
-				<array>
-					<string>$(inherited)</string>
-					<string>$(PROJECT_DIR)</string>
-				</array>
-				<key>GCC_PRECOMPILE_PREFIX_HEADER</key>
-				<string>YES</string>
-				<key>GCC_PREFIX_HEADER</key>
-				<string>Otta/Otta-Prefix.pch</string>
-				<key>INFOPLIST_FILE</key>
-				<string>Otta/Otta-Info.plist</string>
-				<key>LIBRARY_SEARCH_PATHS</key>
-				<array>
-					<string>$(inherited)</string>
-					<string>$(PROJECT_DIR)</string>
-					<string>$(PROJECT_DIR)/Otta/Lib/Testflight</string>
-				</array>
-				<key>PRODUCT_NAME</key>
-				<string>$(TARGET_NAME)</string>
-				<key>WRAPPER_EXTENSION</key>
-				<string>app</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Debug</string>
-		</dict>
-		<key>F0BC6546198606BD0097A87C</key>
-		<dict>
-			<key>baseConfigurationReference</key>
-			<string>D45B044B7810A706377E3F1A</string>
-			<key>buildSettings</key>
-			<dict>
-				<key>ASSETCATALOG_COMPILER_APPICON_NAME</key>
-				<string>AppIcon</string>
-				<key>ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME</key>
-				<string>LaunchImage</string>
-				<key>CODE_SIGN_IDENTITY</key>
-				<string>iPhone Distribution: Sojo Digital Inc. (NJYXP339SK)</string>
-				<key>CODE_SIGN_IDENTITY[sdk=iphoneos*]</key>
-				<string>iPhone Distribution: Sojo Digital Inc. (NJYXP339SK)</string>
-				<key>FRAMEWORK_SEARCH_PATHS</key>
-				<array>
-					<string>$(inherited)</string>
-					<string>$(PROJECT_DIR)</string>
-				</array>
-				<key>GCC_PRECOMPILE_PREFIX_HEADER</key>
-				<string>YES</string>
-				<key>GCC_PREFIX_HEADER</key>
-				<string>Otta/Otta-Prefix.pch</string>
-				<key>INFOPLIST_FILE</key>
-				<string>Otta/Otta-Info.plist</string>
-				<key>LIBRARY_SEARCH_PATHS</key>
-				<array>
-					<string>$(inherited)</string>
-					<string>$(PROJECT_DIR)</string>
-					<string>$(PROJECT_DIR)/Otta/Lib/Testflight</string>
-				</array>
-				<key>PRODUCT_NAME</key>
-				<string>$(TARGET_NAME)</string>
-				<key>PROVISIONING_PROFILE</key>
-				<string>809ab396-582e-4ab9-903a-141994317fc0</string>
-				<key>WRAPPER_EXTENSION</key>
-				<string>app</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Release</string>
-		</dict>
-		<key>F0BC6547198606BD0097A87C</key>
-		<dict>
-			<key>buildConfigurations</key>
-			<array>
-				<string>F0BC6548198606BD0097A87C</string>
-				<string>F0BC6549198606BD0097A87C</string>
-			</array>
-			<key>defaultConfigurationIsVisible</key>
-			<string>0</string>
-			<key>defaultConfigurationName</key>
-			<string>Release</string>
-			<key>isa</key>
-			<string>XCConfigurationList</string>
-		</dict>
-		<key>F0BC6548198606BD0097A87C</key>
-		<dict>
-			<key>buildSettings</key>
-			<dict>
-				<key>BUNDLE_LOADER</key>
-				<string>$(BUILT_PRODUCTS_DIR)/Otta.app/Otta</string>
-				<key>FRAMEWORK_SEARCH_PATHS</key>
-				<array>
-					<string>$(SDKROOT)/Developer/Library/Frameworks</string>
-					<string>$(inherited)</string>
-					<string>$(DEVELOPER_FRAMEWORKS_DIR)</string>
-				</array>
-				<key>GCC_PRECOMPILE_PREFIX_HEADER</key>
-				<string>YES</string>
-				<key>GCC_PREFIX_HEADER</key>
-				<string>Otta/Otta-Prefix.pch</string>
-				<key>GCC_PREPROCESSOR_DEFINITIONS</key>
-				<array>
-					<string>DEBUG=1</string>
-					<string>$(inherited)</string>
-				</array>
-				<key>INFOPLIST_FILE</key>
-				<string>OttaTests/OttaTests-Info.plist</string>
-				<key>PRODUCT_NAME</key>
-				<string>$(TARGET_NAME)</string>
-				<key>TEST_HOST</key>
-				<string>$(BUNDLE_LOADER)</string>
-				<key>WRAPPER_EXTENSION</key>
-				<string>xctest</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Debug</string>
-		</dict>
-		<key>F0BC6549198606BD0097A87C</key>
-		<dict>
-			<key>buildSettings</key>
-			<dict>
-				<key>BUNDLE_LOADER</key>
-				<string>$(BUILT_PRODUCTS_DIR)/Otta.app/Otta</string>
-				<key>FRAMEWORK_SEARCH_PATHS</key>
-				<array>
-					<string>$(SDKROOT)/Developer/Library/Frameworks</string>
-					<string>$(inherited)</string>
-					<string>$(DEVELOPER_FRAMEWORKS_DIR)</string>
-				</array>
-				<key>GCC_PRECOMPILE_PREFIX_HEADER</key>
-				<string>YES</string>
-				<key>GCC_PREFIX_HEADER</key>
-				<string>Otta/Otta-Prefix.pch</string>
-				<key>INFOPLIST_FILE</key>
-				<string>OttaTests/OttaTests-Info.plist</string>
-				<key>PRODUCT_NAME</key>
-				<string>$(TARGET_NAME)</string>
-				<key>TEST_HOST</key>
-				<string>$(BUNDLE_LOADER)</string>
-				<key>WRAPPER_EXTENSION</key>
-				<string>xctest</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Release</string>
-		</dict>
-		<key>F0D6B1F119862B4D0077E30E</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>file.storyboard</string>
-			<key>name</key>
-			<string>Main.storyboard</string>
-			<key>path</key>
-			<string>../Main.storyboard</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>F0D6B1F219862B4D0077E30E</key>
-		<dict>
-			<key>fileRef</key>
-			<string>F0D6B1F119862B4D0077E30E</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>F0D6B2051987025B0077E30E</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>wrapper.framework</string>
-			<key>path</key>
-			<string>Parse.framework</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>F0D6B2061987025B0077E30E</key>
-		<dict>
-			<key>fileRef</key>
-			<string>F0D6B2051987025B0077E30E</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-	</dict>
-	<key>rootObject</key>
-	<string>F0BC650A198606BD0097A87C</string>
-</dict>
-</plist>
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0B140940A13047B280C5584B /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D075C858A4214DDABEDE0CDD /* libPods.a */; };
+		382E326F1A139911008ACA45 /* menu_heart.png in Resources */ = {isa = PBXBuildFile; fileRef = 382E32691A139911008ACA45 /* menu_heart.png */; };
+		382E32701A139911008ACA45 /* menu_home.png in Resources */ = {isa = PBXBuildFile; fileRef = 382E326A1A139911008ACA45 /* menu_home.png */; };
+		382E32711A139911008ACA45 /* menu_mail.png in Resources */ = {isa = PBXBuildFile; fileRef = 382E326B1A139911008ACA45 /* menu_mail.png */; };
+		382E32721A139911008ACA45 /* menu_otta.png in Resources */ = {isa = PBXBuildFile; fileRef = 382E326C1A139911008ACA45 /* menu_otta.png */; };
+		382E32731A139911008ACA45 /* menu_question.png in Resources */ = {isa = PBXBuildFile; fileRef = 382E326D1A139911008ACA45 /* menu_question.png */; };
+		382E32741A139911008ACA45 /* menu_weel.png in Resources */ = {isa = PBXBuildFile; fileRef = 382E326E1A139911008ACA45 /* menu_weel.png */; };
+		382E32771A13A54A008ACA45 /* OttaMenuCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 382E32761A13A54A008ACA45 /* OttaMenuCell.m */; };
+		386E89AF1A124EAF00459171 /* btn_facebook.png in Resources */ = {isa = PBXBuildFile; fileRef = 386E89A61A124EAF00459171 /* btn_facebook.png */; };
+		386E89B01A124EAF00459171 /* btn_join.png in Resources */ = {isa = PBXBuildFile; fileRef = 386E89A71A124EAF00459171 /* btn_join.png */; };
+		386E89B11A124EAF00459171 /* btn_login.png in Resources */ = {isa = PBXBuildFile; fileRef = 386E89A81A124EAF00459171 /* btn_login.png */; };
+		386E89B21A124EAF00459171 /* con_question.png in Resources */ = {isa = PBXBuildFile; fileRef = 386E89A91A124EAF00459171 /* con_question.png */; };
+		386E89B31A124EAF00459171 /* greenLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 386E89AA1A124EAF00459171 /* greenLogo.png */; };
+		386E89B41A124EAF00459171 /* icon_check.png in Resources */ = {isa = PBXBuildFile; fileRef = 386E89AB1A124EAF00459171 /* icon_check.png */; };
+		386E89B51A124EAF00459171 /* icon_email.png in Resources */ = {isa = PBXBuildFile; fileRef = 386E89AC1A124EAF00459171 /* icon_email.png */; };
+		386E89B61A124EAF00459171 /* icon_open_mail.png in Resources */ = {isa = PBXBuildFile; fileRef = 386E89AD1A124EAF00459171 /* icon_open_mail.png */; };
+		386E89B71A124EAF00459171 /* image_line.png in Resources */ = {isa = PBXBuildFile; fileRef = 386E89AE1A124EAF00459171 /* image_line.png */; };
+		386E89B91A12591A00459171 /* btn_back.png in Resources */ = {isa = PBXBuildFile; fileRef = 386E89B81A12591A00459171 /* btn_back.png */; };
+		386E89BF1A12606000459171 /* btn_start.png in Resources */ = {isa = PBXBuildFile; fileRef = 386E89BB1A12606000459171 /* btn_start.png */; };
+		386E89C01A12606000459171 /* icon_add.png in Resources */ = {isa = PBXBuildFile; fileRef = 386E89BC1A12606000459171 /* icon_add.png */; };
+		386E89C11A12606000459171 /* icon_find.png in Resources */ = {isa = PBXBuildFile; fileRef = 386E89BD1A12606000459171 /* icon_find.png */; };
+		386E89C21A12606000459171 /* icon_uncheck.png in Resources */ = {isa = PBXBuildFile; fileRef = 386E89BE1A12606000459171 /* icon_uncheck.png */; };
+		386E89C81A126AC100459171 /* OttAddFriendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 386E89C71A126AC100459171 /* OttAddFriendViewController.m */; };
+		386E89CA1A126DEF00459171 /* icon_check2.png in Resources */ = {isa = PBXBuildFile; fileRef = 386E89C91A126DEF00459171 /* icon_check2.png */; };
+		66FD4B051A11A6CC005ACD58 /* angry_birds_cake.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 66FD4AD81A11A6CC005ACD58 /* angry_birds_cake.jpg */; };
+		66FD4B061A11A6CC005ACD58 /* creme_brelee.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 66FD4AD91A11A6CC005ACD58 /* creme_brelee.jpg */; };
+		66FD4B071A11A6CC005ACD58 /* egg_benedict.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 66FD4ADA1A11A6CC005ACD58 /* egg_benedict.jpg */; };
+		66FD4B081A11A6CC005ACD58 /* full_breakfast.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 66FD4ADB1A11A6CC005ACD58 /* full_breakfast.jpg */; };
+		66FD4B091A11A6CC005ACD58 /* green_tea.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 66FD4ADC1A11A6CC005ACD58 /* green_tea.jpg */; };
+		66FD4B0A1A11A6CC005ACD58 /* ham_and_cheese_panini.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 66FD4ADD1A11A6CC005ACD58 /* ham_and_cheese_panini.jpg */; };
+		66FD4B0B1A11A6CC005ACD58 /* ham_and_egg_sandwich.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 66FD4ADE1A11A6CC005ACD58 /* ham_and_egg_sandwich.jpg */; };
+		66FD4B0C1A11A6CC005ACD58 /* hamburger.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 66FD4ADF1A11A6CC005ACD58 /* hamburger.jpg */; };
+		66FD4B0D1A11A6CC005ACD58 /* instant_noodle_with_egg.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 66FD4AE01A11A6CC005ACD58 /* instant_noodle_with_egg.jpg */; };
+		66FD4B0E1A11A6CC005ACD58 /* japanese_noodle_with_pork.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 66FD4AE11A11A6CC005ACD58 /* japanese_noodle_with_pork.jpg */; };
+		66FD4B0F1A11A6CC005ACD58 /* mushroom_risotto.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 66FD4AE21A11A6CC005ACD58 /* mushroom_risotto.jpg */; };
+		66FD4B101A11A6CC005ACD58 /* noodle_with_bbq_pork.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 66FD4AE31A11A6CC005ACD58 /* noodle_with_bbq_pork.jpg */; };
+		66FD4B111A11A6CC005ACD58 /* starbucks_coffee.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 66FD4AE41A11A6CC005ACD58 /* starbucks_coffee.jpg */; };
+		66FD4B121A11A6CC005ACD58 /* thai_shrimp_cake.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 66FD4AE51A11A6CC005ACD58 /* thai_shrimp_cake.jpg */; };
+		66FD4B131A11A6CC005ACD58 /* vegetable_curry.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 66FD4AE61A11A6CC005ACD58 /* vegetable_curry.jpg */; };
+		66FD4B141A11A6CC005ACD58 /* white_chocolate_donut.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 66FD4AE71A11A6CC005ACD58 /* white_chocolate_donut.jpg */; };
+		66FD4B151A11A6CC005ACD58 /* OpenSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 66FD4AE91A11A6CC005ACD58 /* OpenSans-Bold.ttf */; };
+		66FD4B161A11A6CC005ACD58 /* OpenSans-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 66FD4AEA1A11A6CC005ACD58 /* OpenSans-BoldItalic.ttf */; };
+		66FD4B171A11A6CC005ACD58 /* OpenSans-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 66FD4AEB1A11A6CC005ACD58 /* OpenSans-ExtraBold.ttf */; };
+		66FD4B181A11A6CC005ACD58 /* OpenSans-ExtraBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 66FD4AEC1A11A6CC005ACD58 /* OpenSans-ExtraBoldItalic.ttf */; };
+		66FD4B191A11A6CC005ACD58 /* OpenSans-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 66FD4AED1A11A6CC005ACD58 /* OpenSans-Italic.ttf */; };
+		66FD4B1A1A11A6CC005ACD58 /* OpenSans-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 66FD4AEE1A11A6CC005ACD58 /* OpenSans-Light.ttf */; };
+		66FD4B1B1A11A6CC005ACD58 /* OpenSans-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 66FD4AEF1A11A6CC005ACD58 /* OpenSans-LightItalic.ttf */; };
+		66FD4B1C1A11A6CC005ACD58 /* OpenSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 66FD4AF01A11A6CC005ACD58 /* OpenSans-Regular.ttf */; };
+		66FD4B1D1A11A6CC005ACD58 /* OpenSans-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 66FD4AF11A11A6CC005ACD58 /* OpenSans-Semibold.ttf */; };
+		66FD4B1E1A11A6CC005ACD58 /* OpenSans-SemiboldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 66FD4AF21A11A6CC005ACD58 /* OpenSans-SemiboldItalic.ttf */; };
+		66FD4B1F1A11A6CC005ACD58 /* addPhotoOtta.png in Resources */ = {isa = PBXBuildFile; fileRef = 66FD4AF41A11A6CC005ACD58 /* addPhotoOtta.png */; };
+		66FD4B201A11A6CC005ACD58 /* AskAQuestion.png in Resources */ = {isa = PBXBuildFile; fileRef = 66FD4AF51A11A6CC005ACD58 /* AskAQuestion.png */; };
+		66FD4B211A11A6CC005ACD58 /* FBConnect.png in Resources */ = {isa = PBXBuildFile; fileRef = 66FD4AF61A11A6CC005ACD58 /* FBConnect.png */; };
+		66FD4B221A11A6CC005ACD58 /* JoinButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 66FD4AF71A11A6CC005ACD58 /* JoinButton.png */; };
+		66FD4B231A11A6CC005ACD58 /* LoginButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 66FD4AF81A11A6CC005ACD58 /* LoginButton.png */; };
+		66FD4B241A11A6CC005ACD58 /* OttaAddAnswerButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 66FD4AF91A11A6CC005ACD58 /* OttaAddAnswerButton.png */; };
+		66FD4B251A11A6CC005ACD58 /* OttaAddTextButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 66FD4AFA1A11A6CC005ACD58 /* OttaAddTextButton.png */; };
+		66FD4B261A11A6CC005ACD58 /* OttaAskheader.png in Resources */ = {isa = PBXBuildFile; fileRef = 66FD4AFB1A11A6CC005ACD58 /* OttaAskheader.png */; };
+		66FD4B271A11A6CC005ACD58 /* OttaAskSeparator.png in Resources */ = {isa = PBXBuildFile; fileRef = 66FD4AFC1A11A6CC005ACD58 /* OttaAskSeparator.png */; };
+		66FD4B281A11A6CC005ACD58 /* OttaFacebookButton2.png in Resources */ = {isa = PBXBuildFile; fileRef = 66FD4AFD1A11A6CC005ACD58 /* OttaFacebookButton2.png */; };
+		66FD4B291A11A6CC005ACD58 /* OttaGreenBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 66FD4AFE1A11A6CC005ACD58 /* OttaGreenBackground.png */; };
+		66FD4B2A1A11A6CC005ACD58 /* OttaLandingTopLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 66FD4AFF1A11A6CC005ACD58 /* OttaLandingTopLogo.png */; };
+		66FD4B2B1A11A6CC005ACD58 /* OttaLeftSidebar.png in Resources */ = {isa = PBXBuildFile; fileRef = 66FD4B001A11A6CC005ACD58 /* OttaLeftSidebar.png */; };
+		66FD4B2C1A11A6CC005ACD58 /* OttaNumberBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 66FD4B011A11A6CC005ACD58 /* OttaNumberBackground.png */; };
+		66FD4B2D1A11A6CC005ACD58 /* OttaRightSidebar.png in Resources */ = {isa = PBXBuildFile; fileRef = 66FD4B021A11A6CC005ACD58 /* OttaRightSidebar.png */; };
+		66FD4B2E1A11A6CC005ACD58 /* OttaSideMenuBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 66FD4B031A11A6CC005ACD58 /* OttaSideMenuBackground.png */; };
+		66FD4B2F1A11A6CC005ACD58 /* universalSidebar.png in Resources */ = {isa = PBXBuildFile; fileRef = 66FD4B041A11A6CC005ACD58 /* universalSidebar.png */; };
+		66FD4B361A11A8A5005ACD58 /* OttaAskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 66FD4B351A11A8A5005ACD58 /* OttaAskViewController.m */; };
+		66FD4B3A1A11A8F0005ACD58 /* OttaQuestionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 66FD4B381A11A8F0005ACD58 /* OttaQuestionTableViewCell.m */; };
+		66FD4B3B1A11A8F0005ACD58 /* OttaQuestionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 66FD4B391A11A8F0005ACD58 /* OttaQuestionTableViewCell.xib */; };
+		66FD4B3F1A11A923005ACD58 /* OttaLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 66FD4B3E1A11A923005ACD58 /* OttaLoginViewController.m */; };
+		66FD4B431A11A962005ACD58 /* SideMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 66FD4B421A11A962005ACD58 /* SideMenuViewController.m */; };
+		66FD4B471A11AAAF005ACD58 /* OttaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 66FD4B461A11AAAF005ACD58 /* OttaViewController.m */; };
+		66FD4B4B1A11AAED005ACD58 /* OttaTutorialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 66FD4B4A1A11AAED005ACD58 /* OttaTutorialViewController.m */; };
+		66FD4B541A11AB02005ACD58 /* OttaAnswer.m in Sources */ = {isa = PBXBuildFile; fileRef = 66FD4B4D1A11AB02005ACD58 /* OttaAnswer.m */; };
+		66FD4B551A11AB02005ACD58 /* OttaQuestion.m in Sources */ = {isa = PBXBuildFile; fileRef = 66FD4B4F1A11AB02005ACD58 /* OttaQuestion.m */; };
+		66FD4B571A11AB02005ACD58 /* OttaUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 66FD4B531A11AB02005ACD58 /* OttaUser.m */; };
+		66FD4B5A1A11ABF9005ACD58 /* OttaAnswerTableController.m in Sources */ = {isa = PBXBuildFile; fileRef = 66FD4B591A11ABF9005ACD58 /* OttaAnswerTableController.m */; };
+		66FD4B621A11AD6B005ACD58 /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FD4B5D1A11AD6B005ACD58 /* libTestFlight.a */; };
+		66FD4B631A11AD6B005ACD58 /* release_notes.md in Sources */ = {isa = PBXBuildFile; fileRef = 66FD4B5E1A11AD6B005ACD58 /* release_notes.md */; };
+		D9286F401A12187F00C28770 /* OttaSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D9286F3F1A12187F00C28770 /* OttaSessionManager.m */; };
+		D9286F431A12190500C28770 /* OttaParseClientManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D9286F421A12190500C28770 /* OttaParseClientManager.m */; };
+		F0B6412519A57B11007C4373 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F0B6412419A57B11007C4373 /* libz.dylib */; };
+		F0BC6516198606BD0097A87C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0BC6515198606BD0097A87C /* Foundation.framework */; };
+		F0BC6518198606BD0097A87C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0BC6517198606BD0097A87C /* CoreGraphics.framework */; };
+		F0BC651A198606BD0097A87C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0BC6519198606BD0097A87C /* UIKit.framework */; };
+		F0BC6520198606BD0097A87C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F0BC651E198606BD0097A87C /* InfoPlist.strings */; };
+		F0BC6522198606BD0097A87C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F0BC6521198606BD0097A87C /* main.m */; };
+		F0BC6526198606BD0097A87C /* OttaAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F0BC6525198606BD0097A87C /* OttaAppDelegate.m */; };
+		F0BC652E198606BD0097A87C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F0BC652D198606BD0097A87C /* Images.xcassets */; };
+		F0BC6535198606BD0097A87C /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0BC6534198606BD0097A87C /* XCTest.framework */; };
+		F0BC6536198606BD0097A87C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0BC6515198606BD0097A87C /* Foundation.framework */; };
+		F0BC6537198606BD0097A87C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0BC6519198606BD0097A87C /* UIKit.framework */; };
+		F0BC653F198606BD0097A87C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F0BC653D198606BD0097A87C /* InfoPlist.strings */; };
+		F0BC6541198606BD0097A87C /* OttaTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F0BC6540198606BD0097A87C /* OttaTests.m */; };
+		F0D6B1F219862B4D0077E30E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F0D6B1F119862B4D0077E30E /* Main.storyboard */; };
+		F0D6B2061987025B0077E30E /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0D6B2051987025B0077E30E /* Parse.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		F0BC6538198606BD0097A87C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F0BC650A198606BD0097A87C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F0BC6511198606BD0097A87C;
+			remoteInfo = Otta;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		382E32691A139911008ACA45 /* menu_heart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menu_heart.png; sourceTree = "<group>"; };
+		382E326A1A139911008ACA45 /* menu_home.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menu_home.png; sourceTree = "<group>"; };
+		382E326B1A139911008ACA45 /* menu_mail.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menu_mail.png; sourceTree = "<group>"; };
+		382E326C1A139911008ACA45 /* menu_otta.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menu_otta.png; sourceTree = "<group>"; };
+		382E326D1A139911008ACA45 /* menu_question.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menu_question.png; sourceTree = "<group>"; };
+		382E326E1A139911008ACA45 /* menu_weel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menu_weel.png; sourceTree = "<group>"; };
+		382E32751A13A54A008ACA45 /* OttaMenuCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OttaMenuCell.h; sourceTree = "<group>"; };
+		382E32761A13A54A008ACA45 /* OttaMenuCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OttaMenuCell.m; sourceTree = "<group>"; };
+		386E89A61A124EAF00459171 /* btn_facebook.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_facebook.png; sourceTree = "<group>"; };
+		386E89A71A124EAF00459171 /* btn_join.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_join.png; sourceTree = "<group>"; };
+		386E89A81A124EAF00459171 /* btn_login.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_login.png; sourceTree = "<group>"; };
+		386E89A91A124EAF00459171 /* con_question.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = con_question.png; sourceTree = "<group>"; };
+		386E89AA1A124EAF00459171 /* greenLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = greenLogo.png; sourceTree = "<group>"; };
+		386E89AB1A124EAF00459171 /* icon_check.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_check.png; sourceTree = "<group>"; };
+		386E89AC1A124EAF00459171 /* icon_email.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_email.png; sourceTree = "<group>"; };
+		386E89AD1A124EAF00459171 /* icon_open_mail.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_open_mail.png; sourceTree = "<group>"; };
+		386E89AE1A124EAF00459171 /* image_line.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = image_line.png; sourceTree = "<group>"; };
+		386E89B81A12591A00459171 /* btn_back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_back.png; sourceTree = "<group>"; };
+		386E89BB1A12606000459171 /* btn_start.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_start.png; sourceTree = "<group>"; };
+		386E89BC1A12606000459171 /* icon_add.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_add.png; sourceTree = "<group>"; };
+		386E89BD1A12606000459171 /* icon_find.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_find.png; sourceTree = "<group>"; };
+		386E89BE1A12606000459171 /* icon_uncheck.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_uncheck.png; sourceTree = "<group>"; };
+		386E89C61A126AC100459171 /* OttAddFriendViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OttAddFriendViewController.h; sourceTree = "<group>"; };
+		386E89C71A126AC100459171 /* OttAddFriendViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OttAddFriendViewController.m; sourceTree = "<group>"; };
+		386E89C91A126DEF00459171 /* icon_check2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_check2.png; sourceTree = "<group>"; };
+		66FD4AD81A11A6CC005ACD58 /* angry_birds_cake.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = angry_birds_cake.jpg; sourceTree = "<group>"; };
+		66FD4AD91A11A6CC005ACD58 /* creme_brelee.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = creme_brelee.jpg; sourceTree = "<group>"; };
+		66FD4ADA1A11A6CC005ACD58 /* egg_benedict.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = egg_benedict.jpg; sourceTree = "<group>"; };
+		66FD4ADB1A11A6CC005ACD58 /* full_breakfast.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = full_breakfast.jpg; sourceTree = "<group>"; };
+		66FD4ADC1A11A6CC005ACD58 /* green_tea.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = green_tea.jpg; sourceTree = "<group>"; };
+		66FD4ADD1A11A6CC005ACD58 /* ham_and_cheese_panini.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = ham_and_cheese_panini.jpg; sourceTree = "<group>"; };
+		66FD4ADE1A11A6CC005ACD58 /* ham_and_egg_sandwich.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = ham_and_egg_sandwich.jpg; sourceTree = "<group>"; };
+		66FD4ADF1A11A6CC005ACD58 /* hamburger.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = hamburger.jpg; sourceTree = "<group>"; };
+		66FD4AE01A11A6CC005ACD58 /* instant_noodle_with_egg.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = instant_noodle_with_egg.jpg; sourceTree = "<group>"; };
+		66FD4AE11A11A6CC005ACD58 /* japanese_noodle_with_pork.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = japanese_noodle_with_pork.jpg; sourceTree = "<group>"; };
+		66FD4AE21A11A6CC005ACD58 /* mushroom_risotto.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = mushroom_risotto.jpg; sourceTree = "<group>"; };
+		66FD4AE31A11A6CC005ACD58 /* noodle_with_bbq_pork.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = noodle_with_bbq_pork.jpg; sourceTree = "<group>"; };
+		66FD4AE41A11A6CC005ACD58 /* starbucks_coffee.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = starbucks_coffee.jpg; sourceTree = "<group>"; };
+		66FD4AE51A11A6CC005ACD58 /* thai_shrimp_cake.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = thai_shrimp_cake.jpg; sourceTree = "<group>"; };
+		66FD4AE61A11A6CC005ACD58 /* vegetable_curry.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = vegetable_curry.jpg; sourceTree = "<group>"; };
+		66FD4AE71A11A6CC005ACD58 /* white_chocolate_donut.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = white_chocolate_donut.jpg; sourceTree = "<group>"; };
+		66FD4AE91A11A6CC005ACD58 /* OpenSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Bold.ttf"; sourceTree = "<group>"; };
+		66FD4AEA1A11A6CC005ACD58 /* OpenSans-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-BoldItalic.ttf"; sourceTree = "<group>"; };
+		66FD4AEB1A11A6CC005ACD58 /* OpenSans-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-ExtraBold.ttf"; sourceTree = "<group>"; };
+		66FD4AEC1A11A6CC005ACD58 /* OpenSans-ExtraBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-ExtraBoldItalic.ttf"; sourceTree = "<group>"; };
+		66FD4AED1A11A6CC005ACD58 /* OpenSans-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Italic.ttf"; sourceTree = "<group>"; };
+		66FD4AEE1A11A6CC005ACD58 /* OpenSans-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Light.ttf"; sourceTree = "<group>"; };
+		66FD4AEF1A11A6CC005ACD58 /* OpenSans-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-LightItalic.ttf"; sourceTree = "<group>"; };
+		66FD4AF01A11A6CC005ACD58 /* OpenSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Regular.ttf"; sourceTree = "<group>"; };
+		66FD4AF11A11A6CC005ACD58 /* OpenSans-Semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Semibold.ttf"; sourceTree = "<group>"; };
+		66FD4AF21A11A6CC005ACD58 /* OpenSans-SemiboldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-SemiboldItalic.ttf"; sourceTree = "<group>"; };
+		66FD4AF41A11A6CC005ACD58 /* addPhotoOtta.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = addPhotoOtta.png; sourceTree = "<group>"; };
+		66FD4AF51A11A6CC005ACD58 /* AskAQuestion.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AskAQuestion.png; sourceTree = "<group>"; };
+		66FD4AF61A11A6CC005ACD58 /* FBConnect.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FBConnect.png; sourceTree = "<group>"; };
+		66FD4AF71A11A6CC005ACD58 /* JoinButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = JoinButton.png; sourceTree = "<group>"; };
+		66FD4AF81A11A6CC005ACD58 /* LoginButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LoginButton.png; sourceTree = "<group>"; };
+		66FD4AF91A11A6CC005ACD58 /* OttaAddAnswerButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = OttaAddAnswerButton.png; sourceTree = "<group>"; };
+		66FD4AFA1A11A6CC005ACD58 /* OttaAddTextButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = OttaAddTextButton.png; sourceTree = "<group>"; };
+		66FD4AFB1A11A6CC005ACD58 /* OttaAskheader.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = OttaAskheader.png; sourceTree = "<group>"; };
+		66FD4AFC1A11A6CC005ACD58 /* OttaAskSeparator.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = OttaAskSeparator.png; sourceTree = "<group>"; };
+		66FD4AFD1A11A6CC005ACD58 /* OttaFacebookButton2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = OttaFacebookButton2.png; sourceTree = "<group>"; };
+		66FD4AFE1A11A6CC005ACD58 /* OttaGreenBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = OttaGreenBackground.png; sourceTree = "<group>"; };
+		66FD4AFF1A11A6CC005ACD58 /* OttaLandingTopLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = OttaLandingTopLogo.png; sourceTree = "<group>"; };
+		66FD4B001A11A6CC005ACD58 /* OttaLeftSidebar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = OttaLeftSidebar.png; sourceTree = "<group>"; };
+		66FD4B011A11A6CC005ACD58 /* OttaNumberBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = OttaNumberBackground.png; sourceTree = "<group>"; };
+		66FD4B021A11A6CC005ACD58 /* OttaRightSidebar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = OttaRightSidebar.png; sourceTree = "<group>"; };
+		66FD4B031A11A6CC005ACD58 /* OttaSideMenuBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = OttaSideMenuBackground.png; sourceTree = "<group>"; };
+		66FD4B041A11A6CC005ACD58 /* universalSidebar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = universalSidebar.png; sourceTree = "<group>"; };
+		66FD4B341A11A8A5005ACD58 /* OttaAskViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OttaAskViewController.h; sourceTree = "<group>"; };
+		66FD4B351A11A8A5005ACD58 /* OttaAskViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OttaAskViewController.m; sourceTree = "<group>"; };
+		66FD4B371A11A8F0005ACD58 /* OttaQuestionTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OttaQuestionTableViewCell.h; sourceTree = "<group>"; };
+		66FD4B381A11A8F0005ACD58 /* OttaQuestionTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OttaQuestionTableViewCell.m; sourceTree = "<group>"; };
+		66FD4B391A11A8F0005ACD58 /* OttaQuestionTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OttaQuestionTableViewCell.xib; sourceTree = "<group>"; };
+		66FD4B3D1A11A923005ACD58 /* OttaLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OttaLoginViewController.h; sourceTree = "<group>"; };
+		66FD4B3E1A11A923005ACD58 /* OttaLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OttaLoginViewController.m; sourceTree = "<group>"; };
+		66FD4B411A11A962005ACD58 /* SideMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SideMenuViewController.h; sourceTree = "<group>"; };
+		66FD4B421A11A962005ACD58 /* SideMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SideMenuViewController.m; sourceTree = "<group>"; };
+		66FD4B451A11AAAF005ACD58 /* OttaViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OttaViewController.h; sourceTree = "<group>"; };
+		66FD4B461A11AAAF005ACD58 /* OttaViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OttaViewController.m; sourceTree = "<group>"; };
+		66FD4B491A11AAED005ACD58 /* OttaTutorialViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OttaTutorialViewController.h; sourceTree = "<group>"; };
+		66FD4B4A1A11AAED005ACD58 /* OttaTutorialViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OttaTutorialViewController.m; sourceTree = "<group>"; };
+		66FD4B4C1A11AB02005ACD58 /* OttaAnswer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OttaAnswer.h; sourceTree = "<group>"; };
+		66FD4B4D1A11AB02005ACD58 /* OttaAnswer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OttaAnswer.m; sourceTree = "<group>"; };
+		66FD4B4E1A11AB02005ACD58 /* OttaQuestion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OttaQuestion.h; sourceTree = "<group>"; };
+		66FD4B4F1A11AB02005ACD58 /* OttaQuestion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OttaQuestion.m; sourceTree = "<group>"; };
+		66FD4B521A11AB02005ACD58 /* OttaUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OttaUser.h; sourceTree = "<group>"; };
+		66FD4B531A11AB02005ACD58 /* OttaUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OttaUser.m; sourceTree = "<group>"; };
+		66FD4B581A11ABF9005ACD58 /* OttaAnswerTableController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OttaAnswerTableController.h; sourceTree = "<group>"; };
+		66FD4B591A11ABF9005ACD58 /* OttaAnswerTableController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OttaAnswerTableController.m; sourceTree = "<group>"; };
+		66FD4B5D1A11AD6B005ACD58 /* libTestFlight.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libTestFlight.a; sourceTree = "<group>"; };
+		66FD4B5E1A11AD6B005ACD58 /* release_notes.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = release_notes.md; sourceTree = "<group>"; };
+		66FD4B5F1A11AD6B005ACD58 /* TestFlight+AsyncLogging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TestFlight+AsyncLogging.h"; sourceTree = "<group>"; };
+		66FD4B601A11AD6B005ACD58 /* TestFlight+ManualSessions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TestFlight+ManualSessions.h"; sourceTree = "<group>"; };
+		66FD4B611A11AD6B005ACD58 /* TestFlight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestFlight.h; sourceTree = "<group>"; };
+		C1E9BE3193743527323F1CDA /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		D075C858A4214DDABEDE0CDD /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		D45B044B7810A706377E3F1A /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		D9286F3E1A12187F00C28770 /* OttaSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OttaSessionManager.h; sourceTree = "<group>"; };
+		D9286F3F1A12187F00C28770 /* OttaSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OttaSessionManager.m; sourceTree = "<group>"; };
+		D9286F411A12190500C28770 /* OttaParseClientManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OttaParseClientManager.h; sourceTree = "<group>"; };
+		D9286F421A12190500C28770 /* OttaParseClientManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OttaParseClientManager.m; sourceTree = "<group>"; };
+		F0B6412419A57B11007C4373 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		F0BC6512198606BD0097A87C /* Otta.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Otta.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F0BC6515198606BD0097A87C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		F0BC6517198606BD0097A87C /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		F0BC6519198606BD0097A87C /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		F0BC651D198606BD0097A87C /* Otta-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Otta-Info.plist"; sourceTree = "<group>"; };
+		F0BC651F198606BD0097A87C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		F0BC6521198606BD0097A87C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		F0BC6523198606BD0097A87C /* Otta-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Otta-Prefix.pch"; sourceTree = "<group>"; };
+		F0BC6524198606BD0097A87C /* OttaAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OttaAppDelegate.h; sourceTree = "<group>"; };
+		F0BC6525198606BD0097A87C /* OttaAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OttaAppDelegate.m; sourceTree = "<group>"; };
+		F0BC652D198606BD0097A87C /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		F0BC6533198606BD0097A87C /* OttaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OttaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F0BC6534198606BD0097A87C /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		F0BC653C198606BD0097A87C /* OttaTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "OttaTests-Info.plist"; sourceTree = "<group>"; };
+		F0BC653E198606BD0097A87C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		F0BC6540198606BD0097A87C /* OttaTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OttaTests.m; sourceTree = "<group>"; };
+		F0D6B1F119862B4D0077E30E /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = ../Main.storyboard; sourceTree = "<group>"; };
+		F0D6B2051987025B0077E30E /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F0BC650F198606BD0097A87C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F0B6412519A57B11007C4373 /* libz.dylib in Frameworks */,
+				66FD4B621A11AD6B005ACD58 /* libTestFlight.a in Frameworks */,
+				F0BC6518198606BD0097A87C /* CoreGraphics.framework in Frameworks */,
+				F0BC651A198606BD0097A87C /* UIKit.framework in Frameworks */,
+				F0BC6516198606BD0097A87C /* Foundation.framework in Frameworks */,
+				0B140940A13047B280C5584B /* libPods.a in Frameworks */,
+				F0D6B2061987025B0077E30E /* Parse.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F0BC6530198606BD0097A87C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F0BC6535198606BD0097A87C /* XCTest.framework in Frameworks */,
+				F0BC6537198606BD0097A87C /* UIKit.framework in Frameworks */,
+				F0BC6536198606BD0097A87C /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		2B44FB140FA4CD4C52631A33 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				C1E9BE3193743527323F1CDA /* Pods.debug.xcconfig */,
+				D45B044B7810A706377E3F1A /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		382E32681A139911008ACA45 /* SlidingMenu */ = {
+			isa = PBXGroup;
+			children = (
+				382E32691A139911008ACA45 /* menu_heart.png */,
+				382E326A1A139911008ACA45 /* menu_home.png */,
+				382E326B1A139911008ACA45 /* menu_mail.png */,
+				382E326C1A139911008ACA45 /* menu_otta.png */,
+				382E326D1A139911008ACA45 /* menu_question.png */,
+				382E326E1A139911008ACA45 /* menu_weel.png */,
+			);
+			path = SlidingMenu;
+			sourceTree = "<group>";
+		};
+		386E89A51A124EAF00459171 /* Intro */ = {
+			isa = PBXGroup;
+			children = (
+				386E89B81A12591A00459171 /* btn_back.png */,
+				386E89A61A124EAF00459171 /* btn_facebook.png */,
+				386E89A71A124EAF00459171 /* btn_join.png */,
+				386E89A81A124EAF00459171 /* btn_login.png */,
+				386E89A91A124EAF00459171 /* con_question.png */,
+				386E89AA1A124EAF00459171 /* greenLogo.png */,
+				386E89AB1A124EAF00459171 /* icon_check.png */,
+				386E89AC1A124EAF00459171 /* icon_email.png */,
+				386E89AD1A124EAF00459171 /* icon_open_mail.png */,
+				386E89AE1A124EAF00459171 /* image_line.png */,
+			);
+			path = Intro;
+			sourceTree = "<group>";
+		};
+		386E89BA1A12606000459171 /* AddFriend */ = {
+			isa = PBXGroup;
+			children = (
+				386E89C91A126DEF00459171 /* icon_check2.png */,
+				386E89BB1A12606000459171 /* btn_start.png */,
+				386E89BC1A12606000459171 /* icon_add.png */,
+				386E89BD1A12606000459171 /* icon_find.png */,
+				386E89BE1A12606000459171 /* icon_uncheck.png */,
+			);
+			path = AddFriend;
+			sourceTree = "<group>";
+		};
+		386E89C51A126AA400459171 /* OttaAddFriendViewController */ = {
+			isa = PBXGroup;
+			children = (
+				386E89C61A126AC100459171 /* OttAddFriendViewController.h */,
+				386E89C71A126AC100459171 /* OttAddFriendViewController.m */,
+			);
+			path = OttaAddFriendViewController;
+			sourceTree = "<group>";
+		};
+		66FD4AD61A11A6CC005ACD58 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				66FD4AD71A11A6CC005ACD58 /* Dummy Content */,
+				66FD4AE81A11A6CC005ACD58 /* Fonts */,
+				66FD4AF31A11A6CC005ACD58 /* images */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		66FD4AD71A11A6CC005ACD58 /* Dummy Content */ = {
+			isa = PBXGroup;
+			children = (
+				66FD4AD81A11A6CC005ACD58 /* angry_birds_cake.jpg */,
+				66FD4AD91A11A6CC005ACD58 /* creme_brelee.jpg */,
+				66FD4ADA1A11A6CC005ACD58 /* egg_benedict.jpg */,
+				66FD4ADB1A11A6CC005ACD58 /* full_breakfast.jpg */,
+				66FD4ADC1A11A6CC005ACD58 /* green_tea.jpg */,
+				66FD4ADD1A11A6CC005ACD58 /* ham_and_cheese_panini.jpg */,
+				66FD4ADE1A11A6CC005ACD58 /* ham_and_egg_sandwich.jpg */,
+				66FD4ADF1A11A6CC005ACD58 /* hamburger.jpg */,
+				66FD4AE01A11A6CC005ACD58 /* instant_noodle_with_egg.jpg */,
+				66FD4AE11A11A6CC005ACD58 /* japanese_noodle_with_pork.jpg */,
+				66FD4AE21A11A6CC005ACD58 /* mushroom_risotto.jpg */,
+				66FD4AE31A11A6CC005ACD58 /* noodle_with_bbq_pork.jpg */,
+				66FD4AE41A11A6CC005ACD58 /* starbucks_coffee.jpg */,
+				66FD4AE51A11A6CC005ACD58 /* thai_shrimp_cake.jpg */,
+				66FD4AE61A11A6CC005ACD58 /* vegetable_curry.jpg */,
+				66FD4AE71A11A6CC005ACD58 /* white_chocolate_donut.jpg */,
+			);
+			path = "Dummy Content";
+			sourceTree = "<group>";
+		};
+		66FD4AE81A11A6CC005ACD58 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				66FD4AE91A11A6CC005ACD58 /* OpenSans-Bold.ttf */,
+				66FD4AEA1A11A6CC005ACD58 /* OpenSans-BoldItalic.ttf */,
+				66FD4AEB1A11A6CC005ACD58 /* OpenSans-ExtraBold.ttf */,
+				66FD4AEC1A11A6CC005ACD58 /* OpenSans-ExtraBoldItalic.ttf */,
+				66FD4AED1A11A6CC005ACD58 /* OpenSans-Italic.ttf */,
+				66FD4AEE1A11A6CC005ACD58 /* OpenSans-Light.ttf */,
+				66FD4AEF1A11A6CC005ACD58 /* OpenSans-LightItalic.ttf */,
+				66FD4AF01A11A6CC005ACD58 /* OpenSans-Regular.ttf */,
+				66FD4AF11A11A6CC005ACD58 /* OpenSans-Semibold.ttf */,
+				66FD4AF21A11A6CC005ACD58 /* OpenSans-SemiboldItalic.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		66FD4AF31A11A6CC005ACD58 /* images */ = {
+			isa = PBXGroup;
+			children = (
+				382E32681A139911008ACA45 /* SlidingMenu */,
+				386E89BA1A12606000459171 /* AddFriend */,
+				386E89A51A124EAF00459171 /* Intro */,
+				66FD4AF41A11A6CC005ACD58 /* addPhotoOtta.png */,
+				66FD4AF51A11A6CC005ACD58 /* AskAQuestion.png */,
+				66FD4AF61A11A6CC005ACD58 /* FBConnect.png */,
+				66FD4AF71A11A6CC005ACD58 /* JoinButton.png */,
+				66FD4AF81A11A6CC005ACD58 /* LoginButton.png */,
+				66FD4AF91A11A6CC005ACD58 /* OttaAddAnswerButton.png */,
+				66FD4AFA1A11A6CC005ACD58 /* OttaAddTextButton.png */,
+				66FD4AFB1A11A6CC005ACD58 /* OttaAskheader.png */,
+				66FD4AFC1A11A6CC005ACD58 /* OttaAskSeparator.png */,
+				66FD4AFD1A11A6CC005ACD58 /* OttaFacebookButton2.png */,
+				66FD4AFE1A11A6CC005ACD58 /* OttaGreenBackground.png */,
+				66FD4AFF1A11A6CC005ACD58 /* OttaLandingTopLogo.png */,
+				66FD4B001A11A6CC005ACD58 /* OttaLeftSidebar.png */,
+				66FD4B011A11A6CC005ACD58 /* OttaNumberBackground.png */,
+				66FD4B021A11A6CC005ACD58 /* OttaRightSidebar.png */,
+				66FD4B031A11A6CC005ACD58 /* OttaSideMenuBackground.png */,
+				66FD4B041A11A6CC005ACD58 /* universalSidebar.png */,
+			);
+			path = images;
+			sourceTree = "<group>";
+		};
+		66FD4B301A11A7FC005ACD58 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				386E89C51A126AA400459171 /* OttaAddFriendViewController */,
+				66FD4B481A11AAED005ACD58 /* OttaTutorialViewController */,
+				66FD4B441A11AAAF005ACD58 /* OttaViewController */,
+				66FD4B401A11A962005ACD58 /* SideMenuViewController */,
+				66FD4B3C1A11A923005ACD58 /* OttaLoginViewController */,
+				66FD4B331A11A8A5005ACD58 /* OttaAskViewController */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		66FD4B311A11A83A005ACD58 /* Modal */ = {
+			isa = PBXGroup;
+			children = (
+				66FD4B4C1A11AB02005ACD58 /* OttaAnswer.h */,
+				66FD4B4D1A11AB02005ACD58 /* OttaAnswer.m */,
+				66FD4B4E1A11AB02005ACD58 /* OttaQuestion.h */,
+				66FD4B4F1A11AB02005ACD58 /* OttaQuestion.m */,
+				66FD4B521A11AB02005ACD58 /* OttaUser.h */,
+				66FD4B531A11AB02005ACD58 /* OttaUser.m */,
+			);
+			path = Modal;
+			sourceTree = "<group>";
+		};
+		66FD4B321A11A83A005ACD58 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F0D6B1F119862B4D0077E30E /* Main.storyboard */,
+				66FD4B371A11A8F0005ACD58 /* OttaQuestionTableViewCell.h */,
+				66FD4B381A11A8F0005ACD58 /* OttaQuestionTableViewCell.m */,
+				66FD4B391A11A8F0005ACD58 /* OttaQuestionTableViewCell.xib */,
+				382E32751A13A54A008ACA45 /* OttaMenuCell.h */,
+				382E32761A13A54A008ACA45 /* OttaMenuCell.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		66FD4B331A11A8A5005ACD58 /* OttaAskViewController */ = {
+			isa = PBXGroup;
+			children = (
+				66FD4B581A11ABF9005ACD58 /* OttaAnswerTableController.h */,
+				66FD4B591A11ABF9005ACD58 /* OttaAnswerTableController.m */,
+				66FD4B341A11A8A5005ACD58 /* OttaAskViewController.h */,
+				66FD4B351A11A8A5005ACD58 /* OttaAskViewController.m */,
+			);
+			path = OttaAskViewController;
+			sourceTree = "<group>";
+		};
+		66FD4B3C1A11A923005ACD58 /* OttaLoginViewController */ = {
+			isa = PBXGroup;
+			children = (
+				66FD4B3D1A11A923005ACD58 /* OttaLoginViewController.h */,
+				66FD4B3E1A11A923005ACD58 /* OttaLoginViewController.m */,
+			);
+			path = OttaLoginViewController;
+			sourceTree = "<group>";
+		};
+		66FD4B401A11A962005ACD58 /* SideMenuViewController */ = {
+			isa = PBXGroup;
+			children = (
+				66FD4B411A11A962005ACD58 /* SideMenuViewController.h */,
+				66FD4B421A11A962005ACD58 /* SideMenuViewController.m */,
+			);
+			path = SideMenuViewController;
+			sourceTree = "<group>";
+		};
+		66FD4B441A11AAAF005ACD58 /* OttaViewController */ = {
+			isa = PBXGroup;
+			children = (
+				66FD4B451A11AAAF005ACD58 /* OttaViewController.h */,
+				66FD4B461A11AAAF005ACD58 /* OttaViewController.m */,
+			);
+			path = OttaViewController;
+			sourceTree = "<group>";
+		};
+		66FD4B481A11AAED005ACD58 /* OttaTutorialViewController */ = {
+			isa = PBXGroup;
+			children = (
+				66FD4B491A11AAED005ACD58 /* OttaTutorialViewController.h */,
+				66FD4B4A1A11AAED005ACD58 /* OttaTutorialViewController.m */,
+			);
+			path = OttaTutorialViewController;
+			sourceTree = "<group>";
+		};
+		66FD4B5B1A11AD6B005ACD58 /* Lib */ = {
+			isa = PBXGroup;
+			children = (
+				66FD4B5C1A11AD6B005ACD58 /* Testflight */,
+			);
+			path = Lib;
+			sourceTree = "<group>";
+		};
+		66FD4B5C1A11AD6B005ACD58 /* Testflight */ = {
+			isa = PBXGroup;
+			children = (
+				66FD4B5D1A11AD6B005ACD58 /* libTestFlight.a */,
+				66FD4B5E1A11AD6B005ACD58 /* release_notes.md */,
+				66FD4B5F1A11AD6B005ACD58 /* TestFlight+AsyncLogging.h */,
+				66FD4B601A11AD6B005ACD58 /* TestFlight+ManualSessions.h */,
+				66FD4B611A11AD6B005ACD58 /* TestFlight.h */,
+			);
+			path = Testflight;
+			sourceTree = "<group>";
+		};
+		D9286F3D1A12187F00C28770 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				D9286F3E1A12187F00C28770 /* OttaSessionManager.h */,
+				D9286F3F1A12187F00C28770 /* OttaSessionManager.m */,
+				D9286F411A12190500C28770 /* OttaParseClientManager.h */,
+				D9286F421A12190500C28770 /* OttaParseClientManager.m */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		F0BC6509198606BD0097A87C = {
+			isa = PBXGroup;
+			children = (
+				F0BC651B198606BD0097A87C /* Otta */,
+				F0BC653A198606BD0097A87C /* OttaTests */,
+				F0BC6514198606BD0097A87C /* Frameworks */,
+				F0BC6513198606BD0097A87C /* Products */,
+				2B44FB140FA4CD4C52631A33 /* Pods */,
+			);
+			sourceTree = "<group>";
+		};
+		F0BC6513198606BD0097A87C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F0BC6512198606BD0097A87C /* Otta.app */,
+				F0BC6533198606BD0097A87C /* OttaTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F0BC6514198606BD0097A87C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F0B6412419A57B11007C4373 /* libz.dylib */,
+				F0D6B2051987025B0077E30E /* Parse.framework */,
+				F0BC6515198606BD0097A87C /* Foundation.framework */,
+				F0BC6517198606BD0097A87C /* CoreGraphics.framework */,
+				F0BC6519198606BD0097A87C /* UIKit.framework */,
+				F0BC6534198606BD0097A87C /* XCTest.framework */,
+				D075C858A4214DDABEDE0CDD /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F0BC651B198606BD0097A87C /* Otta */ = {
+			isa = PBXGroup;
+			children = (
+				D9286F3D1A12187F00C28770 /* Manager */,
+				66FD4B311A11A83A005ACD58 /* Modal */,
+				66FD4B301A11A7FC005ACD58 /* ViewController */,
+				66FD4B321A11A83A005ACD58 /* View */,
+				66FD4B5B1A11AD6B005ACD58 /* Lib */,
+				66FD4AD61A11A6CC005ACD58 /* Resource */,
+				F0BC651C198606BD0097A87C /* Supporting Files */,
+				F0BC6524198606BD0097A87C /* OttaAppDelegate.h */,
+				F0BC6525198606BD0097A87C /* OttaAppDelegate.m */,
+				F0BC652D198606BD0097A87C /* Images.xcassets */,
+			);
+			path = Otta;
+			sourceTree = "<group>";
+		};
+		F0BC651C198606BD0097A87C /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				F0BC651D198606BD0097A87C /* Otta-Info.plist */,
+				F0BC651E198606BD0097A87C /* InfoPlist.strings */,
+				F0BC6521198606BD0097A87C /* main.m */,
+				F0BC6523198606BD0097A87C /* Otta-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		F0BC653A198606BD0097A87C /* OttaTests */ = {
+			isa = PBXGroup;
+			children = (
+				F0BC6540198606BD0097A87C /* OttaTests.m */,
+				F0BC653B198606BD0097A87C /* Supporting Files */,
+			);
+			path = OttaTests;
+			sourceTree = "<group>";
+		};
+		F0BC653B198606BD0097A87C /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				F0BC653C198606BD0097A87C /* OttaTests-Info.plist */,
+				F0BC653D198606BD0097A87C /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		F0BC6511198606BD0097A87C /* Otta */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F0BC6544198606BD0097A87C /* Build configuration list for PBXNativeTarget "Otta" */;
+			buildPhases = (
+				DDE9B982DF28450B936D2CE9 /* Check Pods Manifest.lock */,
+				F0BC650E198606BD0097A87C /* Sources */,
+				F0BC650F198606BD0097A87C /* Frameworks */,
+				F0BC6510198606BD0097A87C /* Resources */,
+				0780ED4913C8457C96559DBB /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Otta;
+			productName = Otta;
+			productReference = F0BC6512198606BD0097A87C /* Otta.app */;
+			productType = "com.apple.product-type.application";
+		};
+		F0BC6532198606BD0097A87C /* OttaTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F0BC6547198606BD0097A87C /* Build configuration list for PBXNativeTarget "OttaTests" */;
+			buildPhases = (
+				F0BC652F198606BD0097A87C /* Sources */,
+				F0BC6530198606BD0097A87C /* Frameworks */,
+				F0BC6531198606BD0097A87C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F0BC6539198606BD0097A87C /* PBXTargetDependency */,
+			);
+			name = OttaTests;
+			productName = OttaTests;
+			productReference = F0BC6533198606BD0097A87C /* OttaTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F0BC650A198606BD0097A87C /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = Otta;
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = SojoDigital;
+				TargetAttributes = {
+					F0BC6511198606BD0097A87C = {
+						DevelopmentTeam = NJYXP339SK;
+					};
+					F0BC6532198606BD0097A87C = {
+						TestTargetID = F0BC6511198606BD0097A87C;
+					};
+				};
+			};
+			buildConfigurationList = F0BC650D198606BD0097A87C /* Build configuration list for PBXProject "Otta" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = F0BC6509198606BD0097A87C;
+			productRefGroup = F0BC6513198606BD0097A87C /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F0BC6511198606BD0097A87C /* Otta */,
+				F0BC6532198606BD0097A87C /* OttaTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F0BC6510198606BD0097A87C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				386E89AF1A124EAF00459171 /* btn_facebook.png in Resources */,
+				66FD4B0C1A11A6CC005ACD58 /* hamburger.jpg in Resources */,
+				386E89B41A124EAF00459171 /* icon_check.png in Resources */,
+				66FD4B221A11A6CC005ACD58 /* JoinButton.png in Resources */,
+				66FD4B201A11A6CC005ACD58 /* AskAQuestion.png in Resources */,
+				66FD4B141A11A6CC005ACD58 /* white_chocolate_donut.jpg in Resources */,
+				66FD4B101A11A6CC005ACD58 /* noodle_with_bbq_pork.jpg in Resources */,
+				386E89CA1A126DEF00459171 /* icon_check2.png in Resources */,
+				386E89B11A124EAF00459171 /* btn_login.png in Resources */,
+				66FD4B2A1A11A6CC005ACD58 /* OttaLandingTopLogo.png in Resources */,
+				386E89BF1A12606000459171 /* btn_start.png in Resources */,
+				66FD4B171A11A6CC005ACD58 /* OpenSans-ExtraBold.ttf in Resources */,
+				66FD4B1B1A11A6CC005ACD58 /* OpenSans-LightItalic.ttf in Resources */,
+				66FD4B051A11A6CC005ACD58 /* angry_birds_cake.jpg in Resources */,
+				66FD4B0B1A11A6CC005ACD58 /* ham_and_egg_sandwich.jpg in Resources */,
+				66FD4B2D1A11A6CC005ACD58 /* OttaRightSidebar.png in Resources */,
+				F0D6B1F219862B4D0077E30E /* Main.storyboard in Resources */,
+				382E32711A139911008ACA45 /* menu_mail.png in Resources */,
+				66FD4B2F1A11A6CC005ACD58 /* universalSidebar.png in Resources */,
+				386E89C01A12606000459171 /* icon_add.png in Resources */,
+				F0BC652E198606BD0097A87C /* Images.xcassets in Resources */,
+				66FD4B111A11A6CC005ACD58 /* starbucks_coffee.jpg in Resources */,
+				66FD4B131A11A6CC005ACD58 /* vegetable_curry.jpg in Resources */,
+				66FD4B3B1A11A8F0005ACD58 /* OttaQuestionTableViewCell.xib in Resources */,
+				382E32731A139911008ACA45 /* menu_question.png in Resources */,
+				386E89B91A12591A00459171 /* btn_back.png in Resources */,
+				66FD4B151A11A6CC005ACD58 /* OpenSans-Bold.ttf in Resources */,
+				66FD4B081A11A6CC005ACD58 /* full_breakfast.jpg in Resources */,
+				66FD4B281A11A6CC005ACD58 /* OttaFacebookButton2.png in Resources */,
+				66FD4B271A11A6CC005ACD58 /* OttaAskSeparator.png in Resources */,
+				66FD4B251A11A6CC005ACD58 /* OttaAddTextButton.png in Resources */,
+				386E89B51A124EAF00459171 /* icon_email.png in Resources */,
+				386E89B01A124EAF00459171 /* btn_join.png in Resources */,
+				66FD4B061A11A6CC005ACD58 /* creme_brelee.jpg in Resources */,
+				F0BC6520198606BD0097A87C /* InfoPlist.strings in Resources */,
+				386E89B21A124EAF00459171 /* con_question.png in Resources */,
+				66FD4B211A11A6CC005ACD58 /* FBConnect.png in Resources */,
+				66FD4B241A11A6CC005ACD58 /* OttaAddAnswerButton.png in Resources */,
+				66FD4B181A11A6CC005ACD58 /* OpenSans-ExtraBoldItalic.ttf in Resources */,
+				386E89B31A124EAF00459171 /* greenLogo.png in Resources */,
+				66FD4B161A11A6CC005ACD58 /* OpenSans-BoldItalic.ttf in Resources */,
+				386E89C11A12606000459171 /* icon_find.png in Resources */,
+				66FD4B0D1A11A6CC005ACD58 /* instant_noodle_with_egg.jpg in Resources */,
+				66FD4B1E1A11A6CC005ACD58 /* OpenSans-SemiboldItalic.ttf in Resources */,
+				66FD4B0F1A11A6CC005ACD58 /* mushroom_risotto.jpg in Resources */,
+				66FD4B2E1A11A6CC005ACD58 /* OttaSideMenuBackground.png in Resources */,
+				66FD4B261A11A6CC005ACD58 /* OttaAskheader.png in Resources */,
+				382E32721A139911008ACA45 /* menu_otta.png in Resources */,
+				386E89B71A124EAF00459171 /* image_line.png in Resources */,
+				66FD4B291A11A6CC005ACD58 /* OttaGreenBackground.png in Resources */,
+				66FD4B1F1A11A6CC005ACD58 /* addPhotoOtta.png in Resources */,
+				66FD4B2B1A11A6CC005ACD58 /* OttaLeftSidebar.png in Resources */,
+				66FD4B1D1A11A6CC005ACD58 /* OpenSans-Semibold.ttf in Resources */,
+				66FD4B091A11A6CC005ACD58 /* green_tea.jpg in Resources */,
+				66FD4B0E1A11A6CC005ACD58 /* japanese_noodle_with_pork.jpg in Resources */,
+				66FD4B2C1A11A6CC005ACD58 /* OttaNumberBackground.png in Resources */,
+				66FD4B231A11A6CC005ACD58 /* LoginButton.png in Resources */,
+				66FD4B0A1A11A6CC005ACD58 /* ham_and_cheese_panini.jpg in Resources */,
+				386E89C21A12606000459171 /* icon_uncheck.png in Resources */,
+				382E326F1A139911008ACA45 /* menu_heart.png in Resources */,
+				386E89B61A124EAF00459171 /* icon_open_mail.png in Resources */,
+				382E32741A139911008ACA45 /* menu_weel.png in Resources */,
+				66FD4B121A11A6CC005ACD58 /* thai_shrimp_cake.jpg in Resources */,
+				66FD4B191A11A6CC005ACD58 /* OpenSans-Italic.ttf in Resources */,
+				66FD4B1A1A11A6CC005ACD58 /* OpenSans-Light.ttf in Resources */,
+				382E32701A139911008ACA45 /* menu_home.png in Resources */,
+				66FD4B071A11A6CC005ACD58 /* egg_benedict.jpg in Resources */,
+				66FD4B1C1A11A6CC005ACD58 /* OpenSans-Regular.ttf in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F0BC6531198606BD0097A87C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F0BC653F198606BD0097A87C /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0780ED4913C8457C96559DBB /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DDE9B982DF28450B936D2CE9 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F0BC650E198606BD0097A87C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F0BC6526198606BD0097A87C /* OttaAppDelegate.m in Sources */,
+				66FD4B471A11AAAF005ACD58 /* OttaViewController.m in Sources */,
+				66FD4B551A11AB02005ACD58 /* OttaQuestion.m in Sources */,
+				66FD4B631A11AD6B005ACD58 /* release_notes.md in Sources */,
+				66FD4B571A11AB02005ACD58 /* OttaUser.m in Sources */,
+				66FD4B541A11AB02005ACD58 /* OttaAnswer.m in Sources */,
+				F0BC6522198606BD0097A87C /* main.m in Sources */,
+				D9286F431A12190500C28770 /* OttaParseClientManager.m in Sources */,
+				D9286F401A12187F00C28770 /* OttaSessionManager.m in Sources */,
+				66FD4B3F1A11A923005ACD58 /* OttaLoginViewController.m in Sources */,
+				66FD4B4B1A11AAED005ACD58 /* OttaTutorialViewController.m in Sources */,
+				66FD4B3A1A11A8F0005ACD58 /* OttaQuestionTableViewCell.m in Sources */,
+				66FD4B431A11A962005ACD58 /* SideMenuViewController.m in Sources */,
+				66FD4B361A11A8A5005ACD58 /* OttaAskViewController.m in Sources */,
+				386E89C81A126AC100459171 /* OttAddFriendViewController.m in Sources */,
+				66FD4B5A1A11ABF9005ACD58 /* OttaAnswerTableController.m in Sources */,
+				382E32771A13A54A008ACA45 /* OttaMenuCell.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F0BC652F198606BD0097A87C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F0BC6541198606BD0097A87C /* OttaTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		F0BC6539198606BD0097A87C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F0BC6511198606BD0097A87C /* Otta */;
+			targetProxy = F0BC6538198606BD0097A87C /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		F0BC651E198606BD0097A87C /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F0BC651F198606BD0097A87C /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		F0BC653D198606BD0097A87C /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F0BC653E198606BD0097A87C /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		F0BC6542198606BD0097A87C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		F0BC6543198606BD0097A87C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		F0BC6545198606BD0097A87C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C1E9BE3193743527323F1CDA /* Pods.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Otta/Otta-Prefix.pch";
+				INFOPLIST_FILE = "Otta/Otta-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/Otta/Lib/Testflight",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		F0BC6546198606BD0097A87C /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D45B044B7810A706377E3F1A /* Pods.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Sojo Digital Inc. (NJYXP339SK)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Sojo Digital Inc. (NJYXP339SK)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Otta/Otta-Prefix.pch";
+				INFOPLIST_FILE = "Otta/Otta-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/Otta/Lib/Testflight",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "809ab396-582e-4ab9-903a-141994317fc0";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		F0BC6548198606BD0097A87C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Otta.app/Otta";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Otta/Otta-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "OttaTests/OttaTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		F0BC6549198606BD0097A87C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Otta.app/Otta";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Otta/Otta-Prefix.pch";
+				INFOPLIST_FILE = "OttaTests/OttaTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F0BC650D198606BD0097A87C /* Build configuration list for PBXProject "Otta" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F0BC6542198606BD0097A87C /* Debug */,
+				F0BC6543198606BD0097A87C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F0BC6544198606BD0097A87C /* Build configuration list for PBXNativeTarget "Otta" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F0BC6545198606BD0097A87C /* Debug */,
+				F0BC6546198606BD0097A87C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F0BC6547198606BD0097A87C /* Build configuration list for PBXNativeTarget "OttaTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F0BC6548198606BD0097A87C /* Debug */,
+				F0BC6549198606BD0097A87C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = F0BC650A198606BD0097A87C /* Project object */;
+}
