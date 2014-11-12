@@ -30,7 +30,7 @@
 {
     EAIntroPage *page1 = [EAIntroPage page];
     page1.title = @"";
-    page1.descFont = [UIFont fontWithName:@"OpenSans-Light" size:24.00f];
+    page1.descFont = [UIFont fontWithName:@"OpenSans-Semibold" size:22.00f];
     page1.desc = @"Ask a question.";
     page1.descPositionY = 120;
     page1.bgImage = [UIImage imageNamed:@"OttaSideMenuBackground.png"];
@@ -39,7 +39,7 @@
     
     EAIntroPage *page2 = [EAIntroPage page];
     page2.title = @"";
-    page2.descFont = [UIFont fontWithName:@"OpenSans-Light" size:24.00f];
+    page2.descFont = [UIFont fontWithName:@"OpenSans-Semibold" size:22.00f];
     page2.desc = @"Get input.";
     page2.descPositionY = 120;
     page2.bgImage = [UIImage imageNamed:@"OttaSideMenuBackground.png"];
@@ -48,7 +48,7 @@
     
     EAIntroPage *page3 = [EAIntroPage page];
     page3.title = @"";
-    page3.descFont = [UIFont fontWithName:@"OpenSans-Light" size:24.00f];
+    page3.descFont = [UIFont fontWithName:@"OpenSans-Semibold" size:22.00f];
     page3.desc = @"Answer your friends’ questions";
     page3.descPositionY = 130;
     page3.bgImage = [UIImage imageNamed:@"OttaSideMenuBackground.png"];
@@ -57,7 +57,7 @@
     
     EAIntroPage *page4 = [EAIntroPage page];
     page4.title = @"";
-    page4.descFont = [UIFont fontWithName:@"OpenSans-Light" size:24.00f];
+    page4.descFont = [UIFont fontWithName:@"OpenSans-Semibold" size:22.00f];
     page4.desc = @"Decision-making gone social for the indecisive, the curious, and the practical. ";
     page4.descPositionY = 155;
     page4.bgImage = [UIImage imageNamed:@"OttaSideMenuBackground.png"];
@@ -66,6 +66,9 @@
     
     intro = [[EAIntroView alloc] initWithFrame:self.ottaBackingView.bounds andPages:@[page1,page2,page3, page4]];
     intro.swipeToExit = NO;
+    intro.skipButton.hidden = YES;
+    intro.pageControl.pageIndicatorTintColor = [UIColor colorWithRed:(151/255.0) green:(113/255.0) blue:(39/255.0) alpha:1.0];
+    intro.pageControl.currentPageIndicatorTintColor = [UIColor colorWithRed:(249/255.0) green:(175/255.0) blue:(27/255.0) alpha:1.0];
     
     [intro setDelegate:self];
     [intro showInView:self.ottaBackingView animateDuration:0.6];

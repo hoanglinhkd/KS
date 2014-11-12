@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="rFF-Yf-sGT">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="rFF-Yf-sGT">
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <customFonts key="customFonts">
         <mutableArray key="OpenSans-Light.ttf">
@@ -33,7 +33,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8b0-wb-akz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="439" y="-476"/>
+            <point key="canvasLocation" x="329" y="-476"/>
         </scene>
         <!--Side Menu View Controller-->
         <scene sceneID="w5U-b2-oGi">
@@ -136,7 +136,7 @@
                                 </subviews>
                             </scrollView>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="t28-TZ-26J">
-                                <rect key="frame" x="0.0" y="123" width="320" height="280"/>
+                                <rect key="frame" x="0.0" y="123" width="320" height="292"/>
                                 <subviews>
                                     <view hidden="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eyI-5H-g22">
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -145,7 +145,7 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mru-iE-Pmd" userLabel="LoginButton">
-                                <rect key="frame" x="25" y="416" width="126" height="36"/>
+                                <rect key="frame" x="25" y="477" width="126" height="36"/>
                                 <state key="normal" image="btn_login.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -157,7 +157,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="exT-oC-fMq" userLabel="JoinButton">
-                                <rect key="frame" x="169" y="416" width="126" height="36"/>
+                                <rect key="frame" x="169" y="477" width="126" height="36"/>
                                 <state key="normal" image="btn_join.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -166,7 +166,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FJT-fA-Doo" userLabel="FacebookButton">
-                                <rect key="frame" x="169" y="416" width="126" height="36"/>
+                                <rect key="frame" x="169" y="477" width="126" height="36"/>
                                 <state key="normal" image="FBConnect.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -187,7 +187,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QEM-HX-5fq">
-                                <rect key="frame" x="14" y="460" width="290" height="27"/>
+                                <rect key="frame" x="14" y="521" width="290" height="27"/>
                                 <fontDescription key="fontDescription" name="OpenSans-Light" family="Open Sans" pointSize="15"/>
                                 <state key="normal" title="Forgot your password?">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -218,7 +218,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GKs-gp-Jie" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-231" y="129"/>
+            <point key="canvasLocation" x="-175" y="-476"/>
         </scene>
         <!--Otta Ask View Controller-->
         <scene sceneID="mz0-S9-i3T">
@@ -298,13 +298,12 @@
                         <outlet property="answerTableView" destination="LEm-ZW-BM5" id="Hdb-l5-S2B"/>
                         <outlet property="itsTextView" destination="L23-ab-CjQ" id="J3T-4f-eqv"/>
                         <outlet property="theScrollView" destination="9Oi-xV-h0U" id="Meb-sP-fb6"/>
-                        <segue destination="CY8-rH-5qL" kind="modal" identifier="AskViewControllerSegue" id="Otx-XB-LPz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GNA-7c-bpy" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="LAA-1c-mRI" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="310" y="411"/>
+            <point key="canvasLocation" x="158" y="634"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="spb-3L-BgH">
@@ -314,12 +313,118 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="ILh-FI-rbb" kind="relationship" relationship="rootViewController" id="adX-zG-bbm"/>
+                        <segue destination="ILh-FI-rbb" kind="relationship" relationship="rootViewController" id="Jyr-bS-Eys"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7TB-dE-zmc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="935" y="-114"/>
+        </scene>
+        <!--Ott Add Friend View Controller-->
+        <scene sceneID="pGB-CZ-9EX">
+            <objects>
+                <viewController id="XNa-Ru-XO3" customClass="OttAddFriendViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="sHc-2b-M3M"/>
+                        <viewControllerLayoutGuide type="bottom" id="clT-hc-HOf"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="USB-Fn-ME1">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="redraw" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="OttaSideMenuBackground.png" translatesAutoresizingMaskIntoConstraints="NO" id="Tar-LS-pmi">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="greenLogo.png" translatesAutoresizingMaskIntoConstraints="NO" id="9QH-Bm-6s5">
+                                <rect key="frame" x="82" y="89" width="156" height="54"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="abi-b8-xOm">
+                                <rect key="frame" x="16" y="20" width="49" height="32"/>
+                                <state key="normal" image="btn_back.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="backButtonPressed:" destination="XNa-Ru-XO3" eventType="touchUpInside" id="hJm-Ln-4wT"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Allow access to contacts" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vjr-mJ-4k0">
+                                <rect key="frame" x="16" y="242" width="241" height="26"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UdX-vt-wDW">
+                                <rect key="frame" x="282" y="244" width="22" height="22"/>
+                                <state key="normal" image="icon_uncheck.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="checkButtonPressed:" destination="XNa-Ru-XO3" eventType="touchUpInside" id="gzP-Su-dyc"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="icon_find.png" translatesAutoresizingMaskIntoConstraints="NO" id="Mhw-xf-f7G">
+                                <rect key="frame" x="16" y="310" width="20" height="20"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="icon_add.png" translatesAutoresizingMaskIntoConstraints="NO" id="Muj-XY-WkQ">
+                                <rect key="frame" x="16" y="369" width="20" height="20"/>
+                            </imageView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Find friends" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MmG-KM-dkT">
+                                <rect key="frame" x="42" y="305" width="262" height="30"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Invite friends" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lpU-yF-iCF">
+                                <rect key="frame" x="42" y="364" width="262" height="30"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="image_line.png" translatesAutoresizingMaskIntoConstraints="NO" id="AZW-UX-FAA">
+                                <rect key="frame" x="16" y="331" width="288" height="15"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="image_line.png" translatesAutoresizingMaskIntoConstraints="NO" id="NmI-Hj-Rn4">
+                                <rect key="frame" x="16" y="390" width="288" height="15"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uvO-98-V7J">
+                                <rect key="frame" x="76" y="496" width="168" height="38"/>
+                                <state key="normal" image="btn_start.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="startButtonPressed:" destination="XNa-Ru-XO3" eventType="touchUpInside" id="emB-zt-WaO"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="UdX-vt-wDW" firstAttribute="trailing" secondItem="USB-Fn-ME1" secondAttribute="trailingMargin" id="55d-7Z-fSm"/>
+                            <constraint firstItem="UdX-vt-wDW" firstAttribute="trailing" secondItem="USB-Fn-ME1" secondAttribute="trailingMargin" id="727-A8-Xcd"/>
+                            <constraint firstItem="AZW-UX-FAA" firstAttribute="leading" secondItem="USB-Fn-ME1" secondAttribute="leadingMargin" id="CD5-IT-O3T"/>
+                            <constraint firstItem="NmI-Hj-Rn4" firstAttribute="leading" secondItem="USB-Fn-ME1" secondAttribute="leadingMargin" id="FfO-0f-Sn1"/>
+                            <constraint firstAttribute="centerX" secondItem="9QH-Bm-6s5" secondAttribute="centerX" id="J5t-lc-FDw"/>
+                            <constraint firstItem="AZW-UX-FAA" firstAttribute="trailing" secondItem="USB-Fn-ME1" secondAttribute="trailingMargin" id="VKI-Yd-ndb"/>
+                            <constraint firstAttribute="centerX" secondItem="uvO-98-V7J" secondAttribute="centerX" id="WQs-dx-f8a"/>
+                            <constraint firstItem="lpU-yF-iCF" firstAttribute="leading" secondItem="USB-Fn-ME1" secondAttribute="leadingMargin" constant="26" id="bEf-ue-EY8"/>
+                            <constraint firstItem="clT-hc-HOf" firstAttribute="top" secondItem="Tar-LS-pmi" secondAttribute="bottom" id="eHA-Cd-CEx"/>
+                            <constraint firstItem="clT-hc-HOf" firstAttribute="top" secondItem="uvO-98-V7J" secondAttribute="bottom" constant="35" id="hdv-sf-DEk"/>
+                            <constraint firstItem="Tar-LS-pmi" firstAttribute="top" secondItem="USB-Fn-ME1" secondAttribute="topMargin" id="mxS-lt-VQM"/>
+                            <constraint firstItem="Mhw-xf-f7G" firstAttribute="leading" secondItem="USB-Fn-ME1" secondAttribute="leadingMargin" id="nr4-Tq-fzu"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Tar-LS-pmi" secondAttribute="trailing" constant="-16" id="s8n-UK-StK"/>
+                            <constraint firstItem="Tar-LS-pmi" firstAttribute="leading" secondItem="USB-Fn-ME1" secondAttribute="leadingMargin" constant="-16" id="uLq-hO-VxE"/>
+                            <constraint firstItem="lpU-yF-iCF" firstAttribute="trailing" secondItem="USB-Fn-ME1" secondAttribute="trailingMargin" id="vuf-Y0-AVp"/>
+                            <constraint firstItem="NmI-Hj-Rn4" firstAttribute="trailing" secondItem="USB-Fn-ME1" secondAttribute="trailingMargin" id="y1Y-H2-v1P"/>
+                            <constraint firstItem="Muj-XY-WkQ" firstAttribute="leading" secondItem="USB-Fn-ME1" secondAttribute="leadingMargin" id="yHW-jj-1ox"/>
+                        </constraints>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="btnCheck" destination="UdX-vt-wDW" id="fcI-AY-Tj6"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="L06-Mb-tjw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="710" y="634"/>
         </scene>
     </scenes>
     <resources>
@@ -327,10 +432,16 @@
         <image name="OttaAddAnswerButton.png" width="90" height="102"/>
         <image name="OttaAskSeparator.png" width="640" height="34"/>
         <image name="OttaAskheader.png" width="640" height="123"/>
+        <image name="OttaSideMenuBackground.png" width="640" height="1136"/>
         <image name="btn_back.png" width="226" height="153"/>
         <image name="btn_join.png" width="362" height="104"/>
         <image name="btn_login.png" width="361" height="104"/>
+        <image name="btn_start.png" width="514" height="104"/>
         <image name="greenLogo.png" width="626" height="281"/>
+        <image name="icon_add.png" width="41" height="42"/>
+        <image name="icon_find.png" width="52" height="53"/>
+        <image name="icon_uncheck.png" width="52" height="53"/>
+        <image name="image_line.png" width="816" height="3"/>
         <image name="universalSidebar.png" width="478" height="960"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
@@ -338,7 +449,4 @@
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
-    <inferredMetricsTieBreakers>
-        <segue reference="2RC-RW-FQw"/>
-    </inferredMetricsTieBreakers>
 </document>
