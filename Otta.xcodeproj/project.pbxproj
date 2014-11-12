@@ -14,6 +14,7 @@
 		382E32721A139911008ACA45 /* menu_otta.png in Resources */ = {isa = PBXBuildFile; fileRef = 382E326C1A139911008ACA45 /* menu_otta.png */; };
 		382E32731A139911008ACA45 /* menu_question.png in Resources */ = {isa = PBXBuildFile; fileRef = 382E326D1A139911008ACA45 /* menu_question.png */; };
 		382E32741A139911008ACA45 /* menu_weel.png in Resources */ = {isa = PBXBuildFile; fileRef = 382E326E1A139911008ACA45 /* menu_weel.png */; };
+		382E32771A13A54A008ACA45 /* OttaMenuCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 382E32761A13A54A008ACA45 /* OttaMenuCell.m */; };
 		386E89AF1A124EAF00459171 /* btn_facebook.png in Resources */ = {isa = PBXBuildFile; fileRef = 386E89A61A124EAF00459171 /* btn_facebook.png */; };
 		386E89B01A124EAF00459171 /* btn_join.png in Resources */ = {isa = PBXBuildFile; fileRef = 386E89A71A124EAF00459171 /* btn_join.png */; };
 		386E89B11A124EAF00459171 /* btn_login.png in Resources */ = {isa = PBXBuildFile; fileRef = 386E89A81A124EAF00459171 /* btn_login.png */; };
@@ -122,6 +123,8 @@
 		382E326C1A139911008ACA45 /* menu_otta.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menu_otta.png; sourceTree = "<group>"; };
 		382E326D1A139911008ACA45 /* menu_question.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menu_question.png; sourceTree = "<group>"; };
 		382E326E1A139911008ACA45 /* menu_weel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menu_weel.png; sourceTree = "<group>"; };
+		382E32751A13A54A008ACA45 /* OttaMenuCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OttaMenuCell.h; sourceTree = "<group>"; };
+		382E32761A13A54A008ACA45 /* OttaMenuCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OttaMenuCell.m; sourceTree = "<group>"; };
 		386E89A61A124EAF00459171 /* btn_facebook.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_facebook.png; sourceTree = "<group>"; };
 		386E89A71A124EAF00459171 /* btn_join.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_join.png; sourceTree = "<group>"; };
 		386E89A81A124EAF00459171 /* btn_login.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_login.png; sourceTree = "<group>"; };
@@ -434,6 +437,8 @@
 				66FD4B371A11A8F0005ACD58 /* OttaQuestionTableViewCell.h */,
 				66FD4B381A11A8F0005ACD58 /* OttaQuestionTableViewCell.m */,
 				66FD4B391A11A8F0005ACD58 /* OttaQuestionTableViewCell.xib */,
+				382E32751A13A54A008ACA45 /* OttaMenuCell.h */,
+				382E32761A13A54A008ACA45 /* OttaMenuCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -813,6 +818,7 @@
 				66FD4B361A11A8A5005ACD58 /* OttaAskViewController.m in Sources */,
 				386E89C81A126AC100459171 /* OttAddFriendViewController.m in Sources */,
 				66FD4B5A1A11ABF9005ACD58 /* OttaAnswerTableController.m in Sources */,
+				382E32771A13A54A008ACA45 /* OttaMenuCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

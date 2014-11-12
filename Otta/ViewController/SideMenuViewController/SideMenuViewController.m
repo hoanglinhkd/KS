@@ -7,6 +7,7 @@
 //
 
 #import "SideMenuViewController.h"
+#import "OttaMenuCell.h"
 
 @interface SideMenuViewController ()
 
@@ -36,21 +37,45 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
 - (IBAction)unwindToSideMenu:(UIStoryboardSegue *)unwindSegue
-//Do Something
 {
 
 
 }
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 75.0;
 }
-*/
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return 5;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    static NSString *cellIdentifier = @"OttaMenuCellID";
+    
+    OttaMenuCell *cell = [tableView dequeueReusableCellWithIdentifier:
+                             cellIdentifier];
+    if (cell == nil) {
+        cell = [[OttaMenuCell alloc]initWithStyle:
+                UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
+    }
+    
+    switch (indexPath.row) {
+        case 0:
+        {
+            cell.imageView.image = [UIImage imageNamed:@"menu_question.png"];
+            cell.lblText.text = @"Ask a question";
+        }
+            break;
+            
+        default:
+            break;
+    }
+    
+    return cell;
+}
 
 @end

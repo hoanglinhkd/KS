@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="rFF-Yf-sGT">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14B23" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="rFF-Yf-sGT">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
@@ -49,20 +49,77 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="universalSidebar.png" translatesAutoresizingMaskIntoConstraints="NO" id="YH0-ZA-d3Y">
-                                <rect key="frame" x="0.0" y="20" width="239" height="480"/>
-                            </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aXY-dw-cq9">
-                                <rect key="frame" x="20" y="29" width="166" height="42"/>
-                                <state key="normal">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="75" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="vil-Ad-SVN">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="469"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" restorationIdentifier="OttaMenuCellID" selectionStyle="default" indentationWidth="10" rowHeight="75" id="uZZ-cV-6X4" customClass="OttaMenuCell">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="uZZ-cV-6X4" id="ErB-vi-ChX">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ALx-7Q-mk5">
+                                                    <rect key="frame" x="71" y="30" width="229" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="menu_heart.png" translatesAutoresizingMaskIntoConstraints="NO" id="Nsg-4X-hER">
+                                                    <rect key="frame" x="13" y="14" width="50" height="50"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="50" id="970-aG-8mp"/>
+                                                        <constraint firstAttribute="height" constant="50" id="WOo-DB-1II"/>
+                                                    </constraints>
+                                                </imageView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="ALx-7Q-mk5" firstAttribute="top" secondItem="ErB-vi-ChX" secondAttribute="topMargin" constant="22" id="zUl-kr-5Pc"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="imgIcon" destination="Nsg-4X-hER" id="FkO-RU-AjK"/>
+                                            <outlet property="lblText" destination="ALx-7Q-mk5" id="Qv8-PQ-cIi"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
                                 <connections>
-                                    <segue destination="03l-6j-O6Q" kind="custom" customClass="ECSlidingSegue" id="vnc-Jr-YJh"/>
+                                    <outlet property="dataSource" destination="6OP-t7-Iu0" id="Lbq-Pb-PFm"/>
+                                    <outlet property="delegate" destination="6OP-t7-Iu0" id="SS8-R5-yi1"/>
                                 </connections>
-                            </button>
+                            </tableView>
+                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dEz-CL-hu1">
+                                <rect key="frame" x="0.0" y="477" width="320" height="75"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="menu_otta.png" translatesAutoresizingMaskIntoConstraints="NO" id="IdL-g7-5n1">
+                                        <rect key="frame" x="16" y="15" width="39" height="50"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="About" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u7S-9b-vMj">
+                                        <rect key="frame" x="67" y="34" width="169" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aXY-dw-cq9">
+                                        <rect key="frame" x="8" y="23" width="166" height="42"/>
+                                        <state key="normal">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="03l-6j-O6Q" kind="custom" customClass="ECSlidingSegue" id="vnc-Jr-YJh"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="1" green="0.40000000000000002" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="dEz-CL-hu1" secondAttribute="trailing" constant="-16" id="He3-69-Yul"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="vil-Ad-SVN" secondAttribute="trailing" constant="-16" id="RLb-ET-RDy"/>
+                            <constraint firstItem="vil-Ad-SVN" firstAttribute="leading" secondItem="KrO-r9-fhq" secondAttribute="leadingMargin" constant="-16" id="XVi-LP-ipK"/>
+                            <constraint firstItem="dEz-CL-hu1" firstAttribute="leading" secondItem="KrO-r9-fhq" secondAttribute="leadingMargin" constant="-16" id="wnB-KI-BdE"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="yCo-9z-Fna"/>
                     <connections>
@@ -71,7 +128,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6a1-7a-MVv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-439" y="490"/>
+            <point key="canvasLocation" x="-439" y="483"/>
         </scene>
         <!--Otta View Controller-->
         <scene sceneID="eCd-MW-faB">
@@ -457,7 +514,8 @@
         <image name="icon_find.png" width="52" height="53"/>
         <image name="icon_uncheck.png" width="52" height="53"/>
         <image name="image_line.png" width="816" height="3"/>
-        <image name="universalSidebar.png" width="478" height="960"/>
+        <image name="menu_heart.png" width="172" height="171"/>
+        <image name="menu_otta.png" width="173" height="173"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
