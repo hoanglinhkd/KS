@@ -7,7 +7,7 @@
 //
 
 #import "SideMenuViewController.h"
-#import "OttaMenuCell.h"
+
 
 @interface SideMenuViewController ()
 
@@ -56,8 +56,10 @@
     
     static NSString *cellIdentifier = @"OttaMenuCellID";
     
+
     OttaMenuCell *cell = [tableView dequeueReusableCellWithIdentifier:
                              cellIdentifier];
+    
     if (cell == nil) {
         cell = [[OttaMenuCell alloc]initWithStyle:
                 UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
@@ -66,7 +68,7 @@
     switch (indexPath.row) {
         case 0:
         {
-            cell.imageView.image = [UIImage imageNamed:@"menu_question.png"];
+            cell.imgIcon.image = [UIImage imageNamed:@"menu_question.png"];
             cell.lblText.text = @"Ask a question";
         }
             break;

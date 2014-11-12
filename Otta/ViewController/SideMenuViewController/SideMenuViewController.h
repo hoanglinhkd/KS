@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "OttaMenuCell.h"
 
 @interface SideMenuViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
+
+
 
 @end
