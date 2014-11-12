@@ -13,6 +13,7 @@
 #ifdef __OBJC__
     #import <UIKit/UIKit.h>
     #import <Foundation/Foundation.h>
+    #import "MBProgressHUD.h"
 #endif
 
 #define openSansFontRegular [UIFont fontWithName:@"OpenSans-Regular" size:18.00f]
