@@ -16,5 +16,4 @@
 
 - (IBAction)backButtonPressed:(id)sender;
 - (IBAction)checkButtonPressed:(id)sender;
-- (IBAction)startButtonPressed:(id)sender;
 @end

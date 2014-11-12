@@ -23,8 +23,4 @@
     }
 }
 
-- (IBAction)startButtonPressed:(id)sender {
-    [self performSegueWithIdentifier:@"id_segue" sender:nil];
-}
-
 @end

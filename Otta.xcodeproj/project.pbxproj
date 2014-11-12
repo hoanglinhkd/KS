@@ -196,23 +196,11 @@
 		66FD4B5F1A11AD6B005ACD58 /* TestFlight+AsyncLogging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TestFlight+AsyncLogging.h"; sourceTree = "<group>"; };
 		66FD4B601A11AD6B005ACD58 /* TestFlight+ManualSessions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TestFlight+ManualSessions.h"; sourceTree = "<group>"; };
 		66FD4B611A11AD6B005ACD58 /* TestFlight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestFlight.h; sourceTree = "<group>"; };
-		92EDE4C95CF4A7D976778BD0 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		D075C858A4214DDABEDE0CDD /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		D2E6FF9CAACBD465518AACD2 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		D9286F3E1A12187F00C28770 /* OttaSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OttaSessionManager.h; sourceTree = "<group>"; };
 		D9286F3F1A12187F00C28770 /* OttaSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OttaSessionManager.m; sourceTree = "<group>"; };
 		D9286F411A12190500C28770 /* OttaParseClientManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OttaParseClientManager.h; sourceTree = "<group>"; };
 		D9286F421A12190500C28770 /* OttaParseClientManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OttaParseClientManager.m; sourceTree = "<group>"; };
-		D94932C11A131C5D001AAA9F /* libPods-AFNetworking.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-AFNetworking.a"; path = "Pods/build/Debug-iphoneos/libPods-AFNetworking.a"; sourceTree = "<group>"; };
-		D94932C21A131C5D001AAA9F /* libPods-Bolts.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-Bolts.a"; path = "Pods/build/Debug-iphoneos/libPods-Bolts.a"; sourceTree = "<group>"; };
-		D94932C31A131C5D001AAA9F /* libPods-CZPhotoPickerController.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-CZPhotoPickerController.a"; path = "Pods/build/Debug-iphoneos/libPods-CZPhotoPickerController.a"; sourceTree = "<group>"; };
-		D94932C41A131C5D001AAA9F /* libPods-EAIntroView.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-EAIntroView.a"; path = "Pods/build/Debug-iphoneos/libPods-EAIntroView.a"; sourceTree = "<group>"; };
-		D94932C51A131C5D001AAA9F /* libPods-ECSlidingViewController.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-ECSlidingViewController.a"; path = "Pods/build/Debug-iphoneos/libPods-ECSlidingViewController.a"; sourceTree = "<group>"; };
-		D94932C61A131C5D001AAA9F /* libPods-Facebook-iOS-SDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-Facebook-iOS-SDK.a"; path = "Pods/build/Debug-iphoneos/libPods-Facebook-iOS-SDK.a"; sourceTree = "<group>"; };
-		D94932C71A131C5D001AAA9F /* libPods-MBProgressHUD.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-MBProgressHUD.a"; path = "Pods/build/Debug-iphoneos/libPods-MBProgressHUD.a"; sourceTree = "<group>"; };
-		D94932C81A131C5D001AAA9F /* libPods-SDWebImage.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-SDWebImage.a"; path = "Pods/build/Debug-iphoneos/libPods-SDWebImage.a"; sourceTree = "<group>"; };
-		D94932C91A131C5D001AAA9F /* libPods-TPKeyboardAvoiding.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-TPKeyboardAvoiding.a"; path = "Pods/build/Debug-iphoneos/libPods-TPKeyboardAvoiding.a"; sourceTree = "<group>"; };
-		D94932CA1A131C5D001AAA9F /* libPods-YIPopupTextView.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-YIPopupTextView.a"; path = "Pods/build/Debug-iphoneos/libPods-YIPopupTextView.a"; sourceTree = "<group>"; };
 		F0B6412419A57B11007C4373 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		F0BC6512198606BD0097A87C /* Otta.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Otta.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F0BC6515198606BD0097A87C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -232,6 +220,7 @@
 		F0BC6540198606BD0097A87C /* OttaTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OttaTests.m; sourceTree = "<group>"; };
 		F0D6B1F119862B4D0077E30E /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = ../Main.storyboard; sourceTree = "<group>"; };
 		F0D6B2051987025B0077E30E /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
+		FEA38D9950CA47A48FF7D9DA /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -480,15 +469,6 @@
 			path = Testflight;
 			sourceTree = "<group>";
 		};
-		D2719784537EBF1822D2A2FB /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				92EDE4C95CF4A7D976778BD0 /* Pods.debug.xcconfig */,
-				D2E6FF9CAACBD465518AACD2 /* Pods.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 		D9286F3D1A12187F00C28770 /* Manager */ = {
 			isa = PBXGroup;
 			children = (
@@ -507,7 +487,7 @@
 				F0BC653A198606BD0097A87C /* OttaTests */,
 				F0BC6514198606BD0097A87C /* Frameworks */,
 				F0BC6513198606BD0097A87C /* Products */,
-				D2719784537EBF1822D2A2FB /* Pods */,
+				FEA38D9950CA47A48FF7D9DA /* Pods.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -523,16 +503,6 @@
 		F0BC6514198606BD0097A87C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				D94932C11A131C5D001AAA9F /* libPods-AFNetworking.a */,
-				D94932C21A131C5D001AAA9F /* libPods-Bolts.a */,
-				D94932C31A131C5D001AAA9F /* libPods-CZPhotoPickerController.a */,
-				D94932C41A131C5D001AAA9F /* libPods-EAIntroView.a */,
-				D94932C51A131C5D001AAA9F /* libPods-ECSlidingViewController.a */,
-				D94932C61A131C5D001AAA9F /* libPods-Facebook-iOS-SDK.a */,
-				D94932C71A131C5D001AAA9F /* libPods-MBProgressHUD.a */,
-				D94932C81A131C5D001AAA9F /* libPods-SDWebImage.a */,
-				D94932C91A131C5D001AAA9F /* libPods-TPKeyboardAvoiding.a */,
-				D94932CA1A131C5D001AAA9F /* libPods-YIPopupTextView.a */,
 				F0B6412419A57B11007C4373 /* libz.dylib */,
 				F0D6B2051987025B0077E30E /* Parse.framework */,
 				F0BC6515198606BD0097A87C /* Foundation.framework */,
@@ -641,7 +611,7 @@
 				ORGANIZATIONNAME = SojoDigital;
 				TargetAttributes = {
 					F0BC6511198606BD0097A87C = {
-						DevelopmentTeam = QX865SJV3T;
+						DevelopmentTeam = NJYXP339SK;
 					};
 					F0BC6532198606BD0097A87C = {
 						TestTargetID = F0BC6511198606BD0097A87C;
@@ -760,7 +730,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		DDE9B982DF28450B936D2CE9 /* Check Pods Manifest.lock */ = {
@@ -914,7 +884,7 @@
 		};
 		F0BC6545198606BD0097A87C /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 92EDE4C95CF4A7D976778BD0 /* Pods.debug.xcconfig */;
+			baseConfigurationReference = FEA38D9950CA47A48FF7D9DA /* Pods.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -930,22 +900,20 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 					"$(PROJECT_DIR)/Otta/Lib/Testflight",
-					"$(PROJECT_DIR)/Pods/build/Debug-iphoneos",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
 		};
 		F0BC6546198606BD0097A87C /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D2E6FF9CAACBD465518AACD2 /* Pods.release.xcconfig */;
+			baseConfigurationReference = FEA38D9950CA47A48FF7D9DA /* Pods.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Sojo Digital Inc. (NJYXP339SK)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Sojo Digital Inc. (NJYXP339SK)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -957,10 +925,9 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 					"$(PROJECT_DIR)/Otta/Lib/Testflight",
-					"$(PROJECT_DIR)/Pods/build/Debug-iphoneos",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "809ab396-582e-4ab9-903a-141994317fc0";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
