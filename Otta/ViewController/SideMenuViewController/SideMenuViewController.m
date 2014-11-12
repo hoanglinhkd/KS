@@ -80,4 +80,8 @@
     return cell;
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [self performSegueWithIdentifier:@"segueAskQuestion" sender:nil];
+}
+
 @end

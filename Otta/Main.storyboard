@@ -61,23 +61,14 @@
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aXY-dw-cq9">
-                                        <rect key="frame" x="8" y="23" width="166" height="42"/>
-                                        <state key="normal">
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <segue destination="03l-6j-O6Q" kind="custom" customClass="ECSlidingSegue" id="vnc-Jr-YJh"/>
-                                        </connections>
-                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" red="1" green="0.40000000000000002" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="64" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="vil-Ad-SVN">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="58" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="vil-Ad-SVN">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="469"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" restorationIdentifier="OttaMenuCellID" selectionStyle="default" indentationWidth="10" reuseIdentifier="OttaMenuCellID" rowHeight="64" id="uZZ-cV-6X4" customClass="OttaMenuCell">
+                                    <tableViewCell contentMode="scaleToFill" restorationIdentifier="OttaMenuCellID" selectionStyle="default" indentationWidth="10" reuseIdentifier="OttaMenuCellID" rowHeight="58" id="uZZ-cV-6X4" customClass="OttaMenuCell">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="uZZ-cV-6X4" id="ErB-vi-ChX">
@@ -121,6 +112,7 @@
                     <navigationItem key="navigationItem" id="yCo-9z-Fna"/>
                     <connections>
                         <segue destination="LAA-1c-mRI" kind="unwind" unwindAction="unwindToSideMenu:" id="fVF-5R-kNh"/>
+                        <segue destination="03l-6j-O6Q" kind="custom" identifier="segueAskQuestion" customClass="ECSlidingSegue" id="0hO-Hb-BJd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6a1-7a-MVv" userLabel="First Responder" sceneMemberID="firstResponder"/>
