@@ -190,12 +190,22 @@
                                     <action selector="btnForgotPasswordTapped:" destination="rFF-Yf-sGT" eventType="touchUpInside" id="202-21-snz"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NfI-lO-yTS" userLabel="FacebookButton">
+                                <rect key="frame" x="25" y="477" width="126" height="36"/>
+                                <state key="normal" image="FBConnect.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="facebookLogin:" destination="rFF-Yf-sGT" eventType="touchUpInside" id="s2C-w2-vy1"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.1803921568627451" green="0.1803921568627451" blue="0.1803921568627451" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <connections>
                         <outlet property="btnBackPage" destination="OlT-Y5-elW" id="9Kp-Eo-1cw"/>
                         <outlet property="btnFacebook" destination="FJT-fA-Doo" id="Gjf-vN-Gkv"/>
+                        <outlet property="btnFacebookJoin" destination="NfI-lO-yTS" id="XvD-EW-kC2"/>
                         <outlet property="btnForgotPassword" destination="QEM-HX-5fq" id="nHR-CH-hIT"/>
                         <outlet property="btnJoin" destination="exT-oC-fMq" id="0PZ-ZJ-7fL"/>
                         <outlet property="btnLogin" destination="Mru-iE-Pmd" id="cM1-aI-r13"/>
