@@ -10,6 +10,7 @@
 #import <Parse/Parse.h>
 #import <EAIntroView.h>
 #import "OttaSessionManager.h"
+#import "OttaParseClientManager.h"
 
 @interface OttaViewController : UIViewController
 {

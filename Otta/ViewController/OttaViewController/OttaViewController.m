@@ -7,8 +7,9 @@
 //
 #import "OttaViewController.h"
 
-@interface OttaViewController ()<EAIntroDelegate>
-
+@interface OttaViewController ()<EAIntroDelegate> {
+    BOOL isJoinScreen;
+}
 @end
 
 @implementation OttaViewController
@@ -197,12 +198,59 @@
 
 -(IBAction)btnLoginTapped:(id)sender
 {
-    [self showLoginView];
+    //TODO: Will use other way to identify the screen
+    //Is login screen
+    if ([self.usernameTextField isHidden]) {
+        [self showLoginView];
+    } else {
+        //TO DO: Validation required field, validation email format
+        
+        [[OttaParseClientManager sharedManager] loginWithEmail:self.usernameTextField.text andPassword:self.passwordTextField.text withResult:^(BOOL joinSucceeded, PFUser *pUser, NSString *failureReason) {
+            if (joinSucceeded) {
+                NSLog(@"Login succeeded");
+                
+                [self performSegueWithIdentifier:@"AskViewControllerSegue" sender:self];
+                
+            } else {
+                NSLog(@"Login failed");
+                UIAlertView * alert =[[UIAlertView alloc ] initWithTitle:@"Login Failed"
+                                                                 message:failureReason
+                                                                delegate:self
+                                                       cancelButtonTitle:@"Ok"
+                                                       otherButtonTitles: nil];
+                [alert show];
+            }
+        }];
+    }
 }
 
 -(IBAction)btnJoinTapped:(id)sender
 {
-    [self showJoinView];
+    //TODO: Will use other way to identify the screen
+    //Is join Screen
+    if ([self.emailTextField isHidden]) {
+        [self showJoinView];
+    } else {
+        //TO DO: Validation required field, validation email format
+        
+        [[OttaParseClientManager sharedManager] joinWithEmail:self.emailTextField.text andUsername:self.usernameTextField.text andPassword:self.passwordTextField.text withResult:^(BOOL joinSucceeded, PFUser *pUser, NSString *failureReason) {
+            if (joinSucceeded) {
+                NSLog(@"Join succeeded");
+
+                [self performSegueWithIdentifier:@"AskViewControllerSegue" sender:self];
+
+            } else {
+                NSLog(@"Join failed");
+                UIAlertView * alert =[[UIAlertView alloc ] initWithTitle:@"Register Failed"
+                                                                 message:failureReason
+                                                                delegate:self
+                                                       cancelButtonTitle:@"Ok"
+                                                       otherButtonTitles: nil];
+                [alert show];
+            }
+        }];
+    }
+    
 }
 
 #pragma mark - Facebook
