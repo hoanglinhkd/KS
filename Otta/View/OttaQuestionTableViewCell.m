@@ -10,6 +10,7 @@
 
 @implementation OttaQuestionTableViewCell
 @synthesize ottaAnswerText,addPhotoButton,addTextButton,answerImage;
+
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
