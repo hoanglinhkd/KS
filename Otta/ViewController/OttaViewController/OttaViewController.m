@@ -108,7 +108,6 @@
     [_passwordTextField setHidden:YES];
     [_passwordLine setHidden:YES];
     [_btnFacebook setHidden:YES];
-    [_btnFacebookJoin setHidden:YES];
     [_btnJoin setHidden:NO];
     [_btnForgotPassword setHidden:YES];
     [intro showInView:self.ottaBackingView animateDuration:0.4f];
@@ -136,7 +135,6 @@
     
     [_btnJoin setHidden:YES];
     [_btnFacebook setHidden:NO];
-    [_btnFacebookJoin setHidden:YES];
     [_btnLogin setHidden:NO];
     [_btnBackPage setHidden:NO];
     [_btnForgotPassword setHidden:NO];
@@ -170,9 +168,8 @@
         _passwordTextField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"Password" attributes:@{NSForegroundColorAttributeName: color, NSFontAttributeName : [UIFont fontWithName:@"OpenSans-Light" size:20.0]}];
     }
     
-    [_btnJoin setHidden:NO];
-    [_btnFacebook setHidden:YES];
-    [_btnFacebookJoin setHidden:NO];
+    [_btnJoin setHidden:YES];
+    [_btnFacebook setHidden:NO];
     [_btnLogin setHidden:NO];
     [_btnBackPage setHidden:NO];
     [_btnForgotPassword setHidden:NO];
@@ -209,6 +206,7 @@
 -(IBAction)facebookLogin:(id)sender
 {
     //[[OttaSessionManager sharedManager]loginWithFacebook];
+    
     
     NSArray *permissionsArray = @[ @"user_about_me", @"user_relationships", @"user_birthday", @"user_location"];
     

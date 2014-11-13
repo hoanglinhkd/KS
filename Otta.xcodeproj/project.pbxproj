@@ -8,13 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		0B140940A13047B280C5584B /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D075C858A4214DDABEDE0CDD /* libPods.a */; };
-		382E326F1A139911008ACA45 /* menu_heart.png in Resources */ = {isa = PBXBuildFile; fileRef = 382E32691A139911008ACA45 /* menu_heart.png */; };
-		382E32701A139911008ACA45 /* menu_home.png in Resources */ = {isa = PBXBuildFile; fileRef = 382E326A1A139911008ACA45 /* menu_home.png */; };
-		382E32711A139911008ACA45 /* menu_mail.png in Resources */ = {isa = PBXBuildFile; fileRef = 382E326B1A139911008ACA45 /* menu_mail.png */; };
-		382E32721A139911008ACA45 /* menu_otta.png in Resources */ = {isa = PBXBuildFile; fileRef = 382E326C1A139911008ACA45 /* menu_otta.png */; };
-		382E32731A139911008ACA45 /* menu_question.png in Resources */ = {isa = PBXBuildFile; fileRef = 382E326D1A139911008ACA45 /* menu_question.png */; };
-		382E32741A139911008ACA45 /* menu_weel.png in Resources */ = {isa = PBXBuildFile; fileRef = 382E326E1A139911008ACA45 /* menu_weel.png */; };
-		382E32771A13A54A008ACA45 /* OttaMenuCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 382E32761A13A54A008ACA45 /* OttaMenuCell.m */; };
 		386E89AF1A124EAF00459171 /* btn_facebook.png in Resources */ = {isa = PBXBuildFile; fileRef = 386E89A61A124EAF00459171 /* btn_facebook.png */; };
 		386E89B01A124EAF00459171 /* btn_join.png in Resources */ = {isa = PBXBuildFile; fileRef = 386E89A71A124EAF00459171 /* btn_join.png */; };
 		386E89B11A124EAF00459171 /* btn_login.png in Resources */ = {isa = PBXBuildFile; fileRef = 386E89A81A124EAF00459171 /* btn_login.png */; };
@@ -31,8 +24,6 @@
 		386E89C21A12606000459171 /* icon_uncheck.png in Resources */ = {isa = PBXBuildFile; fileRef = 386E89BE1A12606000459171 /* icon_uncheck.png */; };
 		386E89C81A126AC100459171 /* OttAddFriendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 386E89C71A126AC100459171 /* OttAddFriendViewController.m */; };
 		386E89CA1A126DEF00459171 /* icon_check2.png in Resources */ = {isa = PBXBuildFile; fileRef = 386E89C91A126DEF00459171 /* icon_check2.png */; };
-		66502BE41A14571000A9472D /* icon_time.png in Resources */ = {isa = PBXBuildFile; fileRef = 66502BE31A14571000A9472D /* icon_time.png */; };
-		66502BE71A14653300A9472D /* OttaOptionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 66502BE61A14653300A9472D /* OttaOptionCell.m */; };
 		66FD4B051A11A6CC005ACD58 /* angry_birds_cake.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 66FD4AD81A11A6CC005ACD58 /* angry_birds_cake.jpg */; };
 		66FD4B061A11A6CC005ACD58 /* creme_brelee.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 66FD4AD91A11A6CC005ACD58 /* creme_brelee.jpg */; };
 		66FD4B071A11A6CC005ACD58 /* egg_benedict.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 66FD4ADA1A11A6CC005ACD58 /* egg_benedict.jpg */; };
@@ -119,14 +110,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		382E32691A139911008ACA45 /* menu_heart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menu_heart.png; sourceTree = "<group>"; };
-		382E326A1A139911008ACA45 /* menu_home.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menu_home.png; sourceTree = "<group>"; };
-		382E326B1A139911008ACA45 /* menu_mail.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menu_mail.png; sourceTree = "<group>"; };
-		382E326C1A139911008ACA45 /* menu_otta.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menu_otta.png; sourceTree = "<group>"; };
-		382E326D1A139911008ACA45 /* menu_question.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menu_question.png; sourceTree = "<group>"; };
-		382E326E1A139911008ACA45 /* menu_weel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menu_weel.png; sourceTree = "<group>"; };
-		382E32751A13A54A008ACA45 /* OttaMenuCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OttaMenuCell.h; sourceTree = "<group>"; };
-		382E32761A13A54A008ACA45 /* OttaMenuCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OttaMenuCell.m; sourceTree = "<group>"; };
 		386E89A61A124EAF00459171 /* btn_facebook.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_facebook.png; sourceTree = "<group>"; };
 		386E89A71A124EAF00459171 /* btn_join.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_join.png; sourceTree = "<group>"; };
 		386E89A81A124EAF00459171 /* btn_login.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_login.png; sourceTree = "<group>"; };
@@ -144,9 +127,6 @@
 		386E89C61A126AC100459171 /* OttAddFriendViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OttAddFriendViewController.h; sourceTree = "<group>"; };
 		386E89C71A126AC100459171 /* OttAddFriendViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OttAddFriendViewController.m; sourceTree = "<group>"; };
 		386E89C91A126DEF00459171 /* icon_check2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_check2.png; sourceTree = "<group>"; };
-		66502BE31A14571000A9472D /* icon_time.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_time.png; sourceTree = "<group>"; };
-		66502BE51A14653300A9472D /* OttaOptionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OttaOptionCell.h; sourceTree = "<group>"; };
-		66502BE61A14653300A9472D /* OttaOptionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OttaOptionCell.m; sourceTree = "<group>"; };
 		66FD4AD81A11A6CC005ACD58 /* angry_birds_cake.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = angry_birds_cake.jpg; sourceTree = "<group>"; };
 		66FD4AD91A11A6CC005ACD58 /* creme_brelee.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = creme_brelee.jpg; sourceTree = "<group>"; };
 		66FD4ADA1A11A6CC005ACD58 /* egg_benedict.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = egg_benedict.jpg; sourceTree = "<group>"; };
@@ -216,9 +196,7 @@
 		66FD4B5F1A11AD6B005ACD58 /* TestFlight+AsyncLogging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TestFlight+AsyncLogging.h"; sourceTree = "<group>"; };
 		66FD4B601A11AD6B005ACD58 /* TestFlight+ManualSessions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TestFlight+ManualSessions.h"; sourceTree = "<group>"; };
 		66FD4B611A11AD6B005ACD58 /* TestFlight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestFlight.h; sourceTree = "<group>"; };
-		C1E9BE3193743527323F1CDA /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		D075C858A4214DDABEDE0CDD /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		D45B044B7810A706377E3F1A /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		D9286F3E1A12187F00C28770 /* OttaSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OttaSessionManager.h; sourceTree = "<group>"; };
 		D9286F3F1A12187F00C28770 /* OttaSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OttaSessionManager.m; sourceTree = "<group>"; };
 		D9286F411A12190500C28770 /* OttaParseClientManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OttaParseClientManager.h; sourceTree = "<group>"; };
@@ -242,6 +220,7 @@
 		F0BC6540198606BD0097A87C /* OttaTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OttaTests.m; sourceTree = "<group>"; };
 		F0D6B1F119862B4D0077E30E /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = ../Main.storyboard; sourceTree = "<group>"; };
 		F0D6B2051987025B0077E30E /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
+		FEA38D9950CA47A48FF7D9DA /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -272,28 +251,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		2B44FB140FA4CD4C52631A33 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				C1E9BE3193743527323F1CDA /* Pods.debug.xcconfig */,
-				D45B044B7810A706377E3F1A /* Pods.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
-		382E32681A139911008ACA45 /* SlidingMenu */ = {
-			isa = PBXGroup;
-			children = (
-				382E32691A139911008ACA45 /* menu_heart.png */,
-				382E326A1A139911008ACA45 /* menu_home.png */,
-				382E326B1A139911008ACA45 /* menu_mail.png */,
-				382E326C1A139911008ACA45 /* menu_otta.png */,
-				382E326D1A139911008ACA45 /* menu_question.png */,
-				382E326E1A139911008ACA45 /* menu_weel.png */,
-			);
-			path = SlidingMenu;
-			sourceTree = "<group>";
-		};
 		386E89A51A124EAF00459171 /* Intro */ = {
 			isa = PBXGroup;
 			children = (
@@ -385,8 +342,6 @@
 		66FD4AF31A11A6CC005ACD58 /* images */ = {
 			isa = PBXGroup;
 			children = (
-				66502BE31A14571000A9472D /* icon_time.png */,
-				382E32681A139911008ACA45 /* SlidingMenu */,
 				386E89BA1A12606000459171 /* AddFriend */,
 				386E89A51A124EAF00459171 /* Intro */,
 				66FD4AF41A11A6CC005ACD58 /* addPhotoOtta.png */,
@@ -443,10 +398,6 @@
 				66FD4B371A11A8F0005ACD58 /* OttaQuestionTableViewCell.h */,
 				66FD4B381A11A8F0005ACD58 /* OttaQuestionTableViewCell.m */,
 				66FD4B391A11A8F0005ACD58 /* OttaQuestionTableViewCell.xib */,
-				382E32751A13A54A008ACA45 /* OttaMenuCell.h */,
-				382E32761A13A54A008ACA45 /* OttaMenuCell.m */,
-				66502BE51A14653300A9472D /* OttaOptionCell.h */,
-				66502BE61A14653300A9472D /* OttaOptionCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -536,7 +487,7 @@
 				F0BC653A198606BD0097A87C /* OttaTests */,
 				F0BC6514198606BD0097A87C /* Frameworks */,
 				F0BC6513198606BD0097A87C /* Products */,
-				2B44FB140FA4CD4C52631A33 /* Pods */,
+				FEA38D9950CA47A48FF7D9DA /* Pods.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -708,14 +659,12 @@
 				66FD4B0B1A11A6CC005ACD58 /* ham_and_egg_sandwich.jpg in Resources */,
 				66FD4B2D1A11A6CC005ACD58 /* OttaRightSidebar.png in Resources */,
 				F0D6B1F219862B4D0077E30E /* Main.storyboard in Resources */,
-				382E32711A139911008ACA45 /* menu_mail.png in Resources */,
 				66FD4B2F1A11A6CC005ACD58 /* universalSidebar.png in Resources */,
 				386E89C01A12606000459171 /* icon_add.png in Resources */,
 				F0BC652E198606BD0097A87C /* Images.xcassets in Resources */,
 				66FD4B111A11A6CC005ACD58 /* starbucks_coffee.jpg in Resources */,
 				66FD4B131A11A6CC005ACD58 /* vegetable_curry.jpg in Resources */,
 				66FD4B3B1A11A8F0005ACD58 /* OttaQuestionTableViewCell.xib in Resources */,
-				382E32731A139911008ACA45 /* menu_question.png in Resources */,
 				386E89B91A12591A00459171 /* btn_back.png in Resources */,
 				66FD4B151A11A6CC005ACD58 /* OpenSans-Bold.ttf in Resources */,
 				66FD4B081A11A6CC005ACD58 /* full_breakfast.jpg in Resources */,
@@ -736,10 +685,8 @@
 				66FD4B0D1A11A6CC005ACD58 /* instant_noodle_with_egg.jpg in Resources */,
 				66FD4B1E1A11A6CC005ACD58 /* OpenSans-SemiboldItalic.ttf in Resources */,
 				66FD4B0F1A11A6CC005ACD58 /* mushroom_risotto.jpg in Resources */,
-				66502BE41A14571000A9472D /* icon_time.png in Resources */,
 				66FD4B2E1A11A6CC005ACD58 /* OttaSideMenuBackground.png in Resources */,
 				66FD4B261A11A6CC005ACD58 /* OttaAskheader.png in Resources */,
-				382E32721A139911008ACA45 /* menu_otta.png in Resources */,
 				386E89B71A124EAF00459171 /* image_line.png in Resources */,
 				66FD4B291A11A6CC005ACD58 /* OttaGreenBackground.png in Resources */,
 				66FD4B1F1A11A6CC005ACD58 /* addPhotoOtta.png in Resources */,
@@ -751,13 +698,10 @@
 				66FD4B231A11A6CC005ACD58 /* LoginButton.png in Resources */,
 				66FD4B0A1A11A6CC005ACD58 /* ham_and_cheese_panini.jpg in Resources */,
 				386E89C21A12606000459171 /* icon_uncheck.png in Resources */,
-				382E326F1A139911008ACA45 /* menu_heart.png in Resources */,
 				386E89B61A124EAF00459171 /* icon_open_mail.png in Resources */,
-				382E32741A139911008ACA45 /* menu_weel.png in Resources */,
 				66FD4B121A11A6CC005ACD58 /* thai_shrimp_cake.jpg in Resources */,
 				66FD4B191A11A6CC005ACD58 /* OpenSans-Italic.ttf in Resources */,
 				66FD4B1A1A11A6CC005ACD58 /* OpenSans-Light.ttf in Resources */,
-				382E32701A139911008ACA45 /* menu_home.png in Resources */,
 				66FD4B071A11A6CC005ACD58 /* egg_benedict.jpg in Resources */,
 				66FD4B1C1A11A6CC005ACD58 /* OpenSans-Regular.ttf in Resources */,
 			);
@@ -786,7 +730,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		DDE9B982DF28450B936D2CE9 /* Check Pods Manifest.lock */ = {
@@ -821,14 +765,12 @@
 				D9286F431A12190500C28770 /* OttaParseClientManager.m in Sources */,
 				D9286F401A12187F00C28770 /* OttaSessionManager.m in Sources */,
 				66FD4B3F1A11A923005ACD58 /* OttaLoginViewController.m in Sources */,
-				66502BE71A14653300A9472D /* OttaOptionCell.m in Sources */,
 				66FD4B4B1A11AAED005ACD58 /* OttaTutorialViewController.m in Sources */,
 				66FD4B3A1A11A8F0005ACD58 /* OttaQuestionTableViewCell.m in Sources */,
 				66FD4B431A11A962005ACD58 /* SideMenuViewController.m in Sources */,
 				66FD4B361A11A8A5005ACD58 /* OttaAskViewController.m in Sources */,
 				386E89C81A126AC100459171 /* OttAddFriendViewController.m in Sources */,
 				66FD4B5A1A11ABF9005ACD58 /* OttaAnswerTableController.m in Sources */,
-				382E32771A13A54A008ACA45 /* OttaMenuCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -942,7 +884,7 @@
 		};
 		F0BC6545198606BD0097A87C /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C1E9BE3193743527323F1CDA /* Pods.debug.xcconfig */;
+			baseConfigurationReference = FEA38D9950CA47A48FF7D9DA /* Pods.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -966,7 +908,7 @@
 		};
 		F0BC6546198606BD0097A87C /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D45B044B7810A706377E3F1A /* Pods.release.xcconfig */;
+			baseConfigurationReference = FEA38D9950CA47A48FF7D9DA /* Pods.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="ILh-FI-rbb">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="rFF-Yf-sGT">
     <dependencies>
+        <deployment defaultVersion="1808" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -48,79 +49,29 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="58" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="vil-Ad-SVN">
-                                <rect key="frame" x="0.0" y="20" width="320" height="370"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <color key="sectionIndexTrackingBackgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="OttaMenuCellID" rowHeight="58" id="uZZ-cV-6X4" customClass="OttaMenuCell">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="uZZ-cV-6X4" id="ErB-vi-ChX">
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ALx-7Q-mk5">
-                                                    <rect key="frame" x="64" y="8" width="242" height="42"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="menu_heart.png" translatesAutoresizingMaskIntoConstraints="NO" id="Nsg-4X-hER">
-                                                    <rect key="frame" x="16" y="16" width="26" height="26"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="26" id="P8u-0Y-pb4"/>
-                                                        <constraint firstAttribute="height" constant="26" id="eHR-VJ-KFQ"/>
-                                                    </constraints>
-                                                </imageView>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        <connections>
-                                            <outlet property="imgIcon" destination="Nsg-4X-hER" id="FkO-RU-AjK"/>
-                                            <outlet property="lblText" destination="ALx-7Q-mk5" id="Qv8-PQ-cIi"/>
-                                        </connections>
-                                    </tableViewCell>
-                                </prototypes>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="universalSidebar.png" translatesAutoresizingMaskIntoConstraints="NO" id="YH0-ZA-d3Y">
+                                <rect key="frame" x="0.0" y="20" width="239" height="480"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aXY-dw-cq9">
+                                <rect key="frame" x="20" y="29" width="166" height="42"/>
+                                <state key="normal">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
                                 <connections>
-                                    <outlet property="dataSource" destination="6OP-t7-Iu0" id="Lbq-Pb-PFm"/>
-                                    <outlet property="delegate" destination="6OP-t7-Iu0" id="SS8-R5-yi1"/>
+                                    <segue destination="03l-6j-O6Q" kind="custom" customClass="ECSlidingSegue" id="vnc-Jr-YJh"/>
                                 </connections>
-                            </tableView>
-                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dEz-CL-hu1">
-                                <rect key="frame" x="0.0" y="441" width="320" height="62"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="About" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u7S-9b-vMj">
-                                        <rect key="frame" x="67" y="20" width="169" height="21"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="menu_otta.png" translatesAutoresizingMaskIntoConstraints="NO" id="IdL-g7-5n1">
-                                        <rect key="frame" x="21" y="16" width="26" height="26"/>
-                                    </imageView>
-                                </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                            </view>
+                            </button>
                         </subviews>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstAttribute="trailingMargin" secondItem="dEz-CL-hu1" secondAttribute="trailing" constant="-16" id="He3-69-Yul"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="vil-Ad-SVN" secondAttribute="trailing" constant="-16" id="RLb-ET-RDy"/>
-                            <constraint firstItem="vil-Ad-SVN" firstAttribute="leading" secondItem="KrO-r9-fhq" secondAttribute="leadingMargin" constant="-16" id="XVi-LP-ipK"/>
-                            <constraint firstItem="dEz-CL-hu1" firstAttribute="leading" secondItem="KrO-r9-fhq" secondAttribute="leadingMargin" constant="-16" id="wnB-KI-BdE"/>
-                        </constraints>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="yCo-9z-Fna"/>
                     <connections>
-                        <outlet property="menuTableView" destination="vil-Ad-SVN" id="cpA-xd-hFQ"/>
                         <segue destination="LAA-1c-mRI" kind="unwind" unwindAction="unwindToSideMenu:" id="fVF-5R-kNh"/>
-                        <segue destination="03l-6j-O6Q" kind="custom" identifier="segueAskQuestion" customClass="ECSlidingSegue" id="0hO-Hb-BJd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6a1-7a-MVv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-439" y="479"/>
+            <point key="canvasLocation" x="-439" y="490"/>
         </scene>
         <!--Otta View Controller-->
         <scene sceneID="eCd-MW-faB">
@@ -239,22 +190,12 @@
                                     <action selector="btnForgotPasswordTapped:" destination="rFF-Yf-sGT" eventType="touchUpInside" id="202-21-snz"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NfI-lO-yTS" userLabel="FacebookButton">
-                                <rect key="frame" x="25" y="477" width="126" height="36"/>
-                                <state key="normal" image="FBConnect.png">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="facebookLogin:" destination="rFF-Yf-sGT" eventType="touchUpInside" id="s2C-w2-vy1"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.1803921568627451" green="0.1803921568627451" blue="0.1803921568627451" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <connections>
                         <outlet property="btnBackPage" destination="OlT-Y5-elW" id="9Kp-Eo-1cw"/>
                         <outlet property="btnFacebook" destination="FJT-fA-Doo" id="Gjf-vN-Gkv"/>
-                        <outlet property="btnFacebookJoin" destination="NfI-lO-yTS" id="XvD-EW-kC2"/>
                         <outlet property="btnForgotPassword" destination="QEM-HX-5fq" id="nHR-CH-hIT"/>
                         <outlet property="btnJoin" destination="exT-oC-fMq" id="0PZ-ZJ-7fL"/>
                         <outlet property="btnLogin" destination="Mru-iE-Pmd" id="cM1-aI-r13"/>
@@ -285,17 +226,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bdU-MV-57B">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="80"/>
-                                <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="OttaAskheader.png" translatesAutoresizingMaskIntoConstraints="NO" id="L7E-2y-ysZ">
-                                        <rect key="frame" x="0.0" y="20" width="320" height="60"/>
-                                    </imageView>
-                                </subviews>
-                                <color key="backgroundColor" red="0.56078433990478516" green="0.79215693473815918" blue="0.25098040699958801" alpha="1" colorSpace="deviceRGB"/>
-                            </view>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B43-xP-muX">
-                                <rect key="frame" x="0.0" y="20" width="60" height="60"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="OttaAskheader.png" translatesAutoresizingMaskIntoConstraints="NO" id="L7E-2y-ysZ">
+                                <rect key="frame" x="0.0" y="20" width="320" height="60"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B43-xP-muX">
+                                <rect key="frame" x="5" y="35" width="46" height="30"/>
                                 <state key="normal">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -303,164 +238,60 @@
                                     <segue destination="LAA-1c-mRI" kind="unwind" unwindAction="unwindToSideMenu:" id="PyL-uz-MX7"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="OttaAskSeparator.png" translatesAutoresizingMaskIntoConstraints="NO" id="mJk-Xv-Vhf">
+                                <rect key="frame" x="0.0" y="152" width="320" height="18"/>
+                            </imageView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Options:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NhF-et-hd8">
+                                <rect key="frame" x="15" y="178" width="73" height="21"/>
+                                <fontDescription key="fontDescription" name="Avenir-Roman" family="Avenir" pointSize="17"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="L23-ab-CjQ">
-                                <rect key="frame" x="16" y="86" width="288" height="38"/>
+                                <rect key="frame" x="5" y="88" width="302" height="56"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" name="Avenir-Roman" family="Avenir" pointSize="15"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                 <connections>
                                     <outlet property="delegate" destination="ILh-FI-rbb" id="lBM-TJ-SO4"/>
                                 </connections>
                             </textView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="image_line.png" translatesAutoresizingMaskIntoConstraints="NO" id="mJk-Xv-Vhf">
-                                <rect key="frame" x="16" y="122" width="288" height="18"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="288" id="PpX-x8-GF0"/>
-                                    <constraint firstAttribute="height" constant="18" id="hsx-pi-cRh"/>
-                                </constraints>
-                            </imageView>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="92" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="LEm-ZW-BM5" customClass="TPKeyboardAvoidingTableView">
-                                <rect key="frame" x="0.0" y="137" width="320" height="387"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="OttaOptionCellIID" rowHeight="152" id="60g-K2-AJz" customClass="OttaOptionCell">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="60g-K2-AJz" id="ZyN-VG-Ukh">
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <textView hidden="YES" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zVO-t6-E0B">
-                                                    <rect key="frame" x="53" y="8" width="259" height="51"/>
-                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                                </textView>
-                                                <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hIw-e4-cRJ">
-                                                    <rect key="frame" x="53" y="72" width="91" height="69"/>
-                                                </imageView>
-                                                <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NPE-xC-J6P">
-                                                    <rect key="frame" x="20" y="28" width="20" height="20"/>
-                                                    <subviews>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="OttaNumberBackground.png" translatesAutoresizingMaskIntoConstraints="NO" id="Oez-QV-as3">
-                                                            <rect key="frame" x="0.0" y="0.0" width="20" height="20"/>
-                                                        </imageView>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bVp-cZ-tgo">
-                                                            <rect key="frame" x="0.0" y="0.0" width="20" height="20"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                    </subviews>
-                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                                </view>
-                                                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="du6-WV-2r3">
-                                                    <rect key="frame" x="53" y="9" width="249" height="57"/>
-                                                    <subviews>
-                                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V9r-Sd-MDH">
-                                                            <rect key="frame" x="25" y="6" width="63" height="45"/>
-                                                            <state key="normal" image="OttaAddTextButton.png">
-                                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                                            </state>
-                                                            <connections>
-                                                                <action selector="textButtonPressed:" destination="60g-K2-AJz" eventType="touchUpInside" id="tm3-WD-iQ1"/>
-                                                            </connections>
-                                                        </button>
-                                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XbD-2T-xAQ">
-                                                            <rect key="frame" x="112" y="8" width="51" height="41"/>
-                                                            <state key="normal" image="addPhotoOtta.png"/>
-                                                            <connections>
-                                                                <action selector="imageButtonPressed:" destination="60g-K2-AJz" eventType="touchUpInside" id="yxA-lZ-BL9"/>
-                                                            </connections>
-                                                        </button>
-                                                    </subviews>
-                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                                </view>
-                                            </subviews>
-                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                            <constraints>
-                                                <constraint firstItem="NPE-xC-J6P" firstAttribute="top" secondItem="ZyN-VG-Ukh" secondAttribute="topMargin" constant="20" id="SpS-HN-8R9"/>
-                                                <constraint firstItem="NPE-xC-J6P" firstAttribute="leading" secondItem="ZyN-VG-Ukh" secondAttribute="leadingMargin" constant="12" id="aQc-Ok-Csj"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                        <connections>
-                                            <outlet property="imgMain" destination="hIw-e4-cRJ" id="6am-cu-r1E"/>
-                                            <outlet property="lblNumber" destination="bVp-cZ-tgo" id="X5s-oX-pgu"/>
-                                            <outlet property="txtContent" destination="zVO-t6-E0B" id="8Yg-8l-kRa"/>
-                                            <outlet property="viewAction" destination="du6-WV-2r3" id="FeH-6e-Q8n"/>
-                                        </connections>
-                                    </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="OttaAddOptionCellIID" rowHeight="55" id="TVp-Xa-FjG">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="TVp-Xa-FjG" id="phL-uV-IYE">
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="OttaAddAnswerButton.png" translatesAutoresizingMaskIntoConstraints="NO" id="aQ0-FR-YFY">
-                                                    <rect key="frame" x="16" y="14" width="28" height="28"/>
-                                                </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Add option..." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YKm-tT-QGu">
-                                                    <rect key="frame" x="64" y="17" width="240" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="OttaDeadlineOptionCellIID" rowHeight="116" id="FML-6O-o6x">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="FML-6O-o6x" id="lyw-ev-TWV">
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="image_line.png" translatesAutoresizingMaskIntoConstraints="NO" id="7pi-0p-m7O">
-                                                    <rect key="frame" x="57" y="90" width="247" height="18"/>
-                                                </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Choose deadline..." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jys-KV-lgr">
-                                                    <rect key="frame" x="64" y="69" width="240" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="icon_time.png" translatesAutoresizingMaskIntoConstraints="NO" id="9b6-xC-URD">
-                                                    <rect key="frame" x="20" y="70" width="20" height="20"/>
-                                                </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Need to know in:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ahm-cZ-ZG3">
-                                                    <rect key="frame" x="8" y="33" width="130" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </prototypes>
-                                <connections>
-                                    <outlet property="dataSource" destination="ILh-FI-rbb" id="09B-8V-9my"/>
-                                    <outlet property="delegate" destination="ILh-FI-rbb" id="7DD-Tu-hgy"/>
-                                </connections>
-                            </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d4h-9H-rFt">
-                                <rect key="frame" x="0.0" y="524" width="320" height="44"/>
-                                <color key="backgroundColor" red="0.97647064920000004" green="0.68627452850000004" blue="0.10588236149999999" alpha="1" colorSpace="deviceRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <state key="normal" title="Next">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9Oi-xV-h0U">
+                                <rect key="frame" x="0.0" y="207" width="320" height="361"/>
+                                <subviews>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="I want to know by: " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NQS-vU-BVo">
+                                        <rect key="frame" x="87" y="260" width="145" height="24"/>
+                                        <fontDescription key="fontDescription" name="Avenir-Roman" family="Avenir" pointSize="17"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="v1K-wb-mUe">
+                                        <rect key="frame" x="0.0" y="282" width="320" height="162"/>
+                                        <date key="date" timeIntervalSinceReferenceDate="435448036.68121803">
+                                            <!--2014-10-19 21:47:16 +0000-->
+                                        </date>
+                                    </datePicker>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="LEm-ZW-BM5" customClass="TPKeyboardAvoidingTableView">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="260"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </tableView>
+                                </subviews>
+                            </scrollView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lTA-db-gH9">
+                                <rect key="frame" x="87" y="171" width="31" height="35"/>
+                                <state key="normal" backgroundImage="OttaAddAnswerButton.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="addQuestionButtonText:" destination="ILh-FI-rbb" eventType="touchUpInside" id="1SL-Jx-L17"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="mJk-Xv-Vhf" firstAttribute="top" secondItem="B43-xP-muX" secondAttribute="bottom" constant="42" id="Akk-Dw-IgA"/>
-                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="SX5-PI-AJq"/>
-                    <nil key="simulatedTopBarMetrics"/>
                     <connections>
+                        <outlet property="answerTableView" destination="LEm-ZW-BM5" id="Hdb-l5-S2B"/>
                         <outlet property="itsTextView" destination="L23-ab-CjQ" id="J3T-4f-eqv"/>
+                        <outlet property="theScrollView" destination="9Oi-xV-h0U" id="Meb-sP-fb6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GNA-7c-bpy" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -614,11 +445,9 @@
     <resources>
         <image name="FBConnect.png" width="252" height="72"/>
         <image name="OttaAddAnswerButton.png" width="90" height="102"/>
-        <image name="OttaAddTextButton.png" width="134" height="112"/>
+        <image name="OttaAskSeparator.png" width="640" height="34"/>
         <image name="OttaAskheader.png" width="640" height="123"/>
-        <image name="OttaNumberBackground.png" width="73" height="73"/>
         <image name="OttaSideMenuBackground.png" width="640" height="1136"/>
-        <image name="addPhotoOtta.png" width="134" height="112"/>
         <image name="btn_back.png" width="226" height="153"/>
         <image name="btn_join.png" width="362" height="104"/>
         <image name="btn_login.png" width="361" height="104"/>
@@ -626,11 +455,9 @@
         <image name="greenLogo.png" width="626" height="281"/>
         <image name="icon_add.png" width="41" height="42"/>
         <image name="icon_find.png" width="52" height="53"/>
-        <image name="icon_time.png" width="106" height="106"/>
         <image name="icon_uncheck.png" width="52" height="53"/>
         <image name="image_line.png" width="816" height="3"/>
-        <image name="menu_heart.png" width="172" height="171"/>
-        <image name="menu_otta.png" width="173" height="173"/>
+        <image name="universalSidebar.png" width="478" height="960"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>

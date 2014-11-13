@@ -9,10 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface OttaQuestionTableViewCell : UITableViewCell
-
 @property (nonatomic,strong)IBOutlet UIButton * addPhotoButton;
 @property (nonatomic,strong)IBOutlet UIButton * addTextButton;
 @property (nonatomic,strong)IBOutlet UITextView * ottaAnswerText;
-@property (nonatomic,strong)IBOutlet UIImageView * answerImage;
-
+@property (nonatomic,strong)IBOutlet UIImageView * answerImage; 
 @end

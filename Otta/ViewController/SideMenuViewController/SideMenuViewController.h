@@ -7,11 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "OttaMenuCell.h"
 
-@interface SideMenuViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
-
-@property (weak, nonatomic) IBOutlet UITableView *menuTableView;
-
+@interface SideMenuViewController : UIViewController
 
 @end

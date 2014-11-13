@@ -9,15 +9,14 @@
 #import "OttaAskViewController.h"
 #import "OttaAnswer.h"
 #import "YIPopupTextView.h"
-#import "OttaOptionCell.h"
-#import "OttaAnswer.h"
+
 
 @interface OttaAskViewController ()
 
 @end
 
 @implementation OttaAskViewController
-//@synthesize itsTextView,answerTableView,activeTextField;
+@synthesize itsTextView,answerTableView,activeTextField;
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -58,18 +57,21 @@
  */
 - (IBAction)dismissKeyboard:(id)sender
 {
-    //[activeTextField resignFirstResponder];
+    [activeTextField resignFirstResponder];
 }
 
 - (void)viewDidLayoutSubviews
 {
     [super viewDidLayoutSubviews];
+    [self.theScrollView setContentSize:CGSizeMake(320, 550)];
 }
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     [self.navigationController setNavigationBarHidden:YES];
-
+    self.answerViewController = [[OttaAnswerTableController alloc]init];
+    CGPoint bottomOffset = CGPointMake(0, self.theScrollView.contentSize.height - self.theScrollView.bounds.size.height);
+    [self.theScrollView setContentOffset:bottomOffset animated:YES];
   /*  [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(keyboardWasShown:)
                                                  name:UIKeyboardDidShowNotification
@@ -96,17 +98,17 @@ testAnswer.answerText = @"Creme Brelee";
     
    */
     
-    //self.answerViewController.ottaAnswers = [[NSMutableArray alloc]init];
+    self.answerViewController.ottaAnswers = [[NSMutableArray alloc]init];
 
-//   self.answerTableView.delegate = self.answerViewController;
-//    self.answerTableView.dataSource = self.answerViewController;
-//    [self.answerTableView reloadData];
-//    self.answerViewController.mainViewController = self;
-    [_itsTextView setReturnKeyType:UIReturnKeyDone];
-    [_itsTextView setFont:[UIFont fontWithName:@"OpenSans-Light" size:17.00f]];
+   self.answerTableView.delegate = self.answerViewController;
+    self.answerTableView.dataSource = self.answerViewController;
+    [self.answerTableView reloadData];
+    self.answerViewController.mainViewController = self;
+    [itsTextView setReturnKeyType:UIReturnKeyDone];
+    [itsTextView setFont:openSansFontRegular];
     
-    [_itsTextView setText:@"Ask a question..."];
-    [_itsTextView setTextColor:[UIColor lightGrayColor]];
+    [itsTextView setText:@"Ask a question..."];
+    [itsTextView setTextColor:[UIColor lightGrayColor]];
     
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(reloadQuestions)
@@ -114,14 +116,12 @@ testAnswer.answerText = @"Creme Brelee";
                                                object:nil];
     
     // Do any additional setup after loading the view.
-        _optionsArray = [NSMutableArray new];
-    [_optionsArray addObject:[[OttaAnswer alloc] init]];
 }
 -(void)reloadQuestions
 {
-    //[self.answerTableView reloadData];
+    [self.answerTableView reloadData];
     
-    ///NSLog(@"Questions reloaded:%@",self.answerViewController.ottaAnswers);
+    NSLog(@"Questions reloaded:%@",self.answerViewController.ottaAnswers);
   
     /*OttaAnswer * testAnswer = [self.answerViewController.ottaAnswers objectAtIndex:0
                                ];
@@ -162,15 +162,15 @@ testAnswer.answerText = @"Creme Brelee";
     [popupTextView showInViewController:self]; // recommended, especially for iOS7
     */
     
-//    if([self.answerViewController.ottaAnswers count]<4)
-//    {
-//    OttaAnswer * newAnswer = [[OttaAnswer alloc]init];
-//    newAnswer.answerHasContent = NO;
-//    newAnswer.answerImage = nil;
-    //[self.answerViewController.ottaAnswers addObject:newAnswer];
-    //[self.answerTableView reloadData];
+    if([self.answerViewController.ottaAnswers count]<4)
+    {
+    OttaAnswer * newAnswer = [[OttaAnswer alloc]init];
+    newAnswer.answerHasContent = NO;
+    newAnswer.answerImage = nil;
+    [self.answerViewController.ottaAnswers addObject:newAnswer];
+    [self.answerTableView reloadData];
        
-    //}
+    }
 
 }
 /*
@@ -258,9 +258,9 @@ UITextView itsTextView = [[UITextView alloc] initWithFrame:CGRectMake(0, 0, itsT
     
     self.activeTextField = textView;
 
-    if (_itsTextView.textColor == [UIColor lightGrayColor]) {
-        _itsTextView.text = @"";
-        _itsTextView.textColor = [UIColor blackColor];
+    if (itsTextView.textColor == [UIColor lightGrayColor]) {
+        itsTextView.text = @"";
+        itsTextView.textColor = [UIColor blackColor];
     }
     
     return YES;
@@ -272,96 +272,15 @@ UITextView itsTextView = [[UITextView alloc] initWithFrame:CGRectMake(0, 0, itsT
 
     if([text isEqualToString:@"\n"]) {
         [textView resignFirstResponder];
-        if(_itsTextView.text.length == 0){
-            _itsTextView.textColor = [UIColor lightGrayColor];
-            _itsTextView.text = @"Ask a question...";
-            [_itsTextView resignFirstResponder];
+        if(itsTextView.text.length == 0){
+            itsTextView.textColor = [UIColor lightGrayColor];
+            itsTextView.text = @"Ask a question...";
+            [itsTextView resignFirstResponder];
         }
         return NO;
     }
     
     return YES;
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return _optionsArray.count + 2;
-}
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 1;
-}
-- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
-    return @"Options:";
-}
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    
-    if (indexPath.row == _optionsArray.count + 1) {
-        // Choose deadline
-        static NSString *cellIdentifier = @"OttaDeadlineOptionCellIID";
-        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:
-                                cellIdentifier];
-        if (cell == nil) {
-            cell = [[UITableViewCell alloc]initWithStyle:
-                    UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
-        }
-        
-        return cell;
-    }
-    
-    if (indexPath.row == _optionsArray.count) {
-        // Add option
-        static NSString *cellIdentifier = @"OttaAddOptionCellIID";
-        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:
-                                cellIdentifier];
-        if (cell == nil) {
-            cell = [[UITableViewCell alloc]initWithStyle:
-                    UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
-        }
-        
-        return cell;
-    }
-    
-    static NSString *cellIdentifier = @"OttaOptionCellIID";
-    OttaOptionCell *cell = [tableView dequeueReusableCellWithIdentifier:
-                          cellIdentifier];
-    if (cell == nil) {
-        cell = [[OttaOptionCell alloc]initWithStyle:
-                UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
-    }
-    
-    return cell;
-}
-
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    if (indexPath.row == _optionsArray.count + 1) {
-        // Choose deadline
-        return 116;
-    }
-    
-    if (indexPath.row == _optionsArray.count) {
-        // Add option
-        return 55;
-    }
-    
-    return 152;
-}
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    
-    if (indexPath.row == _optionsArray.count + 1) {
-        // Choose deadline
-        
-    }
-    
-    if (indexPath.row == _optionsArray.count) {
-        // Add option
-        [_optionsArray addObject:[[OttaAnswer alloc] init]];
-        [tableView reloadData];
-    }
 }
 
 @end

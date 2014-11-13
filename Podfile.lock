@@ -24,10 +24,41 @@ PODS:
   - ECSlidingViewController (2.0.3)
   - Facebook-iOS-SDK (3.19.0):
     - Bolts (~> 1.0)
-  - MBProgressHUD (0.9)
+  - libwebp (0.4.1):
+    - libwebp/dec
+    - libwebp/demux
+    - libwebp/dsp
+    - libwebp/enc
+    - libwebp/mux
+    - libwebp/utils
+    - libwebp/webp
+  - libwebp/dec (0.4.1):
+    - libwebp/enc
+    - libwebp/utils
+  - libwebp/demux (0.4.1):
+    - libwebp/utils
+  - libwebp/dsp (0.4.1):
+    - libwebp/dec
+    - libwebp/enc
+    - libwebp/utils
+  - libwebp/enc (0.4.1):
+    - libwebp/utils
+  - libwebp/mux (0.4.1):
+    - libwebp/utils
+  - libwebp/utils (0.4.1):
+    - libwebp/dsp
+    - libwebp/webp
+  - libwebp/webp (0.4.1)
   - SDWebImage (3.7.1):
     - SDWebImage/Core
+    - SDWebImage/MapKit
+    - SDWebImage/WebP
   - SDWebImage/Core (3.7.1)
+  - SDWebImage/MapKit (3.7.1):
+    - SDWebImage/Core
+  - SDWebImage/WebP (3.7.1):
+    - libwebp
+    - SDWebImage/Core
   - TPKeyboardAvoiding (1.2.4)
   - YIPopupTextView (1.1.1)
 
@@ -36,8 +67,7 @@ DEPENDENCIES:
   - CZPhotoPickerController
   - EAIntroView (~> 2.5.0)
   - ECSlidingViewController (~> 2.0)
-  - Facebook-iOS-SDK (~> 3.19.0)
-  - MBProgressHUD (~> 0.9)
+  - Facebook-iOS-SDK (~> 3.16)
   - SDWebImage (~> 3.7)
   - TPKeyboardAvoiding (~> 1.2)
   - YIPopupTextView (~> 1.1.0)
@@ -49,9 +79,9 @@ SPEC CHECKSUMS:
   EAIntroView: 9586107ac7a6e849fb985c8d62109a9da649136b
   ECSlidingViewController: e79fe856bfb1a99a39c995377a1943e50f7647eb
   Facebook-iOS-SDK: cb7d74759d0b1ba546e6e6f1dde407b0d4e448d6
-  MBProgressHUD: 2038dbcf3dce73215abed6001657043d53aa79a8
+  libwebp: 88e6e172a01df354b0a78400d2e5b87a9f2796cb
   SDWebImage: 116e88633b5b416ea0ca4b334a4ac59cf72dd38d
   TPKeyboardAvoiding: 925e1e1912597d1a4956697eec3bd9656552153c
   YIPopupTextView: 608b1f61349a1838e6c11e773fdd4c5104db6b37
 
-COCOAPODS: 0.34.4
+COCOAPODS: 0.32.1
