@@ -31,6 +31,8 @@
 		386E89C21A12606000459171 /* icon_uncheck.png in Resources */ = {isa = PBXBuildFile; fileRef = 386E89BE1A12606000459171 /* icon_uncheck.png */; };
 		386E89C81A126AC100459171 /* OttAddFriendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 386E89C71A126AC100459171 /* OttAddFriendViewController.m */; };
 		386E89CA1A126DEF00459171 /* icon_check2.png in Resources */ = {isa = PBXBuildFile; fileRef = 386E89C91A126DEF00459171 /* icon_check2.png */; };
+		66502BE41A14571000A9472D /* icon_time.png in Resources */ = {isa = PBXBuildFile; fileRef = 66502BE31A14571000A9472D /* icon_time.png */; };
+		66502BE71A14653300A9472D /* OttaOptionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 66502BE61A14653300A9472D /* OttaOptionCell.m */; };
 		66FD4B051A11A6CC005ACD58 /* angry_birds_cake.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 66FD4AD81A11A6CC005ACD58 /* angry_birds_cake.jpg */; };
 		66FD4B061A11A6CC005ACD58 /* creme_brelee.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 66FD4AD91A11A6CC005ACD58 /* creme_brelee.jpg */; };
 		66FD4B071A11A6CC005ACD58 /* egg_benedict.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 66FD4ADA1A11A6CC005ACD58 /* egg_benedict.jpg */; };
@@ -89,7 +91,6 @@
 		66FD4B631A11AD6B005ACD58 /* release_notes.md in Sources */ = {isa = PBXBuildFile; fileRef = 66FD4B5E1A11AD6B005ACD58 /* release_notes.md */; };
 		D9286F401A12187F00C28770 /* OttaSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D9286F3F1A12187F00C28770 /* OttaSessionManager.m */; };
 		D9286F431A12190500C28770 /* OttaParseClientManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D9286F421A12190500C28770 /* OttaParseClientManager.m */; };
-		D9BD524A1A1456B70025C503 /* Main2.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D9BD52491A1456B70025C503 /* Main2.storyboard */; };
 		F0B6412519A57B11007C4373 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F0B6412419A57B11007C4373 /* libz.dylib */; };
 		F0BC6516198606BD0097A87C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0BC6515198606BD0097A87C /* Foundation.framework */; };
 		F0BC6518198606BD0097A87C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0BC6517198606BD0097A87C /* CoreGraphics.framework */; };
@@ -143,6 +144,9 @@
 		386E89C61A126AC100459171 /* OttAddFriendViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OttAddFriendViewController.h; sourceTree = "<group>"; };
 		386E89C71A126AC100459171 /* OttAddFriendViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OttAddFriendViewController.m; sourceTree = "<group>"; };
 		386E89C91A126DEF00459171 /* icon_check2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_check2.png; sourceTree = "<group>"; };
+		66502BE31A14571000A9472D /* icon_time.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_time.png; sourceTree = "<group>"; };
+		66502BE51A14653300A9472D /* OttaOptionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OttaOptionCell.h; sourceTree = "<group>"; };
+		66502BE61A14653300A9472D /* OttaOptionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OttaOptionCell.m; sourceTree = "<group>"; };
 		66FD4AD81A11A6CC005ACD58 /* angry_birds_cake.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = angry_birds_cake.jpg; sourceTree = "<group>"; };
 		66FD4AD91A11A6CC005ACD58 /* creme_brelee.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = creme_brelee.jpg; sourceTree = "<group>"; };
 		66FD4ADA1A11A6CC005ACD58 /* egg_benedict.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = egg_benedict.jpg; sourceTree = "<group>"; };
@@ -219,7 +223,6 @@
 		D9286F3F1A12187F00C28770 /* OttaSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OttaSessionManager.m; sourceTree = "<group>"; };
 		D9286F411A12190500C28770 /* OttaParseClientManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OttaParseClientManager.h; sourceTree = "<group>"; };
 		D9286F421A12190500C28770 /* OttaParseClientManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OttaParseClientManager.m; sourceTree = "<group>"; };
-		D9BD52491A1456B70025C503 /* Main2.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main2.storyboard; sourceTree = "<group>"; };
 		F0B6412419A57B11007C4373 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		F0BC6512198606BD0097A87C /* Otta.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Otta.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F0BC6515198606BD0097A87C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -382,6 +385,7 @@
 		66FD4AF31A11A6CC005ACD58 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				66502BE31A14571000A9472D /* icon_time.png */,
 				382E32681A139911008ACA45 /* SlidingMenu */,
 				386E89BA1A12606000459171 /* AddFriend */,
 				386E89A51A124EAF00459171 /* Intro */,
@@ -435,13 +439,14 @@
 		66FD4B321A11A83A005ACD58 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				D9BD52491A1456B70025C503 /* Main2.storyboard */,
 				F0D6B1F119862B4D0077E30E /* Main.storyboard */,
 				66FD4B371A11A8F0005ACD58 /* OttaQuestionTableViewCell.h */,
 				66FD4B381A11A8F0005ACD58 /* OttaQuestionTableViewCell.m */,
 				66FD4B391A11A8F0005ACD58 /* OttaQuestionTableViewCell.xib */,
 				382E32751A13A54A008ACA45 /* OttaMenuCell.h */,
 				382E32761A13A54A008ACA45 /* OttaMenuCell.m */,
+				66502BE51A14653300A9472D /* OttaOptionCell.h */,
+				66502BE61A14653300A9472D /* OttaOptionCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -720,7 +725,6 @@
 				386E89B51A124EAF00459171 /* icon_email.png in Resources */,
 				386E89B01A124EAF00459171 /* btn_join.png in Resources */,
 				66FD4B061A11A6CC005ACD58 /* creme_brelee.jpg in Resources */,
-				D9BD524A1A1456B70025C503 /* Main2.storyboard in Resources */,
 				F0BC6520198606BD0097A87C /* InfoPlist.strings in Resources */,
 				386E89B21A124EAF00459171 /* con_question.png in Resources */,
 				66FD4B211A11A6CC005ACD58 /* FBConnect.png in Resources */,
@@ -732,6 +736,7 @@
 				66FD4B0D1A11A6CC005ACD58 /* instant_noodle_with_egg.jpg in Resources */,
 				66FD4B1E1A11A6CC005ACD58 /* OpenSans-SemiboldItalic.ttf in Resources */,
 				66FD4B0F1A11A6CC005ACD58 /* mushroom_risotto.jpg in Resources */,
+				66502BE41A14571000A9472D /* icon_time.png in Resources */,
 				66FD4B2E1A11A6CC005ACD58 /* OttaSideMenuBackground.png in Resources */,
 				66FD4B261A11A6CC005ACD58 /* OttaAskheader.png in Resources */,
 				382E32721A139911008ACA45 /* menu_otta.png in Resources */,
@@ -816,6 +821,7 @@
 				D9286F431A12190500C28770 /* OttaParseClientManager.m in Sources */,
 				D9286F401A12187F00C28770 /* OttaSessionManager.m in Sources */,
 				66FD4B3F1A11A923005ACD58 /* OttaLoginViewController.m in Sources */,
+				66502BE71A14653300A9472D /* OttaOptionCell.m in Sources */,
 				66FD4B4B1A11AAED005ACD58 /* OttaTutorialViewController.m in Sources */,
 				66FD4B3A1A11A8F0005ACD58 /* OttaQuestionTableViewCell.m in Sources */,
 				66FD4B431A11A962005ACD58 /* SideMenuViewController.m in Sources */,
