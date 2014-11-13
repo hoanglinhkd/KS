@@ -10,6 +10,9 @@
 
 
 @interface SideMenuViewController ()
+{
+    OttaMenuCell *lastCellSelected;
+}
 
 @end
 
@@ -32,10 +35,28 @@
     // Do any additional setup after loading the view.
 }
 
+-(void)highlightAboutButton
+{
+    if (lastCellSelected) {
+        [lastCellSelected.lblText setFont:[UIFont fontWithName:@"OpenSans-Light" size:18.00f]];
+    }
+    [_btnAbout.titleLabel setFont:[UIFont fontWithName:@"OpenSans-Bold" size:18.00f]];
+}
+
+-(void) dehighlightAboutButton
+{
+    [_btnAbout.titleLabel setFont:[UIFont fontWithName:@"OpenSans-Light" size:18.00f]];
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(IBAction)btnAboutTapped:(id)sender
+{
+    [self highlightAboutButton];
 }
 
 - (IBAction)unwindToSideMenu:(UIStoryboardSegue *)unwindSegue
@@ -63,6 +84,7 @@
     if (cell == nil) {
         cell = [[OttaMenuCell alloc]initWithStyle:
                 UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
+        [cell.lblText setFont:[UIFont fontWithName:@"OpenSans-Light" size:18.00f]];
     }
     
     switch (indexPath.row) {
@@ -101,6 +123,7 @@
             break;
     }
     
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
 }
 
@@ -112,7 +135,18 @@
 }
 */
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    [self dehighlightAboutButton];
+    OttaMenuCell *cell = (OttaMenuCell*)[tableView cellForRowAtIndexPath:indexPath];
+    lastCellSelected = cell;
+    [cell.lblText setFont:[UIFont fontWithName:@"OpenSans-Bold" size:18.00f]];
     [self performSegueWithIdentifier:@"segueAskQuestion" sender:nil];
+}
+
+-(void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    OttaMenuCell *cell = (OttaMenuCell*)[tableView cellForRowAtIndexPath:indexPath];
+    [cell.lblText setFont:[UIFont fontWithName:@"OpenSans-Light" size:18.00f]];
 }
 
 @end
