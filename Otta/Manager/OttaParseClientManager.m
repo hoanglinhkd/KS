@@ -26,42 +26,63 @@
     return self;
 }
 
-- (void)loginWithEmail:(NSString*)email andPassword:(NSString *)password withResult:(OttaPLoginResultBlock)resultblock {
+- (void)loginWithNameOrEmail:(NSString*)nameOrEmail andPassword:(NSString *)password withResult:(OttaPLoginResultBlock)resultblock {
+    
     __block BOOL loginSucceeded;
     __block NSString *errorString;
 
     PFQuery *userQuery = [PFUser query];
     
-    [userQuery whereKey:@"email" equalTo:email];
+    [userQuery whereKey:@"email" equalTo:nameOrEmail];
     
-    //Query user by email
-    [userQuery getFirstObjectInBackgroundWithBlock:^(PFObject *object, NSError *error) {
-        if (object) {
-            PFUser *user = (PFUser *)object;
-            
-            //Authenticate
-            [PFUser logInWithUsernameInBackground:user.username password:password
-                                            block:^(PFUser *user, NSError *error) {
-                                                if (user) {
-                                                    // Do stuff after successful login.
-                                                    loginSucceeded = true;
-                                                    resultblock(loginSucceeded, user, errorString);
-                                                } else {
-                                                    // The login failed. Check error to see why.
-                                                    loginSucceeded = false;
-                                                    errorString = [[error userInfo] objectForKey:@"error"];
-                                                    
-                                                    resultblock(loginSucceeded, user, errorString);
-                                                }
-                                            }];
-            
-        } else {
-            loginSucceeded = false;
-            errorString = @"Does not exits the email, Please register";
-            
-            resultblock(loginSucceeded, nil, errorString);
-        }
-    }];
+    if([self NSStringIsValidEmail:nameOrEmail]) {
+        //Query user by email
+        [userQuery getFirstObjectInBackgroundWithBlock:^(PFObject *object, NSError *error) {
+            if (object) {
+                PFUser *user = (PFUser *)object;
+                
+                //Authenticate
+                [PFUser logInWithUsernameInBackground:user.username password:password
+                                                block:^(PFUser *user, NSError *error) {
+                                                    if (user) {
+                                                        // Do stuff after successful login.
+                                                        loginSucceeded = true;
+                                                        resultblock(loginSucceeded, user, errorString);
+                                                    } else {
+                                                        // The login failed. Check error to see why.
+                                                        loginSucceeded = false;
+                                                        errorString = [[error userInfo] objectForKey:@"error"];
+                                                        
+                                                        resultblock(loginSucceeded, user, errorString);
+                                                    }
+                                                }];
+                
+            } else {
+                loginSucceeded = false;
+                errorString = @"Does not exits the email, Please register";
+                
+                resultblock(loginSucceeded, nil, errorString);
+            }
+        }];
+        //login by username
+    } else {
+        //Authenticate
+        [PFUser logInWithUsernameInBackground:nameOrEmail password:password
+                                        block:^(PFUser *user, NSError *error) {
+                                            if (user) {
+                                                // Do stuff after successful login.
+                                                loginSucceeded = true;
+                                                resultblock(loginSucceeded, user, errorString);
+                                            } else {
+                                                // The login failed. Check error to see why.
+                                                loginSucceeded = false;
+                                                errorString = [[error userInfo] objectForKey:@"error"];
+                                                
+                                                resultblock(loginSucceeded, user, errorString);
+                                            }
+                                        }];
+    }
+
 
 }
 
@@ -87,7 +108,6 @@
             //Create User
         } else {
             PFUser *pUser = [PFUser user];
-            pUser[@"userid"] = userName;
             pUser.email = email;
             pUser.username = userName;
             pUser.password = password;
@@ -127,4 +147,14 @@
     }];
 }
 
+-(BOOL) NSStringIsValidEmail:(NSString *)checkString
+{
+    BOOL stricterFilter = NO;
+    
+    NSString *stricterFilterString = @"[A-Z0-9a-z\\._%+-]+@([A-Za-z0-9-]+\\.)+[A-Za-z]{2,4}";
+    NSString *laxString = @".+@([A-Za-z0-9-]+\\.)+[A-Za-z]{2}[A-Za-z]*";
+    NSString *emailRegex = stricterFilter ? stricterFilterString : laxString;
+    NSPredicate *emailTest = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", emailRegex];
+    return [emailTest evaluateWithObject:checkString];
+}
 @end

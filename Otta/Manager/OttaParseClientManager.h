@@ -18,7 +18,7 @@ typedef void(^OttaJoinResultBlock)(BOOL joinSucceeded, PFUser *ottaUser, NSStrin
 
 + (id)sharedManager;
 
-- (void)loginWithEmail:(NSString*)email andPassword:(NSString *)password withResult:(OttaPLoginResultBlock)resultblock ;
+- (void)loginWithNameOrEmail:(NSString*)email andPassword:(NSString *)password withResult:(OttaPLoginResultBlock)resultblock ;
 
 - (void) joinWithEmail:(NSString*)email andUsername:(NSString *)userName andPassword:(NSString *)password withResult:(OttaJoinResultBlock)resultblock;
 

@@ -204,18 +204,22 @@
     if ([self.usernameTextField isHidden]) {
         [self showLoginView];
     } else {
-        //TO DO: Validation required field, validation email format
+        //Validate required field
+        if (![self validateLogin]) {
+            return;
+        }
         
         [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-        
-        [[OttaParseClientManager sharedManager] loginWithEmail:self.usernameTextField.text andPassword:self.passwordTextField.text withResult:^(BOOL joinSucceeded, PFUser *pUser, NSString *failureReason) {
+    
+        [[OttaParseClientManager sharedManager] loginWithNameOrEmail:self.usernameTextField.text andPassword:self.passwordTextField.text withResult:^(BOOL joinSucceeded, PFUser *pUser, NSString *failureReason) {
             if (joinSucceeded) {
                 NSLog(@"Login succeeded");
                 
                 [self performSegueWithIdentifier:@"AskViewControllerSegue" sender:self];
                 
-                [MBProgressHUD hideHUDForView:self.view animated:YES];
+                
             } else {
+                
                 NSLog(@"Login failed");
                 UIAlertView * alert =[[UIAlertView alloc ] initWithTitle:@"Login Failed"
                                                                  message:failureReason
@@ -224,6 +228,8 @@
                                                        otherButtonTitles: nil];
                 [alert show];
             }
+            
+            [MBProgressHUD hideHUDForView:self.view animated:YES];
         }];
     }
 }
@@ -235,7 +241,9 @@
     if ([self.emailTextField isHidden]) {
         [self showJoinView];
     } else {
-        //TO DO: Validation required field, validation email format
+        //Validation
+        if (![self validateJoin])
+            return;
         
         [MBProgressHUD showHUDAddedTo:self.view animated:YES];
         
@@ -245,7 +253,6 @@
 
                 [self performSegueWithIdentifier:@"AskViewControllerSegue" sender:self];
 
-                [MBProgressHUD hideHUDForView:self.view animated:YES];
             } else {
                 NSLog(@"Join failed");
                 UIAlertView * alert =[[UIAlertView alloc ] initWithTitle:@"Register Failed"
@@ -255,6 +262,7 @@
                                                        otherButtonTitles: nil];
                 [alert show];
             }
+            [MBProgressHUD hideHUDForView:self.view animated:YES];
         }];
     }
     
@@ -338,5 +346,63 @@
     return YES;
 }
 
+#pragma mark - Validate
+
+- (BOOL)validateLogin {
+    //Validate required field
+    if ([@"" isEqualToString: self.usernameTextField.text] || [@"" isEqualToString:self.passwordTextField.text]) {
+        UIAlertView * alert =[[UIAlertView alloc ] initWithTitle:@""
+                                                         message:@"User Name and Password are required fields."
+                                                        delegate:self
+                                               cancelButtonTitle:@"Ok"
+                                               otherButtonTitles: nil];
+        [alert show];
+        return FALSE;
+    }
+    //ToDo: Validation Email
+    
+    return TRUE;
+}
+
+- (BOOL)validateJoin {
+    
+    if (![self NSStringIsValidEmail:self.emailTextField.text]) {
+        UIAlertView * alert =[[UIAlertView alloc ] initWithTitle:@""
+                                                         message:@"Invalid Email"
+                                                        delegate:self
+                                               cancelButtonTitle:@"Ok"
+                                               otherButtonTitles: nil];
+        [alert show];
+        return FALSE;
+    }
+    
+    //Validate required field
+    if ([@"" isEqualToString: self.usernameTextField.text] || [@"" isEqualToString:self.passwordTextField.text]
+        || [@"" isEqualToString:self.emailTextField.text]) {
+        UIAlertView * alert =[[UIAlertView alloc ] initWithTitle:@""
+                                                         message:@"Email, User Name and Password are required fields."
+                                                        delegate:self
+                                               cancelButtonTitle:@"Ok"
+                                               otherButtonTitles: nil];
+        [alert show];
+        return FALSE;
+    }
+
+    return TRUE;
+}
+
+
+//TODO: Will move this function to NSString+utils
+
+-(BOOL) NSStringIsValidEmail:(NSString *)checkString
+{
+    BOOL stricterFilter = NO;
+    
+    NSString *stricterFilterString = @"[A-Z0-9a-z\\._%+-]+@([A-Za-z0-9-]+\\.)+[A-Za-z]{2,4}";
+    NSString *laxString = @".+@([A-Za-z0-9-]+\\.)+[A-Za-z]{2}[A-Za-z]*";
+    NSString *emailRegex = stricterFilter ? stricterFilterString : laxString;
+    NSPredicate *emailTest = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", emailRegex];
+    return [emailTest evaluateWithObject:checkString];
+}
 
 @end
