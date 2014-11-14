@@ -6,6 +6,7 @@
 //  Copyright (c) 2014 SojoDigital. All rights reserved.
 //
 #import "OttaViewController.h"
+#import "MBProgressHUD.h"
 
 @interface OttaViewController ()<EAIntroDelegate> {
     BOOL isJoinScreen;
@@ -205,12 +206,15 @@
     } else {
         //TO DO: Validation required field, validation email format
         
+        [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+        
         [[OttaParseClientManager sharedManager] loginWithEmail:self.usernameTextField.text andPassword:self.passwordTextField.text withResult:^(BOOL joinSucceeded, PFUser *pUser, NSString *failureReason) {
             if (joinSucceeded) {
                 NSLog(@"Login succeeded");
                 
                 [self performSegueWithIdentifier:@"AskViewControllerSegue" sender:self];
                 
+                [MBProgressHUD hideHUDForView:self.view animated:YES];
             } else {
                 NSLog(@"Login failed");
                 UIAlertView * alert =[[UIAlertView alloc ] initWithTitle:@"Login Failed"
@@ -233,12 +237,15 @@
     } else {
         //TO DO: Validation required field, validation email format
         
+        [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+        
         [[OttaParseClientManager sharedManager] joinWithEmail:self.emailTextField.text andUsername:self.usernameTextField.text andPassword:self.passwordTextField.text withResult:^(BOOL joinSucceeded, PFUser *pUser, NSString *failureReason) {
             if (joinSucceeded) {
                 NSLog(@"Join succeeded");
 
                 [self performSegueWithIdentifier:@"AskViewControllerSegue" sender:self];
 
+                [MBProgressHUD hideHUDForView:self.view animated:YES];
             } else {
                 NSLog(@"Join failed");
                 UIAlertView * alert =[[UIAlertView alloc ] initWithTitle:@"Register Failed"
