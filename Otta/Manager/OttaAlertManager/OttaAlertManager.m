@@ -12,6 +12,9 @@
 
 @interface OttaAlertManager() <AFPickerViewDataSource, AFPickerViewDelegate>
 {
+    OttaAlertCompletion ottaAlertCompletion;
+    OttaAlertCancel ottaAlertCancel;
+    
     AFPickerView *pickerTimeValue;
     AFPickerView *pickerTimeTitle;
     NSMutableArray *timeValueData;
@@ -22,11 +25,14 @@
 }
 
 @property (strong, nonatomic) IBOutlet UIView *simpleAlertView;
+@property (weak, nonatomic) IBOutlet UILabel *lblSimpleContent;
+
+@property (strong, nonatomic) IBOutlet UIView *yesNoAlertView;
+@property (weak, nonatomic) IBOutlet UILabel *lblYesNoContent;
+
+
 @property (strong, nonatomic) IBOutlet UIView *limitTimerAlertView;
-@property (weak, nonatomic) IBOutlet UIButton *btnSimpleDone;
-
-
-- (IBAction)simpleDonePressed:(id)sender;
+@property (weak, nonatomic) IBOutlet UIImageView *imagePicker;
 
 @end
 
@@ -46,30 +52,7 @@
     return [[OttaAlertManager alloc] initWithNibName:@"OttaAlertManager" bundle:nil];
 }
 
-- (void)showLimitTimerPickerOnView:(UIView*)parentView completionBlock:(OttaTimePickerCompletion) completionResult
-{
-    timePickerCompletion = completionResult;
-    [parentView addSubview:self.view];
-    [self initTimePickerAtX:100.0 atY:18.0];
-    [self showAleartWithView:_limitTimerAlertView];
-}
-
-- (void)showSimpleAlertOnView:(UIView*)parentView withTitle:(NSString*)title andContent:(NSString*)content {
-    if ([_simpleAlertView superview] == nil) {
-        [parentView addSubview:self.view];
-        [self showAleartWithView:_simpleAlertView];
-    }
-}
-
 - (void)showAleartWithView:(UIView*)view {
-    //UIImage *buttonImage = [[UIImage imageNamed:@"btn_alert_done"]
-    //resizableImageWithCapInsets:UIEdgeInsetsMake(0, 16, 0, 16)];
-    
-    //    UIImage *buttonImage = [UIImage imageNamed:@"btn_alert_done"];
-    //
-    //    [_btnDone setImage:buttonImage forState:UIControlStateNormal];
-    //    [_imgContent setImage:buttonImage];
-    
     view.center = self.view.center;
     [self.view addSubview:view];
     CAKeyframeAnimation *popAnimation = [CAKeyframeAnimation animationWithKeyPath:@"transform"];
@@ -102,31 +85,72 @@
 
 - (void)animationDidStop:(CAAnimation *)anim finished:(BOOL)flag {
     [self.simpleAlertView removeFromSuperview];
+    [_yesNoAlertView removeFromSuperview];
+    [_limitTimerAlertView removeFromSuperview];
     if ([self.view superview] != nil) {
         [self.view removeFromSuperview];
     }
 }
 
-#pragma mark - Button Interaction
+#pragma mark - Simple Alert
+
+- (void)showSimpleAlertOnView:(UIView*)parentView withContent:(NSString*)content complete:(OttaAlertCompletion)completionBlock {
+    [parentView addSubview:self.view];
+    _lblSimpleContent.text = content;
+    ottaAlertCompletion = completionBlock;
+    if ([_simpleAlertView superview] == nil) {
+        [self showAleartWithView:_simpleAlertView];
+    }
+}
 
 - (IBAction)simpleDonePressed:(id)sender {
     [self hideAlertAction:_simpleAlertView];
+    
+    if (ottaAlertCompletion != nil) {
+        ottaAlertCompletion();
+    }
 }
 
--(IBAction)timeSelectionDonePressed:(id)sender
-{
-    [self hideAlertAction:_limitTimerAlertView];
+#pragma mark - YesNo Alert
+
+- (void)showYesNoAlertOnView:(UIView*)parentView withContent:(NSString*)content complete:(OttaAlertCompletion)completionBlock cancel:(OttaAlertCancel)cancelBlock {
+    [parentView addSubview:self.view];
+    _lblYesNoContent.text = content;
+    ottaAlertCompletion = completionBlock;
+    ottaAlertCancel = cancelBlock;
+    if ([_yesNoAlertView superview] == nil) {
+        [self showAleartWithView:_yesNoAlertView];
+    }
+}
+
+- (IBAction)yesButtonPressed:(id)sender {
+    [self hideAlertAction:_simpleAlertView];
     
-    if (timePickerCompletion != nil) {
-        timePickerCompletion(selectedTimeValue, selectedTimeTitle);
+    if (ottaAlertCompletion != nil) {
+        ottaAlertCompletion();
+    }
+}
+
+- (IBAction)noButtonPressed:(id)sender {
+    [self hideAlertAction:_simpleAlertView];
+    
+    if (ottaAlertCancel != nil) {
+        ottaAlertCancel();
     }
 }
 
 #pragma mark - Timer Picker
 
+- (void)showLimitTimerPickerOnView:(UIView*)parentView completionBlock:(OttaTimePickerCompletion) completionResult
+{
+    [parentView addSubview:self.view];
+    timePickerCompletion = completionResult;
+    [self initTimePickerAtX:100.0 atY:30.0];
+    [self showAleartWithView:_limitTimerAlertView];
+}
+
 -(void) initTimePickerAtX:(CGFloat)xPosition atY:(CGFloat)yPosition;
 {
- 
     selectedTimeTitle = TimeSelection_Minutes;
     selectedTimeValue = 1;
     
@@ -188,6 +212,15 @@
         selectedTimeTitle = row;
     } else {
         selectedTimeValue = row + 1;
+    }
+}
+
+-(IBAction)timeSelectionDonePressed:(id)sender
+{
+    [self hideAlertAction:_limitTimerAlertView];
+    
+    if (timePickerCompletion != nil) {
+        timePickerCompletion(selectedTimeValue, selectedTimeTitle);
     }
 }
 

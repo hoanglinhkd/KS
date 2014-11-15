@@ -11,6 +11,9 @@
 @interface OttaViewController ()<EAIntroDelegate> {
     BOOL isJoinScreen;
 }
+
+@property (strong, nonatomic) OttaAlertManager* otta;
+
 @end
 
 @implementation OttaViewController
@@ -193,12 +196,6 @@
 
 -(IBAction)btnLoginTapped:(id)sender
 {
-    //OttaAlertManager* otta  = [OttaAlertManager sharedManager];
-    //otta.parentView = self.view;
-    //[otta showSimpleAlertWithTitle:@"" andContent:@""];
-    
-    /*
-    
     //Is login screen
     if ([self.usernameTextField isHidden]) {
         [self showLoginView];
@@ -222,8 +219,6 @@
             }
         }];
     }
-     
-     */
 }
 
 -(IBAction)btnJoinTapped:(id)sender
