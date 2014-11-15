@@ -12,6 +12,8 @@
 #import "OttaSessionManager.h"
 #import "OttaParseClientManager.h"
 
+#import "OttaAlertManager.h"
+
 @interface OttaViewController : UIViewController
 {
     EAIntroView *intro;

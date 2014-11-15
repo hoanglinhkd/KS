@@ -6,6 +6,7 @@
 //  Copyright (c) 2014 SojoDigital. All rights reserved.
 //
 #import "OttaViewController.h"
+#import "OttaAlertManager.h"
 
 @interface OttaViewController ()<EAIntroDelegate> {
     BOOL isJoinScreen;
@@ -198,7 +199,12 @@
 
 -(IBAction)btnLoginTapped:(id)sender
 {
-    //TODO: Will use other way to identify the screen
+    OttaAlertManager* otta  = [OttaAlertManager sharedManager];
+    otta.parentView = self.view;
+    [otta showSimpleAlertWithTitle:@"" andContent:@""];
+    
+    /*
+    
     //Is login screen
     if ([self.usernameTextField isHidden]) {
         [self showLoginView];
@@ -222,6 +228,8 @@
             }
         }];
     }
+     
+     */
 }
 
 -(IBAction)btnJoinTapped:(id)sender
