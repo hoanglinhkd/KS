@@ -1,0 +1,669 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="rFF-Yf-sGT">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="OpenSans-Light.ttf">
+            <string>OpenSans-Light</string>
+            <string>OpenSans-Light</string>
+            <string>OpenSans-Light</string>
+            <string>OpenSans-Light</string>
+            <string>OpenSans-Light</string>
+        </mutableArray>
+    </customFonts>
+    <scenes>
+        <!--Sliding View Controller-->
+        <scene sceneID="16y-0k-gFs">
+            <objects>
+                <viewController id="CY8-rH-5qL" customClass="ECSlidingViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="g9v-VW-cn5"/>
+                        <viewControllerLayoutGuide type="bottom" id="FNb-iF-xY9"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="oX7-Sy-pyw">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="hzd-gX-AVr"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="string" keyPath="topViewControllerStoryboardId" value="OttaAskView"/>
+                        <userDefinedRuntimeAttribute type="string" keyPath="underLeftViewControllerStoryboardId" value="SideMenuViewController"/>
+                    </userDefinedRuntimeAttributes>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8b0-wb-akz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="544" y="-293"/>
+        </scene>
+        <!--Otta View Controller-->
+        <scene sceneID="eCd-MW-faB">
+            <objects>
+                <viewController storyboardIdentifier="LandingViewController" id="rFF-Yf-sGT" customClass="OttaViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Doj-ha-hL1"/>
+                        <viewControllerLayoutGuide type="bottom" id="KHO-CV-lsE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="bny-Sc-Tq7">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jfs-gJ-FuZ" customClass="TPKeyboardAvoidingScrollView">
+                                <rect key="frame" x="0.0" y="58" width="320" height="345"/>
+                                <subviews>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="x85-r0-w6T">
+                                        <rect key="frame" x="20" y="100" width="280" height="30"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="OpenSans-Light" family="Open Sans" pointSize="20"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="rFF-Yf-sGT" id="z6l-Re-X1m"/>
+                                        </connections>
+                                    </textField>
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MUq-gb-Kkl" userLabel="EmailLine">
+                                        <rect key="frame" x="20" y="135" width="280" height="1"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </view>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Username" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hb9-AQ-6bB">
+                                        <rect key="frame" x="20" y="149" width="280" height="30"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="OpenSans-Light" family="Open Sans" pointSize="20"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="rFF-Yf-sGT" id="yTf-hJ-rSP"/>
+                                        </connections>
+                                    </textField>
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZbF-Eb-YKi" userLabel="UsernameLine">
+                                        <rect key="frame" x="20" y="184" width="280" height="1"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </view>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CAW-C4-yXb">
+                                        <rect key="frame" x="20" y="199" width="280" height="30"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="OpenSans-Light" family="Open Sans" pointSize="20"/>
+                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="rFF-Yf-sGT" id="Oem-Am-yu8"/>
+                                        </connections>
+                                    </textField>
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gcQ-qo-FWk" userLabel="PasswordLine">
+                                        <rect key="frame" x="20" y="234" width="280" height="1"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </view>
+                                </subviews>
+                            </scrollView>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="t28-TZ-26J">
+                                <rect key="frame" x="0.0" y="123" width="320" height="292"/>
+                                <subviews>
+                                    <view hidden="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eyI-5H-g22">
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mru-iE-Pmd" userLabel="LoginButton">
+                                <rect key="frame" x="25" y="484" width="126" height="36"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="36" id="7t5-7T-stH"/>
+                                    <constraint firstAttribute="width" constant="126" id="Imm-U2-6vc"/>
+                                </constraints>
+                                <state key="normal" image="btn_login.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="btnLoginTapped:" destination="rFF-Yf-sGT" eventType="touchUpInside" id="6DL-WB-b2I"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="b31-7Y-Kes">
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="exT-oC-fMq" userLabel="JoinButton">
+                                <rect key="frame" x="169" y="484" width="126" height="36"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="126" id="QsZ-qr-6kp"/>
+                                    <constraint firstAttribute="height" constant="36" id="b1B-gY-Mqj"/>
+                                </constraints>
+                                <state key="normal" image="btn_join.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="btnJoinTapped:" destination="rFF-Yf-sGT" eventType="touchUpInside" id="JRa-kM-OV4"/>
+                                </connections>
+                            </button>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="greenLogo.png" translatesAutoresizingMaskIntoConstraints="NO" id="Yit-G6-DUR">
+                                <rect key="frame" x="93" y="61" width="135" height="57"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="57" id="8iM-JQ-41x"/>
+                                    <constraint firstAttribute="width" constant="135" id="tcN-bV-oeM"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OlT-Y5-elW">
+                                <rect key="frame" x="14" y="20" width="52" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="52" id="5HM-q4-dRn"/>
+                                    <constraint firstAttribute="height" constant="30" id="vlO-wV-w2v"/>
+                                </constraints>
+                                <state key="normal" image="btn_back.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="btnBackTapped:" destination="rFF-Yf-sGT" eventType="touchUpInside" id="vV0-uj-Jiu"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QEM-HX-5fq">
+                                <rect key="frame" x="14" y="533" width="290" height="27"/>
+                                <fontDescription key="fontDescription" name="OpenSans-Light" family="Open Sans" pointSize="15"/>
+                                <state key="normal" title="Forgot your password?">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="btnForgotPasswordTapped:" destination="rFF-Yf-sGT" eventType="touchUpInside" id="202-21-snz"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FJT-fA-Doo" userLabel="FacebookButton">
+                                <rect key="frame" x="97" y="528" width="126" height="36"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="36" id="IJA-23-4nX"/>
+                                    <constraint firstAttribute="width" constant="126" id="b6V-Pc-lFP"/>
+                                </constraints>
+                                <state key="normal" image="FBConnect.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="facebookLogin:" destination="rFF-Yf-sGT" eventType="touchUpInside" id="Xiy-d1-bks"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.1803921568627451" green="0.1803921568627451" blue="0.1803921568627451" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="KHO-CV-lsE" firstAttribute="top" secondItem="QEM-HX-5fq" secondAttribute="bottom" constant="8" id="3fq-29-Xbd"/>
+                            <constraint firstAttribute="centerX" secondItem="QEM-HX-5fq" secondAttribute="centerX" constant="1" id="CSm-WC-WBl"/>
+                            <constraint firstItem="FJT-fA-Doo" firstAttribute="top" secondItem="exT-oC-fMq" secondAttribute="bottom" constant="8" id="CUg-c5-UoE"/>
+                            <constraint firstItem="OlT-Y5-elW" firstAttribute="leading" secondItem="bny-Sc-Tq7" secondAttribute="leadingMargin" constant="-2" id="FwO-kl-Ivl"/>
+                            <constraint firstItem="QEM-HX-5fq" firstAttribute="top" secondItem="FJT-fA-Doo" secondAttribute="bottom" constant="-31" id="ZKB-Z2-hxo"/>
+                            <constraint firstItem="Yit-G6-DUR" firstAttribute="top" secondItem="Doj-ha-hL1" secondAttribute="bottom" constant="41" id="dpl-lO-FMP"/>
+                            <constraint firstItem="FJT-fA-Doo" firstAttribute="top" secondItem="Mru-iE-Pmd" secondAttribute="bottom" constant="8" id="gXs-BK-5aY"/>
+                            <constraint firstItem="OlT-Y5-elW" firstAttribute="top" secondItem="Doj-ha-hL1" secondAttribute="bottom" id="nhv-2W-xet"/>
+                            <constraint firstAttribute="centerX" secondItem="Yit-G6-DUR" secondAttribute="centerX" constant="-0.5" id="zIK-PE-4k2"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="btnBackPage" destination="OlT-Y5-elW" id="9Kp-Eo-1cw"/>
+                        <outlet property="btnFacebook" destination="FJT-fA-Doo" id="Gjf-vN-Gkv"/>
+                        <outlet property="btnForgotPassword" destination="QEM-HX-5fq" id="nHR-CH-hIT"/>
+                        <outlet property="btnJoin" destination="exT-oC-fMq" id="0PZ-ZJ-7fL"/>
+                        <outlet property="btnLogin" destination="Mru-iE-Pmd" id="cM1-aI-r13"/>
+                        <outlet property="emailLine" destination="MUq-gb-Kkl" id="yUa-qq-kkH"/>
+                        <outlet property="emailTextField" destination="x85-r0-w6T" id="EEW-zx-DEW"/>
+                        <outlet property="ottaBackingView" destination="t28-TZ-26J" id="PdY-A1-dOp"/>
+                        <outlet property="passwordLine" destination="gcQ-qo-FWk" id="7fC-bq-y6r"/>
+                        <outlet property="passwordTextField" destination="CAW-C4-yXb" id="sBf-XL-GIJ"/>
+                        <outlet property="scrlUserInformation" destination="jfs-gJ-FuZ" id="ny6-M3-RJO"/>
+                        <outlet property="usernameLine" destination="ZbF-Eb-YKi" id="Hul-q8-Zvl"/>
+                        <outlet property="usernameTextField" destination="hb9-AQ-6bB" id="Ifh-8y-lxp"/>
+                        <segue destination="XNa-Ru-XO3" kind="modal" identifier="AskViewControllerSegue" id="ggu-og-td2"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GKs-gp-Jie" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-439" y="-293"/>
+        </scene>
+        <!--Otta Ask View Controller-->
+        <scene sceneID="mz0-S9-i3T">
+            <objects>
+                <viewController storyboardIdentifier="OttaAskView" id="ILh-FI-rbb" customClass="OttaAskViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="9hK-8V-9lS"/>
+                        <viewControllerLayoutGuide type="bottom" id="69i-wX-Xdg"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="lmN-nS-WwP">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bdU-MV-57B">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="80"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="OttaAskheader.png" translatesAutoresizingMaskIntoConstraints="NO" id="L7E-2y-ysZ">
+                                        <rect key="frame" x="0.0" y="20" width="320" height="60"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" red="0.56078433990478516" green="0.79215693473815918" blue="0.25098040699958801" alpha="1" colorSpace="deviceRGB"/>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B43-xP-muX">
+                                <rect key="frame" x="0.0" y="20" width="60" height="60"/>
+                                <state key="normal">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="LAA-1c-mRI" kind="unwind" unwindAction="unwindToSideMenu:" id="PyL-uz-MX7"/>
+                                </connections>
+                            </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="L23-ab-CjQ">
+                                <rect key="frame" x="16" y="86" width="288" height="38"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <connections>
+                                    <outlet property="delegate" destination="ILh-FI-rbb" id="lBM-TJ-SO4"/>
+                                </connections>
+                            </textView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="image_line.png" translatesAutoresizingMaskIntoConstraints="NO" id="mJk-Xv-Vhf">
+                                <rect key="frame" x="16" y="122" width="288" height="18"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="288" id="PpX-x8-GF0"/>
+                                    <constraint firstAttribute="height" constant="18" id="hsx-pi-cRh"/>
+                                </constraints>
+                            </imageView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="92" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="LEm-ZW-BM5" customClass="TPKeyboardAvoidingTableView">
+                                <rect key="frame" x="0.0" y="137" width="320" height="387"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="OttaOptionCellIID" rowHeight="152" id="60g-K2-AJz" customClass="OttaOptionCell">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="60g-K2-AJz" id="ZyN-VG-Ukh">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textView hidden="YES" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zVO-t6-E0B">
+                                                    <rect key="frame" x="53" y="8" width="259" height="51"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                </textView>
+                                                <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hIw-e4-cRJ">
+                                                    <rect key="frame" x="53" y="72" width="91" height="69"/>
+                                                </imageView>
+                                                <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NPE-xC-J6P">
+                                                    <rect key="frame" x="20" y="28" width="20" height="20"/>
+                                                    <subviews>
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="OttaNumberBackground.png" translatesAutoresizingMaskIntoConstraints="NO" id="Oez-QV-as3">
+                                                            <rect key="frame" x="0.0" y="0.0" width="20" height="20"/>
+                                                        </imageView>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bVp-cZ-tgo">
+                                                            <rect key="frame" x="0.0" y="0.0" width="20" height="20"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                </view>
+                                                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="du6-WV-2r3">
+                                                    <rect key="frame" x="53" y="9" width="249" height="57"/>
+                                                    <subviews>
+                                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V9r-Sd-MDH">
+                                                            <rect key="frame" x="25" y="6" width="63" height="45"/>
+                                                            <state key="normal" image="OttaAddTextButton.png">
+                                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                            </state>
+                                                            <connections>
+                                                                <action selector="textButtonPressed:" destination="60g-K2-AJz" eventType="touchUpInside" id="tm3-WD-iQ1"/>
+                                                            </connections>
+                                                        </button>
+                                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XbD-2T-xAQ">
+                                                            <rect key="frame" x="112" y="8" width="51" height="41"/>
+                                                            <state key="normal" image="addPhotoOtta.png"/>
+                                                            <connections>
+                                                                <action selector="imageButtonPressed:" destination="60g-K2-AJz" eventType="touchUpInside" id="yxA-lZ-BL9"/>
+                                                            </connections>
+                                                        </button>
+                                                    </subviews>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                </view>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                            <constraints>
+                                                <constraint firstItem="NPE-xC-J6P" firstAttribute="top" secondItem="ZyN-VG-Ukh" secondAttribute="topMargin" constant="20" id="SpS-HN-8R9"/>
+                                                <constraint firstItem="NPE-xC-J6P" firstAttribute="leading" secondItem="ZyN-VG-Ukh" secondAttribute="leadingMargin" constant="12" id="aQc-Ok-Csj"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="imgMain" destination="hIw-e4-cRJ" id="6am-cu-r1E"/>
+                                            <outlet property="lblNumber" destination="bVp-cZ-tgo" id="X5s-oX-pgu"/>
+                                            <outlet property="txtContent" destination="zVO-t6-E0B" id="8Yg-8l-kRa"/>
+                                            <outlet property="viewAction" destination="du6-WV-2r3" id="FeH-6e-Q8n"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="OttaAddOptionCellIID" rowHeight="55" id="TVp-Xa-FjG">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="TVp-Xa-FjG" id="phL-uV-IYE">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="OttaAddAnswerButton.png" translatesAutoresizingMaskIntoConstraints="NO" id="aQ0-FR-YFY">
+                                                    <rect key="frame" x="16" y="14" width="28" height="28"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Add option..." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YKm-tT-QGu">
+                                                    <rect key="frame" x="64" y="17" width="240" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="OttaDeadlineOptionCellIID" rowHeight="116" id="FML-6O-o6x">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="FML-6O-o6x" id="lyw-ev-TWV">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="image_line.png" translatesAutoresizingMaskIntoConstraints="NO" id="7pi-0p-m7O">
+                                                    <rect key="frame" x="57" y="90" width="247" height="18"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Choose deadline..." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jys-KV-lgr">
+                                                    <rect key="frame" x="64" y="69" width="240" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="icon_time.png" translatesAutoresizingMaskIntoConstraints="NO" id="9b6-xC-URD">
+                                                    <rect key="frame" x="20" y="70" width="20" height="20"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Need to know in:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ahm-cZ-ZG3">
+                                                    <rect key="frame" x="8" y="33" width="130" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="ILh-FI-rbb" id="09B-8V-9my"/>
+                                    <outlet property="delegate" destination="ILh-FI-rbb" id="7DD-Tu-hgy"/>
+                                </connections>
+                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d4h-9H-rFt">
+                                <rect key="frame" x="0.0" y="524" width="320" height="44"/>
+                                <color key="backgroundColor" red="0.97647064920000004" green="0.68627452850000004" blue="0.10588236149999999" alpha="1" colorSpace="deviceRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <state key="normal" title="Next">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="mJk-Xv-Vhf" firstAttribute="top" secondItem="B43-xP-muX" secondAttribute="bottom" constant="42" id="Akk-Dw-IgA"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="SX5-PI-AJq"/>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <connections>
+                        <outlet property="itsTextView" destination="L23-ab-CjQ" id="J3T-4f-eqv"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GNA-7c-bpy" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="LAA-1c-mRI" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="544" y="490"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="spb-3L-BgH">
+            <objects>
+                <navigationController definesPresentationContext="YES" id="03l-6j-O6Q" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="5O8-XS-gV9"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="rfb-1a-EEL">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="ILh-FI-rbb" kind="relationship" relationship="rootViewController" id="Jyr-bS-Eys"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7TB-dE-zmc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="54" y="490"/>
+        </scene>
+        <!--Ott Add Friend View Controller-->
+        <scene sceneID="pGB-CZ-9EX">
+            <objects>
+                <viewController id="XNa-Ru-XO3" customClass="OttAddFriendViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="sHc-2b-M3M"/>
+                        <viewControllerLayoutGuide type="bottom" id="clT-hc-HOf"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="USB-Fn-ME1">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="redraw" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="OttaSideMenuBackground.png" translatesAutoresizingMaskIntoConstraints="NO" id="Tar-LS-pmi">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="greenLogo.png" translatesAutoresizingMaskIntoConstraints="NO" id="9QH-Bm-6s5">
+                                <rect key="frame" x="82" y="89" width="156" height="54"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="156" id="Dy5-lB-SWl"/>
+                                    <constraint firstAttribute="height" constant="54" id="wbQ-Pf-CRp"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="abi-b8-xOm">
+                                <rect key="frame" x="16" y="20" width="49" height="32"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="32" id="AYo-Kb-k1i"/>
+                                    <constraint firstAttribute="width" constant="49" id="z5A-sv-j3a"/>
+                                </constraints>
+                                <state key="normal" image="btn_back.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="backButtonPressed:" destination="XNa-Ru-XO3" eventType="touchUpInside" id="hJm-Ln-4wT"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Allow access to contacts" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vjr-mJ-4k0">
+                                <rect key="frame" x="16" y="242" width="241" height="26"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UdX-vt-wDW">
+                                <rect key="frame" x="282" y="244" width="22" height="22"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="22" id="cde-9P-dYn"/>
+                                    <constraint firstAttribute="width" constant="22" id="n1U-q4-KaR"/>
+                                </constraints>
+                                <state key="normal" image="icon_uncheck.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="checkButtonPressed:" destination="XNa-Ru-XO3" eventType="touchUpInside" id="gzP-Su-dyc"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="icon_find.png" translatesAutoresizingMaskIntoConstraints="NO" id="Mhw-xf-f7G">
+                                <rect key="frame" x="16" y="310" width="20" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="ZGa-NS-IPF"/>
+                                    <constraint firstAttribute="width" constant="20" id="hAD-io-EiE"/>
+                                </constraints>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="icon_add.png" translatesAutoresizingMaskIntoConstraints="NO" id="Muj-XY-WkQ">
+                                <rect key="frame" x="16" y="369" width="20" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="20" id="RLg-gk-AVf"/>
+                                    <constraint firstAttribute="height" constant="20" id="UXN-Wr-Y0m"/>
+                                </constraints>
+                            </imageView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Find friends" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MmG-KM-dkT">
+                                <rect key="frame" x="42" y="305" width="262" height="30"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Invite friends" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lpU-yF-iCF">
+                                <rect key="frame" x="42" y="364" width="262" height="30"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="image_line.png" translatesAutoresizingMaskIntoConstraints="NO" id="AZW-UX-FAA">
+                                <rect key="frame" x="16" y="331" width="288" height="15"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="image_line.png" translatesAutoresizingMaskIntoConstraints="NO" id="NmI-Hj-Rn4">
+                                <rect key="frame" x="16" y="390" width="288" height="15"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uvO-98-V7J">
+                                <rect key="frame" x="76" y="496" width="168" height="38"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="38" id="AYh-0J-ogr"/>
+                                    <constraint firstAttribute="width" constant="168" id="GD0-Lm-IVa"/>
+                                </constraints>
+                                <state key="normal" image="btn_start.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="CY8-rH-5qL" kind="modal" id="Pne-AH-Dmr"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="UdX-vt-wDW" firstAttribute="trailing" secondItem="USB-Fn-ME1" secondAttribute="trailingMargin" id="55d-7Z-fSm"/>
+                            <constraint firstItem="UdX-vt-wDW" firstAttribute="trailing" secondItem="USB-Fn-ME1" secondAttribute="trailingMargin" id="727-A8-Xcd"/>
+                            <constraint firstItem="AZW-UX-FAA" firstAttribute="leading" secondItem="USB-Fn-ME1" secondAttribute="leadingMargin" id="CD5-IT-O3T"/>
+                            <constraint firstItem="NmI-Hj-Rn4" firstAttribute="leading" secondItem="USB-Fn-ME1" secondAttribute="leadingMargin" id="FfO-0f-Sn1"/>
+                            <constraint firstAttribute="centerX" secondItem="9QH-Bm-6s5" secondAttribute="centerX" id="J5t-lc-FDw"/>
+                            <constraint firstItem="AZW-UX-FAA" firstAttribute="trailing" secondItem="USB-Fn-ME1" secondAttribute="trailingMargin" id="VKI-Yd-ndb"/>
+                            <constraint firstAttribute="centerX" secondItem="uvO-98-V7J" secondAttribute="centerX" id="WQs-dx-f8a"/>
+                            <constraint firstItem="clT-hc-HOf" firstAttribute="top" secondItem="Tar-LS-pmi" secondAttribute="bottom" id="eHA-Cd-CEx"/>
+                            <constraint firstItem="clT-hc-HOf" firstAttribute="top" secondItem="uvO-98-V7J" secondAttribute="bottom" constant="35" id="hdv-sf-DEk"/>
+                            <constraint firstItem="Tar-LS-pmi" firstAttribute="top" secondItem="USB-Fn-ME1" secondAttribute="topMargin" id="mxS-lt-VQM"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Tar-LS-pmi" secondAttribute="trailing" constant="-16" id="s8n-UK-StK"/>
+                            <constraint firstItem="Tar-LS-pmi" firstAttribute="leading" secondItem="USB-Fn-ME1" secondAttribute="leadingMargin" constant="-16" id="uLq-hO-VxE"/>
+                            <constraint firstItem="NmI-Hj-Rn4" firstAttribute="trailing" secondItem="USB-Fn-ME1" secondAttribute="trailingMargin" id="y1Y-H2-v1P"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="s0e-vz-ufu"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="btnCheck" destination="UdX-vt-wDW" id="fcI-AY-Tj6"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="L06-Mb-tjw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="54" y="-293"/>
+        </scene>
+        <!--Side Menu View Controller-->
+        <scene sceneID="52t-BD-VS0">
+            <objects>
+                <viewController storyboardIdentifier="SideMenuViewController" id="sgM-AU-KYf" customClass="SideMenuViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="1u2-SD-vtR"/>
+                        <viewControllerLayoutGuide type="bottom" id="kfr-Ta-ehT"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="0xh-4C-ajN">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="58" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="3KC-QA-sOK">
+                                <rect key="frame" x="0.0" y="20" width="320" height="427"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <color key="sectionIndexTrackingBackgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" restorationIdentifier="OttaMenuCellID" selectionStyle="default" indentationWidth="10" reuseIdentifier="OttaMenuCellID" rowHeight="58" id="Mxd-Wq-2Qv" customClass="OttaMenuCell">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Mxd-Wq-2Qv" id="wSm-wy-rGT">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Me1-fo-wR7">
+                                                    <rect key="frame" x="64" y="8" width="242" height="42"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="menu_heart.png" translatesAutoresizingMaskIntoConstraints="NO" id="g1h-so-Hfh">
+                                                    <rect key="frame" x="16" y="16" width="26" height="26"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="26" id="Jkn-wX-fUT"/>
+                                                        <constraint firstAttribute="width" constant="26" id="xO3-yd-s46"/>
+                                                    </constraints>
+                                                </imageView>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <connections>
+                                            <outlet property="imgIcon" destination="g1h-so-Hfh" id="MXc-Vf-kvj"/>
+                                            <outlet property="lblText" destination="Me1-fo-wR7" id="aMZ-ON-QaT"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="sgM-AU-KYf" id="phr-kv-DbH"/>
+                                    <outlet property="delegate" destination="sgM-AU-KYf" id="BdY-p0-jep"/>
+                                </connections>
+                            </tableView>
+                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tqy-de-v4L">
+                                <rect key="frame" x="0.0" y="511" width="320" height="57"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="menu_otta.png" translatesAutoresizingMaskIntoConstraints="NO" id="V5k-gD-NrQ">
+                                        <rect key="frame" x="21" y="11" width="26" height="26"/>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GpN-eb-nZg">
+                                        <rect key="frame" x="66" y="9" width="184" height="34"/>
+                                        <fontDescription key="fontDescription" name="OpenSans-Light" family="Open Sans" pointSize="18"/>
+                                        <state key="normal" title="About">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="btnAboutTapped:" destination="sgM-AU-KYf" eventType="touchUpInside" id="oQV-aj-JcX"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="tqy-de-v4L" firstAttribute="leading" secondItem="0xh-4C-ajN" secondAttribute="leadingMargin" constant="-16" id="3u8-cf-OUP"/>
+                            <constraint firstItem="3KC-QA-sOK" firstAttribute="leading" secondItem="0xh-4C-ajN" secondAttribute="leadingMargin" constant="-16" id="Cvi-1I-0zX"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="tqy-de-v4L" secondAttribute="trailing" constant="-16" id="fZu-JI-NBb"/>
+                            <constraint firstItem="kfr-Ta-ehT" firstAttribute="top" secondItem="tqy-de-v4L" secondAttribute="bottom" id="fd3-Gb-taA"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="3KC-QA-sOK" secondAttribute="trailing" constant="-16" id="y60-Sp-4JY"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="a4D-ve-hE1"/>
+                    <connections>
+                        <outlet property="btnAbout" destination="GpN-eb-nZg" id="wpx-zx-ozV"/>
+                        <outlet property="menuTableView" destination="3KC-QA-sOK" id="rJn-U7-37u"/>
+                        <segue destination="03l-6j-O6Q" kind="custom" identifier="segueAskQuestion" customClass="ECSlidingSegue" id="ais-5P-BsU"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4ot-XI-b0c" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-465" y="490"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="FBConnect.png" width="252" height="72"/>
+        <image name="OttaAddAnswerButton.png" width="90" height="102"/>
+        <image name="OttaAddTextButton.png" width="134" height="112"/>
+        <image name="OttaAskheader.png" width="640" height="123"/>
+        <image name="OttaNumberBackground.png" width="73" height="73"/>
+        <image name="OttaSideMenuBackground.png" width="640" height="1136"/>
+        <image name="addPhotoOtta.png" width="134" height="112"/>
+        <image name="btn_back.png" width="226" height="153"/>
+        <image name="btn_join.png" width="362" height="104"/>
+        <image name="btn_login.png" width="361" height="104"/>
+        <image name="btn_start.png" width="514" height="104"/>
+        <image name="greenLogo.png" width="626" height="281"/>
+        <image name="icon_add.png" width="41" height="42"/>
+        <image name="icon_find.png" width="52" height="53"/>
+        <image name="icon_time.png" width="106" height="106"/>
+        <image name="icon_uncheck.png" width="52" height="53"/>
+        <image name="image_line.png" width="816" height="3"/>
+        <image name="menu_heart.png" width="172" height="171"/>
+        <image name="menu_otta.png" width="173" height="173"/>
+    </resources>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
+</document>
