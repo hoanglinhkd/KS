@@ -1,0 +1,25 @@
+/* 
+  Localizable.strings
+  Otta
+
+  Created by Gambogo on 11/15/14.
+  Copyright (c) 2014 SojoDigital. All rights reserved.
+*/
+
+"Ask a question." = "Ask a question.";
+"Ask a question" = "Ask a question";
+"Ask a question..." = "Ask a question...";
+"My questions" = "My questions";
+"Friends" = "Friends";
+"Settings" = "Settings";
+"Question feed" = "Question feed";
+"Get input." = "Get input.";
+"Answer your friends’ questions" = "Answer your friends’ questions";
+"Decision-making gone social for the indecisive, the curious, and the practical." = "Decision-making gone social for the indecisive, the curious, and the practical. ";
+"Username or Email" = "Username or Email";
+"Password" = "Password" ;
+"Username" = "Username";
+"Login Failed" = "Login Failed";
+"Register Failed" = "Register Failed";
+"Ok" = "Ok";
+"Enter an answer..." = "Enter an answer...";

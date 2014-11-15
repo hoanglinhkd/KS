@@ -33,7 +33,7 @@
     EAIntroPage *page1 = [EAIntroPage page];
     page1.title = @"";
     page1.descFont = [UIFont fontWithName:@"OpenSans-Semibold" size:22.00f];
-    page1.desc = @"Ask a question.";
+    page1.desc = [@"Ask a question." toCurrentLanguage];
     page1.descPositionY = 120;
     page1.bgImage = [UIImage imageNamed:@"OttaSideMenuBackground.png"];
     page1.titleIconView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"con_question.png"]];
@@ -42,7 +42,7 @@
     EAIntroPage *page2 = [EAIntroPage page];
     page2.title = @"";
     page2.descFont = [UIFont fontWithName:@"OpenSans-Semibold" size:22.00f];
-    page2.desc = @"Get input.";
+    page2.desc = [@"Get input." toCurrentLanguage];
     page2.descPositionY = 120;
     page2.bgImage = [UIImage imageNamed:@"OttaSideMenuBackground.png"];
     page2.titleIconView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"icon_email.png"]];
@@ -51,7 +51,7 @@
     EAIntroPage *page3 = [EAIntroPage page];
     page3.title = @"";
     page3.descFont = [UIFont fontWithName:@"OpenSans-Semibold" size:22.00f];
-    page3.desc = @"Answer your friends’ questions";
+    page3.desc = [@"Answer your friends’ questions" toCurrentLanguage];
     page3.descPositionY = 130;
     page3.bgImage = [UIImage imageNamed:@"OttaSideMenuBackground.png"];
     page3.titleIconView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"icon_open_mail.png"]];
@@ -60,7 +60,7 @@
     EAIntroPage *page4 = [EAIntroPage page];
     page4.title = @"";
     page4.descFont = [UIFont fontWithName:@"OpenSans-Semibold" size:22.00f];
-    page4.desc = @"Decision-making gone social for the indecisive, the curious, and the practical. ";
+    page4.desc = [@"Decision-making gone social for the indecisive, the curious, and the practical." toCurrentLanguage];
     page4.descPositionY = 155;
     page4.bgImage = [UIImage imageNamed:@"OttaSideMenuBackground.png"];
     page4.titleIconView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"icon_check.png"]];
@@ -109,8 +109,6 @@
     [_usernameLine setHidden:YES];
     [_passwordTextField setHidden:YES];
     [_passwordLine setHidden:YES];
-    [_btnFacebook setHidden:YES];
-    [_btnFacebookJoin setHidden:YES];
     [_btnJoin setHidden:NO];
     [_btnForgotPassword setHidden:YES];
     [intro showInView:self.ottaBackingView animateDuration:0.4f];
@@ -123,22 +121,20 @@
     [_usernameLine setHidden:NO];
     if ([_usernameTextField respondsToSelector:@selector(setAttributedPlaceholder:)]) {
         UIColor *color = [UIColor whiteColor];
-        _usernameTextField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"Username or Email" attributes:@{NSForegroundColorAttributeName: color, NSFontAttributeName : [UIFont fontWithName:@"OpenSans-Light" size:20.0]}];
+        _usernameTextField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:[@"Username or Email" toCurrentLanguage] attributes:@{NSForegroundColorAttributeName: color, NSFontAttributeName : [UIFont fontWithName:@"OpenSans-Light" size:20.0]}];
     }
     
     [_passwordTextField setHidden:NO];
     [_passwordLine setHidden:NO];
     if ([_passwordTextField respondsToSelector:@selector(setAttributedPlaceholder:)]) {
         UIColor *color = [UIColor whiteColor];
-        _passwordTextField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"Password" attributes:@{NSForegroundColorAttributeName: color, NSFontAttributeName : [UIFont fontWithName:@"OpenSans-Light" size:20.0]}];
+        _passwordTextField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:[@"Password" toCurrentLanguage] attributes:@{NSForegroundColorAttributeName: color, NSFontAttributeName : [UIFont fontWithName:@"OpenSans-Light" size:20.0]}];
     }
     
     [_emailTextField setHidden:YES];
     [_emailLine setHidden:YES];
     
     [_btnJoin setHidden:YES];
-    [_btnFacebook setHidden:NO];
-    [_btnFacebookJoin setHidden:YES];
     [_btnLogin setHidden:NO];
     [_btnBackPage setHidden:NO];
     [_btnForgotPassword setHidden:NO];
@@ -155,26 +151,24 @@
     [_emailLine setHidden:NO];
     if ([_emailTextField respondsToSelector:@selector(setAttributedPlaceholder:)]) {
         UIColor *color = [UIColor whiteColor];
-        _emailTextField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"Username or Email" attributes:@{NSForegroundColorAttributeName: color, NSFontAttributeName : [UIFont fontWithName:@"OpenSans-Light" size:20.0]}];
+        _emailTextField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:[@"Username or Email" toCurrentLanguage] attributes:@{NSForegroundColorAttributeName: color, NSFontAttributeName : [UIFont fontWithName:@"OpenSans-Light" size:20.0]}];
     }
     
     [_usernameTextField setHidden:NO];
     [_usernameLine setHidden:NO];
     if ([_usernameTextField respondsToSelector:@selector(setAttributedPlaceholder:)]) {
         UIColor *color = [UIColor whiteColor];
-        _usernameTextField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"Username" attributes:@{NSForegroundColorAttributeName: color, NSFontAttributeName : [UIFont fontWithName:@"OpenSans-Light" size:20.0]}];
+        _usernameTextField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:[@"Username" toCurrentLanguage] attributes:@{NSForegroundColorAttributeName: color, NSFontAttributeName : [UIFont fontWithName:@"OpenSans-Light" size:20.0]}];
     }
     
     [_passwordTextField setHidden:NO];
     [_passwordLine setHidden:NO];
     if ([_passwordTextField respondsToSelector:@selector(setAttributedPlaceholder:)]) {
         UIColor *color = [UIColor whiteColor];
-        _passwordTextField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"Password" attributes:@{NSForegroundColorAttributeName: color, NSFontAttributeName : [UIFont fontWithName:@"OpenSans-Light" size:20.0]}];
+        _passwordTextField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:[@"Password" toCurrentLanguage] attributes:@{NSForegroundColorAttributeName: color, NSFontAttributeName : [UIFont fontWithName:@"OpenSans-Light" size:20.0]}];
     }
     
     [_btnJoin setHidden:NO];
-    [_btnFacebook setHidden:YES];
-    [_btnFacebookJoin setHidden:NO];
     [_btnLogin setHidden:NO];
     [_btnBackPage setHidden:NO];
     [_btnForgotPassword setHidden:NO];
@@ -219,7 +213,7 @@
                 
             } else {
                 NSLog(@"Login failed");
-                UIAlertView * alert =[[UIAlertView alloc ] initWithTitle:@"Login Failed"
+                UIAlertView * alert =[[UIAlertView alloc ] initWithTitle:[@"Login Failed" toCurrentLanguage]
                                                                  message:failureReason
                                                                 delegate:self
                                                        cancelButtonTitle:@"Ok"
@@ -249,10 +243,10 @@
 
             } else {
                 NSLog(@"Join failed");
-                UIAlertView * alert =[[UIAlertView alloc ] initWithTitle:@"Register Failed"
+                UIAlertView * alert =[[UIAlertView alloc ] initWithTitle:[@"Register Failed" toCurrentLanguage]
                                                                  message:failureReason
                                                                 delegate:self
-                                                       cancelButtonTitle:@"Ok"
+                                                       cancelButtonTitle:[@"Ok" toCurrentLanguage]
                                                        otherButtonTitles: nil];
                 [alert show];
             }
