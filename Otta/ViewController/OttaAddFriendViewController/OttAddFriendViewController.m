@@ -2,7 +2,7 @@
 //  OttAddFriendViewController.m
 //  Otta
 //
-//  Created by ThienHuyen on 11/11/14.
+//  Created by Thien Chau on 11/11/14.
 //  Copyright (c) 2014 SojoDigital. All rights reserved.
 //
 

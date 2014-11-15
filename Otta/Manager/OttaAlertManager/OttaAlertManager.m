@@ -2,7 +2,7 @@
 //  OttaAlertManager.m
 //  Otta
 //
-//  Created by ThienHuyen on 11/15/14.
+//  Created by Thien Chau on 11/15/14.
 //  Copyright (c) 2014 SojoDigital. All rights reserved.
 //
 

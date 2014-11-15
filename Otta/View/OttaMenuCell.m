@@ -2,7 +2,7 @@
 //  OttaMenuCell.m
 //  Otta
 //
-//  Created by ThienHuyen on 11/12/14.
+//  Created by Thien Chau on 11/12/14.
 //  Copyright (c) 2014 SojoDigital. All rights reserved.
 //
 
