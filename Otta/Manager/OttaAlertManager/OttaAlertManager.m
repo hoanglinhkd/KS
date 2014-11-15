@@ -8,11 +8,23 @@
 
 #import "OttaAlertManager.h"
 #import <QuartzCore/QuartzCore.h>
+#import "AFPickerView.h"
 
-@interface OttaAlertManager()
+@interface OttaAlertManager() <AFPickerViewDataSource, AFPickerViewDelegate>
+{
+    AFPickerView *pickerTimeValue;
+    AFPickerView *pickerTimeTitle;
+    NSMutableArray *timeValueData;
+    NSMutableArray *timeTitleData;
+    OttaTimePickerCompletion timePickerCompletion;
+    TimeSelection selectedTimeTitle;
+    NSInteger selectedTimeValue;
+}
 
 @property (strong, nonatomic) IBOutlet UIView *simpleAlertView;
+@property (strong, nonatomic) IBOutlet UIView *limitTimerAlertView;
 @property (weak, nonatomic) IBOutlet UIButton *btnSimpleDone;
+
 
 - (IBAction)simpleDonePressed:(id)sender;
 
@@ -32,6 +44,14 @@
 
 + (OttaAlertManager*) initAlert {
     return [[OttaAlertManager alloc] initWithNibName:@"OttaAlertManager" bundle:nil];
+}
+
+- (void)showLimitTimerPickerOnView:(UIView*)parentView completionBlock:(OttaTimePickerCompletion) completionResult
+{
+    timePickerCompletion = completionResult;
+    [parentView addSubview:self.view];
+    [self initTimePickerAtX:100.0 atY:18.0];
+    [self showAleartWithView:_limitTimerAlertView];
 }
 
 - (void)showSimpleAlertOnView:(UIView*)parentView withTitle:(NSString*)title andContent:(NSString*)content {
@@ -65,7 +85,7 @@
     [view.layer addAnimation:popAnimation forKey:nil];
 }
 
-- (void)hideAlertAction {
+- (void)hideAlertAction:(UIView*) currentView {
     CAKeyframeAnimation *hideAnimation = [CAKeyframeAnimation animationWithKeyPath:@"transform"];
     hideAnimation.duration = 0.4;
     hideAnimation.values = @[[NSValue valueWithCATransform3D:CATransform3DMakeScale(1.1f, 1.1f, 1.0f)],
@@ -76,7 +96,7 @@
                                       [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut],
                                       [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut]];
     hideAnimation.delegate = self;
-    [self.simpleAlertView.layer addAnimation:hideAnimation forKey:nil];
+    [currentView.layer addAnimation:hideAnimation forKey:nil];
     
 }
 
@@ -87,8 +107,88 @@
     }
 }
 
+#pragma mark - Button Interaction
+
 - (IBAction)simpleDonePressed:(id)sender {
-    [self hideAlertAction];
+    [self hideAlertAction:_simpleAlertView];
+}
+
+-(IBAction)timeSelectionDonePressed:(id)sender
+{
+    [self hideAlertAction:_limitTimerAlertView];
+    
+    if (timePickerCompletion != nil) {
+        timePickerCompletion(selectedTimeValue, selectedTimeTitle);
+    }
+}
+
+#pragma mark - Timer Picker
+
+-(void) initTimePickerAtX:(CGFloat)xPosition atY:(CGFloat)yPosition;
+{
+ 
+    selectedTimeTitle = TimeSelection_Minutes;
+    selectedTimeValue = 1;
+    
+    //Check first init data or not
+    if (timeTitleData.count > 0) {
+        [pickerTimeTitle reloadData];
+        [pickerTimeValue reloadData];
+        return;
+    }
+    
+    timeValueData = [NSMutableArray array];
+    for (int i = 1; i < 99; i++) {
+        [timeValueData addObject:[NSString stringWithFormat:@"%d", i]];
+    }
+    
+    timeTitleData = [NSMutableArray array];
+    [timeTitleData addObject:@"mins"];
+    [timeTitleData addObject:@"hrs"];
+    [timeTitleData addObject:@"days"];
+    
+    pickerTimeTitle = [[AFPickerView alloc] initWithFrame:CGRectMake(xPosition + 55.0, yPosition, 50.0f, 117.0f)];
+    pickerTimeTitle.dataSource = self;
+    pickerTimeTitle.delegate = self;
+    pickerTimeTitle.rowFont = [UIFont boldSystemFontOfSize:19.0];
+    pickerTimeTitle.rowIndent = 3.0;
+    [pickerTimeTitle reloadData];
+    [self.limitTimerAlertView addSubview:pickerTimeTitle];
+    
+    pickerTimeValue = [[AFPickerView alloc] initWithFrame:CGRectMake(xPosition, yPosition, 50.0f, 117.0f)];
+    pickerTimeValue.dataSource = self;
+    pickerTimeValue.delegate = self;
+    pickerTimeValue.rowIndent = 3.0;
+    [pickerTimeValue reloadData];
+    [self.limitTimerAlertView addSubview:pickerTimeValue];
+    
+}
+
+- (NSInteger)numberOfRowsInPickerView:(AFPickerView *)pickerView
+{
+    if (pickerView == pickerTimeTitle)
+        return [timeTitleData count];
+    
+    return [timeValueData count];
+}
+
+- (NSString *)pickerView:(AFPickerView *)pickerView titleForRow:(NSInteger)row
+{
+    if (pickerView == pickerTimeTitle) {
+        return [timeTitleData objectAtIndex:row];
+    } else {
+        return [timeValueData objectAtIndex:row];
+    }
+}
+
+
+- (void)pickerView:(AFPickerView *)pickerView didSelectRow:(NSInteger)row
+{
+    if (pickerView == pickerTimeTitle) {
+        selectedTimeTitle = row;
+    } else {
+        selectedTimeValue = row + 1;
+    }
 }
 
 - (void)didReceiveMemoryWarning

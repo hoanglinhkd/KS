@@ -100,6 +100,10 @@
 		D98E30BC1A1779110080B934 /* LanguageHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = D98E30BB1A1779110080B934 /* LanguageHelper.m */; };
 		D98E30BF1A1779340080B934 /* NSString+Language.m in Sources */ = {isa = PBXBuildFile; fileRef = D98E30BE1A1779340080B934 /* NSString+Language.m */; };
 		D98E30C11A177D0F0080B934 /* Main_H.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D98E30C01A177D0F0080B934 /* Main_H.storyboard */; };
+		D98E30C41A1795D70080B934 /* Constant.m in Sources */ = {isa = PBXBuildFile; fileRef = D98E30C31A1795D70080B934 /* Constant.m */; };
+		D98E30CA1A1797CD0080B934 /* AFPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = D98E30C71A1797CD0080B934 /* AFPickerView.m */; };
+		D98E30CB1A1797CD0080B934 /* pickerGlass.png in Resources */ = {isa = PBXBuildFile; fileRef = D98E30C81A1797CD0080B934 /* pickerGlass.png */; };
+		D98E30CC1A1797CD0080B934 /* pickerGlass@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D98E30C91A1797CD0080B934 /* pickerGlass@2x.png */; };
 		F0B6412519A57B11007C4373 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F0B6412419A57B11007C4373 /* libz.dylib */; };
 		F0BC6516198606BD0097A87C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0BC6515198606BD0097A87C /* Foundation.framework */; };
 		F0BC6518198606BD0097A87C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0BC6517198606BD0097A87C /* CoreGraphics.framework */; };
@@ -245,6 +249,12 @@
 		D98E30BD1A1779340080B934 /* NSString+Language.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Language.h"; sourceTree = "<group>"; };
 		D98E30BE1A1779340080B934 /* NSString+Language.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Language.m"; sourceTree = "<group>"; };
 		D98E30C01A177D0F0080B934 /* Main_H.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main_H.storyboard; sourceTree = "<group>"; };
+		D98E30C21A1795D70080B934 /* Constant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constant.h; sourceTree = "<group>"; };
+		D98E30C31A1795D70080B934 /* Constant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constant.m; sourceTree = "<group>"; };
+		D98E30C61A1797CD0080B934 /* AFPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFPickerView.h; sourceTree = "<group>"; };
+		D98E30C71A1797CD0080B934 /* AFPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFPickerView.m; sourceTree = "<group>"; };
+		D98E30C81A1797CD0080B934 /* pickerGlass.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pickerGlass.png; sourceTree = "<group>"; };
+		D98E30C91A1797CD0080B934 /* pickerGlass@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pickerGlass@2x.png"; sourceTree = "<group>"; };
 		F0B6412419A57B11007C4373 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		F0BC6512198606BD0097A87C /* Otta.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Otta.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F0BC6515198606BD0097A87C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -538,6 +548,7 @@
 		66FD4B5B1A11AD6B005ACD58 /* Lib */ = {
 			isa = PBXGroup;
 			children = (
+				D98E30C51A1797CD0080B934 /* AFPickerView */,
 				D98E30B91A1779110080B934 /* Language */,
 				66FD4B5C1A11AD6B005ACD58 /* Testflight */,
 			);
@@ -559,6 +570,8 @@
 		D9286F3D1A12187F00C28770 /* Manager */ = {
 			isa = PBXGroup;
 			children = (
+				D98E30C21A1795D70080B934 /* Constant.h */,
+				D98E30C31A1795D70080B934 /* Constant.m */,
 				38A37D741A171FCD00771881 /* OttaAlertManager */,
 				D9286F3E1A12187F00C28770 /* OttaSessionManager.h */,
 				D9286F3F1A12187F00C28770 /* OttaSessionManager.m */,
@@ -585,6 +598,17 @@
 				D98E30BB1A1779110080B934 /* LanguageHelper.m */,
 			);
 			path = Language;
+			sourceTree = "<group>";
+		};
+		D98E30C51A1797CD0080B934 /* AFPickerView */ = {
+			isa = PBXGroup;
+			children = (
+				D98E30C61A1797CD0080B934 /* AFPickerView.h */,
+				D98E30C71A1797CD0080B934 /* AFPickerView.m */,
+				D98E30C81A1797CD0080B934 /* pickerGlass.png */,
+				D98E30C91A1797CD0080B934 /* pickerGlass@2x.png */,
+			);
+			path = AFPickerView;
 			sourceTree = "<group>";
 		};
 		F0BC6509198606BD0097A87C = {
@@ -752,6 +776,7 @@
 			files = (
 				386E89AF1A124EAF00459171 /* btn_facebook.png in Resources */,
 				66FD4B0C1A11A6CC005ACD58 /* hamburger.jpg in Resources */,
+				D98E30CB1A1797CD0080B934 /* pickerGlass.png in Resources */,
 				386E89B41A124EAF00459171 /* icon_check.png in Resources */,
 				66FD4B221A11A6CC005ACD58 /* JoinButton.png in Resources */,
 				66FD4B201A11A6CC005ACD58 /* AskAQuestion.png in Resources */,
@@ -773,6 +798,7 @@
 				66FD4B2F1A11A6CC005ACD58 /* universalSidebar.png in Resources */,
 				386E89C01A12606000459171 /* icon_add.png in Resources */,
 				F0BC652E198606BD0097A87C /* Images.xcassets in Resources */,
+				D98E30CC1A1797CD0080B934 /* pickerGlass@2x.png in Resources */,
 				66FD4B111A11A6CC005ACD58 /* starbucks_coffee.jpg in Resources */,
 				66FD4B131A11A6CC005ACD58 /* vegetable_curry.jpg in Resources */,
 				66FD4B3B1A11A8F0005ACD58 /* OttaQuestionTableViewCell.xib in Resources */,
@@ -879,6 +905,7 @@
 				F0BC6526198606BD0097A87C /* OttaAppDelegate.m in Sources */,
 				66FD4B471A11AAAF005ACD58 /* OttaViewController.m in Sources */,
 				66FD4B551A11AB02005ACD58 /* OttaQuestion.m in Sources */,
+				D98E30C41A1795D70080B934 /* Constant.m in Sources */,
 				66FD4B631A11AD6B005ACD58 /* release_notes.md in Sources */,
 				D98E30BF1A1779340080B934 /* NSString+Language.m in Sources */,
 				66FD4B571A11AB02005ACD58 /* OttaUser.m in Sources */,
@@ -888,6 +915,7 @@
 				D9286F401A12187F00C28770 /* OttaSessionManager.m in Sources */,
 				66FD4B3F1A11A923005ACD58 /* OttaLoginViewController.m in Sources */,
 				66502BE71A14653300A9472D /* OttaOptionCell.m in Sources */,
+				D98E30CA1A1797CD0080B934 /* AFPickerView.m in Sources */,
 				66FD4B4B1A11AAED005ACD58 /* OttaTutorialViewController.m in Sources */,
 				66FD4B3A1A11A8F0005ACD58 /* OttaQuestionTableViewCell.m in Sources */,
 				D98E30BC1A1779110080B934 /* LanguageHelper.m in Sources */,

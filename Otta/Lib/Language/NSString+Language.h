@@ -11,5 +11,6 @@
 @interface NSString (Language)
 
 -(NSString*) toCurrentLanguage;
+-(void) toLogConsole;
 
 @end

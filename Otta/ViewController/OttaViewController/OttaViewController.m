@@ -193,9 +193,9 @@
 
 -(IBAction)btnLoginTapped:(id)sender
 {
-    OttaAlertManager* otta  = [OttaAlertManager sharedManager];
-    otta.parentView = self.view;
-    [otta showSimpleAlertWithTitle:@"" andContent:@""];
+    //OttaAlertManager* otta  = [OttaAlertManager sharedManager];
+    //otta.parentView = self.view;
+    //[otta showSimpleAlertWithTitle:@"" andContent:@""];
     
     /*
     

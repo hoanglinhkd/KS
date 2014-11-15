@@ -15,4 +15,9 @@
     return GetLocalizedString(self, nil);
 }
 
+-(void) toLogConsole
+{
+    NSLog(@"%@", self);
+}
+
 @end
