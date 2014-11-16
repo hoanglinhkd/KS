@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="rFF-Yf-sGT">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="CY8-rH-5qL">
     <dependencies>
         <deployment defaultVersion="1808" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
@@ -88,7 +88,7 @@
                                 <rect key="frame" x="0.0" y="137" width="320" height="387"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="OttaOptionCellIID" rowHeight="152" id="60g-K2-AJz" customClass="OttaOptionCell">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="OttaOptionCellIID" rowHeight="92" id="60g-K2-AJz" customClass="OttaOptionCell">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="60g-K2-AJz" id="ZyN-VG-Ukh">
@@ -99,10 +99,22 @@
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                    <connections>
+                                                        <outlet property="delegate" destination="60g-K2-AJz" id="YkB-Y1-YNd"/>
+                                                    </connections>
                                                 </textView>
-                                                <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hIw-e4-cRJ">
-                                                    <rect key="frame" x="53" y="72" width="91" height="69"/>
+                                                <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hIw-e4-cRJ">
+                                                    <rect key="frame" x="53" y="5" width="70" height="70"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="70" id="FfF-u4-ahQ"/>
+                                                        <constraint firstAttribute="width" constant="70" id="gWY-88-g7K"/>
+                                                    </constraints>
                                                 </imageView>
+                                                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GBj-0G-qp9">
+                                                    <rect key="frame" x="130" y="28" width="176" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                                 <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NPE-xC-J6P">
                                                     <rect key="frame" x="20" y="28" width="20" height="20"/>
                                                     <subviews>
@@ -151,6 +163,7 @@
                                             <outlet property="imgMain" destination="hIw-e4-cRJ" id="6am-cu-r1E"/>
                                             <outlet property="lblNumber" destination="bVp-cZ-tgo" id="X5s-oX-pgu"/>
                                             <outlet property="txtContent" destination="zVO-t6-E0B" id="8Yg-8l-kRa"/>
+                                            <outlet property="txtImageDescription" destination="GBj-0G-qp9" id="3zb-Ny-2q3"/>
                                             <outlet property="viewAction" destination="du6-WV-2r3" id="FeH-6e-Q8n"/>
                                         </connections>
                                     </tableViewCell>
