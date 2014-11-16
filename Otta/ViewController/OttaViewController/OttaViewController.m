@@ -7,6 +7,7 @@
 //
 #import "OttaViewController.h"
 #import "OttaAlertManager.h"
+#import "MBProgressHUD.h"
 
 @interface OttaViewController ()<EAIntroDelegate> {
     BOOL isJoinScreen;
@@ -201,8 +202,9 @@
         [self showLoginView];
     } else {
         //TO DO: Validation required field, validation email format
-        
+        [MBProgressHUD showHUDAddedTo:self.view animated:YES];
         [[OttaParseClientManager sharedManager] loginWithEmail:self.usernameTextField.text andPassword:self.passwordTextField.text withResult:^(BOOL joinSucceeded, PFUser *pUser, NSString *failureReason) {
+            [MBProgressHUD hideHUDForView:self.view animated:YES];
             if (joinSucceeded) {
                 NSLog(@"Login succeeded");
                 
@@ -210,12 +212,7 @@
                 
             } else {
                 NSLog(@"Login failed");
-                UIAlertView * alert =[[UIAlertView alloc ] initWithTitle:[@"Login Failed" toCurrentLanguage]
-                                                                 message:failureReason
-                                                                delegate:self
-                                                       cancelButtonTitle:@"Ok"
-                                                       otherButtonTitles: nil];
-                [alert show];
+                [[OttaAlertManager sharedManager] showSimpleAlertOnView:self.view withContent:@"Login Failed" complete:nil];
             }
         }];
     }
@@ -223,14 +220,14 @@
 
 -(IBAction)btnJoinTapped:(id)sender
 {
-    //TODO: Will use other way to identify the screen
     //Is join Screen
     if ([self.emailTextField isHidden]) {
         [self showJoinView];
     } else {
         //TO DO: Validation required field, validation email format
-        
+        [MBProgressHUD showHUDAddedTo:self.view animated:YES];
         [[OttaParseClientManager sharedManager] joinWithEmail:self.emailTextField.text andUsername:self.usernameTextField.text andPassword:self.passwordTextField.text withResult:^(BOOL joinSucceeded, PFUser *pUser, NSString *failureReason) {
+            [MBProgressHUD hideHUDForView:self.view animated:YES];
             if (joinSucceeded) {
                 NSLog(@"Join succeeded");
 
@@ -238,12 +235,7 @@
 
             } else {
                 NSLog(@"Join failed");
-                UIAlertView * alert =[[UIAlertView alloc ] initWithTitle:[@"Register Failed" toCurrentLanguage]
-                                                                 message:failureReason
-                                                                delegate:self
-                                                       cancelButtonTitle:[@"Ok" toCurrentLanguage]
-                                                       otherButtonTitles: nil];
-                [alert show];
+                [[OttaAlertManager sharedManager] showSimpleAlertOnView:self.view withContent:@"Register Failed" complete:nil];
             }
         }];
     }
