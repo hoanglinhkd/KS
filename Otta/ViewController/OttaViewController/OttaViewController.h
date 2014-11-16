@@ -12,6 +12,8 @@
 #import "OttaSessionManager.h"
 #import "OttaParseClientManager.h"
 
+#import "OttaAlertManager.h"
+
 @interface OttaViewController : UIViewController
 {
     EAIntroView *intro;
@@ -28,7 +30,6 @@
 @property (nonatomic,strong)IBOutlet UIButton *btnLogin;
 @property (nonatomic,strong)IBOutlet UIButton *btnJoin;
 @property (nonatomic,strong)IBOutlet UIButton *btnFacebook;
-@property (nonatomic,strong)IBOutlet UIButton *btnFacebookJoin;
 @property (nonatomic,strong)IBOutlet UIButton *btnBackPage;
 @property (nonatomic,strong)IBOutlet UIButton *btnForgotPassword;
 @property (nonatomic,strong)IBOutlet UIScrollView *scrlUserInformation;

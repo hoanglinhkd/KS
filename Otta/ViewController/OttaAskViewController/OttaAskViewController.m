@@ -106,7 +106,7 @@ testAnswer.answerText = @"Creme Brelee";
     [_itsTextView setReturnKeyType:UIReturnKeyDone];
     [_itsTextView setFont:[UIFont fontWithName:@"OpenSans-Light" size:17.00f]];
     
-    [_itsTextView setText:@"Ask a question..."];
+    [_itsTextView setText:[@"Ask a question..." toCurrentLanguage]];
     [_itsTextView setTextColor:[UIColor lightGrayColor]];
     
     [[NSNotificationCenter defaultCenter] addObserver:self
@@ -275,7 +275,7 @@ UITextView itsTextView = [[UITextView alloc] initWithFrame:CGRectMake(0, 0, itsT
         [textView resignFirstResponder];
         if(_itsTextView.text.length == 0){
             _itsTextView.textColor = [UIColor lightGrayColor];
-            _itsTextView.text = @"Ask a question...";
+            _itsTextView.text = [@"Ask a question..." toCurrentLanguage];
             [_itsTextView resignFirstResponder];
         }
         return NO;

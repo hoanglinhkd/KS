@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="rFF-Yf-sGT">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="rFF-Yf-sGT">
     <dependencies>
-        <deployment defaultVersion="1808" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -37,6 +37,157 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8b0-wb-akz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="544" y="-293"/>
+        </scene>
+        <!--Otta View Controller-->
+        <scene sceneID="eCd-MW-faB">
+            <objects>
+                <viewController storyboardIdentifier="LandingViewController" id="rFF-Yf-sGT" customClass="OttaViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Doj-ha-hL1"/>
+                        <viewControllerLayoutGuide type="bottom" id="KHO-CV-lsE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="bny-Sc-Tq7">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jfs-gJ-FuZ" customClass="TPKeyboardAvoidingScrollView">
+                                <rect key="frame" x="0.0" y="58" width="320" height="345"/>
+                                <subviews>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="x85-r0-w6T">
+                                        <rect key="frame" x="20" y="100" width="280" height="30"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="OpenSans-Light" family="Open Sans" pointSize="20"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="rFF-Yf-sGT" id="z6l-Re-X1m"/>
+                                        </connections>
+                                    </textField>
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MUq-gb-Kkl" userLabel="EmailLine">
+                                        <rect key="frame" x="20" y="135" width="280" height="1"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </view>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Username" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hb9-AQ-6bB">
+                                        <rect key="frame" x="20" y="149" width="280" height="30"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="OpenSans-Light" family="Open Sans" pointSize="20"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="rFF-Yf-sGT" id="yTf-hJ-rSP"/>
+                                        </connections>
+                                    </textField>
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZbF-Eb-YKi" userLabel="UsernameLine">
+                                        <rect key="frame" x="20" y="184" width="280" height="1"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </view>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CAW-C4-yXb">
+                                        <rect key="frame" x="20" y="199" width="280" height="30"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="OpenSans-Light" family="Open Sans" pointSize="20"/>
+                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="rFF-Yf-sGT" id="Oem-Am-yu8"/>
+                                        </connections>
+                                    </textField>
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gcQ-qo-FWk" userLabel="PasswordLine">
+                                        <rect key="frame" x="20" y="234" width="280" height="1"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </view>
+                                </subviews>
+                            </scrollView>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="t28-TZ-26J">
+                                <rect key="frame" x="0.0" y="123" width="320" height="292"/>
+                                <subviews>
+                                    <view hidden="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eyI-5H-g22">
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mru-iE-Pmd" userLabel="LoginButton">
+                                <rect key="frame" x="25" y="477" width="126" height="36"/>
+                                <state key="normal" image="btn_login.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="btnLoginTapped:" destination="rFF-Yf-sGT" eventType="touchUpInside" id="6DL-WB-b2I"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="b31-7Y-Kes">
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="exT-oC-fMq" userLabel="JoinButton">
+                                <rect key="frame" x="169" y="477" width="126" height="36"/>
+                                <state key="normal" image="btn_join.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="btnJoinTapped:" destination="rFF-Yf-sGT" eventType="touchUpInside" id="JRa-kM-OV4"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FJT-fA-Doo" userLabel="FacebookButton">
+                                <rect key="frame" x="169" y="477" width="126" height="36"/>
+                                <state key="normal" image="FBConnect.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="facebookLogin:" destination="rFF-Yf-sGT" eventType="touchUpInside" id="Xiy-d1-bks"/>
+                                </connections>
+                            </button>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" image="greenLogo.png" translatesAutoresizingMaskIntoConstraints="NO" id="Yit-G6-DUR">
+                                <rect key="frame" x="93" y="61" width="135" height="57"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OlT-Y5-elW">
+                                <rect key="frame" x="14" y="20" width="52" height="30"/>
+                                <state key="normal" image="btn_back.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="btnBackTapped:" destination="rFF-Yf-sGT" eventType="touchUpInside" id="vV0-uj-Jiu"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QEM-HX-5fq">
+                                <rect key="frame" x="14" y="521" width="290" height="27"/>
+                                <fontDescription key="fontDescription" name="OpenSans-Light" family="Open Sans" pointSize="15"/>
+                                <state key="normal" title="Forgot your password?">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="btnForgotPasswordTapped:" destination="rFF-Yf-sGT" eventType="touchUpInside" id="202-21-snz"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NfI-lO-yTS" userLabel="FacebookButton">
+                                <rect key="frame" x="25" y="477" width="126" height="36"/>
+                                <state key="normal" image="FBConnect.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="facebookLogin:" destination="rFF-Yf-sGT" eventType="touchUpInside" id="s2C-w2-vy1"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.1803921568627451" green="0.1803921568627451" blue="0.1803921568627451" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                    <connections>
+                        <outlet property="btnBackPage" destination="OlT-Y5-elW" id="9Kp-Eo-1cw"/>
+                        <outlet property="btnFacebook" destination="FJT-fA-Doo" id="Gjf-vN-Gkv"/>
+                        <outlet property="btnFacebookJoin" destination="NfI-lO-yTS" id="XvD-EW-kC2"/>
+                        <outlet property="btnForgotPassword" destination="QEM-HX-5fq" id="nHR-CH-hIT"/>
+                        <outlet property="btnJoin" destination="exT-oC-fMq" id="0PZ-ZJ-7fL"/>
+                        <outlet property="btnLogin" destination="Mru-iE-Pmd" id="cM1-aI-r13"/>
+                        <outlet property="emailLine" destination="MUq-gb-Kkl" id="yUa-qq-kkH"/>
+                        <outlet property="emailTextField" destination="x85-r0-w6T" id="EEW-zx-DEW"/>
+                        <outlet property="ottaBackingView" destination="t28-TZ-26J" id="PdY-A1-dOp"/>
+                        <outlet property="passwordLine" destination="gcQ-qo-FWk" id="7fC-bq-y6r"/>
+                        <outlet property="passwordTextField" destination="CAW-C4-yXb" id="sBf-XL-GIJ"/>
+                        <outlet property="scrlUserInformation" destination="jfs-gJ-FuZ" id="ny6-M3-RJO"/>
+                        <outlet property="usernameLine" destination="ZbF-Eb-YKi" id="Hul-q8-Zvl"/>
+                        <outlet property="usernameTextField" destination="hb9-AQ-6bB" id="Ifh-8y-lxp"/>
+                        <segue destination="XNa-Ru-XO3" kind="modal" identifier="AskViewControllerSegue" id="ggu-og-td2"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GKs-gp-Jie" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-439" y="-293"/>
         </scene>
         <!--Otta Ask View Controller-->
         <scene sceneID="mz0-S9-i3T">
@@ -466,178 +617,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4ot-XI-b0c" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-465" y="490"/>
-        </scene>
-        <!--Otta View Controller-->
-        <scene sceneID="EPO-2q-2Sf">
-            <objects>
-                <viewController storyboardIdentifier="LandingViewController" id="QRJ-40-tr5" customClass="OttaViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="dis-lr-dp9"/>
-                        <viewControllerLayoutGuide type="bottom" id="kFG-iV-h5H"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="F3w-ek-GGJ">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ubh-6g-3oe" customClass="TPKeyboardAvoidingScrollView">
-                                <rect key="frame" x="0.0" y="58" width="320" height="345"/>
-                                <subviews>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TPD-VE-T4T">
-                                        <rect key="frame" x="20" y="100" width="280" height="30"/>
-                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        <fontDescription key="fontDescription" name="OpenSans-Light" family="Open Sans" pointSize="20"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                        <connections>
-                                            <outlet property="delegate" destination="QRJ-40-tr5" id="tsj-Jf-pTv"/>
-                                        </connections>
-                                    </textField>
-                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ov9-uI-TBq" userLabel="EmailLine">
-                                        <rect key="frame" x="20" y="135" width="280" height="1"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    </view>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Username" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6MZ-E3-yql">
-                                        <rect key="frame" x="20" y="149" width="280" height="30"/>
-                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        <fontDescription key="fontDescription" name="OpenSans-Light" family="Open Sans" pointSize="20"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                        <connections>
-                                            <outlet property="delegate" destination="QRJ-40-tr5" id="MRv-VZ-iTc"/>
-                                        </connections>
-                                    </textField>
-                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5qB-ed-Aqn" userLabel="UsernameLine">
-                                        <rect key="frame" x="20" y="184" width="280" height="1"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    </view>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Uf4-Do-E2b">
-                                        <rect key="frame" x="20" y="199" width="280" height="30"/>
-                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        <fontDescription key="fontDescription" name="OpenSans-Light" family="Open Sans" pointSize="20"/>
-                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
-                                        <connections>
-                                            <outlet property="delegate" destination="QRJ-40-tr5" id="vDM-qX-rmg"/>
-                                        </connections>
-                                    </textField>
-                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9QI-rM-gbv" userLabel="PasswordLine">
-                                        <rect key="frame" x="20" y="234" width="280" height="1"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    </view>
-                                </subviews>
-                            </scrollView>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3Xh-By-lLU">
-                                <rect key="frame" x="0.0" y="123" width="320" height="292"/>
-                                <subviews>
-                                    <view hidden="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="V3w-SB-Jam">
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    </view>
-                                </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                            </view>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WIm-ff-0hF" userLabel="LoginButton">
-                                <rect key="frame" x="25" y="484" width="126" height="36"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="36" id="Vxr-PP-Ujf"/>
-                                    <constraint firstAttribute="width" constant="126" id="lVx-5T-Do4"/>
-                                </constraints>
-                                <state key="normal" image="btn_login.png">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="btnLoginTapped:" destination="QRJ-40-tr5" eventType="touchUpInside" id="aHO-Lb-rhH"/>
-                                </connections>
-                            </button>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="a2T-j0-kUt">
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </view>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wJy-QX-d8Y" userLabel="JoinButton">
-                                <rect key="frame" x="169" y="484" width="126" height="36"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="36" id="5hN-Fm-zl0"/>
-                                    <constraint firstAttribute="width" constant="126" id="byQ-f0-ltS"/>
-                                </constraints>
-                                <state key="normal" image="btn_join.png">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="btnJoinTapped:" destination="QRJ-40-tr5" eventType="touchUpInside" id="7EV-MX-r2E"/>
-                                </connections>
-                            </button>
-                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="greenLogo.png" translatesAutoresizingMaskIntoConstraints="NO" id="Axg-NL-jcR">
-                                <rect key="frame" x="93" y="61" width="135" height="57"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="135" id="Thp-rj-9kn"/>
-                                    <constraint firstAttribute="height" constant="57" id="pCg-fl-Tb3"/>
-                                </constraints>
-                            </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="204-1T-aoA">
-                                <rect key="frame" x="14" y="20" width="52" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="AYB-ph-rdU"/>
-                                    <constraint firstAttribute="width" constant="52" id="AuY-va-oMK"/>
-                                </constraints>
-                                <state key="normal" image="btn_back.png">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="btnBackTapped:" destination="QRJ-40-tr5" eventType="touchUpInside" id="C9S-va-ttF"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eF2-gI-BPq">
-                                <rect key="frame" x="14" y="533" width="290" height="27"/>
-                                <fontDescription key="fontDescription" name="OpenSans-Light" family="Open Sans" pointSize="15"/>
-                                <state key="normal" title="Forgot your password?">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="btnForgotPasswordTapped:" destination="QRJ-40-tr5" eventType="touchUpInside" id="r51-ij-7FE"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eQq-vd-Ugm" userLabel="FacebookButton">
-                                <rect key="frame" x="97" y="528" width="126" height="36"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="36" id="1hm-zi-5te"/>
-                                    <constraint firstAttribute="width" constant="126" id="HQf-ic-jPy"/>
-                                </constraints>
-                                <state key="normal" image="FBConnect.png">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="facebookLogin:" destination="QRJ-40-tr5" eventType="touchUpInside" id="9JQ-XS-0KX"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" red="0.18039215689999999" green="0.18039215689999999" blue="0.18039215689999999" alpha="1" colorSpace="calibratedRGB"/>
-                        <constraints>
-                            <constraint firstItem="204-1T-aoA" firstAttribute="leading" secondItem="F3w-ek-GGJ" secondAttribute="leadingMargin" constant="-2" id="1Rn-eT-LCW"/>
-                            <constraint firstItem="Axg-NL-jcR" firstAttribute="top" secondItem="dis-lr-dp9" secondAttribute="bottom" constant="41" id="4f1-YD-0iL"/>
-                            <constraint firstAttribute="centerX" secondItem="Axg-NL-jcR" secondAttribute="centerX" constant="-0.5" id="JYJ-18-bJC"/>
-                            <constraint firstItem="eQq-vd-Ugm" firstAttribute="top" secondItem="wJy-QX-d8Y" secondAttribute="bottom" constant="8" id="Q7U-zZ-o2Q"/>
-                            <constraint firstItem="eQq-vd-Ugm" firstAttribute="top" secondItem="WIm-ff-0hF" secondAttribute="bottom" constant="8" id="aOe-nh-Z0g"/>
-                            <constraint firstAttribute="centerX" secondItem="eF2-gI-BPq" secondAttribute="centerX" constant="1" id="aou-FN-5UX"/>
-                            <constraint firstItem="kFG-iV-h5H" firstAttribute="top" secondItem="eF2-gI-BPq" secondAttribute="bottom" constant="8" id="tXQ-ru-m7p"/>
-                            <constraint firstItem="eF2-gI-BPq" firstAttribute="top" secondItem="eQq-vd-Ugm" secondAttribute="bottom" constant="-31" id="xkT-iQ-nRf"/>
-                            <constraint firstItem="204-1T-aoA" firstAttribute="top" secondItem="dis-lr-dp9" secondAttribute="bottom" id="ysN-Mw-35C"/>
-                        </constraints>
-                    </view>
-                    <connections>
-                        <outlet property="btnBackPage" destination="204-1T-aoA" id="sNL-Op-rL4"/>
-                        <outlet property="btnFacebook" destination="eQq-vd-Ugm" id="B2P-ne-Eap"/>
-                        <outlet property="btnForgotPassword" destination="eF2-gI-BPq" id="v4r-N2-91l"/>
-                        <outlet property="btnJoin" destination="wJy-QX-d8Y" id="xrS-DC-bDT"/>
-                        <outlet property="btnLogin" destination="WIm-ff-0hF" id="WKs-Tb-b1R"/>
-                        <outlet property="emailLine" destination="ov9-uI-TBq" id="X3Y-us-O9t"/>
-                        <outlet property="emailTextField" destination="TPD-VE-T4T" id="ykh-oP-hRZ"/>
-                        <outlet property="ottaBackingView" destination="3Xh-By-lLU" id="o8y-bN-KX5"/>
-                        <outlet property="passwordLine" destination="9QI-rM-gbv" id="m5y-9n-q40"/>
-                        <outlet property="passwordTextField" destination="Uf4-Do-E2b" id="dEI-b6-e2U"/>
-                        <outlet property="scrlUserInformation" destination="ubh-6g-3oe" id="a8Z-5k-BSK"/>
-                        <outlet property="usernameLine" destination="5qB-ed-Aqn" id="qMb-M9-rfL"/>
-                        <outlet property="usernameTextField" destination="6MZ-E3-yql" id="shn-c8-q8g"/>
-                        <segue destination="XNa-Ru-XO3" kind="modal" identifier="AskViewControllerSegue" id="h9z-KA-txm"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="DAu-hU-QVq" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-441" y="-293"/>
         </scene>
     </scenes>
     <resources>

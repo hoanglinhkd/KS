@@ -106,7 +106,7 @@
         
         else
         {
-            [cell.ottaAnswerText setText: @"Enter an answer..."];
+            [cell.ottaAnswerText setText: [@"Enter an answer..." toCurrentLanguage]];
             [cell.ottaAnswerText setTextColor:[UIColor lightGrayColor]];
 
         }
