@@ -6,11 +6,15 @@
 //  Copyright (c) 2014 SojoDigital. All rights reserved.
 //
 #import "OttaViewController.h"
+#import "OttaAlertManager.h"
 #import "MBProgressHUD.h"
 
 @interface OttaViewController ()<EAIntroDelegate> {
     BOOL isJoinScreen;
 }
+
+@property (strong, nonatomic) OttaAlertManager* otta;
+
 @end
 
 @implementation OttaViewController
@@ -23,17 +27,74 @@
     [self.navigationController setNavigationBarHidden:YES];
     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"OttaSideMenuBackground.png"]];
     
+    [self initViews];
     [self initIntroViews];
     [self showFirstIntroPage];
 }
 
+-(void) initViews
+{
+    
+    //Facebook Page
+    if ([_emailFacebookDetail respondsToSelector:@selector(setAttributedPlaceholder:)]) {
+        UIColor *color = [UIColor whiteColor];
+        _emailFacebookDetail.attributedPlaceholder = [[NSAttributedString alloc] initWithString:[@"Email" toCurrentLanguage] attributes:@{NSForegroundColorAttributeName: color, NSFontAttributeName : [UIFont fontWithName:@"OpenSans-Light" size:20.0]}];
+    }
+
+    if ([_phoneFacebookDetail respondsToSelector:@selector(setAttributedPlaceholder:)]) {
+        UIColor *color = [UIColor whiteColor];
+        _phoneFacebookDetail.attributedPlaceholder = [[NSAttributedString alloc] initWithString:[@"Phone" toCurrentLanguage] attributes:@{NSForegroundColorAttributeName: color, NSFontAttributeName : [UIFont fontWithName:@"OpenSans-Light" size:20.0]}];
+    }
+    
+    //Login Page
+    if ([_usernameTextField respondsToSelector:@selector(setAttributedPlaceholder:)]) {
+        UIColor *color = [UIColor whiteColor];
+        _usernameTextField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:[@"Email" toCurrentLanguage] attributes:@{NSForegroundColorAttributeName: color, NSFontAttributeName : [UIFont fontWithName:@"OpenSans-Light" size:20.0]}];
+    }
+    
+    if ([_passwordTextField respondsToSelector:@selector(setAttributedPlaceholder:)]) {
+        UIColor *color = [UIColor whiteColor];
+        _passwordTextField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:[@"Password" toCurrentLanguage] attributes:@{NSForegroundColorAttributeName: color, NSFontAttributeName : [UIFont fontWithName:@"OpenSans-Light" size:20.0]}];
+    }
+    
+    //Join Page
+    if ([_firstNameJoinDetail respondsToSelector:@selector(setAttributedPlaceholder:)]) {
+        UIColor *color = [UIColor whiteColor];
+        _firstNameJoinDetail.attributedPlaceholder = [[NSAttributedString alloc] initWithString:[@"Name" toCurrentLanguage] attributes:@{NSForegroundColorAttributeName: color, NSFontAttributeName : [UIFont fontWithName:@"OpenSans-Light" size:20.0]}];
+    }
+    
+    if ([_lastNameJoinDetail respondsToSelector:@selector(setAttributedPlaceholder:)]) {
+        UIColor *color = [UIColor whiteColor];
+        _lastNameJoinDetail.attributedPlaceholder = [[NSAttributedString alloc] initWithString:[@"Last Name" toCurrentLanguage] attributes:@{NSForegroundColorAttributeName: color, NSFontAttributeName : [UIFont fontWithName:@"OpenSans-Light" size:20.0]}];
+    }
+    
+    if ([_phoneJoinDetail respondsToSelector:@selector(setAttributedPlaceholder:)]) {
+        UIColor *color = [UIColor whiteColor];
+        _phoneJoinDetail.attributedPlaceholder = [[NSAttributedString alloc] initWithString:[@"Phone" toCurrentLanguage] attributes:@{NSForegroundColorAttributeName: color, NSFontAttributeName : [UIFont fontWithName:@"OpenSans-Light" size:20.0]}];
+    }
+    
+    if ([_emailJoinDetail respondsToSelector:@selector(setAttributedPlaceholder:)]) {
+        UIColor *color = [UIColor whiteColor];
+        _emailJoinDetail.attributedPlaceholder = [[NSAttributedString alloc] initWithString:[@"Email" toCurrentLanguage] attributes:@{NSForegroundColorAttributeName: color, NSFontAttributeName : [UIFont fontWithName:@"OpenSans-Light" size:20.0]}];
+    }
+    
+    if ([_passwordJoinDetail respondsToSelector:@selector(setAttributedPlaceholder:)]) {
+        UIColor *color = [UIColor whiteColor];
+        _passwordJoinDetail.attributedPlaceholder = [[NSAttributedString alloc] initWithString:[@"Password" toCurrentLanguage] attributes:@{NSForegroundColorAttributeName: color, NSFontAttributeName : [UIFont fontWithName:@"OpenSans-Light" size:20.0]}];
+    }
+    
+    if ([_confirmPassJoinDetail respondsToSelector:@selector(setAttributedPlaceholder:)]) {
+        UIColor *color = [UIColor whiteColor];
+        _confirmPassJoinDetail.attributedPlaceholder = [[NSAttributedString alloc] initWithString:[@"Confirm password" toCurrentLanguage] attributes:@{NSForegroundColorAttributeName: color, NSFontAttributeName : [UIFont fontWithName:@"OpenSans-Light" size:20.0]}];
+    }
+}
 
 -(void) initIntroViews
 {
     EAIntroPage *page1 = [EAIntroPage page];
     page1.title = @"";
     page1.descFont = [UIFont fontWithName:@"OpenSans-Semibold" size:22.00f];
-    page1.desc = @"Ask a question.";
+    page1.desc = [@"Ask a question." toCurrentLanguage];
     page1.descPositionY = 120;
     page1.bgImage = [UIImage imageNamed:@"OttaSideMenuBackground.png"];
     page1.titleIconView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"con_question.png"]];
@@ -42,7 +103,7 @@
     EAIntroPage *page2 = [EAIntroPage page];
     page2.title = @"";
     page2.descFont = [UIFont fontWithName:@"OpenSans-Semibold" size:22.00f];
-    page2.desc = @"Get input.";
+    page2.desc = [@"Get input." toCurrentLanguage];
     page2.descPositionY = 120;
     page2.bgImage = [UIImage imageNamed:@"OttaSideMenuBackground.png"];
     page2.titleIconView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"icon_email.png"]];
@@ -51,7 +112,7 @@
     EAIntroPage *page3 = [EAIntroPage page];
     page3.title = @"";
     page3.descFont = [UIFont fontWithName:@"OpenSans-Semibold" size:22.00f];
-    page3.desc = @"Answer your friends’ questions";
+    page3.desc = [@"Answer your friends’ questions" toCurrentLanguage];
     page3.descPositionY = 130;
     page3.bgImage = [UIImage imageNamed:@"OttaSideMenuBackground.png"];
     page3.titleIconView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"icon_open_mail.png"]];
@@ -60,7 +121,7 @@
     EAIntroPage *page4 = [EAIntroPage page];
     page4.title = @"";
     page4.descFont = [UIFont fontWithName:@"OpenSans-Semibold" size:22.00f];
-    page4.desc = @"Decision-making gone social for the indecisive, the curious, and the practical. ";
+    page4.desc = [@"Decision-making gone social for the indecisive, the curious, and the practical." toCurrentLanguage];
     page4.descPositionY = 155;
     page4.bgImage = [UIImage imageNamed:@"OttaSideMenuBackground.png"];
     page4.titleIconView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"icon_check.png"]];
@@ -102,6 +163,7 @@
 -(void) showFirstIntroPage
 {
     [self.ottaBackingView setUserInteractionEnabled:YES];
+    [_btnLoginDetail setHidden:YES];
     [_btnBackPage setHidden:YES];
     [_emailTextField setHidden:YES];
     [_emailLine setHidden:YES];
@@ -109,10 +171,16 @@
     [_usernameLine setHidden:YES];
     [_passwordTextField setHidden:YES];
     [_passwordLine setHidden:YES];
-    [_btnFacebook setHidden:YES];
-    [_btnFacebookJoin setHidden:YES];
     [_btnJoin setHidden:NO];
+    [_btnLogin setHidden:NO];
+    [_btnLoginDetail setHidden:YES];
     [_btnForgotPassword setHidden:YES];
+    [_btnFacebook setHidden:NO];
+    [_btnFacebookDetail setHidden:YES];
+    [_btnJoinDetail setHidden:YES];
+    [_scrlUserInformation setHidden:NO];
+    [_scrlJoinDetail setHidden:YES];
+    [_scrlFacebookDetail setHidden:YES];
     [intro showInView:self.ottaBackingView animateDuration:0.4f];
 }
 
@@ -121,27 +189,23 @@
     [self.ottaBackingView setUserInteractionEnabled:NO];
     [_usernameTextField setHidden:NO];
     [_usernameLine setHidden:NO];
-    if ([_usernameTextField respondsToSelector:@selector(setAttributedPlaceholder:)]) {
-        UIColor *color = [UIColor whiteColor];
-        _usernameTextField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"Username or Email" attributes:@{NSForegroundColorAttributeName: color, NSFontAttributeName : [UIFont fontWithName:@"OpenSans-Light" size:20.0]}];
-    }
-    
     [_passwordTextField setHidden:NO];
     [_passwordLine setHidden:NO];
-    if ([_passwordTextField respondsToSelector:@selector(setAttributedPlaceholder:)]) {
-        UIColor *color = [UIColor whiteColor];
-        _passwordTextField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"Password" attributes:@{NSForegroundColorAttributeName: color, NSFontAttributeName : [UIFont fontWithName:@"OpenSans-Light" size:20.0]}];
-    }
     
+    
+    [_btnJoinDetail setHidden:YES];
+    [_btnLoginDetail setHidden:NO];
+    [_btnLogin setHidden:YES];
     [_emailTextField setHidden:YES];
     [_emailLine setHidden:YES];
-    
+    [_btnFacebook setHidden:YES];
     [_btnJoin setHidden:YES];
-    [_btnFacebook setHidden:NO];
-    [_btnFacebookJoin setHidden:YES];
-    [_btnLogin setHidden:NO];
     [_btnBackPage setHidden:NO];
     [_btnForgotPassword setHidden:NO];
+    [_btnFacebookDetail setHidden:YES];
+    [_scrlJoinDetail setHidden:YES];
+    [_scrlUserInformation setHidden:NO];
+    [_btnJoinDetail setHidden:YES];
     
     if (![intro isHidden]) {
         [intro hideWithFadeOutDuration:0.4f];
@@ -151,33 +215,37 @@
 -(void) showJoinView
 {
     [self.ottaBackingView setUserInteractionEnabled:NO];
-    [_emailTextField setHidden:NO];
-    [_emailLine setHidden:NO];
-    if ([_emailTextField respondsToSelector:@selector(setAttributedPlaceholder:)]) {
-        UIColor *color = [UIColor whiteColor];
-        _emailTextField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"Username or Email" attributes:@{NSForegroundColorAttributeName: color, NSFontAttributeName : [UIFont fontWithName:@"OpenSans-Light" size:20.0]}];
-    }
     
-    [_usernameTextField setHidden:NO];
-    [_usernameLine setHidden:NO];
-    if ([_usernameTextField respondsToSelector:@selector(setAttributedPlaceholder:)]) {
-        UIColor *color = [UIColor whiteColor];
-        _usernameTextField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"Username" attributes:@{NSForegroundColorAttributeName: color, NSFontAttributeName : [UIFont fontWithName:@"OpenSans-Light" size:20.0]}];
-    }
-    
-    [_passwordTextField setHidden:NO];
-    [_passwordLine setHidden:NO];
-    if ([_passwordTextField respondsToSelector:@selector(setAttributedPlaceholder:)]) {
-        UIColor *color = [UIColor whiteColor];
-        _passwordTextField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"Password" attributes:@{NSForegroundColorAttributeName: color, NSFontAttributeName : [UIFont fontWithName:@"OpenSans-Light" size:20.0]}];
-    }
-    
-    [_btnJoin setHidden:NO];
+    [_btnJoinDetail setHidden:NO];
+    [_btnJoin setHidden:YES];
+    [_btnLogin setHidden:YES];
     [_btnFacebook setHidden:YES];
-    [_btnFacebookJoin setHidden:NO];
-    [_btnLogin setHidden:NO];
     [_btnBackPage setHidden:NO];
     [_btnForgotPassword setHidden:NO];
+    [_scrlJoinDetail setHidden:NO];
+    [_btnFacebookDetail setHidden:YES];
+    [_scrlUserInformation setHidden:YES];
+    [_scrlFacebookDetail setHidden:YES];
+    if (![intro isHidden]) {
+        [intro hideWithFadeOutDuration:0.4f];
+    }
+}
+
+-(void) showFacebookDetail
+{
+    [self.ottaBackingView setUserInteractionEnabled:NO];
+    
+    [_btnJoinDetail setHidden:NO];
+    [_btnJoin setHidden:YES];
+    [_btnLogin setHidden:YES];
+    [_btnLoginDetail setHidden:YES];
+    [_btnFacebook setHidden:YES];
+    [_btnBackPage setHidden:NO];
+    [_btnForgotPassword setHidden:YES];
+    [_btnFacebookDetail setHidden:NO];
+    [_scrlFacebookDetail setHidden:NO];
+    [_scrlJoinDetail setHidden:YES];
+    [_scrlUserInformation setHidden:YES];
     
     if (![intro isHidden]) {
         [intro hideWithFadeOutDuration:0.4f];
@@ -199,7 +267,6 @@
 
 -(IBAction)btnLoginTapped:(id)sender
 {
-    //TODO: Will use other way to identify the screen
     //Is login screen
     if ([self.usernameTextField isHidden]) {
         [self showLoginView];
@@ -221,12 +288,7 @@
             } else {
                 
                 NSLog(@"Login failed");
-                UIAlertView * alert =[[UIAlertView alloc ] initWithTitle:@"Login Failed"
-                                                                 message:failureReason
-                                                                delegate:self
-                                                       cancelButtonTitle:@"Ok"
-                                                       otherButtonTitles: nil];
-                [alert show];
+                [[OttaAlertManager sharedManager] showSimpleAlertOnView:self.view withContent:[@"Login Failed" toCurrentLanguage] complete:nil];
             }
             
             [MBProgressHUD hideHUDForView:self.view animated:YES];
@@ -236,7 +298,6 @@
 
 -(IBAction)btnJoinTapped:(id)sender
 {
-    //TODO: Will use other way to identify the screen
     //Is join Screen
     if ([self.emailTextField isHidden]) {
         [self showJoinView];
@@ -248,6 +309,7 @@
         [MBProgressHUD showHUDAddedTo:self.view animated:YES];
         
         [[OttaParseClientManager sharedManager] joinWithEmail:self.emailTextField.text andUsername:self.usernameTextField.text andPassword:self.passwordTextField.text withResult:^(BOOL joinSucceeded, PFUser *pUser, NSString *failureReason) {
+            [MBProgressHUD hideHUDForView:self.view animated:YES];
             if (joinSucceeded) {
                 NSLog(@"Join succeeded");
 
@@ -255,12 +317,7 @@
 
             } else {
                 NSLog(@"Join failed");
-                UIAlertView * alert =[[UIAlertView alloc ] initWithTitle:@"Register Failed"
-                                                                 message:failureReason
-                                                                delegate:self
-                                                       cancelButtonTitle:@"Ok"
-                                                       otherButtonTitles: nil];
-                [alert show];
+                [[OttaAlertManager sharedManager] showSimpleAlertOnView:self.view withContent:[@"Register Failed" toCurrentLanguage] complete:nil];
             }
             [MBProgressHUD hideHUDForView:self.view animated:YES];
         }];

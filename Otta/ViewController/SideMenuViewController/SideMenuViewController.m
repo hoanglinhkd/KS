@@ -91,31 +91,31 @@
         case 0:
         {
             cell.imgIcon.image = [UIImage imageNamed:@"menu_question.png"];
-            cell.lblText.text = @"Ask a question";
+            cell.lblText.text = [@"Ask a question" toCurrentLanguage];
         }
             break;
         case 1:
         {
             cell.imgIcon.image = [UIImage imageNamed:@"menu_home.png"];
-            cell.lblText.text = @"Question feed";
+            cell.lblText.text = [@"Question feed" toCurrentLanguage];
         }
             break;
         case 2:
         {
             cell.imgIcon.image = [UIImage imageNamed:@"menu_mail.png"];
-            cell.lblText.text = @"My questions";
+            cell.lblText.text = [@"My questions" toCurrentLanguage];
         }
             break;
         case 3:
         {
             cell.imgIcon.image = [UIImage imageNamed:@"menu_heart.png"];
-            cell.lblText.text = @"Friends";
+            cell.lblText.text = [@"Friends" toCurrentLanguage];
         }
             break;
         case 4:
         {
             cell.imgIcon.image = [UIImage imageNamed:@"menu_weel.png"];
-            cell.lblText.text = @"Settings";
+            cell.lblText.text = [@"Settings" toCurrentLanguage];
         }
             break;
             

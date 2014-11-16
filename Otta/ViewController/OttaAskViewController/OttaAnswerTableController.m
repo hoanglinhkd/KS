@@ -106,7 +106,7 @@
         
         else
         {
-            [cell.ottaAnswerText setText: @"Enter an answer..."];
+            [cell.ottaAnswerText setText: [@"Enter an answer..." toCurrentLanguage]];
             [cell.ottaAnswerText setTextColor:[UIColor lightGrayColor]];
 
         }
@@ -260,7 +260,7 @@
         [textView resignFirstResponder];
         if(textView.text.length == 0){
             textView.textColor = [UIColor lightGrayColor];
-            textView.text = @"Enter an answer...";
+            textView.text = [@"Enter an answer..." toCurrentLanguage];
             [textView resignFirstResponder];
         }
         return NO;
