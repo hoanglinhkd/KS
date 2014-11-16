@@ -19,6 +19,7 @@
 "Username or Email" = "Username or Email";
 "Password" = "Password" ;
 "Username" = "Username";
+"Email" = "Email";
 "Login Failed" = "Login Failed";
 "Register Failed" = "Register Failed";
 "Ok" = "Ok";
@@ -26,3 +27,7 @@
 "mins" = "mins";
 "hrs" = "hrs";
 "days" = "days";
+"Options:" = "Options:";
+"Phone" = "Phone";
+"Confirm password" = "Confirm password";
+"Last Name" = "Last Name";

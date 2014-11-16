@@ -167,9 +167,9 @@
     }
     
     timeTitleData = [NSMutableArray array];
-    [timeTitleData addObject:@"mins"];
-    [timeTitleData addObject:@"hrs"];
-    [timeTitleData addObject:@"days"];
+    [timeTitleData addObject:[@"mins" toCurrentLanguage]];
+    [timeTitleData addObject:[@"hrs" toCurrentLanguage]];
+    [timeTitleData addObject:[@"days" toCurrentLanguage]];
     
     pickerTimeTitle = [[AFPickerView alloc] initWithFrame:CGRectMake(xPosition + 55.0, yPosition, 50.0f, 117.0f)];
     pickerTimeTitle.dataSource = self;
