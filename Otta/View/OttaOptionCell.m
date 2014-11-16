@@ -21,8 +21,41 @@
 }
 
 - (IBAction)textButtonPressed:(id)sender {
+    _viewAction.hidden = TRUE;
+    _txtContent.hidden = FALSE;
+    [_txtContent becomeFirstResponder];
+    
+    [_delegate optionCell:self textBeginEditing:_txtContent];
 }
 
 - (IBAction)imageButtonPressed:(id)sender {
+    _viewAction.hidden = TRUE;
+    
+    [_delegate optionCell:self beginTakePicture:_imgMain];
+    
 }
+- (void)displayThumbAndCaption:(UIImage*)thumb caption:(NSString*)caption{
+    _imgMain.hidden = FALSE;
+    _imgMain.image = thumb;
+    _txtImageDescription.hidden = FALSE;
+    _txtImageDescription.text = caption;
+}
+#pragma mark textView delegate
+- (BOOL) textViewShouldBeginEditing:(UITextView *)textView {
+    
+    return YES;
+}
+- (void)textViewDidEndEditing:(UITextView *)textView {
+    [_txtContent resignFirstResponder];
+    
+}
+- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text;
+{
+    if ( [text isEqualToString:@"\n"] ) {
+        [_txtContent resignFirstResponder];
+    }
+    return YES;
+}
+
+
 @end

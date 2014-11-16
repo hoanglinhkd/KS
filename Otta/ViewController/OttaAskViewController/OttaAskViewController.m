@@ -13,6 +13,7 @@
 #import "OttaAnswer.h"
 
 @interface OttaAskViewController ()
+@property (strong) OttaOptionCell *editingOptionCell;
 
 @end
 
@@ -329,6 +330,7 @@ UITextView itsTextView = [[UITextView alloc] initWithFrame:CGRectMake(0, 0, itsT
         cell = [[OttaOptionCell alloc]initWithStyle:
                 UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
     }
+    cell.delegate = self;
     
     return cell;
 }
@@ -345,7 +347,7 @@ UITextView itsTextView = [[UITextView alloc] initWithFrame:CGRectMake(0, 0, itsT
         return 55;
     }
     
-    return 152;
+    return 80;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -363,5 +365,46 @@ UITextView itsTextView = [[UITextView alloc] initWithFrame:CGRectMake(0, 0, itsT
         [tableView reloadData];
     }
 }
+
+#pragma mark option cell delegate
+- (void)optionCell:(OttaOptionCell*)cell textBeginEditing:(id)textview
+{
+    
+}
+- (void)optionCell:(OttaOptionCell*)cell textEndEditing:(id)textview
+{
+}
+- (void)optionCell:(OttaOptionCell*)cell beginTakePicture:(id)imageView
+{
+    NSLog(@"take image");
+    _editingOptionCell = cell;
+    [self showImagePicker];
+}
+
+- (void)showImagePicker
+{
+    __weak typeof(self) weakSelf = self;
+    
+    _photoPicker = [[CZPhotoPickerController alloc] initWithPresentingViewController:self withCompletionBlock:^(UIImagePickerController *imagePickerController, NSDictionary *imageInfoDict) {
+        UIImage *selectedImage = nil;
+        NSString *caption = @"Just4Test";
+        if (imagePickerController.allowsEditing) {
+            selectedImage = imageInfoDict[UIImagePickerControllerEditedImage];
+        }
+        else {
+            selectedImage = imageInfoDict[UIImagePickerControllerOriginalImage];
+        }
+        //weakSelf.editingOptionCell.imgMain.image = selectedImage;
+        [weakSelf.editingOptionCell displayThumbAndCaption:selectedImage caption:caption];
+        [weakSelf.photoPicker dismissAnimated:YES];
+    }];
+    
+    _photoPicker.allowsEditing = YES; // optional
+    
+    UIBarButtonItem * somebarbutton =[[UIBarButtonItem alloc]init];
+    [_photoPicker showFromBarButtonItem:somebarbutton];
+}
+#pragma mark -
+
 
 @end
