@@ -19,6 +19,10 @@
 		383400631A17BF67006A913E /* btn_alert_no.png in Resources */ = {isa = PBXBuildFile; fileRef = 383400611A17BF67006A913E /* btn_alert_no.png */; };
 		383400641A17BF67006A913E /* btn_alert_yes.png in Resources */ = {isa = PBXBuildFile; fileRef = 383400621A17BF67006A913E /* btn_alert_yes.png */; };
 		383400661A17CC2F006A913E /* bgalert_white_big.png in Resources */ = {isa = PBXBuildFile; fileRef = 383400651A17CC2F006A913E /* bgalert_white_big.png */; };
+		38697BA81A1A3C210015A991 /* Main_P.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 38697BA71A1A3C210015A991 /* Main_P.storyboard */; };
+		38697BAC1A1A3C820015A991 /* OttaFindFriendsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38697BAB1A1A3C820015A991 /* OttaFindFriendsViewController.m */; };
+		38697BAF1A1A3CA30015A991 /* OttaFriendsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 38697BAE1A1A3CA30015A991 /* OttaFriendsCell.m */; };
+		38697BB21A1A3CFF0015A991 /* OttaFriend.m in Sources */ = {isa = PBXBuildFile; fileRef = 38697BB11A1A3CFF0015A991 /* OttaFriend.m */; };
 		386E89AF1A124EAF00459171 /* btn_facebook.png in Resources */ = {isa = PBXBuildFile; fileRef = 386E89A61A124EAF00459171 /* btn_facebook.png */; };
 		386E89B01A124EAF00459171 /* btn_join.png in Resources */ = {isa = PBXBuildFile; fileRef = 386E89A71A124EAF00459171 /* btn_join.png */; };
 		386E89B11A124EAF00459171 /* btn_login.png in Resources */ = {isa = PBXBuildFile; fileRef = 386E89A81A124EAF00459171 /* btn_login.png */; };
@@ -148,6 +152,13 @@
 		383400611A17BF67006A913E /* btn_alert_no.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_alert_no.png; sourceTree = "<group>"; };
 		383400621A17BF67006A913E /* btn_alert_yes.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_alert_yes.png; sourceTree = "<group>"; };
 		383400651A17CC2F006A913E /* bgalert_white_big.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bgalert_white_big.png; sourceTree = "<group>"; };
+		38697BA71A1A3C210015A991 /* Main_P.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main_P.storyboard; sourceTree = "<group>"; };
+		38697BAA1A1A3C820015A991 /* OttaFindFriendsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OttaFindFriendsViewController.h; sourceTree = "<group>"; };
+		38697BAB1A1A3C820015A991 /* OttaFindFriendsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OttaFindFriendsViewController.m; sourceTree = "<group>"; };
+		38697BAD1A1A3CA30015A991 /* OttaFriendsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OttaFriendsCell.h; sourceTree = "<group>"; };
+		38697BAE1A1A3CA30015A991 /* OttaFriendsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OttaFriendsCell.m; sourceTree = "<group>"; };
+		38697BB01A1A3CFF0015A991 /* OttaFriend.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OttaFriend.h; sourceTree = "<group>"; };
+		38697BB11A1A3CFF0015A991 /* OttaFriend.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OttaFriend.m; sourceTree = "<group>"; };
 		386E89A61A124EAF00459171 /* btn_facebook.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_facebook.png; sourceTree = "<group>"; };
 		386E89A71A124EAF00459171 /* btn_join.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_join.png; sourceTree = "<group>"; };
 		386E89A81A124EAF00459171 /* btn_login.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_login.png; sourceTree = "<group>"; };
@@ -334,6 +345,15 @@
 			path = SlidingMenu;
 			sourceTree = "<group>";
 		};
+		38697BA91A1A3C820015A991 /* OttaFindFriendsViewController */ = {
+			isa = PBXGroup;
+			children = (
+				38697BAA1A1A3C820015A991 /* OttaFindFriendsViewController.h */,
+				38697BAB1A1A3C820015A991 /* OttaFindFriendsViewController.m */,
+			);
+			path = OttaFindFriendsViewController;
+			sourceTree = "<group>";
+		};
 		386E89A51A124EAF00459171 /* Intro */ = {
 			isa = PBXGroup;
 			children = (
@@ -470,6 +490,7 @@
 		66FD4B301A11A7FC005ACD58 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				38697BA91A1A3C820015A991 /* OttaFindFriendsViewController */,
 				386E89C51A126AA400459171 /* OttaAddFriendViewController */,
 				66FD4B481A11AAED005ACD58 /* OttaTutorialViewController */,
 				66FD4B441A11AAAF005ACD58 /* OttaViewController */,
@@ -483,6 +504,8 @@
 		66FD4B311A11A83A005ACD58 /* Modal */ = {
 			isa = PBXGroup;
 			children = (
+				38697BB01A1A3CFF0015A991 /* OttaFriend.h */,
+				38697BB11A1A3CFF0015A991 /* OttaFriend.m */,
 				66FD4B4C1A11AB02005ACD58 /* OttaAnswer.h */,
 				66FD4B4D1A11AB02005ACD58 /* OttaAnswer.m */,
 				66FD4B4E1A11AB02005ACD58 /* OttaQuestion.h */,
@@ -496,6 +519,9 @@
 		66FD4B321A11A83A005ACD58 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				38697BAD1A1A3CA30015A991 /* OttaFriendsCell.h */,
+				38697BAE1A1A3CA30015A991 /* OttaFriendsCell.m */,
+				38697BA71A1A3C210015A991 /* Main_P.storyboard */,
 				38A37D7E1A17241300771881 /* MainT.storyboard */,
 				D98E30C01A177D0F0080B934 /* Main_H.storyboard */,
 				F0D6B1F119862B4D0077E30E /* Main.storyboard */,
@@ -792,6 +818,7 @@
 				386E89B41A124EAF00459171 /* icon_check.png in Resources */,
 				66FD4B221A11A6CC005ACD58 /* JoinButton.png in Resources */,
 				66FD4B201A11A6CC005ACD58 /* AskAQuestion.png in Resources */,
+				38697BA81A1A3C210015A991 /* Main_P.storyboard in Resources */,
 				66FD4B141A11A6CC005ACD58 /* white_chocolate_donut.jpg in Resources */,
 				66FD4B101A11A6CC005ACD58 /* noodle_with_bbq_pork.jpg in Resources */,
 				386E89CA1A126DEF00459171 /* icon_check2.png in Resources */,
@@ -923,7 +950,9 @@
 				66FD4B551A11AB02005ACD58 /* OttaQuestion.m in Sources */,
 				D98E30C41A1795D70080B934 /* Constant.m in Sources */,
 				66FD4B631A11AD6B005ACD58 /* release_notes.md in Sources */,
+				38697BAC1A1A3C820015A991 /* OttaFindFriendsViewController.m in Sources */,
 				D98E30BF1A1779340080B934 /* NSString+Language.m in Sources */,
+				38697BB21A1A3CFF0015A991 /* OttaFriend.m in Sources */,
 				66FD4B571A11AB02005ACD58 /* OttaUser.m in Sources */,
 				66FD4B541A11AB02005ACD58 /* OttaAnswer.m in Sources */,
 				F0BC6522198606BD0097A87C /* main.m in Sources */,
@@ -940,6 +969,7 @@
 				386E89C81A126AC100459171 /* OttAddFriendViewController.m in Sources */,
 				38A37D771A171FCD00771881 /* OttaAlertManager.m in Sources */,
 				66FD4B5A1A11ABF9005ACD58 /* OttaAnswerTableController.m in Sources */,
+				38697BAF1A1A3CA30015A991 /* OttaFriendsCell.m in Sources */,
 				382E32771A13A54A008ACA45 /* OttaMenuCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

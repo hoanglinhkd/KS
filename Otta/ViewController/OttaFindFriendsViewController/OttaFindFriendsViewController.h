@@ -2,7 +2,7 @@
 //  OttaFindFriendsViewController.h
 //  Otta
 //
-//  Created by Vo Cong Huy on 11/17/14.
+//  Created by Thien Chau on 11/17/14.
 //  Copyright (c) 2014 SojoDigital. All rights reserved.
 //
 

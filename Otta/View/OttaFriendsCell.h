@@ -10,6 +10,7 @@
 
 @interface OttaFriendsCell : UITableViewCell
 
-    @property (weak, nonatomic) IBOutlet UIButton *btnIcon;
-    @property (weak, nonatomic) IBOutlet UILabel *lblText;
+@property (weak, nonatomic) IBOutlet UIButton *btnIcon;
+@property (weak, nonatomic) IBOutlet UILabel *lblText;
+
 @end
