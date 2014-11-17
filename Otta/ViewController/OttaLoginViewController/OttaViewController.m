@@ -7,6 +7,7 @@
 //
 #import "OttaViewController.h"
 #import "OttaAlertManager.h"
+#import "OttaUserManager.h"
 
 @interface OttaViewController ()<EAIntroDelegate> {
     BOOL isJoinScreen;
@@ -25,9 +26,15 @@
     
     [self.navigationController setNavigationBarHidden:YES];
     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"OttaSideMenuBackground.png"]];
-    
+    [self checkLoggedin];
     [self initIntroViews];
     [self showFirstIntroPage];
+}
+
+- (void)checkLoggedin {
+    if([PFUser currentUser]) {
+        [self performSegueWithIdentifier:@"homeSegue" sender:nil];
+    }
 }
 
 
@@ -207,7 +214,7 @@
                 NSLog(@"Login succeeded");
                 
                 [self performSegueWithIdentifier:@"AskViewControllerSegue" sender:self];
-                
+                //[[OttaUserManager sharedManager] saveCurrentUser:pUser];
             } else {
                 NSLog(@"Login failed");
                 UIAlertView * alert =[[UIAlertView alloc ] initWithTitle:[@"Login Failed" toCurrentLanguage]
@@ -235,7 +242,7 @@
                 NSLog(@"Join succeeded");
 
                 [self performSegueWithIdentifier:@"AskViewControllerSegue" sender:self];
-
+                //[[OttaUserManager sharedManager] saveCurrentUser:pUser];
             } else {
                 NSLog(@"Join failed");
                 UIAlertView * alert =[[UIAlertView alloc ] initWithTitle:[@"Register Failed" toCurrentLanguage]
@@ -273,15 +280,11 @@
         } else if (user.isNew) {
             NSLog(@"User with facebook signed up and logged in!");
             [self performSegueWithIdentifier:@"AskViewControllerSegue" sender:self];
-
-            //resultblock(YES);
-            
+            //[[OttaUserManager sharedManager] saveCurrentUser:user];;
         } else {
             NSLog(@"User with facebook logged in!");
             [self performSegueWithIdentifier:@"AskViewControllerSegue" sender:self];
-
-            ///resultblock(YES);
-            
+            //[[OttaUserManager sharedManager] saveCurrentUser:user];
         }
     }];
 }
