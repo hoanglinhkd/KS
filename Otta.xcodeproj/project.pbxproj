@@ -19,6 +19,7 @@
 		383400631A17BF67006A913E /* btn_alert_no.png in Resources */ = {isa = PBXBuildFile; fileRef = 383400611A17BF67006A913E /* btn_alert_no.png */; };
 		383400641A17BF67006A913E /* btn_alert_yes.png in Resources */ = {isa = PBXBuildFile; fileRef = 383400621A17BF67006A913E /* btn_alert_yes.png */; };
 		383400661A17CC2F006A913E /* bgalert_white_big.png in Resources */ = {isa = PBXBuildFile; fileRef = 383400651A17CC2F006A913E /* bgalert_white_big.png */; };
+		3847CFB31A1863E1002599E7 /* OttaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3847CFB21A1863E1002599E7 /* OttaViewController.m */; };
 		386E89AF1A124EAF00459171 /* btn_facebook.png in Resources */ = {isa = PBXBuildFile; fileRef = 386E89A61A124EAF00459171 /* btn_facebook.png */; };
 		386E89B01A124EAF00459171 /* btn_join.png in Resources */ = {isa = PBXBuildFile; fileRef = 386E89A71A124EAF00459171 /* btn_join.png */; };
 		386E89B11A124EAF00459171 /* btn_login.png in Resources */ = {isa = PBXBuildFile; fileRef = 386E89A81A124EAF00459171 /* btn_login.png */; };
@@ -39,7 +40,6 @@
 		38A37D7B1A171FF900771881 /* bgalert_white.png in Resources */ = {isa = PBXBuildFile; fileRef = 38A37D781A171FF900771881 /* bgalert_white.png */; };
 		38A37D7C1A171FF900771881 /* btn_alert_done.png in Resources */ = {isa = PBXBuildFile; fileRef = 38A37D791A171FF900771881 /* btn_alert_done.png */; };
 		38A37D7D1A171FF900771881 /* OttaAlertManager.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38A37D7A1A171FF900771881 /* OttaAlertManager.xib */; };
-		38A37D7F1A17241300771881 /* MainT.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 38A37D7E1A17241300771881 /* MainT.storyboard */; };
 		66502BE41A14571000A9472D /* icon_time.png in Resources */ = {isa = PBXBuildFile; fileRef = 66502BE31A14571000A9472D /* icon_time.png */; };
 		66502BE71A14653300A9472D /* OttaOptionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 66502BE61A14653300A9472D /* OttaOptionCell.m */; };
 		66FD4B051A11A6CC005ACD58 /* angry_birds_cake.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 66FD4AD81A11A6CC005ACD58 /* angry_birds_cake.jpg */; };
@@ -88,10 +88,7 @@
 		66FD4B361A11A8A5005ACD58 /* OttaAskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 66FD4B351A11A8A5005ACD58 /* OttaAskViewController.m */; };
 		66FD4B3A1A11A8F0005ACD58 /* OttaQuestionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 66FD4B381A11A8F0005ACD58 /* OttaQuestionTableViewCell.m */; };
 		66FD4B3B1A11A8F0005ACD58 /* OttaQuestionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 66FD4B391A11A8F0005ACD58 /* OttaQuestionTableViewCell.xib */; };
-		66FD4B3F1A11A923005ACD58 /* OttaLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 66FD4B3E1A11A923005ACD58 /* OttaLoginViewController.m */; };
 		66FD4B431A11A962005ACD58 /* SideMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 66FD4B421A11A962005ACD58 /* SideMenuViewController.m */; };
-		66FD4B471A11AAAF005ACD58 /* OttaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 66FD4B461A11AAAF005ACD58 /* OttaViewController.m */; };
-		66FD4B4B1A11AAED005ACD58 /* OttaTutorialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 66FD4B4A1A11AAED005ACD58 /* OttaTutorialViewController.m */; };
 		66FD4B541A11AB02005ACD58 /* OttaAnswer.m in Sources */ = {isa = PBXBuildFile; fileRef = 66FD4B4D1A11AB02005ACD58 /* OttaAnswer.m */; };
 		66FD4B551A11AB02005ACD58 /* OttaQuestion.m in Sources */ = {isa = PBXBuildFile; fileRef = 66FD4B4F1A11AB02005ACD58 /* OttaQuestion.m */; };
 		66FD4B571A11AB02005ACD58 /* OttaUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 66FD4B531A11AB02005ACD58 /* OttaUser.m */; };
@@ -116,7 +113,6 @@
 		D98E30B21A1777950080B934 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D98E30B41A1777950080B934 /* Localizable.strings */; };
 		D98E30BC1A1779110080B934 /* LanguageHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = D98E30BB1A1779110080B934 /* LanguageHelper.m */; };
 		D98E30BF1A1779340080B934 /* NSString+Language.m in Sources */ = {isa = PBXBuildFile; fileRef = D98E30BE1A1779340080B934 /* NSString+Language.m */; };
-		D98E30C11A177D0F0080B934 /* Main_H.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D98E30C01A177D0F0080B934 /* Main_H.storyboard */; };
 		D98E30C41A1795D70080B934 /* Constant.m in Sources */ = {isa = PBXBuildFile; fileRef = D98E30C31A1795D70080B934 /* Constant.m */; };
 		D98E30CA1A1797CD0080B934 /* AFPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = D98E30C71A1797CD0080B934 /* AFPickerView.m */; };
 		D98E30CB1A1797CD0080B934 /* pickerGlass.png in Resources */ = {isa = PBXBuildFile; fileRef = D98E30C81A1797CD0080B934 /* pickerGlass.png */; };
@@ -161,6 +157,8 @@
 		383400611A17BF67006A913E /* btn_alert_no.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_alert_no.png; sourceTree = "<group>"; };
 		383400621A17BF67006A913E /* btn_alert_yes.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_alert_yes.png; sourceTree = "<group>"; };
 		383400651A17CC2F006A913E /* bgalert_white_big.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bgalert_white_big.png; sourceTree = "<group>"; };
+		3847CFB11A1863E1002599E7 /* OttaViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OttaViewController.h; sourceTree = "<group>"; };
+		3847CFB21A1863E1002599E7 /* OttaViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OttaViewController.m; sourceTree = "<group>"; };
 		386E89A61A124EAF00459171 /* btn_facebook.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_facebook.png; sourceTree = "<group>"; };
 		386E89A71A124EAF00459171 /* btn_join.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_join.png; sourceTree = "<group>"; };
 		386E89A81A124EAF00459171 /* btn_login.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_login.png; sourceTree = "<group>"; };
@@ -183,7 +181,6 @@
 		38A37D781A171FF900771881 /* bgalert_white.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bgalert_white.png; sourceTree = "<group>"; };
 		38A37D791A171FF900771881 /* btn_alert_done.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_alert_done.png; sourceTree = "<group>"; };
 		38A37D7A1A171FF900771881 /* OttaAlertManager.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OttaAlertManager.xib; sourceTree = "<group>"; };
-		38A37D7E1A17241300771881 /* MainT.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = MainT.storyboard; path = Otta/MainT.storyboard; sourceTree = SOURCE_ROOT; };
 		66502BE31A14571000A9472D /* icon_time.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_time.png; sourceTree = "<group>"; };
 		66502BE51A14653300A9472D /* OttaOptionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OttaOptionCell.h; sourceTree = "<group>"; };
 		66502BE61A14653300A9472D /* OttaOptionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OttaOptionCell.m; sourceTree = "<group>"; };
@@ -235,14 +232,8 @@
 		66FD4B371A11A8F0005ACD58 /* OttaQuestionTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OttaQuestionTableViewCell.h; sourceTree = "<group>"; };
 		66FD4B381A11A8F0005ACD58 /* OttaQuestionTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OttaQuestionTableViewCell.m; sourceTree = "<group>"; };
 		66FD4B391A11A8F0005ACD58 /* OttaQuestionTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OttaQuestionTableViewCell.xib; sourceTree = "<group>"; };
-		66FD4B3D1A11A923005ACD58 /* OttaLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OttaLoginViewController.h; sourceTree = "<group>"; };
-		66FD4B3E1A11A923005ACD58 /* OttaLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OttaLoginViewController.m; sourceTree = "<group>"; };
 		66FD4B411A11A962005ACD58 /* SideMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SideMenuViewController.h; sourceTree = "<group>"; };
 		66FD4B421A11A962005ACD58 /* SideMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SideMenuViewController.m; sourceTree = "<group>"; };
-		66FD4B451A11AAAF005ACD58 /* OttaViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OttaViewController.h; sourceTree = "<group>"; };
-		66FD4B461A11AAAF005ACD58 /* OttaViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OttaViewController.m; sourceTree = "<group>"; };
-		66FD4B491A11AAED005ACD58 /* OttaTutorialViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OttaTutorialViewController.h; sourceTree = "<group>"; };
-		66FD4B4A1A11AAED005ACD58 /* OttaTutorialViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OttaTutorialViewController.m; sourceTree = "<group>"; };
 		66FD4B4C1A11AB02005ACD58 /* OttaAnswer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OttaAnswer.h; sourceTree = "<group>"; };
 		66FD4B4D1A11AB02005ACD58 /* OttaAnswer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OttaAnswer.m; sourceTree = "<group>"; };
 		66FD4B4E1A11AB02005ACD58 /* OttaQuestion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OttaQuestion.h; sourceTree = "<group>"; };
@@ -286,7 +277,6 @@
 		D98E30BB1A1779110080B934 /* LanguageHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LanguageHelper.m; sourceTree = "<group>"; };
 		D98E30BD1A1779340080B934 /* NSString+Language.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Language.h"; sourceTree = "<group>"; };
 		D98E30BE1A1779340080B934 /* NSString+Language.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Language.m"; sourceTree = "<group>"; };
-		D98E30C01A177D0F0080B934 /* Main_H.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main_H.storyboard; sourceTree = "<group>"; };
 		D98E30C21A1795D70080B934 /* Constant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constant.h; sourceTree = "<group>"; };
 		D98E30C31A1795D70080B934 /* Constant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constant.m; sourceTree = "<group>"; };
 		D98E30C61A1797CD0080B934 /* AFPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFPickerView.h; sourceTree = "<group>"; };
@@ -362,6 +352,15 @@
 				382E326E1A139911008ACA45 /* menu_weel.png */,
 			);
 			path = SlidingMenu;
+			sourceTree = "<group>";
+		};
+		3847CFB01A1863E1002599E7 /* OttaLoginViewController */ = {
+			isa = PBXGroup;
+			children = (
+				3847CFB11A1863E1002599E7 /* OttaViewController.h */,
+				3847CFB21A1863E1002599E7 /* OttaViewController.m */,
+			);
+			path = OttaLoginViewController;
 			sourceTree = "<group>";
 		};
 		386E89A51A124EAF00459171 /* Intro */ = {
@@ -501,13 +500,10 @@
 		66FD4B301A11A7FC005ACD58 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				6AEF8F8F1A1A6CA300E4EB15 /* OttaQuestionFeedViewController */,
+				3847CFB01A1863E1002599E7 /* OttaLoginViewController */,
 				386E89C51A126AA400459171 /* OttaAddFriendViewController */,
-				66FD4B481A11AAED005ACD58 /* OttaTutorialViewController */,
-				66FD4B441A11AAAF005ACD58 /* OttaViewController */,
-				66FD4B401A11A962005ACD58 /* SideMenuViewController */,
-				66FD4B3C1A11A923005ACD58 /* OttaLoginViewController */,
 				66FD4B331A11A8A5005ACD58 /* OttaAskViewController */,
+				66FD4B401A11A962005ACD58 /* SideMenuViewController */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -528,10 +524,6 @@
 		66FD4B321A11A83A005ACD58 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				6AEF8F851A1A6C1800E4EB15 /* OttaQuestionFeedView */,
-				6AEF8F681A1A483E00E4EB15 /* Main HD.storyboard */,
-				38A37D7E1A17241300771881 /* MainT.storyboard */,
-				D98E30C01A177D0F0080B934 /* Main_H.storyboard */,
 				F0D6B1F119862B4D0077E30E /* Main.storyboard */,
 				66FD4B371A11A8F0005ACD58 /* OttaQuestionTableViewCell.h */,
 				66FD4B381A11A8F0005ACD58 /* OttaQuestionTableViewCell.m */,
@@ -555,15 +547,6 @@
 			path = OttaAskViewController;
 			sourceTree = "<group>";
 		};
-		66FD4B3C1A11A923005ACD58 /* OttaLoginViewController */ = {
-			isa = PBXGroup;
-			children = (
-				66FD4B3D1A11A923005ACD58 /* OttaLoginViewController.h */,
-				66FD4B3E1A11A923005ACD58 /* OttaLoginViewController.m */,
-			);
-			path = OttaLoginViewController;
-			sourceTree = "<group>";
-		};
 		66FD4B401A11A962005ACD58 /* SideMenuViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -571,24 +554,6 @@
 				66FD4B421A11A962005ACD58 /* SideMenuViewController.m */,
 			);
 			path = SideMenuViewController;
-			sourceTree = "<group>";
-		};
-		66FD4B441A11AAAF005ACD58 /* OttaViewController */ = {
-			isa = PBXGroup;
-			children = (
-				66FD4B451A11AAAF005ACD58 /* OttaViewController.h */,
-				66FD4B461A11AAAF005ACD58 /* OttaViewController.m */,
-			);
-			path = OttaViewController;
-			sourceTree = "<group>";
-		};
-		66FD4B481A11AAED005ACD58 /* OttaTutorialViewController */ = {
-			isa = PBXGroup;
-			children = (
-				66FD4B491A11AAED005ACD58 /* OttaTutorialViewController.h */,
-				66FD4B4A1A11AAED005ACD58 /* OttaTutorialViewController.m */,
-			);
-			path = OttaTutorialViewController;
 			sourceTree = "<group>";
 		};
 		66FD4B5B1A11AD6B005ACD58 /* Lib */ = {
@@ -880,7 +845,6 @@
 				6AEF8F731A1A51BA00E4EB15 /* icon_left.png in Resources */,
 				F0D6B1F219862B4D0077E30E /* Main.storyboard in Resources */,
 				382E32711A139911008ACA45 /* menu_mail.png in Resources */,
-				D98E30C11A177D0F0080B934 /* Main_H.storyboard in Resources */,
 				66FD4B2F1A11A6CC005ACD58 /* universalSidebar.png in Resources */,
 				386E89C01A12606000459171 /* icon_add.png in Resources */,
 				383400661A17CC2F006A913E /* bgalert_white_big.png in Resources */,
@@ -943,7 +907,6 @@
 				66FD4B1A1A11A6CC005ACD58 /* OpenSans-Light.ttf in Resources */,
 				6AEF8F691A1A483E00E4EB15 /* Main HD.storyboard in Resources */,
 				382E32701A139911008ACA45 /* menu_home.png in Resources */,
-				38A37D7F1A17241300771881 /* MainT.storyboard in Resources */,
 				66FD4B071A11A6CC005ACD58 /* egg_benedict.jpg in Resources */,
 				66FD4B1C1A11A6CC005ACD58 /* OpenSans-Regular.ttf in Resources */,
 				383400641A17BF67006A913E /* btn_alert_yes.png in Resources */,
@@ -998,10 +961,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3847CFB31A1863E1002599E7 /* OttaViewController.m in Sources */,
 				F0BC6526198606BD0097A87C /* OttaAppDelegate.m in Sources */,
-				6AEF8F8C1A1A6C6500E4EB15 /* OttaBasicQuestionCell.m in Sources */,
-				6AEF8F8D1A1A6C6500E4EB15 /* OttaMediaQuestionCell.m in Sources */,
-				66FD4B471A11AAAF005ACD58 /* OttaViewController.m in Sources */,
 				66FD4B551A11AB02005ACD58 /* OttaQuestion.m in Sources */,
 				D98E30C41A1795D70080B934 /* Constant.m in Sources */,
 				66FD4B631A11AD6B005ACD58 /* release_notes.md in Sources */,
@@ -1011,10 +972,8 @@
 				F0BC6522198606BD0097A87C /* main.m in Sources */,
 				D9286F431A12190500C28770 /* OttaParseClientManager.m in Sources */,
 				D9286F401A12187F00C28770 /* OttaSessionManager.m in Sources */,
-				66FD4B3F1A11A923005ACD58 /* OttaLoginViewController.m in Sources */,
 				66502BE71A14653300A9472D /* OttaOptionCell.m in Sources */,
 				D98E30CA1A1797CD0080B934 /* AFPickerView.m in Sources */,
-				66FD4B4B1A11AAED005ACD58 /* OttaTutorialViewController.m in Sources */,
 				66FD4B3A1A11A8F0005ACD58 /* OttaQuestionTableViewCell.m in Sources */,
 				D98E30BC1A1779110080B934 /* LanguageHelper.m in Sources */,
 				66FD4B431A11A962005ACD58 /* SideMenuViewController.m in Sources */,

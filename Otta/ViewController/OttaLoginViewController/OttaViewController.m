@@ -32,6 +32,18 @@
     [self showFirstIntroPage];
 }
 
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    
+    [self checkLoggedin];
+}
+
+- (void)checkLoggedin {
+    if([PFUser currentUser]) {
+        [self performSegueWithIdentifier:@"homeSegue" sender:self];
+    }
+}
+
 -(void) initViews
 {
     
@@ -279,12 +291,11 @@
         [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     
         [[OttaParseClientManager sharedManager] loginWithNameOrEmail:self.usernameTextField.text andPassword:self.passwordTextField.text withResult:^(BOOL joinSucceeded, PFUser *pUser, NSString *failureReason) {
+            
             if (joinSucceeded) {
                 NSLog(@"Login succeeded");
-                
+
                 [self performSegueWithIdentifier:@"AskViewControllerSegue" sender:self];
-                
-                
             } else {
                 
                 NSLog(@"Login failed");
@@ -310,15 +321,17 @@
         
         [[OttaParseClientManager sharedManager] joinWithEmail:self.emailTextField.text andUsername:self.usernameTextField.text andPassword:self.passwordTextField.text withResult:^(BOOL joinSucceeded, PFUser *pUser, NSString *failureReason) {
             [MBProgressHUD hideHUDForView:self.view animated:YES];
+            
             if (joinSucceeded) {
                 NSLog(@"Join succeeded");
 
                 [self performSegueWithIdentifier:@"AskViewControllerSegue" sender:self];
-
+                //[[OttaUserManager sharedManager] saveCurrentUser:pUser];
             } else {
                 NSLog(@"Join failed");
                 [[OttaAlertManager sharedManager] showSimpleAlertOnView:self.view withContent:[@"Register Failed" toCurrentLanguage] complete:nil];
             }
+            
             [MBProgressHUD hideHUDForView:self.view animated:YES];
         }];
     }
@@ -348,15 +361,11 @@
         } else if (user.isNew) {
             NSLog(@"User with facebook signed up and logged in!");
             [self performSegueWithIdentifier:@"AskViewControllerSegue" sender:self];
-
-            //resultblock(YES);
-            
+            //[[OttaUserManager sharedManager] saveCurrentUser:user];;
         } else {
             NSLog(@"User with facebook logged in!");
             [self performSegueWithIdentifier:@"AskViewControllerSegue" sender:self];
-
-            ///resultblock(YES);
-            
+            //[[OttaUserManager sharedManager] saveCurrentUser:user];
         }
     }];
 }
