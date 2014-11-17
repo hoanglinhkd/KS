@@ -38,7 +38,7 @@
 
 - (void)checkLoggedin {
     if([PFUser currentUser]) {
-        [self performSegueWithIdentifier:@"home" sender:self];
+        [self performSegueWithIdentifier:@"homeSegue" sender:self];
     }
 }
 
