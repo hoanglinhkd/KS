@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="QRJ-40-tr5">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14B23" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="QRJ-40-tr5">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
@@ -374,7 +374,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="L06-Mb-tjw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="54" y="-293"/>
+            <point key="canvasLocation" x="31" y="-681"/>
         </scene>
         <!--Side Menu View Controller-->
         <scene sceneID="52t-BD-VS0">
@@ -633,6 +633,7 @@
                         <outlet property="usernameLine" destination="5qB-ed-Aqn" id="qMb-M9-rfL"/>
                         <outlet property="usernameTextField" destination="6MZ-E3-yql" id="shn-c8-q8g"/>
                         <segue destination="XNa-Ru-XO3" kind="modal" identifier="AskViewControllerSegue" id="h9z-KA-txm"/>
+                        <segue destination="CY8-rH-5qL" kind="modal" identifier="homeSegue" id="35O-8m-wHR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DAu-hU-QVq" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -666,4 +667,7 @@
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
+    <inferredMetricsTieBreakers>
+        <segue reference="35O-8m-wHR"/>
+    </inferredMetricsTieBreakers>
 </document>

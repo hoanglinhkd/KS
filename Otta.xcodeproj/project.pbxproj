@@ -20,7 +20,6 @@
 		383400641A17BF67006A913E /* btn_alert_yes.png in Resources */ = {isa = PBXBuildFile; fileRef = 383400621A17BF67006A913E /* btn_alert_yes.png */; };
 		383400661A17CC2F006A913E /* bgalert_white_big.png in Resources */ = {isa = PBXBuildFile; fileRef = 383400651A17CC2F006A913E /* bgalert_white_big.png */; };
 		3847CFB31A1863E1002599E7 /* OttaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3847CFB21A1863E1002599E7 /* OttaViewController.m */; };
-		3847CFB61A18644E002599E7 /* OttaUserManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3847CFB51A18644E002599E7 /* OttaUserManager.m */; };
 		386E89AF1A124EAF00459171 /* btn_facebook.png in Resources */ = {isa = PBXBuildFile; fileRef = 386E89A61A124EAF00459171 /* btn_facebook.png */; };
 		386E89B01A124EAF00459171 /* btn_join.png in Resources */ = {isa = PBXBuildFile; fileRef = 386E89A71A124EAF00459171 /* btn_join.png */; };
 		386E89B11A124EAF00459171 /* btn_login.png in Resources */ = {isa = PBXBuildFile; fileRef = 386E89A81A124EAF00459171 /* btn_login.png */; };
@@ -149,8 +148,6 @@
 		383400651A17CC2F006A913E /* bgalert_white_big.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bgalert_white_big.png; sourceTree = "<group>"; };
 		3847CFB11A1863E1002599E7 /* OttaViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OttaViewController.h; sourceTree = "<group>"; };
 		3847CFB21A1863E1002599E7 /* OttaViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OttaViewController.m; sourceTree = "<group>"; };
-		3847CFB41A18644E002599E7 /* OttaUserManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OttaUserManager.h; sourceTree = "<group>"; };
-		3847CFB51A18644E002599E7 /* OttaUserManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OttaUserManager.m; sourceTree = "<group>"; };
 		386E89A61A124EAF00459171 /* btn_facebook.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_facebook.png; sourceTree = "<group>"; };
 		386E89A71A124EAF00459171 /* btn_join.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_join.png; sourceTree = "<group>"; };
 		386E89A81A124EAF00459171 /* btn_login.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_login.png; sourceTree = "<group>"; };
@@ -566,8 +563,6 @@
 				D9286F3F1A12187F00C28770 /* OttaSessionManager.m */,
 				D9286F411A12190500C28770 /* OttaParseClientManager.h */,
 				D9286F421A12190500C28770 /* OttaParseClientManager.m */,
-				3847CFB41A18644E002599E7 /* OttaUserManager.h */,
-				3847CFB51A18644E002599E7 /* OttaUserManager.m */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -897,7 +892,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3847CFB61A18644E002599E7 /* OttaUserManager.m in Sources */,
 				3847CFB31A1863E1002599E7 /* OttaViewController.m in Sources */,
 				F0BC6526198606BD0097A87C /* OttaAppDelegate.m in Sources */,
 				66FD4B551A11AB02005ACD58 /* OttaQuestion.m in Sources */,

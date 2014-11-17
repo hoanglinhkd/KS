@@ -7,7 +7,6 @@
 //
 #import "OttaViewController.h"
 #import "OttaAlertManager.h"
-#import "OttaUserManager.h"
 
 @interface OttaViewController ()<EAIntroDelegate> {
     BOOL isJoinScreen;
@@ -26,14 +25,20 @@
     
     [self.navigationController setNavigationBarHidden:YES];
     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"OttaSideMenuBackground.png"]];
-    [self checkLoggedin];
+    
     [self initIntroViews];
     [self showFirstIntroPage];
 }
 
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    
+    [self checkLoggedin];
+}
+
 - (void)checkLoggedin {
     if([PFUser currentUser]) {
-        [self performSegueWithIdentifier:@"homeSegue" sender:nil];
+        [self performSegueWithIdentifier:@"home" sender:self];
     }
 }
 
@@ -212,6 +217,7 @@
         [[OttaParseClientManager sharedManager] loginWithEmail:self.usernameTextField.text andPassword:self.passwordTextField.text withResult:^(BOOL joinSucceeded, PFUser *pUser, NSString *failureReason) {
             if (joinSucceeded) {
                 NSLog(@"Login succeeded");
+                
                 
                 [self performSegueWithIdentifier:@"AskViewControllerSegue" sender:self];
                 //[[OttaUserManager sharedManager] saveCurrentUser:pUser];
