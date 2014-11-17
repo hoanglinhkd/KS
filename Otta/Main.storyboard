@@ -395,7 +395,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="L06-Mb-tjw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="54" y="-293"/>
+            <point key="canvasLocation" x="31" y="-681"/>
         </scene>
         <!--Side Menu View Controller-->
         <scene sceneID="52t-BD-VS0">
@@ -876,4 +876,7 @@
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
+    <inferredMetricsTieBreakers>
+        <segue reference="35O-8m-wHR"/>
+    </inferredMetricsTieBreakers>
 </document>
