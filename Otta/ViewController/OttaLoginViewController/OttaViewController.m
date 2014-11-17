@@ -32,6 +32,18 @@
     [self showFirstIntroPage];
 }
 
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    
+    [self checkLoggedin];
+}
+
+- (void)checkLoggedin {
+    if([PFUser currentUser]) {
+        [self performSegueWithIdentifier:@"homeSegue" sender:self];
+    }
+}
+
 -(void) initViews
 {
     
@@ -88,18 +100,6 @@
         _confirmPassJoinDetail.attributedPlaceholder = [[NSAttributedString alloc] initWithString:[@"Confirm password" toCurrentLanguage] attributes:@{NSForegroundColorAttributeName: color, NSFontAttributeName : [UIFont fontWithName:@"OpenSans-Light" size:20.0]}];
     }
 }
-- (void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
-    
-    [self checkLoggedin];
-}
-
-- (void)checkLoggedin {
-    if([PFUser currentUser]) {
-        [self performSegueWithIdentifier:@"homeSegue" sender:self];
-    }
-}
-
 
 -(void) initIntroViews
 {
@@ -291,16 +291,11 @@
         [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     
         [[OttaParseClientManager sharedManager] loginWithNameOrEmail:self.usernameTextField.text andPassword:self.passwordTextField.text withResult:^(BOOL joinSucceeded, PFUser *pUser, NSString *failureReason) {
+            
             if (joinSucceeded) {
                 NSLog(@"Login succeeded");
-                
-                
-<<<<<<< HEAD:Otta/ViewController/OttaViewController/OttaViewController.m
-                
-=======
+
                 [self performSegueWithIdentifier:@"AskViewControllerSegue" sender:self];
-                //[[OttaUserManager sharedManager] saveCurrentUser:pUser];
->>>>>>> feature/save_login_status:Otta/ViewController/OttaLoginViewController/OttaViewController.m
             } else {
                 
                 NSLog(@"Login failed");
@@ -326,6 +321,7 @@
         
         [[OttaParseClientManager sharedManager] joinWithEmail:self.emailTextField.text andUsername:self.usernameTextField.text andPassword:self.passwordTextField.text withResult:^(BOOL joinSucceeded, PFUser *pUser, NSString *failureReason) {
             [MBProgressHUD hideHUDForView:self.view animated:YES];
+            
             if (joinSucceeded) {
                 NSLog(@"Join succeeded");
 
@@ -335,6 +331,7 @@
                 NSLog(@"Join failed");
                 [[OttaAlertManager sharedManager] showSimpleAlertOnView:self.view withContent:[@"Register Failed" toCurrentLanguage] complete:nil];
             }
+            
             [MBProgressHUD hideHUDForView:self.view animated:YES];
         }];
     }

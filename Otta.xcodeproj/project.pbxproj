@@ -40,7 +40,6 @@
 		38A37D7B1A171FF900771881 /* bgalert_white.png in Resources */ = {isa = PBXBuildFile; fileRef = 38A37D781A171FF900771881 /* bgalert_white.png */; };
 		38A37D7C1A171FF900771881 /* btn_alert_done.png in Resources */ = {isa = PBXBuildFile; fileRef = 38A37D791A171FF900771881 /* btn_alert_done.png */; };
 		38A37D7D1A171FF900771881 /* OttaAlertManager.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38A37D7A1A171FF900771881 /* OttaAlertManager.xib */; };
-		38A37D7F1A17241300771881 /* MainT.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 38A37D7E1A17241300771881 /* MainT.storyboard */; };
 		66502BE41A14571000A9472D /* icon_time.png in Resources */ = {isa = PBXBuildFile; fileRef = 66502BE31A14571000A9472D /* icon_time.png */; };
 		66502BE71A14653300A9472D /* OttaOptionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 66502BE61A14653300A9472D /* OttaOptionCell.m */; };
 		66FD4B051A11A6CC005ACD58 /* angry_birds_cake.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 66FD4AD81A11A6CC005ACD58 /* angry_birds_cake.jpg */; };
@@ -101,7 +100,6 @@
 		D98E30B21A1777950080B934 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D98E30B41A1777950080B934 /* Localizable.strings */; };
 		D98E30BC1A1779110080B934 /* LanguageHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = D98E30BB1A1779110080B934 /* LanguageHelper.m */; };
 		D98E30BF1A1779340080B934 /* NSString+Language.m in Sources */ = {isa = PBXBuildFile; fileRef = D98E30BE1A1779340080B934 /* NSString+Language.m */; };
-		D98E30C11A177D0F0080B934 /* Main_H.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D98E30C01A177D0F0080B934 /* Main_H.storyboard */; };
 		D98E30C41A1795D70080B934 /* Constant.m in Sources */ = {isa = PBXBuildFile; fileRef = D98E30C31A1795D70080B934 /* Constant.m */; };
 		D98E30CA1A1797CD0080B934 /* AFPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = D98E30C71A1797CD0080B934 /* AFPickerView.m */; };
 		D98E30CB1A1797CD0080B934 /* pickerGlass.png in Resources */ = {isa = PBXBuildFile; fileRef = D98E30C81A1797CD0080B934 /* pickerGlass.png */; };
@@ -170,7 +168,6 @@
 		38A37D781A171FF900771881 /* bgalert_white.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bgalert_white.png; sourceTree = "<group>"; };
 		38A37D791A171FF900771881 /* btn_alert_done.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_alert_done.png; sourceTree = "<group>"; };
 		38A37D7A1A171FF900771881 /* OttaAlertManager.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OttaAlertManager.xib; sourceTree = "<group>"; };
-		38A37D7E1A17241300771881 /* MainT.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = MainT.storyboard; path = Otta/MainT.storyboard; sourceTree = SOURCE_ROOT; };
 		66502BE31A14571000A9472D /* icon_time.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_time.png; sourceTree = "<group>"; };
 		66502BE51A14653300A9472D /* OttaOptionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OttaOptionCell.h; sourceTree = "<group>"; };
 		66502BE61A14653300A9472D /* OttaOptionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OttaOptionCell.m; sourceTree = "<group>"; };
@@ -250,7 +247,6 @@
 		D98E30BB1A1779110080B934 /* LanguageHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LanguageHelper.m; sourceTree = "<group>"; };
 		D98E30BD1A1779340080B934 /* NSString+Language.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Language.h"; sourceTree = "<group>"; };
 		D98E30BE1A1779340080B934 /* NSString+Language.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Language.m"; sourceTree = "<group>"; };
-		D98E30C01A177D0F0080B934 /* Main_H.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main_H.storyboard; sourceTree = "<group>"; };
 		D98E30C21A1795D70080B934 /* Constant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constant.h; sourceTree = "<group>"; };
 		D98E30C31A1795D70080B934 /* Constant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constant.m; sourceTree = "<group>"; };
 		D98E30C61A1797CD0080B934 /* AFPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFPickerView.h; sourceTree = "<group>"; };
@@ -497,8 +493,6 @@
 		66FD4B321A11A83A005ACD58 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				38A37D7E1A17241300771881 /* MainT.storyboard */,
-				D98E30C01A177D0F0080B934 /* Main_H.storyboard */,
 				F0D6B1F119862B4D0077E30E /* Main.storyboard */,
 				66FD4B371A11A8F0005ACD58 /* OttaQuestionTableViewCell.h */,
 				66FD4B381A11A8F0005ACD58 /* OttaQuestionTableViewCell.m */,
@@ -780,7 +774,6 @@
 				66FD4B2D1A11A6CC005ACD58 /* OttaRightSidebar.png in Resources */,
 				F0D6B1F219862B4D0077E30E /* Main.storyboard in Resources */,
 				382E32711A139911008ACA45 /* menu_mail.png in Resources */,
-				D98E30C11A177D0F0080B934 /* Main_H.storyboard in Resources */,
 				66FD4B2F1A11A6CC005ACD58 /* universalSidebar.png in Resources */,
 				386E89C01A12606000459171 /* icon_add.png in Resources */,
 				383400661A17CC2F006A913E /* bgalert_white_big.png in Resources */,
@@ -837,7 +830,6 @@
 				38A37D7B1A171FF900771881 /* bgalert_white.png in Resources */,
 				66FD4B1A1A11A6CC005ACD58 /* OpenSans-Light.ttf in Resources */,
 				382E32701A139911008ACA45 /* menu_home.png in Resources */,
-				38A37D7F1A17241300771881 /* MainT.storyboard in Resources */,
 				66FD4B071A11A6CC005ACD58 /* egg_benedict.jpg in Resources */,
 				66FD4B1C1A11A6CC005ACD58 /* OpenSans-Regular.ttf in Resources */,
 				383400641A17BF67006A913E /* btn_alert_yes.png in Resources */,

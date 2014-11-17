@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="8Lp-bQ-f5C">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14B23" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="8Lp-bQ-f5C">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
@@ -395,7 +395,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="L06-Mb-tjw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="31" y="-681"/>
+            <point key="canvasLocation" x="54" y="-633"/>
         </scene>
         <!--Side Menu View Controller-->
         <scene sceneID="52t-BD-VS0">
@@ -843,11 +843,12 @@
                         <outlet property="usernameLine" destination="hYB-Tp-hee" id="7EX-rJ-WEr"/>
                         <outlet property="usernameTextField" destination="2YE-eR-4J7" id="eHl-J2-FfT"/>
                         <segue destination="XNa-Ru-XO3" kind="modal" identifier="AskViewControllerSegue" id="Itt-jL-ReV"/>
+                        <segue destination="CY8-rH-5qL" kind="modal" identifier="homeSegue" id="6yC-3c-aDU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lzB-ES-Uyt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-448" y="-159"/>
+            <point key="canvasLocation" x="-458" y="-293"/>
         </scene>
     </scenes>
     <resources>
@@ -877,6 +878,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="35O-8m-wHR"/>
+        <segue reference="6yC-3c-aDU"/>
     </inferredMetricsTieBreakers>
 </document>
