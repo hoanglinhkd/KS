@@ -12,6 +12,7 @@
 @interface SideMenuViewController ()
 {
     OttaMenuCell *lastCellSelected;
+    int selectedSideIndex;
 }
 
 @end
@@ -33,6 +34,8 @@
     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"OttaSideMenuBackground.png"]];
     self.menuTableView.backgroundColor = [UIColor clearColor];
     // Do any additional setup after loading the view.
+    
+    selectedSideIndex = 0;
 }
 
 -(void)highlightAboutButton
@@ -84,6 +87,11 @@
     if (cell == nil) {
         cell = [[OttaMenuCell alloc]initWithStyle:
                 UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
+    }
+    
+    if(selectedSideIndex == indexPath.row) {
+        [cell.lblText setFont:[UIFont fontWithName:@"OpenSans-Bold" size:18.00f]];
+    } else {
         [cell.lblText setFont:[UIFont fontWithName:@"OpenSans-Light" size:18.00f]];
     }
     
