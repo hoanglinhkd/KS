@@ -109,8 +109,6 @@
 		6AEF8F781A1A51BA00E4EB15 /* button_yellow.png in Resources */ = {isa = PBXBuildFile; fileRef = 6AEF8F701A1A51BA00E4EB15 /* button_yellow.png */; };
 		6AEF8F791A1A51BA00E4EB15 /* yellow_blank.png in Resources */ = {isa = PBXBuildFile; fileRef = 6AEF8F711A1A51BA00E4EB15 /* yellow_blank.png */; };
 		6AEF8F7A1A1A51BA00E4EB15 /* icon_sandclock.png in Resources */ = {isa = PBXBuildFile; fileRef = 6AEF8F721A1A51BA00E4EB15 /* icon_sandclock.png */; };
-		6AEF8F8E1A1A6C6500E4EB15 /* OttaQuestionFeedCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AEF8F8B1A1A6C6500E4EB15 /* OttaQuestionFeedCell.m */; };
-		6AEF8F921A1A6CED00E4EB15 /* OttaQuestionFeedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AEF8F911A1A6CED00E4EB15 /* OttaQuestionFeedViewController.m */; };
 		D9286F401A12187F00C28770 /* OttaSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D9286F3F1A12187F00C28770 /* OttaSessionManager.m */; };
 		D9286F431A12190500C28770 /* OttaParseClientManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D9286F421A12190500C28770 /* OttaParseClientManager.m */; };
 		D98E30B21A1777950080B934 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D98E30B41A1777950080B934 /* Localizable.strings */; };
@@ -268,8 +266,6 @@
 		6AEF8F701A1A51BA00E4EB15 /* button_yellow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_yellow.png; sourceTree = "<group>"; };
 		6AEF8F711A1A51BA00E4EB15 /* yellow_blank.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = yellow_blank.png; sourceTree = "<group>"; };
 		6AEF8F721A1A51BA00E4EB15 /* icon_sandclock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_sandclock.png; sourceTree = "<group>"; };
-		6AEF8F8B1A1A6C6500E4EB15 /* OttaQuestionFeedCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OttaQuestionFeedCell.m; sourceTree = "<group>"; };
-		6AEF8F911A1A6CED00E4EB15 /* OttaQuestionFeedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OttaQuestionFeedViewController.m; sourceTree = "<group>"; };
 		C1E9BE3193743527323F1CDA /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		D075C858A4214DDABEDE0CDD /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		D45B044B7810A706377E3F1A /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
@@ -990,13 +986,11 @@
 				66FD4B3A1A11A8F0005ACD58 /* OttaQuestionTableViewCell.m in Sources */,
 				D98E30BC1A1779110080B934 /* LanguageHelper.m in Sources */,
 				66FD4B431A11A962005ACD58 /* SideMenuViewController.m in Sources */,
-				6AEF8F921A1A6CED00E4EB15 /* OttaQuestionFeedViewController.m in Sources */,
 				66FD4B361A11A8A5005ACD58 /* OttaAskViewController.m in Sources */,
 				386E89C81A126AC100459171 /* OttAddFriendViewController.m in Sources */,
 				38A37D771A171FCD00771881 /* OttaAlertManager.m in Sources */,
 				6ACEE9221A1ACDF300370807 /* OttaQuestionFeedViewController.m in Sources */,
 				66FD4B5A1A11ABF9005ACD58 /* OttaAnswerTableController.m in Sources */,
-				6AEF8F8E1A1A6C6500E4EB15 /* OttaQuestionFeedCell.m in Sources */,
 				382E32771A13A54A008ACA45 /* OttaMenuCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
