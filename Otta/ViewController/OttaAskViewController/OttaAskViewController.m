@@ -13,6 +13,10 @@
 #import "OttaAnswer.h"
 
 @interface OttaAskViewController ()
+{
+    NSMutableDictionary *listHeightQuestion;
+}
+
 @property (strong) OttaOptionCell *editingOptionCell;
 
 @end
@@ -70,7 +74,11 @@
 {
     [super viewDidLoad];
     [self.navigationController setNavigationBarHidden:YES];
-
+    
+    listHeightQuestion = [NSMutableDictionary dictionary];
+    //Default is having first row
+    [listHeightQuestion setObject:[NSNumber numberWithFloat:70.0f] forKey:@"row0"];
+    
   /*  [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(keyboardWasShown:)
                                                  name:UIKeyboardDidShowNotification
@@ -103,7 +111,7 @@ testAnswer.answerText = @"Creme Brelee";
 //    self.answerTableView.dataSource = self.answerViewController;
 //    [self.answerTableView reloadData];
 //    self.answerViewController.mainViewController = self;
-    [_itsTextView setReturnKeyType:UIReturnKeyDone];
+    //[_itsTextView setReturnKeyType:UIReturnKeyDone];
     [_itsTextView setFont:[UIFont fontWithName:@"OpenSans-Light" size:17.00f]];
     
     [_itsTextView setText:[@"Ask a question..." toCurrentLanguage]];
@@ -330,6 +338,10 @@ UITextView itsTextView = [[UITextView alloc] initWithFrame:CGRectMake(0, 0, itsT
         cell = [[OttaOptionCell alloc]initWithStyle:
                 UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
     }
+    
+    [cell enableAutoHeightCell];
+    [cell.lblNumber setText:[NSString stringWithFormat:@"%d", indexPath.row + 1]];
+    
     cell.delegate = self;
     
     return cell;
@@ -347,7 +359,8 @@ UITextView itsTextView = [[UITextView alloc] initWithFrame:CGRectMake(0, 0, itsT
         return 55;
     }
     
-    return 80;
+    NSNumber *currentRowHeight = [listHeightQuestion objectForKey:[NSString stringWithFormat:@"row%d", indexPath.row]];
+    return [currentRowHeight floatValue];
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -359,20 +372,36 @@ UITextView itsTextView = [[UITextView alloc] initWithFrame:CGRectMake(0, 0, itsT
         
     }
     
-    if (indexPath.row == _optionsArray.count) {
-        // Add option
-        [_optionsArray addObject:[[OttaAnswer alloc] init]];
-        [tableView reloadData];
+    if(indexPath.row < 4) {
+        if (indexPath.row == _optionsArray.count) {
+            // Add option
+            [_optionsArray addObject:[[OttaAnswer alloc] init]];
+            [listHeightQuestion setObject:[NSNumber numberWithFloat:70.0f] forKey:[NSString stringWithFormat:@"row%d", indexPath.row]];
+            [tableView reloadData];
+        }
     }
 }
 
 #pragma mark option cell delegate
+
+-(void)optionCell:(OttaOptionCell *)cell textView:(HPGrowingTextView *)textViewUpdateHeight willChangeHeight:(float)height
+{
+    NSLog(@"Height = %f", height);
+    if(cell.viewContent2.isHidden) {
+        NSIndexPath *indexPath = [self.tableAsk indexPathForCell:cell];
+        //[listHeightQuestion setObject:[NSNumber numberWithFloat:height + 20] forKey:[NSString stringWithFormat:@"row%d",indexPath.row]];
+        //[self.tableAsk reloadData];
+    }
+}
+
 - (void)optionCell:(OttaOptionCell*)cell textBeginEditing:(id)textview
 {
     
 }
+
 - (void)optionCell:(OttaOptionCell*)cell textEndEditing:(id)textview
 {
+    
 }
 - (void)optionCell:(OttaOptionCell*)cell beginTakePicture:(id)imageView
 {

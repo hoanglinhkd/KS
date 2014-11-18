@@ -34,12 +34,28 @@
     [_delegate optionCell:self beginTakePicture:_imgMain];
     
 }
-- (void)displayThumbAndCaption:(UIImage*)thumb caption:(NSString*)caption{
-    _imgMain.hidden = FALSE;
-    _imgMain.image = thumb;
+- (void)displayThumbAndCaption:(UIImage*)thumb caption:(NSString*)caption {
+    
+    [self.viewAction setHidden:YES];
+    [self.viewContent2 setHidden:NO];
+    //_imgMain.hidden = FALSE;
+    //_imgMain.image = thumb;
     _txtImageDescription.hidden = FALSE;
     _txtImageDescription.text = caption;
 }
+
+#pragma mark - Auto Height Cell
+- (void) enableAutoHeightCell
+{
+    self.txtImageDescription.delegate = self;
+    self.txtContent.delegate = self;
+}
+
+-(void)growingTextView:(HPGrowingTextView *)growingTextView willChangeHeight:(float)height
+{
+    [_delegate optionCell:self textView:growingTextView willChangeHeight:height];
+}
+
 #pragma mark textView delegate
 - (BOOL) textViewShouldBeginEditing:(UITextView *)textView {
     
