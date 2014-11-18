@@ -7,7 +7,8 @@
 //
 
 #import "SideMenuViewController.h"
-
+#import <Parse/Parse.h>
+#import "MBProgressHUD.h"
 
 @interface SideMenuViewController ()
 {
@@ -63,6 +64,14 @@
 -(IBAction)btnAboutTapped:(id)sender
 {
     [self highlightAboutButton];
+    [self logOutAction];
+}
+
+-(void)logOutAction {
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    [PFUser logOut];
+    [self performSegueWithIdentifier:@"segueLogin" sender:self];
+    [MBProgressHUD hideHUDForView:self.view animated:YES];
 }
 
 - (IBAction)unwindToSideMenu:(UIStoryboardSegue *)unwindSegue
