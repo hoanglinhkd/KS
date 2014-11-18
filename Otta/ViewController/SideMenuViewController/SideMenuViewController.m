@@ -7,7 +7,8 @@
 //
 
 #import "SideMenuViewController.h"
-
+#import <Parse/Parse.h>
+#import "MBProgressHUD.h"
 
 @interface SideMenuViewController ()
 {
@@ -44,6 +45,9 @@
         [lastCellSelected.lblText setFont:[UIFont fontWithName:@"OpenSans-Light" size:18.00f]];
     }
     [_btnAbout.titleLabel setFont:[UIFont fontWithName:@"OpenSans-Bold" size:18.00f]];
+    
+    selectedSideIndex = -1;
+    [_menuTableView reloadData];
 }
 
 -(void) dehighlightAboutButton
@@ -60,6 +64,14 @@
 -(IBAction)btnAboutTapped:(id)sender
 {
     [self highlightAboutButton];
+    [self logOutAction];
+}
+
+-(void)logOutAction {
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    [PFUser logOut];
+    [self performSegueWithIdentifier:@"segueLogin" sender:self];
+    [MBProgressHUD hideHUDForView:self.view animated:YES];
 }
 
 - (IBAction)unwindToSideMenu:(UIStoryboardSegue *)unwindSegue
@@ -73,7 +85,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 5;
+    return 6;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -126,6 +138,12 @@
             cell.lblText.text = [@"Settings" toCurrentLanguage];
         }
             break;
+        case 5:
+        {
+            cell.imgIcon.image = [UIImage imageNamed:@"menu_otta.png"];
+            cell.lblText.text = [@"About" toCurrentLanguage];
+        }
+            break;
             
         default:
             break;
@@ -135,26 +153,13 @@
     return cell;
 }
 
-/*- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
- {
- cell.backgroundColor = [UIColor clearColor];
- cell.textLabel.backgroundColor = [UIColor clearColor];
- cell.detailTextLabel.backgroundColor = [UIColor clearColor];
- }
- */
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
     [self dehighlightAboutButton];
-    OttaMenuCell *cell = (OttaMenuCell*)[tableView cellForRowAtIndexPath:indexPath];
-    lastCellSelected = cell;
-    [cell.lblText setFont:[UIFont fontWithName:@"OpenSans-Bold" size:18.00f]];
+    selectedSideIndex = indexPath.row;
+    [tableView reloadData];
+    
     [self performSegueWithIdentifier:@"segueAskQuestion" sender:nil];
-}
-
--(void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    OttaMenuCell *cell = (OttaMenuCell*)[tableView cellForRowAtIndexPath:indexPath];
-    [cell.lblText setFont:[UIFont fontWithName:@"OpenSans-Light" size:18.00f]];
 }
 
 @end

@@ -10,8 +10,8 @@
 
 typedef enum {
     TimeSelection_Minutes = 0,
+    TimeSelection_Hours,
     TimeSelection_Days,
-    TimeSelection_Months,
 } TimeSelection;
 
 @interface Constant : NSObject

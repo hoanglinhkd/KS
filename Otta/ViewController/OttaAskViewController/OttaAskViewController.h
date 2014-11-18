@@ -19,7 +19,7 @@
 @property (nonatomic,strong) CZPhotoPickerController * photoPicker;
 @property (nonatomic,strong) IBOutlet UITextView * itsTextView;
 @property (nonatomic,strong) UITextView *activeTextField;
-
+@property (nonatomic,strong) IBOutlet UITableView *tableAsk;
 
 @property (nonatomic, strong) NSMutableArray* optionsArray;
 
