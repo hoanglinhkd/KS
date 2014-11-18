@@ -40,6 +40,9 @@
 		38A37D7B1A171FF900771881 /* bgalert_white.png in Resources */ = {isa = PBXBuildFile; fileRef = 38A37D781A171FF900771881 /* bgalert_white.png */; };
 		38A37D7C1A171FF900771881 /* btn_alert_done.png in Resources */ = {isa = PBXBuildFile; fileRef = 38A37D791A171FF900771881 /* btn_alert_done.png */; };
 		38A37D7D1A171FF900771881 /* OttaAlertManager.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38A37D7A1A171FF900771881 /* OttaAlertManager.xib */; };
+		5D8E7C6A1A1BA3E700678DAC /* MainH.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5D8E7C691A1BA3E700678DAC /* MainH.storyboard */; };
+		5D8E7C6D1A1BB43900678DAC /* btnAddContact@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D8E7C6B1A1BB43900678DAC /* btnAddContact@2x.png */; };
+		5D8E7C6E1A1BB43900678DAC /* btnAddFBFriend@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D8E7C6C1A1BB43900678DAC /* btnAddFBFriend@2x.png */; };
 		66502BE41A14571000A9472D /* icon_time.png in Resources */ = {isa = PBXBuildFile; fileRef = 66502BE31A14571000A9472D /* icon_time.png */; };
 		66502BE71A14653300A9472D /* OttaOptionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 66502BE61A14653300A9472D /* OttaOptionCell.m */; };
 		66FD4B051A11A6CC005ACD58 /* angry_birds_cake.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 66FD4AD81A11A6CC005ACD58 /* angry_birds_cake.jpg */; };
@@ -168,6 +171,9 @@
 		38A37D781A171FF900771881 /* bgalert_white.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bgalert_white.png; sourceTree = "<group>"; };
 		38A37D791A171FF900771881 /* btn_alert_done.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_alert_done.png; sourceTree = "<group>"; };
 		38A37D7A1A171FF900771881 /* OttaAlertManager.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OttaAlertManager.xib; sourceTree = "<group>"; };
+		5D8E7C691A1BA3E700678DAC /* MainH.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = MainH.storyboard; path = Otta/MainH.storyboard; sourceTree = SOURCE_ROOT; };
+		5D8E7C6B1A1BB43900678DAC /* btnAddContact@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btnAddContact@2x.png"; sourceTree = "<group>"; };
+		5D8E7C6C1A1BB43900678DAC /* btnAddFBFriend@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btnAddFBFriend@2x.png"; sourceTree = "<group>"; };
 		66502BE31A14571000A9472D /* icon_time.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_time.png; sourceTree = "<group>"; };
 		66502BE51A14653300A9472D /* OttaOptionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OttaOptionCell.h; sourceTree = "<group>"; };
 		66502BE61A14653300A9472D /* OttaOptionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OttaOptionCell.m; sourceTree = "<group>"; };
@@ -353,6 +359,8 @@
 		386E89BA1A12606000459171 /* AddFriend */ = {
 			isa = PBXGroup;
 			children = (
+				5D8E7C6B1A1BB43900678DAC /* btnAddContact@2x.png */,
+				5D8E7C6C1A1BB43900678DAC /* btnAddFBFriend@2x.png */,
 				386E89C91A126DEF00459171 /* icon_check2.png */,
 				386E89BB1A12606000459171 /* btn_start.png */,
 				386E89BC1A12606000459171 /* icon_add.png */,
@@ -493,6 +501,7 @@
 		66FD4B321A11A83A005ACD58 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				5D8E7C691A1BA3E700678DAC /* MainH.storyboard */,
 				F0D6B1F119862B4D0077E30E /* Main.storyboard */,
 				66FD4B371A11A8F0005ACD58 /* OttaQuestionTableViewCell.h */,
 				66FD4B381A11A8F0005ACD58 /* OttaQuestionTableViewCell.m */,
@@ -758,6 +767,7 @@
 				66FD4B0C1A11A6CC005ACD58 /* hamburger.jpg in Resources */,
 				D98E30CB1A1797CD0080B934 /* pickerGlass.png in Resources */,
 				386E89B41A124EAF00459171 /* icon_check.png in Resources */,
+				5D8E7C6A1A1BA3E700678DAC /* MainH.storyboard in Resources */,
 				66FD4B221A11A6CC005ACD58 /* JoinButton.png in Resources */,
 				66FD4B201A11A6CC005ACD58 /* AskAQuestion.png in Resources */,
 				66FD4B141A11A6CC005ACD58 /* white_chocolate_donut.jpg in Resources */,
@@ -768,6 +778,7 @@
 				38A37D7D1A171FF900771881 /* OttaAlertManager.xib in Resources */,
 				386E89BF1A12606000459171 /* btn_start.png in Resources */,
 				66FD4B171A11A6CC005ACD58 /* OpenSans-ExtraBold.ttf in Resources */,
+				5D8E7C6D1A1BB43900678DAC /* btnAddContact@2x.png in Resources */,
 				66FD4B1B1A11A6CC005ACD58 /* OpenSans-LightItalic.ttf in Resources */,
 				66FD4B051A11A6CC005ACD58 /* angry_birds_cake.jpg in Resources */,
 				66FD4B0B1A11A6CC005ACD58 /* ham_and_egg_sandwich.jpg in Resources */,
@@ -777,6 +788,7 @@
 				66FD4B2F1A11A6CC005ACD58 /* universalSidebar.png in Resources */,
 				386E89C01A12606000459171 /* icon_add.png in Resources */,
 				383400661A17CC2F006A913E /* bgalert_white_big.png in Resources */,
+				5D8E7C6E1A1BB43900678DAC /* btnAddFBFriend@2x.png in Resources */,
 				F0BC652E198606BD0097A87C /* Images.xcassets in Resources */,
 				D98E30CC1A1797CD0080B934 /* pickerGlass@2x.png in Resources */,
 				66FD4B111A11A6CC005ACD58 /* starbucks_coffee.jpg in Resources */,
