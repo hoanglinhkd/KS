@@ -426,6 +426,9 @@ UITextView itsTextView = [[UITextView alloc] initWithFrame:CGRectMake(0, 0, itsT
         //weakSelf.editingOptionCell.imgMain.image = selectedImage;
         [weakSelf.editingOptionCell displayThumbAndCaption:selectedImage caption:caption];
         [weakSelf.photoPicker dismissAnimated:YES];
+        
+        [self performSegueWithIdentifier:@"segueAddCaptionPicture" sender:self];
+        
     }];
     
     _photoPicker.allowsEditing = YES; // optional
@@ -435,5 +438,11 @@ UITextView itsTextView = [[UITextView alloc] initWithFrame:CGRectMake(0, 0, itsT
 }
 #pragma mark -
 
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if([segue.identifier isEqualToString:@"segueAddCaptionPicture"]) {
+        
+    }
+}
 
 @end

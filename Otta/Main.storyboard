@@ -6,6 +6,10 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <customFonts key="customFonts">
+        <mutableArray key="OpenSans-Bold.ttf">
+            <string>OpenSans-Bold</string>
+            <string>OpenSans-Bold</string>
+        </mutableArray>
         <mutableArray key="OpenSans-Light.ttf">
             <string>OpenSans-Light</string>
             <string>OpenSans-Light</string>
@@ -871,12 +875,79 @@
                     <connections>
                         <outlet property="itsTextView" destination="IwQ-rb-xVj" id="HSX-KN-Khn"/>
                         <outlet property="tableAsk" destination="WS2-pS-foB" id="5VD-5Q-NhB"/>
+                        <segue destination="iaF-Sv-y3W" kind="modal" identifier="segueAddCaptionPicture" id="qSa-iv-nxn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HOd-FJ-vaq" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="SdL-Fn-JUA" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="544" y="490"/>
+        </scene>
+        <!--Otta Add Caption Image View Controller-->
+        <scene sceneID="sI5-u3-zkh">
+            <objects>
+                <viewController id="iaF-Sv-y3W" customClass="OttaAddCaptionImageViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Shu-EO-4tU"/>
+                        <viewControllerLayoutGuide type="bottom" id="Lg9-TX-hqD"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="QfR-7G-HOa">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R0Z-Fz-0Is">
+                                <rect key="frame" x="0.0" y="524" width="320" height="44"/>
+                                <color key="backgroundColor" red="0.97647064920000004" green="0.68627452850000004" blue="0.10588236149999999" alpha="1" colorSpace="deviceRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="Pqr-4Z-Yhl"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="OpenSans-Bold" family="Open Sans" pointSize="18"/>
+                                <state key="normal" title="Next">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="btnNextTapped:" destination="iaF-Sv-y3W" eventType="touchUpInside" id="t79-yi-VSr"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HNI-La-KcI">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="80"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="OttaAskheader.png" translatesAutoresizingMaskIntoConstraints="NO" id="dgL-ga-Pcb">
+                                        <rect key="frame" x="0.0" y="20" width="320" height="60"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" red="0.56078433989999998" green="0.79215693470000004" blue="0.25098040700000002" alpha="1" colorSpace="deviceRGB"/>
+                            </view>
+                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mPy-cm-pt1">
+                                <rect key="frame" x="0.0" y="440" width="320" height="84"/>
+                                <subviews>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Add a caption ?" translatesAutoresizingMaskIntoConstraints="NO" id="b6L-Mw-7cE">
+                                        <rect key="frame" x="0.0" y="8" width="320" height="76"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <color key="textColor" red="0.52941176469999995" green="0.52941176469999995" blue="0.52941176469999995" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="OpenSans-Bold" family="Open Sans" pointSize="18"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                </subviews>
+                                <color key="backgroundColor" red="0.14901960780000001" green="0.14901960780000001" blue="0.14901960780000001" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="R0Z-Fz-0Is" firstAttribute="top" secondItem="mPy-cm-pt1" secondAttribute="bottom" id="0ih-Tp-PiK"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="mPy-cm-pt1" secondAttribute="trailing" constant="-16" id="9To-IO-mUE"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="R0Z-Fz-0Is" secondAttribute="trailing" constant="-16" id="GcS-N4-x43"/>
+                            <constraint firstItem="Lg9-TX-hqD" firstAttribute="top" secondItem="R0Z-Fz-0Is" secondAttribute="bottom" id="Mir-ES-aUp"/>
+                            <constraint firstItem="R0Z-Fz-0Is" firstAttribute="leading" secondItem="QfR-7G-HOa" secondAttribute="leadingMargin" constant="-16" id="uEV-lM-wjS"/>
+                            <constraint firstItem="mPy-cm-pt1" firstAttribute="leading" secondItem="QfR-7G-HOa" secondAttribute="leadingMargin" constant="-16" id="zXs-IX-3X6"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="y8a-h4-Cez"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Y7d-hH-VuG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="917" y="490"/>
         </scene>
     </scenes>
     <resources>
