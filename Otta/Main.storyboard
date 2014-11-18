@@ -8,7 +8,6 @@
     <customFonts key="customFonts">
         <mutableArray key="OpenSans-Bold.ttf">
             <string>OpenSans-Bold</string>
-            <string>OpenSans-Bold</string>
         </mutableArray>
         <mutableArray key="OpenSans-Light.ttf">
             <string>OpenSans-Light</string>
@@ -27,6 +26,10 @@
             <string>OpenSans-Light</string>
             <string>OpenSans-Light</string>
             <string>OpenSans-Light</string>
+        </mutableArray>
+        <mutableArray key="OpenSans-Regular.ttf">
+            <string>OpenSans</string>
+            <string>OpenSans</string>
         </mutableArray>
     </customFonts>
     <scenes>
@@ -921,7 +924,7 @@
                                     <action selector="btnNextTapped:" destination="PBe-iX-nMu" eventType="touchUpInside" id="7rG-Lm-Di7"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="H9d-Zt-hf3">
+                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="H9d-Zt-hf3">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="80"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="OttaAskheader.png" translatesAutoresizingMaskIntoConstraints="NO" id="3Tz-Vg-yXN">
@@ -931,34 +934,57 @@
                                 <color key="backgroundColor" red="0.56078433989999998" green="0.79215693470000004" blue="0.25098040700000002" alpha="1" colorSpace="deviceRGB"/>
                             </view>
                             <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dE3-tz-Qyv">
-                                <rect key="frame" x="0.0" y="440" width="320" height="84"/>
+                                <rect key="frame" x="0.0" y="457" width="320" height="67"/>
                                 <subviews>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Add a caption ?" translatesAutoresizingMaskIntoConstraints="NO" id="jGP-Ee-szK">
-                                        <rect key="frame" x="0.0" y="8" width="320" height="76"/>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" text="Add a caption ?" translatesAutoresizingMaskIntoConstraints="NO" id="jGP-Ee-szK">
+                                        <rect key="frame" x="12" y="12" width="300" height="44"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <color key="textColor" red="0.52941176469999995" green="0.52941176469999995" blue="0.52941176469999995" alpha="1" colorSpace="calibratedRGB"/>
-                                        <fontDescription key="fontDescription" name="OpenSans-Bold" family="Open Sans" pointSize="18"/>
+                                        <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="18"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
                                 </subviews>
                                 <color key="backgroundColor" red="0.14901960780000001" green="0.14901960780000001" blue="0.14901960780000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="jGP-Ee-szK" secondAttribute="bottom" constant="11" id="Ogv-FS-z36"/>
+                                    <constraint firstItem="jGP-Ee-szK" firstAttribute="top" secondItem="dE3-tz-Qyv" secondAttribute="top" constant="12" id="dn3-cY-HMh"/>
+                                    <constraint firstAttribute="trailing" secondItem="jGP-Ee-szK" secondAttribute="trailing" constant="8" id="lc1-pU-2I4"/>
+                                    <constraint firstItem="jGP-Ee-szK" firstAttribute="leading" secondItem="dE3-tz-Qyv" secondAttribute="leading" constant="12" id="sgP-Ky-3eY"/>
+                                </constraints>
                             </view>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HAk-Kn-Mfw">
+                                <rect key="frame" x="0.0" y="136" width="320" height="320"/>
+                            </imageView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" text="enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea " translatesAutoresizingMaskIntoConstraints="NO" id="Mb8-5z-gIy">
+                                <rect key="frame" x="0.0" y="88" width="320" height="40"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="17"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="dE3-tz-Qyv" firstAttribute="top" secondItem="HAk-Kn-Mfw" secondAttribute="bottom" constant="1" id="30Z-lW-6Ng"/>
                             <constraint firstAttribute="trailingMargin" secondItem="dE3-tz-Qyv" secondAttribute="trailing" constant="-16" id="4aU-Vc-d13"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Mb8-5z-gIy" secondAttribute="trailing" constant="-16" id="4cr-xB-sUl"/>
+                            <constraint firstItem="HAk-Kn-Mfw" firstAttribute="top" secondItem="H9d-Zt-hf3" secondAttribute="bottom" constant="56" id="6vt-bn-atS"/>
+                            <constraint firstItem="HAk-Kn-Mfw" firstAttribute="leading" secondItem="zrG-J0-fvL" secondAttribute="leadingMargin" constant="-16" id="PsF-yI-2jv"/>
                             <constraint firstItem="R1R-6U-xeg" firstAttribute="top" secondItem="dE3-tz-Qyv" secondAttribute="bottom" id="Q9F-rU-eO7"/>
                             <constraint firstAttribute="trailingMargin" secondItem="R1R-6U-xeg" secondAttribute="trailing" constant="-16" id="XdM-5r-beb"/>
+                            <constraint firstItem="Mb8-5z-gIy" firstAttribute="top" secondItem="H9d-Zt-hf3" secondAttribute="bottom" constant="8" id="Xzy-0U-57H"/>
                             <constraint firstItem="R1R-6U-xeg" firstAttribute="leading" secondItem="zrG-J0-fvL" secondAttribute="leadingMargin" constant="-16" id="bPb-cj-qOh"/>
+                            <constraint firstItem="HAk-Kn-Mfw" firstAttribute="top" secondItem="Mb8-5z-gIy" secondAttribute="bottom" constant="8" id="ebn-dk-klx"/>
                             <constraint firstItem="dE3-tz-Qyv" firstAttribute="leading" secondItem="zrG-J0-fvL" secondAttribute="leadingMargin" constant="-16" id="huu-RD-xh6"/>
+                            <constraint firstItem="Mb8-5z-gIy" firstAttribute="leading" secondItem="zrG-J0-fvL" secondAttribute="leadingMargin" constant="-16" id="jEh-AH-xoi"/>
                             <constraint firstItem="bAR-yA-rue" firstAttribute="top" secondItem="R1R-6U-xeg" secondAttribute="bottom" id="wpA-P4-f3s"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="HAk-Kn-Mfw" secondAttribute="trailing" constant="-16" id="yRe-j4-NEN"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="VuU-uE-1po"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xo4-1P-NnE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1116" y="477"/>
+            <point key="canvasLocation" x="1064" y="490"/>
         </scene>
     </scenes>
     <resources>
