@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14B23" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="Sim-b2-JXm">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="Sim-b2-JXm">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
@@ -7,6 +7,7 @@
     </dependencies>
     <customFonts key="customFonts">
         <mutableArray key="OpenSans-Light.ttf">
+            <string>OpenSans-Light</string>
             <string>OpenSans-Light</string>
             <string>OpenSans-Light</string>
             <string>OpenSans-Light</string>
@@ -316,24 +317,28 @@
                                 <color key="textColor" red="0.99601483585858586" green="0.99601483585858586" blue="0.99601483585858586" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="OttaNumberBackground.png" translatesAutoresizingMaskIntoConstraints="NO" id="Rw7-Ug-gfc">
-                                <rect key="frame" x="16" y="175" width="32" height="26"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="Otta_friends_shape_magnifying class.png" translatesAutoresizingMaskIntoConstraints="NO" id="Rw7-Ug-gfc">
+                                <rect key="frame" x="25" y="180" width="20" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="20" id="Kcz-AD-g0q"/>
+                                    <constraint firstAttribute="height" constant="20" id="w6Q-cH-NDB"/>
+                                </constraints>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="image_line.png" translatesAutoresizingMaskIntoConstraints="NO" id="gK2-7n-V1Y">
-                                <rect key="frame" x="16" y="209" width="288" height="18"/>
+                                <rect key="frame" x="16" y="204" width="288" height="18"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="18" id="qVg-GG-f9o"/>
                                     <constraint firstAttribute="width" constant="288" id="sxU-wR-6h3"/>
                                 </constraints>
                             </imageView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Find friends" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8BR-Rf-4ca">
-                                <rect key="frame" x="56" y="173" width="248" height="30"/>
+                                <rect key="frame" x="66" y="173" width="248" height="30"/>
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="47" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="cfU-VM-oBZ">
-                                <rect key="frame" x="-2" y="220" width="325" height="296"/>
+                                <rect key="frame" x="0.0" y="216" width="323" height="308"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="OttaFindFriendsCellID" rowHeight="47" id="o7B-T7-Lcf" customClass="OttaFriendsCell">
@@ -343,14 +348,14 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kXy-5x-QlE">
-                                                    <rect key="frame" x="267" y="0.0" width="30" height="30"/>
-                                                    <state key="normal" title="Button" image="OttaAddAnswerButton.png">
+                                                    <rect key="frame" x="267" y="12" width="20" height="20"/>
+                                                    <state key="normal" title="Button" image="Otta_friends_button_add.png">
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="81l-Yr-btA">
-                                                    <rect key="frame" x="25" y="6" width="61" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <rect key="frame" x="25" y="13" width="228" height="21"/>
+                                                    <fontDescription key="fontDescription" name="OpenSans-Light" family="Open Sans" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -963,6 +968,8 @@
         <image name="OttaAskheader.png" width="640" height="123"/>
         <image name="OttaNumberBackground.png" width="73" height="73"/>
         <image name="OttaSideMenuBackground.png" width="640" height="1136"/>
+        <image name="Otta_friends_button_add.png" width="150" height="150"/>
+        <image name="Otta_friends_shape_magnifying class.png" width="149" height="153"/>
         <image name="addPhotoOtta.png" width="134" height="112"/>
         <image name="btn_back.png" width="226" height="153"/>
         <image name="btn_join.png" width="362" height="104"/>
