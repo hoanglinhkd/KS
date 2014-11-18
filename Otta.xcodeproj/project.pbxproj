@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		0B140940A13047B280C5584B /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D075C858A4214DDABEDE0CDD /* libPods.a */; };
-		380F5DF01A1B975500969FDC /* MainT.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 380F5DEF1A1B975500969FDC /* MainT.storyboard */; };
 		382E326F1A139911008ACA45 /* menu_heart.png in Resources */ = {isa = PBXBuildFile; fileRef = 382E32691A139911008ACA45 /* menu_heart.png */; };
 		382E32701A139911008ACA45 /* menu_home.png in Resources */ = {isa = PBXBuildFile; fileRef = 382E326A1A139911008ACA45 /* menu_home.png */; };
 		382E32711A139911008ACA45 /* menu_mail.png in Resources */ = {isa = PBXBuildFile; fileRef = 382E326B1A139911008ACA45 /* menu_mail.png */; };
@@ -98,7 +97,6 @@
 		66FD4B631A11AD6B005ACD58 /* release_notes.md in Sources */ = {isa = PBXBuildFile; fileRef = 66FD4B5E1A11AD6B005ACD58 /* release_notes.md */; };
 		D9286F401A12187F00C28770 /* OttaSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D9286F3F1A12187F00C28770 /* OttaSessionManager.m */; };
 		D9286F431A12190500C28770 /* OttaParseClientManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D9286F421A12190500C28770 /* OttaParseClientManager.m */; };
-		D9384D9D1A1B0A50006B1339 /* Main_H.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D9384D9C1A1B0A50006B1339 /* Main_H.storyboard */; };
 		D98E30B21A1777950080B934 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D98E30B41A1777950080B934 /* Localizable.strings */; };
 		D98E30BC1A1779110080B934 /* LanguageHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = D98E30BB1A1779110080B934 /* LanguageHelper.m */; };
 		D98E30BF1A1779340080B934 /* NSString+Language.m in Sources */ = {isa = PBXBuildFile; fileRef = D98E30BE1A1779340080B934 /* NSString+Language.m */; };
@@ -137,7 +135,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		380F5DEF1A1B975500969FDC /* MainT.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = MainT.storyboard; path = Otta/MainT.storyboard; sourceTree = SOURCE_ROOT; };
 		382E32691A139911008ACA45 /* menu_heart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menu_heart.png; sourceTree = "<group>"; };
 		382E326A1A139911008ACA45 /* menu_home.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menu_home.png; sourceTree = "<group>"; };
 		382E326B1A139911008ACA45 /* menu_mail.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menu_mail.png; sourceTree = "<group>"; };
@@ -247,7 +244,6 @@
 		D9286F3F1A12187F00C28770 /* OttaSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OttaSessionManager.m; sourceTree = "<group>"; };
 		D9286F411A12190500C28770 /* OttaParseClientManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OttaParseClientManager.h; sourceTree = "<group>"; };
 		D9286F421A12190500C28770 /* OttaParseClientManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OttaParseClientManager.m; sourceTree = "<group>"; };
-		D9384D9C1A1B0A50006B1339 /* Main_H.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main_H.storyboard; sourceTree = "<group>"; };
 		D98E30B31A1777950080B934 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		D98E30B51A1777A40080B934 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		D98E30BA1A1779110080B934 /* LanguageHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LanguageHelper.h; sourceTree = "<group>"; };
@@ -506,8 +502,6 @@
 		66FD4B321A11A83A005ACD58 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				D9384D9C1A1B0A50006B1339 /* Main_H.storyboard */,
-				380F5DEF1A1B975500969FDC /* MainT.storyboard */,
 				F0D6B1F119862B4D0077E30E /* Main.storyboard */,
 				66FD4B371A11A8F0005ACD58 /* OttaQuestionTableViewCell.h */,
 				66FD4B381A11A8F0005ACD58 /* OttaQuestionTableViewCell.m */,
@@ -815,7 +809,6 @@
 				382E32731A139911008ACA45 /* menu_question.png in Resources */,
 				386E89B91A12591A00459171 /* btn_back.png in Resources */,
 				38A37D7C1A171FF900771881 /* btn_alert_done.png in Resources */,
-				380F5DF01A1B975500969FDC /* MainT.storyboard in Resources */,
 				66FD4B151A11A6CC005ACD58 /* OpenSans-Bold.ttf in Resources */,
 				66FD4B081A11A6CC005ACD58 /* full_breakfast.jpg in Resources */,
 				66FD4B281A11A6CC005ACD58 /* OttaFacebookButton2.png in Resources */,
@@ -836,7 +829,6 @@
 				66FD4B1E1A11A6CC005ACD58 /* OpenSans-SemiboldItalic.ttf in Resources */,
 				66FD4B0F1A11A6CC005ACD58 /* mushroom_risotto.jpg in Resources */,
 				D98E30B21A1777950080B934 /* Localizable.strings in Resources */,
-				D9384D9D1A1B0A50006B1339 /* Main_H.storyboard in Resources */,
 				66502BE41A14571000A9472D /* icon_time.png in Resources */,
 				66FD4B2E1A11A6CC005ACD58 /* OttaSideMenuBackground.png in Resources */,
 				383400631A17BF67006A913E /* btn_alert_no.png in Resources */,
