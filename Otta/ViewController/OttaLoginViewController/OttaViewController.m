@@ -35,7 +35,7 @@
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     
-   // [self checkLoggedin];
+    [self checkLoggedin];
 }
 
 - (void)checkLoggedin {
