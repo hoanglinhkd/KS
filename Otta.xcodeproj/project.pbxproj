@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0B140940A13047B280C5584B /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D075C858A4214DDABEDE0CDD /* libPods.a */; };
+		380F5DF01A1B975500969FDC /* MainT.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 380F5DEF1A1B975500969FDC /* MainT.storyboard */; };
 		382E326F1A139911008ACA45 /* menu_heart.png in Resources */ = {isa = PBXBuildFile; fileRef = 382E32691A139911008ACA45 /* menu_heart.png */; };
 		382E32701A139911008ACA45 /* menu_home.png in Resources */ = {isa = PBXBuildFile; fileRef = 382E326A1A139911008ACA45 /* menu_home.png */; };
 		382E32711A139911008ACA45 /* menu_mail.png in Resources */ = {isa = PBXBuildFile; fileRef = 382E326B1A139911008ACA45 /* menu_mail.png */; };
@@ -132,6 +133,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		380F5DEF1A1B975500969FDC /* MainT.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = MainT.storyboard; path = Otta/MainT.storyboard; sourceTree = SOURCE_ROOT; };
 		382E32691A139911008ACA45 /* menu_heart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menu_heart.png; sourceTree = "<group>"; };
 		382E326A1A139911008ACA45 /* menu_home.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menu_home.png; sourceTree = "<group>"; };
 		382E326B1A139911008ACA45 /* menu_mail.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menu_mail.png; sourceTree = "<group>"; };
@@ -493,6 +495,7 @@
 		66FD4B321A11A83A005ACD58 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				380F5DEF1A1B975500969FDC /* MainT.storyboard */,
 				F0D6B1F119862B4D0077E30E /* Main.storyboard */,
 				66FD4B371A11A8F0005ACD58 /* OttaQuestionTableViewCell.h */,
 				66FD4B381A11A8F0005ACD58 /* OttaQuestionTableViewCell.m */,
@@ -786,6 +789,7 @@
 				382E32731A139911008ACA45 /* menu_question.png in Resources */,
 				386E89B91A12591A00459171 /* btn_back.png in Resources */,
 				38A37D7C1A171FF900771881 /* btn_alert_done.png in Resources */,
+				380F5DF01A1B975500969FDC /* MainT.storyboard in Resources */,
 				66FD4B151A11A6CC005ACD58 /* OpenSans-Bold.ttf in Resources */,
 				66FD4B081A11A6CC005ACD58 /* full_breakfast.jpg in Resources */,
 				66FD4B281A11A6CC005ACD58 /* OttaFacebookButton2.png in Resources */,
