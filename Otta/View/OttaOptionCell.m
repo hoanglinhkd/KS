@@ -29,7 +29,6 @@
 }
 
 - (IBAction)imageButtonPressed:(id)sender {
-    _viewAction.hidden = TRUE;
     
     [_delegate optionCell:self beginTakePicture:_imgMain];
     
@@ -38,11 +37,19 @@
     
     [self.viewAction setHidden:YES];
     [self.viewContent2 setHidden:NO];
-    //_imgMain.hidden = FALSE;
-    //_imgMain.image = thumb;
+    _imgMain.hidden = FALSE;
+    _imgMain.image = thumb;
     _txtImageDescription.hidden = FALSE;
     _txtImageDescription.text = caption;
 }
+
+- (void)displayCabtion:(id)caption {
+    [self.viewAction setHidden:YES];
+    [self.viewContent2 setHidden:NO];
+    _txtImageDescription.hidden = FALSE;
+    _txtImageDescription.text = caption;
+}
+
 
 #pragma mark - Auto Height Cell
 - (void) enableAutoHeightCell
@@ -72,6 +79,5 @@
     }
     return YES;
 }
-
 
 @end

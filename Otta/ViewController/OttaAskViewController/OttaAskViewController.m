@@ -417,17 +417,23 @@ UITextView itsTextView = [[UITextView alloc] initWithFrame:CGRectMake(0, 0, itsT
     _photoPicker = [[CZPhotoPickerController alloc] initWithPresentingViewController:self withCompletionBlock:^(UIImagePickerController *imagePickerController, NSDictionary *imageInfoDict) {
         UIImage *selectedImage = nil;
         NSString *caption = @"Just4Test";
-        if (imagePickerController.allowsEditing) {
-            selectedImage = imageInfoDict[UIImagePickerControllerEditedImage];
-        }
-        else {
-            selectedImage = imageInfoDict[UIImagePickerControllerOriginalImage];
-        }
-        //weakSelf.editingOptionCell.imgMain.image = selectedImage;
-        [weakSelf.editingOptionCell displayThumbAndCaption:selectedImage caption:caption];
-        [weakSelf.photoPicker dismissAnimated:YES];
+        if (imageInfoDict) {
+            if (imagePickerController.allowsEditing) {
+                selectedImage = imageInfoDict[UIImagePickerControllerEditedImage];
+            }
+            else {
+                selectedImage = imageInfoDict[UIImagePickerControllerOriginalImage];
+            }
         
-        [self performSegueWithIdentifier:@"segueAddCaptionPicture" sender:self];
+            //weakSelf.editingOptionCell.imgMain.image = selectedImage;
+            [weakSelf.editingOptionCell displayThumbAndCaption:selectedImage caption:caption];
+            [weakSelf.photoPicker dismissAnimated:YES];
+            
+            [self performSegueWithIdentifier:@"segueAddCaptionPicture" sender:self];
+            
+        } else {
+            [weakSelf.photoPicker dismissAnimated:YES];
+        }
         
     }];
     
@@ -438,11 +444,18 @@ UITextView itsTextView = [[UITextView alloc] initWithFrame:CGRectMake(0, 0, itsT
 }
 #pragma mark -
 
--(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+- (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    if([segue.identifier isEqualToString:@"segueAddCaptionPicture"]) {
-        
+    if ([[segue identifier] isEqualToString: @"segueAddCaptionPicture"]) {
+        OttaAddCaptionImageViewController *dest = (OttaAddCaptionImageViewController *)[segue destinationViewController];
+        //the sender is what you pass into the previous method
+        dest.image = self.editingOptionCell.imgMain.image;
+        dest.delegate = self;
     }
+}
+
+- (void)addCaptionVC:(OttaAddCaptionImageViewController*)captionVC addCaption:(id)caption {
+    [_editingOptionCell displayCabtion:caption];
 }
 
 @end

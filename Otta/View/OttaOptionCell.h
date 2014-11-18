@@ -18,6 +18,7 @@
 - (void)optionCell:(OttaOptionCell*)cell textEndEditing:(id)textview;
 - (void)optionCell:(OttaOptionCell*)cell beginTakePicture:(id)imageView;
 - (void)optionCell:(OttaOptionCell*)cell textView:(HPGrowingTextView*)textViewUpdateHeight willChangeHeight:(float)height;
+- (void)optionCell:(OttaOptionCell*)cell addCabtion:(id)caption;
 
 @end
 
@@ -37,6 +38,7 @@
 
 - (void) enableAutoHeightCell;
 - (void)displayThumbAndCaption:(UIImage*)thumb caption:(NSString*)caption;
+- (void)displayCabtion:(id)caption;
 
 
 @end
