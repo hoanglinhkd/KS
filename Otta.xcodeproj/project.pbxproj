@@ -106,6 +106,7 @@
 		D98E30CA1A1797CD0080B934 /* AFPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = D98E30C71A1797CD0080B934 /* AFPickerView.m */; };
 		D98E30CB1A1797CD0080B934 /* pickerGlass.png in Resources */ = {isa = PBXBuildFile; fileRef = D98E30C81A1797CD0080B934 /* pickerGlass.png */; };
 		D98E30CC1A1797CD0080B934 /* pickerGlass@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D98E30C91A1797CD0080B934 /* pickerGlass@2x.png */; };
+		D99F7C3E1A1BA4BB0030D239 /* OttaAddCaptionImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D99F7C3D1A1BA4BB0030D239 /* OttaAddCaptionImageViewController.m */; };
 		D9F04A111A1B60430049AD41 /* HPGrowingTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = D9F04A0E1A1B60430049AD41 /* HPGrowingTextView.m */; };
 		D9F04A121A1B60430049AD41 /* HPTextViewInternal.m in Sources */ = {isa = PBXBuildFile; fileRef = D9F04A101A1B60430049AD41 /* HPTextViewInternal.m */; };
 		F0B6412519A57B11007C4373 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F0B6412419A57B11007C4373 /* libz.dylib */; };
@@ -259,6 +260,8 @@
 		D98E30C71A1797CD0080B934 /* AFPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFPickerView.m; sourceTree = "<group>"; };
 		D98E30C81A1797CD0080B934 /* pickerGlass.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pickerGlass.png; sourceTree = "<group>"; };
 		D98E30C91A1797CD0080B934 /* pickerGlass@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pickerGlass@2x.png"; sourceTree = "<group>"; };
+		D99F7C3C1A1BA4BB0030D239 /* OttaAddCaptionImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OttaAddCaptionImageViewController.h; sourceTree = "<group>"; };
+		D99F7C3D1A1BA4BB0030D239 /* OttaAddCaptionImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OttaAddCaptionImageViewController.m; sourceTree = "<group>"; };
 		D9F04A0D1A1B60430049AD41 /* HPGrowingTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HPGrowingTextView.h; sourceTree = "<group>"; };
 		D9F04A0E1A1B60430049AD41 /* HPGrowingTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HPGrowingTextView.m; sourceTree = "<group>"; };
 		D9F04A0F1A1B60430049AD41 /* HPTextViewInternal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HPTextViewInternal.h; sourceTree = "<group>"; };
@@ -524,6 +527,8 @@
 				66FD4B591A11ABF9005ACD58 /* OttaAnswerTableController.m */,
 				66FD4B341A11A8A5005ACD58 /* OttaAskViewController.h */,
 				66FD4B351A11A8A5005ACD58 /* OttaAskViewController.m */,
+				D99F7C3C1A1BA4BB0030D239 /* OttaAddCaptionImageViewController.h */,
+				D99F7C3D1A1BA4BB0030D239 /* OttaAddCaptionImageViewController.m */,
 			);
 			path = OttaAskViewController;
 			sourceTree = "<group>";
@@ -933,6 +938,7 @@
 				38A37D771A171FCD00771881 /* OttaAlertManager.m in Sources */,
 				66FD4B5A1A11ABF9005ACD58 /* OttaAnswerTableController.m in Sources */,
 				382E32771A13A54A008ACA45 /* OttaMenuCell.m in Sources */,
+				D99F7C3E1A1BA4BB0030D239 /* OttaAddCaptionImageViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

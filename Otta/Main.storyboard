@@ -1,11 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14B23" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="8Lp-bQ-f5C">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="8Lp-bQ-f5C">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <customFonts key="customFonts">
+        <mutableArray key="OpenSans-Bold.ttf">
+            <string>OpenSans-Bold</string>
+            <string>OpenSans-Bold</string>
+        </mutableArray>
         <mutableArray key="OpenSans-Light.ttf">
             <string>OpenSans-Light</string>
             <string>OpenSans-Light</string>
@@ -780,6 +784,7 @@
                     <connections>
                         <outlet property="itsTextView" destination="IwQ-rb-xVj" id="HSX-KN-Khn"/>
                         <outlet property="tableAsk" destination="WS2-pS-foB" id="5VD-5Q-NhB"/>
+                        <segue destination="PBe-iX-nMu" kind="modal" identifier="segueAddCaptionPicture" id="QNh-76-6Pj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HOd-FJ-vaq" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -877,6 +882,72 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CcS-Hm-vcd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-498" y="490"/>
+        </scene>
+        <!--Otta Add Caption Image View Controller-->
+        <scene sceneID="DbK-FI-GZF">
+            <objects>
+                <viewController id="PBe-iX-nMu" customClass="OttaAddCaptionImageViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="yeq-SE-owE"/>
+                        <viewControllerLayoutGuide type="bottom" id="bAR-yA-rue"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="zrG-J0-fvL">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R1R-6U-xeg">
+                                <rect key="frame" x="0.0" y="524" width="320" height="44"/>
+                                <color key="backgroundColor" red="0.97647064920000004" green="0.68627452850000004" blue="0.10588236149999999" alpha="1" colorSpace="deviceRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="gp4-JD-KFM"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="OpenSans-Bold" family="Open Sans" pointSize="18"/>
+                                <state key="normal" title="Next">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="btnNextTapped:" destination="PBe-iX-nMu" eventType="touchUpInside" id="7rG-Lm-Di7"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="H9d-Zt-hf3">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="80"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="OttaAskheader.png" translatesAutoresizingMaskIntoConstraints="NO" id="3Tz-Vg-yXN">
+                                        <rect key="frame" x="0.0" y="20" width="320" height="60"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" red="0.56078433989999998" green="0.79215693470000004" blue="0.25098040700000002" alpha="1" colorSpace="deviceRGB"/>
+                            </view>
+                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dE3-tz-Qyv">
+                                <rect key="frame" x="0.0" y="440" width="320" height="84"/>
+                                <subviews>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Add a caption ?" translatesAutoresizingMaskIntoConstraints="NO" id="jGP-Ee-szK">
+                                        <rect key="frame" x="0.0" y="8" width="320" height="76"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <color key="textColor" red="0.52941176469999995" green="0.52941176469999995" blue="0.52941176469999995" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="OpenSans-Bold" family="Open Sans" pointSize="18"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                </subviews>
+                                <color key="backgroundColor" red="0.14901960780000001" green="0.14901960780000001" blue="0.14901960780000001" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="dE3-tz-Qyv" secondAttribute="trailing" constant="-16" id="4aU-Vc-d13"/>
+                            <constraint firstItem="R1R-6U-xeg" firstAttribute="top" secondItem="dE3-tz-Qyv" secondAttribute="bottom" id="Q9F-rU-eO7"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="R1R-6U-xeg" secondAttribute="trailing" constant="-16" id="XdM-5r-beb"/>
+                            <constraint firstItem="R1R-6U-xeg" firstAttribute="leading" secondItem="zrG-J0-fvL" secondAttribute="leadingMargin" constant="-16" id="bPb-cj-qOh"/>
+                            <constraint firstItem="dE3-tz-Qyv" firstAttribute="leading" secondItem="zrG-J0-fvL" secondAttribute="leadingMargin" constant="-16" id="huu-RD-xh6"/>
+                            <constraint firstItem="bAR-yA-rue" firstAttribute="top" secondItem="R1R-6U-xeg" secondAttribute="bottom" id="wpA-P4-f3s"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="VuU-uE-1po"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xo4-1P-NnE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1116" y="477"/>
         </scene>
     </scenes>
     <resources>
