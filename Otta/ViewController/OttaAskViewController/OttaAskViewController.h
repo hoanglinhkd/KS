@@ -11,8 +11,9 @@
 #import "CZPhotoPickerController.h"
 #import "TPKeyboardAvoidingTableView.h"
 #import "OttaOptionCell.h"
+#import "OttaAddCaptionImageViewController.h"
 
-@interface OttaAskViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, OttaOptionCellDelegate>
+@interface OttaAskViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, OttaOptionCellDelegate, OttaAddCaptionDelegate>
 
 //@property (nonatomic,strong) OttaAnswerTableController * answerViewController;
 //@property (nonatomic,strong) IBOutlet TPKeyboardAvoidingTableView * answerTableView;
