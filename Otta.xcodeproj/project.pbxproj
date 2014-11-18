@@ -95,6 +95,11 @@
 		66FD4B5A1A11ABF9005ACD58 /* OttaAnswerTableController.m in Sources */ = {isa = PBXBuildFile; fileRef = 66FD4B591A11ABF9005ACD58 /* OttaAnswerTableController.m */; };
 		66FD4B621A11AD6B005ACD58 /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FD4B5D1A11AD6B005ACD58 /* libTestFlight.a */; };
 		66FD4B631A11AD6B005ACD58 /* release_notes.md in Sources */ = {isa = PBXBuildFile; fileRef = 66FD4B5E1A11AD6B005ACD58 /* release_notes.md */; };
+		6ACEE9221A1ACDF300370807 /* OttaQuestionFeedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6ACEE9211A1ACDF300370807 /* OttaQuestionFeedViewController.m */; };
+		6ACEE92A1A1ACE6500370807 /* OttaBasicQuestionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6ACEE9251A1ACE6500370807 /* OttaBasicQuestionCell.m */; };
+		6ACEE92B1A1ACE6500370807 /* OttaMediaQuestionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6ACEE9271A1ACE6500370807 /* OttaMediaQuestionCell.m */; };
+		6ACEE92C1A1ACE6500370807 /* OttaQuestionFeedCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6ACEE9291A1ACE6500370807 /* OttaQuestionFeedCell.m */; };
+		6ACEE92E1A1ACE7E00370807 /* Main HD.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6ACEE92D1A1ACE7E00370807 /* Main HD.storyboard */; };
 		6AEF8F691A1A483E00E4EB15 /* Main HD.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6AEF8F681A1A483E00E4EB15 /* Main HD.storyboard */; };
 		6AEF8F731A1A51BA00E4EB15 /* icon_left.png in Resources */ = {isa = PBXBuildFile; fileRef = 6AEF8F6B1A1A51BA00E4EB15 /* icon_left.png */; };
 		6AEF8F741A1A51BA00E4EB15 /* icon_left_inactive.png in Resources */ = {isa = PBXBuildFile; fileRef = 6AEF8F6C1A1A51BA00E4EB15 /* icon_left_inactive.png */; };
@@ -104,8 +109,6 @@
 		6AEF8F781A1A51BA00E4EB15 /* button_yellow.png in Resources */ = {isa = PBXBuildFile; fileRef = 6AEF8F701A1A51BA00E4EB15 /* button_yellow.png */; };
 		6AEF8F791A1A51BA00E4EB15 /* yellow_blank.png in Resources */ = {isa = PBXBuildFile; fileRef = 6AEF8F711A1A51BA00E4EB15 /* yellow_blank.png */; };
 		6AEF8F7A1A1A51BA00E4EB15 /* icon_sandclock.png in Resources */ = {isa = PBXBuildFile; fileRef = 6AEF8F721A1A51BA00E4EB15 /* icon_sandclock.png */; };
-		6AEF8F8C1A1A6C6500E4EB15 /* OttaBasicQuestionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AEF8F871A1A6C6500E4EB15 /* OttaBasicQuestionCell.m */; };
-		6AEF8F8D1A1A6C6500E4EB15 /* OttaMediaQuestionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AEF8F891A1A6C6500E4EB15 /* OttaMediaQuestionCell.m */; };
 		6AEF8F8E1A1A6C6500E4EB15 /* OttaQuestionFeedCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AEF8F8B1A1A6C6500E4EB15 /* OttaQuestionFeedCell.m */; };
 		6AEF8F921A1A6CED00E4EB15 /* OttaQuestionFeedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AEF8F911A1A6CED00E4EB15 /* OttaQuestionFeedViewController.m */; };
 		D9286F401A12187F00C28770 /* OttaSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D9286F3F1A12187F00C28770 /* OttaSessionManager.m */; };
@@ -247,6 +250,15 @@
 		66FD4B5F1A11AD6B005ACD58 /* TestFlight+AsyncLogging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TestFlight+AsyncLogging.h"; sourceTree = "<group>"; };
 		66FD4B601A11AD6B005ACD58 /* TestFlight+ManualSessions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TestFlight+ManualSessions.h"; sourceTree = "<group>"; };
 		66FD4B611A11AD6B005ACD58 /* TestFlight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestFlight.h; sourceTree = "<group>"; };
+		6ACEE9201A1ACDF300370807 /* OttaQuestionFeedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OttaQuestionFeedViewController.h; sourceTree = "<group>"; };
+		6ACEE9211A1ACDF300370807 /* OttaQuestionFeedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OttaQuestionFeedViewController.m; sourceTree = "<group>"; };
+		6ACEE9241A1ACE6500370807 /* OttaBasicQuestionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OttaBasicQuestionCell.h; sourceTree = "<group>"; };
+		6ACEE9251A1ACE6500370807 /* OttaBasicQuestionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OttaBasicQuestionCell.m; sourceTree = "<group>"; };
+		6ACEE9261A1ACE6500370807 /* OttaMediaQuestionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OttaMediaQuestionCell.h; sourceTree = "<group>"; };
+		6ACEE9271A1ACE6500370807 /* OttaMediaQuestionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OttaMediaQuestionCell.m; sourceTree = "<group>"; };
+		6ACEE9281A1ACE6500370807 /* OttaQuestionFeedCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OttaQuestionFeedCell.h; sourceTree = "<group>"; };
+		6ACEE9291A1ACE6500370807 /* OttaQuestionFeedCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OttaQuestionFeedCell.m; sourceTree = "<group>"; };
+		6ACEE92D1A1ACE7E00370807 /* Main HD.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = "Main HD.storyboard"; path = "Otta/Main HD.storyboard"; sourceTree = SOURCE_ROOT; };
 		6AEF8F681A1A483E00E4EB15 /* Main HD.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = "Main HD.storyboard"; path = "Otta/Main HD.storyboard"; sourceTree = SOURCE_ROOT; };
 		6AEF8F6B1A1A51BA00E4EB15 /* icon_left.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_left.png; sourceTree = "<group>"; };
 		6AEF8F6C1A1A51BA00E4EB15 /* icon_left_inactive.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_left_inactive.png; sourceTree = "<group>"; };
@@ -256,13 +268,7 @@
 		6AEF8F701A1A51BA00E4EB15 /* button_yellow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_yellow.png; sourceTree = "<group>"; };
 		6AEF8F711A1A51BA00E4EB15 /* yellow_blank.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = yellow_blank.png; sourceTree = "<group>"; };
 		6AEF8F721A1A51BA00E4EB15 /* icon_sandclock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_sandclock.png; sourceTree = "<group>"; };
-		6AEF8F861A1A6C6500E4EB15 /* OttaBasicQuestionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OttaBasicQuestionCell.h; sourceTree = "<group>"; };
-		6AEF8F871A1A6C6500E4EB15 /* OttaBasicQuestionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OttaBasicQuestionCell.m; sourceTree = "<group>"; };
-		6AEF8F881A1A6C6500E4EB15 /* OttaMediaQuestionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OttaMediaQuestionCell.h; sourceTree = "<group>"; };
-		6AEF8F891A1A6C6500E4EB15 /* OttaMediaQuestionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OttaMediaQuestionCell.m; sourceTree = "<group>"; };
-		6AEF8F8A1A1A6C6500E4EB15 /* OttaQuestionFeedCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OttaQuestionFeedCell.h; sourceTree = "<group>"; };
 		6AEF8F8B1A1A6C6500E4EB15 /* OttaQuestionFeedCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OttaQuestionFeedCell.m; sourceTree = "<group>"; };
-		6AEF8F901A1A6CED00E4EB15 /* OttaQuestionFeedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OttaQuestionFeedViewController.h; sourceTree = "<group>"; };
 		6AEF8F911A1A6CED00E4EB15 /* OttaQuestionFeedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OttaQuestionFeedViewController.m; sourceTree = "<group>"; };
 		C1E9BE3193743527323F1CDA /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		D075C858A4214DDABEDE0CDD /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -500,6 +506,7 @@
 		66FD4B301A11A7FC005ACD58 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				6ACEE91F1A1ACDF300370807 /* OttaQuestionFeedViewController */,
 				3847CFB01A1863E1002599E7 /* OttaLoginViewController */,
 				386E89C51A126AA400459171 /* OttaAddFriendViewController */,
 				66FD4B331A11A8A5005ACD58 /* OttaAskViewController */,
@@ -524,6 +531,8 @@
 		66FD4B321A11A83A005ACD58 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				6ACEE92D1A1ACE7E00370807 /* Main HD.storyboard */,
+				6ACEE9231A1ACE6500370807 /* OttaQuestionFeedView */,
 				F0D6B1F119862B4D0077E30E /* Main.storyboard */,
 				66FD4B371A11A8F0005ACD58 /* OttaQuestionTableViewCell.h */,
 				66FD4B381A11A8F0005ACD58 /* OttaQuestionTableViewCell.m */,
@@ -578,6 +587,28 @@
 			path = Testflight;
 			sourceTree = "<group>";
 		};
+		6ACEE91F1A1ACDF300370807 /* OttaQuestionFeedViewController */ = {
+			isa = PBXGroup;
+			children = (
+				6ACEE9201A1ACDF300370807 /* OttaQuestionFeedViewController.h */,
+				6ACEE9211A1ACDF300370807 /* OttaQuestionFeedViewController.m */,
+			);
+			path = OttaQuestionFeedViewController;
+			sourceTree = "<group>";
+		};
+		6ACEE9231A1ACE6500370807 /* OttaQuestionFeedView */ = {
+			isa = PBXGroup;
+			children = (
+				6ACEE9241A1ACE6500370807 /* OttaBasicQuestionCell.h */,
+				6ACEE9251A1ACE6500370807 /* OttaBasicQuestionCell.m */,
+				6ACEE9261A1ACE6500370807 /* OttaMediaQuestionCell.h */,
+				6ACEE9271A1ACE6500370807 /* OttaMediaQuestionCell.m */,
+				6ACEE9281A1ACE6500370807 /* OttaQuestionFeedCell.h */,
+				6ACEE9291A1ACE6500370807 /* OttaQuestionFeedCell.m */,
+			);
+			path = OttaQuestionFeedView;
+			sourceTree = "<group>";
+		};
 		6AEF8F6A1A1A51B900E4EB15 /* QuestionFeed */ = {
 			isa = PBXGroup;
 			children = (
@@ -591,28 +622,6 @@
 				6AEF8F721A1A51BA00E4EB15 /* icon_sandclock.png */,
 			);
 			path = QuestionFeed;
-			sourceTree = "<group>";
-		};
-		6AEF8F851A1A6C1800E4EB15 /* OttaQuestionFeedView */ = {
-			isa = PBXGroup;
-			children = (
-				6AEF8F861A1A6C6500E4EB15 /* OttaBasicQuestionCell.h */,
-				6AEF8F871A1A6C6500E4EB15 /* OttaBasicQuestionCell.m */,
-				6AEF8F881A1A6C6500E4EB15 /* OttaMediaQuestionCell.h */,
-				6AEF8F891A1A6C6500E4EB15 /* OttaMediaQuestionCell.m */,
-				6AEF8F8A1A1A6C6500E4EB15 /* OttaQuestionFeedCell.h */,
-				6AEF8F8B1A1A6C6500E4EB15 /* OttaQuestionFeedCell.m */,
-			);
-			path = OttaQuestionFeedView;
-			sourceTree = "<group>";
-		};
-		6AEF8F8F1A1A6CA300E4EB15 /* OttaQuestionFeedViewController */ = {
-			isa = PBXGroup;
-			children = (
-				6AEF8F901A1A6CED00E4EB15 /* OttaQuestionFeedViewController.h */,
-				6AEF8F911A1A6CED00E4EB15 /* OttaQuestionFeedViewController.m */,
-			);
-			path = OttaQuestionFeedViewController;
 			sourceTree = "<group>";
 		};
 		D9286F3D1A12187F00C28770 /* Manager */ = {
@@ -885,6 +894,7 @@
 				66FD4B261A11A6CC005ACD58 /* OttaAskheader.png in Resources */,
 				6AEF8F761A1A51BA00E4EB15 /* icon_right_inactive.png in Resources */,
 				6AEF8F771A1A51BA00E4EB15 /* green_blank.png in Resources */,
+				6ACEE92E1A1ACE7E00370807 /* Main HD.storyboard in Resources */,
 				382E32721A139911008ACA45 /* menu_otta.png in Resources */,
 				386E89B71A124EAF00459171 /* image_line.png in Resources */,
 				66FD4B291A11A6CC005ACD58 /* OttaGreenBackground.png in Resources */,
@@ -961,6 +971,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6ACEE92B1A1ACE6500370807 /* OttaMediaQuestionCell.m in Sources */,
 				3847CFB31A1863E1002599E7 /* OttaViewController.m in Sources */,
 				F0BC6526198606BD0097A87C /* OttaAppDelegate.m in Sources */,
 				66FD4B551A11AB02005ACD58 /* OttaQuestion.m in Sources */,
@@ -970,7 +981,9 @@
 				66FD4B571A11AB02005ACD58 /* OttaUser.m in Sources */,
 				66FD4B541A11AB02005ACD58 /* OttaAnswer.m in Sources */,
 				F0BC6522198606BD0097A87C /* main.m in Sources */,
+				6ACEE92C1A1ACE6500370807 /* OttaQuestionFeedCell.m in Sources */,
 				D9286F431A12190500C28770 /* OttaParseClientManager.m in Sources */,
+				6ACEE92A1A1ACE6500370807 /* OttaBasicQuestionCell.m in Sources */,
 				D9286F401A12187F00C28770 /* OttaSessionManager.m in Sources */,
 				66502BE71A14653300A9472D /* OttaOptionCell.m in Sources */,
 				D98E30CA1A1797CD0080B934 /* AFPickerView.m in Sources */,
@@ -981,6 +994,7 @@
 				66FD4B361A11A8A5005ACD58 /* OttaAskViewController.m in Sources */,
 				386E89C81A126AC100459171 /* OttAddFriendViewController.m in Sources */,
 				38A37D771A171FCD00771881 /* OttaAlertManager.m in Sources */,
+				6ACEE9221A1ACDF300370807 /* OttaQuestionFeedViewController.m in Sources */,
 				66FD4B5A1A11ABF9005ACD58 /* OttaAnswerTableController.m in Sources */,
 				6AEF8F8E1A1A6C6500E4EB15 /* OttaQuestionFeedCell.m in Sources */,
 				382E32771A13A54A008ACA45 /* OttaMenuCell.m in Sources */,
