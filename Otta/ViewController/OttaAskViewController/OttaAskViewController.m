@@ -11,10 +11,13 @@
 #import "YIPopupTextView.h"
 #import "OttaOptionCell.h"
 #import "OttaAnswer.h"
+#import "OttaAlertManager.h"
+#import "NSString+Language.h"
 
 @interface OttaAskViewController ()
 {
     NSMutableDictionary *listHeightQuestion;
+    NSString* deadlineString;
 }
 
 @property (strong) OttaOptionCell *editingOptionCell;
@@ -293,19 +296,17 @@ UITextView itsTextView = [[UITextView alloc] initWithFrame:CGRectMake(0, 0, itsT
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return _optionsArray.count + 2;
+    if (_optionsArray.count < 4) {
+        return _optionsArray.count + 2;
+    } else {
+        return _optionsArray.count + 1;
+    }
 }
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 1;
-}
-- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
-    return [@"Options:" toCurrentLanguage];
-}
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    if (indexPath.row == _optionsArray.count + 1) {
+    if ((_optionsArray.count < 4 && indexPath.row == _optionsArray.count + 1) || (_optionsArray.count == 4 && indexPath.row == _optionsArray.count)) {
         // Choose deadline
         static NSString *cellIdentifier = @"OttaDeadlineOptionCellIID";
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:
@@ -315,10 +316,17 @@ UITextView itsTextView = [[UITextView alloc] initWithFrame:CGRectMake(0, 0, itsT
                     UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
         }
         
+        UILabel *label = (UILabel *)[cell viewWithTag:1001];
+        if (deadlineString != nil && ![deadlineString isEqualToString:@""]) {
+            label.text = deadlineString;
+        } else {
+            label.text = [@"Choose deadline..." toCurrentLanguage];
+        }
+        
         return cell;
     }
     
-    if (indexPath.row == _optionsArray.count) {
+    if (_optionsArray.count < 4 && indexPath.row == _optionsArray.count) {
         // Add option
         static NSString *cellIdentifier = @"OttaAddOptionCellIID";
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:
@@ -349,12 +357,12 @@ UITextView itsTextView = [[UITextView alloc] initWithFrame:CGRectMake(0, 0, itsT
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    if (indexPath.row == _optionsArray.count + 1) {
+    if ((_optionsArray.count < 4 && indexPath.row == _optionsArray.count + 1) || (_optionsArray.count == 4 && indexPath.row == _optionsArray.count)) {
         // Choose deadline
         return 116;
     }
     
-    if (indexPath.row == _optionsArray.count) {
+    if (_optionsArray.count < 4 && indexPath.row == _optionsArray.count) {
         // Add option
         return 55;
     }
@@ -367,19 +375,35 @@ UITextView itsTextView = [[UITextView alloc] initWithFrame:CGRectMake(0, 0, itsT
     
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
-    if (indexPath.row == _optionsArray.count + 1) {
+    if ((_optionsArray.count < 4 && indexPath.row == _optionsArray.count + 1) || (_optionsArray.count == 4 && indexPath.row == _optionsArray.count)) {
         // Choose deadline
-        
+        [[OttaAlertManager sharedManager] showLimitTimerPickerOnView:self.view completionBlock:^(NSInteger timeValue, TimeSelection timeSelectionValue) {
+            NSString *str = @"";
+            switch (timeSelectionValue) {
+                case 0:
+                    str = [NSString stringWithFormat:@"%d Minutes",timeValue];
+                    break;
+                case 1:
+                    str = [NSString stringWithFormat:@"%d Hours",timeValue];
+                    break;
+                case 2:
+                    str = [NSString stringWithFormat:@"%d Days",timeValue];
+                    break;
+                default:
+                    break;
+            }
+            deadlineString = str;
+            [tableView reloadData];
+        }];
     }
     
-    if(indexPath.row < 4) {
-        if (indexPath.row == _optionsArray.count) {
-            // Add option
-            [_optionsArray addObject:[[OttaAnswer alloc] init]];
-            [listHeightQuestion setObject:[NSNumber numberWithFloat:70.0f] forKey:[NSString stringWithFormat:@"row%d", indexPath.row]];
-            [tableView reloadData];
-        }
+    if (_optionsArray.count < 4 && indexPath.row == _optionsArray.count) {
+        // Add option
+        [_optionsArray addObject:[[OttaAnswer alloc] init]];
+        [listHeightQuestion setObject:[NSNumber numberWithFloat:70.0f] forKey:[NSString stringWithFormat:@"row%d", indexPath.row]];
+        [tableView reloadData];
     }
+   
 }
 
 #pragma mark option cell delegate
