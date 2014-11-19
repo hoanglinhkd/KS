@@ -8,6 +8,7 @@
 
 #import "OttaFindFriendsViewController.h"
 #import <RHAddressBook/AddressBook.h>
+#import "MBProgressHUD.h"
 
 @interface OttaFindFriendsViewController ()
 {
@@ -44,17 +45,21 @@
         
         [addressBook requestAuthorizationWithCompletion:^(bool granted, NSError *error) {
             if(granted) {
+                [MBProgressHUD showHUDAddedTo:self.view animated:YES];
                 listPeople = [addressBook people];
                 [self loadData];
                 [_tableFriends reloadData];
+                [MBProgressHUD hideHUDForView:self.view animated:YES];
             } else {
                 [self.navigationController popViewControllerAnimated:YES];
             }
         }];
     } else {
+        [MBProgressHUD showHUDAddedTo:self.view animated:YES];
         listPeople = [addressBook people];
         [self loadData];
         [_tableFriends reloadData];
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
     }
 }
 
@@ -89,16 +94,6 @@
         
         [friends addObject:friendToAdd];
     }
-    
-    /*
-    OttaFriend *f1 = [[OttaFriend alloc] initWithName:@"Jamie Moskowitz" friendStatus:YES];
-    OttaFriend *f2 = [[OttaFriend alloc] initWithName:@"Danny Madriz" friendStatus:NO];
-    OttaFriend *f3 = [[OttaFriend alloc] initWithName:@"Brandon Baer" friendStatus:YES];
-    OttaFriend *f4 = [[OttaFriend alloc] initWithName:@"Austin Thomas" friendStatus:YES];
-    OttaFriend *f5 = [[OttaFriend alloc] initWithName:@"Chloe Fulton" friendStatus:NO];
-    OttaFriend *f6 = [[OttaFriend alloc] initWithName:@"David Chu" friendStatus:YES];
-    OttaFriend *f7 = [[OttaFriend alloc] initWithName:@"Peter Carey" friendStatus:NO];*/
-    //friends = [[NSArray alloc] initWithObjects:f1,f2,f3,f4,f5,f6,f7,nil];
 }
 
 -(void) selectAllFriends
