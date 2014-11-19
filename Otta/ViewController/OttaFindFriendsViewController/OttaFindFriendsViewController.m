@@ -163,6 +163,7 @@
         OttaFriend *curFriend = [friends objectAtIndex:indexPath.row - 1]; //we don't use index = 0;
         if(!curFriend.isFriend) {
             curFriend.isSelected = !curFriend.isSelected;
+            [tableView reloadData];
         }
     }
 }

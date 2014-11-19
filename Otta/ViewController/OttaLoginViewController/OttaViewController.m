@@ -9,8 +9,16 @@
 #import "OttaAlertManager.h"
 #import "MBProgressHUD.h"
 
+typedef enum  {
+    PageShowing_IntroPage = 1,
+    PageShowing_LoginPage,
+    PageShowing_JoinPage,
+    PageShowing_FacebookPage
+} PageShowing;
+
 @interface OttaViewController ()<EAIntroDelegate> {
     BOOL isJoinScreen;
+    PageShowing currentPageShowing;
 }
 
 @property (strong, nonatomic) OttaAlertManager* otta;
@@ -174,6 +182,7 @@
 
 -(void) showFirstIntroPage
 {
+    currentPageShowing = PageShowing_IntroPage;
     [self.ottaBackingView setUserInteractionEnabled:YES];
     [_btnLoginDetail setHidden:YES];
     [_btnBackPage setHidden:YES];
@@ -198,6 +207,7 @@
 
 -(void) showLoginView
 {
+    currentPageShowing = PageShowing_LoginPage;
     [self.ottaBackingView setUserInteractionEnabled:NO];
     [_usernameTextField setHidden:NO];
     [_usernameLine setHidden:NO];
@@ -226,6 +236,7 @@
 
 -(void) showJoinView
 {
+    currentPageShowing = PageShowing_JoinPage;
     [self.ottaBackingView setUserInteractionEnabled:NO];
     
     [_btnJoinDetail setHidden:NO];
@@ -245,6 +256,7 @@
 
 -(void) showFacebookDetail
 {
+    currentPageShowing = PageShowing_FacebookPage;
     [self.ottaBackingView setUserInteractionEnabled:NO];
     
     [_btnJoinDetail setHidden:NO];
@@ -280,7 +292,8 @@
 -(IBAction)btnLoginTapped:(id)sender
 {
     //Is login screen
-    if ([self.usernameTextField isHidden]) {
+    //if ([self.usernameTextField isHidden]) {
+    if(currentPageShowing != PageShowing_LoginPage) {
         [self showLoginView];
     } else {
         //Validate required field
@@ -310,7 +323,8 @@
 -(IBAction)btnJoinTapped:(id)sender
 {
     //Is join Screen
-    if ([self.emailTextField isHidden]) {
+    //if ([self.emailTextField isHidden]) {
+    if(currentPageShowing != PageShowing_JoinPage) {
         [self showJoinView];
     } else {
         //Validation
@@ -341,33 +355,37 @@
 #pragma mark - Facebook
 -(IBAction)facebookLogin:(id)sender
 {
-    //[[OttaSessionManager sharedManager]loginWithFacebook];
-    
-    NSArray *permissionsArray = @[ @"user_about_me", @"user_relationships", @"user_birthday", @"user_location"];
-    
-    // Login PFUser using Facebook
-    [PFFacebookUtils logInWithPermissions:permissionsArray block:^(PFUser *user, NSError *error) {
-        //[_activityIndicator stopAnimating]; // Hide loading indicator
+    if(currentPageShowing != PageShowing_FacebookPage) {
+        [self showFacebookDetail];
+    } else {
+        //[[OttaSessionManager sharedManager]loginWithFacebook];
         
-        if (!user) {
-            if (!error) {
-                NSLog(@"Uh oh. The user cancelled the Facebook login.");
-                // resultblock(NO);
+        NSArray *permissionsArray = @[ @"user_about_me", @"user_relationships", @"user_birthday", @"user_location"];
+        
+        // Login PFUser using Facebook
+        [PFFacebookUtils logInWithPermissions:permissionsArray block:^(PFUser *user, NSError *error) {
+            //[_activityIndicator stopAnimating]; // Hide loading indicator
+            
+            if (!user) {
+                if (!error) {
+                    NSLog(@"Uh oh. The user cancelled the Facebook login.");
+                    // resultblock(NO);
+                } else {
+                    NSLog(@"Uh oh. An error occurred: %@", error);
+                    //resultblock(NO);
+                    
+                }
+            } else if (user.isNew) {
+                NSLog(@"User with facebook signed up and logged in!");
+                [self performSegueWithIdentifier:@"AskViewControllerSegue" sender:self];
+                //[[OttaUserManager sharedManager] saveCurrentUser:user];;
             } else {
-                NSLog(@"Uh oh. An error occurred: %@", error);
-                //resultblock(NO);
-                
+                NSLog(@"User with facebook logged in!");
+                [self performSegueWithIdentifier:@"AskViewControllerSegue" sender:self];
+                //[[OttaUserManager sharedManager] saveCurrentUser:user];
             }
-        } else if (user.isNew) {
-            NSLog(@"User with facebook signed up and logged in!");
-            [self performSegueWithIdentifier:@"AskViewControllerSegue" sender:self];
-            //[[OttaUserManager sharedManager] saveCurrentUser:user];;
-        } else {
-            NSLog(@"User with facebook logged in!");
-            [self performSegueWithIdentifier:@"AskViewControllerSegue" sender:self];
-            //[[OttaUserManager sharedManager] saveCurrentUser:user];
-        }
-    }];
+        }];
+    }
 }
 
 #pragma mark - Text Field
