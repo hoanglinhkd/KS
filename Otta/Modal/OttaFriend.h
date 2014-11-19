@@ -11,6 +11,8 @@
 @interface OttaFriend : NSObject
 
 @property (nonatomic,strong) NSString * name;
+@property (nonatomic,strong) NSMutableArray * emailList;
+@property (nonatomic,strong) NSMutableArray * phoneList;
 @property (nonatomic,assign) BOOL isFriend;
 @property (nonatomic,assign) BOOL isSelected;
 

@@ -7,25 +7,55 @@
 //
 
 #import "OttaFindFriendsViewController.h"
+#import <RHAddressBook/AddressBook.h>
 
 @interface OttaFindFriendsViewController ()
 {
     OttaFriendsCell *lastCellSelected;
     BOOL isFromContact;//facebook = 1, contacts = 2
+    RHAddressBook *addressBook;
+    NSArray *listPeople;
+    NSMutableArray *friends;
 }
 @end
 
 @implementation OttaFindFriendsViewController
-NSArray *friends;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    addressBook = [[RHAddressBook alloc] init] ;
+    
     // Do any additional setup after loading the view.
     self.txtLabel.text = @"Find Friends";
     if (isFromContact){
         self.txtLabel.text = @"Find Contacts";
     }
-    [self loadData];
+}
+
+-(void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    
+    //This is use Address Book
+    //https://github.com/heardrwt/RHAddressBook
+    if ([RHAddressBook authorizationStatus] == RHAuthorizationStatusNotDetermined
+        || [RHAddressBook authorizationStatus] == RHAuthorizationStatusDenied){
+        
+        [addressBook requestAuthorizationWithCompletion:^(bool granted, NSError *error) {
+            if(granted) {
+                listPeople = [addressBook people];
+                [self loadData];
+                [_tableFriends reloadData];
+            } else {
+                [self.navigationController popViewControllerAnimated:YES];
+            }
+        }];
+    } else {
+        listPeople = [addressBook people];
+        [self loadData];
+        [_tableFriends reloadData];
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -34,14 +64,50 @@ NSArray *friends;
 }
 
 - (void)loadData{
+    
+    if (!friends) {
+        friends = [NSMutableArray array];
+    }
+    
+    if (friends.count > 0) {
+        [friends removeAllObjects];
+    }
+    
+    for (RHPerson *curPersion in listPeople) {
+        
+        OttaFriend *friendToAdd = [[OttaFriend alloc] initWithName:curPersion.name friendStatus:NO];
+        
+        //List phone to compare
+        RHMultiValue *phoneNumbers = curPersion.phoneNumbers;
+        NSArray *listPhoneCompare = [phoneNumbers values];
+        friendToAdd.phoneList = [NSMutableArray arrayWithArray:listPhoneCompare];
+        
+        //List Email to compare
+        RHMultiValue *emails = curPersion.emails;
+        NSArray *listEmails = [emails values];
+        friendToAdd.emailList = [NSMutableArray arrayWithArray:listEmails];
+        
+        [friends addObject:friendToAdd];
+    }
+    
+    /*
     OttaFriend *f1 = [[OttaFriend alloc] initWithName:@"Jamie Moskowitz" friendStatus:YES];
     OttaFriend *f2 = [[OttaFriend alloc] initWithName:@"Danny Madriz" friendStatus:NO];
     OttaFriend *f3 = [[OttaFriend alloc] initWithName:@"Brandon Baer" friendStatus:YES];
     OttaFriend *f4 = [[OttaFriend alloc] initWithName:@"Austin Thomas" friendStatus:YES];
     OttaFriend *f5 = [[OttaFriend alloc] initWithName:@"Chloe Fulton" friendStatus:NO];
     OttaFriend *f6 = [[OttaFriend alloc] initWithName:@"David Chu" friendStatus:YES];
-    OttaFriend *f7 = [[OttaFriend alloc] initWithName:@"Peter Carey" friendStatus:NO];
-    friends = [[NSArray alloc] initWithObjects:f1,f2,f3,f4,f5,f6,f7,nil];
+    OttaFriend *f7 = [[OttaFriend alloc] initWithName:@"Peter Carey" friendStatus:NO];*/
+    //friends = [[NSArray alloc] initWithObjects:f1,f2,f3,f4,f5,f6,f7,nil];
+}
+
+-(void) selectAllFriends
+{
+    for (OttaFriend *curFriend in friends) {
+        if (!curFriend.isFriend) {
+            curFriend.isSelected = YES;
+        }
+    }
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -87,6 +153,18 @@ NSArray *friends;
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    if(indexPath.row == 0) {
+        
+        [self selectAllFriends];
+        [tableView reloadData];
+        
+    } else {
+        OttaFriend *curFriend = [friends objectAtIndex:indexPath.row - 1]; //we don't use index = 0;
+        if(!curFriend.isFriend) {
+            curFriend.isSelected = !curFriend.isSelected;
+        }
+    }
 }
 
 
