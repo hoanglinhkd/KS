@@ -20,5 +20,7 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     self.selectedImageView.image = self.image;
+    self.questionTextView.text = self.question;
+    [_questionTextView setFont:[UIFont fontWithName:@"OpenSans-Light" size:17.00f]];
 }
 @end

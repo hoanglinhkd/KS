@@ -474,6 +474,7 @@ UITextView itsTextView = [[UITextView alloc] initWithFrame:CGRectMake(0, 0, itsT
         OttaAddCaptionImageViewController *dest = (OttaAddCaptionImageViewController *)[segue destinationViewController];
         //the sender is what you pass into the previous method
         dest.image = self.editingOptionCell.imgMain.image;
+        dest.question =  _itsTextView.text;
         dest.delegate = self;
     }
 }
