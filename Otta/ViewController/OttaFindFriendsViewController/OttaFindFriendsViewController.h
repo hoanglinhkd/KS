@@ -10,5 +10,6 @@
 #import "OttaFriendsCell.h"
 #import "OttaFriend.h"
 @interface OttaFindFriendsViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
+@property (weak, nonatomic) IBOutlet UITextField *txtLabel;
 
 @end

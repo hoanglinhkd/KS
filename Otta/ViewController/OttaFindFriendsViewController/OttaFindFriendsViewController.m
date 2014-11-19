@@ -11,14 +11,20 @@
 @interface OttaFindFriendsViewController ()
 {
     OttaFriendsCell *lastCellSelected;
+    BOOL isFromContact;//facebook = 1, contacts = 2
 }
 @end
 
 @implementation OttaFindFriendsViewController
 NSArray *friends;
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.txtLabel.text = @"Find Friends";
+    if (isFromContact){
+        self.txtLabel.text = @"Find Contacts";
+    }
     [self loadData];
 }
 
@@ -90,6 +96,7 @@ NSArray *friends;
     OttaFriendsCell *cell = (OttaFriendsCell*)[tableView cellForRowAtIndexPath:indexPath];
     lastCellSelected = cell;
     [cell.lblText setFont:[UIFont fontWithName:@"OpenSans-Bold" size:18.00f]];
+    
 }
 
 
