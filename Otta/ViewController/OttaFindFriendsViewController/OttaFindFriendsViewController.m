@@ -44,44 +44,38 @@ NSArray *friends;
     friends = [[NSArray alloc] initWithObjects:f1,f2,f3,f4,f5,f6,f7,nil];
 }
 
--(void) deHighLightCell{
-    if (lastCellSelected) {
-        [lastCellSelected.lblText setFont:[UIFont fontWithName:@"OpenSans-Light" size:17.00f]];
-    }
-    
-}
-
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 62.0;
+    return 57.0;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UIImage *btnImage;
+    UIImage *image;
     
     static NSString *cellIdentifier = @"OttaFindFriendsCellID";
     
-    
     OttaFriendsCell *cell = [tableView dequeueReusableCellWithIdentifier:
                           cellIdentifier];
-    
     if (cell == nil) {
         cell = [[OttaFriendsCell alloc] initWithStyle:
                 UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
     }
-    btnImage = [UIImage imageNamed:@"Otta_friends_button_add.png"];
+    
+    image = [UIImage imageNamed:@"Otta_friends_button_add.png"];
 
     if (indexPath.row == 0){
-        cell.lblText.text = @"Select All";
-    }else{
+        cell.lblText.text = [@"Select All" toCurrentLanguage];
+        [cell.lblText setFont:[UIFont fontWithName:@"OpenSans-Semibold" size:18.00f]];
+    } else {
         OttaFriend *f = (OttaFriend *)[friends objectAtIndex:indexPath.row -1];
         cell.lblText.text = f.name;
+        [cell.lblText setFont:[UIFont fontWithName:@"OpenSans-Light" size:18.00f]];
         
         if (f.isFriend){
-            btnImage = [UIImage imageNamed:@"Otta_friends_button_added.png"];
+            image = [UIImage imageNamed:@"Otta_friends_button_added.png"];
         }
     }
     
-    [cell.btnIcon setImage:btnImage forState:UIControlStateNormal];
+    [cell.imgIcon setImage:image];
     
     
     return cell;
@@ -92,11 +86,7 @@ NSArray *friends;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    [self deHighLightCell];
-    OttaFriendsCell *cell = (OttaFriendsCell*)[tableView cellForRowAtIndexPath:indexPath];
-    lastCellSelected = cell;
-    [cell.lblText setFont:[UIFont fontWithName:@"OpenSans-Bold" size:18.00f]];
-    
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 
