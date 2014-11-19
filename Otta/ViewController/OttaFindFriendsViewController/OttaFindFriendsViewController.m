@@ -136,7 +136,7 @@
         cell.lblText.text = f.name;
         [cell.lblText setFont:[UIFont fontWithName:@"OpenSans-Light" size:18.00f]];
         
-        if (f.isFriend){
+        if (f.isFriend || f.isSelected){
             image = [UIImage imageNamed:@"Otta_friends_button_added.png"];
         }
     }
