@@ -16,6 +16,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *btnCheck;
 @property (weak, nonatomic) IBOutlet TPKeyboardAvoidingScrollView *scrlFindFriend;
 @property (weak, nonatomic) IBOutlet UITableView *searchResultTableView;
+@property (weak, nonatomic) IBOutlet UIButton *btnSkipNext;
 
 - (IBAction)backButtonPressed:(id)sender;
 - (IBAction)checkButtonPressed:(id)sender;

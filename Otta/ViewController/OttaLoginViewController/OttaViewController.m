@@ -308,7 +308,7 @@ typedef enum  {
             if (joinSucceeded) {
                 NSLog(@"Login succeeded");
 
-                [self performSegueWithIdentifier:@"AskViewControllerSegue" sender:self];
+                [self performSegueWithIdentifier:@"homeSegue" sender:self];
             } else {
                 
                 NSLog(@"Login failed");
@@ -377,11 +377,11 @@ typedef enum  {
                 }
             } else if (user.isNew) {
                 NSLog(@"User with facebook signed up and logged in!");
-                [self performSegueWithIdentifier:@"AskViewControllerSegue" sender:self];
+                [self performSegueWithIdentifier:@"homeSegue" sender:self];
                 //[[OttaUserManager sharedManager] saveCurrentUser:user];;
             } else {
                 NSLog(@"User with facebook logged in!");
-                [self performSegueWithIdentifier:@"AskViewControllerSegue" sender:self];
+                [self performSegueWithIdentifier:@"homeSegue" sender:self];
                 //[[OttaUserManager sharedManager] saveCurrentUser:user];
             }
         }];
@@ -450,7 +450,7 @@ typedef enum  {
 
 - (BOOL)validateJoin {
     
-    if (![self NSStringIsValidEmail:self.emailTextField.text]) {
+    if (![self NSStringIsValidEmail:self.emailJoinDetail.text]) {
         UIAlertView * alert =[[UIAlertView alloc ] initWithTitle:@""
                                                          message:@"Invalid Email"
                                                         delegate:self

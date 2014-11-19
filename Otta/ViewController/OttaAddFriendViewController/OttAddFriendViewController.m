@@ -173,6 +173,16 @@ replacementString:(NSString *)string {
         [_selectedFriends addObject:selectedName];
     }
     [_searchResultTableView reloadData];
+    [self updateNextButtonStatus];
+    
+}
+
+- (void) updateNextButtonStatus{
+    if (_selectedFriends.count > 0) {
+        _btnSkipNext.titleLabel.text = [@"Next" toCurrentLanguage];
+    }else{
+        _btnSkipNext.titleLabel.text = [@"Skip" toCurrentLanguage];
+    }
 }
 
 
