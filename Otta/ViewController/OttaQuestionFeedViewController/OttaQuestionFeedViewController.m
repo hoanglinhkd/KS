@@ -31,6 +31,9 @@ static NSString * const QuestionFeedCellId = @"QuestionFeedCellId";
 }
 
 #pragma Table datasource delegate
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 280;
+}
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return [feedItems count];

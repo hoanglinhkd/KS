@@ -18,6 +18,7 @@ static NSString * const MediaCellId = @"MediaQuestionCellId";
 
 - (void)awakeFromNib {
     // Initialization code
+    self.feedItems = [NSArray arrayWithObjects:@"Caesar Blah", @"Thousand Islands", @"Strawberry Something", nil];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -27,6 +28,29 @@ static NSString * const MediaCellId = @"MediaQuestionCellId";
 }
 
 #pragma Table datasource delegate
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return [self heightForBasicCellAtIndexPath:indexPath];
+}
+
+- (CGFloat)heightForBasicCellAtIndexPath:(NSIndexPath *)indexPath {
+    static OttaBasicQuestionCell *sizingCell = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        sizingCell = [self.tableView dequeueReusableCellWithIdentifier:BasicCellId];
+    });
+    
+    [self configureBasicCell:sizingCell atIndexPath:indexPath];
+    return [self calculateHeightForConfiguredSizingCell:sizingCell];
+}
+
+- (CGFloat)calculateHeightForConfiguredSizingCell:(UITableViewCell *)sizingCell {
+    [sizingCell setNeedsLayout];
+    [sizingCell layoutIfNeeded];
+    
+    CGSize size = [sizingCell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize];
+    return size.height;
+}
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return [self.feedItems count];
@@ -52,5 +76,6 @@ static NSString * const MediaCellId = @"MediaQuestionCellId";
     NSString *title = item?: NSLocalizedString(@"[No Title]", nil);
     [cell.titleLbl setText:title];
 }
+
 
 @end
