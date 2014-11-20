@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface OttaBasicQuestionCell : UITableViewCell <UITableViewDataSource,  UITableViewDelegate>
+@interface OttaBasicQuestionCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UILabel *orderLbl;
 @property (weak, nonatomic) IBOutlet UILabel *titleLbl;
 

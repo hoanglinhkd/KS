@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface OttaQuestionFeedCell : UITableViewCell
+@interface OttaQuestionFeedCell : UITableViewCell <UITableViewDataSource,  UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UILabel *timeLbl;
 
 @property (weak, nonatomic) IBOutlet UILabel *ownerNameLbl;

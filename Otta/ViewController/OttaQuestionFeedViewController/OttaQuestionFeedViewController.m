@@ -21,7 +21,7 @@ static NSString * const QuestionFeedCellId = @"QuestionFeedCellId";
 - (void)viewDidLoad {
     [super viewDidLoad];
     feedItems = [[NSMutableArray alloc] init];
-    [feedItems addObject:@"Test long question, long question test, test long question?"];
+    [feedItems addObject:@"Test long question, long question test, test long question test long question test long question test long question?"];
     // Do any additional setup after loading the view.
 }
 
@@ -31,9 +31,30 @@ static NSString * const QuestionFeedCellId = @"QuestionFeedCellId";
 }
 
 #pragma Table datasource delegate
+
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 280;
+    return [self heightForBasicCellAtIndexPath:indexPath];
 }
+
+- (CGFloat)heightForBasicCellAtIndexPath:(NSIndexPath *)indexPath {
+    static OttaQuestionFeedCell *sizingCell = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        sizingCell = [self.tableView dequeueReusableCellWithIdentifier:QuestionFeedCellId];
+    });
+    
+    [self configureBasicCell:sizingCell atIndexPath:indexPath];
+    return [self calculateHeightForConfiguredSizingCell:sizingCell];
+}
+
+- (CGFloat)calculateHeightForConfiguredSizingCell:(OttaQuestionFeedCell *)sizingCell {
+    [sizingCell setNeedsLayout];
+    [sizingCell layoutIfNeeded];
+    
+    CGSize size = [sizingCell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize];
+    return size.height + sizingCell.tableView.contentSize.height + sizingCell.questionLbl.frame.size.height;
+}
+
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return [feedItems count];
@@ -58,6 +79,7 @@ static NSString * const QuestionFeedCellId = @"QuestionFeedCellId";
 - (void)setTitleForCell:(OttaQuestionFeedCell *)cell item:(NSString *)item {
     NSString *title = item?: NSLocalizedString(@"[No Title]", nil);
     [cell.questionLbl setText:title];
+    [cell.ownerNameLbl setText:@"Brandon Baer"];
 }
 
 /*

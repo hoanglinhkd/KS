@@ -12,6 +12,8 @@
 
 - (void)awakeFromNib {
     // Initialization code
+
+    self.orderLbl.clipsToBounds = YES;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

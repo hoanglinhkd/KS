@@ -6,11 +6,11 @@
 //  Copyright (c) 2014 SojoDigital. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "OttaBasicQuestionCell.h"
 
-@interface OttaMediaQuestionCell : UITableViewCell
-@property (weak, nonatomic) IBOutlet UILabel *orderLbl;
-@property (weak, nonatomic) IBOutlet UIImageView *iconImageView;
-@property (weak, nonatomic) IBOutlet UILabel *titleLbl;
+@interface OttaMediaQuestionCell : OttaBasicQuestionCell
+
+@property (weak, nonatomic) IBOutlet UIImageView *customImageView;
+
 
 @end
