@@ -7,7 +7,7 @@
 //
 
 #import "OttAddFriendViewController.h"
-
+#import "OttaFriend.h"
 @interface OttAddFriendViewController()
 
 @property (strong) NSMutableArray *friends;
@@ -26,54 +26,61 @@
     _searchResults = [NSMutableArray array];
     _selectedFriends = [NSMutableArray array];
     
-    [_friends addObject:@"Adam"];
-    [_friends addObject:@"Adrian"];
-    [_friends addObject:@"Alan"];
-    [_friends addObject:@"Alexander"];
-    [_friends addObject:@"Andrew"];
-    [_friends addObject:@"Anthony"];
-    [_friends addObject:@"Austin"];
-    [_friends addObject:@"Benjamin"];
-    [_friends addObject:@"Blake"];
-    [_friends addObject:@"Boris"];
-    [_friends addObject:@"Brandon"];
-    [_friends addObject:@"Brian"];
-    [_friends addObject:@"Cameron"];
-    [_friends addObject:@"Carl"];
-    [_friends addObject:@"Charles"];
-    [_friends addObject:@"Christian"];
-    [_friends addObject:@"Christopher"];
-    [_friends addObject:@"Colin"];
-    [_friends addObject:@"Connor"];
-    [_friends addObject:@"Dan"];
-    [_friends addObject:@"David"];
-    [_friends addObject:@"Dominic"];
-    [_friends addObject:@"Dylan"];
-    [_friends addObject:@"Edward"];
-    [_friends addObject:@"Eric"];
-    [_friends addObject:@"Evan"];
-    [_friends addObject:@"Frank"];
-    [_friends addObject:@"Gavin"];
-    [_friends addObject:@"Gordon"];
-    [_friends addObject:@"Harry"];
-    [_friends addObject:@"Ian"];
-    [_friends addObject:@"Isaac"];
-    [_friends addObject:@"Jack"];
-    [_friends addObject:@"Jacob"];
-    [_friends addObject:@"Jake"];
-    [_friends addObject:@"James"];
-    [_friends addObject:@"Jason"];
-    [_friends addObject:@"Joe"];
-    [_friends addObject:@"John"];
-    [_friends addObject:@"Jonatha"];
-    [_friends addObject:@"Joseph"];
-    [_friends addObject:@"Joshua"];
-    [_friends addObject:@"Julian"];
-    [_friends addObject:@"Justin"];
-    [_friends addObject:@"Keith"];
-    [_friends addObject:@"Kevin"];
-    [_friends addObject:@"Leonard"];
-    [_friends addObject:@"Liam"];
+    NSMutableArray *names = [NSMutableArray array];
+    
+    [names addObject:@"Adam"];
+    [names addObject:@"Adrian"];
+    [names addObject:@"Alan"];
+    [names addObject:@"Alexander"];
+    [names addObject:@"Andrew"];
+    [names addObject:@"Anthony"];
+    [names addObject:@"Austin"];
+    [names addObject:@"Benjamin"];
+    [names addObject:@"Blake"];
+    [names addObject:@"Boris"];
+    [names addObject:@"Brandon"];
+    [names addObject:@"Brian"];
+    [names addObject:@"Cameron"];
+    [names addObject:@"Carl"];
+    [names addObject:@"Charles"];
+    [names addObject:@"Christian"];
+    [names addObject:@"Christopher"];
+    [names addObject:@"Colin"];
+    [names addObject:@"Connor"];
+    [names addObject:@"Dan"];
+    [names addObject:@"David"];
+    [names addObject:@"Dominic"];
+    [names addObject:@"Dylan"];
+    [names addObject:@"Edward"];
+    [names addObject:@"Eric"];
+    [names addObject:@"Evan"];
+    [names addObject:@"Frank"];
+    [names addObject:@"Gavin"];
+    [names addObject:@"Gordon"];
+    [names addObject:@"Harry"];
+    [names addObject:@"Ian"];
+    [names addObject:@"Isaac"];
+    [names addObject:@"Jack"];
+    [names addObject:@"Jacob"];
+    [names addObject:@"Jake"];
+    [names addObject:@"James"];
+    [names addObject:@"Jason"];
+    [names addObject:@"Joe"];
+    [names addObject:@"John"];
+    [names addObject:@"Jonatha"];
+    [names addObject:@"Joseph"];
+    [names addObject:@"Joshua"];
+    [names addObject:@"Julian"];
+    [names addObject:@"Justin"];
+    [names addObject:@"Keith"];
+    [names addObject:@"Kevin"];
+    [names addObject:@"Leonard"];
+    [names addObject:@"Liam"];
+    
+    for (NSString *name in names) {
+        OttaFriend *friendToAdd = [[OttaFriend alloc] initWithName:name friendStatus:NO];
+        [_friends addObject:friendToAdd];
+    }
     
 }
 - (IBAction)backButtonPressed:(id)sender {
@@ -117,10 +124,10 @@ replacementString:(NSString *)string {
 - (void)searchWithName:(NSString*)searchname
 {
     [_searchResults removeAllObjects];
-    for(NSString *friendName in _friends) {
-        NSRange substringRange = [friendName rangeOfString:searchname];
+    for(OttaFriend *friend in _friends) {
+        NSRange substringRange = [[friend.name uppercaseString] rangeOfString:[searchname uppercaseString]];
         if (substringRange.location != NSNotFound) {
-            [_searchResults addObject:friendName];
+            [_searchResults addObject:friend];
         }
     }
     [_searchResultTableView reloadData];
@@ -144,11 +151,11 @@ replacementString:(NSString *)string {
                 UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
     }
     cell.backgroundColor = [UIColor clearColor];
-    NSString *name = [_searchResults objectAtIndex:indexPath.row];
-    cell.textLabel.text = name;
+    OttaFriend *friend = [_searchResults objectAtIndex:indexPath.row];
+    cell.textLabel.text = friend.name;
     cell.textLabel.textColor = [UIColor whiteColor];
     
-    if ([_selectedFriends containsObject:name]) {
+    if ([_selectedFriends containsObject:friend]) {
         cell.accessoryView = [[ UIImageView alloc ] initWithImage:[UIImage imageNamed:@"Otta_friends_button_added"]];
         [cell.accessoryView setFrame:CGRectMake(0, 0, 15, 15)];
     }else{
@@ -166,11 +173,11 @@ replacementString:(NSString *)string {
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSString *selectedName = [_searchResults objectAtIndex:indexPath.row];
-    if ([_selectedFriends containsObject:selectedName]) {
-        [_selectedFriends removeObject:selectedName];
+    OttaFriend *friend = [_searchResults objectAtIndex:indexPath.row];
+    if ([_selectedFriends containsObject:friend]) {
+        [_selectedFriends removeObject:friend];
     }else{
-        [_selectedFriends addObject:selectedName];
+        [_selectedFriends addObject:friend];
     }
     [_searchResultTableView reloadData];
     [self updateNextButtonStatus];
