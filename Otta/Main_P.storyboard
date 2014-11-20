@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="WQs-Uw-Oo3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="ok4-nK-fyt">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
@@ -7,8 +7,6 @@
     </dependencies>
     <customFonts key="customFonts">
         <mutableArray key="OpenSans-Bold.ttf">
-            <string>OpenSans-Bold</string>
-            <string>OpenSans-Bold</string>
             <string>OpenSans-Bold</string>
             <string>OpenSans-Bold</string>
         </mutableArray>
@@ -30,14 +28,8 @@
             <string>OpenSans-Light</string>
             <string>OpenSans-Light</string>
             <string>OpenSans-Light</string>
-            <string>OpenSans-Light</string>
         </mutableArray>
         <mutableArray key="OpenSans-Regular.ttf">
-            <string>OpenSans</string>
-            <string>OpenSans</string>
-            <string>OpenSans</string>
-            <string>OpenSans</string>
-            <string>OpenSans</string>
             <string>OpenSans</string>
             <string>OpenSans</string>
             <string>OpenSans</string>
@@ -841,14 +833,14 @@
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="8ui-dY-AOp" secondAttribute="trailing" constant="-16" id="0V1-vL-j2C"/>
                             <constraint firstItem="IwQ-rb-xVj" firstAttribute="top" secondItem="8ui-dY-AOp" secondAttribute="bottom" constant="3" id="6W1-yM-4y5"/>
+                            <constraint firstItem="l64-Zt-yNO" firstAttribute="top" secondItem="mps-Lf-qZE" secondAttribute="bottom" id="BRZ-iU-sJV"/>
                             <constraint firstAttribute="trailingMargin" secondItem="IwQ-rb-xVj" secondAttribute="trailing" constant="-9" id="Dlh-pI-YSk"/>
                             <constraint firstItem="IwQ-rb-xVj" firstAttribute="leading" secondItem="J9Z-Ye-xuB" secondAttribute="leadingMargin" constant="-8" id="Ex8-Ys-MRT"/>
                             <constraint firstItem="WS2-pS-foB" firstAttribute="leading" secondItem="J9Z-Ye-xuB" secondAttribute="leadingMargin" constant="-16" id="FWp-bV-jXy"/>
                             <constraint firstAttribute="trailingMargin" secondItem="WS2-pS-foB" secondAttribute="trailing" constant="-16" id="MeW-3V-Ldu"/>
-                            <constraint firstItem="l64-Zt-yNO" firstAttribute="top" secondItem="mps-Lf-qZE" secondAttribute="bottom" id="Nai-VP-7St"/>
                             <constraint firstItem="WS2-pS-foB" firstAttribute="top" secondItem="IwQ-rb-xVj" secondAttribute="bottom" constant="8" id="Vob-Hi-b9v"/>
+                            <constraint firstItem="WS2-pS-foB" firstAttribute="top" secondItem="AJB-qm-yeH" secondAttribute="bottom" constant="117" id="ZhJ-yA-VRe"/>
                             <constraint firstItem="mps-Lf-qZE" firstAttribute="top" secondItem="WS2-pS-foB" secondAttribute="bottom" id="heF-Z8-o5M"/>
-                            <constraint firstItem="WS2-pS-foB" firstAttribute="top" secondItem="AJB-qm-yeH" secondAttribute="bottom" constant="117" id="k59-un-mNn"/>
                             <constraint firstItem="mps-Lf-qZE" firstAttribute="leading" secondItem="J9Z-Ye-xuB" secondAttribute="leadingMargin" constant="-16" id="kTa-4D-aox"/>
                             <constraint firstItem="8ui-dY-AOp" firstAttribute="top" secondItem="J9Z-Ye-xuB" secondAttribute="topMargin" id="pg0-gI-qsx"/>
                             <constraint firstItem="8ui-dY-AOp" firstAttribute="leading" secondItem="J9Z-Ye-xuB" secondAttribute="leadingMargin" constant="-16" id="sD3-xm-6XD"/>
@@ -867,228 +859,6 @@
                 <exit id="SdL-Fn-JUA" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="544" y="490"/>
-        </scene>
-        <!--Answerers Asker View Controller-->
-        <scene sceneID="8wy-Kn-nwa">
-            <objects>
-                <viewController id="WQs-Uw-Oo3" userLabel="Answerers Asker View Controller" customClass="OttaAnswerersAskersViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="IsV-ig-fFR"/>
-                        <viewControllerLayoutGuide type="bottom" id="ob6-zL-j98"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="Tru-A2-qCb">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Xfb-7s-FZT">
-                                <rect key="frame" x="0.0" y="528" width="320" height="54"/>
-                                <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Otta_friends_button_yellow.png" translatesAutoresizingMaskIntoConstraints="NO" id="Cc9-FZ-trr">
-                                        <rect key="frame" x="0.0" y="-23" width="327" height="92"/>
-                                    </imageView>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Ka-Vh-bDR">
-                                        <rect key="frame" x="4" y="4" width="162" height="40"/>
-                                        <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="17"/>
-                                        <state key="normal" title="Add New">
-                                            <color key="titleColor" red="0.99601483589999995" green="0.99601483589999995" blue="0.99601483589999995" alpha="1" colorSpace="calibratedRGB"/>
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="btnInvite:" destination="WQs-Uw-Oo3" eventType="touchUpInside" id="nrL-eo-H5M"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="64p-xD-yJC">
-                                        <rect key="frame" x="180" y="4" width="140" height="40"/>
-                                        <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="17"/>
-                                        <state key="normal" title="Invite">
-                                            <color key="titleColor" red="0.99601483589999995" green="0.99601483589999995" blue="0.99601483589999995" alpha="1" colorSpace="calibratedRGB"/>
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="btnInvite:" destination="WQs-Uw-Oo3" eventType="touchUpInside" id="12c-b7-FGe"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </view>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="image_line.png" translatesAutoresizingMaskIntoConstraints="NO" id="SFM-jl-yb0">
-                                <rect key="frame" x="16" y="144" width="288" height="18"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="18" id="gYb-wE-Bcl"/>
-                                    <constraint firstAttribute="width" constant="288" id="z0s-fp-Nqn"/>
-                                </constraints>
-                            </imageView>
-                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KQj-GV-NfH">
-                                <rect key="frame" x="0.0" y="-1" width="320" height="80"/>
-                                <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="Otta_header_shape_bar.png" translatesAutoresizingMaskIntoConstraints="NO" id="8B9-O4-1Po">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="80"/>
-                                    </imageView>
-                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WLK-75-rXE">
-                                        <rect key="frame" x="8" y="41" width="30" height="18"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="18" id="im1-a1-1A5"/>
-                                            <constraint firstAttribute="width" constant="30" id="xQs-W2-L6K"/>
-                                        </constraints>
-                                        <state key="normal" image="Otta_header_button_menu.png">
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                    </button>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="Otta_header_brand_name.png" translatesAutoresizingMaskIntoConstraints="NO" id="3OU-Zl-txc">
-                                        <rect key="frame" x="105" y="35" width="111" height="30"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="111" id="5TD-e2-msJ"/>
-                                            <constraint firstAttribute="height" constant="30" id="Gnn-dd-jBK"/>
-                                        </constraints>
-                                    </imageView>
-                                    <button clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KIm-DC-Shh">
-                                        <rect key="frame" x="282" y="35" width="30" height="30"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="30" id="bZE-F4-eEZ"/>
-                                            <constraint firstAttribute="width" constant="30" id="hlN-F4-Srg"/>
-                                        </constraints>
-                                        <state key="normal" image="OttaRightSidebar.png"/>
-                                    </button>
-                                </subviews>
-                                <color key="backgroundColor" red="0.56078433989999998" green="0.79215693470000004" blue="0.25098040700000002" alpha="1" colorSpace="deviceRGB"/>
-                                <constraints>
-                                    <constraint firstItem="WLK-75-rXE" firstAttribute="leading" secondItem="KQj-GV-NfH" secondAttribute="leading" constant="8" id="1Xp-1A-LeD"/>
-                                    <constraint firstAttribute="bottom" secondItem="KIm-DC-Shh" secondAttribute="bottom" constant="15" id="4AZ-0i-fMU"/>
-                                    <constraint firstItem="WLK-75-rXE" firstAttribute="top" secondItem="KQj-GV-NfH" secondAttribute="top" constant="41" id="Bpf-Bv-gbe"/>
-                                    <constraint firstAttribute="trailing" secondItem="KIm-DC-Shh" secondAttribute="trailing" constant="15" id="CUD-el-uBG"/>
-                                    <constraint firstItem="KIm-DC-Shh" firstAttribute="top" secondItem="KQj-GV-NfH" secondAttribute="top" constant="35" id="Spb-2E-sNG"/>
-                                    <constraint firstAttribute="height" constant="80" id="ejX-fG-CBG"/>
-                                    <constraint firstItem="3OU-Zl-txc" firstAttribute="top" secondItem="KQj-GV-NfH" secondAttribute="top" constant="35" id="fNC-q7-HHa"/>
-                                    <constraint firstAttribute="trailing" secondItem="8B9-O4-1Po" secondAttribute="trailing" id="j7e-Gc-jBR"/>
-                                    <constraint firstAttribute="bottom" secondItem="8B9-O4-1Po" secondAttribute="bottom" id="k4T-Nq-Nqb"/>
-                                    <constraint firstItem="8B9-O4-1Po" firstAttribute="leading" secondItem="KQj-GV-NfH" secondAttribute="leading" id="rac-VR-Ge9"/>
-                                    <constraint firstAttribute="centerX" secondItem="3OU-Zl-txc" secondAttribute="centerX" id="ss9-dk-7bf"/>
-                                    <constraint firstItem="KIm-DC-Shh" firstAttribute="leading" secondItem="3OU-Zl-txc" secondAttribute="trailing" constant="59" id="u7J-M9-r0Z"/>
-                                    <constraint firstItem="8B9-O4-1Po" firstAttribute="top" secondItem="KQj-GV-NfH" secondAttribute="top" id="vkX-yH-804"/>
-                                </constraints>
-                            </view>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="Otta_friends_shape_magnifying class.png" translatesAutoresizingMaskIntoConstraints="NO" id="zR3-Ua-YuC">
-                                <rect key="frame" x="25" y="170" width="20" height="20"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="20" id="qmZ-kp-j90"/>
-                                    <constraint firstAttribute="height" constant="20" id="zdQ-jV-rS9"/>
-                                </constraints>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="image_line.png" translatesAutoresizingMaskIntoConstraints="NO" id="qeO-AJ-SWG">
-                                <rect key="frame" x="16" y="191" width="288" height="18"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="288" id="3Wt-Q0-KdU"/>
-                                    <constraint firstAttribute="height" constant="18" id="aUN-V3-YAJ"/>
-                                </constraints>
-                            </imageView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Find" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TB2-XQ-rTO">
-                                <rect key="frame" x="56" y="164" width="248" height="30"/>
-                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="17"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <action selector="txtChanged:" destination="WQs-Uw-Oo3" eventType="editingChanged" id="rMi-Kj-tPz"/>
-                                    <outlet property="delegate" destination="WQs-Uw-Oo3" id="TpC-ds-e3S"/>
-                                </connections>
-                            </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Answerers" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YRe-9V-WZF">
-                                <rect key="frame" x="0.0" y="115" width="151" height="30"/>
-                                <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="18"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Askers" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ebc-5G-Y1D">
-                                <rect key="frame" x="164" y="115" width="156" height="30"/>
-                                <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="18"/>
-                                <color key="textColor" red="0.48627450980392156" green="0.74117647058823533" blue="0.19215686274509805" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="245" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gnb-RB-CqX">
-                                <rect key="frame" x="164" y="87" width="156" height="30"/>
-                                <fontDescription key="fontDescription" name="OpenSans-Bold" family="Open Sans" pointSize="20"/>
-                                <color key="textColor" red="0.48627450980392156" green="0.74117647058823533" blue="0.19215686274509805" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="114" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n3T-bW-fM1">
-                                <rect key="frame" x="0.0" y="87" width="151" height="30"/>
-                                <fontDescription key="fontDescription" name="OpenSans-Bold" family="Open Sans" pointSize="20"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="Otta_friends_shape_divider_vertical.png" translatesAutoresizingMaskIntoConstraints="NO" id="hSh-Je-0El">
-                                <rect key="frame" x="164" y="88" width="7" height="64"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="7" id="8Mt-TO-cxa"/>
-                                    <constraint firstAttribute="height" constant="64" id="9yH-wH-Ziz"/>
-                                </constraints>
-                            </imageView>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="47" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="XTP-P7-rMh">
-                                <rect key="frame" x="-3" y="202" width="327" height="331"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="330" id="Pch-9d-85D"/>
-                                    <constraint firstAttribute="width" constant="320" id="hRY-Lv-fKz"/>
-                                </constraints>
-                                <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="OttaAnswerersAskersCellID" rowHeight="47" id="hlg-0s-2sH" customClass="OttaFriendsCell">
-                                        <rect key="frame" x="0.0" y="0.0" width="325" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="hlg-0s-2sH" id="EoO-Gf-x9D">
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wjx-Sd-aAT">
-                                                    <rect key="frame" x="25" y="10" width="234" height="21"/>
-                                                    <fontDescription key="fontDescription" name="OpenSans-Light" family="Open Sans" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IUc-9T-aCn">
-                                                    <rect key="frame" x="261" y="15" width="16" height="21"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="18" id="AN6-dn-GLj"/>
-                                                        <constraint firstAttribute="height" constant="18" id="hdG-K6-4Ig"/>
-                                                    </constraints>
-                                                    <state key="normal" title="Button" image="Otta_friends_button_add.png">
-                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                                    </state>
-                                                </button>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstAttribute="bottomMargin" secondItem="wjx-Sd-aAT" secondAttribute="bottom" constant="8" id="0M4-Fv-pac"/>
-                                                <constraint firstItem="wjx-Sd-aAT" firstAttribute="leading" secondItem="EoO-Gf-x9D" secondAttribute="leadingMargin" constant="17" id="6Dz-rM-QqT"/>
-                                                <constraint firstItem="IUc-9T-aCn" firstAttribute="top" secondItem="EoO-Gf-x9D" secondAttribute="topMargin" constant="9" id="NbM-2n-CMr"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="IUc-9T-aCn" secondAttribute="trailing" constant="29" id="TYx-D7-VYH"/>
-                                                <constraint firstItem="wjx-Sd-aAT" firstAttribute="top" secondItem="EoO-Gf-x9D" secondAttribute="topMargin" constant="2" id="Zz0-7L-0fg"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                        <connections>
-                                            <outlet property="btnIcon" destination="IUc-9T-aCn" id="ejt-Jo-Dvr"/>
-                                            <outlet property="lblText" destination="wjx-Sd-aAT" id="TDz-iq-LnA"/>
-                                        </connections>
-                                    </tableViewCell>
-                                </prototypes>
-                                <connections>
-                                    <outlet property="dataSource" destination="WQs-Uw-Oo3" id="dA5-pI-DMw"/>
-                                    <outlet property="delegate" destination="WQs-Uw-Oo3" id="TTq-kL-7hn"/>
-                                </connections>
-                            </tableView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstAttribute="trailingMargin" secondItem="hSh-Je-0El" secondAttribute="trailing" constant="133" id="XFv-Rb-ibo"/>
-                            <constraint firstItem="hSh-Je-0El" firstAttribute="leading" secondItem="n3T-bW-fM1" secondAttribute="trailing" constant="13" id="etf-mj-nwy"/>
-                        </constraints>
-                    </view>
-                    <connections>
-                        <outlet property="btnAddNew" destination="6Ka-Vh-bDR" id="B9u-vY-qFb"/>
-                        <outlet property="btnInvite" destination="64p-xD-yJC" id="Lnb-Z5-Qrf"/>
-                        <outlet property="table" destination="XTP-P7-rMh" id="uCP-WM-aP4"/>
-                        <outlet property="txtLabel" destination="TB2-XQ-rTO" id="Y8m-tc-KWn"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="efl-3v-cC3" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="31" y="1166"/>
         </scene>
         <!--Side Menu View Controller-->
         <scene sceneID="U7e-sd-NBW">
@@ -1481,11 +1251,8 @@
         <image name="OttaAddAnswerButton.png" width="90" height="102"/>
         <image name="OttaAddTextButton.png" width="134" height="112"/>
         <image name="OttaNumberBackground.png" width="73" height="73"/>
-        <image name="OttaRightSidebar.png" width="250" height="250"/>
         <image name="OttaSideMenuBackground.png" width="640" height="1136"/>
         <image name="Otta_friends_button_add.png" width="150" height="150"/>
-        <image name="Otta_friends_button_yellow.png" width="2667" height="305"/>
-        <image name="Otta_friends_shape_divider_vertical.png" width="6" height="501"/>
         <image name="Otta_friends_shape_magnifying class.png" width="149" height="153"/>
         <image name="Otta_header_brand_name.png" width="588" height="246"/>
         <image name="Otta_header_button_ask.png" width="250" height="250"/>
