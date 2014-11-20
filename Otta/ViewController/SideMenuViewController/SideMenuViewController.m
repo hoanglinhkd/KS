@@ -159,7 +159,20 @@
     selectedSideIndex = indexPath.row;
     [tableView reloadData];
     
-    [self performSegueWithIdentifier:@"segueAskQuestion" sender:nil];
+    switch (indexPath.row) {
+        case 0:
+            [self performSegueWithIdentifier:@"segueAskQuestion" sender:nil];
+            break;
+        case 3:
+            [self performSegueWithIdentifier:@"segueFriends" sender:nil];
+            break;
+            
+        default:
+            [self performSegueWithIdentifier:@"segueAskQuestion" sender:nil];
+            break;
+    }
+    
+    
 }
 
 @end

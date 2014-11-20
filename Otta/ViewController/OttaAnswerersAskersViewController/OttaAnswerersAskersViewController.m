@@ -20,6 +20,8 @@ NSArray *arr;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self.navigationController setNavigationBarHidden:YES];
+    
     // Do any additional setup after loading the view.
     [self loadData];
 }
@@ -57,14 +59,13 @@ NSArray *arr;
     
     static NSString *cellIdentifier = @"OttaAnswerersAskersCellID";
     
-    
     OttaFriendsCell *cell = [tableView dequeueReusableCellWithIdentifier:
                           cellIdentifier];
-    
     if (cell == nil) {
         cell = [[OttaFriendsCell alloc] initWithStyle:
                 UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
     }
+    
     btnImage = [UIImage imageNamed:@"Otta_friends_button_add.png"];
     
     if (indexPath.row == 0){
@@ -78,7 +79,7 @@ NSArray *arr;
         }
     }
     
-    [cell.btnIcon setImage:btnImage forState:UIControlStateNormal];
+    [cell.imgIcon setImage:btnImage];
     return cell;
 }
 
