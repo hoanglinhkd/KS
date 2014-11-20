@@ -31,72 +31,23 @@
 }
 
 - (void)loginWithNameOrEmail:(NSString*)nameOrEmail andPassword:(NSString *)password withResult:(OttaPLoginResultBlock)resultblock {
-    
-    __block BOOL loginSucceeded;
-    __block NSString *errorString;
 
-    PFQuery *userQuery = [PFUser query];
-    
-    [userQuery whereKey:@"email" equalTo:nameOrEmail];
-    
-    if([self NSStringIsValidEmail:nameOrEmail]) {
-        //Query user by email
-        [userQuery getFirstObjectInBackgroundWithBlock:^(PFObject *object, NSError *error) {
-            if (object) {
-                PFUser *user = (PFUser *)object;
-                
-                //Authenticate
-                [PFUser logInWithUsernameInBackground:user.username password:password
-                                                block:^(PFUser *user, NSError *error) {
-                                                    if (user) {
-                                                        // Do stuff after successful login.
-                                                        loginSucceeded = true;
-                                                        resultblock(loginSucceeded, user, error);
-                                                    } else {
-                                                        // The login failed. Check error to see why.
-                                                        loginSucceeded = false;
-                                                        errorString = [[error userInfo] objectForKey:@"error"];
-                                                        
-                                                        resultblock(loginSucceeded, user, error);
-                                                    }
-                                                }];
-                
-            } else {
-                loginSucceeded = false;
-                errorString = @"Does not exits the email, Please register";
-                
-                resultblock(loginSucceeded, nil, error);
-            }
-        }];
-        //login by username
-    } else {
-        //Authenticate
-        [PFUser logInWithUsernameInBackground:nameOrEmail password:password
-                                        block:^(PFUser *user, NSError *error) {
-                                            if (user) {
-                                                // Do stuff after successful login.
-                                                loginSucceeded = true;
-                                                resultblock(loginSucceeded, user, error);
-                                            } else {
-                                                // The login failed. Check error to see why.
-                                                loginSucceeded = false;
-                                                errorString = [[error userInfo] objectForKey:@"error"];
-                                                
-                                                resultblock(loginSucceeded, user, error);
-                                            }
-                                        }];
-    }
-
-
+    [PFUser logInWithUsernameInBackground:nameOrEmail password:password
+                                    block:^(PFUser *user, NSError *error) {
+                                        if (user) {
+                                            // Do stuff after successful login.
+                                            resultblock(YES, user, error);
+                                        } else {
+                                            // The login failed. Check error to see why.
+                                            resultblock(NO, user, error);
+                                        }
+                                    }];
 }
 
 
 
 - (void)joinWithEmail:(NSString*)email firstName:(NSString*)firstName phone:(NSString*)phone lastName:(NSString*)lastName  password:(NSString *)password withResult:(OttaJoinResultBlock)resultblock
 {
-    __block BOOL joinSucceeded;
-    __block NSString *errorString;
-    
     PFUser *pUser = [PFUser user];
     pUser.username = email;
     pUser.email = email;
@@ -108,14 +59,9 @@
     //Sign up
     [pUser signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error){
         if (!error) {
-            joinSucceeded = TRUE;
-            
-            resultblock(joinSucceeded, pUser, error);
+            resultblock(YES, pUser, error);
         } else {
-            joinSucceeded = FALSE;
-            errorString = [[error userInfo] objectForKey:@"error"];
-            
-            resultblock(joinSucceeded, pUser, error);
+            resultblock(NO, pUser, error);
         }
     }];
 }

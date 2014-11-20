@@ -380,7 +380,7 @@ typedef enum  {
                 }
             } else if (user.isNew) {
                 NSLog(@"User with facebook signed up and logged in!");
-                [self performSegueWithIdentifier:@"homeSegue" sender:self];
+                [self performSegueWithIdentifier:@"FindFriendSegue" sender:self];
                 //[[OttaUserManager sharedManager] saveCurrentUser:user];;
             } else {
                 NSLog(@"User with facebook logged in!");
