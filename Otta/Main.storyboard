@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="8Lp-bQ-f5C">
     <dependencies>
-        <deployment defaultVersion="1808" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -99,7 +98,7 @@
                                         <rect key="frame" x="20" y="100" width="280" height="30"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="OpenSans-Light" family="Open Sans" pointSize="20"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
                                         <connections>
                                             <outlet property="delegate" destination="8Lp-bQ-f5C" id="bOc-IH-2n5"/>
                                         </connections>
@@ -192,6 +191,19 @@
                                     <action selector="btnJoinTapped:" destination="8Lp-bQ-f5C" eventType="touchUpInside" id="iq9-h8-sev"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9H3-Ma-kas" userLabel="JoinButton">
+                                <rect key="frame" x="97" y="484" width="126" height="36"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="36" id="em4-qZ-o36"/>
+                                    <constraint firstAttribute="width" constant="126" id="x9x-1X-bAA"/>
+                                </constraints>
+                                <state key="normal" image="btn_join.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="btnJoinTapped:" destination="8Lp-bQ-f5C" eventType="touchUpInside" id="uA4-iQ-grp"/>
+                                </connections>
+                            </button>
                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="greenLogo.png" translatesAutoresizingMaskIntoConstraints="NO" id="Yte-FN-TMP">
                                 <rect key="frame" x="93" y="61" width="135" height="57"/>
                                 <constraints>
@@ -242,7 +254,7 @@
                                         <rect key="frame" x="20" y="100" width="130" height="30"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="OpenSans-Light" family="Open Sans" pointSize="20"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
                                         <connections>
                                             <outlet property="delegate" destination="8Lp-bQ-f5C" id="2qA-VX-Rwh"/>
                                         </connections>
@@ -255,7 +267,7 @@
                                         <rect key="frame" x="20" y="149" width="280" height="30"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="OpenSans-Light" family="Open Sans" pointSize="20"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
                                         <connections>
                                             <outlet property="delegate" destination="8Lp-bQ-f5C" id="vRI-c1-7SS"/>
                                         </connections>
@@ -268,7 +280,7 @@
                                         <rect key="frame" x="20" y="199" width="280" height="30"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="OpenSans-Light" family="Open Sans" pointSize="20"/>
-                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="phonePad"/>
                                         <connections>
                                             <outlet property="delegate" destination="8Lp-bQ-f5C" id="laQ-0b-tUN"/>
                                         </connections>
@@ -307,7 +319,7 @@
                                         <rect key="frame" x="170" y="100" width="130" height="30"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="OpenSans-Light" family="Open Sans" pointSize="20"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
                                         <connections>
                                             <outlet property="delegate" destination="8Lp-bQ-f5C" id="0ow-dV-rdR"/>
                                         </connections>
@@ -328,19 +340,6 @@
                                     <constraint firstItem="nNM-HM-l94" firstAttribute="width" secondItem="WPp-eU-ZzU" secondAttribute="width" id="koa-tA-Egf"/>
                                 </constraints>
                             </scrollView>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9H3-Ma-kas" userLabel="JoinButton">
-                                <rect key="frame" x="97" y="484" width="126" height="36"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="36" id="em4-qZ-o36"/>
-                                    <constraint firstAttribute="width" constant="126" id="x9x-1X-bAA"/>
-                                </constraints>
-                                <state key="normal" image="btn_join.png">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="btnJoinTapped:" destination="8Lp-bQ-f5C" eventType="touchUpInside" id="uA4-iQ-grp"/>
-                                </connections>
-                            </button>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Q3Q-Lb-COa" userLabel="FaceBookDetailView" customClass="TPKeyboardAvoidingScrollView">
                                 <rect key="frame" x="0.0" y="55" width="320" height="345"/>
                                 <subviews>
@@ -1435,6 +1434,6 @@ EE5leHQ
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="tOS-fD-NOY"/>
+        <segue reference="6yC-3c-aDU"/>
     </inferredMetricsTieBreakers>
 </document>
