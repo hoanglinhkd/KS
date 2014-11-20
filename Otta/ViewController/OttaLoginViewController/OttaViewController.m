@@ -327,6 +327,11 @@ typedef enum  {
     if(currentPageShowing != PageShowing_JoinPage) {
         [self showJoinView];
     } else {
+        
+        // for demo Find friend
+        [self performSegueWithIdentifier:@"FindFriendSegue" sender:self];
+        
+        /*
         //Validation
         if (![self validateJoin])
             return;
@@ -348,6 +353,8 @@ typedef enum  {
             
             [MBProgressHUD hideHUDForView:self.view animated:YES];
         }];
+         
+         */
     }
     
 }

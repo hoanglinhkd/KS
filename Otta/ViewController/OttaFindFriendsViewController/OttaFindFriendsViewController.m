@@ -45,22 +45,29 @@
         
         [addressBook requestAuthorizationWithCompletion:^(bool granted, NSError *error) {
             if(granted) {
-                [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-                listPeople = [addressBook people];
-                [self loadData];
-                [_tableFriends reloadData];
-                [MBProgressHUD hideHUDForView:self.view animated:YES];
+                [self loadContact];
             } else {
-                [self.navigationController popViewControllerAnimated:YES];
+                [self dismissViewControllerAnimated:YES completion:nil];
             }
         }];
     } else {
-        [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+        [self loadContact];
+    }
+}
+
+- (void)loadContact {
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
+        
         listPeople = [addressBook people];
         [self loadData];
-        [_tableFriends reloadData];
-        [MBProgressHUD hideHUDForView:self.view animated:YES];
-    }
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [_tableFriends reloadData];
+            [MBProgressHUD hideHUDForView:self.view animated:YES];
+        });
+    });
 }
 
 - (void)didReceiveMemoryWarning {
@@ -163,6 +170,9 @@
     }
 }
 
+- (IBAction)backButtonPressed:(id)sender {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
 
 
 @end
