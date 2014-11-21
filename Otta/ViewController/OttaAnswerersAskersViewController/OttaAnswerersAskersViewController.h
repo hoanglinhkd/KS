@@ -9,11 +9,11 @@
 #import <UIKit/UIKit.h>
 #import "OttaFriendsCell.h"
 #import "OttaFriend.h"
-@interface OttaAnswerersAskersViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UITextInputDelegate>
+@interface OttaAnswerersAskersViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UIButton *btnAddNew;
 @property (weak, nonatomic) IBOutlet UIButton *btnInvite;
 @property (weak, nonatomic) IBOutlet UITextField *txtLabel;
-@property NSMutableArray *friends;
+@property (strong, nonatomic) NSMutableArray *friends;
 @property (weak, nonatomic) IBOutlet UITableView *table;
 - (IBAction)btnAddNew:(id)sender;
 - (IBAction)btnInvite:(id)sender;

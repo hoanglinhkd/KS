@@ -10,13 +10,12 @@
 
 @interface OttaAnswerersAskersViewController ()
 {
-    OttaFriendsCell *lastCellSelected;
-    
+    NSArray *arr;
 }
 @end
 
 @implementation OttaAnswerersAskersViewController
-NSArray *arr;
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -40,24 +39,17 @@ NSArray *arr;
     OttaFriend *f6 = [[OttaFriend alloc] initWithName:@"David Chu" friendStatus:YES];
     OttaFriend *f7 = [[OttaFriend alloc] initWithName:@"Peter Carey" friendStatus:NO];
     arr = [[NSArray alloc] initWithObjects:f1,f2,f3,f4,f5,f6,f7,nil];
-    self.friends = [[NSMutableArray alloc] initWithArray:arr];
-}
-
--(void) deHighLightCell{
-    if (lastCellSelected) {
-        [lastCellSelected.lblText setFont:[UIFont fontWithName:@"OpenSans-Light" size:17.00f]];
-    }
-    
+    self.friends = [[NSMutableArray alloc] initWithObjects:f1,f2,f3,f4,f5,f6,f7,nil];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 62.0;
+    return 57.0;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UIImage *btnImage;
     
-    static NSString *cellIdentifier = @"OttaAnswerersAskersCellID";
+    static NSString *cellIdentifier = @"OttaFindFriendsCellID";
     
     OttaFriendsCell *cell = [tableView dequeueReusableCellWithIdentifier:
                           cellIdentifier];
@@ -88,11 +80,7 @@ NSArray *arr;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    [self deHighLightCell];
-    OttaFriendsCell *cell = (OttaFriendsCell*)[tableView cellForRowAtIndexPath:indexPath];
-    lastCellSelected = cell;
-    [cell.lblText setFont:[UIFont fontWithName:@"OpenSans-Bold" size:18.00f]];
-    
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 

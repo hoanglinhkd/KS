@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="8Lp-bQ-f5C">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="8Lp-bQ-f5C">
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+        <deployment defaultVersion="1808" identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -1473,24 +1473,13 @@ EE5leHQ
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3n5-c4-hoH">
-                                <rect key="frame" x="0.0" y="528" width="320" height="54"/>
+                                <rect key="frame" x="0.0" y="531" width="320" height="37"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Otta_friends_button_yellow.png" translatesAutoresizingMaskIntoConstraints="NO" id="egT-hL-KJS">
-                                        <rect key="frame" x="0.0" y="-23" width="327" height="92"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="37"/>
                                     </imageView>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="75B-u4-ik4">
-                                        <rect key="frame" x="4" y="4" width="162" height="40"/>
-                                        <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="17"/>
-                                        <state key="normal" title="Add New">
-                                            <color key="titleColor" red="0.99601483589999995" green="0.99601483589999995" blue="0.99601483589999995" alpha="1" colorSpace="calibratedRGB"/>
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="btnAddNew:" destination="8xt-Yc-1kg" eventType="touchUpInside" id="CH5-rG-Fj8"/>
-                                        </connections>
-                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1zk-Yt-PJI">
-                                        <rect key="frame" x="180" y="4" width="140" height="40"/>
+                                        <rect key="frame" x="169" y="0.0" width="151" height="37"/>
                                         <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="17"/>
                                         <state key="normal" title="Invite">
                                             <color key="titleColor" red="0.99601483589999995" green="0.99601483589999995" blue="0.99601483589999995" alpha="1" colorSpace="calibratedRGB"/>
@@ -1498,6 +1487,17 @@ EE5leHQ
                                         </state>
                                         <connections>
                                             <action selector="btnInvite:" destination="8xt-Yc-1kg" eventType="touchUpInside" id="UpR-rX-9os"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="75B-u4-ik4">
+                                        <rect key="frame" x="0.0" y="0.0" width="169" height="37"/>
+                                        <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="17"/>
+                                        <state key="normal" title="Add New">
+                                            <color key="titleColor" red="0.99601483589999995" green="0.99601483589999995" blue="0.99601483589999995" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="btnAddNew:" destination="8xt-Yc-1kg" eventType="touchUpInside" id="CH5-rG-Fj8"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -1746,6 +1746,6 @@ EE5leHQ
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="tOS-fD-NOY"/>
+        <segue reference="6yC-3c-aDU"/>
     </inferredMetricsTieBreakers>
 </document>
