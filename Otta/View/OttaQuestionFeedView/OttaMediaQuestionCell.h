@@ -12,5 +12,7 @@
 
 @property (weak, nonatomic) IBOutlet UIImageView *customImageView;
 
+@property (weak, nonatomic) IBOutlet UIButton *collapseBtn;
+@property (weak, nonatomic) IBOutlet UIButton *viewAllBtn;
 
 @end

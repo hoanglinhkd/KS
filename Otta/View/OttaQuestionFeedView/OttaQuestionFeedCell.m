@@ -18,31 +18,17 @@ static NSString * const MediaCellId = @"MediaQuestionCellId";
 
 - (void)awakeFromNib {
     // Initialization code
-
-    OttaAnswer* answer = [[OttaAnswer alloc] init];
-    answer.answerText = @"Caesar Blah Caesar Blah Caesar  Blah Caesar Caesar Blah Caesar Blah Caesar  Blah Caesar";
-    //answer.answerImage = [UIImage imageNamed:@"japanese_noodle_with_pork.jpg"];
-    
-    OttaAnswer* answer1 = [[OttaAnswer alloc] init];
-    answer1.answerText = @"Thousand Islands";
-    answer1.answerImage = [UIImage imageNamed:@"japanese_noodle_with_pork.jpg"];
-    
-    OttaAnswer* answer2 = [[OttaAnswer alloc] init];
-    answer2.answerText = @"Strawberry Something";
-    //answer2.answerImage = [UIImage imageNamed:@"japanese_noodle_with_pork.jpg"];
-    
-    OttaAnswer* answer3 = [[OttaAnswer alloc] init];
-    answer3.answerText = @"Japanese noddle with pork";
-    answer3.answerImage = [UIImage imageNamed:@"japanese_noodle_with_pork.jpg"];
-    
-    
-    self.feedItems = [NSArray arrayWithObjects:answer,answer1,answer2,answer3, nil];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
 
     // Configure the view for the selected state
+}
+
+- (void)setAnswers:(NSArray *)answers {
+    _answers = answers;
+    [self.tableView reloadData];
 }
 
 #pragma Table datasource delegate
@@ -91,7 +77,15 @@ static NSString * const MediaCellId = @"MediaQuestionCellId";
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [self.feedItems count];
+    
+    NSIndexPath *firstAnswer =[NSIndexPath indexPathForRow:0 inSection:0];
+
+    
+    if (!_isViewAllMode &&[self hasImageAtIndexPath:firstAnswer])
+        
+        return 3;
+    
+    return [self.answers count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -112,7 +106,7 @@ static NSString * const MediaCellId = @"MediaQuestionCellId";
 }
 
 - (void)configureBasicCell:(OttaBasicQuestionCell *)cell atIndexPath:(NSIndexPath *)indexPath {
-    OttaAnswer *answer = self.feedItems[indexPath.row];
+    OttaAnswer *answer = self.answers[indexPath.row];
     [self setTitleForCell:cell item:answer];
     [self setOrderForCell:cell order:[NSString stringWithFormat:@"%d", indexPath.row +1]];
    
@@ -130,7 +124,7 @@ static NSString * const MediaCellId = @"MediaQuestionCellId";
 #pragma mark Media Cell
 
 - (BOOL)hasImageAtIndexPath:(NSIndexPath *)indexPath {
-    OttaAnswer *answer = (OttaAnswer*)[self.feedItems objectAtIndex:indexPath.row];
+    OttaAnswer *answer = (OttaAnswer*)[self.answers objectAtIndex:indexPath.row];
     if (answer.answerImage) {
         return true;
     }
@@ -144,10 +138,28 @@ static NSString * const MediaCellId = @"MediaQuestionCellId";
 }
 
 - (void)configureImageCell:(OttaMediaQuestionCell *)cell atIndexPath:(NSIndexPath *)indexPath {
-    OttaAnswer *item = self.feedItems[indexPath.row];
+    OttaAnswer *item = self.answers[indexPath.row];
     [self setTitleForCell:cell item:item];
     [self setOrderForCell:cell order:[NSString stringWithFormat:@"%d", indexPath.row +1]];
     [self setImageForCell:(id)cell item:item];
+    
+    if (self.answers.count > 3 ) {
+        if (indexPath.row == 2 && _isViewAllMode == FALSE) {
+            cell.viewAllBtn.hidden = NO;
+            cell.collapseBtn.hidden = YES;
+        } else if (indexPath.row == self.answers.count -1 ) {
+            cell.collapseBtn.hidden = NO;
+            cell.viewAllBtn.hidden = YES;
+        } else {
+            cell.viewAllBtn.hidden = YES;
+            cell.collapseBtn.hidden = YES;
+        }
+
+    } else {
+        cell.viewAllBtn.hidden = YES;
+        cell.collapseBtn.hidden = YES;
+    }
+
 }
 
 - (void)setImageForCell:(OttaMediaQuestionCell *)cell item:(OttaAnswer *)item {
@@ -157,4 +169,24 @@ static NSString * const MediaCellId = @"MediaQuestionCellId";
 }
 
 
+- (IBAction)collapseBtnTapped:(id)sender {
+    _isViewAllMode = NO;
+    [self.tableView reloadData];
+    [UIView animateWithDuration:0.25 animations:^{
+        CGRect frame = self.frame;
+        self.frame = CGRectMake(frame.origin.x, frame.origin.y, frame.size.width, frame.size.height + (self.tableView.contentSize.height - self.tableView.frame.size.height));
+        [self needsUpdateConstraints];
+        [self.contentView needsUpdateConstraints];
+    }];
+}
+
+- (IBAction)viewAllBtnTapped:(id)sender {
+    _isViewAllMode = YES;
+    [UIView animateWithDuration:0.25 animations:^{
+        CGRect frame = self.frame;
+        self.frame = CGRectMake(frame.origin.x, frame.origin.y, frame.size.width, frame.size.height + (self.tableView.contentSize.height - self.tableView.frame.size.height));
+        [self needsUpdateConstraints];
+        [self.contentView needsUpdateConstraints];
+    }];
+}
 @end

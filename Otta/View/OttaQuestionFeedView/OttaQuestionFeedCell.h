@@ -13,7 +13,13 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *ownerNameLbl;
 @property (weak, nonatomic) IBOutlet UILabel *questionLbl;
-@property (strong, nonatomic) NSArray *feedItems;
+@property (strong, nonatomic) NSArray *answers;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (nonatomic) BOOL isViewAllMode;
+@property (nonatomic) int cell3Position;
+
+- (IBAction)collapseBtnTapped:(id)sender;
+- (IBAction)viewAllBtnTapped:(id)sender;
+
 
 @end

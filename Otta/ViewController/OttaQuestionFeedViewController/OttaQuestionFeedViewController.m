@@ -8,6 +8,8 @@
 
 #import "OttaQuestionFeedViewController.h"
 #import "OttaQuestionFeedCell.h"
+#import "OttaAnswer.h"
+#import "OttaQuestion.h"
 
 static NSString * const QuestionFeedCellId = @"QuestionFeedCellId";
 
@@ -21,8 +23,53 @@ static NSString * const QuestionFeedCellId = @"QuestionFeedCellId";
 - (void)viewDidLoad {
     [super viewDidLoad];
     feedItems = [[NSMutableArray alloc] init];
-    [feedItems addObject:@"Test long question, long question test, test long question test long question test long question test long question?"];
+    
+    OttaQuestion *question = [[OttaQuestion alloc] init];
+    question.questionText = @"Test long question, long question test, test long question test long question test long question test long question?";
     // Do any additional setup after loading the view.
+    OttaAnswer* answer = [[OttaAnswer alloc] init];
+    answer.answerText = @"Caesar Blah Caesar Blah Caesar  Blah Caesar Caesar Blah Caesar Blah Caesar  Blah Caesar";
+    answer.answerImage = [UIImage imageNamed:@"japanese_noodle_with_pork.jpg"];
+    
+    OttaAnswer* answer1 = [[OttaAnswer alloc] init];
+    answer1.answerText = @"Thousand Islands";
+    answer1.answerImage = [UIImage imageNamed:@"japanese_noodle_with_pork.jpg"];
+    
+    OttaAnswer* answer2 = [[OttaAnswer alloc] init];
+    answer2.answerText = @"Strawberry Something";
+    answer2.answerImage = [UIImage imageNamed:@"japanese_noodle_with_pork.jpg"];
+    
+    OttaAnswer* answer3 = [[OttaAnswer alloc] init];
+    answer3.answerText = @"Japanese noddle with pork";
+    answer3.answerImage = [UIImage imageNamed:@"japanese_noodle_with_pork.jpg"];
+    
+    
+    NSArray *answers = [NSArray arrayWithObjects:answer,answer1,answer2,answer3, nil];
+    question.ottaAnswers = [NSMutableArray arrayWithArray:answers];
+    
+    [feedItems addObject:question];
+    
+    question = [[OttaQuestion alloc] init];
+    
+    question.questionText = @"At Urth Cafe! Order which salad?";
+    
+    answer1 = [[OttaAnswer alloc] init];
+    answer1.answerText = @"Thousand Islands";
+    //answer1.answerImage = [UIImage imageNamed:@"japanese_noodle_with_pork.jpg"];
+    
+    answer2 = [[OttaAnswer alloc] init];
+    answer2.answerText = @"Strawberry Something";
+    //answer2.answerImage = [UIImage imageNamed:@"japanese_noodle_with_pork.jpg"];
+    
+    answer3 = [[OttaAnswer alloc] init];
+    answer3.answerText = @"Caesar Blah";
+    //answer3.answerImage = [UIImage imageNamed:@"japanese_noodle_with_pork.jpg"];
+    
+    answers = [NSArray arrayWithObjects:answer1,answer2,answer3, nil];
+    question.ottaAnswers = [NSMutableArray arrayWithArray:answers];
+    
+    [feedItems addObject:question];
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -52,7 +99,12 @@ static NSString * const QuestionFeedCellId = @"QuestionFeedCellId";
     [sizingCell layoutIfNeeded];
     
     CGSize size = [sizingCell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize];
-    return size.height + sizingCell.tableView.contentSize.height + sizingCell.questionLbl.frame.size.height;
+    return size.height + sizingCell.tableView.contentSize.height + sizingCell.questionLbl.frame.size.height + 10;
+    
+    CGRect rectOfCellInTableView = [sizingCell.tableView rectForRowAtIndexPath:[NSIndexPath indexPathForRow:4 inSection:0]];
+    CGRect rectOfCellInSuperview = [sizingCell.tableView convertRect:rectOfCellInTableView toView:[sizingCell.tableView superview]];
+    
+    NSLog(@"Y of Cell is: %f", rectOfCellInSuperview.origin.y);
 }
 
 
@@ -71,15 +123,16 @@ static NSString * const QuestionFeedCellId = @"QuestionFeedCellId";
 }
 
 - (void)configureBasicCell:(OttaQuestionFeedCell *)cell atIndexPath:(NSIndexPath *)indexPath {
-    NSString *item = feedItems[indexPath.row];
+    OttaQuestion *item = feedItems[indexPath.row];
     [self setTitleForCell:cell item:item];
     
 }
 
-- (void)setTitleForCell:(OttaQuestionFeedCell *)cell item:(NSString *)item {
-    NSString *title = item?: NSLocalizedString(@"[No Title]", nil);
+- (void)setTitleForCell:(OttaQuestionFeedCell *)cell item:(OttaQuestion *)item {
+    NSString *title = item.questionText?: NSLocalizedString(@"[No Title]", nil);
     [cell.questionLbl setText:title];
     [cell.ownerNameLbl setText:@"Brandon Baer"];
+    cell.answers = item.ottaAnswers;
 }
 
 /*

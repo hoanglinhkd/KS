@@ -30,6 +30,8 @@
             <string>OpenSans</string>
             <string>OpenSans</string>
             <string>OpenSans</string>
+            <string>OpenSans</string>
+            <string>OpenSans</string>
         </mutableArray>
         <mutableArray key="OpenSans-Semibold.ttf">
             <string>OpenSans-Semibold</string>
@@ -410,22 +412,48 @@
                                                                             </userDefinedRuntimeAttribute>
                                                                         </userDefinedRuntimeAttributes>
                                                                     </label>
+                                                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6C3-F7-HWV">
+                                                                        <rect key="frame" x="200" y="62" width="78" height="30"/>
+                                                                        <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="15"/>
+                                                                        <state key="normal" title="View all...">
+                                                                            <color key="titleColor" red="0.56078433989999998" green="0.79215693470000004" blue="0.25098040700000002" alpha="1" colorSpace="deviceRGB"/>
+                                                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                                        </state>
+                                                                        <connections>
+                                                                            <action selector="viewAllBtnTapped:" destination="BlV-eY-Hmd" eventType="touchUpInside" id="nIo-x1-ViJ"/>
+                                                                        </connections>
+                                                                    </button>
+                                                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dYV-M8-zMh">
+                                                                        <rect key="frame" x="216" y="62" width="60" height="30"/>
+                                                                        <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="15"/>
+                                                                        <state key="normal" title="Collapse">
+                                                                            <color key="titleColor" red="0.56078433989999998" green="0.79215693470000004" blue="0.25098040700000002" alpha="1" colorSpace="deviceRGB"/>
+                                                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                                        </state>
+                                                                        <connections>
+                                                                            <action selector="collapseBtnTapped:" destination="BlV-eY-Hmd" eventType="touchUpInside" id="Aa7-WU-Vbc"/>
+                                                                        </connections>
+                                                                    </button>
                                                                 </subviews>
                                                                 <constraints>
+                                                                    <constraint firstItem="6C3-F7-HWV" firstAttribute="bottom" secondItem="J6v-ra-z57" secondAttribute="bottomMargin" constant="1" id="A3X-td-ldV"/>
                                                                     <constraint firstItem="g8c-RE-zVA" firstAttribute="top" secondItem="J6v-ra-z57" secondAttribute="topMargin" constant="32" id="Ama-rb-nKf"/>
                                                                     <constraint firstItem="Ett-nx-C3D" firstAttribute="centerY" secondItem="8bi-vn-ebo" secondAttribute="centerY" id="Byf-Ob-JWI"/>
                                                                     <constraint firstItem="g8c-RE-zVA" firstAttribute="trailing" secondItem="J6v-ra-z57" secondAttribute="trailingMargin" id="HEA-8U-zne"/>
                                                                     <constraint firstItem="Ett-nx-C3D" firstAttribute="centerY" secondItem="g8c-RE-zVA" secondAttribute="centerY" id="Osf-u8-PVG"/>
                                                                     <constraint firstItem="g8c-RE-zVA" firstAttribute="leading" secondItem="Ett-nx-C3D" secondAttribute="trailing" constant="18" id="Roc-Os-kZx"/>
+                                                                    <constraint firstItem="dYV-M8-zMh" firstAttribute="bottom" secondItem="J6v-ra-z57" secondAttribute="bottomMargin" constant="1" id="a3K-AW-Vzu"/>
                                                                     <constraint firstAttribute="bottomMargin" secondItem="g8c-RE-zVA" secondAttribute="bottom" constant="32" id="fII-55-bbq"/>
                                                                     <constraint firstItem="8bi-vn-ebo" firstAttribute="leading" secondItem="J6v-ra-z57" secondAttribute="leadingMargin" id="qbb-Oz-zj7"/>
                                                                     <constraint firstItem="Ett-nx-C3D" firstAttribute="leading" secondItem="8bi-vn-ebo" secondAttribute="trailing" constant="6" id="z46-g3-MeL"/>
                                                                 </constraints>
                                                             </tableViewCellContentView>
                                                             <connections>
+                                                                <outlet property="collapseBtn" destination="dYV-M8-zMh" id="KnB-Ty-xoB"/>
                                                                 <outlet property="customImageView" destination="Ett-nx-C3D" id="8yV-oA-hkH"/>
                                                                 <outlet property="orderLbl" destination="8bi-vn-ebo" id="IiU-az-BS0"/>
                                                                 <outlet property="titleLbl" destination="g8c-RE-zVA" id="sIN-Zo-6Ng"/>
+                                                                <outlet property="viewAllBtn" destination="6C3-F7-HWV" id="gUI-Bb-QOr"/>
                                                             </connections>
                                                         </tableViewCell>
                                                     </prototypes>
