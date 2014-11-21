@@ -13,6 +13,7 @@
 #import "OttaAnswer.h"
 #import "OttaAlertManager.h"
 #import "NSString+Language.h"
+#import "UIViewController+ECSlidingViewController.h"
 
 @interface OttaAskViewController ()
 {
@@ -159,6 +160,10 @@ testAnswer.answerText = @"Creme Brelee";
     [textField resignFirstResponder];
     
     return YES;
+}
+
+- (IBAction)menuButtonPressed:(id)sender {
+    [self.slidingViewController anchorTopViewToRightAnimated:YES];
 }
 
 -(IBAction)addQuestionButtonText:(id)sender

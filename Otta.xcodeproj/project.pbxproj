@@ -52,6 +52,11 @@
 		5D8E7C6A1A1BA3E700678DAC /* MainH.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5D8E7C691A1BA3E700678DAC /* MainH.storyboard */; };
 		5D8E7C6D1A1BB43900678DAC /* btnAddContact@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D8E7C6B1A1BB43900678DAC /* btnAddContact@2x.png */; };
 		5D8E7C6E1A1BB43900678DAC /* btnAddFBFriend@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D8E7C6C1A1BB43900678DAC /* btnAddFBFriend@2x.png */; };
+		663665E61A1EEC4A007F0EFC /* METransitions.m in Sources */ = {isa = PBXBuildFile; fileRef = 663665E51A1EEC4A007F0EFC /* METransitions.m */; };
+		663665EE1A1EEE00007F0EFC /* MEDynamicTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 663665E91A1EEE00007F0EFC /* MEDynamicTransition.m */; };
+		663665EF1A1EEE00007F0EFC /* MEFoldAnimationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 663665EB1A1EEE00007F0EFC /* MEFoldAnimationController.m */; };
+		663665F01A1EEE00007F0EFC /* MEZoomAnimationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 663665ED1A1EEE00007F0EFC /* MEZoomAnimationController.m */; };
+		663665F41A1EF728007F0EFC /* OttaTransitionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 663665F31A1EF728007F0EFC /* OttaTransitionViewController.m */; };
 		66502BE41A14571000A9472D /* icon_time.png in Resources */ = {isa = PBXBuildFile; fileRef = 66502BE31A14571000A9472D /* icon_time.png */; };
 		66502BE71A14653300A9472D /* OttaOptionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 66502BE61A14653300A9472D /* OttaOptionCell.m */; };
 		66FD4B051A11A6CC005ACD58 /* angry_birds_cake.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 66FD4AD81A11A6CC005ACD58 /* angry_birds_cake.jpg */; };
@@ -208,6 +213,16 @@
 		5D8E7C691A1BA3E700678DAC /* MainH.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = MainH.storyboard; path = Otta/MainH.storyboard; sourceTree = SOURCE_ROOT; };
 		5D8E7C6B1A1BB43900678DAC /* btnAddContact@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btnAddContact@2x.png"; sourceTree = "<group>"; };
 		5D8E7C6C1A1BB43900678DAC /* btnAddFBFriend@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btnAddFBFriend@2x.png"; sourceTree = "<group>"; };
+		663665E41A1EEC4A007F0EFC /* METransitions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = METransitions.h; sourceTree = "<group>"; };
+		663665E51A1EEC4A007F0EFC /* METransitions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = METransitions.m; sourceTree = "<group>"; };
+		663665E81A1EEE00007F0EFC /* MEDynamicTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MEDynamicTransition.h; sourceTree = "<group>"; };
+		663665E91A1EEE00007F0EFC /* MEDynamicTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MEDynamicTransition.m; sourceTree = "<group>"; };
+		663665EA1A1EEE00007F0EFC /* MEFoldAnimationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MEFoldAnimationController.h; sourceTree = "<group>"; };
+		663665EB1A1EEE00007F0EFC /* MEFoldAnimationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MEFoldAnimationController.m; sourceTree = "<group>"; };
+		663665EC1A1EEE00007F0EFC /* MEZoomAnimationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MEZoomAnimationController.h; sourceTree = "<group>"; };
+		663665ED1A1EEE00007F0EFC /* MEZoomAnimationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MEZoomAnimationController.m; sourceTree = "<group>"; };
+		663665F21A1EF728007F0EFC /* OttaTransitionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OttaTransitionViewController.h; sourceTree = "<group>"; };
+		663665F31A1EF728007F0EFC /* OttaTransitionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OttaTransitionViewController.m; sourceTree = "<group>"; };
 		66502BE31A14571000A9472D /* icon_time.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_time.png; sourceTree = "<group>"; };
 		66502BE51A14653300A9472D /* OttaOptionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OttaOptionCell.h; sourceTree = "<group>"; };
 		66502BE61A14653300A9472D /* OttaOptionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OttaOptionCell.m; sourceTree = "<group>"; };
@@ -473,6 +488,28 @@
 			path = OttaAnswerersAskersViewController;
 			sourceTree = "<group>";
 		};
+		663665E71A1EEE00007F0EFC /* Transitions */ = {
+			isa = PBXGroup;
+			children = (
+				663665E81A1EEE00007F0EFC /* MEDynamicTransition.h */,
+				663665E91A1EEE00007F0EFC /* MEDynamicTransition.m */,
+				663665EA1A1EEE00007F0EFC /* MEFoldAnimationController.h */,
+				663665EB1A1EEE00007F0EFC /* MEFoldAnimationController.m */,
+				663665EC1A1EEE00007F0EFC /* MEZoomAnimationController.h */,
+				663665ED1A1EEE00007F0EFC /* MEZoomAnimationController.m */,
+			);
+			path = Transitions;
+			sourceTree = "<group>";
+		};
+		663665F11A1EF70C007F0EFC /* OttaTransitionViewController */ = {
+			isa = PBXGroup;
+			children = (
+				663665F21A1EF728007F0EFC /* OttaTransitionViewController.h */,
+				663665F31A1EF728007F0EFC /* OttaTransitionViewController.m */,
+			);
+			path = OttaTransitionViewController;
+			sourceTree = "<group>";
+		};
 		66FD4AD61A11A6CC005ACD58 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
@@ -558,6 +595,7 @@
 		66FD4B301A11A7FC005ACD58 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				663665F11A1EF70C007F0EFC /* OttaTransitionViewController */,
 				38E161431A1E56E20093998E /* OttaAnswerersAskersViewController */,
 				7E1A1DB41A1C8287009FB0E6 /* OttaFindFriendsViewController */,
 				3847CFB01A1863E1002599E7 /* OttaLoginViewController */,
@@ -616,6 +654,8 @@
 		66FD4B401A11A962005ACD58 /* SideMenuViewController */ = {
 			isa = PBXGroup;
 			children = (
+				663665E41A1EEC4A007F0EFC /* METransitions.h */,
+				663665E51A1EEC4A007F0EFC /* METransitions.m */,
 				66FD4B411A11A962005ACD58 /* SideMenuViewController.h */,
 				66FD4B421A11A962005ACD58 /* SideMenuViewController.m */,
 			);
@@ -625,6 +665,7 @@
 		66FD4B5B1A11AD6B005ACD58 /* Lib */ = {
 			isa = PBXGroup;
 			children = (
+				663665E71A1EEE00007F0EFC /* Transitions */,
 				D9F04A0C1A1B60430049AD41 /* HPTextView */,
 				D98E30C51A1797CD0080B934 /* AFPickerView */,
 				D98E30B91A1779110080B934 /* Language */,
@@ -1040,6 +1081,7 @@
 			files = (
 				3847CFB31A1863E1002599E7 /* OttaViewController.m in Sources */,
 				F0BC6526198606BD0097A87C /* OttaAppDelegate.m in Sources */,
+				663665F41A1EF728007F0EFC /* OttaTransitionViewController.m in Sources */,
 				66FD4B551A11AB02005ACD58 /* OttaQuestion.m in Sources */,
 				D98E30C41A1795D70080B934 /* Constant.m in Sources */,
 				D9F04A121A1B60430049AD41 /* HPTextViewInternal.m in Sources */,
@@ -1050,9 +1092,12 @@
 				66FD4B541A11AB02005ACD58 /* OttaAnswer.m in Sources */,
 				F0BC6522198606BD0097A87C /* main.m in Sources */,
 				D9286F431A12190500C28770 /* OttaParseClientManager.m in Sources */,
+				663665EE1A1EEE00007F0EFC /* MEDynamicTransition.m in Sources */,
+				663665EF1A1EEE00007F0EFC /* MEFoldAnimationController.m in Sources */,
 				D9286F401A12187F00C28770 /* OttaSessionManager.m in Sources */,
 				66502BE71A14653300A9472D /* OttaOptionCell.m in Sources */,
 				D98E30CA1A1797CD0080B934 /* AFPickerView.m in Sources */,
+				663665F01A1EEE00007F0EFC /* MEZoomAnimationController.m in Sources */,
 				66FD4B3A1A11A8F0005ACD58 /* OttaQuestionTableViewCell.m in Sources */,
 				D98E30BC1A1779110080B934 /* LanguageHelper.m in Sources */,
 				7E1A1DBA1A1C8345009FB0E6 /* OttaFriendsCell.m in Sources */,
@@ -1063,6 +1108,7 @@
 				386E89C81A126AC100459171 /* OttAddFriendViewController.m in Sources */,
 				38A37D771A171FCD00771881 /* OttaAlertManager.m in Sources */,
 				66FD4B5A1A11ABF9005ACD58 /* OttaAnswerTableController.m in Sources */,
+				663665E61A1EEC4A007F0EFC /* METransitions.m in Sources */,
 				7E1A1DBD1A1C8418009FB0E6 /* OttaFriend.m in Sources */,
 				382E32771A13A54A008ACA45 /* OttaMenuCell.m in Sources */,
 				D99F7C3E1A1BA4BB0030D239 /* OttaAddCaptionImageViewController.m in Sources */,

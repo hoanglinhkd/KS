@@ -9,13 +9,17 @@
 #import "SideMenuViewController.h"
 #import <Parse/Parse.h>
 #import "MBProgressHUD.h"
+#import "UIViewController+ECSlidingViewController.h"
+#import "MEDynamicTransition.h"
+#import "METransitions.h"
 
 @interface SideMenuViewController ()
 {
     OttaMenuCell *lastCellSelected;
     int selectedSideIndex;
 }
-
+@property (nonatomic, strong) METransitions *transitions;
+@property (nonatomic, strong) UIPanGestureRecognizer *dynamicTransitionPanGesture;
 @end
 
 @implementation SideMenuViewController
@@ -37,6 +41,8 @@
     // Do any additional setup after loading the view.
     
     selectedSideIndex = 0;
+    
+    [self setTransition];
 }
 
 -(void)highlightAboutButton
@@ -155,6 +161,11 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
+    if (indexPath.row == selectedSideIndex) {
+        [self.slidingViewController resetTopViewAnimated:YES];
+        return;
+    }
+    
     [self dehighlightAboutButton];
     selectedSideIndex = indexPath.row;
     [tableView reloadData];
@@ -171,8 +182,54 @@
             [self performSegueWithIdentifier:@"segueAskQuestion" sender:nil];
             break;
     }
+}
+
+#pragma mark - Properties
+
+- (METransitions *)transitions {
+    if (_transitions) return _transitions;
     
+    _transitions = [[METransitions alloc] init];
     
+    return _transitions;
+}
+
+- (UIPanGestureRecognizer *)dynamicTransitionPanGesture {
+    if (_dynamicTransitionPanGesture) return _dynamicTransitionPanGesture;
+    
+    _dynamicTransitionPanGesture = [[UIPanGestureRecognizer alloc] initWithTarget:self.transitions.dynamicTransition action:@selector(handlePanGesture:)];
+    
+    return _dynamicTransitionPanGesture;
+}
+
+- (void)setTransition {
+    self.transitions.dynamicTransition.slidingViewController = self.slidingViewController;
+    
+//    METransitionNameDefault;  0
+//    ETransitionNameFold;      1
+//    METransitionNameZoom;     2
+//    METransitionNameDynamic;  3
+    
+    NSDictionary *transitionData = self.transitions.all[3];
+    id<ECSlidingViewControllerDelegate> transition = transitionData[@"transition"];
+    if (transition == (id)[NSNull null]) {
+        self.slidingViewController.delegate = nil;
+    } else {
+        self.slidingViewController.delegate = transition;
+    }
+    
+    NSString *transitionName = transitionData[@"name"];
+    if ([transitionName isEqualToString:METransitionNameDynamic]) {
+        self.slidingViewController.topViewAnchoredGesture = ECSlidingViewControllerAnchoredGestureTapping | ECSlidingViewControllerAnchoredGestureCustom;
+        self.slidingViewController.customAnchoredGestures = @[self.dynamicTransitionPanGesture];
+        [self.navigationController.view removeGestureRecognizer:self.slidingViewController.panGesture];
+        [self.navigationController.view addGestureRecognizer:self.dynamicTransitionPanGesture];
+    } else {
+        self.slidingViewController.topViewAnchoredGesture = ECSlidingViewControllerAnchoredGestureTapping | ECSlidingViewControllerAnchoredGesturePanning;
+        self.slidingViewController.customAnchoredGestures = @[];
+        [self.navigationController.view removeGestureRecognizer:self.dynamicTransitionPanGesture];
+        [self.navigationController.view addGestureRecognizer:self.slidingViewController.panGesture];
+    }
 }
 
 @end

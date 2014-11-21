@@ -442,7 +442,7 @@
                         <outlet property="scrlUserInformation" destination="QNK-Yi-drR" id="Qll-kj-srf"/>
                         <outlet property="usernameLine" destination="hYB-Tp-hee" id="7EX-rJ-WEr"/>
                         <outlet property="usernameTextField" destination="2YE-eR-4J7" id="eHl-J2-FfT"/>
-                        <segue destination="CY8-rH-5qL" kind="modal" identifier="homeSegue" id="6yC-3c-aDU"/>
+                        <segue destination="CY8-rH-5qL" kind="modal" identifier="homeSegue" animates="NO" id="6yC-3c-aDU"/>
                         <segue destination="sjb-6w-bwp" kind="modal" identifier="FindFriendSegue" id="xoJ-DL-egg"/>
                     </connections>
                 </viewController>
@@ -478,7 +478,7 @@
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <segue destination="SdL-Fn-JUA" kind="unwind" unwindAction="unwindToSideMenu:" id="6Ye-wu-Hqd"/>
+                                            <action selector="menuButtonPressed:" destination="Vr1-Kh-wSh" eventType="touchUpInside" id="f5z-VL-zKJ"/>
                                         </connections>
                                     </button>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Otta_header_brand_name.png" translatesAutoresizingMaskIntoConstraints="NO" id="wc9-ee-QOt">
@@ -816,7 +816,6 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HOd-FJ-vaq" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="SdL-Fn-JUA" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="544" y="490"/>
         </scene>
@@ -1526,7 +1525,7 @@ EE5leHQ
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <segue destination="AZ8-8l-9VG" kind="unwind" unwindAction="unwindToSideMenu:" id="7uX-nI-hUl"/>
+                                            <action selector="menuButtonPressed:" destination="8xt-Yc-1kg" eventType="touchUpInside" id="JuY-e3-Nbu"/>
                                         </connections>
                                     </button>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Otta_header_brand_name.png" translatesAutoresizingMaskIntoConstraints="NO" id="YdW-QV-gN9">
@@ -1688,7 +1687,6 @@ EE5leHQ
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="v8p-AU-RSb" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="AZ8-8l-9VG" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="544" y="1243"/>
         </scene>

@@ -7,6 +7,7 @@
 //
 
 #import "OttaAnswerersAskersViewController.h"
+#import "UIViewController+ECSlidingViewController.h"
 
 @interface OttaAnswerersAskersViewController ()
 {
@@ -83,6 +84,9 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
+- (IBAction)menuButtonPressed:(id)sender {
+    [self.slidingViewController anchorTopViewToRightAnimated:YES];
+}
 
 
 - (IBAction)btnAddNew:(id)sender {
