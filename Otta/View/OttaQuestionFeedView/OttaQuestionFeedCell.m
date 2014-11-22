@@ -172,21 +172,33 @@ static NSString * const MediaCellId = @"MediaQuestionCellId";
 - (IBAction)collapseBtnTapped:(id)sender {
     _isViewAllMode = NO;
     [self.tableView reloadData];
+    
+    UITableView *tv = (UITableView *) self.superview.superview;
+    NSIndexPath* pathOfTheCell = [tv indexPathForCell:self];
+    
+    [self.delegate optionCell:self collapseBtnTapped:[NSNumber numberWithInt:pathOfTheCell.row]];
     [UIView animateWithDuration:0.25 animations:^{
-        CGRect frame = self.frame;
-        self.frame = CGRectMake(frame.origin.x, frame.origin.y, frame.size.width, frame.size.height + (self.tableView.contentSize.height - self.tableView.frame.size.height));
-        [self needsUpdateConstraints];
-        [self.contentView needsUpdateConstraints];
+        
+        [tv beginUpdates];
+        [tv endUpdates];
+//        [self needsUpdateConstraints];
+//        [self.contentView needsUpdateConstraints];
+        
     }];
 }
 
 - (IBAction)viewAllBtnTapped:(id)sender {
     _isViewAllMode = YES;
+    [self.tableView reloadData];
+    UITableView *tv = (UITableView *) self.superview.superview;
+    NSIndexPath* pathOfTheCell = [tv indexPathForCell:self];
+    [self.delegate optionCell:self viewMoreBtnTapped:[NSNumber numberWithInt:pathOfTheCell.row]];
     [UIView animateWithDuration:0.25 animations:^{
-        CGRect frame = self.frame;
-        self.frame = CGRectMake(frame.origin.x, frame.origin.y, frame.size.width, frame.size.height + (self.tableView.contentSize.height - self.tableView.frame.size.height));
-        [self needsUpdateConstraints];
-        [self.contentView needsUpdateConstraints];
+
+        [tv beginUpdates];
+        [tv endUpdates];
+//        [self needsUpdateConstraints];
+//        [self.contentView needsUpdateConstraints];
     }];
 }
 @end

@@ -7,7 +7,6 @@
 //
 
 #import "OttaQuestionFeedViewController.h"
-#import "OttaQuestionFeedCell.h"
 #import "OttaAnswer.h"
 #import "OttaQuestion.h"
 
@@ -15,6 +14,7 @@ static NSString * const QuestionFeedCellId = @"QuestionFeedCellId";
 
 @interface OttaQuestionFeedViewController () {
     NSMutableArray *feedItems;
+    NSMutableArray *viewAllModeCellArray;
 }
 @end
 
@@ -22,6 +22,8 @@ static NSString * const QuestionFeedCellId = @"QuestionFeedCellId";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    viewAllModeCellArray = [[NSMutableArray alloc] init];
     feedItems = [[NSMutableArray alloc] init];
     
     OttaQuestion *question = [[OttaQuestion alloc] init];
@@ -89,7 +91,11 @@ static NSString * const QuestionFeedCellId = @"QuestionFeedCellId";
     dispatch_once(&onceToken, ^{
         sizingCell = [self.tableView dequeueReusableCellWithIdentifier:QuestionFeedCellId];
     });
-    
+    if ([viewAllModeCellArray containsObject:[NSNumber numberWithInteger:indexPath.row]])
+        sizingCell.isViewAllMode = true;
+    else {
+        sizingCell.isViewAllMode = false;
+    }
     [self configureBasicCell:sizingCell atIndexPath:indexPath];
     return [self calculateHeightForConfiguredSizingCell:sizingCell];
 }
@@ -100,13 +106,8 @@ static NSString * const QuestionFeedCellId = @"QuestionFeedCellId";
     
     CGSize size = [sizingCell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize];
     return size.height + sizingCell.tableView.contentSize.height + sizingCell.questionLbl.frame.size.height + 10;
-    
-    CGRect rectOfCellInTableView = [sizingCell.tableView rectForRowAtIndexPath:[NSIndexPath indexPathForRow:4 inSection:0]];
-    CGRect rectOfCellInSuperview = [sizingCell.tableView convertRect:rectOfCellInTableView toView:[sizingCell.tableView superview]];
-    
-    NSLog(@"Y of Cell is: %f", rectOfCellInSuperview.origin.y);
+    NSLog(@"table heigh %f",sizingCell.tableView.contentSize.height);
 }
-
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return [feedItems count];
@@ -118,6 +119,7 @@ static NSString * const QuestionFeedCellId = @"QuestionFeedCellId";
 
 - (OttaQuestionFeedCell *)basicCellAtIndexPath:(NSIndexPath *)indexPath {
     OttaQuestionFeedCell *cell = [self.tableView dequeueReusableCellWithIdentifier:QuestionFeedCellId forIndexPath:indexPath];
+    cell.delegate = self;
     [self configureBasicCell:cell atIndexPath:indexPath];
     return cell;
 }
@@ -144,5 +146,14 @@ static NSString * const QuestionFeedCellId = @"QuestionFeedCellId";
     // Pass the selected object to the new view controller.
 }
 */
+#pragma mark - OttaQuestionFeedCellDelegate
+
+- (void)optionCell:(OttaQuestionFeedCell*)cell viewMoreBtnTapped:(id)row {
+    
+    [viewAllModeCellArray addObject:row];
+}
+- (void)optionCell:(OttaQuestionFeedCell*)cell collapseBtnTapped:(id)row {
+    [viewAllModeCellArray removeObject:row];
+}
 
 @end

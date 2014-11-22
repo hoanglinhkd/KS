@@ -8,7 +8,19 @@
 
 #import <UIKit/UIKit.h>
 
+@class OttaQuestionFeedCell;
+@protocol OttaQuestionFeedCellDelegate
+
+@optional
+
+- (void)optionCell:(OttaQuestionFeedCell*)cell viewMoreBtnTapped:(id)row;
+- (void)optionCell:(OttaQuestionFeedCell*)cell collapseBtnTapped:(id)row;
+
+@end
+
 @interface OttaQuestionFeedCell : UITableViewCell <UITableViewDataSource,  UITableViewDelegate>
+
+@property (weak, nonatomic) id <OttaQuestionFeedCellDelegate>delegate;
 @property (weak, nonatomic) IBOutlet UILabel *timeLbl;
 
 @property (weak, nonatomic) IBOutlet UILabel *ownerNameLbl;
