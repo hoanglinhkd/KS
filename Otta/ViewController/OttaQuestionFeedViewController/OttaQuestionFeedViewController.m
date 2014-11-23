@@ -7,6 +7,7 @@
 //
 
 #import "OttaQuestionFeedViewController.h"
+#import "UIViewController+ECSlidingViewController.h"
 #import "OttaAnswer.h"
 #import "OttaQuestion.h"
 
@@ -154,6 +155,10 @@ static NSString * const QuestionFeedCellId = @"QuestionFeedCellId";
 }
 - (void)optionCell:(OttaQuestionFeedCell*)cell collapseBtnTapped:(id)row {
     [viewAllModeCellArray removeObject:row];
+}
+
+- (IBAction)menuButtonPressed:(id)sender {
+    [self.slidingViewController anchorTopViewToRightAnimated:YES];
 }
 
 @end
