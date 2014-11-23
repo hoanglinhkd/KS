@@ -7,13 +7,19 @@
 //
 
 #import "SideMenuViewController.h"
-
+#import <Parse/Parse.h>
+#import "MBProgressHUD.h"
+#import "UIViewController+ECSlidingViewController.h"
+#import "MEDynamicTransition.h"
+#import "METransitions.h"
 
 @interface SideMenuViewController ()
 {
     OttaMenuCell *lastCellSelected;
+    int selectedSideIndex;
 }
-
+@property (nonatomic, strong) METransitions *transitions;
+@property (nonatomic, strong) UIPanGestureRecognizer *dynamicTransitionPanGesture;
 @end
 
 @implementation SideMenuViewController
@@ -33,6 +39,10 @@
     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"OttaSideMenuBackground.png"]];
     self.menuTableView.backgroundColor = [UIColor clearColor];
     // Do any additional setup after loading the view.
+    
+    selectedSideIndex = 0;
+    
+    [self setTransition];
 }
 
 -(void)highlightAboutButton
@@ -41,6 +51,9 @@
         [lastCellSelected.lblText setFont:[UIFont fontWithName:@"OpenSans-Light" size:18.00f]];
     }
     [_btnAbout.titleLabel setFont:[UIFont fontWithName:@"OpenSans-Bold" size:18.00f]];
+    
+    selectedSideIndex = -1;
+    [_menuTableView reloadData];
 }
 
 -(void) dehighlightAboutButton
@@ -57,6 +70,14 @@
 -(IBAction)btnAboutTapped:(id)sender
 {
     [self highlightAboutButton];
+    [self logOutAction];
+}
+
+-(void)logOutAction {
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    [PFUser logOut];
+    [self performSegueWithIdentifier:@"segueLogin" sender:self];
+    [MBProgressHUD hideHUDForView:self.view animated:YES];
 }
 
 - (IBAction)unwindToSideMenu:(UIStoryboardSegue *)unwindSegue
@@ -70,7 +91,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 5;
+    return 6;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -84,6 +105,11 @@
     if (cell == nil) {
         cell = [[OttaMenuCell alloc]initWithStyle:
                 UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
+    }
+    
+    if(selectedSideIndex == indexPath.row) {
+        [cell.lblText setFont:[UIFont fontWithName:@"OpenSans-Bold" size:18.00f]];
+    } else {
         [cell.lblText setFont:[UIFont fontWithName:@"OpenSans-Light" size:18.00f]];
     }
     
@@ -118,6 +144,12 @@
             cell.lblText.text = [@"Settings" toCurrentLanguage];
         }
             break;
+        case 5:
+        {
+            cell.imgIcon.image = [UIImage imageNamed:@"menu_otta.png"];
+            cell.lblText.text = [@"About" toCurrentLanguage];
+        }
+            break;
             
         default:
             break;
@@ -127,26 +159,77 @@
     return cell;
 }
 
-/*- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
- {
- cell.backgroundColor = [UIColor clearColor];
- cell.textLabel.backgroundColor = [UIColor clearColor];
- cell.detailTextLabel.backgroundColor = [UIColor clearColor];
- }
- */
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
+    if (indexPath.row == selectedSideIndex) {
+        [self.slidingViewController resetTopViewAnimated:YES];
+        return;
+    }
+    
     [self dehighlightAboutButton];
-    OttaMenuCell *cell = (OttaMenuCell*)[tableView cellForRowAtIndexPath:indexPath];
-    lastCellSelected = cell;
-    [cell.lblText setFont:[UIFont fontWithName:@"OpenSans-Bold" size:18.00f]];
-    [self performSegueWithIdentifier:@"segueAskQuestion" sender:nil];
+    selectedSideIndex = indexPath.row;
+    [tableView reloadData];
+    
+    switch (indexPath.row) {
+        case 0:
+            [self performSegueWithIdentifier:@"segueAskQuestion" sender:nil];
+            break;
+        case 3:
+            [self performSegueWithIdentifier:@"segueFriends" sender:nil];
+            break;
+            
+        default:
+            [self performSegueWithIdentifier:@"segueAskQuestion" sender:nil];
+            break;
+    }
 }
 
--(void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    OttaMenuCell *cell = (OttaMenuCell*)[tableView cellForRowAtIndexPath:indexPath];
-    [cell.lblText setFont:[UIFont fontWithName:@"OpenSans-Light" size:18.00f]];
+#pragma mark - Properties
+
+- (METransitions *)transitions {
+    if (_transitions) return _transitions;
+    
+    _transitions = [[METransitions alloc] init];
+    
+    return _transitions;
+}
+
+- (UIPanGestureRecognizer *)dynamicTransitionPanGesture {
+    if (_dynamicTransitionPanGesture) return _dynamicTransitionPanGesture;
+    
+    _dynamicTransitionPanGesture = [[UIPanGestureRecognizer alloc] initWithTarget:self.transitions.dynamicTransition action:@selector(handlePanGesture:)];
+    
+    return _dynamicTransitionPanGesture;
+}
+
+- (void)setTransition {
+    self.transitions.dynamicTransition.slidingViewController = self.slidingViewController;
+    
+//    METransitionNameDefault;  0
+//    ETransitionNameFold;      1
+//    METransitionNameZoom;     2
+//    METransitionNameDynamic;  3
+    
+    NSDictionary *transitionData = self.transitions.all[3];
+    id<ECSlidingViewControllerDelegate> transition = transitionData[@"transition"];
+    if (transition == (id)[NSNull null]) {
+        self.slidingViewController.delegate = nil;
+    } else {
+        self.slidingViewController.delegate = transition;
+    }
+    
+    NSString *transitionName = transitionData[@"name"];
+    if ([transitionName isEqualToString:METransitionNameDynamic]) {
+        self.slidingViewController.topViewAnchoredGesture = ECSlidingViewControllerAnchoredGestureTapping | ECSlidingViewControllerAnchoredGestureCustom;
+        self.slidingViewController.customAnchoredGestures = @[self.dynamicTransitionPanGesture];
+        [self.navigationController.view removeGestureRecognizer:self.slidingViewController.panGesture];
+        [self.navigationController.view addGestureRecognizer:self.dynamicTransitionPanGesture];
+    } else {
+        self.slidingViewController.topViewAnchoredGesture = ECSlidingViewControllerAnchoredGestureTapping | ECSlidingViewControllerAnchoredGesturePanning;
+        self.slidingViewController.customAnchoredGestures = @[];
+        [self.navigationController.view removeGestureRecognizer:self.dynamicTransitionPanGesture];
+        [self.navigationController.view addGestureRecognizer:self.slidingViewController.panGesture];
+    }
 }
 
 @end

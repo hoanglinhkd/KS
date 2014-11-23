@@ -11,8 +11,16 @@
 #import "YIPopupTextView.h"
 #import "OttaOptionCell.h"
 #import "OttaAnswer.h"
+#import "OttaAlertManager.h"
+#import "NSString+Language.h"
+#import "UIViewController+ECSlidingViewController.h"
 
 @interface OttaAskViewController ()
+{
+    NSMutableDictionary *listHeightQuestion;
+    NSString* deadlineString;
+}
+
 @property (strong) OttaOptionCell *editingOptionCell;
 
 @end
@@ -70,7 +78,11 @@
 {
     [super viewDidLoad];
     [self.navigationController setNavigationBarHidden:YES];
-
+    
+    listHeightQuestion = [NSMutableDictionary dictionary];
+    //Default is having first row
+    [listHeightQuestion setObject:[NSNumber numberWithFloat:70.0f] forKey:@"row0"];
+    
   /*  [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(keyboardWasShown:)
                                                  name:UIKeyboardDidShowNotification
@@ -103,7 +115,7 @@ testAnswer.answerText = @"Creme Brelee";
 //    self.answerTableView.dataSource = self.answerViewController;
 //    [self.answerTableView reloadData];
 //    self.answerViewController.mainViewController = self;
-    [_itsTextView setReturnKeyType:UIReturnKeyDone];
+    //[_itsTextView setReturnKeyType:UIReturnKeyDone];
     [_itsTextView setFont:[UIFont fontWithName:@"OpenSans-Light" size:17.00f]];
     
     [_itsTextView setText:[@"Ask a question..." toCurrentLanguage]];
@@ -148,6 +160,10 @@ testAnswer.answerText = @"Creme Brelee";
     [textField resignFirstResponder];
     
     return YES;
+}
+
+- (IBAction)menuButtonPressed:(id)sender {
+    [self.slidingViewController anchorTopViewToRightAnimated:YES];
 }
 
 -(IBAction)addQuestionButtonText:(id)sender
@@ -285,19 +301,17 @@ UITextView itsTextView = [[UITextView alloc] initWithFrame:CGRectMake(0, 0, itsT
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return _optionsArray.count + 2;
+    if (_optionsArray.count < 4) {
+        return _optionsArray.count + 2;
+    } else {
+        return _optionsArray.count + 1;
+    }
 }
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 1;
-}
-- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
-    return [@"Options:" toCurrentLanguage];
-}
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    if (indexPath.row == _optionsArray.count + 1) {
+    if ((_optionsArray.count < 4 && indexPath.row == _optionsArray.count + 1) || (_optionsArray.count == 4 && indexPath.row == _optionsArray.count)) {
         // Choose deadline
         static NSString *cellIdentifier = @"OttaDeadlineOptionCellIID";
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:
@@ -307,10 +321,17 @@ UITextView itsTextView = [[UITextView alloc] initWithFrame:CGRectMake(0, 0, itsT
                     UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
         }
         
+        UILabel *label = (UILabel *)[cell viewWithTag:1001];
+        if (deadlineString != nil && ![deadlineString isEqualToString:@""]) {
+            label.text = deadlineString;
+        } else {
+            label.text = [@"Choose deadline..." toCurrentLanguage];
+        }
+        
         return cell;
     }
     
-    if (indexPath.row == _optionsArray.count) {
+    if (_optionsArray.count < 4 && indexPath.row == _optionsArray.count) {
         // Add option
         static NSString *cellIdentifier = @"OttaAddOptionCellIID";
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:
@@ -330,6 +351,10 @@ UITextView itsTextView = [[UITextView alloc] initWithFrame:CGRectMake(0, 0, itsT
         cell = [[OttaOptionCell alloc]initWithStyle:
                 UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
     }
+    
+    [cell enableAutoHeightCell];
+    [cell.lblNumber setText:[NSString stringWithFormat:@"%d", indexPath.row + 1]];
+    
     cell.delegate = self;
     
     return cell;
@@ -337,42 +362,75 @@ UITextView itsTextView = [[UITextView alloc] initWithFrame:CGRectMake(0, 0, itsT
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    if (indexPath.row == _optionsArray.count + 1) {
+    if ((_optionsArray.count < 4 && indexPath.row == _optionsArray.count + 1) || (_optionsArray.count == 4 && indexPath.row == _optionsArray.count)) {
         // Choose deadline
         return 116;
     }
     
-    if (indexPath.row == _optionsArray.count) {
+    if (_optionsArray.count < 4 && indexPath.row == _optionsArray.count) {
         // Add option
         return 55;
     }
     
-    return 80;
+    NSNumber *currentRowHeight = [listHeightQuestion objectForKey:[NSString stringWithFormat:@"row%d", indexPath.row]];
+    return [currentRowHeight floatValue];
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
-    if (indexPath.row == _optionsArray.count + 1) {
+    if ((_optionsArray.count < 4 && indexPath.row == _optionsArray.count + 1) || (_optionsArray.count == 4 && indexPath.row == _optionsArray.count)) {
         // Choose deadline
-        
+        [[OttaAlertManager sharedManager] showLimitTimerPickerOnView:self.view completionBlock:^(NSInteger timeValue, TimeSelection timeSelectionValue) {
+            NSString *str = @"";
+            switch (timeSelectionValue) {
+                case 0:
+                    str = [NSString stringWithFormat:@"%d Minutes",timeValue];
+                    break;
+                case 1:
+                    str = [NSString stringWithFormat:@"%d Hours",timeValue];
+                    break;
+                case 2:
+                    str = [NSString stringWithFormat:@"%d Days",timeValue];
+                    break;
+                default:
+                    break;
+            }
+            deadlineString = str;
+            [tableView reloadData];
+        }];
     }
     
-    if (indexPath.row == _optionsArray.count) {
+    if (_optionsArray.count < 4 && indexPath.row == _optionsArray.count) {
         // Add option
         [_optionsArray addObject:[[OttaAnswer alloc] init]];
+        [listHeightQuestion setObject:[NSNumber numberWithFloat:70.0f] forKey:[NSString stringWithFormat:@"row%d", indexPath.row]];
         [tableView reloadData];
     }
+   
 }
 
 #pragma mark option cell delegate
+
+-(void)optionCell:(OttaOptionCell *)cell textView:(HPGrowingTextView *)textViewUpdateHeight willChangeHeight:(float)height
+{
+    NSLog(@"Height = %f", height);
+    if(cell.viewContent2.isHidden) {
+        NSIndexPath *indexPath = [self.tableAsk indexPathForCell:cell];
+        //[listHeightQuestion setObject:[NSNumber numberWithFloat:height + 20] forKey:[NSString stringWithFormat:@"row%d",indexPath.row]];
+        //[self.tableAsk reloadData];
+    }
+}
+
 - (void)optionCell:(OttaOptionCell*)cell textBeginEditing:(id)textview
 {
     
 }
+
 - (void)optionCell:(OttaOptionCell*)cell textEndEditing:(id)textview
 {
+    
 }
 - (void)optionCell:(OttaOptionCell*)cell beginTakePicture:(id)imageView
 {
@@ -388,15 +446,24 @@ UITextView itsTextView = [[UITextView alloc] initWithFrame:CGRectMake(0, 0, itsT
     _photoPicker = [[CZPhotoPickerController alloc] initWithPresentingViewController:self withCompletionBlock:^(UIImagePickerController *imagePickerController, NSDictionary *imageInfoDict) {
         UIImage *selectedImage = nil;
         NSString *caption = @"Just4Test";
-        if (imagePickerController.allowsEditing) {
-            selectedImage = imageInfoDict[UIImagePickerControllerEditedImage];
+        if (imageInfoDict) {
+            if (imagePickerController.allowsEditing) {
+                selectedImage = imageInfoDict[UIImagePickerControllerEditedImage];
+            }
+            else {
+                selectedImage = imageInfoDict[UIImagePickerControllerOriginalImage];
+            }
+        
+            //weakSelf.editingOptionCell.imgMain.image = selectedImage;
+            [weakSelf.editingOptionCell displayThumbAndCaption:selectedImage caption:caption];
+            [weakSelf.photoPicker dismissAnimated:YES];
+            
+            [self performSegueWithIdentifier:@"segueAddCaptionPicture" sender:self];
+            
+        } else {
+            [weakSelf.photoPicker dismissAnimated:YES];
         }
-        else {
-            selectedImage = imageInfoDict[UIImagePickerControllerOriginalImage];
-        }
-        //weakSelf.editingOptionCell.imgMain.image = selectedImage;
-        [weakSelf.editingOptionCell displayThumbAndCaption:selectedImage caption:caption];
-        [weakSelf.photoPicker dismissAnimated:YES];
+        
     }];
     
     _photoPicker.allowsEditing = YES; // optional
@@ -406,5 +473,19 @@ UITextView itsTextView = [[UITextView alloc] initWithFrame:CGRectMake(0, 0, itsT
 }
 #pragma mark -
 
+- (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([[segue identifier] isEqualToString: @"segueAddCaptionPicture"]) {
+        OttaAddCaptionImageViewController *dest = (OttaAddCaptionImageViewController *)[segue destinationViewController];
+        //the sender is what you pass into the previous method
+        dest.image = self.editingOptionCell.imgMain.image;
+        dest.question =  _itsTextView.text;
+        dest.delegate = self;
+    }
+}
+
+- (void)addCaptionVC:(OttaAddCaptionImageViewController*)captionVC addCaption:(id)caption {
+    [_editingOptionCell displayCabtion:caption];
+}
 
 @end

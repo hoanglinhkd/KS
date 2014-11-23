@@ -9,8 +9,16 @@
 #import "OttaAlertManager.h"
 #import "MBProgressHUD.h"
 
+typedef enum  {
+    PageShowing_IntroPage = 1,
+    PageShowing_LoginPage,
+    PageShowing_JoinPage,
+    PageShowing_FacebookPage
+} PageShowing;
+
 @interface OttaViewController ()<EAIntroDelegate> {
     BOOL isJoinScreen;
+    PageShowing currentPageShowing;
 }
 
 @property (strong, nonatomic) OttaAlertManager* otta;
@@ -174,6 +182,7 @@
 
 -(void) showFirstIntroPage
 {
+    currentPageShowing = PageShowing_IntroPage;
     [self.ottaBackingView setUserInteractionEnabled:YES];
     [_btnLoginDetail setHidden:YES];
     [_btnBackPage setHidden:YES];
@@ -198,6 +207,7 @@
 
 -(void) showLoginView
 {
+    currentPageShowing = PageShowing_LoginPage;
     [self.ottaBackingView setUserInteractionEnabled:NO];
     [_usernameTextField setHidden:NO];
     [_usernameLine setHidden:NO];
@@ -226,6 +236,7 @@
 
 -(void) showJoinView
 {
+    currentPageShowing = PageShowing_JoinPage;
     [self.ottaBackingView setUserInteractionEnabled:NO];
     
     [_btnJoinDetail setHidden:NO];
@@ -245,6 +256,7 @@
 
 -(void) showFacebookDetail
 {
+    currentPageShowing = PageShowing_FacebookPage;
     [self.ottaBackingView setUserInteractionEnabled:NO];
     
     [_btnJoinDetail setHidden:NO];
@@ -280,7 +292,8 @@
 -(IBAction)btnLoginTapped:(id)sender
 {
     //Is login screen
-    if ([self.usernameTextField isHidden]) {
+    //if ([self.usernameTextField isHidden]) {
+    if(currentPageShowing != PageShowing_LoginPage) {
         [self showLoginView];
     } else {
         //Validate required field
@@ -290,12 +303,12 @@
         
         [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     
-        [[OttaParseClientManager sharedManager] loginWithNameOrEmail:self.usernameTextField.text andPassword:self.passwordTextField.text withResult:^(BOOL joinSucceeded, PFUser *pUser, NSString *failureReason) {
+        [[OttaParseClientManager sharedManager] loginWithNameOrEmail:self.usernameTextField.text andPassword:self.passwordTextField.text withResult:^(BOOL joinSucceeded, PFUser *pUser, NSError* error) {
             
             if (joinSucceeded) {
                 NSLog(@"Login succeeded");
 
-                [self performSegueWithIdentifier:@"AskViewControllerSegue" sender:self];
+                [self performSegueWithIdentifier:@"homeSegue" sender:self];
             } else {
                 
                 NSLog(@"Login failed");
@@ -310,7 +323,8 @@
 -(IBAction)btnJoinTapped:(id)sender
 {
     //Is join Screen
-    if ([self.emailTextField isHidden]) {
+    //if ([self.emailTextField isHidden]) {
+    if(currentPageShowing != PageShowing_JoinPage) {
         [self showJoinView];
     } else {
         //Validation
@@ -319,55 +333,62 @@
         
         [MBProgressHUD showHUDAddedTo:self.view animated:YES];
         
-        [[OttaParseClientManager sharedManager] joinWithEmail:self.emailTextField.text andUsername:self.usernameTextField.text andPassword:self.passwordTextField.text withResult:^(BOOL joinSucceeded, PFUser *pUser, NSString *failureReason) {
-            [MBProgressHUD hideHUDForView:self.view animated:YES];
+        [[OttaParseClientManager sharedManager] joinWithEmail:_emailJoinDetail.text firstName:_firstNameJoinDetail.text phone:_phoneJoinDetail.text lastName:_lastNameJoinDetail.text  password:_passwordJoinDetail.text withResult:^(BOOL joinSucceeded, PFUser* pUser, NSError* error) {
             
             if (joinSucceeded) {
                 NSLog(@"Join succeeded");
 
-                [self performSegueWithIdentifier:@"AskViewControllerSegue" sender:self];
-                //[[OttaUserManager sharedManager] saveCurrentUser:pUser];
+                [self performSegueWithIdentifier:@"FindFriendSegue" sender:self];
             } else {
                 NSLog(@"Join failed");
-                [[OttaAlertManager sharedManager] showSimpleAlertOnView:self.view withContent:[@"Register Failed" toCurrentLanguage] complete:nil];
+                NSString* str = error.domain;
+                
+                if (error.code == 202) {
+                    str = [[[error userInfo] objectForKey:@"error"] stringByReplacingOccurrencesOfString:@"username" withString:@"email"];
+                }
+                
+                [[OttaAlertManager sharedManager] showSimpleAlertOnView:self.view withContent:str complete:nil];
             }
             
             [MBProgressHUD hideHUDForView:self.view animated:YES];
         }];
     }
-    
 }
 
 #pragma mark - Facebook
 -(IBAction)facebookLogin:(id)sender
 {
-    //[[OttaSessionManager sharedManager]loginWithFacebook];
-    
-    NSArray *permissionsArray = @[ @"user_about_me", @"user_relationships", @"user_birthday", @"user_location"];
-    
-    // Login PFUser using Facebook
-    [PFFacebookUtils logInWithPermissions:permissionsArray block:^(PFUser *user, NSError *error) {
-        //[_activityIndicator stopAnimating]; // Hide loading indicator
+    if(currentPageShowing != PageShowing_FacebookPage) {
+        [self showFacebookDetail];
+    } else {
+        //[[OttaSessionManager sharedManager]loginWithFacebook];
         
-        if (!user) {
-            if (!error) {
-                NSLog(@"Uh oh. The user cancelled the Facebook login.");
-                // resultblock(NO);
+        NSArray *permissionsArray = @[ @"user_about_me", @"user_relationships", @"user_birthday", @"user_location"];
+        
+        // Login PFUser using Facebook
+        [PFFacebookUtils logInWithPermissions:permissionsArray block:^(PFUser *user, NSError *error) {
+            //[_activityIndicator stopAnimating]; // Hide loading indicator
+            
+            if (!user) {
+                if (!error) {
+                    NSLog(@"Uh oh. The user cancelled the Facebook login.");
+                    // resultblock(NO);
+                } else {
+                    NSLog(@"Uh oh. An error occurred: %@", error);
+                    //resultblock(NO);
+                    
+                }
+            } else if (user.isNew) {
+                NSLog(@"User with facebook signed up and logged in!");
+                [self performSegueWithIdentifier:@"FindFriendSegue" sender:self];
+                //[[OttaUserManager sharedManager] saveCurrentUser:user];;
             } else {
-                NSLog(@"Uh oh. An error occurred: %@", error);
-                //resultblock(NO);
-                
+                NSLog(@"User with facebook logged in!");
+                [self performSegueWithIdentifier:@"homeSegue" sender:self];
+                //[[OttaUserManager sharedManager] saveCurrentUser:user];
             }
-        } else if (user.isNew) {
-            NSLog(@"User with facebook signed up and logged in!");
-            [self performSegueWithIdentifier:@"AskViewControllerSegue" sender:self];
-            //[[OttaUserManager sharedManager] saveCurrentUser:user];;
-        } else {
-            NSLog(@"User with facebook logged in!");
-            [self performSegueWithIdentifier:@"AskViewControllerSegue" sender:self];
-            //[[OttaUserManager sharedManager] saveCurrentUser:user];
-        }
-    }];
+        }];
+    }
 }
 
 #pragma mark - Text Field
@@ -417,40 +438,34 @@
 - (BOOL)validateLogin {
     //Validate required field
     if ([@"" isEqualToString: self.usernameTextField.text] || [@"" isEqualToString:self.passwordTextField.text]) {
-        UIAlertView * alert =[[UIAlertView alloc ] initWithTitle:@""
-                                                         message:@"User Name and Password are required fields."
-                                                        delegate:self
-                                               cancelButtonTitle:@"Ok"
-                                               otherButtonTitles: nil];
-        [alert show];
+        [[OttaAlertManager sharedManager] showSimpleAlertOnView:self.view withContent:[@"Email and Password are required fields." toCurrentLanguage] complete:nil];
         return FALSE;
     }
     //ToDo: Validation Email
+    if (![self NSStringIsValidEmail:self.usernameTextField.text]) {
+        [[OttaAlertManager sharedManager] showSimpleAlertOnView:self.view withContent:[@"Invalid Email" toCurrentLanguage] complete:nil];
+        return FALSE;
+    }
     
     return TRUE;
 }
 
 - (BOOL)validateJoin {
     
-    if (![self NSStringIsValidEmail:self.emailTextField.text]) {
-        UIAlertView * alert =[[UIAlertView alloc ] initWithTitle:@""
-                                                         message:@"Invalid Email"
-                                                        delegate:self
-                                               cancelButtonTitle:@"Ok"
-                                               otherButtonTitles: nil];
-        [alert show];
+    if (![self NSStringIsValidEmail:self.emailJoinDetail.text]) {
+        [[OttaAlertManager sharedManager] showSimpleAlertOnView:self.view withContent:[@"Invalid Email" toCurrentLanguage] complete:nil];
         return FALSE;
     }
     
     //Validate required field
-    if ([@"" isEqualToString: self.usernameTextField.text] || [@"" isEqualToString:self.passwordTextField.text]
-        || [@"" isEqualToString:self.emailTextField.text]) {
-        UIAlertView * alert =[[UIAlertView alloc ] initWithTitle:@""
-                                                         message:@"Email, User Name and Password are required fields."
-                                                        delegate:self
-                                               cancelButtonTitle:@"Ok"
-                                               otherButtonTitles: nil];
-        [alert show];
+    if ([@"" isEqualToString: self.firstNameJoinDetail.text] || [@"" isEqualToString:self.passwordJoinDetail.text] || [@"" isEqualToString:self.confirmPassJoinDetail.text]
+        || [@"" isEqualToString:self.emailJoinDetail.text]) {
+        [[OttaAlertManager sharedManager] showSimpleAlertOnView:self.view withContent:[@"Email, Name and Password are required fields." toCurrentLanguage] complete:nil];
+        return FALSE;
+    }
+    
+    if (![self.confirmPassJoinDetail.text isEqualToString:self.passwordJoinDetail.text]) {
+        [[OttaAlertManager sharedManager] showSimpleAlertOnView:self.view withContent:[@"Your passwords don't match." toCurrentLanguage] complete:nil];
         return FALSE;
     }
 

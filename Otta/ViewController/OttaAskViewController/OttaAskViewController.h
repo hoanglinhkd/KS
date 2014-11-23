@@ -11,15 +11,17 @@
 #import "CZPhotoPickerController.h"
 #import "TPKeyboardAvoidingTableView.h"
 #import "OttaOptionCell.h"
+#import "OttaAddCaptionImageViewController.h"
+#import "OttaTransitionViewController.h"
 
-@interface OttaAskViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, OttaOptionCellDelegate>
+@interface OttaAskViewController : OttaTransitionViewController <UITableViewDataSource, UITableViewDelegate, OttaOptionCellDelegate, OttaAddCaptionDelegate>
 
 //@property (nonatomic,strong) OttaAnswerTableController * answerViewController;
 //@property (nonatomic,strong) IBOutlet TPKeyboardAvoidingTableView * answerTableView;
 @property (nonatomic,strong) CZPhotoPickerController * photoPicker;
 @property (nonatomic,strong) IBOutlet UITextView * itsTextView;
 @property (nonatomic,strong) UITextView *activeTextField;
-
+@property (nonatomic,strong) IBOutlet UITableView *tableAsk;
 
 @property (nonatomic, strong) NSMutableArray* optionsArray;
 

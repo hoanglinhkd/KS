@@ -8,6 +8,10 @@
 
 #import "OttaParseClientManager.h"
 
+#define kFirstName  @"firstName"
+#define kLastName   @"lastName"
+#define kPhone      @"phone"
+
 @implementation OttaParseClientManager
 
 + (id)sharedManager {
@@ -27,104 +31,37 @@
 }
 
 - (void)loginWithNameOrEmail:(NSString*)nameOrEmail andPassword:(NSString *)password withResult:(OttaPLoginResultBlock)resultblock {
-    
-    __block BOOL loginSucceeded;
-    __block NSString *errorString;
 
-    PFQuery *userQuery = [PFUser query];
-    
-    [userQuery whereKey:@"email" equalTo:nameOrEmail];
-    
-    if([self NSStringIsValidEmail:nameOrEmail]) {
-        //Query user by email
-        [userQuery getFirstObjectInBackgroundWithBlock:^(PFObject *object, NSError *error) {
-            if (object) {
-                PFUser *user = (PFUser *)object;
-                
-                //Authenticate
-                [PFUser logInWithUsernameInBackground:user.username password:password
-                                                block:^(PFUser *user, NSError *error) {
-                                                    if (user) {
-                                                        // Do stuff after successful login.
-                                                        loginSucceeded = true;
-                                                        resultblock(loginSucceeded, user, errorString);
-                                                    } else {
-                                                        // The login failed. Check error to see why.
-                                                        loginSucceeded = false;
-                                                        errorString = [[error userInfo] objectForKey:@"error"];
-                                                        
-                                                        resultblock(loginSucceeded, user, errorString);
-                                                    }
-                                                }];
-                
-            } else {
-                loginSucceeded = false;
-                errorString = @"Does not exits the email, Please register";
-                
-                resultblock(loginSucceeded, nil, errorString);
-            }
-        }];
-        //login by username
-    } else {
-        //Authenticate
-        [PFUser logInWithUsernameInBackground:nameOrEmail password:password
-                                        block:^(PFUser *user, NSError *error) {
-                                            if (user) {
-                                                // Do stuff after successful login.
-                                                loginSucceeded = true;
-                                                resultblock(loginSucceeded, user, errorString);
-                                            } else {
-                                                // The login failed. Check error to see why.
-                                                loginSucceeded = false;
-                                                errorString = [[error userInfo] objectForKey:@"error"];
-                                                
-                                                resultblock(loginSucceeded, user, errorString);
-                                            }
-                                        }];
-    }
-
-
+    [PFUser logInWithUsernameInBackground:nameOrEmail password:password
+                                    block:^(PFUser *user, NSError *error) {
+                                        if (user) {
+                                            // Do stuff after successful login.
+                                            resultblock(YES, user, error);
+                                        } else {
+                                            // The login failed. Check error to see why.
+                                            resultblock(NO, user, error);
+                                        }
+                                    }];
 }
 
 
 
-- (void)joinWithEmail:(NSString*)email andUsername:(NSString *)userName andPassword:(NSString *)password withResult:(OttaJoinResultBlock)resultblock
+- (void)joinWithEmail:(NSString*)email firstName:(NSString*)firstName phone:(NSString*)phone lastName:(NSString*)lastName  password:(NSString *)password withResult:(OttaJoinResultBlock)resultblock
 {
-    __block BOOL joinSucceeded;
-    __block NSString *errorString;
+    PFUser *pUser = [PFUser user];
+    pUser.username = email;
+    pUser.email = email;
+    pUser.password = password;
+    [pUser setObject:firstName forKey:kFirstName];
+    [pUser setObject:lastName forKey:kLastName];
+    [pUser setObject:phone forKey:kPhone];
     
-    PFQuery *userQuery = [PFUser query];
-    
-    [userQuery whereKey:@"email" equalTo:email];
-    
-    //Query user by email
-    [userQuery getFirstObjectInBackgroundWithBlock:^(PFObject *object, NSError *error) {
-                //if existing user
-        if (object) {
-            PFUser *user = (PFUser *)object;
-            joinSucceeded = FALSE;
-            errorString = @"The email has registered!";
-            resultblock(joinSucceeded, user, errorString);
-            //Create User
+    //Sign up
+    [pUser signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error){
+        if (!error) {
+            resultblock(YES, pUser, error);
         } else {
-            PFUser *pUser = [PFUser user];
-            pUser.email = email;
-            pUser.username = userName;
-            pUser.password = password;
-            
-            //Sign up
-            [pUser signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error){
-                if (!error) {
-                    joinSucceeded = TRUE;
-                    
-                    resultblock(joinSucceeded, pUser, errorString);
-                } else {
-                    joinSucceeded = FALSE;
-                    errorString = [[error userInfo] objectForKey:@"error"];
-                    
-                    resultblock(joinSucceeded, pUser, errorString);
-                }
-            }];
+            resultblock(NO, pUser, error);
         }
     }];
 }
