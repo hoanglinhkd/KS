@@ -9,6 +9,12 @@
 #import <UIKit/UIKit.h>
 #import "Constant.h"
 
+typedef enum {
+    FriendActionBlock = 0,
+    FriendActionRemove,
+    FriendActionCancel,
+} FriendAction;
+
 @interface OttaAlertManager : UIViewController
 
 @property (strong, nonatomic) UIView* parentView;
@@ -17,6 +23,8 @@ typedef void(^OttaTimePickerCompletion)(NSInteger timeValue, TimeSelection timeS
 
 typedef void(^OttaAlertCompletion)();
 typedef void(^OttaAlertCancel)();
+
+typedef void(^OttaFriendAlertCompletion)(FriendAction action);
 
 + (id)sharedManager;
 
@@ -47,4 +55,12 @@ typedef void(^OttaAlertCancel)();
  */
 - (void)showLimitTimerPickerOnView:(UIView*)parentView completionBlock:(OttaTimePickerCompletion) completionResult;
 
+/**
+ *  Show friend action picker
+ *
+ *  @param parentView
+ *  @param name
+ *  @param completionBlock 
+ */
+- (void)showFriendAlertOnView:(UIView*)parentView withName:(NSString*)name complete:(OttaFriendAlertCompletion)completionBlock;
 @end

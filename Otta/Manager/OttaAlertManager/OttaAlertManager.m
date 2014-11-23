@@ -14,6 +14,7 @@
 {
     OttaAlertCompletion ottaAlertCompletion;
     OttaAlertCancel ottaAlertCancel;
+    OttaFriendAlertCompletion ottaFriendAlertCompletion;
     
     AFPickerView *pickerTimeValue;
     AFPickerView *pickerTimeTitle;
@@ -30,9 +31,12 @@
 @property (strong, nonatomic) IBOutlet UIView *yesNoAlertView;
 @property (weak, nonatomic) IBOutlet UILabel *lblYesNoContent;
 
-
 @property (strong, nonatomic) IBOutlet UIView *limitTimerAlertView;
 @property (weak, nonatomic) IBOutlet UIImageView *imagePicker;
+
+@property (strong, nonatomic) IBOutlet UIView *friendAlertView;
+@property (weak, nonatomic) IBOutlet UILabel *lblFriendName;
+
 
 @end
 
@@ -223,6 +227,39 @@
         timePickerCompletion(selectedTimeValue, selectedTimeTitle);
     }
 }
+
+#pragma mark - Timer Picker
+
+- (void)showFriendAlertOnView:(UIView*)parentView withName:(NSString*)name complete:(OttaFriendAlertCompletion)completionBlock {
+    [parentView addSubview:self.view];
+    _lblFriendName.text = name;
+    ottaFriendAlertCompletion = completionBlock;
+    if ([_friendAlertView superview] == nil) {
+        [self showAleartWithView:_friendAlertView];
+    }
+}
+
+- (IBAction)removeFriend:(id)sender {
+    [self hideAlertAction:_friendAlertView];
+    if (ottaFriendAlertCompletion != nil) {
+        ottaFriendAlertCompletion(FriendActionRemove);
+    }
+}
+
+- (IBAction)blockFriend:(id)sender {
+    [self hideAlertAction:_friendAlertView];
+    if (ottaFriendAlertCompletion != nil) {
+        ottaFriendAlertCompletion(FriendActionBlock);
+    }
+}
+
+- (IBAction)cancelFriend:(id)sender {
+    [self hideAlertAction:_friendAlertView];
+    if (ottaFriendAlertCompletion != nil) {
+        ottaFriendAlertCompletion(FriendActionCancel);
+    }
+}
+
 
 - (void)didReceiveMemoryWarning
 {

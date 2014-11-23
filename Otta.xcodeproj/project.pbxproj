@@ -24,6 +24,8 @@
 		383400631A17BF67006A913E /* btn_alert_no.png in Resources */ = {isa = PBXBuildFile; fileRef = 383400611A17BF67006A913E /* btn_alert_no.png */; };
 		383400641A17BF67006A913E /* btn_alert_yes.png in Resources */ = {isa = PBXBuildFile; fileRef = 383400621A17BF67006A913E /* btn_alert_yes.png */; };
 		383400661A17CC2F006A913E /* bgalert_white_big.png in Resources */ = {isa = PBXBuildFile; fileRef = 383400651A17CC2F006A913E /* bgalert_white_big.png */; };
+		383581311A21741400CB1423 /* Launch Screen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 383581301A21741400CB1423 /* Launch Screen.xib */; };
+		383581331A21748200CB1423 /* OttaLaunchIphone6p.png in Resources */ = {isa = PBXBuildFile; fileRef = 383581321A21748200CB1423 /* OttaLaunchIphone6p.png */; };
 		3847CFB31A1863E1002599E7 /* OttaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3847CFB21A1863E1002599E7 /* OttaViewController.m */; };
 		386E89AF1A124EAF00459171 /* btn_facebook.png in Resources */ = {isa = PBXBuildFile; fileRef = 386E89A61A124EAF00459171 /* btn_facebook.png */; };
 		386E89B01A124EAF00459171 /* btn_join.png in Resources */ = {isa = PBXBuildFile; fileRef = 386E89A71A124EAF00459171 /* btn_join.png */; };
@@ -181,6 +183,8 @@
 		383400611A17BF67006A913E /* btn_alert_no.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_alert_no.png; sourceTree = "<group>"; };
 		383400621A17BF67006A913E /* btn_alert_yes.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_alert_yes.png; sourceTree = "<group>"; };
 		383400651A17CC2F006A913E /* bgalert_white_big.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bgalert_white_big.png; sourceTree = "<group>"; };
+		383581301A21741400CB1423 /* Launch Screen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "Launch Screen.xib"; sourceTree = "<group>"; };
+		383581321A21748200CB1423 /* OttaLaunchIphone6p.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = OttaLaunchIphone6p.png; path = ../OttaLaunchIphone6p.png; sourceTree = "<group>"; };
 		3847CFB11A1863E1002599E7 /* OttaViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OttaViewController.h; sourceTree = "<group>"; };
 		3847CFB21A1863E1002599E7 /* OttaViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OttaViewController.m; sourceTree = "<group>"; };
 		386E89A61A124EAF00459171 /* btn_facebook.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_facebook.png; sourceTree = "<group>"; };
@@ -564,6 +568,7 @@
 		66FD4AF31A11A6CC005ACD58 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				383581321A21748200CB1423 /* OttaLaunchIphone6p.png */,
 				7E1A1DA11A1C7E05009FB0E6 /* Friends */,
 				380F5DF11A1BCD9000969FDC /* Header */,
 				66502BE31A14571000A9472D /* icon_time.png */,
@@ -634,6 +639,7 @@
 				382E32761A13A54A008ACA45 /* OttaMenuCell.m */,
 				66502BE51A14653300A9472D /* OttaOptionCell.h */,
 				66502BE61A14653300A9472D /* OttaOptionCell.m */,
+				383581301A21741400CB1423 /* Launch Screen.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1010,6 +1016,7 @@
 				66FD4B091A11A6CC005ACD58 /* green_tea.jpg in Resources */,
 				66FD4B0E1A11A6CC005ACD58 /* japanese_noodle_with_pork.jpg in Resources */,
 				66FD4B2C1A11A6CC005ACD58 /* OttaNumberBackground.png in Resources */,
+				383581331A21748200CB1423 /* OttaLaunchIphone6p.png in Resources */,
 				7E1A1DAB1A1C7E05009FB0E6 /* Otta-80.png in Resources */,
 				66FD4B231A11A6CC005ACD58 /* LoginButton.png in Resources */,
 				66FD4B0A1A11A6CC005ACD58 /* ham_and_cheese_panini.jpg in Resources */,
@@ -1018,6 +1025,7 @@
 				382E326F1A139911008ACA45 /* menu_heart.png in Resources */,
 				386E89B61A124EAF00459171 /* icon_open_mail.png in Resources */,
 				382E32741A139911008ACA45 /* menu_weel.png in Resources */,
+				383581311A21741400CB1423 /* Launch Screen.xib in Resources */,
 				66FD4B121A11A6CC005ACD58 /* thai_shrimp_cake.jpg in Resources */,
 				66FD4B191A11A6CC005ACD58 /* OpenSans-Italic.ttf in Resources */,
 				38A37D7B1A171FF900771881 /* bgalert_white.png in Resources */,

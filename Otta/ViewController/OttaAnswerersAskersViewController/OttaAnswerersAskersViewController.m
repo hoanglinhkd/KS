@@ -8,6 +8,7 @@
 
 #import "OttaAnswerersAskersViewController.h"
 #import "UIViewController+ECSlidingViewController.h"
+#import "OttaAlertManager.h"
 
 @interface OttaAnswerersAskersViewController ()
 {
@@ -58,30 +59,33 @@
         cell = [[OttaFriendsCell alloc] initWithStyle:
                 UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
     }
+
+    OttaFriend *f = (OttaFriend *)[self.friends objectAtIndex:indexPath.row];
+    cell.lblText.text = f.name;
     
-    btnImage = [UIImage imageNamed:@"Otta_friends_button_add.png"];
-    
-    if (indexPath.row == 0){
-        cell.lblText.text = @"Select All";
-    } else{
-        OttaFriend *f = (OttaFriend *)[self.friends objectAtIndex:indexPath.row-1];
-        cell.lblText.text = f.name;
-        
-        if (f.isFriend){
-            btnImage = [UIImage imageNamed:@"Otta_friends_button_added.png"];
-        }
+    if (f.isFriend){
+        btnImage = [UIImage imageNamed:@"Otta_friends_button_added.png"];
+    } else {
+        btnImage = [UIImage imageNamed:@"Otta_friends_button_add.png"];
     }
-    
     [cell.imgIcon setImage:btnImage];
+    
     return cell;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [self.friends count]+1;
+    return [self.friends count];
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    
+    OttaFriend *f = (OttaFriend *)[self.friends objectAtIndex:indexPath.row];
+    
+    [[OttaAlertManager sharedManager] showFriendAlertOnView:self.view withName:f.name complete:^(FriendAction action) {
+        
+    }];
 }
 
 - (IBAction)menuButtonPressed:(id)sender {

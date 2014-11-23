@@ -21,7 +21,10 @@
 - (void)viewDidLoad {
     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"OttaSideMenuBackground.png"]];
     
-    
+    [self inittempData];
+}
+
+- (void)inittempData {
     _friends = [NSMutableArray array];
     _searchResults = [NSMutableArray array];
     _selectedFriends = [NSMutableArray array];
@@ -81,8 +84,8 @@
         OttaFriend *friendToAdd = [[OttaFriend alloc] initWithName:name friendStatus:NO];
         [_friends addObject:friendToAdd];
     }
-    
 }
+
 - (IBAction)backButtonPressed:(id)sender {
     [self.navigationController popViewControllerAnimated:YES];
 }
@@ -145,11 +148,11 @@ replacementString:(NSString *)string {
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:
                              cellIdentifier];
-    
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:
                 UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
     }
+    
     cell.backgroundColor = [UIColor clearColor];
     OttaFriend *friend = [_searchResults objectAtIndex:indexPath.row];
     cell.textLabel.text = friend.name;
@@ -162,8 +165,6 @@ replacementString:(NSString *)string {
         cell.accessoryView = [[ UIImageView alloc ] initWithImage:[UIImage imageNamed:@"Otta_friends_button_add"]];
         [cell.accessoryView setFrame:CGRectMake(0, 0, 15, 15)];
     }
-    
-    
     
     return cell;
 }
