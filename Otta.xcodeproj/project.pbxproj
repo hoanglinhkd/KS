@@ -460,18 +460,18 @@
 		3847CFB01A1863E1002599E7 /* OttaLoginViewController */ = {
 			isa = PBXGroup;
 			children = (
-				D9CD798A1A22EA8C007C6E15 /* OttaFacebookDetailViewController.h */,
-				D9CD798B1A22EA8C007C6E15 /* OttaFacebookDetailViewController.m */,
-				D9CD798C1A22EA8C007C6E15 /* OttaJoinDetailViewController.h */,
-				D9CD798D1A22EA8C007C6E15 /* OttaJoinDetailViewController.m */,
+				3847CFB11A1863E1002599E7 /* OttaViewController.h */,
+				3847CFB21A1863E1002599E7 /* OttaViewController.m */,
 				D9CD798E1A22EA8C007C6E15 /* OttaLoginContainerViewController.h */,
 				D9CD798F1A22EA8C007C6E15 /* OttaLoginContainerViewController.m */,
 				D9CD79901A22EA8C007C6E15 /* OttaLoginDetailViewController.h */,
 				D9CD79911A22EA8C007C6E15 /* OttaLoginDetailViewController.m */,
+				D9CD798C1A22EA8C007C6E15 /* OttaJoinDetailViewController.h */,
+				D9CD798D1A22EA8C007C6E15 /* OttaJoinDetailViewController.m */,
+				D9CD798A1A22EA8C007C6E15 /* OttaFacebookDetailViewController.h */,
+				D9CD798B1A22EA8C007C6E15 /* OttaFacebookDetailViewController.m */,
 				D9CD79921A22EA8C007C6E15 /* OttaLoginSegue.h */,
 				D9CD79931A22EA8C007C6E15 /* OttaLoginSegue.m */,
-				3847CFB11A1863E1002599E7 /* OttaViewController.h */,
-				3847CFB21A1863E1002599E7 /* OttaViewController.m */,
 			);
 			path = OttaLoginViewController;
 			sourceTree = "<group>";
