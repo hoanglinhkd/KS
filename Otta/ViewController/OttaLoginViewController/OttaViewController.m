@@ -13,6 +13,7 @@
 @interface OttaViewController ()<EAIntroDelegate> {
     BOOL isJoinScreen;
     PageShowing currentPageShowing;
+    EAIntroView *intro;
 }
 
 @property (strong, nonatomic) OttaAlertManager* otta;
@@ -21,7 +22,6 @@
 @end
 
 @implementation OttaViewController
-@synthesize ottaBackingView;
 
 - (void)viewDidLoad
 {
@@ -84,14 +84,14 @@
     page4.titleIconView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"icon_check.png"]];
     [page4.titleIconView setFrame:CGRectMake(0, 0, 75, 75)];
     
-    intro = [[EAIntroView alloc] initWithFrame:self.ottaBackingView.bounds andPages:@[page1,page2,page3, page4]];
+    intro = [[EAIntroView alloc] initWithFrame:_ottaBackingView.bounds andPages:@[page1,page2,page3, page4]];
     intro.swipeToExit = NO;
     intro.skipButton.hidden = YES;
     intro.pageControl.pageIndicatorTintColor = [UIColor colorWithRed:(151/255.0) green:(113/255.0) blue:(39/255.0) alpha:1.0];
     intro.pageControl.currentPageIndicatorTintColor = [UIColor colorWithRed:(249/255.0) green:(175/255.0) blue:(27/255.0) alpha:1.0];
     
     [intro setDelegate:self];
-    [intro showInView:self.ottaBackingView animateDuration:0.6];
+    [intro showInView:_ottaBackingView animateDuration:0.6];
 }
 
 - (void)didReceiveMemoryWarning
@@ -121,24 +121,20 @@
 {
     currentPageShowing = PageShowing_IntroPage;
     [_btnBackPage setHidden:YES];
-    [_btnFacebook setHidden:NO];
-    [_btnJoin setHidden:NO];
-    [_btnLogin setHidden:NO];
+    [_viewAction setHidden:NO];
     [_containerView setHidden:YES];
     
-    [self.ottaBackingView setUserInteractionEnabled:YES];
-    [intro showInView:self.ottaBackingView animateDuration:0.4f];
+    [_ottaBackingView setUserInteractionEnabled:YES];
+    [intro showInView:_ottaBackingView animateDuration:0.4f];
 }
 
 -(void) showLoginView
 {
     currentPageShowing = PageShowing_LoginPage;
     [_btnBackPage setHidden:NO];
-    [_btnFacebook setHidden:YES];
-    [_btnJoin setHidden:YES];
-    [_btnLogin setHidden:YES];
+    [_viewAction setHidden:YES];
     
-    [self.ottaBackingView setUserInteractionEnabled:NO];
+    [_ottaBackingView setUserInteractionEnabled:NO];
     [_containerView setHidden:NO];
     [_containerViewController openLoginViewDetail];
     
@@ -151,10 +147,8 @@
 {
     currentPageShowing = PageShowing_JoinPage;
     [_btnBackPage setHidden:NO];
-    [_btnFacebook setHidden:YES];
-    [_btnJoin setHidden:YES];
-    [_btnLogin setHidden:YES];
-    [self.ottaBackingView setUserInteractionEnabled:NO];
+    [_viewAction setHidden:YES];
+    [_ottaBackingView setUserInteractionEnabled:NO];
     [_containerView setHidden:NO];
     [_containerViewController openJoinViewDetail];
     
@@ -167,10 +161,8 @@
 {
     currentPageShowing = PageShowing_FacebookPage;
     [_btnBackPage setHidden:NO];
-    [_btnFacebook setHidden:YES];
-    [_btnJoin setHidden:YES];
-    [_btnLogin setHidden:YES];
-    [self.ottaBackingView setUserInteractionEnabled:NO];
+    [_viewAction setHidden:YES];
+    [_ottaBackingView setUserInteractionEnabled:NO];
     [_containerView setHidden:NO];
     [_containerViewController openFacebookViewDetail];
     
@@ -181,15 +173,9 @@
 
 #pragma mark - Event Button
 
--(IBAction)btnForgotPasswordTapped:(id)sender
-{
-    
-}
-
 -(IBAction)btnBackTapped:(id)sender
 {
     [self showFirstIntroPage];
-    
 }
 
 -(IBAction)btnLoginTapped:(id)sender

@@ -95,4 +95,38 @@
     return [emailTest evaluateWithObject:checkString];
 }
 
+- (IBAction)btnForgotPassTapped:(id)sender {
+    NSLog(@"Forgot pass");
+    [[OttaAlertManager sharedManager] showEmailAlertOnView:windowView complete:^(NSString *email) {
+        __block NSString* mess = @"Invalid email!";
+        if ([Constant isValidEmail:email]) {
+            [MBProgressHUD showHUDAddedTo:windowView animated:YES];
+            [[OttaParseClientManager sharedManager] resetPasswordWithEmail:email withResult:^(BOOL isSucceeded, NSError *error) {
+                [MBProgressHUD hideHUDForView:windowView animated:YES];
+                
+                if (isSucceeded) {
+                    mess = [@"Password reset successful. Please check your email!" toCurrentLanguage];
+                } else {
+                    if (error.code == 205) {
+                        mess = [error.userInfo objectForKey:@"error"];
+                    } else {
+                        mess = [@"password reset failed!" toCurrentLanguage];
+                    }
+                }
+                [[OttaAlertManager sharedManager] showSimpleAlertOnView:windowView withContent:mess complete:^{
+                }];
+            }];
+        } else {
+            [self performSelector:@selector(showError:) withObject:mess afterDelay:1];
+        }
+    } cancel:^{
+        
+    }];
+}
+
+- (void)showError:(NSString*)mess {
+    [[OttaAlertManager sharedManager] showSimpleAlertOnView:windowView withContent:mess complete:^{
+    }];
+}
+
 @end

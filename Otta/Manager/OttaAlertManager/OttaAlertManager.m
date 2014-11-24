@@ -16,6 +16,7 @@
     OttaAlertCompletion ottaAlertCompletion;
     OttaAlertCancel ottaAlertCancel;
     OttaFriendAlertCompletion ottaFriendAlertCompletion;
+    OttaEmailAlertCompletion ottaEmailAlertCompletion;
     
     AFPickerView *pickerTimeValue;
     AFPickerView *pickerTimeTitle;
@@ -38,6 +39,8 @@
 @property (strong, nonatomic) IBOutlet UIView *friendAlertView;
 @property (weak, nonatomic) IBOutlet UILabel *lblFriendName;
 
+@property (strong, nonatomic) IBOutlet UIView *emailAlertView;
+@property (weak, nonatomic) IBOutlet UITextField *txtEmail;
 
 @end
 
@@ -89,9 +92,12 @@
 }
 
 - (void)animationDidStop:(CAAnimation *)anim finished:(BOOL)flag {
-    [self.simpleAlertView removeFromSuperview];
+    [_simpleAlertView removeFromSuperview];
     [_yesNoAlertView removeFromSuperview];
     [_limitTimerAlertView removeFromSuperview];
+    [_friendAlertView removeFromSuperview];
+    [_emailAlertView removeFromSuperview];
+    
     if ([self.view superview] != nil) {
         [self.view removeFromSuperview];
     }
@@ -276,6 +282,37 @@
     }
 }
 
+#pragma mark - Email Alert
+
+- (void)showEmailAlertOnView:(UIView*)parentView  complete:(OttaEmailAlertCompletion)completionBlock cancel:(OttaAlertCancel)cancelBlock {
+    
+    self.view.frame = parentView.bounds;
+    [parentView addSubview:self.view];
+
+    ottaEmailAlertCompletion = completionBlock;
+    ottaAlertCancel = cancelBlock;
+    
+    if ([_emailAlertView superview] == nil) {
+        [self showAleartWithView:_emailAlertView];
+        [_txtEmail becomeFirstResponder];
+    }
+}
+
+- (IBAction)btnSendEmail:(id)sender {
+    [self hideAlertAction:_emailAlertView];
+    if (ottaEmailAlertCompletion != nil) {
+        ottaEmailAlertCompletion(_txtEmail.text);
+    }
+    _txtEmail.text = @"";
+}
+
+- (IBAction)btnCancelEmail:(id)sender {
+    [self hideAlertAction:_emailAlertView];
+    if (ottaAlertCancel != nil) {
+        ottaAlertCancel();
+    }
+    _txtEmail.text = @"";
+}
 
 - (void)didReceiveMemoryWarning
 {
