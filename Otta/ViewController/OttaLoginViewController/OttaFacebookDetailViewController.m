@@ -54,11 +54,11 @@
             }
         } else if (user.isNew) {
             NSLog(@"User with facebook signed up and logged in!");
-            [self performSegueWithIdentifier:@"FindFriendSegue" sender:self];
+            [_loginView performSegueWithIdentifier:@"FindFriendSegue" sender:self];
             //[[OttaUserManager sharedManager] saveCurrentUser:user];;
         } else {
             NSLog(@"User with facebook logged in!");
-            [self performSegueWithIdentifier:@"homeSegue" sender:self];
+            [_loginView performSegueWithIdentifier:@"homeSegue" sender:self];
             //[[OttaUserManager sharedManager] saveCurrentUser:user];
         }
     }];

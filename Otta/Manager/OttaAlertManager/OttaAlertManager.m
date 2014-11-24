@@ -100,8 +100,12 @@
 #pragma mark - Simple Alert
 
 - (void)showSimpleAlertOnView:(UIView*)parentView withContent:(NSString*)content complete:(OttaAlertCompletion)completionBlock {
+    self.view.frame = parentView.bounds;
     [parentView addSubview:self.view];
     _lblSimpleContent.text = content;
+    
+    NSLog(@"Parent Frame: x = %f, y = %f, width = %f, height = %f",self.view.frame.origin.x, self.view.frame.origin.y, self.view.frame.size.width, self.view.frame.size.height);
+    
     ottaAlertCompletion = completionBlock;
     if ([_simpleAlertView superview] == nil) {
         [self showAleartWithView:_simpleAlertView];
@@ -126,6 +130,7 @@
 #pragma mark - YesNo Alert
 
 - (void)showYesNoAlertOnView:(UIView*)parentView withContent:(NSString*)content complete:(OttaAlertCompletion)completionBlock cancel:(OttaAlertCancel)cancelBlock {
+    self.view.frame = parentView.bounds;
     [parentView addSubview:self.view];
     _lblYesNoContent.text = content;
     ottaAlertCompletion = completionBlock;
@@ -155,6 +160,7 @@
 
 - (void)showLimitTimerPickerOnView:(UIView*)parentView completionBlock:(OttaTimePickerCompletion) completionResult
 {
+    self.view.frame = parentView.bounds;
     [parentView addSubview:self.view];
     timePickerCompletion = completionResult;
     [self initTimePickerAtX:100.0 atY:30.0];
@@ -239,6 +245,8 @@
 #pragma mark - Timer Picker
 
 - (void)showFriendAlertOnView:(UIView*)parentView withName:(NSString*)name complete:(OttaFriendAlertCompletion)completionBlock {
+  
+    self.view.frame = parentView.bounds;
     [parentView addSubview:self.view];
     _lblFriendName.text = name;
     ottaFriendAlertCompletion = completionBlock;

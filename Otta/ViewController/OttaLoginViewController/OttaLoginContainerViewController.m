@@ -58,6 +58,7 @@
     {
         if(self.joinDetailVC == nil) {
             self.joinDetailVC = segue.destinationViewController;
+            self.joinDetailVC.loginView = self.loginView;
             [self addChildViewController:segue.destinationViewController];
             [self.view addSubview:((UIViewController *)segue.destinationViewController).view];
             [segue.destinationViewController didMoveToParentViewController:self];
@@ -72,6 +73,7 @@
     else if ([segue.identifier isEqualToString:@"LoginDetailSegue"])
     {
         self.loginDetailVC = segue.destinationViewController;
+        self.loginDetailVC.loginView = self.loginView;
         if(_currentPageShowing != PageShowing_LoginPage) {
             [self swapFromViewController:[self.childViewControllers objectAtIndex:0] toViewController:self.loginDetailVC];
         }
@@ -80,6 +82,7 @@
     else if ([segue.identifier isEqualToString:@"FacebookDetailSegue"])
     {
         self.facebookDetailVC = segue.destinationViewController;
+        self.facebookDetailVC.loginView = self.loginView;
         if(_currentPageShowing != PageShowing_FacebookPage) {
             [self swapFromViewController:[self.childViewControllers objectAtIndex:0] toViewController:self.facebookDetailVC];
         }

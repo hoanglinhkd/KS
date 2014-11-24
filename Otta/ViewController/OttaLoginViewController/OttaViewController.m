@@ -286,6 +286,7 @@
 {
     if ([segue.identifier isEqualToString:@"EmbedLoginContainer"]) {
         self.containerViewController = segue.destinationViewController;
+        self.containerViewController.loginView = self;
     }
 }
 

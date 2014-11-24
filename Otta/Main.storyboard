@@ -80,7 +80,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8b0-wb-akz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="800" y="-263"/>
+            <point key="canvasLocation" x="181" y="-794"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="spb-3L-BgH">
@@ -911,7 +911,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="InE-Rq-9wN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="800" y="-1005"/>
+            <point key="canvasLocation" x="690" y="-111"/>
         </scene>
         <!--Ott Add Friend View Controller-->
         <scene sceneID="WhE-YP-WF0">
@@ -1106,7 +1106,7 @@ EE5leHQ
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HpG-K3-5ZQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="19" y="-671"/>
+            <point key="canvasLocation" x="-459" y="-61"/>
         </scene>
         <!--Answerers Asker View Controller-->
         <scene sceneID="0s8-rw-yG7">
@@ -1847,7 +1847,7 @@ EE5leHQ
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="map-vu-hw7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-329" y="-2173"/>
+            <point key="canvasLocation" x="-773" y="-2083"/>
         </scene>
         <!--Otta Login Container View Controller-->
         <scene sceneID="Nly-sg-RVk">
@@ -1872,7 +1872,7 @@ EE5leHQ
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZMW-Eb-dl4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-854" y="-1543"/>
+            <point key="canvasLocation" x="-848" y="-1453"/>
         </scene>
         <!--Otta View Controller-->
         <scene sceneID="Php-oc-WkQ">
@@ -1999,12 +1999,12 @@ EE5leHQ
                         <outlet property="containerView" destination="QRx-Is-2T6" id="OSJ-wV-ZmZ"/>
                         <outlet property="ottaBackingView" destination="QnB-q8-1jg" id="4FW-k9-BuZ"/>
                         <segue destination="sjb-6w-bwp" kind="modal" identifier="FindFriendSegue" id="K3J-3K-JiL"/>
-                        <segue destination="CY8-rH-5qL" kind="modal" identifier="homeSegue" id="EL1-b0-nFq"/>
+                        <segue destination="CY8-rH-5qL" kind="modal" identifier="homeSegue" id="d1F-FC-q8g"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bYC-7Y-DrL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1205" y="-439"/>
+            <point key="canvasLocation" x="-1277" y="-794"/>
         </scene>
         <!--Otta Facebook Detail View Controller-->
         <scene sceneID="MTW-qG-Jeh">
@@ -2080,7 +2080,7 @@ EE5leHQ
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="T8p-IW-7f5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-323" y="-1082"/>
+            <point key="canvasLocation" x="-205" y="-1460"/>
         </scene>
         <!--Otta Login Detail View Controller-->
         <scene sceneID="IY3-5w-Ulg">
@@ -2181,7 +2181,7 @@ EE5leHQ
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Z4R-hM-Eyf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-329" y="-1665"/>
+            <point key="canvasLocation" x="-205" y="-2083"/>
         </scene>
     </scenes>
     <resources>
@@ -2220,6 +2220,6 @@ EE5leHQ
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="EL1-b0-nFq"/>
+        <segue reference="d1F-FC-q8g"/>
     </inferredMetricsTieBreakers>
 </document>

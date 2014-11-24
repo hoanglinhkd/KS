@@ -7,9 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "OttaViewController.h"
 
 @interface OttaLoginDetailViewController : UIViewController
 
+@property (nonatomic,strong)IBOutlet OttaViewController *loginView;
 @property (nonatomic,strong)IBOutlet UITextField * usernameTextField;
 @property (nonatomic,strong)IBOutlet UIView *usernameLine;
 @property (nonatomic,strong)IBOutlet UITextField * passwordTextField;

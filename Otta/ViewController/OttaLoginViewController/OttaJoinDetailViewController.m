@@ -39,7 +39,7 @@
         if (joinSucceeded) {
             NSLog(@"Join succeeded");
             
-            [self performSegueWithIdentifier:@"FindFriendSegue" sender:self];
+            [_loginView performSegueWithIdentifier:@"FindFriendSegue" sender:self];
         } else {
             NSLog(@"Join failed");
             NSString* str = error.domain;

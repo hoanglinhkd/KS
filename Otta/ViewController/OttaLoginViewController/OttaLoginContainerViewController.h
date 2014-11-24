@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "OttaViewController.h"
 
 typedef enum  {
     PageShowing_None = 0,
@@ -19,6 +20,7 @@ typedef enum  {
 @interface OttaLoginContainerViewController : UIViewController
 
 @property (assign) PageShowing currentPageShowing;
+@property (nonatomic,strong)IBOutlet OttaViewController *loginView;
 
 -(void) openLoginViewDetail;
 -(void) openJoinViewDetail;

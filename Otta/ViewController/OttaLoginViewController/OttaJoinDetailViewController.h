@@ -7,8 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "OttaViewController.h"
 
 @interface OttaJoinDetailViewController : UIViewController
+
+@property (nonatomic,strong)IBOutlet OttaViewController *loginView;
 
 @property (nonatomic,strong)IBOutlet UITextField * firstNameJoinDetail;
 @property (nonatomic,strong)IBOutlet UITextField * lastNameJoinDetail;

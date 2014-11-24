@@ -55,7 +55,7 @@
         if (joinSucceeded) {
             NSLog(@"Login succeeded");
             
-            [self performSegueWithIdentifier:@"homeSegue" sender:self];
+            [_loginView performSegueWithIdentifier:@"homeSegue" sender:self];
         } else {
             
             NSLog(@"Login failed");
