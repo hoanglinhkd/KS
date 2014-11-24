@@ -36,10 +36,11 @@ static NSString * const MediaCellId = @"MediaQuestionCellId";
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if ([self hasImageAtIndexPath:indexPath]) {
-        return [self heightForImageCellAtIndexPath:indexPath];
-        
+        int height = [self heightForImageCellAtIndexPath:indexPath];
+
+        return height;
     } else {
-        return [self heightForBasicCellAtIndexPath:indexPath];
+        return [self heightForBasicCellAtIndexPath:indexPath] -10;
         
     }
 }
@@ -73,6 +74,7 @@ static NSString * const MediaCellId = @"MediaQuestionCellId";
     [sizingCell layoutIfNeeded];
     
     CGSize size = [sizingCell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize];
+    NSLog(@"Basic height %f",size.height);
     return size.height;
 }
 
@@ -147,20 +149,30 @@ static NSString * const MediaCellId = @"MediaQuestionCellId";
         if (indexPath.row == 2 && _isViewAllMode == FALSE) {
             cell.viewAllBtn.hidden = NO;
             cell.collapseBtn.hidden = YES;
+            cell.collapseHeghtConstraint.constant = 22;
         } else if (indexPath.row == self.answers.count -1 ) {
             cell.collapseBtn.hidden = NO;
             cell.viewAllBtn.hidden = YES;
+            cell.collapseHeghtConstraint.constant = 22;
         } else {
             cell.viewAllBtn.hidden = YES;
             cell.collapseBtn.hidden = YES;
+            cell.collapseHeghtConstraint.constant = 0;
         }
 
     } else {
         cell.viewAllBtn.hidden = YES;
         cell.collapseBtn.hidden = YES;
+        cell.collapseHeghtConstraint.constant = 0;
     }
 
 }
+#pragma mark Tableview Delegate
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [tableView deselectRowAtIndexPath:indexPath animated:TRUE];
+}
+
 
 - (void)setImageForCell:(OttaMediaQuestionCell *)cell item:(OttaAnswer *)item {
     

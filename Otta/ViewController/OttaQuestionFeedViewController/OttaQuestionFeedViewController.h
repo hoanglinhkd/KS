@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "OttaQuestionFeedCell.h"
 
-@interface OttaQuestionFeedViewController : UIViewController <UITableViewDataSource, OttaQuestionFeedCellDelegate>
+@interface OttaQuestionFeedViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, OttaQuestionFeedCellDelegate>
 
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;

@@ -125,6 +125,7 @@
 		6AA695F91A21DD7B001F6953 /* icon_right_inactive.png in Resources */ = {isa = PBXBuildFile; fileRef = 6AA695F11A21DD7B001F6953 /* icon_right_inactive.png */; };
 		6AA695FA1A21DD7B001F6953 /* icon_sandclock.png in Resources */ = {isa = PBXBuildFile; fileRef = 6AA695F21A21DD7B001F6953 /* icon_sandclock.png */; };
 		6AA695FB1A21DD7B001F6953 /* yellow_blank.png in Resources */ = {isa = PBXBuildFile; fileRef = 6AA695F31A21DD7B001F6953 /* yellow_blank.png */; };
+		6AADDAC21A23842F00AC8149 /* Main_HD.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6AADDAC11A23842F00AC8149 /* Main_HD.storyboard */; };
 		7E1A1DAB1A1C7E05009FB0E6 /* Otta-80.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E1A1DA21A1C7E05009FB0E6 /* Otta-80.png */; };
 		7E1A1DAC1A1C7E05009FB0E6 /* Otta-84.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E1A1DA31A1C7E05009FB0E6 /* Otta-84.png */; };
 		7E1A1DAD1A1C7E05009FB0E6 /* Otta_friends_button_add.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E1A1DA41A1C7E05009FB0E6 /* Otta_friends_button_add.png */; };
@@ -324,6 +325,7 @@
 		6AA695F11A21DD7B001F6953 /* icon_right_inactive.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_right_inactive.png; sourceTree = "<group>"; };
 		6AA695F21A21DD7B001F6953 /* icon_sandclock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_sandclock.png; sourceTree = "<group>"; };
 		6AA695F31A21DD7B001F6953 /* yellow_blank.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = yellow_blank.png; sourceTree = "<group>"; };
+		6AADDAC11A23842F00AC8149 /* Main_HD.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main_HD.storyboard; path = Otta/Main_HD.storyboard; sourceTree = SOURCE_ROOT; };
 		7E1A1DA21A1C7E05009FB0E6 /* Otta-80.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Otta-80.png"; sourceTree = "<group>"; };
 		7E1A1DA31A1C7E05009FB0E6 /* Otta-84.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Otta-84.png"; sourceTree = "<group>"; };
 		7E1A1DA41A1C7E05009FB0E6 /* Otta_friends_button_add.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Otta_friends_button_add.png; sourceTree = "<group>"; };
@@ -682,6 +684,7 @@
 		66FD4B321A11A83A005ACD58 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				6AADDAC11A23842F00AC8149 /* Main_HD.storyboard */,
 				6AA695E11A21DD4E001F6953 /* OttaQuestionFeedView */,
 				F0D6B1F119862B4D0077E30E /* Main.storyboard */,
 				7E1A1DB81A1C8345009FB0E6 /* OttaFriendsCell.h */,
@@ -1115,6 +1118,7 @@
 				66FD4B2C1A11A6CC005ACD58 /* OttaNumberBackground.png in Resources */,
 				383581331A21748200CB1423 /* OttaLaunchIphone6p.png in Resources */,
 				7E1A1DAB1A1C7E05009FB0E6 /* Otta-80.png in Resources */,
+				6AADDAC21A23842F00AC8149 /* Main_HD.storyboard in Resources */,
 				66FD4B231A11A6CC005ACD58 /* LoginButton.png in Resources */,
 				66FD4B0A1A11A6CC005ACD58 /* ham_and_cheese_panini.jpg in Resources */,
 				386E89C21A12606000459171 /* icon_uncheck.png in Resources */,
