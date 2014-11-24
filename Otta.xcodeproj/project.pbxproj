@@ -51,7 +51,6 @@
 		38E161461A1E56E20093998E /* OttaAnswerersAskersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38E161451A1E56E20093998E /* OttaAnswerersAskersViewController.m */; };
 		5D58441C1A1BD21D004FE156 /* Otta_friends_button_add.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D58441A1A1BD21D004FE156 /* Otta_friends_button_add.png */; };
 		5D58441D1A1BD21D004FE156 /* Otta_friends_button_added.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D58441B1A1BD21D004FE156 /* Otta_friends_button_added.png */; };
-		5D8E7C6A1A1BA3E700678DAC /* MainH.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5D8E7C691A1BA3E700678DAC /* MainH.storyboard */; };
 		5D8E7C6D1A1BB43900678DAC /* btnAddContact@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D8E7C6B1A1BB43900678DAC /* btnAddContact@2x.png */; };
 		5D8E7C6E1A1BB43900678DAC /* btnAddFBFriend@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D8E7C6C1A1BB43900678DAC /* btnAddFBFriend@2x.png */; };
 		663665E61A1EEC4A007F0EFC /* METransitions.m in Sources */ = {isa = PBXBuildFile; fileRef = 663665E51A1EEC4A007F0EFC /* METransitions.m */; };
@@ -148,6 +147,11 @@
 		D98E30CB1A1797CD0080B934 /* pickerGlass.png in Resources */ = {isa = PBXBuildFile; fileRef = D98E30C81A1797CD0080B934 /* pickerGlass.png */; };
 		D98E30CC1A1797CD0080B934 /* pickerGlass@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D98E30C91A1797CD0080B934 /* pickerGlass@2x.png */; };
 		D99F7C3E1A1BA4BB0030D239 /* OttaAddCaptionImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D99F7C3D1A1BA4BB0030D239 /* OttaAddCaptionImageViewController.m */; };
+		D9CD79941A22EA8C007C6E15 /* OttaFacebookDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9CD798B1A22EA8C007C6E15 /* OttaFacebookDetailViewController.m */; };
+		D9CD79951A22EA8C007C6E15 /* OttaJoinDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9CD798D1A22EA8C007C6E15 /* OttaJoinDetailViewController.m */; };
+		D9CD79961A22EA8C007C6E15 /* OttaLoginContainerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9CD798F1A22EA8C007C6E15 /* OttaLoginContainerViewController.m */; };
+		D9CD79971A22EA8C007C6E15 /* OttaLoginDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9CD79911A22EA8C007C6E15 /* OttaLoginDetailViewController.m */; };
+		D9CD79981A22EA8C007C6E15 /* OttaLoginSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = D9CD79931A22EA8C007C6E15 /* OttaLoginSegue.m */; };
 		D9F04A111A1B60430049AD41 /* HPGrowingTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = D9F04A0E1A1B60430049AD41 /* HPGrowingTextView.m */; };
 		D9F04A121A1B60430049AD41 /* HPTextViewInternal.m in Sources */ = {isa = PBXBuildFile; fileRef = D9F04A101A1B60430049AD41 /* HPTextViewInternal.m */; };
 		F0B6412519A57B11007C4373 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F0B6412419A57B11007C4373 /* libz.dylib */; };
@@ -226,7 +230,6 @@
 		38E161451A1E56E20093998E /* OttaAnswerersAskersViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OttaAnswerersAskersViewController.m; sourceTree = "<group>"; };
 		5D58441A1A1BD21D004FE156 /* Otta_friends_button_add.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Otta_friends_button_add.png; sourceTree = "<group>"; };
 		5D58441B1A1BD21D004FE156 /* Otta_friends_button_added.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Otta_friends_button_added.png; sourceTree = "<group>"; };
-		5D8E7C691A1BA3E700678DAC /* MainH.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = MainH.storyboard; path = Otta/MainH.storyboard; sourceTree = SOURCE_ROOT; };
 		5D8E7C6B1A1BB43900678DAC /* btnAddContact@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btnAddContact@2x.png"; sourceTree = "<group>"; };
 		5D8E7C6C1A1BB43900678DAC /* btnAddFBFriend@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btnAddFBFriend@2x.png"; sourceTree = "<group>"; };
 		663665E41A1EEC4A007F0EFC /* METransitions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = METransitions.h; sourceTree = "<group>"; };
@@ -357,6 +360,16 @@
 		D98E30C91A1797CD0080B934 /* pickerGlass@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pickerGlass@2x.png"; sourceTree = "<group>"; };
 		D99F7C3C1A1BA4BB0030D239 /* OttaAddCaptionImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OttaAddCaptionImageViewController.h; sourceTree = "<group>"; };
 		D99F7C3D1A1BA4BB0030D239 /* OttaAddCaptionImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OttaAddCaptionImageViewController.m; sourceTree = "<group>"; };
+		D9CD798A1A22EA8C007C6E15 /* OttaFacebookDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OttaFacebookDetailViewController.h; sourceTree = "<group>"; };
+		D9CD798B1A22EA8C007C6E15 /* OttaFacebookDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OttaFacebookDetailViewController.m; sourceTree = "<group>"; };
+		D9CD798C1A22EA8C007C6E15 /* OttaJoinDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OttaJoinDetailViewController.h; sourceTree = "<group>"; };
+		D9CD798D1A22EA8C007C6E15 /* OttaJoinDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OttaJoinDetailViewController.m; sourceTree = "<group>"; };
+		D9CD798E1A22EA8C007C6E15 /* OttaLoginContainerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OttaLoginContainerViewController.h; sourceTree = "<group>"; };
+		D9CD798F1A22EA8C007C6E15 /* OttaLoginContainerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OttaLoginContainerViewController.m; sourceTree = "<group>"; };
+		D9CD79901A22EA8C007C6E15 /* OttaLoginDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OttaLoginDetailViewController.h; sourceTree = "<group>"; };
+		D9CD79911A22EA8C007C6E15 /* OttaLoginDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OttaLoginDetailViewController.m; sourceTree = "<group>"; };
+		D9CD79921A22EA8C007C6E15 /* OttaLoginSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OttaLoginSegue.h; sourceTree = "<group>"; };
+		D9CD79931A22EA8C007C6E15 /* OttaLoginSegue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OttaLoginSegue.m; sourceTree = "<group>"; };
 		D9F04A0D1A1B60430049AD41 /* HPGrowingTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HPGrowingTextView.h; sourceTree = "<group>"; };
 		D9F04A0E1A1B60430049AD41 /* HPGrowingTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HPGrowingTextView.m; sourceTree = "<group>"; };
 		D9F04A0F1A1B60430049AD41 /* HPTextViewInternal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HPTextViewInternal.h; sourceTree = "<group>"; };
@@ -447,6 +460,16 @@
 		3847CFB01A1863E1002599E7 /* OttaLoginViewController */ = {
 			isa = PBXGroup;
 			children = (
+				D9CD798A1A22EA8C007C6E15 /* OttaFacebookDetailViewController.h */,
+				D9CD798B1A22EA8C007C6E15 /* OttaFacebookDetailViewController.m */,
+				D9CD798C1A22EA8C007C6E15 /* OttaJoinDetailViewController.h */,
+				D9CD798D1A22EA8C007C6E15 /* OttaJoinDetailViewController.m */,
+				D9CD798E1A22EA8C007C6E15 /* OttaLoginContainerViewController.h */,
+				D9CD798F1A22EA8C007C6E15 /* OttaLoginContainerViewController.m */,
+				D9CD79901A22EA8C007C6E15 /* OttaLoginDetailViewController.h */,
+				D9CD79911A22EA8C007C6E15 /* OttaLoginDetailViewController.m */,
+				D9CD79921A22EA8C007C6E15 /* OttaLoginSegue.h */,
+				D9CD79931A22EA8C007C6E15 /* OttaLoginSegue.m */,
 				3847CFB11A1863E1002599E7 /* OttaViewController.h */,
 				3847CFB21A1863E1002599E7 /* OttaViewController.m */,
 			);
@@ -1008,7 +1031,6 @@
 				6AA695F51A21DD7B001F6953 /* green_blank.png in Resources */,
 				D98E30CB1A1797CD0080B934 /* pickerGlass.png in Resources */,
 				386E89B41A124EAF00459171 /* icon_check.png in Resources */,
-				5D8E7C6A1A1BA3E700678DAC /* MainH.storyboard in Resources */,
 				66FD4B221A11A6CC005ACD58 /* JoinButton.png in Resources */,
 				66FD4B201A11A6CC005ACD58 /* AskAQuestion.png in Resources */,
 				66FD4B141A11A6CC005ACD58 /* white_chocolate_donut.jpg in Resources */,
@@ -1167,6 +1189,7 @@
 				3847CFB31A1863E1002599E7 /* OttaViewController.m in Sources */,
 				6AA695E91A21DD4E001F6953 /* OttaMediaQuestionCell.m in Sources */,
 				F0BC6526198606BD0097A87C /* OttaAppDelegate.m in Sources */,
+				D9CD79971A22EA8C007C6E15 /* OttaLoginDetailViewController.m in Sources */,
 				663665F41A1EF728007F0EFC /* OttaTransitionViewController.m in Sources */,
 				66FD4B551A11AB02005ACD58 /* OttaQuestion.m in Sources */,
 				D98E30C41A1795D70080B934 /* Constant.m in Sources */,
@@ -1176,15 +1199,19 @@
 				6AA695EA1A21DD4E001F6953 /* OttaQuestionFeedCell.m in Sources */,
 				66FD4B571A11AB02005ACD58 /* OttaUser.m in Sources */,
 				7E1A1DB71A1C8287009FB0E6 /* OttaFindFriendsViewController.m in Sources */,
+				D9CD79941A22EA8C007C6E15 /* OttaFacebookDetailViewController.m in Sources */,
 				66FD4B541A11AB02005ACD58 /* OttaAnswer.m in Sources */,
 				F0BC6522198606BD0097A87C /* main.m in Sources */,
 				D9286F431A12190500C28770 /* OttaParseClientManager.m in Sources */,
+				D9CD79951A22EA8C007C6E15 /* OttaJoinDetailViewController.m in Sources */,
 				663665EE1A1EEE00007F0EFC /* MEDynamicTransition.m in Sources */,
 				663665EF1A1EEE00007F0EFC /* MEFoldAnimationController.m in Sources */,
 				D9286F401A12187F00C28770 /* OttaSessionManager.m in Sources */,
 				66502BE71A14653300A9472D /* OttaOptionCell.m in Sources */,
+				D9CD79981A22EA8C007C6E15 /* OttaLoginSegue.m in Sources */,
 				D98E30CA1A1797CD0080B934 /* AFPickerView.m in Sources */,
 				663665F01A1EEE00007F0EFC /* MEZoomAnimationController.m in Sources */,
+				D9CD79961A22EA8C007C6E15 /* OttaLoginContainerViewController.m in Sources */,
 				66FD4B3A1A11A8F0005ACD58 /* OttaQuestionTableViewCell.m in Sources */,
 				D98E30BC1A1779110080B934 /* LanguageHelper.m in Sources */,
 				7E1A1DBA1A1C8345009FB0E6 /* OttaFriendsCell.m in Sources */,

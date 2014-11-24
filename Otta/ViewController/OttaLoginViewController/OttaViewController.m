@@ -8,13 +8,7 @@
 #import "OttaViewController.h"
 #import "OttaAlertManager.h"
 #import "MBProgressHUD.h"
-
-typedef enum  {
-    PageShowing_IntroPage = 1,
-    PageShowing_LoginPage,
-    PageShowing_JoinPage,
-    PageShowing_FacebookPage
-} PageShowing;
+#import "OttaLoginContainerViewController.h"
 
 @interface OttaViewController ()<EAIntroDelegate> {
     BOOL isJoinScreen;
@@ -22,7 +16,8 @@ typedef enum  {
 }
 
 @property (strong, nonatomic) OttaAlertManager* otta;
-
+@property (nonatomic, weak) OttaLoginContainerViewController *containerViewController;
+@property (nonatomic, weak) IBOutlet UIView *containerView;
 @end
 
 @implementation OttaViewController
@@ -35,7 +30,6 @@ typedef enum  {
     [self.navigationController setNavigationBarHidden:YES];
     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"OttaSideMenuBackground.png"]];
     
-    [self initViews];
     [self initIntroViews];
     [self showFirstIntroPage];
 }
@@ -49,63 +43,6 @@ typedef enum  {
 - (void)checkLoggedin {
     if([PFUser currentUser]) {
         [self performSegueWithIdentifier:@"homeSegue" sender:self];
-    }
-}
-
--(void) initViews
-{
-    
-    //Facebook Page
-    if ([_emailFacebookDetail respondsToSelector:@selector(setAttributedPlaceholder:)]) {
-        UIColor *color = [UIColor whiteColor];
-        _emailFacebookDetail.attributedPlaceholder = [[NSAttributedString alloc] initWithString:[@"Email" toCurrentLanguage] attributes:@{NSForegroundColorAttributeName: color, NSFontAttributeName : [UIFont fontWithName:@"OpenSans-Light" size:20.0]}];
-    }
-
-    if ([_phoneFacebookDetail respondsToSelector:@selector(setAttributedPlaceholder:)]) {
-        UIColor *color = [UIColor whiteColor];
-        _phoneFacebookDetail.attributedPlaceholder = [[NSAttributedString alloc] initWithString:[@"Phone" toCurrentLanguage] attributes:@{NSForegroundColorAttributeName: color, NSFontAttributeName : [UIFont fontWithName:@"OpenSans-Light" size:20.0]}];
-    }
-    
-    //Login Page
-    if ([_usernameTextField respondsToSelector:@selector(setAttributedPlaceholder:)]) {
-        UIColor *color = [UIColor whiteColor];
-        _usernameTextField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:[@"Email" toCurrentLanguage] attributes:@{NSForegroundColorAttributeName: color, NSFontAttributeName : [UIFont fontWithName:@"OpenSans-Light" size:20.0]}];
-    }
-    
-    if ([_passwordTextField respondsToSelector:@selector(setAttributedPlaceholder:)]) {
-        UIColor *color = [UIColor whiteColor];
-        _passwordTextField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:[@"Password" toCurrentLanguage] attributes:@{NSForegroundColorAttributeName: color, NSFontAttributeName : [UIFont fontWithName:@"OpenSans-Light" size:20.0]}];
-    }
-    
-    //Join Page
-    if ([_firstNameJoinDetail respondsToSelector:@selector(setAttributedPlaceholder:)]) {
-        UIColor *color = [UIColor whiteColor];
-        _firstNameJoinDetail.attributedPlaceholder = [[NSAttributedString alloc] initWithString:[@"Name" toCurrentLanguage] attributes:@{NSForegroundColorAttributeName: color, NSFontAttributeName : [UIFont fontWithName:@"OpenSans-Light" size:20.0]}];
-    }
-    
-    if ([_lastNameJoinDetail respondsToSelector:@selector(setAttributedPlaceholder:)]) {
-        UIColor *color = [UIColor whiteColor];
-        _lastNameJoinDetail.attributedPlaceholder = [[NSAttributedString alloc] initWithString:[@"Last Name" toCurrentLanguage] attributes:@{NSForegroundColorAttributeName: color, NSFontAttributeName : [UIFont fontWithName:@"OpenSans-Light" size:20.0]}];
-    }
-    
-    if ([_phoneJoinDetail respondsToSelector:@selector(setAttributedPlaceholder:)]) {
-        UIColor *color = [UIColor whiteColor];
-        _phoneJoinDetail.attributedPlaceholder = [[NSAttributedString alloc] initWithString:[@"Phone" toCurrentLanguage] attributes:@{NSForegroundColorAttributeName: color, NSFontAttributeName : [UIFont fontWithName:@"OpenSans-Light" size:20.0]}];
-    }
-    
-    if ([_emailJoinDetail respondsToSelector:@selector(setAttributedPlaceholder:)]) {
-        UIColor *color = [UIColor whiteColor];
-        _emailJoinDetail.attributedPlaceholder = [[NSAttributedString alloc] initWithString:[@"Email" toCurrentLanguage] attributes:@{NSForegroundColorAttributeName: color, NSFontAttributeName : [UIFont fontWithName:@"OpenSans-Light" size:20.0]}];
-    }
-    
-    if ([_passwordJoinDetail respondsToSelector:@selector(setAttributedPlaceholder:)]) {
-        UIColor *color = [UIColor whiteColor];
-        _passwordJoinDetail.attributedPlaceholder = [[NSAttributedString alloc] initWithString:[@"Password" toCurrentLanguage] attributes:@{NSForegroundColorAttributeName: color, NSFontAttributeName : [UIFont fontWithName:@"OpenSans-Light" size:20.0]}];
-    }
-    
-    if ([_confirmPassJoinDetail respondsToSelector:@selector(setAttributedPlaceholder:)]) {
-        UIColor *color = [UIColor whiteColor];
-        _confirmPassJoinDetail.attributedPlaceholder = [[NSAttributedString alloc] initWithString:[@"Confirm password" toCurrentLanguage] attributes:@{NSForegroundColorAttributeName: color, NSFontAttributeName : [UIFont fontWithName:@"OpenSans-Light" size:20.0]}];
     }
 }
 
@@ -183,51 +120,27 @@ typedef enum  {
 -(void) showFirstIntroPage
 {
     currentPageShowing = PageShowing_IntroPage;
-    [self.ottaBackingView setUserInteractionEnabled:YES];
-    [_btnLoginDetail setHidden:YES];
     [_btnBackPage setHidden:YES];
-    [_emailTextField setHidden:YES];
-    [_emailLine setHidden:YES];
-    [_usernameTextField setHidden:YES];
-    [_usernameLine setHidden:YES];
-    [_passwordTextField setHidden:YES];
-    [_passwordLine setHidden:YES];
+    [_btnFacebook setHidden:NO];
     [_btnJoin setHidden:NO];
     [_btnLogin setHidden:NO];
-    [_btnLoginDetail setHidden:YES];
-    [_btnForgotPassword setHidden:YES];
-    [_btnFacebook setHidden:NO];
-    [_btnFacebookDetail setHidden:YES];
-    [_btnJoinDetail setHidden:YES];
-    [_scrlUserInformation setHidden:NO];
-    [_scrlJoinDetail setHidden:YES];
-    [_scrlFacebookDetail setHidden:YES];
+    [_containerView setHidden:YES];
+    
+    [self.ottaBackingView setUserInteractionEnabled:YES];
     [intro showInView:self.ottaBackingView animateDuration:0.4f];
 }
 
 -(void) showLoginView
 {
     currentPageShowing = PageShowing_LoginPage;
-    [self.ottaBackingView setUserInteractionEnabled:NO];
-    [_usernameTextField setHidden:NO];
-    [_usernameLine setHidden:NO];
-    [_passwordTextField setHidden:NO];
-    [_passwordLine setHidden:NO];
-    
-    
-    [_btnJoinDetail setHidden:YES];
-    [_btnLoginDetail setHidden:NO];
-    [_btnLogin setHidden:YES];
-    [_emailTextField setHidden:YES];
-    [_emailLine setHidden:YES];
+    [_btnBackPage setHidden:NO];
     [_btnFacebook setHidden:YES];
     [_btnJoin setHidden:YES];
-    [_btnBackPage setHidden:NO];
-    [_btnForgotPassword setHidden:NO];
-    [_btnFacebookDetail setHidden:YES];
-    [_scrlJoinDetail setHidden:YES];
-    [_scrlUserInformation setHidden:NO];
-    [_btnJoinDetail setHidden:YES];
+    [_btnLogin setHidden:YES];
+    
+    [self.ottaBackingView setUserInteractionEnabled:NO];
+    [_containerView setHidden:NO];
+    [_containerViewController openLoginViewDetail];
     
     if (![intro isHidden]) {
         [intro hideWithFadeOutDuration:0.4f];
@@ -237,18 +150,14 @@ typedef enum  {
 -(void) showJoinView
 {
     currentPageShowing = PageShowing_JoinPage;
-    [self.ottaBackingView setUserInteractionEnabled:NO];
-    
-    [_btnJoinDetail setHidden:NO];
+    [_btnBackPage setHidden:NO];
+    [_btnFacebook setHidden:YES];
     [_btnJoin setHidden:YES];
     [_btnLogin setHidden:YES];
-    [_btnFacebook setHidden:YES];
-    [_btnBackPage setHidden:NO];
-    [_btnForgotPassword setHidden:NO];
-    [_scrlJoinDetail setHidden:NO];
-    [_btnFacebookDetail setHidden:YES];
-    [_scrlUserInformation setHidden:YES];
-    [_scrlFacebookDetail setHidden:YES];
+    [self.ottaBackingView setUserInteractionEnabled:NO];
+    [_containerView setHidden:NO];
+    [_containerViewController openJoinViewDetail];
+    
     if (![intro isHidden]) {
         [intro hideWithFadeOutDuration:0.4f];
     }
@@ -257,19 +166,13 @@ typedef enum  {
 -(void) showFacebookDetail
 {
     currentPageShowing = PageShowing_FacebookPage;
-    [self.ottaBackingView setUserInteractionEnabled:NO];
-    
-    [_btnJoinDetail setHidden:NO];
+    [_btnBackPage setHidden:NO];
+    [_btnFacebook setHidden:YES];
     [_btnJoin setHidden:YES];
     [_btnLogin setHidden:YES];
-    [_btnLoginDetail setHidden:YES];
-    [_btnFacebook setHidden:YES];
-    [_btnBackPage setHidden:NO];
-    [_btnForgotPassword setHidden:YES];
-    [_btnFacebookDetail setHidden:NO];
-    [_scrlFacebookDetail setHidden:NO];
-    [_scrlJoinDetail setHidden:YES];
-    [_scrlUserInformation setHidden:YES];
+    [self.ottaBackingView setUserInteractionEnabled:NO];
+    [_containerView setHidden:NO];
+    [_containerViewController openFacebookViewDetail];
     
     if (![intro isHidden]) {
         [intro hideWithFadeOutDuration:0.4f];
@@ -291,68 +194,12 @@ typedef enum  {
 
 -(IBAction)btnLoginTapped:(id)sender
 {
-    //Is login screen
-    //if ([self.usernameTextField isHidden]) {
-    if(currentPageShowing != PageShowing_LoginPage) {
-        [self showLoginView];
-    } else {
-        //Validate required field
-        if (![self validateLogin]) {
-            return;
-        }
-        
-        [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    
-        [[OttaParseClientManager sharedManager] loginWithNameOrEmail:self.usernameTextField.text andPassword:self.passwordTextField.text withResult:^(BOOL joinSucceeded, PFUser *pUser, NSError* error) {
-            
-            if (joinSucceeded) {
-                NSLog(@"Login succeeded");
-
-                [self performSegueWithIdentifier:@"homeSegue" sender:self];
-            } else {
-                
-                NSLog(@"Login failed");
-                [[OttaAlertManager sharedManager] showSimpleAlertOnView:self.view withContent:[@"Login Failed" toCurrentLanguage] complete:nil];
-            }
-            
-            [MBProgressHUD hideHUDForView:self.view animated:YES];
-        }];
-    }
+    [self showLoginView];
 }
 
 -(IBAction)btnJoinTapped:(id)sender
 {
-    //Is join Screen
-    //if ([self.emailTextField isHidden]) {
-    if(currentPageShowing != PageShowing_JoinPage) {
-        [self showJoinView];
-    } else {
-        //Validation
-        if (![self validateJoin])
-            return;
-        
-        [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-        
-        [[OttaParseClientManager sharedManager] joinWithEmail:_emailJoinDetail.text firstName:_firstNameJoinDetail.text phone:_phoneJoinDetail.text lastName:_lastNameJoinDetail.text  password:_passwordJoinDetail.text withResult:^(BOOL joinSucceeded, PFUser* pUser, NSError* error) {
-            
-            if (joinSucceeded) {
-                NSLog(@"Join succeeded");
-
-                [self performSegueWithIdentifier:@"FindFriendSegue" sender:self];
-            } else {
-                NSLog(@"Join failed");
-                NSString* str = error.domain;
-                
-                if (error.code == 202) {
-                    str = [[[error userInfo] objectForKey:@"error"] stringByReplacingOccurrencesOfString:@"username" withString:@"email"];
-                }
-                
-                [[OttaAlertManager sharedManager] showSimpleAlertOnView:self.view withContent:str complete:nil];
-            }
-            
-            [MBProgressHUD hideHUDForView:self.view animated:YES];
-        }];
-    }
+    [self showJoinView];
 }
 
 #pragma mark - Facebook
@@ -433,57 +280,17 @@ typedef enum  {
     return YES;
 }
 
+#pragma mark - Segue
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:@"EmbedLoginContainer"]) {
+        self.containerViewController = segue.destinationViewController;
+    }
+}
+
 #pragma mark - Validate
 
-- (BOOL)validateLogin {
-    //Validate required field
-    if ([@"" isEqualToString: self.usernameTextField.text] || [@"" isEqualToString:self.passwordTextField.text]) {
-        [[OttaAlertManager sharedManager] showSimpleAlertOnView:self.view withContent:[@"Email and Password are required fields." toCurrentLanguage] complete:nil];
-        return FALSE;
-    }
-    //ToDo: Validation Email
-    if (![self NSStringIsValidEmail:self.usernameTextField.text]) {
-        [[OttaAlertManager sharedManager] showSimpleAlertOnView:self.view withContent:[@"Invalid Email" toCurrentLanguage] complete:nil];
-        return FALSE;
-    }
-    
-    return TRUE;
-}
 
-- (BOOL)validateJoin {
-    
-    if (![self NSStringIsValidEmail:self.emailJoinDetail.text]) {
-        [[OttaAlertManager sharedManager] showSimpleAlertOnView:self.view withContent:[@"Invalid Email" toCurrentLanguage] complete:nil];
-        return FALSE;
-    }
-    
-    //Validate required field
-    if ([@"" isEqualToString: self.firstNameJoinDetail.text] || [@"" isEqualToString:self.passwordJoinDetail.text] || [@"" isEqualToString:self.confirmPassJoinDetail.text]
-        || [@"" isEqualToString:self.emailJoinDetail.text]) {
-        [[OttaAlertManager sharedManager] showSimpleAlertOnView:self.view withContent:[@"Email, Name and Password are required fields." toCurrentLanguage] complete:nil];
-        return FALSE;
-    }
-    
-    if (![self.confirmPassJoinDetail.text isEqualToString:self.passwordJoinDetail.text]) {
-        [[OttaAlertManager sharedManager] showSimpleAlertOnView:self.view withContent:[@"Your passwords don't match." toCurrentLanguage] complete:nil];
-        return FALSE;
-    }
-
-    return TRUE;
-}
-
-
-//TODO: Will move this function to NSString+utils
-
--(BOOL) NSStringIsValidEmail:(NSString *)checkString
-{
-    BOOL stricterFilter = NO;
-    
-    NSString *stricterFilterString = @"[A-Z0-9a-z\\._%+-]+@([A-Za-z0-9-]+\\.)+[A-Za-z]{2,4}";
-    NSString *laxString = @".+@([A-Za-z0-9-]+\\.)+[A-Za-z]{2}[A-Za-z]*";
-    NSString *emailRegex = stricterFilter ? stricterFilterString : laxString;
-    NSPredicate *emailTest = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", emailRegex];
-    return [emailTest evaluateWithObject:checkString];
-}
 
 @end
