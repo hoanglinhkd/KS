@@ -9,6 +9,7 @@
 #import "OttaAlertManager.h"
 #import <QuartzCore/QuartzCore.h>
 #import "AFPickerView.h"
+#import "OttaAppDelegate.h"
 
 @interface OttaAlertManager() <AFPickerViewDataSource, AFPickerViewDelegate>
 {
@@ -105,6 +106,13 @@
     if ([_simpleAlertView superview] == nil) {
         [self showAleartWithView:_simpleAlertView];
     }
+}
+
+- (void)showSimpleAlertWithContent:(NSString*)content complete:(OttaAlertCompletion)completionBlock {
+    
+    OttaAppDelegate *appDelegate = (OttaAppDelegate*)[UIApplication sharedApplication].delegate;
+    UIView *windowView = appDelegate.window;
+    [self showSimpleAlertOnView:windowView withContent:content complete:completionBlock];
 }
 
 - (IBAction)simpleDonePressed:(id)sender {

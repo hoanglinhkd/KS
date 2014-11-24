@@ -10,12 +10,19 @@
 #import "OttaAlertManager.h"
 #import "MBProgressHUD.h"
 #import "OttaParseClientManager.h"
+#import "OttaAppDelegate.h"
 
 @implementation OttaLoginDetailViewController
+{
+    UIView *windowView;
+}
 
 -(void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    OttaAppDelegate *appDelegate = (OttaAppDelegate*)[UIApplication sharedApplication].delegate;
+    windowView = appDelegate.window;
     
     [self initViews];
 }
@@ -52,7 +59,7 @@
         } else {
             
             NSLog(@"Login failed");
-            [[OttaAlertManager sharedManager] showSimpleAlertOnView:self.view withContent:[@"Login Failed" toCurrentLanguage] complete:nil];
+            [[OttaAlertManager sharedManager] showSimpleAlertOnView:windowView withContent:[@"Login Failed" toCurrentLanguage] complete:nil];
         }
         
         [MBProgressHUD hideHUDForView:self.view animated:YES];
@@ -63,12 +70,12 @@
 - (BOOL)validateLogin {
     //Validate required field
     if ([@"" isEqualToString: self.usernameTextField.text] || [@"" isEqualToString:self.passwordTextField.text]) {
-        [[OttaAlertManager sharedManager] showSimpleAlertOnView:self.view withContent:[@"Email and Password are required fields." toCurrentLanguage] complete:nil];
+        [[OttaAlertManager sharedManager] showSimpleAlertOnView:windowView withContent:[@"Email and Password are required fields." toCurrentLanguage] complete:nil];
         return FALSE;
     }
     //ToDo: Validation Email
     if (![self NSStringIsValidEmail:self.usernameTextField.text]) {
-        [[OttaAlertManager sharedManager] showSimpleAlertOnView:self.view withContent:[@"Invalid Email" toCurrentLanguage] complete:nil];
+        [[OttaAlertManager sharedManager] showSimpleAlertOnView:windowView withContent:[@"Invalid Email" toCurrentLanguage] complete:nil];
         return FALSE;
     }
     

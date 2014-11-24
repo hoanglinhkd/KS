@@ -29,6 +29,14 @@ typedef void(^OttaFriendAlertCompletion)(FriendAction action);
 + (id)sharedManager;
 
 /**
+ *  Show alert with Done button on root window
+ *
+ *  @param content
+ *  @param completionBlock
+ */
+- (void)showSimpleAlertWithContent:(NSString*)content complete:(OttaAlertCompletion)completionBlock;
+
+/**
  *  Show alert with Done button
  *
  *  @param parentView

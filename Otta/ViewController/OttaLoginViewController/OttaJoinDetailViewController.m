@@ -10,13 +10,18 @@
 #import "OttaAlertManager.h"
 #import "MBProgressHUD.h"
 #import "OttaParseClientManager.h"
+#import "OttaAppDelegate.h"
 
 @implementation OttaJoinDetailViewController
+{
+    UIView *windowView;
+}
 
 -(void)viewDidLoad
 {
     [super viewDidLoad];
-    
+    OttaAppDelegate *appDelegate = (OttaAppDelegate*)[UIApplication sharedApplication].delegate;
+    windowView = appDelegate.window;
     [self initViews];
 }
 
@@ -43,7 +48,7 @@
                 str = [[[error userInfo] objectForKey:@"error"] stringByReplacingOccurrencesOfString:@"username" withString:@"email"];
             }
             
-            [[OttaAlertManager sharedManager] showSimpleAlertOnView:self.view withContent:str complete:nil];
+            [[OttaAlertManager sharedManager] showSimpleAlertOnView:windowView withContent:str complete:nil];
         }
         
         [MBProgressHUD hideHUDForView:self.view animated:YES];
@@ -89,19 +94,19 @@
 - (BOOL)validateJoin {
     
     if (![self NSStringIsValidEmail:self.emailJoinDetail.text]) {
-        [[OttaAlertManager sharedManager] showSimpleAlertOnView:self.view withContent:[@"Invalid Email" toCurrentLanguage] complete:nil];
+        [[OttaAlertManager sharedManager] showSimpleAlertOnView:windowView withContent:[@"Invalid Email" toCurrentLanguage] complete:nil];
         return FALSE;
     }
     
     //Validate required field
     if ([@"" isEqualToString: self.firstNameJoinDetail.text] || [@"" isEqualToString:self.passwordJoinDetail.text] || [@"" isEqualToString:self.confirmPassJoinDetail.text]
         || [@"" isEqualToString:self.emailJoinDetail.text]) {
-        [[OttaAlertManager sharedManager] showSimpleAlertOnView:self.view withContent:[@"Email, Name and Password are required fields." toCurrentLanguage] complete:nil];
+        [[OttaAlertManager sharedManager] showSimpleAlertOnView:windowView withContent:[@"Email, Name and Password are required fields." toCurrentLanguage] complete:nil];
         return FALSE;
     }
     
     if (![self.confirmPassJoinDetail.text isEqualToString:self.passwordJoinDetail.text]) {
-        [[OttaAlertManager sharedManager] showSimpleAlertOnView:self.view withContent:[@"Your passwords don't match." toCurrentLanguage] complete:nil];
+        [[OttaAlertManager sharedManager] showSimpleAlertOnView:windowView withContent:[@"Your passwords don't match." toCurrentLanguage] complete:nil];
         return FALSE;
     }
     
