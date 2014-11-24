@@ -11,6 +11,11 @@
 #import <Parse/Parse.h>
 #import "FBRequestConnection.h"
 #import "MBProgressHUD.h"
+#import <MessageUI/MessageUI.h>
+#import "OttaAlertManager.h"
+
+#define INVITE_METHOD_SMS 0
+#define INVITE_METHOD_EMAIL 1
 
 @interface OttaFindFriendsViewController ()
 {
@@ -18,6 +23,7 @@
     RHAddressBook *addressBook;
     NSArray *listPeople;
     NSMutableArray *friends;
+    int inviteMethod;
 }
 @end
 
@@ -25,7 +31,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    _isInviteMode = true;
     addressBook = [[RHAddressBook alloc] init] ;
     
     // Do any additional setup after loading the view.
@@ -33,6 +39,14 @@
     if (_isFromContact){
         self.txtLabel.text = [@"Find Contacts" toCurrentLanguage];
     }
+    
+    _inviteLbl.text = [@"Invite" toCurrentLanguage];
+    _smsLbl.text = [@"SMS" toCurrentLanguage];
+    _emailLbl.text = [@"Email" toCurrentLanguage];
+    
+    _inviteView.hidden = !_isInviteMode;
+    inviteMethod = INVITE_METHOD_SMS;
+    
 }
 
 -(void)viewDidAppear:(BOOL)animated
@@ -44,6 +58,8 @@
     } else { //Facebook
         [self loadFacebookFriends];
     }
+    
+    _inviteView.hidden = !_isInviteMode;
 }
 
 - (void) loadFacebookFriends
@@ -230,9 +246,146 @@
     }
 }
 
+
+- (IBAction)changeInviteMethod:(id)sender {
+    if(inviteMethod == INVITE_METHOD_SMS){
+        inviteMethod = INVITE_METHOD_EMAIL;
+        [_toggleBtn setBackgroundImage:[UIImage imageNamed:@"switch-2"] forState:UIControlStateNormal];
+        _smsLbl.textColor = [UIColor lightGrayColor];
+        _emailLbl.textColor = [UIColor whiteColor];
+    }else{
+        inviteMethod = INVITE_METHOD_SMS;
+        [_toggleBtn setBackgroundImage:[UIImage imageNamed:@"switch-1"] forState:UIControlStateNormal];
+        _smsLbl.textColor = [UIColor whiteColor];
+        _emailLbl.textColor = [UIColor lightGrayColor];
+    }
+}
+
 - (IBAction)backButtonPressed:(id)sender {
     [self dismissViewControllerAnimated:YES completion:nil];
 }
+
+
+- (IBAction)nextButtonPressed:(id)sender {
+    if (_isInviteMode) {
+        if (inviteMethod == INVITE_METHOD_SMS) {
+            [self sendInviteViaSMS];
+
+        }else{
+            [self sendInviteViaEmail];
+
+        }
+    }else{
+        [self dismissViewControllerAnimated:YES completion:nil];
+    }
+}
+
+#pragma mark send sms
+- (void)sendInviteViaSMS{
+    NSMutableArray *recipients = [NSMutableArray array];
+    for (OttaFriend *curFriend in friends) {
+        if (!curFriend.isFriend && curFriend.isSelected) {
+            [recipients addObject:curFriend.phoneNumber];
+        }
+    }
+    
+    
+    MFMessageComposeViewController *controller = [[MFMessageComposeViewController alloc] init] ;
+    if([MFMessageComposeViewController canSendText])
+    {
+        controller.body = [@"Join Otta" toCurrentLanguage];
+        controller.recipients = recipients;
+        controller.messageComposeDelegate = self;
+        [self presentViewController:controller animated:YES completion:nil];
+    }
+}
+
+- (void)messageComposeViewController:(MFMessageComposeViewController *)controller didFinishWithResult:(MessageComposeResult)result
+{
+    BOOL isSuccess = false;
+    switch (result) {
+        case MessageComposeResultCancelled:
+            NSLog(@"Cancelled");
+            break;
+        case MessageComposeResultFailed:
+            [[OttaAlertManager sharedManager] showSimpleAlertOnView:self.view withContent:[@"Can not send SMS" toCurrentLanguage] complete:nil];
+            break;
+            
+        case MessageComposeResultSent:
+            isSuccess = true;
+            break;
+        default:
+            
+            break;
+            
+    }
+    if (isSuccess) {
+        [self dismissViewControllerAnimated:YES completion:^(void) {
+            [self dismissViewControllerAnimated:NO completion:nil];
+        }];
+    }else{
+        [self dismissViewControllerAnimated:YES completion:nil];
+    }
+    
+   
+}
+
+#pragma mark send sms
+- (void)sendInviteViaEmail{
+    NSMutableArray *recipients = [NSMutableArray array];
+    for (OttaFriend *curFriend in friends) {
+        if (!curFriend.isFriend && curFriend.isSelected) {
+            [recipients addObject:curFriend.emailAdress];
+        }
+    }
+    if ([MFMailComposeViewController canSendMail])
+    {
+        MFMailComposeViewController *mail = [[MFMailComposeViewController alloc] init];
+        mail.mailComposeDelegate = self;
+        [mail setSubject:[@"Join Otta" toCurrentLanguage]];
+        [mail setMessageBody:[@"Join Otta to have fun!" toCurrentLanguage] isHTML:NO];
+        [mail setToRecipients:recipients];
+        [self presentViewController:mail animated:YES completion:nil];
+        
+    }
+}
+
+- (void)mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error
+
+{
+    BOOL isSuccess = false;
+    switch (result) {
+            
+        case MFMailComposeResultSent:
+            NSLog(@"You sent the email.");
+            isSuccess = true;
+            break;
+        case MFMailComposeResultSaved:
+            NSLog(@"You saved a draft of this email");
+            break;
+        case MFMailComposeResultCancelled:
+            NSLog(@"You cancelled sending this email.");
+            break;
+        case MFMailComposeResultFailed:
+            [[OttaAlertManager sharedManager] showSimpleAlertOnView:self.view withContent:[@"Could not send email" toCurrentLanguage] complete:nil];
+            NSLog(@"Mail failed:  An error occurred when trying to compose this email");
+            break;
+        default:
+            NSLog(@"An error occurred when trying to compose this email");
+            break;
+    }
+    if (isSuccess) {
+        [self dismissViewControllerAnimated:YES completion:^(void) {
+            [self dismissViewControllerAnimated:NO completion:nil];
+        }];
+    }else{
+        [self dismissViewControllerAnimated:YES completion:nil];
+    }
+    
+    
+}
+
+
 
 
 @end
