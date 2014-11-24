@@ -95,4 +95,9 @@
     return [emailTest evaluateWithObject:checkString];
 }
 
+- (IBAction)btnForgotPassTapped:(id)sender {
+    NSLog(@"Forgot pass");
+}
+
+
 @end

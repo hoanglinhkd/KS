@@ -11,7 +11,7 @@
 
 @interface OttaJoinDetailViewController : UIViewController
 
-@property (nonatomic,strong)IBOutlet OttaViewController *loginView;
+@property (nonatomic,strong) OttaViewController *loginView;
 
 @property (nonatomic,strong)IBOutlet UITextField * firstNameJoinDetail;
 @property (nonatomic,strong)IBOutlet UITextField * lastNameJoinDetail;
@@ -19,7 +19,6 @@
 @property (nonatomic,strong)IBOutlet UITextField * passwordJoinDetail;
 @property (nonatomic,strong)IBOutlet UITextField * phoneJoinDetail;
 @property (nonatomic,strong)IBOutlet UITextField * confirmPassJoinDetail;
-@property (nonatomic,strong)IBOutlet UIButton * btnJoinDetail;
-@property (nonatomic,strong)IBOutlet UIScrollView *scrlJoinDetail;
+
 
 @end
