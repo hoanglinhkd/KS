@@ -26,6 +26,8 @@ typedef void(^OttaAlertCancel)();
 
 typedef void(^OttaFriendAlertCompletion)(FriendAction action);
 
+typedef void(^OttaEmailAlertCompletion)(NSString* email);
+
 + (id)sharedManager;
 
 /**
@@ -71,4 +73,13 @@ typedef void(^OttaFriendAlertCompletion)(FriendAction action);
  *  @param completionBlock 
  */
 - (void)showFriendAlertOnView:(UIView*)parentView withName:(NSString*)name complete:(OttaFriendAlertCompletion)completionBlock;
+
+/**
+ *  Show Alert for entering email
+ *
+ *  @param parentView
+ *  @param completionBlock
+ *  @param cancelBlock
+ */
+- (void)showEmailAlertOnView:(UIView*)parentView  complete:(OttaEmailAlertCompletion)completionBlock cancel:(OttaAlertCancel)cancelBlock;
 @end
