@@ -19,6 +19,8 @@
 @property (weak, nonatomic) IBOutlet UIButton *btnSkipNext;
 @property (weak, nonatomic) IBOutlet UIView *contentView;
 
+@property (weak, nonatomic) IBOutlet UILabel *viewNameLbl;
+@property (assign) BOOL isInviteMode;
 - (IBAction)backButtonPressed:(id)sender;
 - (IBAction)checkButtonPressed:(id)sender;
 @end
