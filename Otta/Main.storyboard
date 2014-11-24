@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14C68k" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="jFH-gY-aPy">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="jFH-gY-aPy">
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+        <deployment defaultVersion="1808" identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <customFonts key="customFonts">
         <mutableArray key="OpenSans-Bold.ttf">
+            <string>OpenSans-Bold</string>
+            <string>OpenSans-Bold</string>
+            <string>OpenSans-Bold</string>
             <string>OpenSans-Bold</string>
             <string>OpenSans-Bold</string>
             <string>OpenSans-Bold</string>
@@ -879,6 +882,39 @@
                                     <action selector="backButtonPressed:" destination="ok4-nK-fyt" eventType="touchUpInside" id="ZMQ-Km-6bg"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hY7-lv-W6T">
+                                <rect key="frame" x="0.0" y="80" width="320" height="55"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Invite" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XsG-nZ-6VI">
+                                        <rect key="frame" x="8" y="17" width="73" height="21"/>
+                                        <fontDescription key="fontDescription" name="OpenSans-Bold" family="Open Sans" pointSize="18"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="SMS" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TMt-ab-YhF">
+                                        <rect key="frame" x="147" y="17" width="53" height="25"/>
+                                        <fontDescription key="fontDescription" name="OpenSans-Bold" family="Open Sans" pointSize="18"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Email" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D6q-FK-uIp">
+                                        <rect key="frame" x="259" y="17" width="53" height="25"/>
+                                        <fontDescription key="fontDescription" name="OpenSans-Bold" family="Open Sans" pointSize="18"/>
+                                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hg0-d9-LMr">
+                                        <rect key="frame" x="205" y="17" width="46" height="25"/>
+                                        <state key="normal" backgroundImage="switch-1.png">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="changeInviteMethod:" destination="ok4-nK-fyt" eventType="touchUpInside" id="ap8-0f-94d"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -906,7 +942,12 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="emailLbl" destination="D6q-FK-uIp" id="B5f-Ri-mY1"/>
+                        <outlet property="inviteLbl" destination="XsG-nZ-6VI" id="jdj-uh-Xhk"/>
+                        <outlet property="inviteView" destination="hY7-lv-W6T" id="WAp-dH-JcC"/>
+                        <outlet property="smsLbl" destination="TMt-ab-YhF" id="IYf-3r-P9A"/>
                         <outlet property="tableFriends" destination="XoY-zJ-9RH" id="GnM-eC-SxA"/>
+                        <outlet property="toggleBtn" destination="Hg0-d9-LMr" id="oyz-Yf-AhZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="InE-Rq-9wN" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1105,6 +1146,7 @@ EE5leHQ
                         <outlet property="findFriendTextField" destination="0uf-dJ-PmN" id="YFt-6y-i0s"/>
                         <outlet property="scrlFindFriend" destination="7qS-cI-DJl" id="IrV-Lp-6eQ"/>
                         <outlet property="searchResultTableView" destination="43E-P9-WYR" id="37d-Ea-PAE"/>
+                        <outlet property="viewNameLbl" destination="aQg-W0-n3H" id="xKF-VW-tdc"/>
                         <segue destination="ok4-nK-fyt" kind="modal" identifier="connectFriendSegue" id="Tca-H3-AKV"/>
                     </connections>
                 </viewController>
@@ -2261,6 +2303,7 @@ EE5leHQ
         <image name="image_line.png" width="816" height="3"/>
         <image name="menu_heart.png" width="172" height="171"/>
         <image name="menu_otta.png" width="173" height="173"/>
+        <image name="switch-1.png" width="83" height="43"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
