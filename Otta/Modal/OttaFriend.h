@@ -8,11 +8,15 @@
 
 #import <Foundation/Foundation.h>
 
+@class PFUser;
+
 @interface OttaFriend : NSObject
 
+
 @property (nonatomic,strong) NSString * name;
-@property (nonatomic,strong) NSMutableArray * emailList;
-@property (nonatomic,strong) NSMutableArray * phoneList;
+@property (nonatomic,strong) NSString * emailAdress;
+@property (nonatomic,strong) NSString * phoneNumber;
+@property (nonatomic,strong) PFUser *pfUser;
 @property (nonatomic,assign) BOOL isFriend;
 @property (nonatomic,assign) BOOL isSelected;
 

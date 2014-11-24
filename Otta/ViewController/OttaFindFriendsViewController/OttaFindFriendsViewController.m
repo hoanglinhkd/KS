@@ -8,12 +8,13 @@
 
 #import "OttaFindFriendsViewController.h"
 #import <RHAddressBook/AddressBook.h>
+#import <Parse/Parse.h>
+#import "FBRequestConnection.h"
 #import "MBProgressHUD.h"
 
 @interface OttaFindFriendsViewController ()
 {
     OttaFriendsCell *lastCellSelected;
-    BOOL isFromContact;//facebook = 1, contacts = 2
     RHAddressBook *addressBook;
     NSArray *listPeople;
     NSMutableArray *friends;
@@ -28,9 +29,9 @@
     addressBook = [[RHAddressBook alloc] init] ;
     
     // Do any additional setup after loading the view.
-    self.txtLabel.text = @"Find Friends";
-    if (isFromContact){
-        self.txtLabel.text = @"Find Contacts";
+    self.txtLabel.text = [@"Find Friends" toCurrentLanguage];
+    if (_isFromContact){
+        self.txtLabel.text = [@"Find Contacts" toCurrentLanguage];
     }
 }
 
@@ -38,6 +39,42 @@
 {
     [super viewDidAppear:animated];
     
+    if(_isFromContact) {
+        [self loadLocalContacts];
+    } else { //Facebook
+        [self loadFacebookFriends];
+    }
+}
+
+- (void) loadFacebookFriends
+{
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    
+    //FBRequest* friendsRequest = [FBRequest requestForMyFriends];
+    
+    [FBRequestConnection startForMyFriendsWithCompletionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
+    //[friendsRequest startWithCompletionHandler: ^(FBRequestConnection *connection,NSDictionary* result,NSError *error) {
+        if (!error) {
+            
+            NSArray *friendObjects = [result objectForKey:@"data"];
+            NSMutableArray *friendIds = [NSMutableArray arrayWithCapacity:friendObjects.count];
+            for (NSDictionary *friendObject in friendObjects) {
+                [friendIds addObject:[friendObject objectForKey:@"id"]];
+            }
+            
+            PFQuery *friendQuery = [PFUser query];
+            [friendQuery whereKey:@"fbId" containedIn:friendIds];
+            NSArray *friendUsers = [friendQuery findObjects];
+            
+            friends = [self loadFriendsFromRegisterdFacebooks:friendUsers];
+            [_tableFriends reloadData];
+        }
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
+    }];
+}
+
+- (void)loadLocalContacts
+{
     //This is use Address Book
     //https://github.com/heardrwt/RHAddressBook
     if ([RHAddressBook authorizationStatus] == RHAuthorizationStatusNotDetermined
@@ -75,6 +112,27 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(NSMutableArray*) loadFriendsFromRegisterdFacebooks:(NSArray*)listFacebooks
+{
+    if(!friends) {
+        friends = [NSMutableArray array];
+    }
+    
+    if (friends.count > 0) {
+        [friends removeAllObjects];
+    }
+    
+    for (PFUser *curUser in listFacebooks) {
+        OttaFriend *friendToAdd = [[OttaFriend alloc] initWithName:curUser.username friendStatus:NO];
+        friendToAdd.emailAdress = curUser.email;
+        friendToAdd.pfUser = curUser;
+        
+        [friends addObject:friendToAdd];
+    }
+    
+    return friends;
+}
+
 - (void)loadData{
     
     if (!friends) {
@@ -92,12 +150,14 @@
         //List phone to compare
         RHMultiValue *phoneNumbers = curPersion.phoneNumbers;
         NSArray *listPhoneCompare = [phoneNumbers values];
-        friendToAdd.phoneList = [NSMutableArray arrayWithArray:listPhoneCompare];
+
+        //
+        friendToAdd.phoneNumber = listPhoneCompare.count > 0 ? listPhoneCompare[0] : @"";
         
         //List Email to compare
         RHMultiValue *emails = curPersion.emails;
         NSArray *listEmails = [emails values];
-        friendToAdd.emailList = [NSMutableArray arrayWithArray:listEmails];
+        friendToAdd.emailAdress = listEmails.count > 0 ? listEmails[0] : @"";
         
         [friends addObject:friendToAdd];
     }

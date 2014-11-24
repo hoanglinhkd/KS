@@ -8,6 +8,8 @@
 
 #import "OttAddFriendViewController.h"
 #import "OttaFriend.h"
+#import "OttaFindFriendsViewController.h"
+
 @interface OttAddFriendViewController()
 
 @property (strong) NSMutableArray *friends;
@@ -22,6 +24,7 @@
     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"OttaSideMenuBackground.png"]];
     
     [self inittempData];
+    
 }
 
 - (void)inittempData {
@@ -99,8 +102,30 @@
     }
 }
 
-#pragma mark - Text Field
+-(IBAction)btnFacebookFriendPressed:(id)sender
+{
+    [self performSegueWithIdentifier:@"connectFriendSegue" sender:@"FacebookFriends"];
+}
 
+-(IBAction)btnContactPressed:(id)sender
+{
+    [self performSegueWithIdentifier:@"connectFriendSegue" sender:@"Contacts"];
+}
+
+#pragma mark - Segue
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if([segue.identifier isEqualToString:@"connectFriendSegue"]) {
+        OttaFindFriendsViewController *findFriendVC = segue.destinationViewController;
+        NSString *senderValue = sender;
+        if([senderValue isEqualToString:@"Contacts"]) {
+            findFriendVC.isFromContact = YES;
+        }
+    }
+}
+
+#pragma mark - Text Field
 
 -(void)textFieldDidBeginEditing:(UITextField *)textField {
     

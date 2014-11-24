@@ -68,7 +68,7 @@
                         <viewControllerLayoutGuide type="bottom" id="FNb-iF-xY9"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="oX7-Sy-pyw">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -911,7 +911,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="InE-Rq-9wN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="690" y="-111"/>
+            <point key="canvasLocation" x="129" y="-38"/>
         </scene>
         <!--Ott Add Friend View Controller-->
         <scene sceneID="WhE-YP-WF0">
@@ -953,18 +953,8 @@
                                                 <state key="normal" image="btnAddFBFriend.png">
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GUp-dy-rrm">
-                                                <rect key="frame" x="16" y="249" width="288" height="34"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="288" id="guY-FM-86j"/>
-                                                    <constraint firstAttribute="height" constant="34" id="kLf-ri-iVT"/>
-                                                </constraints>
-                                                <state key="normal" image="btnAddContact.png">
-                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                                </state>
                                                 <connections>
-                                                    <segue destination="ok4-nK-fyt" kind="modal" id="2Gk-eX-tNO"/>
+                                                    <action selector="btnFacebookFriendPressed:" destination="sjb-6w-bwp" eventType="touchUpInside" id="cUj-1T-rZ2"/>
                                                 </connections>
                                             </button>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Find friends" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0uf-dJ-PmN">
@@ -1011,6 +1001,19 @@
                                                     <constraint firstAttribute="height" constant="54" id="j0h-yL-d13"/>
                                                 </constraints>
                                             </imageView>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GUp-dy-rrm">
+                                                <rect key="frame" x="16" y="249" width="288" height="34"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="288" id="guY-FM-86j"/>
+                                                    <constraint firstAttribute="height" constant="34" id="kLf-ri-iVT"/>
+                                                </constraints>
+                                                <state key="normal" image="btnAddContact.png">
+                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="btnContactPressed:" destination="sjb-6w-bwp" eventType="touchUpInside" id="IZT-kA-DOZ"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
@@ -1102,6 +1105,7 @@ EE5leHQ
                         <outlet property="findFriendTextField" destination="0uf-dJ-PmN" id="YFt-6y-i0s"/>
                         <outlet property="scrlFindFriend" destination="7qS-cI-DJl" id="IrV-Lp-6eQ"/>
                         <outlet property="searchResultTableView" destination="43E-P9-WYR" id="37d-Ea-PAE"/>
+                        <segue destination="ok4-nK-fyt" kind="modal" identifier="connectFriendSegue" id="Tca-H3-AKV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HpG-K3-5ZQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -2268,6 +2272,6 @@ EE5leHQ
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="d1F-FC-q8g"/>
+        <segue reference="tOS-fD-NOY"/>
     </inferredMetricsTieBreakers>
 </document>
