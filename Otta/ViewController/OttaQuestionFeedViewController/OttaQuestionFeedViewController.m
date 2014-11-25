@@ -246,7 +246,7 @@ static NSString * const QuestionFeedCellId = @"QuestionFeedCellId";
     
     CGSize size = [sizingCell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize];
     return size.height + sizingCell.tableView.contentSize.height + sizingCell.questionLbl.frame.size.height + 10;
-    NSLog(@"table heigh %f",sizingCell.tableView.contentSize.height);
+    
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
