@@ -231,11 +231,7 @@ static NSString * const QuestionFeedCellId = @"QuestionFeedCellId";
     dispatch_once(&onceToken, ^{
         sizingCell = [self.tableView dequeueReusableCellWithIdentifier:QuestionFeedCellId];
     });
-    if ([viewAllModeCellArray containsObject:[NSNumber numberWithInteger:indexPath.row]])
-        sizingCell.isViewAllMode = true;
-    else {
-        sizingCell.isViewAllMode = false;
-    }
+
     [self configureBasicCell:sizingCell atIndexPath:indexPath];
     return [self calculateHeightForConfiguredSizingCell:sizingCell];
 }
@@ -260,12 +256,20 @@ static NSString * const QuestionFeedCellId = @"QuestionFeedCellId";
 - (OttaQuestionFeedCell *)basicCellAtIndexPath:(NSIndexPath *)indexPath {
     OttaQuestionFeedCell *cell = [self.tableView dequeueReusableCellWithIdentifier:QuestionFeedCellId forIndexPath:indexPath];
     cell.delegate = self;
+    
     [self configureBasicCell:cell atIndexPath:indexPath];
     return cell;
 }
 
 - (void)configureBasicCell:(OttaQuestionFeedCell *)cell atIndexPath:(NSIndexPath *)indexPath {
     OttaQuestion *item = feedItems[indexPath.row];
+    
+    if ([viewAllModeCellArray containsObject:[NSNumber numberWithInteger:indexPath.row]])
+        cell.isViewAllMode = true;
+    else {
+        cell.isViewAllMode = false;
+    }
+    
     [self setTitleForCell:cell item:item];
     
 }
