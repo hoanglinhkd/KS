@@ -142,6 +142,26 @@
 		7E1A1DB71A1C8287009FB0E6 /* OttaFindFriendsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E1A1DB61A1C8287009FB0E6 /* OttaFindFriendsViewController.m */; };
 		7E1A1DBA1A1C8345009FB0E6 /* OttaFriendsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E1A1DB91A1C8345009FB0E6 /* OttaFriendsCell.m */; };
 		7E1A1DBD1A1C8418009FB0E6 /* OttaFriend.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E1A1DBC1A1C8418009FB0E6 /* OttaFriend.m */; };
+		7E2DA3411A24514F0064A523 /* MainP.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7E2DA3401A24514F0064A523 /* MainP.storyboard */; };
+		7E2DA3551A2456BD0064A523 /* Otta_ask_box_checked.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E2DA3431A2456BD0064A523 /* Otta_ask_box_checked.png */; };
+		7E2DA3561A2456BD0064A523 /* Otta_ask_box_unchecked.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E2DA3441A2456BD0064A523 /* Otta_ask_box_unchecked.png */; };
+		7E2DA3571A2456BD0064A523 /* Otta_ask_button_add photo.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E2DA3451A2456BD0064A523 /* Otta_ask_button_add photo.png */; };
+		7E2DA3581A2456BD0064A523 /* Otta_ask_button_add text.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E2DA3461A2456BD0064A523 /* Otta_ask_button_add text.png */; };
+		7E2DA3591A2456BD0064A523 /* Otta_ask_button_add_green.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E2DA3471A2456BD0064A523 /* Otta_ask_button_add_green.png */; };
+		7E2DA35A1A2456BD0064A523 /* Otta_ask_button_add_grey.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E2DA3481A2456BD0064A523 /* Otta_ask_button_add_grey.png */; };
+		7E2DA35B1A2456BD0064A523 /* Otta_ask_button_discard.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E2DA3491A2456BD0064A523 /* Otta_ask_button_discard.png */; };
+		7E2DA35C1A2456BD0064A523 /* Otta_ask_button_flash_off.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E2DA34A1A2456BD0064A523 /* Otta_ask_button_flash_off.png */; };
+		7E2DA35D1A2456BD0064A523 /* Otta_ask_button_flash_on.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E2DA34B1A2456BD0064A523 /* Otta_ask_button_flash_on.png */; };
+		7E2DA35E1A2456BD0064A523 /* Otta_ask_button_green_blank.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E2DA34C1A2456BD0064A523 /* Otta_ask_button_green_blank.png */; };
+		7E2DA35F1A2456BD0064A523 /* Otta_ask_button_number.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E2DA34D1A2456BD0064A523 /* Otta_ask_button_number.png */; };
+		7E2DA3601A2456BD0064A523 /* Otta_ask_button_sandclock.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E2DA34E1A2456BD0064A523 /* Otta_ask_button_sandclock.png */; };
+		7E2DA3611A2456BD0064A523 /* Otta_ask_button_selfie.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E2DA34F1A2456BD0064A523 /* Otta_ask_button_selfie.png */; };
+		7E2DA3621A2456BD0064A523 /* Otta_ask_button_take photo.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E2DA3501A2456BD0064A523 /* Otta_ask_button_take photo.png */; };
+		7E2DA3631A2456BD0064A523 /* Otta_ask_button_yellow.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E2DA3511A2456BD0064A523 /* Otta_ask_button_yellow.png */; };
+		7E2DA3641A2456BD0064A523 /* Otta_ask_shape_divider_line.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E2DA3521A2456BD0064A523 /* Otta_ask_shape_divider_line.png */; };
+		7E2DA3651A2456BD0064A523 /* Otta_ask_shape_popup.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E2DA3531A2456BD0064A523 /* Otta_ask_shape_popup.png */; };
+		7E2DA3661A2456BD0064A523 /* Otta_ask_shape_popup_dividers.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E2DA3541A2456BD0064A523 /* Otta_ask_shape_popup_dividers.png */; };
+		7E2DA36A1A2458420064A523 /* OttaAnswerersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E2DA3691A2458420064A523 /* OttaAnswerersViewController.m */; };
 		D9286F401A12187F00C28770 /* OttaSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D9286F3F1A12187F00C28770 /* OttaSessionManager.m */; };
 		D9286F431A12190500C28770 /* OttaParseClientManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D9286F421A12190500C28770 /* OttaParseClientManager.m */; };
 		D98E30B21A1777950080B934 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D98E30B41A1777950080B934 /* Localizable.strings */; };
@@ -349,6 +369,27 @@
 		7E1A1DB91A1C8345009FB0E6 /* OttaFriendsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OttaFriendsCell.m; sourceTree = "<group>"; };
 		7E1A1DBB1A1C8418009FB0E6 /* OttaFriend.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OttaFriend.h; sourceTree = "<group>"; };
 		7E1A1DBC1A1C8418009FB0E6 /* OttaFriend.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OttaFriend.m; sourceTree = "<group>"; };
+		7E2DA3401A24514F0064A523 /* MainP.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainP.storyboard; sourceTree = "<group>"; };
+		7E2DA3431A2456BD0064A523 /* Otta_ask_box_checked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Otta_ask_box_checked.png; sourceTree = "<group>"; };
+		7E2DA3441A2456BD0064A523 /* Otta_ask_box_unchecked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Otta_ask_box_unchecked.png; sourceTree = "<group>"; };
+		7E2DA3451A2456BD0064A523 /* Otta_ask_button_add photo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Otta_ask_button_add photo.png"; sourceTree = "<group>"; };
+		7E2DA3461A2456BD0064A523 /* Otta_ask_button_add text.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Otta_ask_button_add text.png"; sourceTree = "<group>"; };
+		7E2DA3471A2456BD0064A523 /* Otta_ask_button_add_green.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Otta_ask_button_add_green.png; sourceTree = "<group>"; };
+		7E2DA3481A2456BD0064A523 /* Otta_ask_button_add_grey.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Otta_ask_button_add_grey.png; sourceTree = "<group>"; };
+		7E2DA3491A2456BD0064A523 /* Otta_ask_button_discard.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Otta_ask_button_discard.png; sourceTree = "<group>"; };
+		7E2DA34A1A2456BD0064A523 /* Otta_ask_button_flash_off.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Otta_ask_button_flash_off.png; sourceTree = "<group>"; };
+		7E2DA34B1A2456BD0064A523 /* Otta_ask_button_flash_on.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Otta_ask_button_flash_on.png; sourceTree = "<group>"; };
+		7E2DA34C1A2456BD0064A523 /* Otta_ask_button_green_blank.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Otta_ask_button_green_blank.png; sourceTree = "<group>"; };
+		7E2DA34D1A2456BD0064A523 /* Otta_ask_button_number.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Otta_ask_button_number.png; sourceTree = "<group>"; };
+		7E2DA34E1A2456BD0064A523 /* Otta_ask_button_sandclock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Otta_ask_button_sandclock.png; sourceTree = "<group>"; };
+		7E2DA34F1A2456BD0064A523 /* Otta_ask_button_selfie.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Otta_ask_button_selfie.png; sourceTree = "<group>"; };
+		7E2DA3501A2456BD0064A523 /* Otta_ask_button_take photo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Otta_ask_button_take photo.png"; sourceTree = "<group>"; };
+		7E2DA3511A2456BD0064A523 /* Otta_ask_button_yellow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Otta_ask_button_yellow.png; sourceTree = "<group>"; };
+		7E2DA3521A2456BD0064A523 /* Otta_ask_shape_divider_line.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Otta_ask_shape_divider_line.png; sourceTree = "<group>"; };
+		7E2DA3531A2456BD0064A523 /* Otta_ask_shape_popup.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Otta_ask_shape_popup.png; sourceTree = "<group>"; };
+		7E2DA3541A2456BD0064A523 /* Otta_ask_shape_popup_dividers.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Otta_ask_shape_popup_dividers.png; sourceTree = "<group>"; };
+		7E2DA3681A2458420064A523 /* OttaAnswerersViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OttaAnswerersViewController.h; sourceTree = "<group>"; };
+		7E2DA3691A2458420064A523 /* OttaAnswerersViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OttaAnswerersViewController.m; sourceTree = "<group>"; };
 		C1E9BE3193743527323F1CDA /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		D075C858A4214DDABEDE0CDD /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		D45B044B7810A706377E3F1A /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
@@ -629,6 +670,7 @@
 		66FD4AF31A11A6CC005ACD58 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				7E2DA3421A2456BD0064A523 /* AskAQuestion */,
 				6AA695EB1A21DD7B001F6953 /* QuestionFeed */,
 				383581321A21748200CB1423 /* OttaLaunchIphone6p.png */,
 				38CAFAB81A2384D80000461E /* Otta_intro_popup_yesorno.png */,
@@ -663,6 +705,7 @@
 		66FD4B301A11A7FC005ACD58 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				7E2DA3671A2458420064A523 /* OttaAnswerersViewController */,
 				6AA695DD1A21DD30001F6953 /* OttaQuestionFeedViewController */,
 				663665F11A1EF70C007F0EFC /* OttaTransitionViewController */,
 				38E161431A1E56E20093998E /* OttaAnswerersAskersViewController */,
@@ -693,7 +736,10 @@
 		66FD4B321A11A83A005ACD58 /* View */ = {
 			isa = PBXGroup;
 			children = (
+
 				6AADDAC11A23842F00AC8149 /* Main_HD.storyboard */,
+
+				7E2DA3401A24514F0064A523 /* MainP.storyboard */,
 				6AA695E11A21DD4E001F6953 /* OttaQuestionFeedView */,
 				5DB6B8121A2355A20033938C /* MainH.storyboard */,
 				F0D6B1F119862B4D0077E30E /* Main.storyboard */,
@@ -821,6 +867,40 @@
 				7E1A1DB61A1C8287009FB0E6 /* OttaFindFriendsViewController.m */,
 			);
 			path = OttaFindFriendsViewController;
+			sourceTree = "<group>";
+		};
+		7E2DA3421A2456BD0064A523 /* AskAQuestion */ = {
+			isa = PBXGroup;
+			children = (
+				7E2DA3431A2456BD0064A523 /* Otta_ask_box_checked.png */,
+				7E2DA3441A2456BD0064A523 /* Otta_ask_box_unchecked.png */,
+				7E2DA3451A2456BD0064A523 /* Otta_ask_button_add photo.png */,
+				7E2DA3461A2456BD0064A523 /* Otta_ask_button_add text.png */,
+				7E2DA3471A2456BD0064A523 /* Otta_ask_button_add_green.png */,
+				7E2DA3481A2456BD0064A523 /* Otta_ask_button_add_grey.png */,
+				7E2DA3491A2456BD0064A523 /* Otta_ask_button_discard.png */,
+				7E2DA34A1A2456BD0064A523 /* Otta_ask_button_flash_off.png */,
+				7E2DA34B1A2456BD0064A523 /* Otta_ask_button_flash_on.png */,
+				7E2DA34C1A2456BD0064A523 /* Otta_ask_button_green_blank.png */,
+				7E2DA34D1A2456BD0064A523 /* Otta_ask_button_number.png */,
+				7E2DA34E1A2456BD0064A523 /* Otta_ask_button_sandclock.png */,
+				7E2DA34F1A2456BD0064A523 /* Otta_ask_button_selfie.png */,
+				7E2DA3501A2456BD0064A523 /* Otta_ask_button_take photo.png */,
+				7E2DA3511A2456BD0064A523 /* Otta_ask_button_yellow.png */,
+				7E2DA3521A2456BD0064A523 /* Otta_ask_shape_divider_line.png */,
+				7E2DA3531A2456BD0064A523 /* Otta_ask_shape_popup.png */,
+				7E2DA3541A2456BD0064A523 /* Otta_ask_shape_popup_dividers.png */,
+			);
+			path = AskAQuestion;
+			sourceTree = "<group>";
+		};
+		7E2DA3671A2458420064A523 /* OttaAnswerersViewController */ = {
+			isa = PBXGroup;
+			children = (
+				7E2DA3681A2458420064A523 /* OttaAnswerersViewController.h */,
+				7E2DA3691A2458420064A523 /* OttaAnswerersViewController.m */,
+			);
+			path = OttaAnswerersViewController;
 			sourceTree = "<group>";
 		};
 		D9286F3D1A12187F00C28770 /* Manager */ = {
@@ -1043,6 +1123,7 @@
 			files = (
 				386E89AF1A124EAF00459171 /* btn_facebook.png in Resources */,
 				66FD4B0C1A11A6CC005ACD58 /* hamburger.jpg in Resources */,
+				7E2DA3411A24514F0064A523 /* MainP.storyboard in Resources */,
 				6AA695F51A21DD7B001F6953 /* green_blank.png in Resources */,
 				D98E30CB1A1797CD0080B934 /* pickerGlass.png in Resources */,
 				386E89B41A124EAF00459171 /* icon_check.png in Resources */,
@@ -1050,12 +1131,14 @@
 				66FD4B201A11A6CC005ACD58 /* AskAQuestion.png in Resources */,
 				66FD4B141A11A6CC005ACD58 /* white_chocolate_donut.jpg in Resources */,
 				66FD4B101A11A6CC005ACD58 /* noodle_with_bbq_pork.jpg in Resources */,
+				7E2DA35A1A2456BD0064A523 /* Otta_ask_button_add_grey.png in Resources */,
 				386E89CA1A126DEF00459171 /* icon_check2.png in Resources */,
 				5D58441D1A1BD21D004FE156 /* Otta_friends_button_added.png in Resources */,
 				386E89B11A124EAF00459171 /* btn_login.png in Resources */,
 				5D58441C1A1BD21D004FE156 /* Otta_friends_button_add.png in Resources */,
 				66FD4B2A1A11A6CC005ACD58 /* OttaLandingTopLogo.png in Resources */,
 				38A37D7D1A171FF900771881 /* OttaAlertManager.xib in Resources */,
+				7E2DA3561A2456BD0064A523 /* Otta_ask_box_unchecked.png in Resources */,
 				386E89BF1A12606000459171 /* btn_start.png in Resources */,
 				66FD4B171A11A6CC005ACD58 /* OpenSans-ExtraBold.ttf in Resources */,
 				5D8E7C6D1A1BB43900678DAC /* btnAddContact@2x.png in Resources */,
@@ -1072,6 +1155,7 @@
 				5D8E7C6E1A1BB43900678DAC /* btnAddFBFriend@2x.png in Resources */,
 				6AA695F71A21DD7B001F6953 /* icon_left_inactive.png in Resources */,
 				F0BC652E198606BD0097A87C /* Images.xcassets in Resources */,
+				7E2DA35C1A2456BD0064A523 /* Otta_ask_button_flash_off.png in Resources */,
 				D98E30CC1A1797CD0080B934 /* pickerGlass@2x.png in Resources */,
 				6AA695F41A21DD7B001F6953 /* button_yellow.png in Resources */,
 				66FD4B111A11A6CC005ACD58 /* starbucks_coffee.jpg in Resources */,
@@ -1080,8 +1164,10 @@
 				66FD4B3B1A11A8F0005ACD58 /* OttaQuestionTableViewCell.xib in Resources */,
 				382E32731A139911008ACA45 /* menu_question.png in Resources */,
 				7E1A1DB31A1C7E05009FB0E6 /* Otta_friends_shape_popup.png in Resources */,
+				7E2DA35E1A2456BD0064A523 /* Otta_ask_button_green_blank.png in Resources */,
 				386E89B91A12591A00459171 /* btn_back.png in Resources */,
 				7E1A1DB11A1C7E05009FB0E6 /* Otta_friends_shape_divider_vertical.png in Resources */,
+				7E2DA3641A2456BD0064A523 /* Otta_ask_shape_divider_line.png in Resources */,
 				380F5DF91A1BCD9000969FDC /* Otta_header_button_back.png in Resources */,
 				380F5DFB1A1BCD9000969FDC /* Otta_header_shape_bar.png in Resources */,
 				7E1A1DB01A1C7E05009FB0E6 /* Otta_friends_shape_divider_horizontal.png in Resources */,
@@ -1089,24 +1175,31 @@
 				38A37D7C1A171FF900771881 /* btn_alert_done.png in Resources */,
 				66FD4B151A11A6CC005ACD58 /* OpenSans-Bold.ttf in Resources */,
 				66FD4B081A11A6CC005ACD58 /* full_breakfast.jpg in Resources */,
+				7E2DA3551A2456BD0064A523 /* Otta_ask_box_checked.png in Resources */,
 				66FD4B281A11A6CC005ACD58 /* OttaFacebookButton2.png in Resources */,
 				387DA0D71A1CD0D2006C92B0 /* Otta_ask_button_yellow.png in Resources */,
 				380F5DF71A1BCD9000969FDC /* Otta_header_brand_name.png in Resources */,
+				7E2DA3631A2456BD0064A523 /* Otta_ask_button_yellow.png in Resources */,
 				66FD4B271A11A6CC005ACD58 /* OttaAskSeparator.png in Resources */,
+				7E2DA35B1A2456BD0064A523 /* Otta_ask_button_discard.png in Resources */,
 				66FD4B251A11A6CC005ACD58 /* OttaAddTextButton.png in Resources */,
 				386E89B51A124EAF00459171 /* icon_email.png in Resources */,
 				386E89B01A124EAF00459171 /* btn_join.png in Resources */,
 				66FD4B061A11A6CC005ACD58 /* creme_brelee.jpg in Resources */,
 				7E1A1DAD1A1C7E05009FB0E6 /* Otta_friends_button_add.png in Resources */,
 				380F5DFA1A1BCD9000969FDC /* Otta_header_button_menu.png in Resources */,
+				7E2DA3611A2456BD0064A523 /* Otta_ask_button_selfie.png in Resources */,
 				F0BC6520198606BD0097A87C /* InfoPlist.strings in Resources */,
 				7E1A1DAC1A1C7E05009FB0E6 /* Otta-84.png in Resources */,
 				386E89B21A124EAF00459171 /* con_question.png in Resources */,
+				7E2DA3601A2456BD0064A523 /* Otta_ask_button_sandclock.png in Resources */,
 				6AA695FA1A21DD7B001F6953 /* icon_sandclock.png in Resources */,
 				66FD4B211A11A6CC005ACD58 /* FBConnect.png in Resources */,
 				380F5DF81A1BCD9000969FDC /* Otta_header_button_ask.png in Resources */,
 				66FD4B241A11A6CC005ACD58 /* OttaAddAnswerButton.png in Resources */,
 				66FD4B181A11A6CC005ACD58 /* OpenSans-ExtraBoldItalic.ttf in Resources */,
+				7E2DA3581A2456BD0064A523 /* Otta_ask_button_add text.png in Resources */,
+				7E2DA3661A2456BD0064A523 /* Otta_ask_shape_popup_dividers.png in Resources */,
 				386E89B31A124EAF00459171 /* greenLogo.png in Resources */,
 				66FD4B161A11A6CC005ACD58 /* OpenSans-BoldItalic.ttf in Resources */,
 				386E89C11A12606000459171 /* icon_find.png in Resources */,
@@ -1115,6 +1208,7 @@
 				66FD4B0F1A11A6CC005ACD58 /* mushroom_risotto.jpg in Resources */,
 				D98E30B21A1777950080B934 /* Localizable.strings in Resources */,
 				66502BE41A14571000A9472D /* icon_time.png in Resources */,
+				7E2DA35F1A2456BD0064A523 /* Otta_ask_button_number.png in Resources */,
 				66FD4B2E1A11A6CC005ACD58 /* OttaSideMenuBackground.png in Resources */,
 				383400631A17BF67006A913E /* btn_alert_no.png in Resources */,
 				6AA695F81A21DD7B001F6953 /* icon_right.png in Resources */,
@@ -1124,12 +1218,14 @@
 				66FD4B291A11A6CC005ACD58 /* OttaGreenBackground.png in Resources */,
 				66FD4B1F1A11A6CC005ACD58 /* addPhotoOtta.png in Resources */,
 				5DB6B81B1A2391C60033938C /* switch-1.png in Resources */,
+				7E2DA3591A2456BD0064A523 /* Otta_ask_button_add_green.png in Resources */,
 				66FD4B2B1A11A6CC005ACD58 /* OttaLeftSidebar.png in Resources */,
 				66FD4B1D1A11A6CC005ACD58 /* OpenSans-Semibold.ttf in Resources */,
 				5DB6B8131A2355A20033938C /* MainH.storyboard in Resources */,
 				66FD4B091A11A6CC005ACD58 /* green_tea.jpg in Resources */,
 				66FD4B0E1A11A6CC005ACD58 /* japanese_noodle_with_pork.jpg in Resources */,
 				66FD4B2C1A11A6CC005ACD58 /* OttaNumberBackground.png in Resources */,
+				7E2DA35D1A2456BD0064A523 /* Otta_ask_button_flash_on.png in Resources */,
 				383581331A21748200CB1423 /* OttaLaunchIphone6p.png in Resources */,
 				7E1A1DAB1A1C7E05009FB0E6 /* Otta-80.png in Resources */,
 				6AADDAC21A23842F00AC8149 /* Main_HD.storyboard in Resources */,
@@ -1138,6 +1234,7 @@
 				386E89C21A12606000459171 /* icon_uncheck.png in Resources */,
 				7E1A1DAF1A1C7E05009FB0E6 /* Otta_friends_button_yellow.png in Resources */,
 				382E326F1A139911008ACA45 /* menu_heart.png in Resources */,
+				7E2DA3571A2456BD0064A523 /* Otta_ask_button_add photo.png in Resources */,
 				38CAFAB91A2384D80000461E /* Otta_intro_popup_yesorno.png in Resources */,
 				386E89B61A124EAF00459171 /* icon_open_mail.png in Resources */,
 				382E32741A139911008ACA45 /* menu_weel.png in Resources */,
@@ -1152,8 +1249,10 @@
 				7E1A1DAE1A1C7E05009FB0E6 /* Otta_friends_button_added.png in Resources */,
 				66FD4B071A11A6CC005ACD58 /* egg_benedict.jpg in Resources */,
 				66FD4B1C1A11A6CC005ACD58 /* OpenSans-Regular.ttf in Resources */,
+				7E2DA3651A2456BD0064A523 /* Otta_ask_shape_popup.png in Resources */,
 				383400641A17BF67006A913E /* btn_alert_yes.png in Resources */,
 				5DB6B81A1A2391C60033938C /* switch-2.png in Resources */,
+				7E2DA3621A2456BD0064A523 /* Otta_ask_button_take photo.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1231,6 +1330,7 @@
 				D9CD79981A22EA8C007C6E15 /* OttaLoginSegue.m in Sources */,
 				D98E30CA1A1797CD0080B934 /* AFPickerView.m in Sources */,
 				663665F01A1EEE00007F0EFC /* MEZoomAnimationController.m in Sources */,
+				7E2DA36A1A2458420064A523 /* OttaAnswerersViewController.m in Sources */,
 				D9CD79961A22EA8C007C6E15 /* OttaLoginContainerViewController.m in Sources */,
 				66FD4B3A1A11A8F0005ACD58 /* OttaQuestionTableViewCell.m in Sources */,
 				D98E30BC1A1779110080B934 /* LanguageHelper.m in Sources */,
