@@ -51,9 +51,11 @@
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     
     //FBRequest* friendsRequest = [FBRequest requestForMyFriends];
+    //[friendsRequest startWithCompletionHandler: ^(FBRequestConnection *connection,NSDictionary* result,NSError *error) {
+    
     
     [FBRequestConnection startForMyFriendsWithCompletionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
-    //[friendsRequest startWithCompletionHandler: ^(FBRequestConnection *connection,NSDictionary* result,NSError *error) {
+   
         if (!error) {
             
             NSArray *friendObjects = [result objectForKey:@"data"];
@@ -63,13 +65,16 @@
             }
             
             PFQuery *friendQuery = [PFUser query];
-            [friendQuery whereKey:@"fbId" containedIn:friendIds];
-            NSArray *friendUsers = [friendQuery findObjects];
             
-            friends = [self loadFriendsFromRegisterdFacebooks:friendUsers];
-            [_tableFriends reloadData];
+            [friendQuery whereKey:@"facebookId" containedIn:friendIds];
+            [friendQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+                friends = [self loadFriendsFromRegisterdFacebooks:objects];
+                [_tableFriends reloadData];
+                [MBProgressHUD hideHUDForView:self.view animated:YES];
+            }];
         }
-        [MBProgressHUD hideHUDForView:self.view animated:YES];
+
+        
     }];
 }
 
@@ -126,7 +131,7 @@
         OttaFriend *friendToAdd = [[OttaFriend alloc] initWithName:curUser.username friendStatus:NO];
         friendToAdd.emailAdress = curUser.email;
         friendToAdd.pfUser = curUser;
-        
+        friendToAdd.name = [NSString stringWithFormat:@"%@ %@", curUser[@"firstName"], curUser[@"lastName"]];
         [friends addObject:friendToAdd];
     }
     
@@ -210,7 +215,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [friends count];
+    return [friends count] + 1;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {

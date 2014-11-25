@@ -13,9 +13,6 @@
             <string>OpenSans-Bold</string>
             <string>OpenSans-Bold</string>
             <string>OpenSans-Bold</string>
-            <string>OpenSans-Bold</string>
-            <string>OpenSans-Bold</string>
-            <string>OpenSans-Bold</string>
         </mutableArray>
         <mutableArray key="OpenSans-Light.ttf">
             <string>OpenSans-Light</string>
@@ -83,7 +80,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8b0-wb-akz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="151" y="-757"/>
+            <point key="canvasLocation" x="181" y="-794"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="spb-3L-BgH">
@@ -99,7 +96,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7TB-dE-zmc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-723" y="684"/>
+            <point key="canvasLocation" x="54" y="490"/>
         </scene>
         <!--Otta Ask View Controller-->
         <scene sceneID="0A0-dA-ezo">
@@ -468,7 +465,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HOd-FJ-vaq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-133" y="684"/>
+            <point key="canvasLocation" x="544" y="490"/>
         </scene>
         <!--Side Menu View Controller-->
         <scene sceneID="U7e-sd-NBW">
@@ -594,7 +591,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CcS-Hm-vcd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1662" y="684"/>
+            <point key="canvasLocation" x="-1174" y="472"/>
         </scene>
         <!--Otta Add Caption Image View Controller-->
         <scene sceneID="Mcj-hz-ZKm">
@@ -733,7 +730,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uya-yZ-QJd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="455" y="684"/>
+            <point key="canvasLocation" x="1064" y="490"/>
         </scene>
         <!--Otta Find Friends View Controller-->
         <scene sceneID="pA0-3F-NdA">
@@ -882,39 +879,6 @@
                                     <action selector="backButtonPressed:" destination="ok4-nK-fyt" eventType="touchUpInside" id="ZMQ-Km-6bg"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hY7-lv-W6T">
-                                <rect key="frame" x="0.0" y="80" width="320" height="55"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Invite" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XsG-nZ-6VI">
-                                        <rect key="frame" x="8" y="17" width="73" height="21"/>
-                                        <fontDescription key="fontDescription" name="OpenSans-Bold" family="Open Sans" pointSize="18"/>
-                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="SMS" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TMt-ab-YhF">
-                                        <rect key="frame" x="147" y="17" width="53" height="25"/>
-                                        <fontDescription key="fontDescription" name="OpenSans-Bold" family="Open Sans" pointSize="18"/>
-                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Email" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D6q-FK-uIp">
-                                        <rect key="frame" x="259" y="17" width="53" height="25"/>
-                                        <fontDescription key="fontDescription" name="OpenSans-Bold" family="Open Sans" pointSize="18"/>
-                                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hg0-d9-LMr">
-                                        <rect key="frame" x="205" y="17" width="46" height="25"/>
-                                        <state key="normal" backgroundImage="switch-1.png">
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="changeInviteMethod:" destination="ok4-nK-fyt" eventType="touchUpInside" id="ap8-0f-94d"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -942,17 +906,12 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="emailLbl" destination="D6q-FK-uIp" id="B5f-Ri-mY1"/>
-                        <outlet property="inviteLbl" destination="XsG-nZ-6VI" id="jdj-uh-Xhk"/>
-                        <outlet property="inviteView" destination="hY7-lv-W6T" id="WAp-dH-JcC"/>
-                        <outlet property="smsLbl" destination="TMt-ab-YhF" id="IYf-3r-P9A"/>
                         <outlet property="tableFriends" destination="XoY-zJ-9RH" id="GnM-eC-SxA"/>
-                        <outlet property="toggleBtn" destination="Hg0-d9-LMr" id="oyz-Yf-AhZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="InE-Rq-9wN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="159" y="-102"/>
+            <point key="canvasLocation" x="129" y="-38"/>
         </scene>
         <!--Ott Add Friend View Controller-->
         <scene sceneID="WhE-YP-WF0">
@@ -1146,13 +1105,12 @@ EE5leHQ
                         <outlet property="findFriendTextField" destination="0uf-dJ-PmN" id="YFt-6y-i0s"/>
                         <outlet property="scrlFindFriend" destination="7qS-cI-DJl" id="IrV-Lp-6eQ"/>
                         <outlet property="searchResultTableView" destination="43E-P9-WYR" id="37d-Ea-PAE"/>
-                        <outlet property="viewNameLbl" destination="aQg-W0-n3H" id="xKF-VW-tdc"/>
                         <segue destination="ok4-nK-fyt" kind="modal" identifier="connectFriendSegue" id="Tca-H3-AKV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HpG-K3-5ZQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-731" y="-81"/>
+            <point key="canvasLocation" x="-459" y="-61"/>
         </scene>
         <!--Answerers Asker View Controller-->
         <scene sceneID="0s8-rw-yG7">
@@ -1448,7 +1406,7 @@ EE5leHQ
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="v8p-AU-RSb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-133" y="1447"/>
+            <point key="canvasLocation" x="544" y="1242"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="sWr-Tv-fg3">
@@ -1466,7 +1424,7 @@ EE5leHQ
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HWf-ay-P0T" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-731" y="1447"/>
+            <point key="canvasLocation" x="54" y="1243"/>
         </scene>
         <!--Question Feed Controller-->
         <scene sceneID="wuO-9f-S70">
@@ -1736,7 +1694,7 @@ EE5leHQ
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="f3X-YL-Zqk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-133" y="2271"/>
+            <point key="canvasLocation" x="544" y="1956"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="O90-uq-LI6">
@@ -1754,7 +1712,7 @@ EE5leHQ
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JiN-0f-zXn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-731" y="2271"/>
+            <point key="canvasLocation" x="54" y="1975"/>
         </scene>
         <!--Otta Join Detail View Controller-->
         <scene sceneID="vnu-0B-n1Z">
@@ -1889,6 +1847,7 @@ EE5leHQ
                     <nil key="simulatedStatusBarMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
+                        <outlet property="btnJoinDetail" destination="jF5-lb-8NG" id="fgB-wO-rZj"/>
                         <outlet property="confirmPassJoinDetail" destination="LqB-Lk-vc5" id="VOo-I9-Egy"/>
                         <outlet property="emailJoinDetail" destination="Qsu-GF-tNe" id="D4V-0C-26b"/>
                         <outlet property="firstNameJoinDetail" destination="fph-hd-dyH" id="Tli-In-FOL"/>
@@ -1899,7 +1858,7 @@ EE5leHQ
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="map-vu-hw7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-291" y="-2303"/>
+            <point key="canvasLocation" x="-731" y="-2083"/>
         </scene>
         <!--Otta Login Container View Controller-->
         <scene sceneID="Nly-sg-RVk">
@@ -1924,7 +1883,7 @@ EE5leHQ
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZMW-Eb-dl4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-731" y="-1369"/>
+            <point key="canvasLocation" x="-848" y="-1453"/>
         </scene>
         <!--Otta View Controller-->
         <scene sceneID="Php-oc-WkQ">
@@ -1973,7 +1932,7 @@ EE5leHQ
                                         <rect key="frame" x="0.0" y="5" width="320" height="89"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hQp-Ca-hQ5" userLabel="LoginButton">
-                                                <rect key="frame" x="24" y="2" width="126" height="36"/>
+                                                <rect key="frame" x="24" y="8" width="126" height="36"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="36" id="gra-E7-1Ae"/>
                                                     <constraint firstAttribute="width" constant="126" id="w7g-ow-aKi"/>
@@ -1986,7 +1945,7 @@ EE5leHQ
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OJ8-V3-dJd" userLabel="JoinButton">
-                                                <rect key="frame" x="169" y="2" width="126" height="36"/>
+                                                <rect key="frame" x="169" y="8" width="126" height="36"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="36" id="MMx-pw-RTo"/>
                                                     <constraint firstAttribute="width" constant="126" id="kV1-pU-apa"/>
@@ -1999,7 +1958,7 @@ EE5leHQ
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Vf-xd-6jt" userLabel="FacebookButton">
-                                                <rect key="frame" x="97" y="53" width="126" height="36"/>
+                                                <rect key="frame" x="97" y="49" width="126" height="36"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="126" id="HyT-fM-nJm"/>
                                                     <constraint firstAttribute="height" constant="36" id="joU-UN-Gta"/>
@@ -2014,13 +1973,13 @@ EE5leHQ
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstItem="hQp-Ca-hQ5" firstAttribute="top" secondItem="nAL-0w-RHJ" secondAttribute="top" constant="2" id="1ar-Hw-Tvt"/>
-                                            <constraint firstItem="OJ8-V3-dJd" firstAttribute="top" secondItem="nAL-0w-RHJ" secondAttribute="top" constant="2" id="5Yb-Fr-Xdc"/>
+                                            <constraint firstItem="hQp-Ca-hQ5" firstAttribute="top" secondItem="nAL-0w-RHJ" secondAttribute="top" constant="8" id="1ar-Hw-Tvt"/>
+                                            <constraint firstItem="OJ8-V3-dJd" firstAttribute="top" secondItem="nAL-0w-RHJ" secondAttribute="top" constant="8" id="5Yb-Fr-Xdc"/>
                                             <constraint firstItem="hQp-Ca-hQ5" firstAttribute="leading" secondItem="nAL-0w-RHJ" secondAttribute="leading" constant="24" id="A7e-5I-W7l"/>
                                             <constraint firstAttribute="trailing" secondItem="OJ8-V3-dJd" secondAttribute="trailing" constant="25" id="B4V-r5-YWd"/>
                                             <constraint firstAttribute="centerX" secondItem="3Vf-xd-6jt" secondAttribute="centerX" id="KCk-QB-6c5"/>
                                             <constraint firstAttribute="width" constant="320" id="MSs-d0-OdY"/>
-                                            <constraint firstAttribute="bottom" secondItem="3Vf-xd-6jt" secondAttribute="bottom" id="qcC-Fd-8k2"/>
+                                            <constraint firstAttribute="bottom" secondItem="3Vf-xd-6jt" secondAttribute="bottom" constant="4" id="qcC-Fd-8k2"/>
                                             <constraint firstAttribute="height" constant="89" id="yGJ-8V-7QD"/>
                                         </constraints>
                                     </view>
@@ -2061,9 +2020,11 @@ EE5leHQ
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <connections>
                         <outlet property="btnBackPage" destination="xRZ-7P-Yzz" id="VkR-ER-iMx"/>
+                        <outlet property="btnFacebook" destination="3Vf-xd-6jt" id="Uaq-Iw-Kot"/>
+                        <outlet property="btnJoin" destination="OJ8-V3-dJd" id="ln3-1m-gF3"/>
+                        <outlet property="btnLogin" destination="hQp-Ca-hQ5" id="CvI-np-Gch"/>
                         <outlet property="containerView" destination="QRx-Is-2T6" id="OSJ-wV-ZmZ"/>
                         <outlet property="ottaBackingView" destination="QnB-q8-1jg" id="4FW-k9-BuZ"/>
-                        <outlet property="viewAction" destination="3de-L5-cTp" id="QnP-x8-t9o"/>
                         <segue destination="sjb-6w-bwp" kind="modal" identifier="FindFriendSegue" id="K3J-3K-JiL"/>
                         <segue destination="CY8-rH-5qL" kind="modal" identifier="homeSegue" id="d1F-FC-q8g"/>
                     </connections>
@@ -2150,7 +2111,7 @@ EE5leHQ
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="T8p-IW-7f5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="151" y="-1369"/>
+            <point key="canvasLocation" x="-205" y="-1460"/>
         </scene>
         <!--Otta Login Detail View Controller-->
         <scene sceneID="IY3-5w-Ulg">
@@ -2188,8 +2149,8 @@ EE5leHQ
                                             <constraint firstAttribute="width" constant="280" id="g7f-oF-Ocp"/>
                                         </constraints>
                                     </view>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8Gm-lv-Hca">
-                                        <rect key="frame" x="20" y="148" width="280" height="30"/>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8Gm-lv-Hca">
+                                        <rect key="frame" x="21" y="148" width="280" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="abH-p5-DVj"/>
                                             <constraint firstAttribute="width" constant="280" id="jSQ-gb-yFi"/>
@@ -2224,8 +2185,8 @@ EE5leHQ
                                     <constraint firstItem="mQg-wU-6xY" firstAttribute="top" secondItem="8Gm-lv-Hca" secondAttribute="bottom" constant="5" id="hcQ-Y1-bv0"/>
                                 </constraints>
                             </scrollView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jtr-pb-3yT" userLabel="LoginButton">
-                                <rect key="frame" x="97" y="428" width="126" height="36"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jtr-pb-3yT" userLabel="LoginButton">
+                                <rect key="frame" x="98" y="428" width="126" height="36"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="126" id="nUO-fj-cqt"/>
                                     <constraint firstAttribute="height" constant="36" id="usi-v4-o3V"/>
@@ -2238,25 +2199,25 @@ EE5leHQ
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m1L-FS-f5E">
-                                <rect key="frame" x="15" y="518" width="290" height="49"/>
+                                <rect key="frame" x="15" y="533" width="290" height="27"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="49" id="MZc-jj-cev"/>
+                                    <constraint firstAttribute="height" constant="27" id="MZc-jj-cev"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="OpenSans-Light" family="Open Sans" pointSize="15"/>
                                 <state key="normal" title="Forgot your password?">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="btnForgotPassTapped:" destination="kGo-bn-VbX" eventType="touchUpInside" id="77l-Ky-DzX"/>
+                                    <action selector="btnForgotPasswordTapped:" destination="jFH-gY-aPy" eventType="touchUpInside" id="nUx-Eq-kDX"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="H1j-ip-cPg" firstAttribute="top" secondItem="aiz-KA-712" secondAttribute="bottom" id="0HB-By-0Un"/>
-                            <constraint firstItem="XEn-fo-6rr" firstAttribute="top" secondItem="m1L-FS-f5E" secondAttribute="bottom" constant="1" id="1ho-aJ-Eiq"/>
+                            <constraint firstItem="XEn-fo-6rr" firstAttribute="top" secondItem="m1L-FS-f5E" secondAttribute="bottom" constant="8" id="1ho-aJ-Eiq"/>
                             <constraint firstAttribute="centerX" secondItem="jtr-pb-3yT" secondAttribute="centerX" id="ADf-DE-jur"/>
-                            <constraint firstItem="m1L-FS-f5E" firstAttribute="top" secondItem="jtr-pb-3yT" secondAttribute="bottom" constant="54" id="GPc-lD-BGv"/>
+                            <constraint firstItem="m1L-FS-f5E" firstAttribute="top" secondItem="jtr-pb-3yT" secondAttribute="bottom" constant="69" id="GPc-lD-BGv"/>
                             <constraint firstAttribute="centerX" secondItem="H1j-ip-cPg" secondAttribute="centerX" id="LWx-a8-JrN"/>
                             <constraint firstAttribute="trailingMargin" secondItem="m1L-FS-f5E" secondAttribute="trailing" constant="-1" id="U1S-O5-1Uf"/>
                             <constraint firstItem="m1L-FS-f5E" firstAttribute="leading" secondItem="2cj-rC-cIo" secondAttribute="leadingMargin" constant="-1" id="sNt-3G-RXk"/>
@@ -2265,13 +2226,14 @@ EE5leHQ
                     <nil key="simulatedStatusBarMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
+                        <outlet property="btnLoginDetail" destination="jtr-pb-3yT" id="HBa-YW-s7h"/>
                         <outlet property="passwordTextField" destination="8Gm-lv-Hca" id="8Yr-ha-wnd"/>
                         <outlet property="usernameTextField" destination="mK2-ag-bMc" id="W2o-eu-aMs"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Z4R-hM-Eyf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="159" y="-1975"/>
+            <point key="canvasLocation" x="-205" y="-2083"/>
         </scene>
     </scenes>
     <resources>
@@ -2303,7 +2265,6 @@ EE5leHQ
         <image name="image_line.png" width="816" height="3"/>
         <image name="menu_heart.png" width="172" height="171"/>
         <image name="menu_otta.png" width="173" height="173"/>
-        <image name="switch-1.png" width="83" height="43"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>

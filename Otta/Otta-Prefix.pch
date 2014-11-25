@@ -15,6 +15,7 @@
     #import <Foundation/Foundation.h>
     #import "NSString+Language.h"
     #import "LanguageHelper.h"
+    #import "Constant.h"
 #endif
 
 #define openSansFontRegular [UIFont fontWithName:@"OpenSans-Regular" size:18.00f]

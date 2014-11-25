@@ -23,10 +23,23 @@
 - (void)viewDidLoad {
     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"OttaSideMenuBackground.png"]];
     
+    if (_isInviteMode) {
+        _viewNameLbl.text = [@"Invite" toCurrentLanguage];
+    }else{
+        _viewNameLbl.text = [@"Connect" toCurrentLanguage];
+    }
+    
     [self inittempData];
     
 }
 
+- (void)viewDidAppear:(BOOL)animated{
+    if (_isInviteMode) {
+        _viewNameLbl.text = [@"Invite" toCurrentLanguage];
+    }else{
+        _viewNameLbl.text = [@"Connect" toCurrentLanguage];
+    }
+}
 - (void)inittempData {
     _friends = [NSMutableArray array];
     _searchResults = [NSMutableArray array];
@@ -121,6 +134,7 @@
         NSString *senderValue = sender;
         if([senderValue isEqualToString:@"Contacts"]) {
             findFriendVC.isFromContact = YES;
+            findFriendVC.isInviteMode = _isInviteMode;
         }
     }
 }

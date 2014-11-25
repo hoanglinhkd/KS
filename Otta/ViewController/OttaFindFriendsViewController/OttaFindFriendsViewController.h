@@ -9,9 +9,19 @@
 #import <UIKit/UIKit.h>
 #import "OttaFriendsCell.h"
 #import "OttaFriend.h"
+#import <MessageUI/MessageUI.h>
 
-@interface OttaFindFriendsViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
+@interface OttaFindFriendsViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, MFMessageComposeViewControllerDelegate, MFMailComposeViewControllerDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *txtLabel;
 @property (weak, nonatomic) IBOutlet UITableView *tableFriends;
+@property (weak, nonatomic) IBOutlet UILabel *inviteLbl;
 @property (assign) BOOL isFromContact;//facebook = false, contacts = true
+@property (assign) BOOL isInviteMode;
+@property (weak, nonatomic) IBOutlet UIView *inviteView;
+@property (weak, nonatomic) IBOutlet UILabel *smsLbl;
+@property (weak, nonatomic) IBOutlet UILabel *emailLbl;
+@property (weak, nonatomic) IBOutlet UIButton *toggleBtn;
+- (IBAction)changeInviteMethod:(id)sender;
+- (IBAction)nextButtonPressed:(id)sender;
+
 @end
