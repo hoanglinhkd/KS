@@ -11,7 +11,7 @@
 @end
 
 @implementation OttaAnswerersViewController
-@synthesize checkButton;
+@synthesize btnCheck;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -85,19 +85,20 @@
 
 - (IBAction)btnCheckPress:(id)sender {
     if (checked) {
-        [checkButton setImage:[UIImage imageNamed:@"Otta_ask_box_unchecked"] forState:UIControlStateNormal];
+        [btnCheck setImage:[UIImage imageNamed:@"Otta_ask_box_unchecked"] forState:UIControlStateNormal];
         checked = NO;
         [self selectAllFriends:NO];
-        [self.tableView reloadData];
+        [self.table reloadData];
     } else {
-        [checkButton setImage:[UIImage imageNamed:@"Otta_ask_box_checked"] forState:UIControlStateNormal];
+        [btnCheck setImage:[UIImage imageNamed:@"Otta_ask_box_checked"] forState:UIControlStateNormal];
         checked = YES;
         [self selectAllFriends:YES];
-        [self.tableView reloadData];
+        [self.table reloadData];
     }
 }
 
-- (IBAction)btnBackPress:(id)sender:(id)sender {
+
+- (IBAction)btnBackPress:(id)sender {
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
