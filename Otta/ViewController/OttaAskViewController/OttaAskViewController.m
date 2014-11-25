@@ -488,4 +488,7 @@ UITextView itsTextView = [[UITextView alloc] initWithFrame:CGRectMake(0, 0, itsT
     [_editingOptionCell displayCabtion:caption];
 }
 
+- (IBAction)btnNextPress:(id)sender {
+    [self performSegueWithIdentifier:@"segueAnswerers" sender:self];
+}
 @end

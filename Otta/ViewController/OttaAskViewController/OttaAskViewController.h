@@ -24,5 +24,6 @@
 @property (nonatomic,strong) IBOutlet UITableView *tableAsk;
 
 @property (nonatomic, strong) NSMutableArray* optionsArray;
+- (IBAction)btnNextPress:(id)sender;
 
 @end
