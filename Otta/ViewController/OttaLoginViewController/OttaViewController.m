@@ -193,11 +193,12 @@
 {
     //[[OttaSessionManager sharedManager]loginWithFacebook];
     
-    NSArray *permissionsArray = @[@"read_friendlists", @"user_about_me", @"user_relationships", @"user_birthday", @"user_location"];
-    
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    NSArray *permissionsArray = @[@"user_friends", @"public_profile", @"user_about_me", @"user_relationships", @"user_birthday", @"user_location"];
     // Login PFUser using Facebook
     [PFFacebookUtils logInWithPermissions:permissionsArray block:^(PFUser *user, NSError *error) {
-        //[_activityIndicator stopAnimating]; // Hide loading indicator
+        
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
         
         if (!user) {
             if (!error) {
@@ -209,13 +210,28 @@
                 
             }
         } else if (user.isNew) {
+            
+            [FBRequestConnection startForMeWithCompletionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
+                
+                if (!error) {
+                    NSString *facebookID = [result objectForKey:@"id"];
+                    NSString *firstName = [result objectForKey:@"first_name"];
+                    NSString *lastName = [result objectForKey:@"last_name"];
+                    
+                    [user setObject:facebookID forKey:@"facebookId"];
+                    [user setObject:firstName forKey:@"firstName"];
+                    [user setObject:lastName forKey:@"lastName"];
+                    [user saveInBackground];
+                }
+            }];
+            
             NSLog(@"User with facebook signed up and logged in!");
             [self performSegueWithIdentifier:@"FindFriendSegue" sender:self];
-            //[[OttaUserManager sharedManager] saveCurrentUser:user];;
+            
         } else {
+            
             NSLog(@"User with facebook logged in!");
             [self performSegueWithIdentifier:@"homeSegue" sender:self];
-            //[[OttaUserManager sharedManager] saveCurrentUser:user];
         }
     }];
 }
