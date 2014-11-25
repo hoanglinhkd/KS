@@ -6,7 +6,7 @@
 {
     OttaFriendsCell *lastCellSelected;
     NSMutableArray *friends;
-    BOOL checked;
+    BOOL isSelectAll;
 }
 @end
 
@@ -15,7 +15,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    checked = NO;
+    isSelectAll = NO;
     [self loadData];
 }
 
@@ -30,13 +30,13 @@
 }
 
 - (void)loadData{
-    OttaFriend *f1 = [[OttaFriend alloc] initWithName:@"Jamie Moskowitz" friendStatus:YES];
-    OttaFriend *f2 = [[OttaFriend alloc] initWithName:@"Danny Madriz" friendStatus:NO];
-    OttaFriend *f3 = [[OttaFriend alloc] initWithName:@"Brandon Baer" friendStatus:YES];
-    OttaFriend *f4 = [[OttaFriend alloc] initWithName:@"Austin Thomas" friendStatus:YES];
-    OttaFriend *f5 = [[OttaFriend alloc] initWithName:@"Chloe Fulton" friendStatus:NO];
-    OttaFriend *f6 = [[OttaFriend alloc] initWithName:@"David Chu" friendStatus:YES];
-    OttaFriend *f7 = [[OttaFriend alloc] initWithName:@"Peter Carey" friendStatus:NO];
+    OttaFriend *f1 = [[OttaFriend alloc] initWithName:@"Jamie Moskowitz" selected:YES];
+    OttaFriend *f2 = [[OttaFriend alloc] initWithName:@"Danny Madriz" selected:NO];
+    OttaFriend *f3 = [[OttaFriend alloc] initWithName:@"Brandon Baer" selected:YES];
+    OttaFriend *f4 = [[OttaFriend alloc] initWithName:@"Austin Thomas" selected:YES];
+    OttaFriend *f5 = [[OttaFriend alloc] initWithName:@"Chloe Fulton" selected:NO];
+    OttaFriend *f6 = [[OttaFriend alloc] initWithName:@"David Chu" selected:YES];
+    OttaFriend *f7 = [[OttaFriend alloc] initWithName:@"Peter Carey" selected:NO];
     friends = [[NSMutableArray alloc] initWithObjects:f1,f2,f3,f4,f5,f6,f7,nil];
 }
 
@@ -45,7 +45,6 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UIImage *image;
     
     static NSString *cellIdentifier = @"OttaAnswerersCellID";
     
@@ -56,19 +55,14 @@
                 UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
     }
     
-    image = [UIImage imageNamed:@"Otta_ask_button_add_grey.png"];
-
-    
-    OttaFriend *f = (OttaFriend *)[friends objectAtIndex:indexPath.row];
+    OttaFriend *f = [friends objectAtIndex:indexPath.row];
     cell.lblText.text = f.name;
-    [cell.lblText setFont:[UIFont fontWithName:@"OpenSans-Light" size:18.00f]];
     
-    if (f.isFriend || f.isSelected){
-        image = [UIImage imageNamed:@"Otta_friends_button_added.png"];
+    if (f.isSelected){
+        cell.imgIcon.image = [UIImage imageNamed:@"Otta_friends_button_added.png"];
+    } else {
+        cell.imgIcon.image = [UIImage imageNamed:@"Otta_ask_button_add_grey.png"];
     }
-    
-    [cell.imgIcon setImage:image];
-    
     
     return cell;
 }
@@ -77,26 +71,31 @@
     return [friends count];
 }
 
-- (void) selectAllFriends:(BOOL) isSelect{
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    OttaFriend *f = [friends objectAtIndex:indexPath.row];
+    f.isSelected = !f.isSelected;
+    [tableView reloadData];
+}
+
+- (void) selectAllFriends:(BOOL)isSelect{
     for (OttaFriend *curFriend in friends) {
         curFriend.isSelected = isSelect;
     }
 }
 
 - (IBAction)btnCheckPress:(id)sender {
-    if (checked) {
+    isSelectAll = !isSelectAll;
+    if (!isSelectAll) {
         [btnCheck setImage:[UIImage imageNamed:@"Otta_ask_box_unchecked"] forState:UIControlStateNormal];
-        checked = NO;
         [self selectAllFriends:NO];
-        [self.table reloadData];
+        [_tableView reloadData];
     } else {
         [btnCheck setImage:[UIImage imageNamed:@"Otta_ask_box_checked"] forState:UIControlStateNormal];
-        checked = YES;
         [self selectAllFriends:YES];
-        [self.table reloadData];
+        [_tableView reloadData];
     }
 }
-
 
 - (IBAction)btnBackPress:(id)sender {
     [self dismissViewControllerAnimated:YES completion:nil];

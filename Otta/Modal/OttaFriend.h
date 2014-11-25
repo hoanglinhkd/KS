@@ -21,5 +21,6 @@
 @property (nonatomic,assign) BOOL isSelected;
 
 - (id) initWithName:(NSString*) _name friendStatus:(BOOL) status;
-
+- (id) initWithName:(NSString*)_name selected:(BOOL)isSelect;
+    
 @end

@@ -11,9 +11,16 @@
 @implementation OttaFriend
 @synthesize name, isFriend;
 
-- (id) initWithName:(NSString*) _name friendStatus:(BOOL) status{
+- (id) initWithName:(NSString*)_name friendStatus:(BOOL)status {
     self.name = _name;
     self.isFriend = status;
     return self;
 }
+
+- (id) initWithName:(NSString*)_name selected:(BOOL)isSelect {
+    self.name = _name;
+    self.isSelected = isSelect;
+    return self;
+}
+
 @end
