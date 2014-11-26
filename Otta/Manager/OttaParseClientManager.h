@@ -17,6 +17,7 @@ typedef void(^OttaPLoginResultBlock)(BOOL loginSucceeded, PFUser* ottaUser, NSEr
 typedef void(^OttaJoinResultBlock)(BOOL joinSucceeded, PFUser* ottaUser, NSError* error);
 
 typedef void(^OttaResetPassResultBlock)(BOOL isSucceeded, NSError* error);
+typedef void(^OttaUsersBlock)(NSArray *users, NSError* error);
 
 + (id)sharedManager;
 
@@ -25,4 +26,6 @@ typedef void(^OttaResetPassResultBlock)(BOOL isSucceeded, NSError* error);
 - (void)joinWithEmail:(NSString*)email firstName:(NSString*)firstName phone:(NSString*)phone lastName:(NSString*)lastName  password:(NSString *)password withResult:(OttaJoinResultBlock)resultblock;
 
 - (void)resetPasswordWithEmail:(NSString*)email withResult:(OttaResetPassResultBlock)resultblock;
+
+- (void)findUsers:(NSString*) str withResult:(OttaUsersBlock) resultblock;
 @end
