@@ -50,9 +50,16 @@
 {
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     
-    //FBRequest* friendsRequest = [FBRequest requestForMyFriends];
-    //[friendsRequest startWithCompletionHandler: ^(FBRequestConnection *connection,NSDictionary* result,NSError *error) {
-    
+//    [FBRequestConnection startWithGraphPath:@"/me/taggable_friends"
+//                                 parameters:nil
+//                                 HTTPMethod:@"GET"
+//                          completionHandler:^(
+//                                              FBRequestConnection *connection,
+//                                              id result,
+//                                              NSError *error
+//                                              ) {
+//                              /* handle the result */
+//                          }];
     
     [FBRequestConnection startForMyFriendsWithCompletionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
    
@@ -103,7 +110,7 @@
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
         
         listPeople = [addressBook people];
-        [self loadData];
+        [self loadDataFromContacts:[NSMutableArray arrayWithArray:listPeople]];
         
         dispatch_async(dispatch_get_main_queue(), ^{
             [_tableFriends reloadData];
@@ -138,7 +145,38 @@
     return friends;
 }
 
-- (void)loadData{
+//Return true if found
+-(BOOL) findUserInformation:(PFUser*)curUser contact:(RHPerson*)contact
+{
+    NSString *phoneNumber = [curUser objectForKey:@"phone"];
+    if(phoneNumber.length > 0) {
+        //List phone to compare
+        RHMultiValue *phoneNumbers = contact.phoneNumbers;
+        NSArray *listPhoneCompare = [phoneNumbers values];
+        
+        for (NSString *curPhone in listPhoneCompare) {
+            if([phoneNumber isEqualToString:curPhone]) {
+                return YES;
+            }
+        }
+    }
+    
+    NSString *email = [curUser objectForKey:@"email"];
+    if(email.length > 0) {
+        //List Email to compare
+        RHMultiValue *emails = contact.emails;
+        NSArray *listEmails = [emails values];
+        
+        for (NSString *curEmail in listEmails) {
+            if([email isEqualToString:curEmail]) {
+                return YES;
+            }
+        }
+    }
+    
+    return NO;
+}
+- (void)loadDataFromContacts:(NSMutableArray*) listContacts{
     
     if (!friends) {
         friends = [NSMutableArray array];
@@ -148,23 +186,117 @@
         [friends removeAllObjects];
     }
     
-    for (RHPerson *curPersion in listPeople) {
+    if(_isInviteMode) {
         
-        OttaFriend *friendToAdd = [[OttaFriend alloc] initWithName:curPersion.name friendStatus:NO];
+        NSMutableArray *listEmail = [NSMutableArray array];
+        NSMutableArray *listPhone = [NSMutableArray array];
         
-        //List phone to compare
-        RHMultiValue *phoneNumbers = curPersion.phoneNumbers;
-        NSArray *listPhoneCompare = [phoneNumbers values];
+        
+        for (RHPerson *curPersion in listContacts) {
+            
+            //List phone to compare
+            RHMultiValue *phoneNumbers = curPersion.phoneNumbers;
+            NSArray *listPhoneCompare = [phoneNumbers values];
+            
+            for (NSString *curPhone in listPhoneCompare) {
+                [listPhone addObject:curPhone];
+            }
+            
+            //List Email to compare
+            RHMultiValue *emails = curPersion.emails;
+            NSArray *listEmails = [emails values];
+            
+            for (NSString *curEmail in listEmails) {
+                [listEmail addObject:curEmail];
+            }
+        }
 
-        //
-        friendToAdd.phoneNumber = listPhoneCompare.count > 0 ? listPhoneCompare[0] : @"";
         
-        //List Email to compare
-        RHMultiValue *emails = curPersion.emails;
-        NSArray *listEmails = [emails values];
-        friendToAdd.emailAdress = listEmails.count > 0 ? listEmails[0] : @"";
+        PFQuery * phoneQuery = [PFQuery queryWithClassName:@"User"];
+        [phoneQuery whereKey:@"phone" containedIn:listPhone];
         
-        [friends addObject:friendToAdd];
+        PFQuery * emailQuery = [PFQuery queryWithClassName:@"User"];
+        [emailQuery whereKey:@"email" containedIn:listEmail];
+        
+        PFQuery *query = [PFQuery orQueryWithSubqueries:@[phoneQuery, emailQuery]];
+        [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+            
+            //Remove redundant contacts
+            for (PFUser *curUser in objects) {
+                for (RHPerson *curPersion in listContacts) {
+                    if([self findUserInformation:curUser contact:curPersion]) {
+                        
+                        [listContacts removeObjectsInArray:[NSArray arrayWithObject:curPersion]];
+                        break;
+                    }
+                }
+            }
+            
+            //Load contacts to invite
+            for (RHPerson *curPersion in listContacts) {
+                
+                OttaFriend *friendToAdd = [[OttaFriend alloc] initWithName:curPersion.name friendStatus:NO];
+                
+                //List phone to compare
+                RHMultiValue *phoneNumbers = curPersion.phoneNumbers;
+                NSArray *listPhoneCompare = [phoneNumbers values];
+                
+                //
+                friendToAdd.phoneNumber = listPhoneCompare.count > 0 ? listPhoneCompare[0] : @"";
+                
+                //List Email to compare
+                RHMultiValue *emails = curPersion.emails;
+                NSArray *listEmails = [emails values];
+                friendToAdd.emailAdress = listEmails.count > 0 ? listEmails[0] : @"";
+                
+                [friends addObject:friendToAdd];
+            }
+            
+        }];
+        
+    } else {
+        
+        NSMutableArray *listEmail = [NSMutableArray array];
+        NSMutableArray *listPhone = [NSMutableArray array];
+        
+        
+        for (RHPerson *curPersion in listContacts) {
+            
+            //List phone to compare
+            RHMultiValue *phoneNumbers = curPersion.phoneNumbers;
+            NSArray *listPhoneCompare = [phoneNumbers values];
+            
+            for (NSString *curPhone in listPhoneCompare) {
+                [listPhone addObject:curPhone];
+            }
+            
+            //List Email to compare
+            RHMultiValue *emails = curPersion.emails;
+            NSArray *listEmails = [emails values];
+            
+            for (NSString *curEmail in listEmails) {
+                [listEmail addObject:curEmail];
+            }
+        }
+        
+        PFQuery * phoneQuery = [PFQuery queryWithClassName:@"User"];
+        [phoneQuery whereKey:@"phone" containedIn:listPhone];
+        
+        PFQuery * emailQuery = [PFQuery queryWithClassName:@"User"];
+        [emailQuery whereKey:@"email" containedIn:listEmail];
+        
+        PFQuery *query = [PFQuery orQueryWithSubqueries:@[phoneQuery, emailQuery]];
+        [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+            
+            //Remove redundant contacts
+            for (PFUser *curUser in objects) {
+                OttaFriend *friendToAdd = [[OttaFriend alloc] initWithName:curUser.username friendStatus:NO];
+                friendToAdd.emailAdress = curUser.email;
+                friendToAdd.pfUser = curUser;
+                friendToAdd.name = [NSString stringWithFormat:@"%@ %@", curUser[@"firstName"], curUser[@"lastName"]];
+                [friends addObject:friendToAdd];
+            }
+        }];
     }
 }
 
