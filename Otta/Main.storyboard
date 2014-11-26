@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14C68k" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="jFH-gY-aPy">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6221" systemVersion="14C68k" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="jFH-gY-aPy">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6213"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -100,7 +100,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7TB-dE-zmc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-723" y="684"/>
+            <point key="canvasLocation" x="-1251" y="684"/>
         </scene>
         <!--Otta Ask View Controller-->
         <scene sceneID="0A0-dA-ezo">
@@ -202,7 +202,7 @@
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Options:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CdY-6B-sEV">
                                             <rect key="frame" x="17" y="7" width="92" height="21"/>
                                             <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="17"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
@@ -407,7 +407,7 @@
                                                         <constraint firstAttribute="width" constant="145" id="uZW-Xl-Ku9"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" name="OpenSans-Light" family="Open Sans" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -599,7 +599,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CcS-Hm-vcd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1662" y="684"/>
+            <point key="canvasLocation" x="-1906" y="684"/>
         </scene>
         <!--Otta Add Caption Image View Controller-->
         <scene sceneID="Mcj-hz-ZKm">
@@ -831,7 +831,7 @@
                                                 <constraint firstAttribute="height" constant="21" id="4tS-2B-zdb"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" name="OpenSans-Bold" family="Open Sans" pointSize="18"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image_line.png" translatesAutoresizingMaskIntoConstraints="NO" id="fmq-I7-YEd">
@@ -892,7 +892,7 @@
                                                         <constraint firstAttribute="height" constant="30" id="lv9-VW-hMo"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="18"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Otta_friends_button_add.png" translatesAutoresizingMaskIntoConstraints="NO" id="Auh-T9-S3P">
@@ -1049,7 +1049,7 @@
                                                         <constraint firstAttribute="height" constant="30" id="63K-g8-VOf"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Otta_friends_button_add.png" translatesAutoresizingMaskIntoConstraints="NO" id="Qjv-o2-uJA">
@@ -1329,7 +1329,7 @@ EE5leHQ
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="CY8-rH-5qL" kind="modal" id="tOS-fD-NOY"/>
+                                    <action selector="nextButtonPressed:" destination="sjb-6w-bwp" eventType="touchUpInside" id="MFZ-5r-7sM"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -1360,6 +1360,7 @@ EE5leHQ
                         <outlet property="searchResultTableView" destination="43E-P9-WYR" id="37d-Ea-PAE"/>
                         <outlet property="viewNameLbl" destination="aQg-W0-n3H" id="xKF-VW-tdc"/>
                         <segue destination="ok4-nK-fyt" kind="modal" identifier="connectFriendSegue" id="Tca-H3-AKV"/>
+                        <segue destination="CY8-rH-5qL" kind="modal" identifier="homeSegue" id="Q7F-7b-5wm"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HpG-K3-5ZQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1469,7 +1470,7 @@ EE5leHQ
                                     <constraint firstAttribute="height" constant="30" id="Ifu-G4-VE6"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="18"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Askers" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s31-hS-Owi">
@@ -1496,7 +1497,7 @@ EE5leHQ
                                     <constraint firstAttribute="height" constant="30" id="3gh-V0-QdW"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="OpenSans-Bold" family="Open Sans" pointSize="20"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Otta_friends_shape_divider_vertical.png" translatesAutoresizingMaskIntoConstraints="NO" id="aj1-5X-Feb">
@@ -1522,7 +1523,7 @@ EE5leHQ
                                                         <constraint firstAttribute="height" constant="30" id="8LC-dv-39d"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Otta_friends_button_add.png" translatesAutoresizingMaskIntoConstraints="NO" id="c5q-KT-J2o">
@@ -1566,7 +1567,7 @@ EE5leHQ
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <action selector="btnInvite:" destination="8xt-Yc-1kg" eventType="touchUpInside" id="UpR-rX-9os"/>
+                                            <segue destination="sjb-6w-bwp" kind="modal" identifier="inviteSegue" modalTransitionStyle="crossDissolve" id="3Iu-Ui-5LO"/>
                                         </connections>
                                     </button>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e0N-uU-hBf">
@@ -1584,7 +1585,7 @@ EE5leHQ
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <action selector="btnAddNew:" destination="8xt-Yc-1kg" eventType="touchUpInside" id="CH5-rG-Fj8"/>
+                                            <segue destination="sjb-6w-bwp" kind="modal" identifier="AddNewSegue" modalTransitionStyle="crossDissolve" id="JNh-LD-reh"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -1652,15 +1653,13 @@ EE5leHQ
                     <nil key="simulatedTopBarMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
-                        <outlet property="btnAddNew" destination="75B-u4-ik4" id="vLg-6Q-SEn"/>
-                        <outlet property="btnInvite" destination="1zk-Yt-PJI" id="Y1k-rj-pnj"/>
                         <outlet property="table" destination="3eq-rn-iY8" id="xoQ-Re-MNi"/>
                         <outlet property="txtLabel" destination="4Dy-jG-WHX" id="lbw-Er-Aa8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="v8p-AU-RSb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-133" y="1447"/>
+            <point key="canvasLocation" x="-731" y="1455"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="sWr-Tv-fg3">
@@ -1678,7 +1677,7 @@ EE5leHQ
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HWf-ay-P0T" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-731" y="1447"/>
+            <point key="canvasLocation" x="-1244" y="1447"/>
         </scene>
         <!--Otta Join Detail View Controller-->
         <scene sceneID="vnu-0B-n1Z">
@@ -2275,7 +2274,7 @@ EE5leHQ
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Jamie Moskowitz" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AWa-pt-oOA" userLabel="Owner Name">
                                                     <rect key="frame" x="8" y="9" width="220" height="21"/>
                                                     <fontDescription key="fontDescription" name="OpenSans-Bold" family="Open Sans" pointSize="18"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="3 min" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wIR-Bu-V4z">
@@ -2322,7 +2321,7 @@ EE5leHQ
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" ambiguous="YES" misplaced="YES" placeholderIntrinsicWidth="270" placeholderIntrinsicHeight="21" text="Caesar Blah" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="270" translatesAutoresizingMaskIntoConstraints="NO" id="28S-nY-kOu">
                                                                         <rect key="frame" x="34" y="2" width="260" height="20"/>
                                                                         <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="18"/>
-                                                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                 </subviews>
@@ -2397,7 +2396,7 @@ EE5leHQ
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" misplaced="YES" placeholderIntrinsicWidth="169" placeholderIntrinsicHeight="21" text="Coach" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="169" translatesAutoresizingMaskIntoConstraints="NO" id="rfL-sf-xFU">
                                                                         <rect key="frame" x="127" y="27" width="169" height="20"/>
                                                                         <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="18"/>
-                                                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                 </subviews>
@@ -2469,7 +2468,7 @@ EE5leHQ
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jVK-Al-NCL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-133" y="2280"/>
+            <point key="canvasLocation" x="-133" y="2385"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="OAq-PP-pHB">
@@ -2487,7 +2486,7 @@ EE5leHQ
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sra-b4-eQu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-731" y="2237"/>
+            <point key="canvasLocation" x="-731" y="2385"/>
         </scene>
     </scenes>
     <resources>
@@ -2529,6 +2528,7 @@ EE5leHQ
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="tOS-fD-NOY"/>
+        <segue reference="3Iu-Ui-5LO"/>
+        <segue reference="Q7F-7b-5wm"/>
     </inferredMetricsTieBreakers>
 </document>

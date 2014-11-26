@@ -9,6 +9,7 @@
 #import "OttaAnswerersAskersViewController.h"
 #import "UIViewController+ECSlidingViewController.h"
 #import "OttaAlertManager.h"
+#import "OttAddFriendViewController.h"
 
 @interface OttaAnswerersAskersViewController ()
 {
@@ -92,13 +93,6 @@
     [self.slidingViewController anchorTopViewToRightAnimated:YES];
 }
 
-
-- (IBAction)btnAddNew:(id)sender {
-}
-
-- (IBAction)btnInvite:(id)sender {
-}
-
 - (IBAction)txtChanged:(UITextField *)sender {
     NSPredicate *predicate =  [NSPredicate predicateWithFormat:
                                @"name CONTAINS[cd] %@", sender.text];
@@ -110,6 +104,22 @@
     }
     
     [self.table reloadData];
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([[segue identifier] isEqualToString:@"AddNewSegue"])
+    {
+        OttAddFriendViewController *vc = [segue destinationViewController];
+        vc.isFromInApp = YES;
+        vc.isInviteMode = NO;
+    }
+    
+    if ([[segue identifier] isEqualToString:@"inviteSegue"])
+    {
+        OttAddFriendViewController *vc = [segue destinationViewController];
+        vc.isFromInApp = YES;
+        vc.isInviteMode = YES;
+    }
 }
 
 @end

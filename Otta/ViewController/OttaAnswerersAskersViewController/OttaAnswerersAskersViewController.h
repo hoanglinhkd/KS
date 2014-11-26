@@ -13,13 +13,10 @@
 
 @interface OttaAnswerersAskersViewController : OttaTransitionViewController <UITableViewDataSource, UITableViewDelegate>
 
-@property (weak, nonatomic) IBOutlet UIButton *btnAddNew;
-@property (weak, nonatomic) IBOutlet UIButton *btnInvite;
 @property (weak, nonatomic) IBOutlet UITextField *txtLabel;
 @property (strong, nonatomic) NSMutableArray *friends;
 @property (weak, nonatomic) IBOutlet UITableView *table;
-- (IBAction)btnAddNew:(id)sender;
-- (IBAction)btnInvite:(id)sender;
+
 - (IBAction)txtChanged:(UITextField *)sender;
 
 @end

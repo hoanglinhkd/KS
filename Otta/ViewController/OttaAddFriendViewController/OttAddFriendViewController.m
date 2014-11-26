@@ -25,9 +25,11 @@
     
     if (_isInviteMode) {
         _viewNameLbl.text = [@"Invite" toCurrentLanguage];
-    }else{
+    } else {
         _viewNameLbl.text = [@"Connect" toCurrentLanguage];
     }
+    
+    [self updateNextButtonText];
     
     [self inittempData];
     
@@ -104,6 +106,14 @@
 
 - (IBAction)backButtonPressed:(id)sender {
     [self.navigationController popViewControllerAnimated:YES];
+}
+
+- (IBAction)nextButtonPressed:(id)sender {
+    if (_isFromInApp) {
+        [self dismissViewControllerAnimated:YES completion:nil];
+    } else {
+        [self performSegueWithIdentifier:@"homeSegue" sender:self];
+    }
 }
 
 - (IBAction)checkButtonPressed:(id)sender {
@@ -220,15 +230,14 @@ replacementString:(NSString *)string {
         [_selectedFriends addObject:friend];
     }
     [_searchResultTableView reloadData];
-    [self updateNextButtonStatus];
     
 }
 
-- (void) updateNextButtonStatus{
-    if (_selectedFriends.count > 0) {
-        _btnSkipNext.titleLabel.text = [@"Next" toCurrentLanguage];
+- (void) updateNextButtonText{
+    if (_isFromInApp) {
+        [_btnSkipNext setTitle:[@"Done" toCurrentLanguage] forState:UIControlStateNormal];
     }else{
-        _btnSkipNext.titleLabel.text = [@"Skip" toCurrentLanguage];
+        [_btnSkipNext setTitle:[@"Next" toCurrentLanguage] forState:UIControlStateNormal];
     }
 }
 

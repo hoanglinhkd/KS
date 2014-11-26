@@ -17,10 +17,12 @@
 @property (weak, nonatomic) IBOutlet TPKeyboardAvoidingScrollView *scrlFindFriend;
 @property (weak, nonatomic) IBOutlet UITableView *searchResultTableView;
 @property (weak, nonatomic) IBOutlet UIButton *btnSkipNext;
-@property (weak, nonatomic) IBOutlet UIView *contentView;
-
 @property (weak, nonatomic) IBOutlet UILabel *viewNameLbl;
+
 @property (assign) BOOL isInviteMode;
+@property (assign, nonatomic) BOOL isFromInApp;
+
 - (IBAction)backButtonPressed:(id)sender;
-- (IBAction)checkButtonPressed:(id)sender;
+- (IBAction)nextButtonPressed:(id)sender;
+
 @end
