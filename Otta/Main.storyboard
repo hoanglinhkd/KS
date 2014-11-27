@@ -1169,7 +1169,7 @@
         <!--Ott Add Friend View Controller-->
         <scene sceneID="WhE-YP-WF0">
             <objects>
-                <viewController id="sjb-6w-bwp" customClass="OttAddFriendViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="OttAddFriendViewController" id="sjb-6w-bwp" customClass="OttAddFriendViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="28g-pG-A3V"/>
                         <viewControllerLayoutGuide type="bottom" id="G0d-06-o0z"/>

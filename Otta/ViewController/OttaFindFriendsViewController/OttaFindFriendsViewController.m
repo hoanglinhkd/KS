@@ -51,7 +51,7 @@
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     
     if(_isInviteMode) {
-        [FBRequestConnection startWithGraphPath:@"/me/invitable_friends" //@"/me/taggable_friends"
+        [FBRequestConnection startWithGraphPath:@"/me/taggable_friends"  //@"/me/invitable_friends"
                                      parameters:nil
                                      HTTPMethod:@"GET"
                               completionHandler:^(

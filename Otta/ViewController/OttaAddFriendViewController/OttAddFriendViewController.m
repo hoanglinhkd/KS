@@ -113,7 +113,15 @@
     if (_isFromInApp) {
         [self dismissViewControllerAnimated:YES completion:nil];
     } else {
-        [self performSegueWithIdentifier:@"homeSegue" sender:self];
+        if (!_isInviteMode) {
+            UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+            OttAddFriendViewController *addFriendVC = [storyboard instantiateViewControllerWithIdentifier:@"OttAddFriendViewController"];
+            addFriendVC.isInviteMode = YES;
+            addFriendVC.isFromInApp = NO;
+            [self presentViewController:addFriendVC animated:YES completion:nil];
+        } else {
+            [self performSegueWithIdentifier:@"homeSegue" sender:self];
+        }
     }
 }
 
