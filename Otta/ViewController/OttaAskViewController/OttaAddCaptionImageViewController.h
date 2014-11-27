@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SZTextView.h"
 
 @class OttaAddCaptionImageViewController;
 
@@ -24,7 +25,7 @@
 @property (nonatomic, assign) id<OttaAddCaptionDelegate> delegate;
 
 @property (weak, nonatomic) IBOutlet UIImageView *selectedImageView;
-@property (weak, nonatomic) IBOutlet UITextView *captionTextView;
+@property (weak, nonatomic) IBOutlet SZTextView *captionTextView;
 @property (weak, nonatomic) IBOutlet UITextView *questionTextView;
 @property (weak, nonatomic) UIImage *image;
 @property (strong, nonatomic) NSString *question;

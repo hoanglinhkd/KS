@@ -63,6 +63,7 @@
 		663665F41A1EF728007F0EFC /* OttaTransitionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 663665F31A1EF728007F0EFC /* OttaTransitionViewController.m */; };
 		66502BE41A14571000A9472D /* icon_time.png in Resources */ = {isa = PBXBuildFile; fileRef = 66502BE31A14571000A9472D /* icon_time.png */; };
 		66502BE71A14653300A9472D /* OttaOptionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 66502BE61A14653300A9472D /* OttaOptionCell.m */; };
+		668BFDD41A26C5A8003CC194 /* SZTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 668BFDD31A26C5A8003CC194 /* SZTextView.m */; };
 		66FD4B051A11A6CC005ACD58 /* angry_birds_cake.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 66FD4AD81A11A6CC005ACD58 /* angry_birds_cake.jpg */; };
 		66FD4B061A11A6CC005ACD58 /* creme_brelee.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 66FD4AD91A11A6CC005ACD58 /* creme_brelee.jpg */; };
 		66FD4B071A11A6CC005ACD58 /* egg_benedict.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 66FD4ADA1A11A6CC005ACD58 /* egg_benedict.jpg */; };
@@ -270,6 +271,8 @@
 		66502BE31A14571000A9472D /* icon_time.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_time.png; sourceTree = "<group>"; };
 		66502BE51A14653300A9472D /* OttaOptionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OttaOptionCell.h; sourceTree = "<group>"; };
 		66502BE61A14653300A9472D /* OttaOptionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OttaOptionCell.m; sourceTree = "<group>"; };
+		668BFDD21A26C5A8003CC194 /* SZTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SZTextView.h; sourceTree = "<group>"; };
+		668BFDD31A26C5A8003CC194 /* SZTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SZTextView.m; sourceTree = "<group>"; };
 		66FD4AD81A11A6CC005ACD58 /* angry_birds_cake.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = angry_birds_cake.jpg; sourceTree = "<group>"; };
 		66FD4AD91A11A6CC005ACD58 /* creme_brelee.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = creme_brelee.jpg; sourceTree = "<group>"; };
 		66FD4ADA1A11A6CC005ACD58 /* egg_benedict.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = egg_benedict.jpg; sourceTree = "<group>"; };
@@ -610,6 +613,15 @@
 			path = OttaTransitionViewController;
 			sourceTree = "<group>";
 		};
+		668BFDD11A26C5A8003CC194 /* SZTextField */ = {
+			isa = PBXGroup;
+			children = (
+				668BFDD21A26C5A8003CC194 /* SZTextView.h */,
+				668BFDD31A26C5A8003CC194 /* SZTextView.m */,
+			);
+			path = SZTextField;
+			sourceTree = "<group>";
+		};
 		66FD4AD61A11A6CC005ACD58 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
@@ -773,6 +785,7 @@
 		66FD4B5B1A11AD6B005ACD58 /* Lib */ = {
 			isa = PBXGroup;
 			children = (
+				668BFDD11A26C5A8003CC194 /* SZTextField */,
 				663665E71A1EEE00007F0EFC /* Transitions */,
 				D9F04A0C1A1B60430049AD41 /* HPTextView */,
 				D98E30C51A1797CD0080B934 /* AFPickerView */,
@@ -1306,6 +1319,7 @@
 				7E1A1DB71A1C8287009FB0E6 /* OttaFindFriendsViewController.m in Sources */,
 				D9CD79941A22EA8C007C6E15 /* OttaFacebookDetailViewController.m in Sources */,
 				66FD4B541A11AB02005ACD58 /* OttaAnswer.m in Sources */,
+				668BFDD41A26C5A8003CC194 /* SZTextView.m in Sources */,
 				F0BC6522198606BD0097A87C /* main.m in Sources */,
 				D9286F431A12190500C28770 /* OttaParseClientManager.m in Sources */,
 				D9CD79951A22EA8C007C6E15 /* OttaJoinDetailViewController.m in Sources */,

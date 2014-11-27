@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="jFH-gY-aPy">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="jFH-gY-aPy">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
@@ -432,7 +432,7 @@
                                     <outlet property="delegate" destination="Vr1-Kh-wSh" id="fcR-Y1-eGR"/>
                                 </connections>
                             </tableView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IwQ-rb-xVj">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IwQ-rb-xVj" customClass="SZTextView">
                                 <rect key="frame" x="8" y="83" width="305" height="46"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -679,21 +679,21 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vuF-Dz-PuY">
                                 <rect key="frame" x="0.0" y="464" width="320" height="67"/>
                                 <subviews>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Add a caption ?" translatesAutoresizingMaskIntoConstraints="NO" id="5Gb-3t-d0C">
-                                        <rect key="frame" x="12" y="12" width="300" height="44"/>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qdl-mY-jOJ" customClass="SZTextView">
+                                        <rect key="frame" x="8" y="8" width="304" height="51"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        <color key="textColor" red="0.52941176469999995" green="0.52941176469999995" blue="0.52941176469999995" alpha="1" colorSpace="calibratedRGB"/>
-                                        <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="18"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="17"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
                                 </subviews>
                                 <color key="backgroundColor" red="0.14901960780000001" green="0.14901960780000001" blue="0.14901960780000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="5Gb-3t-d0C" secondAttribute="trailing" constant="8" id="IFw-pX-vLy"/>
-                                    <constraint firstAttribute="bottom" secondItem="5Gb-3t-d0C" secondAttribute="bottom" constant="11" id="fwQ-23-4QV"/>
-                                    <constraint firstItem="5Gb-3t-d0C" firstAttribute="top" secondItem="vuF-Dz-PuY" secondAttribute="top" constant="12" id="jjt-Cw-v8Q"/>
-                                    <constraint firstItem="5Gb-3t-d0C" firstAttribute="leading" secondItem="vuF-Dz-PuY" secondAttribute="leading" constant="12" id="jqv-IH-2vL"/>
+                                    <constraint firstAttribute="trailing" secondItem="Qdl-mY-jOJ" secondAttribute="trailing" constant="8" id="6gI-C3-j1O"/>
+                                    <constraint firstItem="Qdl-mY-jOJ" firstAttribute="leading" secondItem="vuF-Dz-PuY" secondAttribute="leading" constant="8" id="nP1-jc-hNh"/>
                                     <constraint firstAttribute="height" constant="67" id="rp8-tC-0tL"/>
+                                    <constraint firstAttribute="bottom" secondItem="Qdl-mY-jOJ" secondAttribute="bottom" constant="8" id="sXw-gQ-5hC"/>
+                                    <constraint firstItem="Qdl-mY-jOJ" firstAttribute="top" secondItem="vuF-Dz-PuY" secondAttribute="top" constant="8" id="vYs-9Z-sUj"/>
                                 </constraints>
                             </view>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="mrR-Qd-2Oi">
@@ -731,7 +731,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="bWh-Aa-tgm"/>
                     <connections>
-                        <outlet property="captionTextView" destination="5Gb-3t-d0C" id="aXW-JL-WYN"/>
+                        <outlet property="captionTextView" destination="Qdl-mY-jOJ" id="CbM-fl-TH7"/>
                         <outlet property="questionTextView" destination="1UD-X1-1kV" id="rzc-dG-ngA"/>
                         <outlet property="selectedImageView" destination="mrR-Qd-2Oi" id="UAk-I1-g01"/>
                     </connections>
