@@ -50,39 +50,50 @@
 {
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     
-//    [FBRequestConnection startWithGraphPath:@"/me/taggable_friends"
-//                                 parameters:nil
-//                                 HTTPMethod:@"GET"
-//                          completionHandler:^(
-//                                              FBRequestConnection *connection,
-//                                              id result,
-//                                              NSError *error
-//                                              ) {
-//                              /* handle the result */
-//                          }];
-    
-    [FBRequestConnection startForMyFriendsWithCompletionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
-   
-        if (!error) {
-            
-            NSArray *friendObjects = [result objectForKey:@"data"];
-            NSMutableArray *friendIds = [NSMutableArray arrayWithCapacity:friendObjects.count];
-            for (NSDictionary *friendObject in friendObjects) {
-                [friendIds addObject:[friendObject objectForKey:@"id"]];
-            }
-            
-            PFQuery *friendQuery = [PFUser query];
-            
-            [friendQuery whereKey:@"facebookId" containedIn:friendIds];
-            [friendQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-                friends = [self loadFriendsFromRegisterdFacebooks:objects];
-                [_tableFriends reloadData];
-                [MBProgressHUD hideHUDForView:self.view animated:YES];
-            }];
-        }
-
+    if(_isInviteMode) {
+        [FBRequestConnection startWithGraphPath:@"/me/invitable_friends" //@"/me/taggable_friends"
+                                     parameters:nil
+                                     HTTPMethod:@"GET"
+                              completionHandler:^(
+                                                  FBRequestConnection *connection,
+                                                  id result,
+                                                  NSError *error
+                                                  )
+         {
+             
+             if(result) {
+                 NSArray *listInvitableFriends = [result objectForKey:@"data"];
+                 if(listInvitableFriends.count > 0) {
+                     friends = [self loadFriendsFromUnregisterdFacebooks:listInvitableFriends];
+                 }
+                 [_tableFriends reloadData];
+                 [MBProgressHUD hideHUDForView:self.view animated:YES];
+             }
+             
+         }];
         
-    }];
+    } else {
+        [FBRequestConnection startForMyFriendsWithCompletionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
+            
+            if (!error) {
+                
+                NSArray *friendObjects = [result objectForKey:@"data"];
+                NSMutableArray *friendIds = [NSMutableArray arrayWithCapacity:friendObjects.count];
+                for (NSDictionary *friendObject in friendObjects) {
+                    [friendIds addObject:[friendObject objectForKey:@"id"]];
+                }
+                
+                PFQuery *friendQuery = [PFUser query];
+                
+                [friendQuery whereKey:@"facebookId" containedIn:friendIds];
+                [friendQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+                    friends = [self loadFriendsFromRegisterdFacebooks:objects];
+                    [_tableFriends reloadData];
+                    [MBProgressHUD hideHUDForView:self.view animated:YES];
+                }];
+            }
+        }];
+    }
 }
 
 - (void)loadLocalContacts
@@ -122,6 +133,28 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(NSMutableArray*) loadFriendsFromUnregisterdFacebooks:(NSArray*)listFacebooks
+{
+    if(!friends) {
+        friends = [NSMutableArray array];
+    }
+    
+    if (friends.count > 0) {
+        [friends removeAllObjects];
+    }
+    
+    for (NSDictionary *friendObject in listFacebooks) {
+        NSString *friendID = [friendObject objectForKey:@"id"];
+        NSString *friendName = [friendObject objectForKey:@"name"];
+        OttaFriend *friendToAdd = [[OttaFriend alloc] initWithName:friendName friendStatus:NO];
+        friendToAdd.facebookUserTokenId = friendID;
+        friendToAdd.name = friendName;
+        [friends addObject:friendToAdd];
+    }
+    
+    return friends;
 }
 
 -(NSMutableArray*) loadFriendsFromRegisterdFacebooks:(NSArray*)listFacebooks
@@ -371,5 +404,53 @@
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
+-(IBAction)nextButtonPressed:(id)sender
+{
+    if(!_isFromContact && _isInviteMode) {
+        
+        NSMutableString *listUserId = [[NSMutableString alloc] initWithString:@""];
+        
+        for (OttaFriend *curFriend in friends) {
+            if(curFriend.isSelected) {
+                [listUserId appendFormat:@"%@,", curFriend.facebookUserTokenId];
+            }
+        }
+        
+        if (listUserId.length > 0) {
+            
+            [listUserId deleteCharactersInRange:NSMakeRange([listUserId length] - 1, 1)];
+            NSMutableDictionary* params = [NSMutableDictionary dictionary];
+            [params setValue:@"Accept my invite" forKey:@"message"];
+            [params setValue:listUserId forKey:@"to"];
+            
+            //[params setValue:@"Check this out" forKey:@"notification_text"];
+            //[params setValue:@"http://www.facebook.com/apps/application.php?id=135775646522275/" forKey:@"link"];
+            
+            [FBWebDialogs presentRequestsDialogModallyWithSession:nil
+                                                          message:@"Do you wanna join with us?"
+                                                            title:@"Invite Friends"
+                                                       parameters:params
+                                                          handler:^(FBWebDialogResult result, NSURL *resultURL, NSError *error) {
+                                                              if (error) {
+                                                                  // Case A: Error launching the dialog or sending request.
+                                                                  NSLog(@"Error sending request.");
+                                                              } else {
+                                                                  if (result == FBWebDialogResultDialogNotCompleted) {
+                                                                      // Case B: User clicked the "x" icon
+                                                                      NSLog(@"User canceled request.");
+                                                                  } else {
+                                                                      NSLog(@"Request Sent.");
+                                                                  }
+                                                              }}
+             ];
+        
+        } else {
+            [self dismissViewControllerAnimated:YES completion:nil];
+        }
+        
+    } else {
+        [self dismissViewControllerAnimated:YES completion:nil];
+    }
+}
 
 @end

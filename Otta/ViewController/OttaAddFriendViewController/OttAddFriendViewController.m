@@ -146,6 +146,9 @@
         if([senderValue isEqualToString:@"Contacts"]) {
             findFriendVC.isFromContact = YES;
             findFriendVC.isInviteMode = _isInviteMode;
+        } else {
+            findFriendVC.isFromContact = NO;
+            findFriendVC.isInviteMode = _isInviteMode;
         }
     }
 }

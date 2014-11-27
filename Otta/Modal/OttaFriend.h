@@ -16,6 +16,7 @@
 @property (nonatomic,strong) NSString * name;
 @property (nonatomic,strong) NSString * emailAdress;
 @property (nonatomic,strong) NSString * phoneNumber;
+@property (nonatomic,strong) NSString * facebookUserTokenId;
 @property (nonatomic,strong) PFUser *pfUser;
 @property (nonatomic,assign) BOOL isFriend;
 @property (nonatomic,assign) BOOL isSelected;
