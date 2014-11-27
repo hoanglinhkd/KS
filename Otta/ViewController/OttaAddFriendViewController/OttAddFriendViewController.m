@@ -9,7 +9,7 @@
 #import "OttAddFriendViewController.h"
 #import "OttaFriend.h"
 #import "OttaFindFriendsViewController.h"
-
+#import "OttaParseClientManager.h"
 @interface OttAddFriendViewController()
 
 @property (strong) NSMutableArray *friends;
@@ -46,7 +46,7 @@
     _friends = [NSMutableArray array];
     _searchResults = [NSMutableArray array];
     _selectedFriends = [NSMutableArray array];
-    
+    /*
     NSMutableArray *names = [NSMutableArray array];
     
     [names addObject:@"Adam"];
@@ -102,6 +102,7 @@
         OttaFriend *friendToAdd = [[OttaFriend alloc] initWithName:name friendStatus:NO];
         [_friends addObject:friendToAdd];
     }
+     */
 }
 
 - (IBAction)backButtonPressed:(id)sender {
@@ -175,14 +176,26 @@ replacementString:(NSString *)string {
 
 - (void)searchWithName:(NSString*)searchname
 {
-    [_searchResults removeAllObjects];
+    [[OttaParseClientManager sharedManager] findUsers:searchname withResult:^(NSArray *users, NSError *error) {
+        [_searchResults removeAllObjects];
+        for(PFObject *user in users) {
+            NSString *fullname = [NSString stringWithFormat:@"%@ %@", user[@"firstName"], user[@"lastName"]];
+            OttaFriend *friend = [[OttaFriend alloc] initWithName:fullname friendStatus:NO];
+        [_searchResults addObject:friend];
+                NSLog(@"Fullname: %@",fullname);
+        }
+        [_searchResultTableView reloadData];
+    }];
+   
+
+    /*
     for(OttaFriend *friend in _friends) {
         NSRange substringRange = [[friend.name uppercaseString] rangeOfString:[searchname uppercaseString]];
         if (substringRange.location != NSNotFound) {
             [_searchResults addObject:friend];
         }
     }
-    [_searchResultTableView reloadData];
+    [_searchResultTableView reloadData];*/
 }
 
 #pragma mark tableview delegate

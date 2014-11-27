@@ -91,4 +91,34 @@
     }];
 }
 
+- (void)findUsers:(NSString*) str withResult:(OttaUsersBlock) resultblock;{
+    NSLog(@"findUsers");
+    PFQuery *userFNQuery = [PFUser query];
+    PFQuery *userLNQuery = [PFUser query];
+    PFQuery *userFNCapitalQuery = [PFUser query];
+    PFQuery *userLNCapitalQuery = [PFUser query];
+    if ([str containsString:@" "]){
+        NSArray *arrSearch = [str componentsSeparatedByString:@" "];
+        NSString *fn = [arrSearch objectAtIndex:0];
+        NSString *ln = [arrSearch objectAtIndex:1];
+        [userFNQuery whereKey:kFirstName containsString:fn];
+        [userLNQuery whereKey:kLastName containsString:ln];
+        [userFNCapitalQuery whereKey:kFirstName containsString:[fn capitalizedString]];
+        [userLNCapitalQuery whereKey:kLastName containsString:[ln capitalizedString]];
+    }
+    else {
+        
+        [userFNQuery whereKey:kFirstName containsString:str];
+        [userLNQuery whereKey:kLastName containsString:str];
+        [userFNCapitalQuery whereKey:kFirstName containsString:[str capitalizedString]];
+        [userLNCapitalQuery whereKey:kLastName containsString:[str capitalizedString]];
+        
+    }
+    PFQuery *query = [PFQuery orQueryWithSubqueries:@[userFNQuery,userLNQuery,userFNCapitalQuery,userLNCapitalQuery]];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        resultblock(objects, error);
+    }];
+    
+}
+
 @end
