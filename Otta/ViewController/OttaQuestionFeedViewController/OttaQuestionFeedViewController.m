@@ -2,7 +2,7 @@
 //  OttaQuestionFeedViewController.m
 //  Otta
 //
-//  Created by Dong Duong on 11/18/14.
+//  Created by Gambogo on 11/18/14.
 //  Copyright (c) 2014 SojoDigital. All rights reserved.
 //
 
@@ -29,7 +29,7 @@ static NSString * const QuestionFeedCellId = @"QuestionFeedCellId";
     
     ///////////////////////Q1
     OttaQuestion *question = [[OttaQuestion alloc] init];
-    question.questionText = @"Test long question, long question test, test long question test long question test long question test long question?";
+    question.questionText = @"Test long question, long question test, test long question test?";
     // Do any additional setup after loading the view.
     OttaAnswer* answer = [[OttaAnswer alloc] init];
     answer.answerText = @"Caesar Blah Caesar Blah Caesar  Blah Caesar Caesar Blah Caesar Blah Caesar  Blah Caesar";

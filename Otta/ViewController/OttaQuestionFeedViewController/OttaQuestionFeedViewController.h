@@ -2,7 +2,7 @@
 //  OttaQuestionFeedViewController.h
 //  Otta
 //
-//  Created by Dong Duong on 11/18/14.
+//  Created by Gambogo on 11/18/14.
 //  Copyright (c) 2014 SojoDigital. All rights reserved.
 //
 

@@ -22,5 +22,8 @@
     self.selectedImageView.image = self.image;
     self.questionTextView.text = self.question;
     [_questionTextView setFont:[UIFont fontWithName:@"OpenSans-Light" size:17.00f]];
+    
+    _captionTextView.placeholderTextColor = [UIColor whiteColor];
+    _captionTextView.placeholder = @"Add a caption?";
 }
 @end

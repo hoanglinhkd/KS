@@ -117,9 +117,10 @@ testAnswer.answerText = @"Creme Brelee";
 //    self.answerViewController.mainViewController = self;
     //[_itsTextView setReturnKeyType:UIReturnKeyDone];
     [_itsTextView setFont:[UIFont fontWithName:@"OpenSans-Light" size:17.00f]];
-    
-    [_itsTextView setText:[@"Ask a question..." toCurrentLanguage]];
     [_itsTextView setTextColor:[UIColor lightGrayColor]];
+    
+    _itsTextView.placeholder = [@"Ask a question..." toCurrentLanguage];
+    _itsTextView.placeholderTextColor = [UIColor lightGrayColor];
     
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(reloadQuestions)
@@ -270,35 +271,6 @@ UITextView itsTextView = [[UITextView alloc] initWithFrame:CGRectMake(0, 0, itsT
 }
  */
 
-- (BOOL) textViewShouldBeginEditing:(UITextView *)textView
-{
-    
-    self.activeTextField = textView;
-
-    if (_itsTextView.textColor == [UIColor lightGrayColor]) {
-        _itsTextView.text = @"";
-        _itsTextView.textColor = [UIColor blackColor];
-    }
-    
-    return YES;
-}
-
-
-
-- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text {
-
-    if([text isEqualToString:@"\n"]) {
-        [textView resignFirstResponder];
-        if(_itsTextView.text.length == 0){
-            _itsTextView.textColor = [UIColor lightGrayColor];
-            _itsTextView.text = [@"Ask a question..." toCurrentLanguage];
-            [_itsTextView resignFirstResponder];
-        }
-        return NO;
-    }
-    
-    return YES;
-}
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     if (_optionsArray.count < 4) {
