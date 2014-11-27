@@ -44,7 +44,7 @@
     _friends = [NSMutableArray array];
     _searchResults = [NSMutableArray array];
     _selectedFriends = [NSMutableArray array];
-    
+    /*
     NSMutableArray *names = [NSMutableArray array];
     
     [names addObject:@"Adam"];
@@ -100,6 +100,7 @@
         OttaFriend *friendToAdd = [[OttaFriend alloc] initWithName:name friendStatus:NO];
         [_friends addObject:friendToAdd];
     }
+     */
 }
 
 - (IBAction)backButtonPressed:(id)sender {
