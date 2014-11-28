@@ -2296,13 +2296,8 @@ EE5leHQ
                                                         <constraint firstAttribute="width" constant="8" id="aEu-LP-5A9"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" placeholderIntrinsicWidth="304" placeholderIntrinsicHeight="21" text="Which pair looks best?" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rpf-Tj-wa0" userLabel="Question">
-                                                    <rect key="frame" x="10" y="33" width="302" height="21"/>
-                                                    <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="13"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <tableView clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="60" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="SpM-2J-wpO">
-                                                    <rect key="frame" x="8" y="70" width="304" height="138"/>
+                                                <tableView clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" placeholderIntrinsicWidth="304" placeholderIntrinsicHeight="138" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="60" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="SpM-2J-wpO">
+                                                    <rect key="frame" x="8" y="79" width="304" height="138"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <color key="sectionIndexBackgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                     <prototypes>
@@ -2449,23 +2444,28 @@ EE5leHQ
                                                         <outlet property="delegate" destination="jUD-Qj-hFp" id="rQy-A5-zpG"/>
                                                     </connections>
                                                 </tableView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="750" verticalHuggingPriority="750" placeholderIntrinsicWidth="304" placeholderIntrinsicHeight="21" text="Which pair looks best?" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rpf-Tj-wa0" userLabel="Question">
+                                                    <rect key="frame" x="10" y="35" width="302" height="25"/>
+                                                    <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="13"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="trailingMargin" secondItem="AWa-pt-oOA" secondAttribute="trailing" constant="79" id="1oT-Pl-OdQ"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="SpM-2J-wpO" secondAttribute="bottom" constant="10" id="5jV-IO-U25"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="SpM-2J-wpO" secondAttribute="bottom" constant="1" id="5jV-IO-U25"/>
+                                                <constraint firstItem="SpM-2J-wpO" firstAttribute="top" secondItem="rpf-Tj-wa0" secondAttribute="bottom" constant="19" id="BMO-Oc-F7m"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="qWP-Fi-0U0" secondAttribute="trailing" constant="4" id="Cph-bQ-bSW"/>
                                                 <constraint firstItem="AWa-pt-oOA" firstAttribute="top" secondItem="fL4-bz-vQk" secondAttribute="topMargin" constant="2" id="HQt-mX-1ub"/>
                                                 <constraint firstItem="qWP-Fi-0U0" firstAttribute="top" secondItem="fL4-bz-vQk" secondAttribute="topMargin" constant="4" id="KRM-K2-Obg"/>
                                                 <constraint firstItem="rpf-Tj-wa0" firstAttribute="leading" secondItem="fL4-bz-vQk" secondAttribute="leadingMargin" constant="2" id="NzP-xU-Hnd"/>
                                                 <constraint firstItem="AWa-pt-oOA" firstAttribute="leading" secondItem="fL4-bz-vQk" secondAttribute="leadingMargin" constant="2" id="ROd-uP-YkO"/>
+                                                <constraint firstItem="rpf-Tj-wa0" firstAttribute="top" secondItem="AWa-pt-oOA" secondAttribute="bottom" constant="4" id="UBa-Xc-4hR"/>
                                                 <constraint firstItem="wIR-Bu-V4z" firstAttribute="top" secondItem="fL4-bz-vQk" secondAttribute="topMargin" constant="1" id="VB6-Jz-Nrc"/>
                                                 <constraint firstItem="SpM-2J-wpO" firstAttribute="leading" secondItem="fL4-bz-vQk" secondAttribute="leadingMargin" id="Y13-8X-ahU"/>
-                                                <constraint firstItem="rpf-Tj-wa0" firstAttribute="top" secondItem="fL4-bz-vQk" secondAttribute="topMargin" constant="25" id="gVM-5R-Yff"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="wIR-Bu-V4z" secondAttribute="trailing" constant="26" id="hdU-5m-4kd"/>
                                                 <constraint firstItem="SpM-2J-wpO" firstAttribute="trailing" secondItem="fL4-bz-vQk" secondAttribute="trailingMargin" id="p3w-tX-Ktj"/>
                                                 <constraint firstItem="AWa-pt-oOA" firstAttribute="top" secondItem="fL4-bz-vQk" secondAttribute="topMargin" constant="2" id="q6g-Sz-Eed"/>
                                                 <constraint firstItem="rpf-Tj-wa0" firstAttribute="trailing" secondItem="fL4-bz-vQk" secondAttribute="trailingMargin" id="yOP-kU-IUz"/>
-                                                <constraint firstItem="SpM-2J-wpO" firstAttribute="top" secondItem="rpf-Tj-wa0" secondAttribute="bottom" constant="16" id="zop-2n-s5A"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>

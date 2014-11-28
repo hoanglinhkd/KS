@@ -236,10 +236,18 @@ static NSString * const QuestionFeedCellId = @"QuestionFeedCellId";
 - (CGFloat)calculateHeightForConfiguredSizingCell:(OttaQuestionFeedCell *)sizingCell {
     [sizingCell setNeedsLayout];
     [sizingCell layoutIfNeeded];
+
     
+    CGSize questionSize = [sizingCell.questionLbl systemLayoutSizeFittingSize:UILayoutFittingCompressedSize];
     CGSize size = [sizingCell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize];
-    return size.height + sizingCell.tableView.contentSize.height + sizingCell.questionLbl.frame.size.height + 10;
-    
+    return size.height + sizingCell.tableView.contentSize.height + questionSize.height;
+//    sizingCell.bounds = CGRectMake(0.0f, 0.0f, CGRectGetWidth(self.tableView.bounds), 0.0f);
+//    
+//    [sizingCell setNeedsLayout];
+//    [sizingCell layoutIfNeeded];
+//    
+//    CGSize size = [sizingCell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize];
+//    return size.height;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
