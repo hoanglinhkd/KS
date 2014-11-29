@@ -29,6 +29,7 @@ static NSString * const QuestionFeedCellId = @"QuestionFeedCellId";
     
     ///////////////////////Q1
     OttaQuestion *question = [[OttaQuestion alloc] init];
+    question.askerID = @"Jamie Moskowitz";
     question.questionText = @"Test long question, long question test, test long question test?";
     // Do any additional setup after loading the view.
     OttaAnswer* answer = [[OttaAnswer alloc] init];
@@ -71,6 +72,7 @@ static NSString * const QuestionFeedCellId = @"QuestionFeedCellId";
     //////////Q2//////////
     question = [[OttaQuestion alloc] init];
     
+    question.askerID = @"Jamie Moskowitz";
     question.questionText = @"At Urth Cafe! Order which salad?";
     
     answer1 = [[OttaAnswer alloc] init];
@@ -95,6 +97,7 @@ static NSString * const QuestionFeedCellId = @"QuestionFeedCellId";
     //////////Q3/////////////
     question = [[OttaQuestion alloc] init];
     
+    question.askerID = @"Jamie Moskowitz";
     question.questionText = @"At Urth Cafe! Order which salad?";
     
     answer1 = [[OttaAnswer alloc] init];
@@ -120,6 +123,7 @@ static NSString * const QuestionFeedCellId = @"QuestionFeedCellId";
     ////////////////Q4
     question = [[OttaQuestion alloc] init];
     
+    question.askerID = @"Jamie Moskowitz";
     question.questionText = @"At Urth Cafe! Order which salad At Urth Cafe! Order which salad?";
     
     OttaAnswer *answer6 = [[OttaAnswer alloc] init];
@@ -140,6 +144,7 @@ static NSString * const QuestionFeedCellId = @"QuestionFeedCellId";
     ////////////////Q6
     question = [[OttaQuestion alloc] init];
     
+    question.askerID = @"Jamie Moskowitz";
     question.questionText = @"At Urth Cafe! Order which salad At Urth Cafe! Order which salad?";
     
     answers = [NSArray arrayWithObjects:answer1,answer2,answer3, nil];
@@ -149,6 +154,7 @@ static NSString * const QuestionFeedCellId = @"QuestionFeedCellId";
     ////////////////Q7
     question = [[OttaQuestion alloc] init];
     
+    question.askerID = @"Jamie Moskowitz";
     question.questionText = @"At Urth Cafe! Order which salad At Urth Cafe! Order which salad?";
     
     answer3 = [[OttaAnswer alloc] init];
@@ -161,6 +167,8 @@ static NSString * const QuestionFeedCellId = @"QuestionFeedCellId";
     
     ///////////////////////Q8
     question = [[OttaQuestion alloc] init];
+    
+    question.askerID = @"Jamie Moskowitz";
     question.questionText = @"Test Short question?";
     // Do any additional setup after loading the view.
     answer = [[OttaAnswer alloc] init];
@@ -179,21 +187,7 @@ static NSString * const QuestionFeedCellId = @"QuestionFeedCellId";
     answer3.answerText = @"Japanese noddle with pork";
     answer3.answerImage = [UIImage imageNamed:@"japanese_noodle_with_pork.jpg"];
     
-//    answer4 = [[OttaAnswer alloc] init];
-//    answer4.answerText = @"Japanese noddle with pork";
-//    answer4.answerImage = [UIImage imageNamed:@"japanese_noodle_with_pork.jpg"];
-//    
-//    answer5 = [[OttaAnswer alloc] init];
-//    answer5.answerText = @"Japanese noddle with pork";
-//    answer5.answerImage = [UIImage imageNamed:@"japanese_noodle_with_pork.jpg"];
-//    
-//    answer6 = [[OttaAnswer alloc] init];
-//    answer6.answerText = @"Japanese noddle with pork Japanese noddle with pork";
-//    answer6.answerImage = [UIImage imageNamed:@"japanese_noodle_with_pork.jpg"];
-//    
-//    answer7 = [[OttaAnswer alloc] init];
-//    answer7.answerText = @"Japanese noddle with pork Japanese noddle with pork";
-//    answer7.answerImage = [UIImage imageNamed:@"japanese_noodle_with_pork.jpg"];
+
     
     
     answers = [NSArray arrayWithObjects:answer,answer1,answer2,answer3, nil];
@@ -203,6 +197,8 @@ static NSString * const QuestionFeedCellId = @"QuestionFeedCellId";
     ////////////////////Q9
     
     question = [[OttaQuestion alloc] init];
+    
+    question.askerID = @"Jamie Moskowitz";
     question.questionText = @"Test 3 Answer?";
     
     answers = [NSArray arrayWithObjects:answer,answer1,answer2, nil];
@@ -241,13 +237,6 @@ static NSString * const QuestionFeedCellId = @"QuestionFeedCellId";
     CGSize questionSize = [sizingCell.questionLbl systemLayoutSizeFittingSize:UILayoutFittingCompressedSize];
     CGSize size = [sizingCell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize];
     return size.height + sizingCell.tableView.contentSize.height + questionSize.height;
-//    sizingCell.bounds = CGRectMake(0.0f, 0.0f, CGRectGetWidth(self.tableView.bounds), 0.0f);
-//    
-//    [sizingCell setNeedsLayout];
-//    [sizingCell layoutIfNeeded];
-//    
-//    CGSize size = [sizingCell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize];
-//    return size.height;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
