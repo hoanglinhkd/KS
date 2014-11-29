@@ -48,9 +48,9 @@
 
 - (void) loadFacebookFriends
 {
-    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    
     if(_isInviteMode) {
+        
+        [MBProgressHUD showHUDAddedTo:self.view animated:YES];
         [FBRequestConnection startWithGraphPath:@"/me/taggable_friends"  //@"/me/invitable_friends"
                                      parameters:nil
                                      HTTPMethod:@"GET"
@@ -67,12 +67,13 @@
                      friends = [self loadFriendsFromUnregisterdFacebooks:listInvitableFriends];
                  }
                  [_tableFriends reloadData];
-                 [MBProgressHUD hideHUDForView:self.view animated:YES];
              }
              
+             [MBProgressHUD hideHUDForView:self.view animated:YES];
          }];
         
     } else {
+        [MBProgressHUD showHUDAddedTo:self.view animated:YES];
         [FBRequestConnection startForMyFriendsWithCompletionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
             
             if (!error) {
@@ -91,6 +92,8 @@
                     [_tableFriends reloadData];
                     [MBProgressHUD hideHUDForView:self.view animated:YES];
                 }];
+            } else {
+                [MBProgressHUD hideHUDForView:self.view animated:YES];
             }
         }];
     }
@@ -419,30 +422,8 @@
         if (listUserId.length > 0) {
             
             [listUserId deleteCharactersInRange:NSMakeRange([listUserId length] - 1, 1)];
-            NSMutableDictionary* params = [NSMutableDictionary dictionary];
-            [params setValue:@"Accept my invite" forKey:@"message"];
-            [params setValue:listUserId forKey:@"to"];
             
-            //[params setValue:@"Check this out" forKey:@"notification_text"];
-            //[params setValue:@"http://www.facebook.com/apps/application.php?id=135775646522275/" forKey:@"link"];
-            
-            [FBWebDialogs presentRequestsDialogModallyWithSession:nil
-                                                          message:@"Do you wanna join with us?"
-                                                            title:@"Invite Friends"
-                                                       parameters:params
-                                                          handler:^(FBWebDialogResult result, NSURL *resultURL, NSError *error) {
-                                                              if (error) {
-                                                                  // Case A: Error launching the dialog or sending request.
-                                                                  NSLog(@"Error sending request.");
-                                                              } else {
-                                                                  if (result == FBWebDialogResultDialogNotCompleted) {
-                                                                      // Case B: User clicked the "x" icon
-                                                                      NSLog(@"User canceled request.");
-                                                                  } else {
-                                                                      NSLog(@"Request Sent.");
-                                                                  }
-                                                              }}
-             ];
+            [self postToUserFeed:listUserId];
         
         } else {
             [self dismissViewControllerAnimated:YES completion:nil];
@@ -451,6 +432,59 @@
     } else {
         [self dismissViewControllerAnimated:YES completion:nil];
     }
+}
+
+-(void) publishFeed:(NSString*) listUserId
+{
+    // Put together the dialog parameters
+    NSMutableDictionary *params =
+    [NSMutableDictionary dictionaryWithObjectsAndKeys:
+     @"Facebook SDK for iOS", @"name",
+     @"Build great social apps and get more installs.", @"caption",
+     @"The Facebook SDK for iOS makes it easier and faster to develop Facebook integrated iOS apps.", @"description",
+     @"https://developers.facebook.com/ios", @"link",
+     @"https://raw.github.com/fbsamples/ios-3.x-howtos/master/Images/iossdk_logo.png", @"picture",
+     listUserId, @"suggestions",
+     nil];
+    
+    // Invoke the dialog
+    [FBWebDialogs presentFeedDialogModallyWithSession:nil parameters:params handler:
+     ^(FBWebDialogResult result, NSURL *resultURL, NSError *error) {
+         if (error) {
+             // Error launching the dialog or publishing a story.
+             NSLog(@"Error publishing story.");
+         }
+         else {
+             if (result == FBWebDialogResultDialogNotCompleted) {
+                 // User clicked the "x" icon
+                 NSLog(@"User canceled story publishing.");
+             } else {
+                 
+             }
+         }
+     }];
+}
+
+-(void) postToUserFeed:(NSString*) listUserId
+{
+    NSMutableDictionary* params = [[NSMutableDictionary alloc] initWithObjectsAndKeys:
+                                   @"https://developers.facebook.com/ios", @"link",
+                                   @"https://developers.facebook.com/attachment/iossdk_logo.png", @"picture",
+                                   @"Facebook SDK for iOS", @"name",
+                                   @"Build great social apps and get more installs.", @"caption",
+                                   @"The Facebook SDK for iOS makes it easier and faster to develop Facebook integrated iOS apps.", @"description",
+                                   @"155021662189", @"place",
+                                   listUserId, @"tags",
+                                   nil];
+    
+    [FBRequestConnection startWithGraphPath:@"me/feed"
+                                 parameters:params
+                                 HTTPMethod:@"POST"
+                          completionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
+                              
+                              NSLog(@"%@", error);
+                              
+                          }];
 }
 
 @end

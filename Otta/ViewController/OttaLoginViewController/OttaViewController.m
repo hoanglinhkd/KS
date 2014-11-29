@@ -194,7 +194,7 @@
     //[[OttaSessionManager sharedManager]loginWithFacebook];
     
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    NSArray *permissionsArray = @[@"user_friends", @"public_profile", @"user_about_me", @"user_relationships", @"user_birthday", @"user_location"];
+    NSArray *permissionsArray = @[@"publish_actions", @"user_friends", @"public_profile", @"user_about_me", @"user_relationships", @"user_birthday", @"user_location"];
     // Login PFUser using Facebook
     [PFFacebookUtils logInWithPermissions:permissionsArray block:^(PFUser *user, NSError *error) {
         
