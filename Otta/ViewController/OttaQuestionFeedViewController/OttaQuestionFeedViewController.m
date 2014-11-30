@@ -10,12 +10,15 @@
 #import "UIViewController+ECSlidingViewController.h"
 #import "OttaAnswer.h"
 #import "OttaQuestion.h"
+#import "OttaMediaQuestionDetailViewController.h"
+
 
 static NSString * const QuestionFeedCellId = @"QuestionFeedCellId";
 
 @interface OttaQuestionFeedViewController () {
     NSMutableArray *feedItems;
     NSMutableArray *viewAllModeCellArray;
+    OttaQuestion *selectedQuestion;
 }
 @end
 
@@ -279,6 +282,9 @@ static NSString * const QuestionFeedCellId = @"QuestionFeedCellId";
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:TRUE];
+    selectedQuestion = [feedItems objectAtIndex:indexPath.row];
+    
+    [self performSegueWithIdentifier:@"segueMediaQuestionDetail" sender:self];
 }
 /*
 #pragma mark - Navigation
@@ -302,6 +308,18 @@ static NSString * const QuestionFeedCellId = @"QuestionFeedCellId";
 - (IBAction)menuButtonPressed:(id)sender {
     [self.slidingViewController anchorTopViewToRightAnimated:YES];
 }
+
+#pragma mark - prepareForSegue
+
+- (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([[segue identifier] isEqualToString: @"segueMediaQuestionDetail"]) {
+        OttaMediaQuestionDetailViewController *dest = (OttaMediaQuestionDetailViewController *)[segue destinationViewController];
+        //the sender is what you pass into the previous method
+        dest.question = selectedQuestion;
+    }
+}
+
 
 
 @end
