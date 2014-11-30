@@ -1788,7 +1788,7 @@ EE5leHQ
                                 </constraints>
                             </scrollView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jF5-lb-8NG" userLabel="JoinButton">
-                                <rect key="frame" x="97" y="428" width="126" height="36"/>
+                                <rect key="frame" x="97" y="310" width="126" height="36"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="36" id="Xen-5Z-i6X"/>
                                     <constraint firstAttribute="width" constant="126" id="fxG-3x-ogB"/>
@@ -1804,8 +1804,8 @@ EE5leHQ
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="s5O-O0-FFw" firstAttribute="top" secondItem="d7K-gS-OF5" secondAttribute="topMargin" id="6pN-PP-DtP"/>
-                            <constraint firstItem="VXY-C3-xbm" firstAttribute="top" secondItem="jF5-lb-8NG" secondAttribute="bottom" constant="104" id="9A7-za-rzP"/>
                             <constraint firstAttribute="centerX" secondItem="jF5-lb-8NG" secondAttribute="centerX" id="sc0-jh-gvg"/>
+                            <constraint firstItem="jF5-lb-8NG" firstAttribute="top" secondItem="s5O-O0-FFw" secondAttribute="bottom" constant="8" id="xAT-JS-gql"/>
                             <constraint firstAttribute="centerX" secondItem="s5O-O0-FFw" secondAttribute="centerX" id="xMM-o3-0BD"/>
                         </constraints>
                     </view>
