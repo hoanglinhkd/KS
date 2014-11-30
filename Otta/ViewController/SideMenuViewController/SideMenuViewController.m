@@ -177,6 +177,9 @@
         case 1:
             [self performSegueWithIdentifier:@"segueQuestionFeed" sender:nil];
             break;
+        case 2:
+            [self performSegueWithIdentifier:@"segueMyQuestion" sender:nil];
+            break;
         case 3:
             [self performSegueWithIdentifier:@"segueFriends" sender:nil];
             break;

@@ -161,6 +161,8 @@
 		7E2DA3661A2456BD0064A523 /* Otta_ask_shape_popup_dividers.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E2DA3541A2456BD0064A523 /* Otta_ask_shape_popup_dividers.png */; };
 		7E2DA36A1A2458420064A523 /* OttaAnswerersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E2DA3691A2458420064A523 /* OttaAnswerersViewController.m */; };
 		7E9CE3DE1A25D4CE00A31A1B /* MainP.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7E9CE3DD1A25D4CE00A31A1B /* MainP.storyboard */; };
+		CE0106971A277FEE006CBB57 /* MainHL.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE0106961A277FEE006CBB57 /* MainHL.storyboard */; };
+		CECC3F4F1A2B628200B3F7B6 /* OttaMyQuestionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CECC3F4E1A2B628200B3F7B6 /* OttaMyQuestionViewController.m */; };
 		D9286F401A12187F00C28770 /* OttaSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D9286F3F1A12187F00C28770 /* OttaSessionManager.m */; };
 		D9286F431A12190500C28770 /* OttaParseClientManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D9286F421A12190500C28770 /* OttaParseClientManager.m */; };
 		D98E30B21A1777950080B934 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D98E30B41A1777950080B934 /* Localizable.strings */; };
@@ -390,6 +392,9 @@
 		7E2DA3691A2458420064A523 /* OttaAnswerersViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OttaAnswerersViewController.m; sourceTree = "<group>"; };
 		7E9CE3DD1A25D4CE00A31A1B /* MainP.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainP.storyboard; sourceTree = "<group>"; };
 		C1E9BE3193743527323F1CDA /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		CE0106961A277FEE006CBB57 /* MainHL.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = MainHL.storyboard; path = Otta/MainHL.storyboard; sourceTree = SOURCE_ROOT; };
+		CECC3F4D1A2B628200B3F7B6 /* OttaMyQuestionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OttaMyQuestionViewController.h; sourceTree = "<group>"; };
+		CECC3F4E1A2B628200B3F7B6 /* OttaMyQuestionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OttaMyQuestionViewController.m; sourceTree = "<group>"; };
 		D075C858A4214DDABEDE0CDD /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		D45B044B7810A706377E3F1A /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		D9286F3E1A12187F00C28770 /* OttaSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OttaSessionManager.h; sourceTree = "<group>"; };
@@ -713,6 +718,7 @@
 		66FD4B301A11A7FC005ACD58 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				CECEB8D91A2B34B100277871 /* OttaMyQuestionViewController */,
 				7E2DA3671A2458420064A523 /* OttaAnswerersViewController */,
 				6AA695DD1A21DD30001F6953 /* OttaQuestionFeedViewController */,
 				663665F11A1EF70C007F0EFC /* OttaTransitionViewController */,
@@ -744,6 +750,8 @@
 		66FD4B321A11A83A005ACD58 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				CECEB8DA1A2B34C500277871 /* OttaMyQuestionView */,
+				CE0106961A277FEE006CBB57 /* MainHL.storyboard */,
 				7E9CE3DD1A25D4CE00A31A1B /* MainP.storyboard */,
 				6AA695E11A21DD4E001F6953 /* OttaQuestionFeedView */,
 				F0D6B1F119862B4D0077E30E /* Main.storyboard */,
@@ -906,6 +914,22 @@
 				7E2DA3691A2458420064A523 /* OttaAnswerersViewController.m */,
 			);
 			path = OttaAnswerersViewController;
+			sourceTree = "<group>";
+		};
+		CECEB8D91A2B34B100277871 /* OttaMyQuestionViewController */ = {
+			isa = PBXGroup;
+			children = (
+				CECC3F4D1A2B628200B3F7B6 /* OttaMyQuestionViewController.h */,
+				CECC3F4E1A2B628200B3F7B6 /* OttaMyQuestionViewController.m */,
+			);
+			path = OttaMyQuestionViewController;
+			sourceTree = "<group>";
+		};
+		CECEB8DA1A2B34C500277871 /* OttaMyQuestionView */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = OttaMyQuestionView;
 			sourceTree = "<group>";
 		};
 		D9286F3D1A12187F00C28770 /* Manager */ = {
@@ -1253,6 +1277,7 @@
 				66FD4B071A11A6CC005ACD58 /* egg_benedict.jpg in Resources */,
 				66FD4B1C1A11A6CC005ACD58 /* OpenSans-Regular.ttf in Resources */,
 				7E2DA3651A2456BD0064A523 /* Otta_ask_shape_popup.png in Resources */,
+				CE0106971A277FEE006CBB57 /* MainHL.storyboard in Resources */,
 				383400641A17BF67006A913E /* btn_alert_yes.png in Resources */,
 				5DB6B81A1A2391C60033938C /* switch-2.png in Resources */,
 				7E2DA3621A2456BD0064A523 /* Otta_ask_button_take photo.png in Resources */,
@@ -1347,6 +1372,7 @@
 				38A37D771A171FCD00771881 /* OttaAlertManager.m in Sources */,
 				6AA695E01A21DD30001F6953 /* OttaQuestionFeedViewController.m in Sources */,
 				66FD4B5A1A11ABF9005ACD58 /* OttaAnswerTableController.m in Sources */,
+				CECC3F4F1A2B628200B3F7B6 /* OttaMyQuestionViewController.m in Sources */,
 				663665E61A1EEC4A007F0EFC /* METransitions.m in Sources */,
 				7E1A1DBD1A1C8418009FB0E6 /* OttaFriend.m in Sources */,
 				382E32771A13A54A008ACA45 /* OttaMenuCell.m in Sources */,
