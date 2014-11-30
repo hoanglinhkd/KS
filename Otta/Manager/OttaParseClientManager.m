@@ -118,7 +118,43 @@
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         resultblock(objects, error);
     }];
+}
+
+
+- (void)followUser:(PFUser*)user1 toUser:(PFUser*)user2 withBlock:(OttaGeneralResultBlock)resultBlock {
+    // create an entry in the Follow table
+    PFObject *follow = [PFObject objectWithClassName:@"OttaFollow"];
+    [follow setObject:user1 forKey:@"from"];
+    [follow setObject:user2 forKey:@"to"];
+    [follow setValue:@NO forKey:@"isBlocked"];
+    [follow saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        resultBlock(succeeded, error);
+    }];
+}
+
+- (void)removeFollowFromUser:(PFUser*)user1 toUser:(PFUser*)user2 withBlock:(OttaGeneralResultBlock)resultBlock {
+    PFQuery *query = [PFQuery queryWithClassName:@"OttaFollow"];
+    [query whereKey:@"from" equalTo:user1];
+    [query whereKey:@"to" equalTo:user2];
     
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        PFObject *follow = (PFObject*)objects[0];
+        BOOL isSucceed = [follow delete];
+        resultBlock(isSucceed, error);
+    }];
+}
+
+- (void)blockFollowFromUser:(PFUser*)user1 toUser:(PFUser*)user2 withBlock:(OttaGeneralResultBlock)resultBlock {
+    PFQuery *query = [PFQuery queryWithClassName:@"OttaFollow"];
+    [query whereKey:@"from" equalTo:user1];
+    [query whereKey:@"to" equalTo:user2];
+    
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        PFObject *follow = (PFObject*)objects[0];
+        [follow setValue:@YES forKey:@"isBlocked"];
+        BOOL isSucceed = [follow save];
+        resultBlock(isSucceed, error);
+    }];
 }
 
 @end

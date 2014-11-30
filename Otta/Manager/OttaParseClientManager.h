@@ -17,7 +17,10 @@ typedef void(^OttaPLoginResultBlock)(BOOL loginSucceeded, PFUser* ottaUser, NSEr
 typedef void(^OttaJoinResultBlock)(BOOL joinSucceeded, PFUser* ottaUser, NSError* error);
 
 typedef void(^OttaResetPassResultBlock)(BOOL isSucceeded, NSError* error);
+
 typedef void(^OttaUsersBlock)(NSArray *users, NSError* error);
+
+typedef void(^OttaGeneralResultBlock)(BOOL isSucceeded, NSError* error);
 
 + (id)sharedManager;
 
@@ -28,4 +31,33 @@ typedef void(^OttaUsersBlock)(NSArray *users, NSError* error);
 - (void)resetPasswordWithEmail:(NSString*)email withResult:(OttaResetPassResultBlock)resultblock;
 
 - (void)findUsers:(NSString*) str withResult:(OttaUsersBlock) resultblock;
+
+
+/**
+ *  start follow from user1 to user2
+ *
+ *  @param user1
+ *  @param user2
+ *  @param resultBlock
+ */
+- (void)followUser:(PFUser*)user1 toUser:(PFUser*)user2 withBlock:(OttaGeneralResultBlock)resultBlock;
+
+/**
+ *  remove follow from user1 to user2
+ *
+ *  @param user1
+ *  @param user2
+ *  @param resultBlock
+ */
+- (void)removeFollowFromUser:(PFUser*)user1 toUser:(PFUser*)user2 withBlock:(OttaGeneralResultBlock)resultBlock;
+
+/**
+ *  block follow from user1 to user2
+ *
+ *  @param user1
+ *  @param user2
+ *  @param resultBlock
+ */
+- (void)blockFollowFromUser:(PFUser*)user1 toUser:(PFUser*)user2 withBlock:(OttaGeneralResultBlock)resultBlock;
+
 @end
