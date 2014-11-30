@@ -18,6 +18,8 @@
     RHAddressBook *addressBook;
     NSArray *listPeople;
     NSMutableArray *friends;
+    NSMutableArray *searchResults;
+    BOOL isSearching;
 }
 @end
 
@@ -27,7 +29,7 @@
     [super viewDidLoad];
     
     addressBook = [[RHAddressBook alloc] init] ;
-    
+    searchResults = [NSMutableArray array ];
     // Do any additional setup after loading the view.
     self.txtLabel.text = [@"Find Friends" toCurrentLanguage];
     if (_isFromContact){
@@ -126,10 +128,6 @@
         listPeople = [addressBook people];
         [self loadDataFromContacts:[NSMutableArray arrayWithArray:listPeople]];
         
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [_tableFriends reloadData];
-            [MBProgressHUD hideHUDForView:self.view animated:YES];
-        });
     });
 }
 
@@ -288,6 +286,11 @@
                 [friends addObject:friendToAdd];
             }
             
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [_tableFriends reloadData];
+                [MBProgressHUD hideHUDForView:self.view animated:YES];
+            });
+            
         }];
         
     } else {
@@ -332,6 +335,11 @@
                 friendToAdd.name = [NSString stringWithFormat:@"%@ %@", curUser[@"firstName"], curUser[@"lastName"]];
                 [friends addObject:friendToAdd];
             }
+            
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [_tableFriends reloadData];
+                [MBProgressHUD hideHUDForView:self.view animated:YES];
+            });
         }];
     }
 }
@@ -343,6 +351,33 @@
             curFriend.isSelected = YES;
         }
     }
+}
+
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range
+replacementString:(NSString *)string {
+    
+    NSString *substring = [NSString stringWithString:textField.text];
+    substring = [substring
+                 stringByReplacingCharactersInRange:range withString:string];
+    if(substring.length > 0) {
+        isSearching = YES;
+        [self searchWithName:substring];
+    } else {
+        isSearching = NO;
+        [_tableFriends reloadData];
+    }
+    return YES;
+}
+
+- (void)searchWithName:(NSString*)searchname
+{
+    [searchResults removeAllObjects];
+    for (OttaFriend *curFriend in friends) {
+        if([curFriend.name rangeOfString:searchname options:NSCaseInsensitiveSearch].location != NSNotFound) {
+            [searchResults addObject:curFriend];
+        }
+    }
+    [_tableFriends reloadData];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -362,17 +397,29 @@
     }
     
     image = [UIImage imageNamed:@"Otta_friends_button_add.png"];
-
-    if (indexPath.row == 0){
-        cell.lblText.text = [@"Select All" toCurrentLanguage];
-        [cell.lblText setFont:[UIFont fontWithName:@"OpenSans-Semibold" size:18.00f]];
-    } else {
-        OttaFriend *f = (OttaFriend *)[friends objectAtIndex:indexPath.row -1];
+    
+    if([searchResults count] > 0 && isSearching) {
+        
+        OttaFriend *f = (OttaFriend *)[searchResults objectAtIndex:indexPath.row];
         cell.lblText.text = f.name;
         [cell.lblText setFont:[UIFont fontWithName:@"OpenSans-Light" size:18.00f]];
         
         if (f.isFriend || f.isSelected){
             image = [UIImage imageNamed:@"Otta_friends_button_added.png"];
+        }
+        
+    } else {
+        if (indexPath.row == 0){
+            cell.lblText.text = [@"Select All" toCurrentLanguage];
+            [cell.lblText setFont:[UIFont fontWithName:@"OpenSans-Semibold" size:18.00f]];
+        } else {
+            OttaFriend *f = (OttaFriend *)[friends objectAtIndex:indexPath.row -1];
+            cell.lblText.text = f.name;
+            [cell.lblText setFont:[UIFont fontWithName:@"OpenSans-Light" size:18.00f]];
+            
+            if (f.isFriend || f.isSelected){
+                image = [UIImage imageNamed:@"Otta_friends_button_added.png"];
+            }
         }
     }
     
@@ -383,22 +430,36 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    if(isSearching) {
+        return [searchResults count];
+    }
     return [friends count] + 1;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
-    if(indexPath.row == 0) {
+    //Searching
+    if(isSearching) {
         
-        [self selectAllFriends];
-        [tableView reloadData];
-        
-    } else {
-        OttaFriend *curFriend = [friends objectAtIndex:indexPath.row - 1]; //we don't use index = 0;
+        OttaFriend *curFriend = [searchResults objectAtIndex:indexPath.row];
         if(!curFriend.isFriend) {
             curFriend.isSelected = !curFriend.isSelected;
             [tableView reloadData];
+        }
+        
+    } else {
+        if(indexPath.row == 0) {
+            
+            [self selectAllFriends];
+            [tableView reloadData];
+            
+        } else {
+            OttaFriend *curFriend = [friends objectAtIndex:indexPath.row - 1]; //we don't use index = 0;
+            if(!curFriend.isFriend) {
+                curFriend.isSelected = !curFriend.isSelected;
+                [tableView reloadData];
+            }
         }
     }
 }

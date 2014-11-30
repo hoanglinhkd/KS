@@ -192,8 +192,8 @@ replacementString:(NSString *)string {
         for(PFObject *user in users) {
             NSString *fullname = [NSString stringWithFormat:@"%@ %@", user[@"firstName"], user[@"lastName"]];
             OttaFriend *friend = [[OttaFriend alloc] initWithName:fullname friendStatus:NO];
-        [_searchResults addObject:friend];
-                NSLog(@"Fullname: %@",fullname);
+            [_searchResults addObject:friend];
+            NSLog(@"Fullname: %@",fullname);
         }
         [_searchResultTableView reloadData];
     }];
