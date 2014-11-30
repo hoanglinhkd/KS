@@ -11,7 +11,7 @@
 #import "OttaQuestion.h"
 #import "OttaAnswer.h"
 
-@interface OttaMyQuestionViewController (){
+@interface OttaMyQuestionViewController ()<UITableViewDataSource, UITableViewDelegate>{
     NSMutableArray *datas;
 }
 
@@ -81,5 +81,10 @@
 #pragma mark - action
 - (IBAction)pressMenuBtn:(id)sender {
     [self.slidingViewController anchorTopViewToRightAnimated:YES];
+}
+#pragma mark - UITableView Datasource
+#pragma mark - UITableview Delegate
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    // do something
 }
 @end
