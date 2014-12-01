@@ -157,4 +157,32 @@
     }];
 }
 
+- (void)getAllFollowToUser:(PFUser*)user withBlock:(OttaArrayDataBlock)resultBlock {
+    // set up the query on the Follow table
+    PFQuery *query = [PFQuery queryWithClassName:@"OttaFollow"];
+    [query whereKey:@"to" equalTo:user];
+    
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+            // o is an entry in the Follow table
+            // to get the user, we get the object with the from key
+            //PFUser *otherUser = [o objectForKey@"from"];
+        
+        resultBlock(objects, error);
+    }];
+}
+
+- (void)getAllFollowFromUser:(PFUser*)user withBlock:(OttaArrayDataBlock)resultBlock {
+    // set up the query on the Follow table
+    PFQuery *query = [PFQuery queryWithClassName:@"OttaFollow"];
+    [query whereKey:@"from" equalTo:user];
+    
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        // o is an entry in the Follow table
+        // to get the user, we get the object with the from key
+        //PFUser *otherUser = [o objectForKey@"to"];
+        
+        resultBlock(objects, error);
+    }];
+}
+
 @end

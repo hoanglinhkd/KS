@@ -22,6 +22,11 @@ typedef void(^OttaUsersBlock)(NSArray *users, NSError* error);
 
 typedef void(^OttaGeneralResultBlock)(BOOL isSucceeded, NSError* error);
 
+typedef void(^OttaArrayDataBlock)(NSArray *array, NSError* error);
+
+
+
+
 + (id)sharedManager;
 
 - (void)loginWithNameOrEmail:(NSString*)email andPassword:(NSString *)password withResult:(OttaPLoginResultBlock)resultblock ;
@@ -59,5 +64,21 @@ typedef void(^OttaGeneralResultBlock)(BOOL isSucceeded, NSError* error);
  *  @param resultBlock
  */
 - (void)blockFollowFromUser:(PFUser*)user1 toUser:(PFUser*)user2 withBlock:(OttaGeneralResultBlock)resultBlock;
+
+/**
+ *  Get All follower of user
+ *
+ *  @param user
+ *  @param resultBlock
+ */
+- (void)getAllFollowToUser:(PFUser*)user withBlock:(OttaArrayDataBlock)resultBlock;
+
+/**
+ *  Get All followed by user
+ *
+ *  @param user
+ *  @param resultBlock
+ */
+- (void)getAllFollowFromUser:(PFUser*)user withBlock:(OttaArrayDataBlock)resultBlock;
 
 @end
