@@ -19,4 +19,6 @@
 
 - (IBAction)txtChanged:(UITextField *)sender;
 
+- (IBAction)btnAnswerPressed:(id)sender;
+- (IBAction)btnAskPressed:(id)sender;
 @end
