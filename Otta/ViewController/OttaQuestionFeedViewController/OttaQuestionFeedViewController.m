@@ -38,10 +38,12 @@ static NSString * const QuestionFeedCellId = @"QuestionFeedCellId";
     OttaAnswer* answer = [[OttaAnswer alloc] init];
     answer.answerText = @"Caesar Blah Caesar Blah Caesar  Blah Caesar Caesar Blah Caesar Blah Caesar  Blah Caesar";
     answer.answerImage = [UIImage imageNamed:@"japanese_noodle_with_pork.jpg"];
+    answer.imageURL = @"https://farm6.static.flickr.com/5557/15191895482_e495291616_m.jpg";
     
     OttaAnswer* answer1 = [[OttaAnswer alloc] init];
     answer1.answerText = @"Thousand Islands";
     answer1.answerImage = [UIImage imageNamed:@"japanese_noodle_with_pork.jpg"];
+
     
     OttaAnswer* answer2 = [[OttaAnswer alloc] init];
     answer2.answerText = @"Strawberry Something";
@@ -177,10 +179,12 @@ static NSString * const QuestionFeedCellId = @"QuestionFeedCellId";
     answer = [[OttaAnswer alloc] init];
     answer.answerText = @"Caesar Blah Caesar Blah Caesar  Blah Caesar Caesar Blah Caesar Blah Caesar  Blah Caesar";
     answer.answerImage = [UIImage imageNamed:@"japanese_noodle_with_pork.jpg"];
+    answer.imageURL = @"https://farm6.static.flickr.com/5557/15191895482_e495291616_m.jpg";
     
     answer1 = [[OttaAnswer alloc] init];
     answer1.answerText = @"Thousand Islands";
     answer1.answerImage = [UIImage imageNamed:@"japanese_noodle_with_pork.jpg"];
+
     
     answer2 = [[OttaAnswer alloc] init];
     answer2.answerText = @"Strawberry Something";
@@ -283,8 +287,9 @@ static NSString * const QuestionFeedCellId = @"QuestionFeedCellId";
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:TRUE];
     selectedQuestion = [feedItems objectAtIndex:indexPath.row];
-    
-    [self performSegueWithIdentifier:@"segueMediaQuestionDetail" sender:self];
+    if (((OttaAnswer*)[selectedQuestion.ottaAnswers objectAtIndex:0]).imageURL) {
+        [self performSegueWithIdentifier:@"segueMediaQuestionDetail" sender:self];
+    }
 }
 /*
 #pragma mark - Navigation

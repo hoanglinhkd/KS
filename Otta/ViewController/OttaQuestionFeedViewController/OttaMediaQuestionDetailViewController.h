@@ -12,12 +12,20 @@
 @interface OttaMediaQuestionDetailViewController : UIViewController
 
 @property (weak, nonatomic) IBOutlet UILabel *questionbl;
-@property (weak, nonatomic) OttaQuestion *question;
+@property (strong, nonatomic) OttaQuestion *question;
 @property (weak, nonatomic) IBOutlet UILabel *ownerNameLbl;
 @property (weak, nonatomic) IBOutlet UILabel *expirationDateLbl;
 @property (weak, nonatomic) IBOutlet UIScrollView *imgscrollView;
 @property (weak, nonatomic) IBOutlet UILabel *orderLbl;
-@property (weak, nonatomic) IBOutlet UILabel *optiionCell;
+@property (weak, nonatomic) IBOutlet UILabel *optionLbl;
 @property (weak, nonatomic) IBOutlet UIButton *selectBtn;
+
+@property (weak, nonatomic) IBOutlet UIButton *leftBtn;
+@property (weak, nonatomic) IBOutlet UIButton *rightBtn;
+- (IBAction)leftBtnTapped:(id)sender;
+
+- (IBAction)rightBtnTapped:(id)sender;
+
+@property int currentOption;
 
 @end
