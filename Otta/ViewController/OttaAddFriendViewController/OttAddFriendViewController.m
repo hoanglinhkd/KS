@@ -10,13 +10,16 @@
 #import "OttaFriend.h"
 #import "OttaFindFriendsViewController.h"
 #import "OttaParseClientManager.h"
+#import "OttaAlertManager.h"
+#import "OttaAppDelegate.h"
+
 @interface OttAddFriendViewController()
 
 @property (strong) NSMutableArray *friends;
 @property (strong) NSMutableArray *searchResults;
-@property (strong) NSMutableArray *selectedFriends;
-
+@property (strong) NSMutableArray *listFollowedFriends;
 @end
+
 @implementation OttAddFriendViewController
 
 
@@ -28,6 +31,17 @@
     } else {
         _viewNameLbl.text = [@"Connect" toCurrentLanguage];
     }
+    
+    _listFollowedFriends = [NSMutableArray array];
+    
+    [[OttaParseClientManager sharedManager] getAllFollowFromUser:[PFUser currentUser] withBlock:^(NSArray *array, NSError *error) {
+        
+        [_listFollowedFriends removeAllObjects];
+        for (id curUserFollow in array) {
+            PFUser *curFollow = [curUserFollow objectForKey:@"to"];
+            [_listFollowedFriends addObject:curFollow.objectId];
+        }
+    }];
     
     [self updateNextButtonText];
     
@@ -45,7 +59,6 @@
 - (void)inittempData {
     _friends = [NSMutableArray array];
     _searchResults = [NSMutableArray array];
-    _selectedFriends = [NSMutableArray array];
     /*
     NSMutableArray *names = [NSMutableArray array];
     
@@ -189,16 +202,31 @@ replacementString:(NSString *)string {
 {
     [[OttaParseClientManager sharedManager] findUsers:searchname withResult:^(NSArray *users, NSError *error) {
         [_searchResults removeAllObjects];
-        for(PFObject *user in users) {
+        for(PFUser *user in users) {
+            //Ignore showing current user
+            if ([[PFUser currentUser].objectId isEqualToString:user.objectId]) {
+                continue;
+            }
+            
+            //Finding followed friends
+            BOOL isFollowed = NO;
+            for (NSString *curId in _listFollowedFriends) {
+                if([curId isEqualToString:user.objectId]){
+                    isFollowed = YES;
+                    break;
+                }
+            }
+            
             NSString *fullname = [NSString stringWithFormat:@"%@ %@", user[@"firstName"], user[@"lastName"]];
             OttaFriend *friend = [[OttaFriend alloc] initWithName:fullname friendStatus:NO];
-        [_searchResults addObject:friend];
-                NSLog(@"Fullname: %@",fullname);
+            friend.pfUser = user;
+            friend.isSelected = isFollowed;
+            [_searchResults addObject:friend];
+            NSLog(@"Fullname: %@",fullname);
         }
         [_searchResultTableView reloadData];
     }];
    
-
     /*
     for(OttaFriend *friend in _friends) {
         NSRange substringRange = [[friend.name uppercaseString] rangeOfString:[searchname uppercaseString]];
@@ -231,7 +259,7 @@ replacementString:(NSString *)string {
     cell.textLabel.text = friend.name;
     cell.textLabel.textColor = [UIColor whiteColor];
     
-    if ([_selectedFriends containsObject:friend]) {
+    if (friend.isSelected) {
         cell.accessoryView = [[ UIImageView alloc ] initWithImage:[UIImage imageNamed:@"Otta_friends_button_added"]];
         [cell.accessoryView setFrame:CGRectMake(0, 0, 15, 15)];
     }else{
@@ -248,12 +276,53 @@ replacementString:(NSString *)string {
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     OttaFriend *friend = [_searchResults objectAtIndex:indexPath.row];
-    if ([_selectedFriends containsObject:friend]) {
-        [_selectedFriends removeObject:friend];
-    }else{
-        [_selectedFriends addObject:friend];
+    OttaAppDelegate *appDelegate = (OttaAppDelegate*)[UIApplication sharedApplication].delegate;
+    
+    if (friend.isSelected) {
+        
+        [[OttaAlertManager sharedManager] showYesNoAlertOnView:appDelegate.window withContent:[NSString stringWithFormat:@"Do you want to unfollow %@ ?", friend.name] complete:^{
+            
+            [[OttaParseClientManager sharedManager] removeFollowFromUser:[PFUser currentUser] toUser:friend.pfUser withBlock:^(BOOL isSucceeded, NSError *error) {
+                if(isSucceeded) {
+                    
+                    //Remove follwed friends
+                    for (NSString *curUserId in _listFollowedFriends) {
+                        if([curUserId isEqualToString:friend.pfUser.objectId]) {
+                            [_listFollowedFriends removeObjectsInArray:[NSArray arrayWithObject:curUserId]];
+                            break;
+                        }
+                    }
+                    
+                    friend.isSelected = NO;
+                    [_searchResultTableView reloadData];
+                } else {
+                     [[OttaAlertManager sharedManager] showSimpleAlertOnView:appDelegate.window withContent:@"Error on unfollowing friend" complete:nil];
+                }
+            }];
+            
+        } cancel:^{
+            
+        }];
+        
+    }else {
+        
+        [[OttaAlertManager sharedManager] showYesNoAlertOnView:appDelegate.window withContent:[NSString stringWithFormat:@"Do you want to follow %@ ?", friend.name] complete:^{
+            
+            [[OttaParseClientManager sharedManager] followUser:[PFUser currentUser] toUser:friend.pfUser withBlock:^(BOOL isSucceeded, NSError *error) {
+                if(isSucceeded) {
+                    friend.isSelected = YES;
+                    [_listFollowedFriends addObject:friend.pfUser.objectId];
+                    [_searchResultTableView reloadData];
+                } else {
+                    [[OttaAlertManager sharedManager] showSimpleAlertOnView:appDelegate.window withContent:@"Error on following friend" complete:nil];
+                }
+            }];
+            
+        } cancel:^{
+            
+        }];
     }
-    [_searchResultTableView reloadData];
+    
     
 }
 

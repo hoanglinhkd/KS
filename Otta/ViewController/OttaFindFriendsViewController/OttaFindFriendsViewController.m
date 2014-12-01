@@ -18,6 +18,8 @@
     RHAddressBook *addressBook;
     NSArray *listPeople;
     NSMutableArray *friends;
+    NSMutableArray *searchResults;
+    BOOL isSearching;
 }
 @end
 
@@ -27,7 +29,7 @@
     [super viewDidLoad];
     
     addressBook = [[RHAddressBook alloc] init] ;
-    
+    searchResults = [NSMutableArray array ];
     // Do any additional setup after loading the view.
     self.txtLabel.text = [@"Find Friends" toCurrentLanguage];
     if (_isFromContact){
@@ -48,9 +50,9 @@
 
 - (void) loadFacebookFriends
 {
-    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    
     if(_isInviteMode) {
+        
+        [MBProgressHUD showHUDAddedTo:self.view animated:YES];
         [FBRequestConnection startWithGraphPath:@"/me/taggable_friends"  //@"/me/invitable_friends"
                                      parameters:nil
                                      HTTPMethod:@"GET"
@@ -67,12 +69,13 @@
                      friends = [self loadFriendsFromUnregisterdFacebooks:listInvitableFriends];
                  }
                  [_tableFriends reloadData];
-                 [MBProgressHUD hideHUDForView:self.view animated:YES];
              }
              
+             [MBProgressHUD hideHUDForView:self.view animated:YES];
          }];
         
     } else {
+        [MBProgressHUD showHUDAddedTo:self.view animated:YES];
         [FBRequestConnection startForMyFriendsWithCompletionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
             
             if (!error) {
@@ -91,6 +94,8 @@
                     [_tableFriends reloadData];
                     [MBProgressHUD hideHUDForView:self.view animated:YES];
                 }];
+            } else {
+                [MBProgressHUD hideHUDForView:self.view animated:YES];
             }
         }];
     }
@@ -123,10 +128,6 @@
         listPeople = [addressBook people];
         [self loadDataFromContacts:[NSMutableArray arrayWithArray:listPeople]];
         
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [_tableFriends reloadData];
-            [MBProgressHUD hideHUDForView:self.view animated:YES];
-        });
     });
 }
 
@@ -285,6 +286,11 @@
                 [friends addObject:friendToAdd];
             }
             
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [_tableFriends reloadData];
+                [MBProgressHUD hideHUDForView:self.view animated:YES];
+            });
+            
         }];
         
     } else {
@@ -329,6 +335,11 @@
                 friendToAdd.name = [NSString stringWithFormat:@"%@ %@", curUser[@"firstName"], curUser[@"lastName"]];
                 [friends addObject:friendToAdd];
             }
+            
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [_tableFriends reloadData];
+                [MBProgressHUD hideHUDForView:self.view animated:YES];
+            });
         }];
     }
 }
@@ -340,6 +351,33 @@
             curFriend.isSelected = YES;
         }
     }
+}
+
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range
+replacementString:(NSString *)string {
+    
+    NSString *substring = [NSString stringWithString:textField.text];
+    substring = [substring
+                 stringByReplacingCharactersInRange:range withString:string];
+    if(substring.length > 0) {
+        isSearching = YES;
+        [self searchWithName:substring];
+    } else {
+        isSearching = NO;
+        [_tableFriends reloadData];
+    }
+    return YES;
+}
+
+- (void)searchWithName:(NSString*)searchname
+{
+    [searchResults removeAllObjects];
+    for (OttaFriend *curFriend in friends) {
+        if([curFriend.name rangeOfString:searchname options:NSCaseInsensitiveSearch].location != NSNotFound) {
+            [searchResults addObject:curFriend];
+        }
+    }
+    [_tableFriends reloadData];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -359,17 +397,29 @@
     }
     
     image = [UIImage imageNamed:@"Otta_friends_button_add.png"];
-
-    if (indexPath.row == 0){
-        cell.lblText.text = [@"Select All" toCurrentLanguage];
-        [cell.lblText setFont:[UIFont fontWithName:@"OpenSans-Semibold" size:18.00f]];
-    } else {
-        OttaFriend *f = (OttaFriend *)[friends objectAtIndex:indexPath.row -1];
+    
+    if([searchResults count] > 0 && isSearching) {
+        
+        OttaFriend *f = (OttaFriend *)[searchResults objectAtIndex:indexPath.row];
         cell.lblText.text = f.name;
         [cell.lblText setFont:[UIFont fontWithName:@"OpenSans-Light" size:18.00f]];
         
         if (f.isFriend || f.isSelected){
             image = [UIImage imageNamed:@"Otta_friends_button_added.png"];
+        }
+        
+    } else {
+        if (indexPath.row == 0){
+            cell.lblText.text = [@"Select All" toCurrentLanguage];
+            [cell.lblText setFont:[UIFont fontWithName:@"OpenSans-Semibold" size:18.00f]];
+        } else {
+            OttaFriend *f = (OttaFriend *)[friends objectAtIndex:indexPath.row -1];
+            cell.lblText.text = f.name;
+            [cell.lblText setFont:[UIFont fontWithName:@"OpenSans-Light" size:18.00f]];
+            
+            if (f.isFriend || f.isSelected){
+                image = [UIImage imageNamed:@"Otta_friends_button_added.png"];
+            }
         }
     }
     
@@ -380,22 +430,36 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    if(isSearching) {
+        return [searchResults count];
+    }
     return [friends count] + 1;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
-    if(indexPath.row == 0) {
+    //Searching
+    if(isSearching) {
         
-        [self selectAllFriends];
-        [tableView reloadData];
-        
-    } else {
-        OttaFriend *curFriend = [friends objectAtIndex:indexPath.row - 1]; //we don't use index = 0;
+        OttaFriend *curFriend = [searchResults objectAtIndex:indexPath.row];
         if(!curFriend.isFriend) {
             curFriend.isSelected = !curFriend.isSelected;
             [tableView reloadData];
+        }
+        
+    } else {
+        if(indexPath.row == 0) {
+            
+            [self selectAllFriends];
+            [tableView reloadData];
+            
+        } else {
+            OttaFriend *curFriend = [friends objectAtIndex:indexPath.row - 1]; //we don't use index = 0;
+            if(!curFriend.isFriend) {
+                curFriend.isSelected = !curFriend.isSelected;
+                [tableView reloadData];
+            }
         }
     }
 }
@@ -419,30 +483,8 @@
         if (listUserId.length > 0) {
             
             [listUserId deleteCharactersInRange:NSMakeRange([listUserId length] - 1, 1)];
-            NSMutableDictionary* params = [NSMutableDictionary dictionary];
-            [params setValue:@"Accept my invite" forKey:@"message"];
-            [params setValue:listUserId forKey:@"to"];
             
-            //[params setValue:@"Check this out" forKey:@"notification_text"];
-            //[params setValue:@"http://www.facebook.com/apps/application.php?id=135775646522275/" forKey:@"link"];
-            
-            [FBWebDialogs presentRequestsDialogModallyWithSession:nil
-                                                          message:@"Do you wanna join with us?"
-                                                            title:@"Invite Friends"
-                                                       parameters:params
-                                                          handler:^(FBWebDialogResult result, NSURL *resultURL, NSError *error) {
-                                                              if (error) {
-                                                                  // Case A: Error launching the dialog or sending request.
-                                                                  NSLog(@"Error sending request.");
-                                                              } else {
-                                                                  if (result == FBWebDialogResultDialogNotCompleted) {
-                                                                      // Case B: User clicked the "x" icon
-                                                                      NSLog(@"User canceled request.");
-                                                                  } else {
-                                                                      NSLog(@"Request Sent.");
-                                                                  }
-                                                              }}
-             ];
+            [self postToUserFeed:listUserId];
         
         } else {
             [self dismissViewControllerAnimated:YES completion:nil];
@@ -451,6 +493,59 @@
     } else {
         [self dismissViewControllerAnimated:YES completion:nil];
     }
+}
+
+-(void) publishFeed:(NSString*) listUserId
+{
+    // Put together the dialog parameters
+    NSMutableDictionary *params =
+    [NSMutableDictionary dictionaryWithObjectsAndKeys:
+     @"Facebook SDK for iOS", @"name",
+     @"Build great social apps and get more installs.", @"caption",
+     @"The Facebook SDK for iOS makes it easier and faster to develop Facebook integrated iOS apps.", @"description",
+     @"https://developers.facebook.com/ios", @"link",
+     @"https://raw.github.com/fbsamples/ios-3.x-howtos/master/Images/iossdk_logo.png", @"picture",
+     listUserId, @"suggestions",
+     nil];
+    
+    // Invoke the dialog
+    [FBWebDialogs presentFeedDialogModallyWithSession:nil parameters:params handler:
+     ^(FBWebDialogResult result, NSURL *resultURL, NSError *error) {
+         if (error) {
+             // Error launching the dialog or publishing a story.
+             NSLog(@"Error publishing story.");
+         }
+         else {
+             if (result == FBWebDialogResultDialogNotCompleted) {
+                 // User clicked the "x" icon
+                 NSLog(@"User canceled story publishing.");
+             } else {
+                 
+             }
+         }
+     }];
+}
+
+-(void) postToUserFeed:(NSString*) listUserId
+{
+    NSMutableDictionary* params = [[NSMutableDictionary alloc] initWithObjectsAndKeys:
+                                   @"https://developers.facebook.com/ios", @"link",
+                                   @"https://developers.facebook.com/attachment/iossdk_logo.png", @"picture",
+                                   @"Facebook SDK for iOS", @"name",
+                                   @"Build great social apps and get more installs.", @"caption",
+                                   @"The Facebook SDK for iOS makes it easier and faster to develop Facebook integrated iOS apps.", @"description",
+                                   @"155021662189", @"place",
+                                   listUserId, @"tags",
+                                   nil];
+    
+    [FBRequestConnection startWithGraphPath:@"me/feed"
+                                 parameters:params
+                                 HTTPMethod:@"POST"
+                          completionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
+                              
+                              NSLog(@"%@", error);
+                              
+                          }];
 }
 
 @end
