@@ -24,6 +24,10 @@
     // Do any additional setup after loading the view.
     [self createDemoData];
 }
+-(void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -49,7 +53,7 @@
         OttaQuestion *myQs = [[OttaQuestion alloc] init];
         myQs.questionID = [NSString stringWithFormat:@"%d",i];
         myQs.ottaAnswers = [[NSMutableArray alloc] init];
-        for (int j=0; j<4; i++) {
+        for (int j=0; j<4; j++) {
             OttaAnswer *answer = [[OttaAnswer alloc] init];
             //answer.answerImage = [UIImage imageNamed:@"creme_brelee.jpg"];
             answer.answerText  = [NSString stringWithFormat:@"answer number %d",j];
