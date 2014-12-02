@@ -8,6 +8,8 @@
 
 #import "OttaParseClientManager.h"
 #import "Constant.h"
+#import "OttaQuestion.h"
+#import "OttaAnswer.h"
 
 #define kFirstName  @"firstName"
 #define kLastName   @"lastName"
@@ -183,6 +185,30 @@
         
         resultBlock(objects, error);
     }];
+}
+
+
+- (void)addQuestion:(OttaQuestion*)ottaQuestion withBlock:(OttaGeneralResultBlock)resultBlock {
+    
+    NSMutableArray* optionArray = [NSMutableArray new];
+    
+    for (OttaAnswer *answer in ottaQuestion.ottaAnswers) {
+        PFObject *option = [PFObject objectWithClassName:@"OttaAnswer"];
+        [option setObject:answer.answerImage forKey:@"image"];
+        [option setObject:answer.answerText forKey:@"description"];
+        [optionArray addObject:option];
+    }
+    
+    PFObject *question = [PFObject objectWithClassName:@"OttaQuestion"];
+    
+    // store the weapons for the user
+    
+    [question setObject:[PFUser currentUser] forKey:@"asker"];
+    [question setObject:ottaQuestion.expTime forKey:@"expTime"];
+    [question setObject:ottaQuestion.questionText forKey:@"questionText"];
+    [question setObject:optionArray forKey:@"answers"];
+    
+    [question setValue:@(ottaQuestion.isPublic) forKey:@"isPublic"];
 }
 
 @end

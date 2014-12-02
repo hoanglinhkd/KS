@@ -19,9 +19,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    PFQuery *query = [PFUser query];
-    PFUser *user1  = (PFUser *)[query getObjectWithId:@"bJqgxJi2Vs"];
-    PFUser *user2  = (PFUser *)[query getObjectWithId:@"lgdLAVuveH"];
+//    PFQuery *query = [PFUser query];
+//    PFUser *user1  = (PFUser *)[query getObjectWithId:@"bJqgxJi2Vs"];
+//    PFUser *user2  = (PFUser *)[query getObjectWithId:@"lgdLAVuveH"];
+    
+    
+    
     
     [[OttaParseClientManager sharedManager] getAllFollowToUser:user2 withBlock:^(NSArray *array, NSError *error) {
         NSLog(@"fads");
