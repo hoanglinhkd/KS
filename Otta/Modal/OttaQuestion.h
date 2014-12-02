@@ -16,5 +16,5 @@
 @property (nonatomic,assign) int expirationDate;
 @property (nonatomic,strong) NSString * questionText;
 
-
+@property (nonatomic, assign) BOOL isSeeAll;
 @end

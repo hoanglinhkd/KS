@@ -21,6 +21,8 @@ static NSString * const OttaMyQuestionTextCellIdentifier    = @"OttaMyQuestionTe
 
 @interface OttaMyQuestionViewController ()<UITableViewDataSource, UITableViewDelegate>{
     NSMutableArray *datas;
+    
+    NSMutableArray *dataForShow;
 }
 
 @end
@@ -61,6 +63,7 @@ static NSString * const OttaMyQuestionTextCellIdentifier    = @"OttaMyQuestionTe
  */
 - (void)createDemoData{
     datas = [[NSMutableArray alloc] initWithCapacity:5];
+    dataForShow = [[NSMutableArray alloc] initWithCapacity:5*4];
     
     int i,j;
     for (i=0; i<3; i++) {
@@ -82,7 +85,7 @@ static NSString * const OttaMyQuestionTextCellIdentifier    = @"OttaMyQuestionTe
         }
         myQs.askerID = [NSString stringWithFormat:@"162817629"];
         myQs.expirationDate = 5;
-        
+        myQs.isSeeAll = YES;
         if (i==2) {
             myQs.questionText = @"Is it a short question?";
         }else{
@@ -91,7 +94,7 @@ static NSString * const OttaMyQuestionTextCellIdentifier    = @"OttaMyQuestionTe
         
         [datas addObject:myQs];
     }
-    
+    /*
     for (i = 0; i<3; i++) {
         OttaQuestion *myQs = [[OttaQuestion alloc] init];
         myQs.questionID = [NSString stringWithFormat:@"%d",i];
@@ -120,8 +123,11 @@ static NSString * const OttaMyQuestionTextCellIdentifier    = @"OttaMyQuestionTe
         
         [datas addObject:myQs];
     }
+     */
 }
-
+- (void)processDataForShow{
+    
+}
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     [self.navigationController setNavigationBarHidden:YES animated:animated];
@@ -141,9 +147,21 @@ static NSString * const OttaMyQuestionTextCellIdentifier    = @"OttaMyQuestionTe
 }
 #pragma mark - UITableView Datasource
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
-    return datas.count;
+    return 1;
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    NSInteger countRow = 0;
+    for (int i=0; i<datas.count; i++) {
+        OttaQuestion *question = datas[i];
+        if (question!=nil) {
+            countRow ++;
+            if (question.isSeeAll) {
+                countRow += question.ottaAnswers.count;
+            }else{
+                
+            }
+        }
+    }
     return ((OttaQuestion*)datas[section]).ottaAnswers.count;
 }
 //----
