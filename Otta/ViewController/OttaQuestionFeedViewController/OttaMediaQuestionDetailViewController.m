@@ -61,6 +61,7 @@
         frame.origin.y = 0;
         frame.size = self.imgscrollView.frame.size;
         UIImageView *imageView = [[UIImageView alloc] initWithFrame:frame];
+        imageView.contentMode = UIViewContentModeScaleAspectFit;
         
         NSString *urlString = @"https://farm6.static.flickr.com/5557/15191895482_e495291616_m.jpg";
         
