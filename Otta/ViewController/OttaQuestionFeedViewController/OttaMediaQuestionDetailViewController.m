@@ -22,7 +22,7 @@
     self.orderLbl.clipsToBounds = YES;
     // Do any additional setup after loading the view.
     _question = [[OttaQuestion alloc] init];
-    _question.askerID = @"Jamie Moskowitz";
+
     _question.questionText = @"Test long question, long question test, test long question test?";
     // Do any additional setup after loading the view.
     OttaAnswer* answer = [[OttaAnswer alloc] init];

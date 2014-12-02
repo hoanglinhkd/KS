@@ -9,7 +9,6 @@
 #import <UIKit/UIKit.h>
 #import <Parse/Parse.h>
 #import <EAIntroView.h>
-#import "OttaSessionManager.h"
 #import "OttaParseClientManager.h"
 #import "OttaAlertManager.h"
 
