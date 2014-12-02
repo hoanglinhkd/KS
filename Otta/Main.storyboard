@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="jFH-gY-aPy">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="jFH-gY-aPy">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
@@ -8,6 +8,7 @@
     </dependencies>
     <customFonts key="customFonts">
         <mutableArray key="OpenSans-Bold.ttf">
+            <string>OpenSans-Bold</string>
             <string>OpenSans-Bold</string>
             <string>OpenSans-Bold</string>
             <string>OpenSans-Bold</string>
@@ -106,7 +107,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7TB-dE-zmc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1251" y="684"/>
+            <point key="canvasLocation" x="-1187" y="324"/>
         </scene>
         <!--Otta Ask View Controller-->
         <scene sceneID="0A0-dA-ezo">
@@ -479,7 +480,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HOd-FJ-vaq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-133" y="684"/>
+            <point key="canvasLocation" x="399" y="684"/>
         </scene>
         <!--Side Menu View Controller-->
         <scene sceneID="U7e-sd-NBW">
@@ -541,6 +542,7 @@
                                         <connections>
                                             <outlet property="imgIcon" destination="olJ-3R-ki7" id="cBZ-V5-5Sd"/>
                                             <outlet property="lblText" destination="UbO-HD-cjw" id="xru-lq-Czd"/>
+                                            <segue destination="5Ky-av-Fd3" kind="custom" identifier="segueMyQuestion" customClass="ECSlidingSegue" id="lfq-Gw-GVL"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -605,7 +607,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CcS-Hm-vcd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1906" y="684"/>
+            <point key="canvasLocation" x="-1928" y="440"/>
         </scene>
         <!--Otta Add Caption Image View Controller-->
         <scene sceneID="Mcj-hz-ZKm">
@@ -951,7 +953,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yU0-hc-Iix" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="391" y="1151"/>
+            <point key="canvasLocation" x="923" y="1151"/>
         </scene>
         <!--Otta Find Friends View Controller-->
         <scene sceneID="pA0-3F-NdA">
@@ -1698,7 +1700,7 @@ EE5leHQ
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="v8p-AU-RSb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-695" y="1370"/>
+            <point key="canvasLocation" x="-121" y="1514"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="sWr-Tv-fg3">
@@ -1716,7 +1718,7 @@ EE5leHQ
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HWf-ay-P0T" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1244" y="1447"/>
+            <point key="canvasLocation" x="-508" y="1083"/>
         </scene>
         <!--Otta Join Detail View Controller-->
         <scene sceneID="vnu-0B-n1Z">
@@ -2787,6 +2789,165 @@ EE5leHQ
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aZn-H7-ncb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="432" y="2385"/>
+        </scene>
+        <!--My Question -->
+        <scene sceneID="kjX-3e-9RI">
+            <objects>
+                <viewController title="My Question " id="Fc4-JD-cad" customClass="OttaMyQuestionViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="m7i-tI-gbX"/>
+                        <viewControllerLayoutGuide type="bottom" id="tda-sh-sqI"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Ldh-cy-6oV">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gyz-cF-l2r">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="80"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Otta_header_shape_bar.png" translatesAutoresizingMaskIntoConstraints="NO" id="odc-Qi-MUS">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="80"/>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JzG-8i-bny">
+                                        <rect key="frame" x="8" y="41" width="30" height="18"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="18" id="NH2-dN-sCO"/>
+                                            <constraint firstAttribute="width" constant="30" id="ivd-kf-jQl"/>
+                                        </constraints>
+                                        <state key="normal" image="Otta_header_button_menu.png">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="pressMenuBtn:" destination="Fc4-JD-cad" eventType="touchUpInside" id="rxW-NG-OU2"/>
+                                        </connections>
+                                    </button>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Otta_header_brand_name.png" translatesAutoresizingMaskIntoConstraints="NO" id="eMi-IM-Hwb">
+                                        <rect key="frame" x="105" y="35" width="111" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="111" id="0qy-qy-k80"/>
+                                            <constraint firstAttribute="height" constant="30" id="rfT-h5-353"/>
+                                        </constraints>
+                                    </imageView>
+                                    <button clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z5J-R7-XY3">
+                                        <rect key="frame" x="282" y="35" width="30" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="30" id="Hcm-om-Msb"/>
+                                            <constraint firstAttribute="height" constant="30" id="lOl-LS-3I5"/>
+                                        </constraints>
+                                        <state key="normal" image="OttaRightSidebar.png"/>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.56078433989999998" green="0.79215693470000004" blue="0.25098040700000002" alpha="1" colorSpace="deviceRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="centerX" secondItem="eMi-IM-Hwb" secondAttribute="centerX" id="0fD-ml-f2u"/>
+                                    <constraint firstItem="odc-Qi-MUS" firstAttribute="leading" secondItem="gyz-cF-l2r" secondAttribute="leading" id="0jl-Yd-wnh"/>
+                                    <constraint firstItem="JzG-8i-bny" firstAttribute="top" secondItem="gyz-cF-l2r" secondAttribute="top" constant="41" id="3Rv-fB-LY7"/>
+                                    <constraint firstItem="JzG-8i-bny" firstAttribute="leading" secondItem="gyz-cF-l2r" secondAttribute="leading" constant="8" id="44N-gl-dOw"/>
+                                    <constraint firstAttribute="trailing" secondItem="odc-Qi-MUS" secondAttribute="trailing" id="5gC-qq-RaX"/>
+                                    <constraint firstAttribute="height" constant="80" id="Hdj-c5-rDn"/>
+                                    <constraint firstAttribute="bottom" secondItem="Z5J-R7-XY3" secondAttribute="bottom" constant="15" id="MsZ-3m-gza"/>
+                                    <constraint firstAttribute="bottom" secondItem="odc-Qi-MUS" secondAttribute="bottom" id="Spn-W4-vgH"/>
+                                    <constraint firstItem="odc-Qi-MUS" firstAttribute="top" secondItem="gyz-cF-l2r" secondAttribute="top" id="TpJ-JZ-BO0"/>
+                                    <constraint firstItem="eMi-IM-Hwb" firstAttribute="top" secondItem="gyz-cF-l2r" secondAttribute="top" constant="35" id="aKA-Rr-SqR"/>
+                                    <constraint firstAttribute="trailing" secondItem="Z5J-R7-XY3" secondAttribute="trailing" constant="8" id="r4J-He-AyV"/>
+                                    <constraint firstItem="Z5J-R7-XY3" firstAttribute="top" secondItem="gyz-cF-l2r" secondAttribute="top" constant="35" id="wso-8o-D6j"/>
+                                </constraints>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="45" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Zai-fV-qWI">
+                                <rect key="frame" x="0.0" y="80" width="320" height="488"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="OttaMyQuestionTextCell" rowHeight="30" id="MCe-ty-0cd" customClass="OttaMyQuestionTextCell">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="MCe-ty-0cd" id="6Aa-7I-2ga">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="20" translatesAutoresizingMaskIntoConstraints="NO" id="soB-aF-9Go">
+                                                    <rect key="frame" x="10" y="5" width="20" height="20"/>
+                                                    <color key="backgroundColor" red="0.56078433989999998" green="0.79215693470000004" blue="0.25098040700000002" alpha="1" colorSpace="deviceRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="20" id="9ct-3c-zb2"/>
+                                                        <constraint firstAttribute="width" constant="20" id="W7O-4O-sDO"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="OpenSans-Bold" family="Open Sans" pointSize="12"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                            <integer key="value" value="10"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="270" translatesAutoresizingMaskIntoConstraints="NO" id="5J2-Zk-wG8">
+                                                    <rect key="frame" x="42" y="1" width="270" height="28"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="centerY" secondItem="soB-aF-9Go" secondAttribute="centerY" id="C3i-CE-vY0"/>
+                                                <constraint firstItem="5J2-Zk-wG8" firstAttribute="top" secondItem="6Aa-7I-2ga" secondAttribute="topMargin" constant="1" id="MQR-LG-DgF"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="5J2-Zk-wG8" secondAttribute="bottom" constant="1" id="Nba-rv-1tf"/>
+                                                <constraint firstItem="5J2-Zk-wG8" firstAttribute="leading" secondItem="soB-aF-9Go" secondAttribute="trailing" constant="10" id="ktI-hM-vOf"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="5J2-Zk-wG8" secondAttribute="trailing" constant="10" id="nBQ-kL-7TY"/>
+                                                <constraint firstItem="soB-aF-9Go" firstAttribute="leading" secondItem="6Aa-7I-2ga" secondAttribute="leadingMargin" constant="10" id="yxV-QX-8Fn"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="lblOrderNumber" destination="soB-aF-9Go" id="svU-bc-d6Z"/>
+                                            <outlet property="lblText" destination="5J2-Zk-wG8" id="Du6-sW-pDa"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="AYf-VH-EVz">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="AYf-VH-EVz" id="rKw-A3-hbj">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="gyz-cF-l2r" secondAttribute="trailing" constant="-16" id="2PN-ud-kil"/>
+                            <constraint firstItem="gyz-cF-l2r" firstAttribute="leading" secondItem="Ldh-cy-6oV" secondAttribute="leadingMargin" constant="-16" id="6vv-QG-j9H"/>
+                            <constraint firstItem="gyz-cF-l2r" firstAttribute="top" secondItem="Ldh-cy-6oV" secondAttribute="topMargin" id="gJS-6x-dha"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Zai-fV-qWI" secondAttribute="trailing" constant="-16" id="gy1-A5-L9E"/>
+                            <constraint firstItem="tda-sh-sqI" firstAttribute="top" secondItem="Zai-fV-qWI" secondAttribute="bottom" id="mGj-6I-8OZ"/>
+                            <constraint firstItem="Zai-fV-qWI" firstAttribute="leading" secondItem="Ldh-cy-6oV" secondAttribute="leadingMargin" constant="-16" id="pV6-RV-gYw"/>
+                            <constraint firstItem="Zai-fV-qWI" firstAttribute="top" secondItem="gyz-cF-l2r" secondAttribute="bottom" id="pex-12-DP3"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="ngS-3l-6UE"/>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <connections>
+                        <outlet property="myTableView" destination="Zai-fV-qWI" id="Yg8-hr-VCG"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tnx-MR-vGx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1791" y="1444"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="EJE-7h-oLa">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="5Ky-av-Fd3" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="zGp-y6-RBU">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Fc4-JD-cad" kind="relationship" relationship="rootViewController" id="H50-Ky-grv"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="d3V-ap-v2H" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2237" y="1350"/>
         </scene>
     </scenes>
     <resources>

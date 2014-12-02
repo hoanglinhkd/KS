@@ -16,6 +16,10 @@
 @property (weak, nonatomic) IBOutlet UITextField *txtLabel;
 @property (strong, nonatomic) NSMutableArray *friends;
 @property (weak, nonatomic) IBOutlet UITableView *table;
+@property (weak, nonatomic) IBOutlet UILabel *lblAnswerers;
+@property (weak, nonatomic) IBOutlet UILabel *lblAskers;
+@property (weak, nonatomic) IBOutlet UILabel *lblAskersCount;
+@property (weak, nonatomic) IBOutlet UILabel *lblAnswerersCount;
 
 - (IBAction)txtChanged:(UITextField *)sender;
 
