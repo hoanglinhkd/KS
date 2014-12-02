@@ -11,11 +11,11 @@
 @interface OttaQuestion : NSObject
 
 @property (nonatomic, strong) NSString* questionID;
-@property (nonatomic,strong) NSMutableArray* ottaAnswers;
-@property (nonatomic,strong) NSString* askerID;
-@property (nonatomic,assign) int expirationDate;
-@property (nonatomic,assign) NSDate* expireDate;
-@property (nonatomic,strong) NSString* questionText;
-
+@property (nonatomic, strong) NSMutableArray* ottaAnswers;
+@property (nonatomic, strong) NSString* askerID;
+@property (nonatomic, assign) int expirationDate;
+@property (nonatomic, assign) NSDate* expTime;
+@property (nonatomic, strong) NSString* questionText;
+@property (nonatomic, assign) BOOL isPublic;
 
 @end
