@@ -16,4 +16,5 @@
 @property (nonatomic,assign) int expirationDate;
 @property (nonatomic,strong) NSString * questionText;
 
+
 @end

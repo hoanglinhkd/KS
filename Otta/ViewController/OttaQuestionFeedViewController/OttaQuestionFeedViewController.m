@@ -20,7 +20,6 @@ static NSString * const QuestionFeedCellId = @"QuestionFeedCellId";
     NSMutableArray *viewAllModeCellArray;
     OttaQuestion *selectedQuestion;
 }
-
 @end
 
 @implementation OttaQuestionFeedViewController
