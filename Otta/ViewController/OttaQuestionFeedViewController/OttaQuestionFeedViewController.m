@@ -10,12 +10,15 @@
 #import "UIViewController+ECSlidingViewController.h"
 #import "OttaAnswer.h"
 #import "OttaQuestion.h"
+#import "OttaMediaQuestionDetailViewController.h"
+
 
 static NSString * const QuestionFeedCellId = @"QuestionFeedCellId";
 
 @interface OttaQuestionFeedViewController () {
     NSMutableArray *feedItems;
     NSMutableArray *viewAllModeCellArray;
+    OttaQuestion *selectedQuestion;
 }
 @end
 
@@ -29,15 +32,18 @@ static NSString * const QuestionFeedCellId = @"QuestionFeedCellId";
     
     ///////////////////////Q1
     OttaQuestion *question = [[OttaQuestion alloc] init];
+    question.askerID = @"Jamie Moskowitz";
     question.questionText = @"Test long question, long question test, test long question test?";
     // Do any additional setup after loading the view.
     OttaAnswer* answer = [[OttaAnswer alloc] init];
     answer.answerText = @"Caesar Blah Caesar Blah Caesar  Blah Caesar Caesar Blah Caesar Blah Caesar  Blah Caesar";
     answer.answerImage = [UIImage imageNamed:@"japanese_noodle_with_pork.jpg"];
+    answer.imageURL = @"https://farm6.static.flickr.com/5557/15191895482_e495291616_m.jpg";
     
     OttaAnswer* answer1 = [[OttaAnswer alloc] init];
     answer1.answerText = @"Thousand Islands";
     answer1.answerImage = [UIImage imageNamed:@"japanese_noodle_with_pork.jpg"];
+
     
     OttaAnswer* answer2 = [[OttaAnswer alloc] init];
     answer2.answerText = @"Strawberry Something";
@@ -71,6 +77,7 @@ static NSString * const QuestionFeedCellId = @"QuestionFeedCellId";
     //////////Q2//////////
     question = [[OttaQuestion alloc] init];
     
+    question.askerID = @"Jamie Moskowitz";
     question.questionText = @"At Urth Cafe! Order which salad?";
     
     answer1 = [[OttaAnswer alloc] init];
@@ -95,6 +102,7 @@ static NSString * const QuestionFeedCellId = @"QuestionFeedCellId";
     //////////Q3/////////////
     question = [[OttaQuestion alloc] init];
     
+    question.askerID = @"Jamie Moskowitz";
     question.questionText = @"At Urth Cafe! Order which salad?";
     
     answer1 = [[OttaAnswer alloc] init];
@@ -120,6 +128,7 @@ static NSString * const QuestionFeedCellId = @"QuestionFeedCellId";
     ////////////////Q4
     question = [[OttaQuestion alloc] init];
     
+    question.askerID = @"Jamie Moskowitz";
     question.questionText = @"At Urth Cafe! Order which salad At Urth Cafe! Order which salad?";
     
     OttaAnswer *answer6 = [[OttaAnswer alloc] init];
@@ -140,6 +149,7 @@ static NSString * const QuestionFeedCellId = @"QuestionFeedCellId";
     ////////////////Q6
     question = [[OttaQuestion alloc] init];
     
+    question.askerID = @"Jamie Moskowitz";
     question.questionText = @"At Urth Cafe! Order which salad At Urth Cafe! Order which salad?";
     
     answers = [NSArray arrayWithObjects:answer1,answer2,answer3, nil];
@@ -149,6 +159,7 @@ static NSString * const QuestionFeedCellId = @"QuestionFeedCellId";
     ////////////////Q7
     question = [[OttaQuestion alloc] init];
     
+    question.askerID = @"Jamie Moskowitz";
     question.questionText = @"At Urth Cafe! Order which salad At Urth Cafe! Order which salad?";
     
     answer3 = [[OttaAnswer alloc] init];
@@ -161,15 +172,19 @@ static NSString * const QuestionFeedCellId = @"QuestionFeedCellId";
     
     ///////////////////////Q8
     question = [[OttaQuestion alloc] init];
+    
+    question.askerID = @"Jamie Moskowitz";
     question.questionText = @"Test Short question?";
     // Do any additional setup after loading the view.
     answer = [[OttaAnswer alloc] init];
     answer.answerText = @"Caesar Blah Caesar Blah Caesar  Blah Caesar Caesar Blah Caesar Blah Caesar  Blah Caesar";
     answer.answerImage = [UIImage imageNamed:@"japanese_noodle_with_pork.jpg"];
+    answer.imageURL = @"https://farm6.static.flickr.com/5557/15191895482_e495291616_m.jpg";
     
     answer1 = [[OttaAnswer alloc] init];
     answer1.answerText = @"Thousand Islands";
     answer1.answerImage = [UIImage imageNamed:@"japanese_noodle_with_pork.jpg"];
+
     
     answer2 = [[OttaAnswer alloc] init];
     answer2.answerText = @"Strawberry Something";
@@ -179,21 +194,7 @@ static NSString * const QuestionFeedCellId = @"QuestionFeedCellId";
     answer3.answerText = @"Japanese noddle with pork";
     answer3.answerImage = [UIImage imageNamed:@"japanese_noodle_with_pork.jpg"];
     
-//    answer4 = [[OttaAnswer alloc] init];
-//    answer4.answerText = @"Japanese noddle with pork";
-//    answer4.answerImage = [UIImage imageNamed:@"japanese_noodle_with_pork.jpg"];
-//    
-//    answer5 = [[OttaAnswer alloc] init];
-//    answer5.answerText = @"Japanese noddle with pork";
-//    answer5.answerImage = [UIImage imageNamed:@"japanese_noodle_with_pork.jpg"];
-//    
-//    answer6 = [[OttaAnswer alloc] init];
-//    answer6.answerText = @"Japanese noddle with pork Japanese noddle with pork";
-//    answer6.answerImage = [UIImage imageNamed:@"japanese_noodle_with_pork.jpg"];
-//    
-//    answer7 = [[OttaAnswer alloc] init];
-//    answer7.answerText = @"Japanese noddle with pork Japanese noddle with pork";
-//    answer7.answerImage = [UIImage imageNamed:@"japanese_noodle_with_pork.jpg"];
+
     
     
     answers = [NSArray arrayWithObjects:answer,answer1,answer2,answer3, nil];
@@ -203,6 +204,8 @@ static NSString * const QuestionFeedCellId = @"QuestionFeedCellId";
     ////////////////////Q9
     
     question = [[OttaQuestion alloc] init];
+    
+    question.askerID = @"Jamie Moskowitz";
     question.questionText = @"Test 3 Answer?";
     
     answers = [NSArray arrayWithObjects:answer,answer1,answer2, nil];
@@ -241,13 +244,6 @@ static NSString * const QuestionFeedCellId = @"QuestionFeedCellId";
     CGSize questionSize = [sizingCell.questionLbl systemLayoutSizeFittingSize:UILayoutFittingCompressedSize];
     CGSize size = [sizingCell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize];
     return size.height + sizingCell.tableView.contentSize.height + questionSize.height;
-//    sizingCell.bounds = CGRectMake(0.0f, 0.0f, CGRectGetWidth(self.tableView.bounds), 0.0f);
-//    
-//    [sizingCell setNeedsLayout];
-//    [sizingCell layoutIfNeeded];
-//    
-//    CGSize size = [sizingCell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize];
-//    return size.height;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -290,6 +286,10 @@ static NSString * const QuestionFeedCellId = @"QuestionFeedCellId";
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:TRUE];
+    selectedQuestion = [feedItems objectAtIndex:indexPath.row];
+    if (((OttaAnswer*)[selectedQuestion.ottaAnswers objectAtIndex:0]).imageURL) {
+        [self performSegueWithIdentifier:@"segueMediaQuestionDetail" sender:self];
+    }
 }
 /*
 #pragma mark - Navigation
@@ -313,6 +313,18 @@ static NSString * const QuestionFeedCellId = @"QuestionFeedCellId";
 - (IBAction)menuButtonPressed:(id)sender {
     [self.slidingViewController anchorTopViewToRightAnimated:YES];
 }
+
+#pragma mark - prepareForSegue
+
+- (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([[segue identifier] isEqualToString: @"segueMediaQuestionDetail"]) {
+        OttaMediaQuestionDetailViewController *dest = (OttaMediaQuestionDetailViewController *)[segue destinationViewController];
+        //the sender is what you pass into the previous method
+        dest.question = selectedQuestion;
+    }
+}
+
 
 
 @end
