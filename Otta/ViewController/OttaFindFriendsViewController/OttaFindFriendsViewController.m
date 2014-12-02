@@ -11,6 +11,8 @@
 #import <Parse/Parse.h>
 #import "FBRequestConnection.h"
 #import "MBProgressHUD.h"
+#import "OttaAlertManager.h"
+#import "OttaAppDelegate.h"
 
 @interface OttaFindFriendsViewController ()
 {
@@ -20,6 +22,7 @@
     NSMutableArray *friends;
     NSMutableArray *searchResults;
     BOOL isSearching;
+    BOOL isSelectSMS;
 }
 @end
 
@@ -35,6 +38,14 @@
     if (_isFromContact){
         self.txtLabel.text = [@"Find Contacts" toCurrentLanguage];
     }
+    if (_isInviteMode) {
+        [self.inviteLbl setText:@"Invite"];
+    } else {
+        [self.inviteLbl setText:@"Connect"];
+    }
+    
+    isSelectSMS = YES;
+    [_toggleBtn setBackgroundImage:[UIImage imageNamed:@"switch-1.png"] forState:UIControlStateNormal];
 }
 
 -(void)viewDidAppear:(BOOL)animated
@@ -464,12 +475,20 @@ replacementString:(NSString *)string {
     }
 }
 
+- (IBAction)changeInviteMethod:(id)sender
+{
+    isSelectSMS = !isSelectSMS;
+    
+    [_toggleBtn setBackgroundImage:isSelectSMS ? [UIImage imageNamed:@"switch-1.png"] : [UIImage imageNamed:@"switch-2.png"] forState:UIControlStateNormal];
+}
+
 - (IBAction)backButtonPressed:(id)sender {
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 -(IBAction)nextButtonPressed:(id)sender
 {
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     if(!_isFromContact && _isInviteMode) {
         
         NSMutableString *listUserId = [[NSMutableString alloc] initWithString:@""];
@@ -487,10 +506,12 @@ replacementString:(NSString *)string {
             [self postToUserFeed:listUserId];
         
         } else {
+            [MBProgressHUD hideHUDForView:self.view animated:YES];
             [self dismissViewControllerAnimated:YES completion:nil];
         }
         
     } else {
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
         [self dismissViewControllerAnimated:YES completion:nil];
     }
 }
@@ -531,20 +552,28 @@ replacementString:(NSString *)string {
     NSMutableDictionary* params = [[NSMutableDictionary alloc] initWithObjectsAndKeys:
                                    @"https://developers.facebook.com/ios", @"link",
                                    @"https://developers.facebook.com/attachment/iossdk_logo.png", @"picture",
-                                   @"Facebook SDK for iOS", @"name",
-                                   @"Build great social apps and get more installs.", @"caption",
-                                   @"The Facebook SDK for iOS makes it easier and faster to develop Facebook integrated iOS apps.", @"description",
+                                   @"Otta", @"name",
+                                   @"Otta - Ask your friends", @"caption",
+                                   @"Ask your friend and get your best choice", @"description",
                                    @"155021662189", @"place",
                                    listUserId, @"tags",
                                    nil];
     
+   
     [FBRequestConnection startWithGraphPath:@"me/feed"
                                  parameters:params
                                  HTTPMethod:@"POST"
                           completionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
                               
-                              NSLog(@"%@", error);
-                              
+                              [MBProgressHUD hideHUDForView:self.view animated:YES];
+                              if(error) {
+                                  [[OttaAlertManager sharedManager] showSimpleAlertWithContent:[@"Cannot invite friends" toCurrentLanguage] complete:nil];
+                              } else {
+                                  
+                                  [[OttaAlertManager sharedManager] showSimpleAlertWithContent:[@"Invite friends success" toCurrentLanguage] complete:^{
+                                       [self dismissViewControllerAnimated:YES completion:nil];
+                                  }];
+                              }
                           }];
 }
 
