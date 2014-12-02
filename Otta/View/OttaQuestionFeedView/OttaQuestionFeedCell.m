@@ -144,7 +144,7 @@ static NSString * const MediaCellId = @"MediaQuestionCellId";
     [self setTitleForCell:cell item:item];
     [self setOrderForCell:cell order:[NSString stringWithFormat:@"%d", indexPath.row +1]];
     [self setImageForCell:(id)cell item:item];
-    
+    cell.imageBtn.tag = indexPath.row;
     if (self.answers.count > 3 ) {
         if (indexPath.row == 2 && _isViewAllMode == FALSE) {
             cell.viewAllBtn.hidden = NO;
@@ -193,8 +193,6 @@ static NSString * const MediaCellId = @"MediaQuestionCellId";
         
         [tv beginUpdates];
         [tv endUpdates];
-//        [self needsUpdateConstraints];
-//        [self.contentView needsUpdateConstraints];
         
     }];
 }
@@ -209,8 +207,11 @@ static NSString * const MediaCellId = @"MediaQuestionCellId";
 
         [tv beginUpdates];
         [tv endUpdates];
-//        [self needsUpdateConstraints];
-//        [self.contentView needsUpdateConstraints];
     }];
+}
+
+- (IBAction)imageBtnTapped:(id)sender {
+    UIButton *btn = (UIButton *)sender;
+    
 }
 @end

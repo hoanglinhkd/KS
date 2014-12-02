@@ -15,6 +15,7 @@
 
 - (void)optionCell:(OttaQuestionFeedCell*)cell viewMoreBtnTapped:(id)row;
 - (void)optionCell:(OttaQuestionFeedCell*)cell collapseBtnTapped:(id)row;
+- (void)optionCell:(OttaQuestionFeedCell*)cell imageBtnTapped:(id)row;
 
 @end
 
@@ -32,6 +33,7 @@
 
 - (IBAction)collapseBtnTapped:(id)sender;
 - (IBAction)viewAllBtnTapped:(id)sender;
+- (IBAction)imageBtnTapped:(id)sender;
 
 
 @end

@@ -15,5 +15,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *collapseBtn;
 @property (weak, nonatomic) IBOutlet UIButton *viewAllBtn;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *collapseHeghtConstraint;
+@property (weak, nonatomic) IBOutlet UIButton *imageBtn;
+@property (weak, nonatomic) IBOutlet UIButton *imageBtnTapped;
 
 @end

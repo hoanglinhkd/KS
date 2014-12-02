@@ -287,6 +287,7 @@ static NSString * const QuestionFeedCellId = @"QuestionFeedCellId";
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:TRUE];
     selectedQuestion = [feedItems objectAtIndex:indexPath.row];
+    
     if (((OttaAnswer*)[selectedQuestion.ottaAnswers objectAtIndex:0]).imageURL) {
         [self performSegueWithIdentifier:@"segueMediaQuestionDetail" sender:self];
     }
@@ -315,6 +316,8 @@ static NSString * const QuestionFeedCellId = @"QuestionFeedCellId";
 }
 
 #pragma mark - prepareForSegue
+
+
 
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
