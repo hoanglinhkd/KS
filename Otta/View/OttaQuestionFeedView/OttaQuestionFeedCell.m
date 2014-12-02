@@ -188,7 +188,7 @@ static NSString * const MediaCellId = @"MediaQuestionCellId";
     UITableView *tv = (UITableView *) self.superview.superview;
     NSIndexPath* pathOfTheCell = [tv indexPathForCell:self];
     
-    [self.delegate optionCell:self collapseBtnTapped:[NSNumber numberWithInt:pathOfTheCell.row]];
+    [self.delegate optionCell:self collapseBtnTapped:[NSNumber numberWithInteger:pathOfTheCell.row]];
     [UIView animateWithDuration:0.25 animations:^{
         
         [tv beginUpdates];
@@ -202,7 +202,7 @@ static NSString * const MediaCellId = @"MediaQuestionCellId";
     [self.tableView reloadData];
     UITableView *tv = (UITableView *) self.superview.superview;
     NSIndexPath* pathOfTheCell = [tv indexPathForCell:self];
-    [self.delegate optionCell:self viewMoreBtnTapped:[NSNumber numberWithInt:pathOfTheCell.row]];
+    [self.delegate optionCell:self viewMoreBtnTapped:[NSNumber numberWithInteger:pathOfTheCell.row]];
     [UIView animateWithDuration:0.25 animations:^{
 
         [tv beginUpdates];
@@ -212,6 +212,7 @@ static NSString * const MediaCellId = @"MediaQuestionCellId";
 
 - (IBAction)imageBtnTapped:(id)sender {
     UIButton *btn = (UIButton *)sender;
-    
+    NSInteger row = btn.tag;
+    [self.delegate optionCell:self imageBtnTappedAtRow:[NSNumber numberWithInteger:row]];
 }
 @end

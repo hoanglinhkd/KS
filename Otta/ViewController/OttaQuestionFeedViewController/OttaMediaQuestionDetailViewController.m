@@ -20,29 +20,29 @@
     [super viewDidLoad];
     
     self.orderLbl.clipsToBounds = YES;
-    // Do any additional setup after loading the view.
-    _question = [[OttaQuestion alloc] init];
-
-    _question.questionText = @"Test long question, long question test, test long question test?";
-    // Do any additional setup after loading the view.
-    OttaAnswer* answer = [[OttaAnswer alloc] init];
-    answer.answerText = @"Caesar Blah Caesar Blah Caesar  Blah Caesar Caesar Blah Caesar Blah Caesar  Blah Caesar";
-    answer.answerImage = [UIImage imageNamed:@"japanese_noodle_with_pork.jpg"];
-    
-    OttaAnswer* answer1 = [[OttaAnswer alloc] init];
-    answer1.answerText = @"Thousand Islands";
-    answer1.answerImage = [UIImage imageNamed:@"japanese_noodle_with_pork.jpg"];
-    
-    OttaAnswer* answer2 = [[OttaAnswer alloc] init];
-    answer2.answerText = @"Strawberry Something";
-    answer2.answerImage = [UIImage imageNamed:@"japanese_noodle_with_pork.jpg"];
-    
-    OttaAnswer* answer3 = [[OttaAnswer alloc] init];
-    answer3.answerText = @"Japanese noddle with pork";
-    answer3.answerImage = [UIImage imageNamed:@"japanese_noodle_with_pork.jpg"];
-    
-    NSArray *answers = [NSArray arrayWithObjects:answer,answer1,answer2,answer3, nil];
-    _question.ottaAnswers = [NSMutableArray arrayWithArray:answers];
+//    // Do any additional setup after loading the view.
+//    _question = [[OttaQuestion alloc] init];
+//
+//    _question.questionText = @"Test long question, long question test, test long question test?";
+//    // Do any additional setup after loading the view.
+//    OttaAnswer* answer = [[OttaAnswer alloc] init];
+//    answer.answerText = @"Caesar Blah Caesar Blah Caesar  Blah Caesar Caesar Blah Caesar Blah Caesar  Blah Caesar";
+//    answer.answerImage = [UIImage imageNamed:@"japanese_noodle_with_pork.jpg"];
+//    
+//    OttaAnswer* answer1 = [[OttaAnswer alloc] init];
+//    answer1.answerText = @"Thousand Islands";
+//    answer1.answerImage = [UIImage imageNamed:@"japanese_noodle_with_pork.jpg"];
+//    
+//    OttaAnswer* answer2 = [[OttaAnswer alloc] init];
+//    answer2.answerText = @"Strawberry Something";
+//    answer2.answerImage = [UIImage imageNamed:@"japanese_noodle_with_pork.jpg"];
+//    
+//    OttaAnswer* answer3 = [[OttaAnswer alloc] init];
+//    answer3.answerText = @"Japanese noddle with pork";
+//    answer3.answerImage = [UIImage imageNamed:@"japanese_noodle_with_pork.jpg"];
+//    
+//    NSArray *answers = [NSArray arrayWithObjects:answer,answer1,answer2,answer3, nil];
+//    _question.ottaAnswers = [NSMutableArray arrayWithArray:answers];
 }
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
@@ -82,6 +82,9 @@
     }
     
     self.imgscrollView.contentSize = CGSizeMake(self.imgscrollView.frame.size.width *  self.question.ottaAnswers.count, self.imgscrollView.frame.size.height);
+    
+    [self scrollToPage:self.currentOption];
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -127,19 +130,19 @@
     if (self.currentOption == 0)
         return;
     self.currentOption  -= 1;
-    CGRect frame;
-    frame.origin.x = self.imgscrollView.frame.size.width * self.currentOption;
-    frame.origin.y = 0;
-    frame.size = self.imgscrollView.frame.size;
-    [self.imgscrollView scrollRectToVisible:frame animated:YES];
+    [self scrollToPage:self.currentOption];
 }
 
 - (IBAction)rightBtnTapped:(id)sender {
     if (self.currentOption == self.question.ottaAnswers.count -1)
         return;
     self.currentOption  += 1;
+    [self scrollToPage:self.currentOption];
+}
+
+- (void)scrollToPage:(int)page {
     CGRect frame;
-    frame.origin.x = self.imgscrollView.frame.size.width * self.currentOption;
+    frame.origin.x = self.imgscrollView.frame.size.width * page;
     frame.origin.y = 0;
     frame.size = self.imgscrollView.frame.size;
     [self.imgscrollView scrollRectToVisible:frame animated:YES];

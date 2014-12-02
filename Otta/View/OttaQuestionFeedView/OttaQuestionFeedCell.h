@@ -15,7 +15,7 @@
 
 - (void)optionCell:(OttaQuestionFeedCell*)cell viewMoreBtnTapped:(id)row;
 - (void)optionCell:(OttaQuestionFeedCell*)cell collapseBtnTapped:(id)row;
-- (void)optionCell:(OttaQuestionFeedCell*)cell imageBtnTapped:(id)row;
+- (void)optionCell:(OttaQuestionFeedCell*)cell imageBtnTappedAtRow:(id)row;
 
 @end
 

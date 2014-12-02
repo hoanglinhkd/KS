@@ -2459,6 +2459,9 @@ EE5leHQ
                                                                         <state key="normal">
                                                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                                         </state>
+                                                                        <connections>
+                                                                            <action selector="imageBtnTapped:" destination="jUD-Qj-hFp" eventType="touchUpInside" id="GF8-8k-sx5"/>
+                                                                        </connections>
                                                                     </button>
                                                                 </subviews>
                                                                 <constraints>

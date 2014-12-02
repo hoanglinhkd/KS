@@ -19,9 +19,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-//    PFQuery *query = [PFUser query];
+    PFQuery *query = [PFUser query];
 //    PFUser *user1  = (PFUser *)[query getObjectWithId:@"bJqgxJi2Vs"];
-//    PFUser *user2  = (PFUser *)[query getObjectWithId:@"lgdLAVuveH"];
+    PFUser *user2  = (PFUser *)[query getObjectWithId:@"lgdLAVuveH"];
     
     
     

@@ -19,6 +19,7 @@ static NSString * const QuestionFeedCellId = @"QuestionFeedCellId";
     NSMutableArray *feedItems;
     NSMutableArray *viewAllModeCellArray;
     OttaQuestion *selectedQuestion;
+    int selectedOption;
 }
 @end
 
@@ -286,11 +287,6 @@ static NSString * const QuestionFeedCellId = @"QuestionFeedCellId";
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:TRUE];
-    selectedQuestion = [feedItems objectAtIndex:indexPath.row];
-    
-    if (((OttaAnswer*)[selectedQuestion.ottaAnswers objectAtIndex:0]).imageURL) {
-        [self performSegueWithIdentifier:@"segueMediaQuestionDetail" sender:self];
-    }
 }
 /*
 #pragma mark - Navigation
@@ -311,6 +307,16 @@ static NSString * const QuestionFeedCellId = @"QuestionFeedCellId";
     [viewAllModeCellArray removeObject:row];
 }
 
+- (void)optionCell:(OttaQuestionFeedCell *)cell imageBtnTappedAtRow:(id)row {
+    NSIndexPath* pathOfTheCell = [self.tableView indexPathForCell:cell];
+    selectedQuestion = [feedItems objectAtIndex:pathOfTheCell.row];
+    selectedOption = [(NSNumber*)row intValue];
+    if (((OttaAnswer*)[selectedQuestion.ottaAnswers objectAtIndex:0]).imageURL) {
+        [self performSegueWithIdentifier:@"segueMediaQuestionDetail" sender:self];
+    }
+}
+
+
 - (IBAction)menuButtonPressed:(id)sender {
     [self.slidingViewController anchorTopViewToRightAnimated:YES];
 }
@@ -325,6 +331,7 @@ static NSString * const QuestionFeedCellId = @"QuestionFeedCellId";
         OttaMediaQuestionDetailViewController *dest = (OttaMediaQuestionDetailViewController *)[segue destinationViewController];
         //the sender is what you pass into the previous method
         dest.question = selectedQuestion;
+        dest.currentOption = selectedOption;
     }
 }
 
