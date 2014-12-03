@@ -39,21 +39,23 @@ static NSString * const QuestionFeedCellId = @"QuestionFeedCellId";
     OttaAnswer* answer = [[OttaAnswer alloc] init];
     answer.answerText = @"Caesar Blah Caesar Blah Caesar  Blah Caesar Caesar Blah Caesar Blah Caesar  Blah Caesar";
     answer.answerImage = [UIImage imageNamed:@"japanese_noodle_with_pork.jpg"];
-    answer.imageURL = @"https://farm6.static.flickr.com/5557/15191895482_e495291616_m.jpg";
+    answer.imageURL = @"https://farm6.static.flickr.com/5616/15430646499_05b8c2ec7f_m.jpg";
     
     OttaAnswer* answer1 = [[OttaAnswer alloc] init];
     answer1.answerText = @"Thousand Islands";
     answer1.answerImage = [UIImage imageNamed:@"japanese_noodle_with_pork.jpg"];
-
+    answer1.imageURL = @"https://farm6.static.flickr.com/5552/15290350306_b17264e923_m.jpg";
     
     OttaAnswer* answer2 = [[OttaAnswer alloc] init];
     answer2.answerText = @"Strawberry Something";
     answer2.answerImage = [UIImage imageNamed:@"japanese_noodle_with_pork.jpg"];
+    answer2.imageURL = @"https://farm4.static.flickr.com/3936/15617350755_ecaab550f0_m.jpg";
     
     OttaAnswer* answer3 = [[OttaAnswer alloc] init];
     answer3.answerText = @"Japanese noddle with pork";
     answer3.answerImage = [UIImage imageNamed:@"japanese_noodle_with_pork.jpg"];
-
+    answer3.imageURL = @"https://farm4.static.flickr.com/3851/15290348416_23e10b0ecb_m.jpg";
+   
 //    OttaAnswer* answer4 = [[OttaAnswer alloc] init];
 //    answer4.answerText = @"Japanese noddle with pork";
 //    answer4.answerImage = [UIImage imageNamed:@"japanese_noodle_with_pork.jpg"];
@@ -180,20 +182,22 @@ static NSString * const QuestionFeedCellId = @"QuestionFeedCellId";
     answer = [[OttaAnswer alloc] init];
     answer.answerText = @"Caesar Blah Caesar Blah Caesar  Blah Caesar Caesar Blah Caesar Blah Caesar  Blah Caesar";
     answer.answerImage = [UIImage imageNamed:@"japanese_noodle_with_pork.jpg"];
-    answer.imageURL = @"https://farm6.static.flickr.com/5557/15191895482_e495291616_m.jpg";
+    answer.imageURL = @"https://farm6.static.flickr.com/5616/15430646499_05b8c2ec7f_m.jpg";
     
     answer1 = [[OttaAnswer alloc] init];
     answer1.answerText = @"Thousand Islands";
     answer1.answerImage = [UIImage imageNamed:@"japanese_noodle_with_pork.jpg"];
-
+    answer1.imageURL = @"https://farm6.static.flickr.com/5552/15290350306_b17264e923_m.jpg";
     
     answer2 = [[OttaAnswer alloc] init];
     answer2.answerText = @"Strawberry Something";
     answer2.answerImage = [UIImage imageNamed:@"japanese_noodle_with_pork.jpg"];
+    answer2.imageURL = @"https://farm4.static.flickr.com/3936/15617350755_ecaab550f0_m.jpg";
     
     answer3 = [[OttaAnswer alloc] init];
     answer3.answerText = @"Japanese noddle with pork";
     answer3.answerImage = [UIImage imageNamed:@"japanese_noodle_with_pork.jpg"];
+    answer3.imageURL = @"https://farm4.static.flickr.com/3851/15290348416_23e10b0ecb_m.jpg";
     
 
     

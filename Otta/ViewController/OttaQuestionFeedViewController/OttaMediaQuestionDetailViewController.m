@@ -54,30 +54,41 @@
     
     self.questionbl.text = self.question.questionText;
     self.optionLbl.text = ((OttaAnswer*)[self.question.ottaAnswers objectAtIndex:0]).answerText;
+    OttaAnswer *answer;
     
     for (int i = 0; i < self.question.ottaAnswers.count; i++) {
+        answer = [self.question.ottaAnswers objectAtIndex:i];
         CGRect frame;
         frame.origin.x = self.imgscrollView.frame.size.width * i;
         frame.origin.y = 0;
         frame.size = self.imgscrollView.frame.size;
+        
         UIImageView *imageView = [[UIImageView alloc] initWithFrame:frame];
         imageView.contentMode = UIViewContentModeScaleAspectFit;
         
-        NSString *urlString = @"https://farm6.static.flickr.com/5557/15191895482_e495291616_m.jpg";
         
-        NSURL *url = [NSURL URLWithString:urlString];
+        NSURL *url = [NSURL URLWithString:answer.imageURL];
         NSURLRequest *request = [NSURLRequest requestWithURL:url];
         UIImage *placeholderImage = [UIImage imageNamed:@"OttaLandingTopLogo.png"];
         
+        //Indicator
+        UIActivityIndicatorView *indicator = [[UIActivityIndicatorView alloc] init];
+        indicator.center = imageView.center;
+        indicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyleWhiteLarge;
+        [indicator startAnimating];
+        
+        //Lazy loading image
         [imageView setImageWithURLRequest:request
                              placeholderImage:placeholderImage
                                       success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
                                           
                                           imageView.image = image;
+                                          [indicator stopAnimating];
                                       } failure:nil];
         
-        //imageView.image = [UIImage imageNamed:@"japanese_noodle_with_pork.jpg"];
+        
         [self.imgscrollView addSubview:imageView];
+        [self.imgscrollView addSubview:indicator];
 
     }
     
