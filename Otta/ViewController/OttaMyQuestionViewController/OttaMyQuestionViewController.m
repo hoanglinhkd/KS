@@ -11,13 +11,15 @@
 
 #import "OttaQuestion.h"
 #import "OttaAnswer.h"
+#import "OttaMyQuestionData.h"
 
 #import "OttaMyQuestionHeaderCell.h"
 #import "OttaMyQuestionFooterCell.h"
 #import "OttaMyQuestionTextCell.h"
 
-static NSString * const OttaMyQuestionHeaderCellIdentifier  = @"OttaMyQuestionHeaderCell";
-static NSString * const OttaMyQuestionTextCellIdentifier    = @"OttaMyQuestionTextCell";
+static NSString * const OttaMyQuestionHeaderCellIdentifier      = @"OttaMyQuestionHeaderCell";
+static NSString * const OttaMyQuestionTextCellIdentifier        = @"OttaMyQuestionTextCell";
+static NSString * const OttaMyQuestionFooterCellIdentifier      = @"OttaMyQuestionFooterCell";
 
 @interface OttaMyQuestionViewController ()<UITableViewDataSource, UITableViewDelegate>{
     NSMutableArray *datas;
@@ -66,7 +68,7 @@ static NSString * const OttaMyQuestionTextCellIdentifier    = @"OttaMyQuestionTe
     datas = [[NSMutableArray alloc] initWithCapacity:5];
     
     int i,j;
-    for (i=0; i<3; i++) {
+    for (i=0; i<1; i++) {
         OttaQuestion *myQs = [[OttaQuestion alloc] init];
         myQs.questionID = [NSString stringWithFormat:@"%d",i];
         myQs.ottaAnswers = [[NSMutableArray alloc] init];
@@ -128,15 +130,52 @@ static NSString * const OttaMyQuestionTextCellIdentifier    = @"OttaMyQuestionTe
 - (void)processDataForShow{
     dataForShow = [[NSMutableArray alloc] initWithCapacity:20];
     
-    for (OttaQuestion *myQs in datas) {
-        [dataForShow addObject:myQs.questionText];
-        if (myQs.isSeeAll) {
-            for (OttaAnswer *ans in myQs.ottaAnswers) {
-                [dataForShow addObject:ans];
-            }
+    for (OttaQuestion *qs in datas) {
+        OttaMyQuestionData *obj = [[OttaMyQuestionData alloc] init];
+        if (qs.expirationDate <= 0) {
+            obj.dataType = MyQuestionDataTypeDone;
+            obj.questionText = qs.questionText;
+            [dataForShow addObject:obj];
         }else{
-            if (myQs.ottaAnswers.count > 0) {
-                [dataForShow addObject:myQs.ottaAnswers[0]];
+            obj.dataType = MyQuestionDataTypeHeader;
+            obj.questionText = qs.questionText;
+            [dataForShow addObject:obj];
+            
+            int numberLocation = 1;
+            if (qs.isSeeAll) {
+                for (OttaAnswer *ans in qs.ottaAnswers) {
+                    OttaMyQuestionData *objAnswer1 = [[OttaMyQuestionData alloc] init];
+                    ans.numberAnswer = numberLocation;
+                    if (ans.answerHasphoto) {
+                        objAnswer1.dataType = MyQuestionDataTypeAnswerPicture;
+                    }else{
+                        objAnswer1.dataType = MyQuestionDataTypeAnswer;
+                    }
+                    objAnswer1.answer = ans;
+                    [dataForShow addObject:objAnswer1];
+                    
+                    numberLocation++;
+                }
+                
+                OttaMyQuestionData *objFooter1 = [[OttaMyQuestionData alloc] init];
+                objFooter1.dataType = MyQuestionDataTypeFooterNormal;
+                objFooter1.expirationDate = qs.expirationDate;
+                [dataForShow addObject:objFooter1];
+                
+            }else{
+                if (qs.ottaAnswers.count > 0) {
+                    OttaMyQuestionData *objAnswer2 = [[OttaMyQuestionData alloc] init];
+                    ((OttaAnswer*)qs.ottaAnswers[0]).numberAnswer = numberLocation;
+                    objAnswer2.dataType = MyQuestionDataTypeAnswerPicture;
+                    objAnswer2.answer = qs.ottaAnswers[0];
+                    
+                    [dataForShow addObject:objAnswer2];
+                    
+                    OttaMyQuestionData *objFooter2 = [[OttaMyQuestionData alloc] init];
+                    obj.dataType = MyQuestionDataTypeFooterSeeAll;
+                    objFooter2.expirationDate = qs.expirationDate;
+                    [dataForShow addObject:objFooter2];
+                }
             }
         }
     }
@@ -167,41 +206,32 @@ static NSString * const OttaMyQuestionTextCellIdentifier    = @"OttaMyQuestionTe
 }
 //----
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    id dto = [dataForShow objectAtIndex:indexPath.row];
+    OttaMyQuestionData *dto = [dataForShow objectAtIndex:indexPath.row];
     
-    if ([dto isKindOfClass:[OttaAnswer class]]) {
-        return [self textCellAtIndexPath:indexPath];
-    }else if([dto isKindOfClass:[NSString class]]){
-        return [self headerCellAtIndexPath:indexPath];
-    }else{
-        
+    switch (dto.dataType) {
+        case MyQuestionDataTypeHeader:
+            return [self headerCellAtIndexPath:indexPath];
+            break;
+        case MyQuestionDataTypeAnswer:
+            return [self textCellAtIndexPath:indexPath];
+            break;
+        case MyQuestionDataTypeFooterNormal:
+            return [self footerCellAtIndexPath:indexPath];
+            break;
+        case MyQuestionDataTypeAnswerPicture:
+            return nil;
+            break;
+        case MyQuestionDataTypeFooterSeeAll:
+            return nil;
+            break;
+        case MyQuestionDataTypeDone:
+            return nil;
+            break;
+        default:
+            break;
     }
-    return [self textCellAtIndexPath:indexPath];
-}
-// For text cell
-- (OttaMyQuestionTextCell *)textCellAtIndexPath:(NSIndexPath *)indexPath {
-    OttaMyQuestionTextCell *cell = [self.myTableView dequeueReusableCellWithIdentifier:OttaMyQuestionTextCellIdentifier forIndexPath:indexPath];
-    [self configureTextCell:cell atIndexPath:indexPath];
-    return cell;
-}
-
-- (void)configureTextCell:(OttaMyQuestionTextCell *)cell atIndexPath:(NSIndexPath *)indexPath {
-    OttaAnswer *answerDto = dataForShow[indexPath.row];
     
-    cell.lblOrderNumber.text = [NSString stringWithFormat:@"%ld",indexPath.row + 1];
-    cell.lblText.text = answerDto.answerText;
-}
-// For Header Cell
-- (OttaMyQuestionHeaderCell *)headerCellAtIndexPath:(NSIndexPath *)indexPath {
-    OttaMyQuestionHeaderCell *cell = [self.myTableView dequeueReusableCellWithIdentifier:OttaMyQuestionHeaderCellIdentifier forIndexPath:indexPath];
-    [self configureHeaderCell:cell atIndexPath:indexPath];
-    return cell;
-}
-
-- (void)configureHeaderCell:(OttaMyQuestionHeaderCell *)cell atIndexPath:(NSIndexPath *)indexPath {
-    NSString *dto = dataForShow[indexPath.row];
-    
-    cell.lblTextHeader.text = dto;
+    return nil;
 }
 
 #pragma mark - UITableview Delegate
@@ -211,8 +241,8 @@ static NSString * const OttaMyQuestionTextCellIdentifier    = @"OttaMyQuestionTe
 
 //-------
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    id dto = [dataForShow objectAtIndex:indexPath.row];
-    
+    OttaMyQuestionData* dto = [dataForShow objectAtIndex:indexPath.row];
+
     if ([dto isKindOfClass:[OttaAnswer class]]) {
         return [self heightForTextCellAtIndexPath:indexPath];
     }else if([dto isKindOfClass:[NSString class]]){
@@ -255,5 +285,47 @@ static NSString * const OttaMyQuestionTextCellIdentifier    = @"OttaMyQuestionTe
     CGSize size = [sizingCell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize];
     return size.height+1; // Add 1.0f for the cell separator height
 }
+
+#pragma mark - For inital Cell
+// For text cell
+- (OttaMyQuestionTextCell *)textCellAtIndexPath:(NSIndexPath *)indexPath {
+    OttaMyQuestionTextCell *cell = [self.myTableView dequeueReusableCellWithIdentifier:OttaMyQuestionTextCellIdentifier forIndexPath:indexPath];
+    [self configureTextCell:cell atIndexPath:indexPath];
+    return cell;
+}
+
+- (void)configureTextCell:(OttaMyQuestionTextCell *)cell atIndexPath:(NSIndexPath *)indexPath {
+    OttaMyQuestionData *dto = dataForShow[indexPath.row];
+    
+    cell.lblOrderNumber.text = [NSString stringWithFormat:@"%d",dto.answer.numberAnswer];
+    cell.lblText.text = dto.answer.answerText;
+}
+// For Header Cell
+- (OttaMyQuestionHeaderCell *)headerCellAtIndexPath:(NSIndexPath *)indexPath {
+    OttaMyQuestionHeaderCell *cell = [self.myTableView dequeueReusableCellWithIdentifier:OttaMyQuestionHeaderCellIdentifier forIndexPath:indexPath];
+    [self configureHeaderCell:cell atIndexPath:indexPath];
+    return cell;
+}
+
+- (void)configureHeaderCell:(OttaMyQuestionHeaderCell *)cell atIndexPath:(NSIndexPath *)indexPath {
+    OttaMyQuestionData *dto = dataForShow[indexPath.row];
+    
+    cell.lblTextHeader.text = dto.questionText;
+}
+// For Footer Cell
+- (OttaMyQuestionFooterCell *)footerCellAtIndexPath:(NSIndexPath *)indexPath {
+    OttaMyQuestionFooterCell *cell = [self.myTableView dequeueReusableCellWithIdentifier:OttaMyQuestionFooterCellIdentifier forIndexPath:indexPath];
+    [self configureFooterCell:cell atIndexPath:indexPath];
+    return cell;
+}
+
+- (void)configureFooterCell:(OttaMyQuestionFooterCell *)cell atIndexPath:(NSIndexPath *)indexPath {
+    OttaMyQuestionData *dto = dataForShow[indexPath.row];
+    
+    cell.btnSeeAll.hidden = (dto.dataType == MyQuestionDataTypeFooterNormal) ? YES:NO;
+    
+    cell.lblTime.text = [NSString stringWithFormat:@"%d min",dto.expirationDate];
+}
+
 
 @end

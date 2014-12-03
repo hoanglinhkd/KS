@@ -10,6 +10,7 @@
 
 @interface OttaMyQuestionFooterCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UILabel *lblTime;
+@property (weak, nonatomic) IBOutlet UIButton *btnSeeAll;
 
 - (IBAction)clickSeeAll:(id)sender;
 @end
