@@ -173,6 +173,22 @@
     }];
 }
 
+- (void)getAllUsersFollowToUser:(PFUser*)user withBlock:(OttaArrayDataBlock)resultBlock {
+    NSMutableArray *userIDs = [[NSMutableArray alloc] init];
+    // set up the query on the Follow table
+    [self getAllFollowToUser:user withBlock:^(NSArray *array, NSError *error) {
+        for (PFUser *objUser in array) {
+            PFUser *cur = [objUser objectForKey:@"from"];
+            [userIDs addObject:cur.objectId];
+        }
+        PFQuery *query = [PFUser query];
+        [query whereKey:@"objectId" containedIn:userIDs];
+        [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+            resultBlock(objects, error);
+        }];
+    }];
+}
+
 - (void)getAllFollowFromUser:(PFUser*)user withBlock:(OttaArrayDataBlock)resultBlock {
     // set up the query on the Follow table
     PFQuery *query = [PFQuery queryWithClassName:@"OttaFollow"];
@@ -187,6 +203,37 @@
     }];
 }
 
+- (void)getAllUsersFollowFromUser:(PFUser*)user withBlock:(OttaArrayDataBlock)resultBlock {
+    NSMutableArray *userIDs = [[NSMutableArray alloc] init];
+    // set up the query on the Follow table
+    [self getAllFollowFromUser:user withBlock:^(NSArray *array, NSError *error) {
+        for (PFUser *objUser in array) {
+            PFUser *cur = [objUser objectForKey:@"to"];
+            [userIDs addObject:cur.objectId];
+        }
+        PFQuery *query = [PFUser query];
+        [query whereKey:@"objectId" containedIn:userIDs];
+        [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+            resultBlock(objects, error);
+        }];
+    }];
+}
+
+- (void)countUsersFollowToUser:(PFUser*)user withBlock:(OttaCountBlock)resultBlock{
+    PFQuery *query = [PFQuery queryWithClassName:@"OttaFollow"];
+    [query whereKey:@"to" equalTo:user];
+    [query countObjectsInBackgroundWithBlock:^(int count, NSError *error) {
+        resultBlock(count, error);
+    }];
+}
+
+- (void)countUsersFollowFromUser:(PFUser*)user withBlock:(OttaCountBlock)resultBlock{
+    PFQuery *query = [PFQuery queryWithClassName:@"OttaFollow"];
+    [query whereKey:@"from" equalTo:user];
+    [query countObjectsInBackgroundWithBlock:^(int count, NSError *error) {
+        resultBlock(count, error);
+    }];
+}
 
 - (void)addQuestion:(OttaQuestion*)ottaQuestion withBlock:(OttaGeneralResultBlock)resultBlock {
     

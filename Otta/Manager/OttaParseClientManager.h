@@ -23,6 +23,8 @@ typedef void(^OttaGeneralResultBlock)(BOOL isSucceeded, NSError* error);
 
 typedef void(^OttaArrayDataBlock)(NSArray *array, NSError* error);
 
+typedef void(^OttaCountBlock)(int count, NSError* error);
+
 
 
 
@@ -73,6 +75,14 @@ typedef void(^OttaArrayDataBlock)(NSArray *array, NSError* error);
 - (void)getAllFollowToUser:(PFUser*)user withBlock:(OttaArrayDataBlock)resultBlock;
 
 /**
+ *  Get All follower by user
+ *
+ *  @param user
+ *  @param resultBlock
+ */
+- (void)getAllUsersFollowToUser:(PFUser*)user withBlock:(OttaArrayDataBlock)resultBlock;
+
+/**
  *  Get All followed by user
  *
  *  @param user
@@ -80,4 +90,27 @@ typedef void(^OttaArrayDataBlock)(NSArray *array, NSError* error);
  */
 - (void)getAllFollowFromUser:(PFUser*)user withBlock:(OttaArrayDataBlock)resultBlock;
 
+/**
+ *  Get All followed by user
+ *
+ *  @param user
+ *  @param resultBlock
+ */
+- (void)getAllUsersFollowFromUser:(PFUser*)user withBlock:(OttaArrayDataBlock)resultBlock;
+
+/**
+ *  count follower by user
+ *
+ *  @param user
+ *  @param resultBlock
+ */
+- (void)countUsersFollowToUser:(PFUser*)user withBlock:(OttaCountBlock)resultBlock;
+
+/**
+ *  count followed by user
+ *
+ *  @param user
+ *  @param resultBlock
+ */
+- (void)countUsersFollowFromUser:(PFUser*)user withBlock:(OttaCountBlock)resultBlock;
 @end

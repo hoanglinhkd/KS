@@ -20,9 +20,10 @@
 @property (weak, nonatomic) IBOutlet UILabel *lblAskers;
 @property (weak, nonatomic) IBOutlet UILabel *lblAskersCount;
 @property (weak, nonatomic) IBOutlet UILabel *lblAnswerersCount;
-
+@property (assign, nonatomic) BOOL isAnswererTab;//True=Answer,False = Asker
 - (IBAction)txtChanged:(UITextField *)sender;
 
 - (IBAction)btnAnswerPressed:(id)sender;
 - (IBAction)btnAskPressed:(id)sender;
+
 @end
