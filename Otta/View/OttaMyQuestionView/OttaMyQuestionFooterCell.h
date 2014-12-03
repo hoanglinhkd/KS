@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface OttaMyQuestionFooterCell : UIView
+@interface OttaMyQuestionFooterCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UILabel *lblTime;
 
 - (IBAction)clickSeeAll:(id)sender;
