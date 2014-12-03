@@ -11,9 +11,34 @@
 #import "OttaQuestion.h"
 #import "OttaAnswer.h"
 
-#define kFirstName  @"firstName"
-#define kLastName   @"lastName"
-#define kPhone      @"phone"
+#define kObjectId       @"objectId"
+
+#define kFirstName      @"firstName"
+#define kLastName       @"lastName"
+#define kPhone          @"phone"
+#define kEmail          @"email"
+
+
+// OttaFollow table
+#define kOttaFollow     @"OttaFollow"
+#define kFrom           @"from"
+#define kTo             @"to"
+#define kIsBlocked      @"isBlocked"
+
+
+// OttaAnswer table
+#define kOttaAnswer     @"OttaAnswer"
+#define kImage          @"image"
+#define kDescription    @"description"
+
+
+// OttaQuestion table
+#define kOttaQuestion   @"OttaQuestion"
+#define kAsker          @"asker"
+#define kExpTime        @"expTime"
+#define kQuestionText   @"questionText"
+#define kAnswers        @"answers"
+#define kIsPublic       @"isPublic"
 
 @implementation OttaParseClientManager
 
@@ -32,6 +57,8 @@
     }
     return self;
 }
+
+
 
 - (void)loginWithNameOrEmail:(NSString*)nameOrEmail andPassword:(NSString *)password withResult:(OttaPLoginResultBlock)resultblock {
 
@@ -77,11 +104,10 @@
 
 
 - (void)findUserWithEmail:(NSString*)email withResult: (void (^)(PFUser *)) UserResultBlock{
-    NSLog(@"findUserWithEmail");
   
     PFQuery *userQuery = [PFUser query];
     
-    [userQuery whereKey:@"email" equalTo:email];
+    [userQuery whereKey:kEmail equalTo:email];
     
     [userQuery getFirstObjectInBackgroundWithBlock:^(PFObject *object, NSError *error) {
         if (object) {
@@ -94,7 +120,6 @@
 }
 
 - (void)findUsers:(NSString*) str withResult:(OttaUsersBlock) resultblock;{
-    NSLog(@"findUsers");
     PFQuery *userFNQuery = [PFUser query];
     PFQuery *userLNQuery = [PFUser query];
     PFQuery *userFNCapitalQuery = [PFUser query];
@@ -125,19 +150,19 @@
 
 - (void)followUser:(PFUser*)user1 toUser:(PFUser*)user2 withBlock:(OttaGeneralResultBlock)resultBlock {
     // create an entry in the Follow table
-    PFObject *follow = [PFObject objectWithClassName:@"OttaFollow"];
-    [follow setObject:user1 forKey:@"from"];
-    [follow setObject:user2 forKey:@"to"];
-    [follow setValue:@NO forKey:@"isBlocked"];
+    PFObject *follow = [PFObject objectWithClassName:kOttaFollow];
+    [follow setObject:user1 forKey:kFrom];
+    [follow setObject:user2 forKey:kTo];
+    [follow setValue:@NO forKey:kIsBlocked];
     [follow saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         resultBlock(succeeded, error);
     }];
 }
 
 - (void)removeFollowFromUser:(PFUser*)user1 toUser:(PFUser*)user2 withBlock:(OttaGeneralResultBlock)resultBlock {
-    PFQuery *query = [PFQuery queryWithClassName:@"OttaFollow"];
-    [query whereKey:@"from" equalTo:user1];
-    [query whereKey:@"to" equalTo:user2];
+    PFQuery *query = [PFQuery queryWithClassName:kOttaFollow];
+    [query whereKey:kFrom equalTo:user1];
+    [query whereKey:kTo equalTo:user2];
     
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         PFObject *follow = (PFObject*)objects[0];
@@ -147,13 +172,13 @@
 }
 
 - (void)blockFollowFromUser:(PFUser*)user1 toUser:(PFUser*)user2 withBlock:(OttaGeneralResultBlock)resultBlock {
-    PFQuery *query = [PFQuery queryWithClassName:@"OttaFollow"];
-    [query whereKey:@"from" equalTo:user1];
-    [query whereKey:@"to" equalTo:user2];
+    PFQuery *query = [PFQuery queryWithClassName:kOttaFollow];
+    [query whereKey:kFrom equalTo:user1];
+    [query whereKey:kTo equalTo:user2];
     
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         PFObject *follow = (PFObject*)objects[0];
-        [follow setValue:@YES forKey:@"isBlocked"];
+        [follow setValue:@YES forKey:kIsBlocked];
         BOOL isSucceed = [follow save];
         resultBlock(isSucceed, error);
     }];
@@ -161,8 +186,8 @@
 
 - (void)getAllFollowToUser:(PFUser*)user withBlock:(OttaArrayDataBlock)resultBlock {
     // set up the query on the Follow table
-    PFQuery *query = [PFQuery queryWithClassName:@"OttaFollow"];
-    [query whereKey:@"to" equalTo:user];
+    PFQuery *query = [PFQuery queryWithClassName:kOttaFollow];
+    [query whereKey:kTo equalTo:user];
     
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
             // o is an entry in the Follow table
@@ -178,11 +203,11 @@
     // set up the query on the Follow table
     [self getAllFollowToUser:user withBlock:^(NSArray *array, NSError *error) {
         for (PFUser *objUser in array) {
-            PFUser *cur = [objUser objectForKey:@"from"];
+            PFUser *cur = [objUser objectForKey:kFrom];
             [userIDs addObject:cur.objectId];
         }
         PFQuery *query = [PFUser query];
-        [query whereKey:@"objectId" containedIn:userIDs];
+        [query whereKey:kObjectId containedIn:userIDs];
         [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
             resultBlock(objects, error);
         }];
@@ -191,8 +216,8 @@
 
 - (void)getAllFollowFromUser:(PFUser*)user withBlock:(OttaArrayDataBlock)resultBlock {
     // set up the query on the Follow table
-    PFQuery *query = [PFQuery queryWithClassName:@"OttaFollow"];
-    [query whereKey:@"from" equalTo:user];
+    PFQuery *query = [PFQuery queryWithClassName:kOttaFollow];
+    [query whereKey:kFrom equalTo:user];
     
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         // o is an entry in the Follow table
@@ -208,11 +233,11 @@
     // set up the query on the Follow table
     [self getAllFollowFromUser:user withBlock:^(NSArray *array, NSError *error) {
         for (PFUser *objUser in array) {
-            PFUser *cur = [objUser objectForKey:@"to"];
+            PFUser *cur = [objUser objectForKey:kTo];
             [userIDs addObject:cur.objectId];
         }
         PFQuery *query = [PFUser query];
-        [query whereKey:@"objectId" containedIn:userIDs];
+        [query whereKey:kObjectId containedIn:userIDs];
         [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
             resultBlock(objects, error);
         }];
@@ -220,16 +245,16 @@
 }
 
 - (void)countUsersFollowToUser:(PFUser*)user withBlock:(OttaCountBlock)resultBlock{
-    PFQuery *query = [PFQuery queryWithClassName:@"OttaFollow"];
-    [query whereKey:@"to" equalTo:user];
+    PFQuery *query = [PFQuery queryWithClassName:kOttaFollow];
+    [query whereKey:kTo equalTo:user];
     [query countObjectsInBackgroundWithBlock:^(int count, NSError *error) {
         resultBlock(count, error);
     }];
 }
 
 - (void)countUsersFollowFromUser:(PFUser*)user withBlock:(OttaCountBlock)resultBlock{
-    PFQuery *query = [PFQuery queryWithClassName:@"OttaFollow"];
-    [query whereKey:@"from" equalTo:user];
+    PFQuery *query = [PFQuery queryWithClassName:kOttaFollow];
+    [query whereKey:kFrom equalTo:user];
     [query countObjectsInBackgroundWithBlock:^(int count, NSError *error) {
         resultBlock(count, error);
     }];
@@ -240,22 +265,21 @@
     NSMutableArray* optionArray = [NSMutableArray new];
     
     for (OttaAnswer *answer in ottaQuestion.ottaAnswers) {
-        PFObject *option = [PFObject objectWithClassName:@"OttaAnswer"];
-        [option setObject:answer.answerImage forKey:@"image"];
-        [option setObject:answer.answerText forKey:@"description"];
+        PFObject *option = [PFObject objectWithClassName:kOttaAnswer];
+        [option setObject:answer.answerImage forKey:kImage];
+        [option setObject:answer.answerText forKey:kDescription];
         [optionArray addObject:option];
     }
     
-    PFObject *question = [PFObject objectWithClassName:@"OttaQuestion"];
     
-    // store the weapons for the user
+    PFObject *question = [PFObject objectWithClassName:kOttaQuestion];
     
-    [question setObject:[PFUser currentUser] forKey:@"asker"];
-    [question setObject:ottaQuestion.expTime forKey:@"expTime"];
-    [question setObject:ottaQuestion.questionText forKey:@"questionText"];
-    [question setObject:optionArray forKey:@"answers"];
+    [question setObject:[PFUser currentUser] forKey:kAsker];
+    [question setObject:ottaQuestion.expTime forKey:kExpTime];
+    [question setObject:ottaQuestion.questionText forKey:kQuestionText];
+    [question setObject:optionArray forKey:kAnswers];
     
-    [question setValue:@(ottaQuestion.isPublic) forKey:@"isPublic"];
+    [question setValue:@(ottaQuestion.isPublic) forKey:kIsPublic];
 }
 
 @end
