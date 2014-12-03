@@ -127,12 +127,12 @@
     }
 }
 - (void) updateAnswerersAskersCount {
-    PFQuery *query = [PFUser query];
-    PFUser *user1  = (PFUser *)[query getObjectWithId:@"3fRlGvQ8Ld"];
-    [[OttaParseClientManager sharedManager] countUsersFollowToUser:user1 withBlock:^(int count, NSError *error) {
+    //PFQuery *query = [PFUser query];
+    //PFUser *user1  = (PFUser *)[query getObjectWithId:@"3fRlGvQ8Ld"];
+    [[OttaParseClientManager sharedManager] countUsersFollowToUser:[PFUser currentUser] withBlock:^(int count, NSError *error) {
         self.lblAnswerersCount.text = [NSString stringWithFormat:@"%d",count];
     }];
-    [[OttaParseClientManager sharedManager] countUsersFollowFromUser:user1 withBlock:^(int count, NSError *error) {
+    [[OttaParseClientManager sharedManager] countUsersFollowFromUser:[PFUser currentUser] withBlock:^(int count, NSError *error) {
         self.lblAskersCount.text = [NSString stringWithFormat:@"%d",count];
     }];
 }
@@ -140,8 +140,8 @@
 - (void) updateUI:(BOOL) isAnswererTab
 {
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    PFQuery *query = [PFUser query];
-    PFUser *user1  = (PFUser *)[query getObjectWithId:@"3fRlGvQ8Ld"];
+    //PFQuery *query = [PFUser query];
+    //PFUser *user1  = (PFUser *)[query getObjectWithId:@"3fRlGvQ8Ld"];
     self.isAnswererTab = isAnswererTab;
     switch (isAnswererTab) {
         case YES:
@@ -150,7 +150,7 @@
             self.lblAnswerersCount.textColor = cusGreencolor;
             self.lblAskers.textColor = [UIColor blackColor];
             self.lblAskersCount.textColor = [UIColor blackColor];
-            [[OttaParseClientManager sharedManager] getAllUsersFollowToUser:user1 withBlock:^(NSArray *array, NSError *error) {
+            [[OttaParseClientManager sharedManager] getAllUsersFollowToUser:[PFUser currentUser] withBlock:^(NSArray *array, NSError *error) {
                 [self.friends removeAllObjects];
                 for(PFUser *user in array) {
                     NSString *fullname = [NSString stringWithFormat:@"%@ %@", user[@"firstName"], user[@"lastName"]];
@@ -172,7 +172,7 @@
             self.lblAskersCount.textColor = cusGreencolor;
             self.lblAnswerers.textColor = [UIColor blackColor];
             self.lblAnswerersCount.textColor = [UIColor blackColor];
-            [[OttaParseClientManager sharedManager] getAllUsersFollowFromUser:user1 withBlock:^(NSArray *array, NSError *error) {
+            [[OttaParseClientManager sharedManager] getAllUsersFollowFromUser:[PFUser currentUser] withBlock:^(NSArray *array, NSError *error) {
                 [self.friends removeAllObjects];
                 for(PFUser *user in array) {
                     NSString *fullname = [NSString stringWithFormat:@"%@ %@", user[@"firstName"], user[@"lastName"]];
