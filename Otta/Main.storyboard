@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="jFH-gY-aPy">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14C68k" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="jFH-gY-aPy">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
@@ -541,7 +541,6 @@
                                         <connections>
                                             <outlet property="imgIcon" destination="olJ-3R-ki7" id="cBZ-V5-5Sd"/>
                                             <outlet property="lblText" destination="UbO-HD-cjw" id="xru-lq-Czd"/>
-                                            <segue destination="5Ky-av-Fd3" kind="custom" identifier="segueMyQuestion" customClass="ECSlidingSegue" id="lfq-Gw-GVL"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -602,6 +601,7 @@
                         <segue destination="Xra-zU-2qt" kind="custom" identifier="segueFriends" customClass="ECSlidingSegue" id="KkX-VT-qPp"/>
                         <segue destination="jFH-gY-aPy" kind="modal" identifier="segueLogin" id="EbR-fB-zLc"/>
                         <segue destination="jCl-07-7Vf" kind="custom" identifier="segueQuestionFeed" customClass="ECSlidingSegue" id="NXw-dQ-5Op"/>
+                        <segue destination="5Ky-av-Fd3" kind="custom" identifier="segueMyQuestion" customClass="ECSlidingSegue" id="7N9-O9-sRK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CcS-Hm-vcd" userLabel="First Responder" sceneMemberID="firstResponder"/>
