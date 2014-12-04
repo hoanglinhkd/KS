@@ -28,4 +28,7 @@ enum MyQuestionDataType{
 @property (nonatomic,strong) NSString * questionText;
 @property (nonatomic,strong) OttaAnswer * answer;
 
+@property (nonatomic,assign) int referIndex;
+@property (nonatomic,assign) NSInteger currentTableIndex;
+
 @end

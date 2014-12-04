@@ -9,7 +9,16 @@
 #import "OttaMyQuestionPictureCell.h"
 
 @implementation OttaMyQuestionPictureCell
+- (void)awakeFromNib {
+    // Initialization code
+    self.lblOrderNumber.clipsToBounds = YES;
+}
 
+- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
+    [super setSelected:selected animated:animated];
+    
+    // Configure the view for the selected state
+}
 /*
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.

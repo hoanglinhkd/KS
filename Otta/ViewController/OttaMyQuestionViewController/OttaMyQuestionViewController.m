@@ -16,12 +16,16 @@
 #import "OttaMyQuestionHeaderCell.h"
 #import "OttaMyQuestionFooterCell.h"
 #import "OttaMyQuestionTextCell.h"
+#import "OttaMyQuestionPictureCell.h"
+#import "OttaMyQuestionDoneCell.h"
 
 static NSString * const OttaMyQuestionHeaderCellIdentifier      = @"OttaMyQuestionHeaderCell";
 static NSString * const OttaMyQuestionTextCellIdentifier        = @"OttaMyQuestionTextCell";
 static NSString * const OttaMyQuestionFooterCellIdentifier      = @"OttaMyQuestionFooterCell";
+static NSString * const OttaMyQuestionPictureCellIdentifier     = @"OttaMyQuestionPictureCell";
+static NSString * const OttaMyQuestionDoneCellIdentifier        = @"OttaMyQuestionDoneCell";
 
-@interface OttaMyQuestionViewController ()<UITableViewDataSource, UITableViewDelegate>{
+@interface OttaMyQuestionViewController ()<UITableViewDataSource, UITableViewDelegate, OttaMyQuestionFooterCellDelegate>{
     NSMutableArray *datas;
     
     NSMutableArray *dataForShow;
@@ -68,7 +72,7 @@ static NSString * const OttaMyQuestionFooterCellIdentifier      = @"OttaMyQuesti
     datas = [[NSMutableArray alloc] initWithCapacity:5];
     
     int i,j;
-    for (i=0; i<1; i++) {
+    for (i=0; i<5; i++) {
         OttaQuestion *myQs = [[OttaQuestion alloc] init];
         myQs.questionID = [NSString stringWithFormat:@"%d",i];
         myQs.ottaAnswers = [[NSMutableArray alloc] init];
@@ -96,8 +100,8 @@ static NSString * const OttaMyQuestionFooterCellIdentifier      = @"OttaMyQuesti
         
         [datas addObject:myQs];
     }
-    /*
-    for (i = 0; i<3; i++) {
+    
+    for (i = 0; i<5; i++) {
         OttaQuestion *myQs = [[OttaQuestion alloc] init];
         myQs.questionID = [NSString stringWithFormat:@"%d",i];
         myQs.ottaAnswers = [[NSMutableArray alloc] init];
@@ -106,6 +110,8 @@ static NSString * const OttaMyQuestionFooterCellIdentifier      = @"OttaMyQuesti
             answer.answerImage = [UIImage imageNamed:@"creme_brelee.jpg"];
             if (j==2) {
                 answer.answerText  = [NSString stringWithFormat:@"this is an answer with very long content, may be it will look like this number %d",j];
+            }else if(j==3){
+                answer.answerText  = [NSString stringWithFormat:@"this is an answer with very long content, may be it will look like this number, this is an answer with very long content, may be it will look like this number %d",j];
             }else{
                 answer.answerText  = [NSString stringWithFormat:@"answer number %d",j];
             }
@@ -116,7 +122,7 @@ static NSString * const OttaMyQuestionFooterCellIdentifier      = @"OttaMyQuesti
         }
         myQs.askerID = [NSString stringWithFormat:@"162817629"];
         myQs.expirationDate = 8;
-        
+        myQs.isSeeAll = NO;
         if (i==2) {
             myQs.questionText = @"Is it a short question?";
         }else{
@@ -125,12 +131,27 @@ static NSString * const OttaMyQuestionFooterCellIdentifier      = @"OttaMyQuesti
         
         [datas addObject:myQs];
     }
-     */
+    
+    for (i = 0; i<5; i++) {
+        OttaQuestion *myQs = [[OttaQuestion alloc] init];
+        myQs.questionID = [NSString stringWithFormat:@"%d",i];
+        myQs.askerID = [NSString stringWithFormat:@"162817629"];
+        myQs.expirationDate = 0;
+        myQs.isSeeAll = NO;
+        if (i%2==0) {
+            myQs.questionText = @"Is it a short question?";
+        }else{
+            myQs.questionText = @"What food we should to eat tonight, Do you to eat more food without healthy, come to London, right now?";
+        }
+        
+        [datas addObject:myQs];
+    }
 }
 - (void)processDataForShow{
     dataForShow = [[NSMutableArray alloc] initWithCapacity:20];
     
-    for (OttaQuestion *qs in datas) {
+    for (int i=0;i<datas.count;i++) {
+        OttaQuestion *qs = datas[i];
         OttaMyQuestionData *obj = [[OttaMyQuestionData alloc] init];
         if (qs.expirationDate <= 0) {
             obj.dataType = MyQuestionDataTypeDone;
@@ -160,6 +181,8 @@ static NSString * const OttaMyQuestionFooterCellIdentifier      = @"OttaMyQuesti
                 OttaMyQuestionData *objFooter1 = [[OttaMyQuestionData alloc] init];
                 objFooter1.dataType = MyQuestionDataTypeFooterNormal;
                 objFooter1.expirationDate = qs.expirationDate;
+                objFooter1.referIndex = i;
+                objFooter1.currentTableIndex = dataForShow.count;
                 [dataForShow addObject:objFooter1];
                 
             }else{
@@ -172,8 +195,10 @@ static NSString * const OttaMyQuestionFooterCellIdentifier      = @"OttaMyQuesti
                     [dataForShow addObject:objAnswer2];
                     
                     OttaMyQuestionData *objFooter2 = [[OttaMyQuestionData alloc] init];
-                    obj.dataType = MyQuestionDataTypeFooterSeeAll;
+                    objFooter2.dataType = MyQuestionDataTypeFooterSeeAll;
                     objFooter2.expirationDate = qs.expirationDate;
+                    objFooter2.referIndex = i;
+                    objFooter2.currentTableIndex = dataForShow.count;
                     [dataForShow addObject:objFooter2];
                 }
             }
@@ -219,13 +244,13 @@ static NSString * const OttaMyQuestionFooterCellIdentifier      = @"OttaMyQuesti
             return [self footerCellAtIndexPath:indexPath];
             break;
         case MyQuestionDataTypeAnswerPicture:
-            return nil;
+            return [self pictureCellAtIndexPath:indexPath];
             break;
         case MyQuestionDataTypeFooterSeeAll:
-            return nil;
+            return [self footerCellAtIndexPath:indexPath];
             break;
         case MyQuestionDataTypeDone:
-            return nil;
+            return [self doneCellAtIndexPath:indexPath];;
             break;
         default:
             break;
@@ -238,22 +263,95 @@ static NSString * const OttaMyQuestionFooterCellIdentifier      = @"OttaMyQuesti
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     // do something
 }
-
-//-------
+- (void)tableView:(UITableView *)tableView didEndDisplayingCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
+    OttaMyQuestionData* dto = [dataForShow objectAtIndex:indexPath.row];
+    
+    switch (dto.dataType) {
+        case MyQuestionDataTypeHeader:
+            [self fixFrameForHeaderCell:(OttaMyQuestionHeaderCell*)cell];
+            break;
+        case MyQuestionDataTypeAnswer:
+            break;
+        case MyQuestionDataTypeFooterNormal:
+            break;
+        case MyQuestionDataTypeAnswerPicture:
+            break;
+        case MyQuestionDataTypeFooterSeeAll:
+            break;
+        case MyQuestionDataTypeDone:
+            [self fixFrameForDoneCell:(OttaMyQuestionDoneCell*)cell];
+            break;
+        default:
+            break;
+    }
+}
+/*
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
+    OttaMyQuestionData* dto = [dataForShow objectAtIndex:indexPath.row];
+    
+    switch (dto.dataType) {
+        case MyQuestionDataTypeHeader:
+            [self fixFrameForHeaderCell:(OttaMyQuestionHeaderCell*)cell];
+            break;
+        case MyQuestionDataTypeAnswer:
+            break;
+        case MyQuestionDataTypeFooterNormal:
+            break;
+        case MyQuestionDataTypeAnswerPicture:
+            break;
+        case MyQuestionDataTypeFooterSeeAll:
+            break;
+        case MyQuestionDataTypeDone:
+            [self fixFrameForDoneCell:(OttaMyQuestionDoneCell*)cell];
+            break;
+        default:
+            break;
+    }
+}
+ */
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     OttaMyQuestionData* dto = [dataForShow objectAtIndex:indexPath.row];
 
-    if ([dto isKindOfClass:[OttaAnswer class]]) {
-        return [self heightForTextCellAtIndexPath:indexPath];
-    }else if([dto isKindOfClass:[NSString class]]){
-        return [self heightForHeaderCellAtIndexPath:indexPath];
-    }else{
-        
+    switch (dto.dataType) {
+        case MyQuestionDataTypeHeader:
+            return [self heightForHeaderCellAtIndexPath:indexPath];
+            break;
+        case MyQuestionDataTypeAnswer:
+            return [self heightForTextCellAtIndexPath:indexPath];
+            break;
+        case MyQuestionDataTypeFooterNormal:
+            return [self heightForFooterCellAtIndexPath:indexPath];
+            break;
+        case MyQuestionDataTypeAnswerPicture:
+            return [self heightForPictureCellAtIndexPath:indexPath];
+            break;
+        case MyQuestionDataTypeFooterSeeAll:
+            return [self heightForFooterCellAtIndexPath:indexPath];
+            break;
+        case MyQuestionDataTypeDone:
+            return [self heightForDoneCellAtIndexPath:indexPath];
+            break;
+        default:
+            break;
     }
-    return [self heightForTextCellAtIndexPath:indexPath];
+    
+    return 0.0;
 }
 
-// ---------------
+#pragma mark - Calculator Height of Cells
+// For Header Cell
+- (CGFloat)heightForHeaderCellAtIndexPath:(NSIndexPath *)indexPath {
+    static OttaMyQuestionHeaderCell *sizingCell = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        sizingCell = [self.myTableView dequeueReusableCellWithIdentifier:OttaMyQuestionHeaderCellIdentifier];
+    });
+    
+    [self configureHeaderCell:sizingCell atIndexPath:indexPath];
+    return [self calculateHeightForConfiguredSizingCell:sizingCell];
+}
+
+// For Text Cell
 - (CGFloat)heightForTextCellAtIndexPath:(NSIndexPath *)indexPath {
     static OttaMyQuestionTextCell *sizingCell = nil;
     static dispatch_once_t onceToken;
@@ -264,14 +362,37 @@ static NSString * const OttaMyQuestionFooterCellIdentifier      = @"OttaMyQuesti
     [self configureTextCell:sizingCell atIndexPath:indexPath];
     return [self calculateHeightForConfiguredSizingCell:sizingCell];
 }
-- (CGFloat)heightForHeaderCellAtIndexPath:(NSIndexPath *)indexPath {
-    static OttaMyQuestionHeaderCell *sizingCell = nil;
+// For Picture Cell
+- (CGFloat)heightForPictureCellAtIndexPath:(NSIndexPath *)indexPath {
+    static OttaMyQuestionPictureCell *sizingCell = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        sizingCell = [self.myTableView dequeueReusableCellWithIdentifier:OttaMyQuestionHeaderCellIdentifier];
+        sizingCell = [self.myTableView dequeueReusableCellWithIdentifier:OttaMyQuestionPictureCellIdentifier];
     });
     
-    [self configureHeaderCell:sizingCell atIndexPath:indexPath];
+    [self configurePictureCell:sizingCell atIndexPath:indexPath];
+    return [self calculateHeightForConfiguredSizingCell:sizingCell];
+}
+// For Footer Cell
+- (CGFloat)heightForFooterCellAtIndexPath:(NSIndexPath *)indexPath {
+    static OttaMyQuestionFooterCell *sizingCell = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        sizingCell = [self.myTableView dequeueReusableCellWithIdentifier:OttaMyQuestionFooterCellIdentifier];
+    });
+    
+    [self configureFooterCell:sizingCell atIndexPath:indexPath];
+    return [self calculateHeightForConfiguredSizingCell:sizingCell];
+}
+// For Done Cell
+- (CGFloat)heightForDoneCellAtIndexPath:(NSIndexPath *)indexPath {
+    static OttaMyQuestionDoneCell *sizingCell = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        sizingCell = [self.myTableView dequeueReusableCellWithIdentifier:OttaMyQuestionDoneCellIdentifier];
+    });
+    
+    [self configureDoneCell:sizingCell atIndexPath:indexPath];
     return [self calculateHeightForConfiguredSizingCell:sizingCell];
 }
 
@@ -300,6 +421,20 @@ static NSString * const OttaMyQuestionFooterCellIdentifier      = @"OttaMyQuesti
     cell.lblOrderNumber.text = [NSString stringWithFormat:@"%d",dto.answer.numberAnswer];
     cell.lblText.text = dto.answer.answerText;
 }
+// For text cell
+- (OttaMyQuestionPictureCell *)pictureCellAtIndexPath:(NSIndexPath *)indexPath {
+    OttaMyQuestionPictureCell *cell = [self.myTableView dequeueReusableCellWithIdentifier:OttaMyQuestionPictureCellIdentifier forIndexPath:indexPath];
+    [self configurePictureCell:cell atIndexPath:indexPath];
+    return cell;
+}
+// For Picture Cell
+- (void)configurePictureCell:(OttaMyQuestionPictureCell *)cell atIndexPath:(NSIndexPath *)indexPath {
+    OttaMyQuestionData *dto = dataForShow[indexPath.row];
+    
+    cell.lblOrderNumber.text = [NSString stringWithFormat:@"%d",dto.answer.numberAnswer];
+    cell.lblText.text = dto.answer.answerText;
+    cell.imageViewData.image = dto.answer.answerImage;
+}
 // For Header Cell
 - (OttaMyQuestionHeaderCell *)headerCellAtIndexPath:(NSIndexPath *)indexPath {
     OttaMyQuestionHeaderCell *cell = [self.myTableView dequeueReusableCellWithIdentifier:OttaMyQuestionHeaderCellIdentifier forIndexPath:indexPath];
@@ -323,9 +458,50 @@ static NSString * const OttaMyQuestionFooterCellIdentifier      = @"OttaMyQuesti
     OttaMyQuestionData *dto = dataForShow[indexPath.row];
     
     cell.btnSeeAll.hidden = (dto.dataType == MyQuestionDataTypeFooterNormal) ? YES:NO;
-    
     cell.lblTime.text = [NSString stringWithFormat:@"%d min",dto.expirationDate];
+    cell.referIndex = dto.referIndex;
+    cell.currIndex  = dto.currentTableIndex;
+    
+    cell.delegate = self;
+}
+// For Done cell
+- (OttaMyQuestionDoneCell *)doneCellAtIndexPath:(NSIndexPath *)indexPath {
+    OttaMyQuestionDoneCell *cell = [self.myTableView dequeueReusableCellWithIdentifier:OttaMyQuestionDoneCellIdentifier forIndexPath:indexPath];
+    [self configureDoneCell:cell atIndexPath:indexPath];
+    return cell;
 }
 
+- (void)configureDoneCell:(OttaMyQuestionDoneCell *)cell atIndexPath:(NSIndexPath *)indexPath {
+    OttaMyQuestionData *dto = dataForShow[indexPath.row];
+    
+    cell.lblText.text = dto.questionText;
+}
+#pragma mark - Fix UI Custome
+- (void)fixFrameForHeaderCell:(OttaMyQuestionHeaderCell*)cell{
+    CGRect rect = cell.vDivide.frame;
+    rect.origin.y = 1;
+    rect.size.height = 1;
+    cell.vDivide.frame = rect;
+}
+- (void)fixFrameForDoneCell:(OttaMyQuestionDoneCell*)cell{
+    CGRect rect = cell.vDivide.frame;
+    rect.origin.y = 1;
+    rect.size.height = 1;
+    cell.vDivide.frame = rect;
+}
+#pragma mark - OttaMyQuestionFooterCell Delegate
+- (void)ottaMyQuestionFooterCellDidSelectSeeAllAtIndex:(int)referIndex atCurrentIndex:(NSInteger)currIndex{
+    ((OttaQuestion*)datas[referIndex]).isSeeAll = !((OttaQuestion*)datas[referIndex]).isSeeAll;
+    [self processDataForShow];
+    
+    NSLog(@"refer index %d",referIndex);
+    NSLog(@"CURRENT index %ld",currIndex);
+    /*
+    for (int i=0; i < ((OttaQuestion*)datas[referIndex]).ottaAnswers.count; i++) {
+        NSIndexPath *indexPath = [NSIndexPath alloc] initWithIndex:<#(NSUInteger)#>
+    }
+     */
+    [self.myTableView reloadData];
+}
 
 @end

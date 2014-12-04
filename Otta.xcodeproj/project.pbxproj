@@ -161,11 +161,11 @@
 		7E2DA3661A2456BD0064A523 /* Otta_ask_shape_popup_dividers.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E2DA3541A2456BD0064A523 /* Otta_ask_shape_popup_dividers.png */; };
 		7E2DA36A1A2458420064A523 /* OttaAnswerersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E2DA3691A2458420064A523 /* OttaAnswerersViewController.m */; };
 		7E9CE3DE1A25D4CE00A31A1B /* MainP.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7E9CE3DD1A25D4CE00A31A1B /* MainP.storyboard */; };
+		C21E8BEA1A30431400F63345 /* RWLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = C21E8BE91A30431400F63345 /* RWLabel.m */; };
 		C28D780D1A2F204A00703019 /* OttaMyQuestionDoneCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C28D780C1A2F204900703019 /* OttaMyQuestionDoneCell.m */; };
 		CE0106971A277FEE006CBB57 /* MainHL.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE0106961A277FEE006CBB57 /* MainHL.storyboard */; };
 		CEA31B0B1A2F7E2A0001F08C /* OttaMyQuestionData.m in Sources */ = {isa = PBXBuildFile; fileRef = CEA31B0A1A2F7E2A0001F08C /* OttaMyQuestionData.m */; };
 		CEA6545C1A2DFF2600233156 /* OttaMyQuestionFooterCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CEA654531A2DFF2600233156 /* OttaMyQuestionFooterCell.m */; };
-		CEA6545D1A2DFF2600233156 /* OttaMyQuestionFooterCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEA654541A2DFF2600233156 /* OttaMyQuestionFooterCell.xib */; };
 		CEA6545E1A2DFF2600233156 /* OttaMyQuestionHeaderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CEA654561A2DFF2600233156 /* OttaMyQuestionHeaderCell.m */; };
 		CEA654601A2DFF2600233156 /* OttaMyQuestionPictureCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CEA654591A2DFF2600233156 /* OttaMyQuestionPictureCell.m */; };
 		CEA654611A2DFF2600233156 /* OttaMyQuestionTextCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CEA6545B1A2DFF2600233156 /* OttaMyQuestionTextCell.m */; };
@@ -399,6 +399,8 @@
 		7E2DA3691A2458420064A523 /* OttaAnswerersViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OttaAnswerersViewController.m; sourceTree = "<group>"; };
 		7E9CE3DD1A25D4CE00A31A1B /* MainP.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainP.storyboard; sourceTree = "<group>"; };
 		C1E9BE3193743527323F1CDA /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		C21E8BE81A30431400F63345 /* RWLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RWLabel.h; sourceTree = "<group>"; };
+		C21E8BE91A30431400F63345 /* RWLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RWLabel.m; sourceTree = "<group>"; };
 		C28D780B1A2F204900703019 /* OttaMyQuestionDoneCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OttaMyQuestionDoneCell.h; sourceTree = "<group>"; };
 		C28D780C1A2F204900703019 /* OttaMyQuestionDoneCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OttaMyQuestionDoneCell.m; sourceTree = "<group>"; };
 		CE0106961A277FEE006CBB57 /* MainHL.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = MainHL.storyboard; path = Otta/MainHL.storyboard; sourceTree = SOURCE_ROOT; };
@@ -406,7 +408,6 @@
 		CEA31B0A1A2F7E2A0001F08C /* OttaMyQuestionData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OttaMyQuestionData.m; sourceTree = "<group>"; };
 		CEA654521A2DFF2600233156 /* OttaMyQuestionFooterCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OttaMyQuestionFooterCell.h; sourceTree = "<group>"; };
 		CEA654531A2DFF2600233156 /* OttaMyQuestionFooterCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OttaMyQuestionFooterCell.m; sourceTree = "<group>"; };
-		CEA654541A2DFF2600233156 /* OttaMyQuestionFooterCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OttaMyQuestionFooterCell.xib; sourceTree = "<group>"; };
 		CEA654551A2DFF2600233156 /* OttaMyQuestionHeaderCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OttaMyQuestionHeaderCell.h; sourceTree = "<group>"; };
 		CEA654561A2DFF2600233156 /* OttaMyQuestionHeaderCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OttaMyQuestionHeaderCell.m; sourceTree = "<group>"; };
 		CEA654581A2DFF2600233156 /* OttaMyQuestionPictureCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OttaMyQuestionPictureCell.h; sourceTree = "<group>"; };
@@ -941,7 +942,6 @@
 			children = (
 				CEA654521A2DFF2600233156 /* OttaMyQuestionFooterCell.h */,
 				CEA654531A2DFF2600233156 /* OttaMyQuestionFooterCell.m */,
-				CEA654541A2DFF2600233156 /* OttaMyQuestionFooterCell.xib */,
 				CEA654551A2DFF2600233156 /* OttaMyQuestionHeaderCell.h */,
 				CEA654561A2DFF2600233156 /* OttaMyQuestionHeaderCell.m */,
 				CEA654581A2DFF2600233156 /* OttaMyQuestionPictureCell.h */,
@@ -952,6 +952,8 @@
 				C28D780C1A2F204900703019 /* OttaMyQuestionDoneCell.m */,
 				CEA31B091A2F7E2A0001F08C /* OttaMyQuestionData.h */,
 				CEA31B0A1A2F7E2A0001F08C /* OttaMyQuestionData.m */,
+				C21E8BE81A30431400F63345 /* RWLabel.h */,
+				C21E8BE91A30431400F63345 /* RWLabel.m */,
 			);
 			path = OttaMyQuestionView;
 			sourceTree = "<group>";
@@ -1293,7 +1295,6 @@
 				66FD4B0A1A11A6CC005ACD58 /* ham_and_cheese_panini.jpg in Resources */,
 				386E89C21A12606000459171 /* icon_uncheck.png in Resources */,
 				7E1A1DAF1A1C7E05009FB0E6 /* Otta_friends_button_yellow.png in Resources */,
-				CEA6545D1A2DFF2600233156 /* OttaMyQuestionFooterCell.xib in Resources */,
 				382E326F1A139911008ACA45 /* menu_heart.png in Resources */,
 				7E2DA3571A2456BD0064A523 /* Otta_ask_button_add photo.png in Resources */,
 				38CAFAB91A2384D80000461E /* Otta_intro_popup_yesorno.png in Resources */,
@@ -1391,6 +1392,7 @@
 				D9CD79951A22EA8C007C6E15 /* OttaJoinDetailViewController.m in Sources */,
 				663665EE1A1EEE00007F0EFC /* MEDynamicTransition.m in Sources */,
 				663665EF1A1EEE00007F0EFC /* MEFoldAnimationController.m in Sources */,
+				C21E8BEA1A30431400F63345 /* RWLabel.m in Sources */,
 				CEA654611A2DFF2600233156 /* OttaMyQuestionTextCell.m in Sources */,
 				CEA6545C1A2DFF2600233156 /* OttaMyQuestionFooterCell.m in Sources */,
 				CEA654601A2DFF2600233156 /* OttaMyQuestionPictureCell.m in Sources */,

@@ -9,5 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface OttaMyQuestionDoneCell : UITableViewCell
+@property (weak, nonatomic) IBOutlet UILabel *lblText;
+@property (weak, nonatomic) IBOutlet UIView *vDivide;
 
 @end

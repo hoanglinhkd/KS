@@ -19,5 +19,8 @@
 */
 
 - (IBAction)clickSeeAll:(id)sender {
+    if (self.delegate && [self.delegate respondsToSelector:@selector(ottaMyQuestionFooterCellDidSelectSeeAllAtIndex:atCurrentIndex:)]) {
+        [self.delegate ottaMyQuestionFooterCellDidSelectSeeAllAtIndex:self.referIndex atCurrentIndex:self.currIndex];
+    }
 }
 @end
