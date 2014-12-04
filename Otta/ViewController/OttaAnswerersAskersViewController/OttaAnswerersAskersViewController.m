@@ -13,10 +13,12 @@
 #import "OttaParseClientManager.h"
 #import "MBProgressHUD.h"
 
+#define cusGreencolor [UIColor colorWithRed:0.486275 green:0.741176 blue:0.192157 alpha:1]
+
 @interface OttaAnswerersAskersViewController ()
 {
     NSArray *arr;
-    UIColor *cusGreencolor;
+    //UIColor *cusGreencolor;
 }
 @end
 
@@ -24,21 +26,17 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    cusGreencolor = [UIColor colorWithRed:0.486275 green:0.741176 blue:0.192157 alpha:1];
     [self.navigationController setNavigationBarHidden:YES];
     self.isAnswererTab = YES;
-    // Do any additional setup after loading the view.
-    self.friends = [[NSMutableArray alloc] init];
-    [self updateAnswerersAskersCount];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    [self updateAnswerersAskersCount];
     [self updateUI:self.isAnswererTab];
 }
 
@@ -57,14 +55,25 @@
         cell = [[OttaFriendsCell alloc] initWithStyle:
                 UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
     }
-
-    OttaFriend *f = (OttaFriend *)[self.friends objectAtIndex:indexPath.row];
-    cell.lblText.text = f.name;
-
-    if (f.isFriend){
-        btnImage = [UIImage imageNamed:@"Otta_friends_button_added.png"];
+    
+    PFObject *follow = _follows[indexPath.row];
+    PFUser *user;
+    
+    if (_isAnswererTab) {
+        user = follow[kFrom];
     } else {
-        btnImage = [UIImage imageNamed:@"Otta_friends_button_add.png"];
+        user = follow[kTo];
+    }
+    
+    [user fetchIfNeededInBackgroundWithBlock:^(PFObject *object, NSError *error) {
+        NSString *name = [NSString stringWithFormat:@"%@ %@", user[kFirstName], user[kLastName]];
+        cell.lblText.text = name;
+    }];
+    
+    if ([follow[kIsBlocked] boolValue]) {
+        btnImage = [UIImage imageNamed:@"Otta_friends_button_block.png"];
+    } else {
+        btnImage = [UIImage imageNamed:@"Otta_friends_button_added.png"];
     }
     [cell.imgIcon setImage:btnImage];
     
@@ -72,16 +81,23 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [self.friends count];
+    return [_follows count];
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
+    PFObject *follow = _follows[indexPath.row];
+    PFUser *user;
     
-    OttaFriend *f = (OttaFriend *)[self.friends objectAtIndex:indexPath.row];
+    if (_isAnswererTab) {
+        user = follow[kFrom];
+    } else {
+        user = follow[kTo];
+    }
+    NSString *name = [NSString stringWithFormat:@"%@ %@", user[kFirstName], user[kLastName]];
     
-    [[OttaAlertManager sharedManager] showFriendAlertOnView:self.view withName:f.name complete:^(FriendAction action) {
+    [[OttaAlertManager sharedManager] showFriendAlertOnView:self.view withName:name complete:^(FriendAction action) {
         
     }];
 }
@@ -93,12 +109,12 @@
 - (IBAction)txtChanged:(UITextField *)sender {
     NSPredicate *predicate =  [NSPredicate predicateWithFormat:
                                @"name CONTAINS[cd] %@", sender.text];
-    [self.friends removeAllObjects];
-    self.friends = [[NSMutableArray alloc] initWithArray:arr];
-    if (![sender.text isEqual: @""]){
-        NSArray *newArr = [arr filteredArrayUsingPredicate:predicate];
-        self.friends = [[NSMutableArray alloc] initWithArray:newArr];
-    }
+//    [self.friends removeAllObjects];
+//    self.friends = [[NSMutableArray alloc] initWithArray:arr];
+//    if (![sender.text isEqual: @""]){
+//        NSArray *newArr = [arr filteredArrayUsingPredicate:predicate];
+//        self.friends = [[NSMutableArray alloc] initWithArray:newArr];
+//    }
     
     [self.table reloadData];
 }
@@ -126,9 +142,9 @@
         vc.isInviteMode = YES;
     }
 }
+
 - (void) updateAnswerersAskersCount {
-    //PFQuery *query = [PFUser query];
-    //PFUser *user1  = (PFUser *)[query getObjectWithId:@"3fRlGvQ8Ld"];
+    
     [[OttaParseClientManager sharedManager] countUsersFollowToUser:[PFUser currentUser] withBlock:^(int count, NSError *error) {
         self.lblAnswerersCount.text = [NSString stringWithFormat:@"%d",count];
     }];
@@ -140,56 +156,35 @@
 - (void) updateUI:(BOOL) isAnswererTab
 {
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    //PFQuery *query = [PFUser query];
-    //PFUser *user1  = (PFUser *)[query getObjectWithId:@"3fRlGvQ8Ld"];
     self.isAnswererTab = isAnswererTab;
-    switch (isAnswererTab) {
-        case YES:
-        {
+    
+    if (isAnswererTab) {
+        
             self.lblAnswerers.textColor = cusGreencolor;
             self.lblAnswerersCount.textColor = cusGreencolor;
             self.lblAskers.textColor = [UIColor blackColor];
             self.lblAskersCount.textColor = [UIColor blackColor];
-            [[OttaParseClientManager sharedManager] getAllUsersFollowToUser:[PFUser currentUser] withBlock:^(NSArray *array, NSError *error) {
-                [self.friends removeAllObjects];
-                for(PFUser *user in array) {
-                    NSString *fullname = [NSString stringWithFormat:@"%@ %@", user[@"firstName"], user[@"lastName"]];
-                    OttaFriend *friend = [[OttaFriend alloc] initWithName:fullname friendStatus:NO];
-                    friend.pfUser = user;
-                    [self.friends addObject:friend];
-                    
-                    
-                }
-                [self.table reloadData];
-                [MBProgressHUD hideHUDForView:self.view animated:YES];
-            }];
+        
+        [[OttaParseClientManager sharedManager] getAllFollowToUser:[PFUser currentUser] withBlock:^(NSArray *array, NSError *error) {
+            _follows = [[NSArray alloc] initWithArray:array];
+            [self.table reloadData];
+            [MBProgressHUD hideHUDForView:self.view animated:YES];
+        }];
 
-        }
-            break;
-        case NO:
-        {
+        } else {
+            
             self.lblAskers.textColor = cusGreencolor;
             self.lblAskersCount.textColor = cusGreencolor;
             self.lblAnswerers.textColor = [UIColor blackColor];
             self.lblAnswerersCount.textColor = [UIColor blackColor];
-            [[OttaParseClientManager sharedManager] getAllUsersFollowFromUser:[PFUser currentUser] withBlock:^(NSArray *array, NSError *error) {
-                [self.friends removeAllObjects];
-                for(PFUser *user in array) {
-                    NSString *fullname = [NSString stringWithFormat:@"%@ %@", user[@"firstName"], user[@"lastName"]];
-                    OttaFriend *friend = [[OttaFriend alloc] initWithName:fullname friendStatus:NO];
-                    friend.pfUser = user;
-                    [self.friends addObject:friend];
-                }
+            
+            [[OttaParseClientManager sharedManager] getAllFollowFromUser:[PFUser currentUser] withBlock:^(NSArray *array, NSError *error) {
+                _follows = [[NSArray alloc] initWithArray:array];
                 [self.table reloadData];
                 [MBProgressHUD hideHUDForView:self.view animated:YES];
-                
             }];
         }
-            break;
-        default:
-            break;
 
-    }
 }
 
 @end

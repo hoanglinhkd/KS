@@ -1530,7 +1530,7 @@ EE5leHQ
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="PDS-pz-XUE" id="qfP-De-dBk">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7nU-Q3-Pvh">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7nU-Q3-Pvh">
                                                     <rect key="frame" x="8" y="8" width="243" height="30"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="30" id="8LC-dv-39d"/>
@@ -1696,6 +1696,10 @@ EE5leHQ
                     <nil key="simulatedTopBarMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
+                        <outlet property="lblAnswerers" destination="LkI-Ds-mNU" id="fgO-1i-3AU"/>
+                        <outlet property="lblAnswerersCount" destination="Fuu-DU-aMd" id="VQS-Rl-DQV"/>
+                        <outlet property="lblAskers" destination="s31-hS-Owi" id="le9-b5-e0d"/>
+                        <outlet property="lblAskersCount" destination="llv-jh-aml" id="a2z-cO-4Qv"/>
                         <outlet property="table" destination="3eq-rn-iY8" id="xoQ-Re-MNi"/>
                         <outlet property="txtLabel" destination="4Dy-jG-WHX" id="lbw-Er-Aa8"/>
                     </connections>

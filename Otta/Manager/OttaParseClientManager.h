@@ -9,6 +9,37 @@
 #import <Foundation/Foundation.h>
 #import <Parse/Parse.h>
 
+
+#define kObjectId       @"objectId"
+
+#define kFirstName      @"firstName"
+#define kLastName       @"lastName"
+#define kPhone          @"phone"
+#define kEmail          @"email"
+
+
+// OttaFollow table
+#define kOttaFollow     @"OttaFollow"
+#define kFrom           @"from"
+#define kTo             @"to"
+#define kIsBlocked      @"isBlocked"
+
+
+// OttaAnswer table
+#define kOttaAnswer     @"OttaAnswer"
+#define kImage          @"image"
+#define kDescription    @"description"
+
+
+// OttaQuestion table
+#define kOttaQuestion   @"OttaQuestion"
+#define kAsker          @"asker"
+#define kExpTime        @"expTime"
+#define kQuestionText   @"questionText"
+#define kAnswers        @"answers"
+#define kIsPublic       @"isPublic"
+
+
 @interface OttaParseClientManager : NSObject
 
 typedef void(^OttaPLoginResultBlock)(BOOL loginSucceeded, PFUser* ottaUser, NSError* error);
@@ -49,22 +80,21 @@ typedef void(^OttaCountBlock)(int count, NSError* error);
 - (void)followUser:(PFUser*)user1 toUser:(PFUser*)user2 withBlock:(OttaGeneralResultBlock)resultBlock;
 
 /**
- *  remove follow from user1 to user2
+ *  Remove follow
  *
- *  @param user1
- *  @param user2
+ *  @param follow
  *  @param resultBlock
  */
-- (void)removeFollowFromUser:(PFUser*)user1 toUser:(PFUser*)user2 withBlock:(OttaGeneralResultBlock)resultBlock;
+- (void)removeFollow:(PFObject*)follow withBlock:(OttaGeneralResultBlock)resultBlock;
 
 /**
- *  block follow from user1 to user2
+ *  Block/UnBlock an follow
  *
- *  @param user1
- *  @param user2
+ *  @param follow
+ *  @param isBlock
  *  @param resultBlock
  */
-- (void)blockFollowFromUser:(PFUser*)user1 toUser:(PFUser*)user2 withBlock:(OttaGeneralResultBlock)resultBlock;
+- (void)setBlockFollow:(PFObject*)follow withValue:(BOOL)isBlock withBlock:(OttaGeneralResultBlock)resultBlock;
 
 /**
  *  Get All follower of user

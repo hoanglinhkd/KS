@@ -13,16 +13,21 @@
 
 @interface OttaAnswerersAskersViewController : OttaTransitionViewController <UITableViewDataSource, UITableViewDelegate>
 
+
+@property (strong, nonatomic) NSArray *follows;
+@property (assign, nonatomic) BOOL isAnswererTab;//True=Answer,False = Asker
+
+
 @property (weak, nonatomic) IBOutlet UITextField *txtLabel;
-@property (strong, nonatomic) NSMutableArray *friends;
 @property (weak, nonatomic) IBOutlet UITableView *table;
 @property (weak, nonatomic) IBOutlet UILabel *lblAnswerers;
 @property (weak, nonatomic) IBOutlet UILabel *lblAskers;
 @property (weak, nonatomic) IBOutlet UILabel *lblAskersCount;
 @property (weak, nonatomic) IBOutlet UILabel *lblAnswerersCount;
-@property (assign, nonatomic) BOOL isAnswererTab;//True=Answer,False = Asker
-- (IBAction)txtChanged:(UITextField *)sender;
 
+
+
+- (IBAction)txtChanged:(UITextField *)sender;
 - (IBAction)btnAnswerPressed:(id)sender;
 - (IBAction)btnAskPressed:(id)sender;
 

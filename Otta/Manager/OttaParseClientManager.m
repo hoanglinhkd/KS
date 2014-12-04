@@ -11,34 +11,6 @@
 #import "OttaQuestion.h"
 #import "OttaAnswer.h"
 
-#define kObjectId       @"objectId"
-
-#define kFirstName      @"firstName"
-#define kLastName       @"lastName"
-#define kPhone          @"phone"
-#define kEmail          @"email"
-
-
-// OttaFollow table
-#define kOttaFollow     @"OttaFollow"
-#define kFrom           @"from"
-#define kTo             @"to"
-#define kIsBlocked      @"isBlocked"
-
-
-// OttaAnswer table
-#define kOttaAnswer     @"OttaAnswer"
-#define kImage          @"image"
-#define kDescription    @"description"
-
-
-// OttaQuestion table
-#define kOttaQuestion   @"OttaQuestion"
-#define kAsker          @"asker"
-#define kExpTime        @"expTime"
-#define kQuestionText   @"questionText"
-#define kAnswers        @"answers"
-#define kIsPublic       @"isPublic"
 
 @implementation OttaParseClientManager
 
@@ -159,28 +131,18 @@
     }];
 }
 
-- (void)removeFollowFromUser:(PFUser*)user1 toUser:(PFUser*)user2 withBlock:(OttaGeneralResultBlock)resultBlock {
-    PFQuery *query = [PFQuery queryWithClassName:kOttaFollow];
-    [query whereKey:kFrom equalTo:user1];
-    [query whereKey:kTo equalTo:user2];
-    
-    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-        PFObject *follow = (PFObject*)objects[0];
-        BOOL isSucceed = [follow delete];
-        resultBlock(isSucceed, error);
+- (void)removeFollow:(PFObject*)follow withBlock:(OttaGeneralResultBlock)resultBlock {
+    [follow deleteInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        resultBlock(succeeded, error);
     }];
 }
 
-- (void)blockFollowFromUser:(PFUser*)user1 toUser:(PFUser*)user2 withBlock:(OttaGeneralResultBlock)resultBlock {
-    PFQuery *query = [PFQuery queryWithClassName:kOttaFollow];
-    [query whereKey:kFrom equalTo:user1];
-    [query whereKey:kTo equalTo:user2];
+- (void)setBlockFollow:(PFObject*)follow withValue:(BOOL)isBlock withBlock:(OttaGeneralResultBlock)resultBlock {
     
-    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-        PFObject *follow = (PFObject*)objects[0];
-        [follow setValue:@YES forKey:kIsBlocked];
-        BOOL isSucceed = [follow save];
-        resultBlock(isSucceed, error);
+    [follow setValue:@(isBlock) forKey:kIsBlocked];
+    
+    [follow saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        resultBlock(succeeded, error);
     }];
 }
 
