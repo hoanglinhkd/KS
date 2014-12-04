@@ -52,6 +52,7 @@
 		38A37D7D1A171FF900771881 /* OttaAlertManager.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38A37D7A1A171FF900771881 /* OttaAlertManager.xib */; };
 		38CAFAB91A2384D80000461E /* Otta_intro_popup_yesorno.png in Resources */ = {isa = PBXBuildFile; fileRef = 38CAFAB81A2384D80000461E /* Otta_intro_popup_yesorno.png */; };
 		38E161461A1E56E20093998E /* OttaAnswerersAskersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38E161451A1E56E20093998E /* OttaAnswerersAskersViewController.m */; };
+		38F3DA4A1A30AD5600224B57 /* Otta_friends_button_block.png in Resources */ = {isa = PBXBuildFile; fileRef = 38F3DA491A30AD5600224B57 /* Otta_friends_button_block.png */; };
 		5D58441C1A1BD21D004FE156 /* Otta_friends_button_add.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D58441A1A1BD21D004FE156 /* Otta_friends_button_add.png */; };
 		5D58441D1A1BD21D004FE156 /* Otta_friends_button_added.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D58441B1A1BD21D004FE156 /* Otta_friends_button_added.png */; };
 		5D8E7C6D1A1BB43900678DAC /* btnAddContact@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D8E7C6B1A1BB43900678DAC /* btnAddContact@2x.png */; };
@@ -263,6 +264,7 @@
 		38CAFAB81A2384D80000461E /* Otta_intro_popup_yesorno.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Otta_intro_popup_yesorno.png; sourceTree = "<group>"; };
 		38E161441A1E56E20093998E /* OttaAnswerersAskersViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OttaAnswerersAskersViewController.h; sourceTree = "<group>"; };
 		38E161451A1E56E20093998E /* OttaAnswerersAskersViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OttaAnswerersAskersViewController.m; sourceTree = "<group>"; };
+		38F3DA491A30AD5600224B57 /* Otta_friends_button_block.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Otta_friends_button_block.png; sourceTree = "<group>"; };
 		5D58441A1A1BD21D004FE156 /* Otta_friends_button_add.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Otta_friends_button_add.png; sourceTree = "<group>"; };
 		5D58441B1A1BD21D004FE156 /* Otta_friends_button_added.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Otta_friends_button_added.png; sourceTree = "<group>"; };
 		5D8E7C6B1A1BB43900678DAC /* btnAddContact@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btnAddContact@2x.png"; sourceTree = "<group>"; };
@@ -873,6 +875,7 @@
 		7E1A1DA11A1C7E05009FB0E6 /* Friends */ = {
 			isa = PBXGroup;
 			children = (
+				38F3DA491A30AD5600224B57 /* Otta_friends_button_block.png */,
 				5DB6B8181A2391C60033938C /* switch-2.png */,
 				5DB6B8191A2391C60033938C /* switch-1.png */,
 				7E1A1DA21A1C7E05009FB0E6 /* Otta-80.png */,
@@ -1211,6 +1214,7 @@
 				6AA695F41A21DD7B001F6953 /* button_yellow.png in Resources */,
 				66FD4B111A11A6CC005ACD58 /* starbucks_coffee.jpg in Resources */,
 				66FD4B131A11A6CC005ACD58 /* vegetable_curry.jpg in Resources */,
+				38F3DA4A1A30AD5600224B57 /* Otta_friends_button_block.png in Resources */,
 				CEA6545F1A2DFF2600233156 /* OttaMyQuestionHeaderCell.xib in Resources */,
 				383400601A17B804006A913E /* btn_alert_ok.png in Resources */,
 				66FD4B3B1A11A8F0005ACD58 /* OttaQuestionTableViewCell.xib in Resources */,
