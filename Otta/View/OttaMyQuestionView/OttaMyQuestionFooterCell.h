@@ -16,7 +16,7 @@
 
 @interface OttaMyQuestionFooterCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UILabel *lblTime;
-@property (weak, nonatomic) IBOutlet UIButton *btnSeeAll;
+@property (strong, nonatomic) IBOutlet UIButton *btnSeeAll;
 
 @property (nonatomic, assign) id <OttaMyQuestionFooterCellDelegate>delegate;
 @property (nonatomic, assign) int referIndex;

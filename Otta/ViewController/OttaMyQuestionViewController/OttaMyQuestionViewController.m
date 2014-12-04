@@ -478,16 +478,20 @@ static NSString * const OttaMyQuestionDoneCellIdentifier        = @"OttaMyQuesti
 }
 #pragma mark - Fix UI Custome
 - (void)fixFrameForHeaderCell:(OttaMyQuestionHeaderCell*)cell{
-    CGRect rect = cell.vDivide.frame;
-    rect.origin.y = 1;
-    rect.size.height = 1;
-    cell.vDivide.frame = rect;
+    if ([cell respondsToSelector:@selector(vDivide)]) {
+        CGRect rect = cell.vDivide.frame;
+        rect.origin.y = 1;
+        rect.size.height = 1;
+        cell.vDivide.frame = rect;
+    }
 }
 - (void)fixFrameForDoneCell:(OttaMyQuestionDoneCell*)cell{
-    CGRect rect = cell.vDivide.frame;
-    rect.origin.y = 1;
-    rect.size.height = 1;
-    cell.vDivide.frame = rect;
+    if ([cell respondsToSelector:@selector(vDivide)]) {
+        CGRect rect = cell.vDivide.frame;
+        rect.origin.y = 1;
+        rect.size.height = 1;
+        cell.vDivide.frame = rect;
+    }
 }
 #pragma mark - OttaMyQuestionFooterCell Delegate
 - (void)ottaMyQuestionFooterCellDidSelectSeeAllAtIndex:(int)referIndex atCurrentIndex:(NSInteger)currIndex{
