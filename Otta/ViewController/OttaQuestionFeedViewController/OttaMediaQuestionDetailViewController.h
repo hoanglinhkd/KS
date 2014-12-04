@@ -2,7 +2,7 @@
 //  OttaMediaQuestionDetailViewController.h
 //  Otta
 //
-//  Created by Dong Duong on 11/30/14.
+//  Created by Thien Chau on 11/30/14.
 //  Copyright (c) 2014 SojoDigital. All rights reserved.
 //
 

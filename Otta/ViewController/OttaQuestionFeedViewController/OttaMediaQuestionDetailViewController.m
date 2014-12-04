@@ -2,7 +2,7 @@
 //  OttaMediaQuestionDetailViewController.m
 //  Otta
 //
-//  Created by Dong Duong on 11/30/14.
+//  Created by Thien Chau on 11/30/14.
 //  Copyright (c) 2014 SojoDigital. All rights reserved.
 //
 
@@ -20,29 +20,7 @@
     [super viewDidLoad];
     
     self.orderLbl.clipsToBounds = YES;
-//    // Do any additional setup after loading the view.
-//    _question = [[OttaQuestion alloc] init];
-//
-//    _question.questionText = @"Test long question, long question test, test long question test?";
-//    // Do any additional setup after loading the view.
-//    OttaAnswer* answer = [[OttaAnswer alloc] init];
-//    answer.answerText = @"Caesar Blah Caesar Blah Caesar  Blah Caesar Caesar Blah Caesar Blah Caesar  Blah Caesar";
-//    answer.answerImage = [UIImage imageNamed:@"japanese_noodle_with_pork.jpg"];
-//    
-//    OttaAnswer* answer1 = [[OttaAnswer alloc] init];
-//    answer1.answerText = @"Thousand Islands";
-//    answer1.answerImage = [UIImage imageNamed:@"japanese_noodle_with_pork.jpg"];
-//    
-//    OttaAnswer* answer2 = [[OttaAnswer alloc] init];
-//    answer2.answerText = @"Strawberry Something";
-//    answer2.answerImage = [UIImage imageNamed:@"japanese_noodle_with_pork.jpg"];
-//    
-//    OttaAnswer* answer3 = [[OttaAnswer alloc] init];
-//    answer3.answerText = @"Japanese noddle with pork";
-//    answer3.answerImage = [UIImage imageNamed:@"japanese_noodle_with_pork.jpg"];
-//    
-//    NSArray *answers = [NSArray arrayWithObjects:answer,answer1,answer2,answer3, nil];
-//    _question.ottaAnswers = [NSMutableArray arrayWithArray:answers];
+
 }
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
@@ -64,8 +42,8 @@
         frame.size = self.imgscrollView.frame.size;
         
         UIImageView *imageView = [[UIImageView alloc] initWithFrame:frame];
-        imageView.contentMode = UIViewContentModeScaleAspectFit;
-        
+        imageView.contentMode = UIViewContentModeScaleAspectFill;
+        [imageView setClipsToBounds:YES];
         
         NSURL *url = [NSURL URLWithString:answer.imageURL];
         NSURLRequest *request = [NSURLRequest requestWithURL:url];
@@ -79,7 +57,7 @@
         
         //Lazy loading image
         [imageView setImageWithURLRequest:request
-                             placeholderImage:placeholderImage
+                             placeholderImage:nil
                                       success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
                                           
                                           imageView.image = image;
@@ -114,7 +92,7 @@
 
     self.currentOption = page;
     OttaAnswer *answer = [self.question.ottaAnswers objectAtIndex:page];
-    [UIView animateWithDuration:0.5
+    [UIView animateWithDuration:0.2
                      animations:^{
                          self.optionLbl.alpha = 0.0f;
                          self.orderLbl.alpha = 0.0f;
@@ -127,15 +105,6 @@
   
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 - (IBAction)leftBtnTapped:(id)sender {
     if (self.currentOption == 0)
