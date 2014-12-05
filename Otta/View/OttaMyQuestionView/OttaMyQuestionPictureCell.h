@@ -6,8 +6,12 @@
 //  Copyright (c) 2014 SojoDigital. All rights reserved.
 //
 
-#import "OttaMyQuestionTextCell.h"
+#import <UIKit/UIKit.h>
 
-@interface OttaMyQuestionPictureCell : OttaMyQuestionTextCell
+@interface OttaMyQuestionPictureCell : UITableViewCell
+
+@property (weak, nonatomic) IBOutlet UILabel *lblOrderNumber;
+@property (weak, nonatomic) IBOutlet UILabel *lblText;
+@property (weak, nonatomic) IBOutlet UIImageView *imageViewData;
 
 @end

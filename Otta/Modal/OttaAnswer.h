@@ -16,4 +16,5 @@
 @property (nonatomic,assign) BOOL answerHasContent;
 @property (nonatomic, assign) BOOL answerHasphoto;
 
+@property (nonatomic, assign) int numberAnswer;
 @end

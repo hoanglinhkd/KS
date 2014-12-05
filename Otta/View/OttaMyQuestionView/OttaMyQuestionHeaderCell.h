@@ -8,9 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface OttaMyQuestionHeaderCell : UIView
+@interface OttaMyQuestionHeaderCell : UITableViewCell
 
 
 @property (weak, nonatomic) IBOutlet UILabel *lblTextHeader;
+@property (weak, nonatomic) IBOutlet UIView *vDivide;
 
 @end

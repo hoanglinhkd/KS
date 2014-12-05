@@ -18,4 +18,6 @@
 @property (nonatomic, strong) NSString* questionText;
 @property (nonatomic, assign) BOOL isPublic;
 
+@property (nonatomic, assign) BOOL isSeeAll;
+
 @end
