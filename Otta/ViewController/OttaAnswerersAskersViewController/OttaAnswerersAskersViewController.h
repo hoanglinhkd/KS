@@ -15,6 +15,7 @@
 
 
 @property (strong, nonatomic) NSArray *follows;
+@property (strong, nonatomic) NSArray *followsStorage;
 @property (assign, nonatomic) BOOL isAnswererTab;//True=Answer,False = Asker
 
 

@@ -282,23 +282,23 @@ replacementString:(NSString *)string {
         
         [[OttaAlertManager sharedManager] showYesNoAlertOnView:appDelegate.window withContent:[NSString stringWithFormat:@"Do you want to unfollow %@ ?", friend.name] complete:^{
             
-            [[OttaParseClientManager sharedManager] removeFollowFromUser:[PFUser currentUser] toUser:friend.pfUser withBlock:^(BOOL isSucceeded, NSError *error) {
-                if(isSucceeded) {
-                    
-                    //Remove follwed friends
-                    for (NSString *curUserId in _listFollowedFriends) {
-                        if([curUserId isEqualToString:friend.pfUser.objectId]) {
-                            [_listFollowedFriends removeObjectsInArray:[NSArray arrayWithObject:curUserId]];
-                            break;
-                        }
-                    }
-                    
-                    friend.isSelected = NO;
-                    [_searchResultTableView reloadData];
-                } else {
-                     [[OttaAlertManager sharedManager] showSimpleAlertOnView:appDelegate.window withContent:@"Error on unfollowing friend" complete:nil];
-                }
-            }];
+//            [[OttaParseClientManager sharedManager] removeFollowFromUser:[PFUser currentUser] toUser:friend.pfUser withBlock:^(BOOL isSucceeded, NSError *error) {
+//                if(isSucceeded) {
+//                    
+//                    //Remove follwed friends
+//                    for (NSString *curUserId in _listFollowedFriends) {
+//                        if([curUserId isEqualToString:friend.pfUser.objectId]) {
+//                            [_listFollowedFriends removeObjectsInArray:[NSArray arrayWithObject:curUserId]];
+//                            break;
+//                        }
+//                    }
+//                    
+//                    friend.isSelected = NO;
+//                    [_searchResultTableView reloadData];
+//                } else {
+//                     [[OttaAlertManager sharedManager] showSimpleAlertOnView:appDelegate.window withContent:@"Error on unfollowing friend" complete:nil];
+//                }
+//            }];
             
         } cancel:^{
             
