@@ -8,6 +8,11 @@
 
 #import <Foundation/Foundation.h>
 
+
+#define cusGreencolor [UIColor colorWithRed:0.486275 green:0.741176 blue:0.192157 alpha:1]
+
+
+
 typedef enum {
     TimeSelection_Minutes = 0,
     TimeSelection_Hours,
