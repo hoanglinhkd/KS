@@ -72,7 +72,7 @@ typedef void(^OttaEmailAlertCompletion)(NSString* email);
  *  @param name
  *  @param completionBlock 
  */
-- (void)showFriendAlertOnView:(UIView*)parentView withName:(NSString*)name complete:(OttaFriendAlertCompletion)completionBlock;
+- (void)showFriendAlertOnView:(UIView*)parentView withName:(NSString*)name isBlock:(BOOL)isBlock complete:(OttaFriendAlertCompletion)completionBlock;
 
 /**
  *  Show Alert for entering email

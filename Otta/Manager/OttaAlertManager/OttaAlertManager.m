@@ -38,6 +38,7 @@
 
 @property (strong, nonatomic) IBOutlet UIView *friendAlertView;
 @property (weak, nonatomic) IBOutlet UILabel *lblFriendName;
+@property (weak, nonatomic) IBOutlet UIButton *btnBlock;
 
 @property (strong, nonatomic) IBOutlet UIView *emailAlertView;
 @property (weak, nonatomic) IBOutlet UITextField *txtEmail;
@@ -250,11 +251,16 @@
 
 #pragma mark - Timer Picker
 
-- (void)showFriendAlertOnView:(UIView*)parentView withName:(NSString*)name complete:(OttaFriendAlertCompletion)completionBlock {
+- (void)showFriendAlertOnView:(UIView*)parentView withName:(NSString*)name isBlock:(BOOL)isBlock complete:(OttaFriendAlertCompletion)completionBlock {
   
     self.view.frame = parentView.bounds;
     [parentView addSubview:self.view];
     _lblFriendName.text = name;
+    if (isBlock) {
+        [_btnBlock setTitle:@"Unblock" forState:UIControlStateNormal];
+    } else {
+        [_btnBlock setTitle:@"Block" forState:UIControlStateNormal];
+    }
     ottaFriendAlertCompletion = completionBlock;
     if ([_friendAlertView superview] == nil) {
         [self showAleartWithView:_friendAlertView];

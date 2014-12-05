@@ -64,6 +64,7 @@
         user = follow[kTo];
     }
     
+    cell.lblText.text = @"";
     [user fetchIfNeededInBackgroundWithBlock:^(PFObject *object, NSError *error) {
         NSString *name = [NSString stringWithFormat:@"%@ %@", user[kFirstName], user[kLastName]];
         cell.lblText.text = name;
@@ -95,20 +96,25 @@
         user = follow[kTo];
     }
     NSString *name = [NSString stringWithFormat:@"%@ %@", user[kFirstName], user[kLastName]];
+    BOOL isBlocked = [follow[kIsBlocked] boolValue];
     
-    [[OttaAlertManager sharedManager] showFriendAlertOnView:self.view withName:name complete:^(FriendAction action) {
+    [[OttaAlertManager sharedManager] showFriendAlertOnView:self.view withName:name isBlock:isBlocked complete:^(FriendAction action) {
         switch (action) {
             case FriendActionBlock:
             {
+                [MBProgressHUD showHUDAddedTo:self.view animated:YES];
                 PFObject *follow = _follows[indexPath.row];
-                [[OttaParseClientManager sharedManager] setBlockFollow:follow withValue:TRUE withBlock:^(BOOL isSucceeded, NSError *error) {
-                    [self updateAnswerersAskersCount];
+                
+                [[OttaParseClientManager sharedManager] setBlockFollow:follow withValue:!isBlocked withBlock:^(BOOL isSucceeded, NSError *error) {
+                    //[self updateAnswerersAskersCount];
                     [_table reloadData];
+                    [MBProgressHUD hideHUDForView:self.view animated:YES];
                 }];
             }
                 break;
             case FriendActionRemove:
             {
+                [MBProgressHUD showHUDAddedTo:self.view animated:YES];
                 PFObject *follow = _follows[indexPath.row];
                 [[OttaParseClientManager sharedManager] removeFollow:follow withBlock:^(BOOL isSucceeded, NSError *error) {
                     //remove object in list manually for fixing cache issue
@@ -119,6 +125,7 @@
                     
                     [self updateAnswerersAskersCount];
                     [_table reloadData];
+                    [MBProgressHUD hideHUDForView:self.view animated:YES];
                 }];
             }
                 break;
@@ -150,7 +157,6 @@
             }
         }
         _follows = [[NSArray alloc] initWithArray:arr];
-
     }
     [self.table reloadData];
 }
@@ -191,6 +197,9 @@
 
 - (void) updateUI:(BOOL) isAnswererTab
 {
+    _follows = [NSArray new];
+    [_table reloadData];
+    
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     self.isAnswererTab = isAnswererTab;
     _txtLabel.text = @"";
@@ -202,6 +211,7 @@
         [[OttaParseClientManager sharedManager] getAllFollowToUser:[PFUser currentUser] withBlock:^(NSArray *array, NSError *error) {
             _follows = [[NSArray alloc] initWithArray:array];
             _followsStorage = [[NSArray alloc] initWithArray:array];
+            self.lblAnswerersCount.text = [NSString stringWithFormat:@"%d",_follows.count];
             [self.table reloadData];
             [MBProgressHUD hideHUDForView:self.view animated:YES];
         }];
@@ -216,6 +226,7 @@
         [[OttaParseClientManager sharedManager] getAllFollowFromUser:[PFUser currentUser] withBlock:^(NSArray *array, NSError *error) {
             _follows = [[NSArray alloc] initWithArray:array];
             _followsStorage = [[NSArray alloc] initWithArray:array];
+            self.lblAskersCount.text = [NSString stringWithFormat:@"%d",_follows.count];
             [self.table reloadData];
             [MBProgressHUD hideHUDForView:self.view animated:YES];
         }];
