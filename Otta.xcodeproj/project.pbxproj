@@ -169,6 +169,8 @@
 		CEA6545E1A2DFF2600233156 /* OttaMyQuestionHeaderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CEA654561A2DFF2600233156 /* OttaMyQuestionHeaderCell.m */; };
 		CEA654601A2DFF2600233156 /* OttaMyQuestionPictureCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CEA654591A2DFF2600233156 /* OttaMyQuestionPictureCell.m */; };
 		CEA654611A2DFF2600233156 /* OttaMyQuestionTextCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CEA6545B1A2DFF2600233156 /* OttaMyQuestionTextCell.m */; };
+		CEA9DC601A320B1A00DC8D17 /* Otta_questions_shape_background_answerers.png in Resources */ = {isa = PBXBuildFile; fileRef = CEA9DC5E1A320B1A00DC8D17 /* Otta_questions_shape_background_answerers.png */; };
+		CEA9DC611A320B1A00DC8D17 /* Otta_questions_shape_check.png in Resources */ = {isa = PBXBuildFile; fileRef = CEA9DC5F1A320B1A00DC8D17 /* Otta_questions_shape_check.png */; };
 		CECC3F4F1A2B628200B3F7B6 /* OttaMyQuestionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CECC3F4E1A2B628200B3F7B6 /* OttaMyQuestionViewController.m */; };
 		D9286F401A12187F00C28770 /* OttaSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D9286F3F1A12187F00C28770 /* OttaSessionManager.m */; };
 		D9286F431A12190500C28770 /* OttaParseClientManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D9286F421A12190500C28770 /* OttaParseClientManager.m */; };
@@ -414,6 +416,8 @@
 		CEA654591A2DFF2600233156 /* OttaMyQuestionPictureCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OttaMyQuestionPictureCell.m; sourceTree = "<group>"; };
 		CEA6545A1A2DFF2600233156 /* OttaMyQuestionTextCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OttaMyQuestionTextCell.h; sourceTree = "<group>"; };
 		CEA6545B1A2DFF2600233156 /* OttaMyQuestionTextCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OttaMyQuestionTextCell.m; sourceTree = "<group>"; };
+		CEA9DC5E1A320B1A00DC8D17 /* Otta_questions_shape_background_answerers.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Otta_questions_shape_background_answerers.png; sourceTree = "<group>"; };
+		CEA9DC5F1A320B1A00DC8D17 /* Otta_questions_shape_check.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Otta_questions_shape_check.png; sourceTree = "<group>"; };
 		CECC3F4D1A2B628200B3F7B6 /* OttaMyQuestionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OttaMyQuestionViewController.h; sourceTree = "<group>"; };
 		CECC3F4E1A2B628200B3F7B6 /* OttaMyQuestionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OttaMyQuestionViewController.m; sourceTree = "<group>"; };
 		D075C858A4214DDABEDE0CDD /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -704,6 +708,7 @@
 		66FD4AF31A11A6CC005ACD58 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				CEA9DC5D1A320B1A00DC8D17 /* MyQuestion */,
 				7E2DA3421A2456BD0064A523 /* AskAQuestion */,
 				6AA695EB1A21DD7B001F6953 /* QuestionFeed */,
 				383581321A21748200CB1423 /* OttaLaunchIphone6p.png */,
@@ -958,6 +963,15 @@
 			path = OttaMyQuestionView;
 			sourceTree = "<group>";
 		};
+		CEA9DC5D1A320B1A00DC8D17 /* MyQuestion */ = {
+			isa = PBXGroup;
+			children = (
+				CEA9DC5E1A320B1A00DC8D17 /* Otta_questions_shape_background_answerers.png */,
+				CEA9DC5F1A320B1A00DC8D17 /* Otta_questions_shape_check.png */,
+			);
+			path = MyQuestion;
+			sourceTree = "<group>";
+		};
 		CECEB8D91A2B34B100277871 /* OttaMyQuestionViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -1153,9 +1167,10 @@
 				ORGANIZATIONNAME = SojoDigital;
 				TargetAttributes = {
 					F0BC6511198606BD0097A87C = {
-						DevelopmentTeam = NJYXP339SK;
+						DevelopmentTeam = ST4BY352FH;
 					};
 					F0BC6532198606BD0097A87C = {
+						DevelopmentTeam = ST4BY352FH;
 						TestTargetID = F0BC6511198606BD0097A87C;
 					};
 				};
@@ -1195,6 +1210,7 @@
 				66FD4B201A11A6CC005ACD58 /* AskAQuestion.png in Resources */,
 				66FD4B141A11A6CC005ACD58 /* white_chocolate_donut.jpg in Resources */,
 				66FD4B101A11A6CC005ACD58 /* noodle_with_bbq_pork.jpg in Resources */,
+				CEA9DC601A320B1A00DC8D17 /* Otta_questions_shape_background_answerers.png in Resources */,
 				7E2DA35A1A2456BD0064A523 /* Otta_ask_button_add_grey.png in Resources */,
 				386E89CA1A126DEF00459171 /* icon_check2.png in Resources */,
 				5D58441D1A1BD21D004FE156 /* Otta_friends_button_added.png in Resources */,
@@ -1310,6 +1326,7 @@
 				6AA695F61A21DD7B001F6953 /* icon_left.png in Resources */,
 				7E1A1DAE1A1C7E05009FB0E6 /* Otta_friends_button_added.png in Resources */,
 				66FD4B071A11A6CC005ACD58 /* egg_benedict.jpg in Resources */,
+				CEA9DC611A320B1A00DC8D17 /* Otta_questions_shape_check.png in Resources */,
 				66FD4B1C1A11A6CC005ACD58 /* OpenSans-Regular.ttf in Resources */,
 				7E2DA3651A2456BD0064A523 /* Otta_ask_shape_popup.png in Resources */,
 				CE0106971A277FEE006CBB57 /* MainHL.storyboard in Resources */,
@@ -1545,7 +1562,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Duy An Huynh (PNK43AD7Y4)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Duy An Huynh (PNK43AD7Y4)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -1569,8 +1587,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Duy An Huynh (PNK43AD7Y4)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Duy An Huynh (PNK43AD7Y4)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -1584,7 +1602,7 @@
 					"$(PROJECT_DIR)/Otta/Lib/Testflight",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "EB8C4080-3528-41CD-B23E-DD5C9B78B175";
+				PROVISIONING_PROFILE = "d3c5c6c8-e2bc-41d7-ac5b-971d43135cca";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

@@ -9,13 +9,17 @@
 #import <Foundation/Foundation.h>
 #import "OttaAnswer.h"
 
+#define kCollapse @"Collapse"
+#define kSeeAll   @"See all..."
+
 enum MyQuestionDataType{
     MyQuestionDataTypeHeader = 1,
     MyQuestionDataTypeAnswer = 2,
     MyQuestionDataTypeFooterNormal = 3,
     MyQuestionDataTypeFooterSeeAll = 4,
-    MyQuestionDataTypeAnswerPicture = 5,
-    MyQuestionDataTypeDone = 6
+    MyQuestionDataTypeFooterCollapse = 5,
+    MyQuestionDataTypeAnswerPicture = 6,
+    MyQuestionDataTypeDone = 7
 };
 
 @interface OttaMyQuestionData : NSObject

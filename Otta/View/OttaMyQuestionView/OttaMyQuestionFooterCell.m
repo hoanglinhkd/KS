@@ -7,7 +7,7 @@
 //
 
 #import "OttaMyQuestionFooterCell.h"
-
+#import "OttaMyQuestionData.h"
 @implementation OttaMyQuestionFooterCell
 
 /*
@@ -19,6 +19,12 @@
 */
 
 - (IBAction)clickSeeAll:(id)sender {
+    if ([self.btnSeeAll.titleLabel.text isEqualToString:kCollapse]) {
+        [self.btnSeeAll setTitle:kSeeAll forState:UIControlStateNormal];
+    }else{
+        [self.btnSeeAll setTitle:kCollapse forState:UIControlStateNormal];
+    }
+    
     if (self.delegate && [self.delegate respondsToSelector:@selector(ottaMyQuestionFooterCellDidSelectSeeAllAtIndex:atCurrentIndex:)]) {
         [self.delegate ottaMyQuestionFooterCellDidSelectSeeAllAtIndex:self.referIndex atCurrentIndex:self.currIndex];
     }

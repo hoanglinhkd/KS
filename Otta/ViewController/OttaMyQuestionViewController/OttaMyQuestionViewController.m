@@ -101,7 +101,7 @@ static NSString * const OttaMyQuestionDoneCellIdentifier        = @"OttaMyQuesti
         [datas addObject:myQs];
     }
     
-    for (i = 0; i<5; i++) {
+    for (i = 0; i<4; i++) {
         OttaQuestion *myQs = [[OttaQuestion alloc] init];
         myQs.questionID = [NSString stringWithFormat:@"%d",i];
         myQs.ottaAnswers = [[NSMutableArray alloc] init];
@@ -164,11 +164,13 @@ static NSString * const OttaMyQuestionDoneCellIdentifier        = @"OttaMyQuesti
             
             int numberLocation = 1;
             if (qs.isSeeAll) {
+                BOOL flagHasPhoTo = NO;
                 for (OttaAnswer *ans in qs.ottaAnswers) {
                     OttaMyQuestionData *objAnswer1 = [[OttaMyQuestionData alloc] init];
                     ans.numberAnswer = numberLocation;
                     if (ans.answerHasphoto) {
                         objAnswer1.dataType = MyQuestionDataTypeAnswerPicture;
+                        flagHasPhoTo = YES;
                     }else{
                         objAnswer1.dataType = MyQuestionDataTypeAnswer;
                     }
@@ -179,7 +181,7 @@ static NSString * const OttaMyQuestionDoneCellIdentifier        = @"OttaMyQuesti
                 }
                 
                 OttaMyQuestionData *objFooter1 = [[OttaMyQuestionData alloc] init];
-                objFooter1.dataType = MyQuestionDataTypeFooterNormal;
+                objFooter1.dataType = flagHasPhoTo ? MyQuestionDataTypeFooterCollapse:MyQuestionDataTypeFooterNormal;
                 objFooter1.expirationDate = qs.expirationDate;
                 objFooter1.referIndex = i;
                 objFooter1.currentTableIndex = dataForShow.count;
@@ -249,6 +251,9 @@ static NSString * const OttaMyQuestionDoneCellIdentifier        = @"OttaMyQuesti
         case MyQuestionDataTypeFooterSeeAll:
             return [self footerCellAtIndexPath:indexPath];
             break;
+        case MyQuestionDataTypeFooterCollapse:
+            return [self footerCellAtIndexPath:indexPath];
+            break;
         case MyQuestionDataTypeDone:
             return [self doneCellAtIndexPath:indexPath];;
             break;
@@ -261,9 +266,16 @@ static NSString * const OttaMyQuestionDoneCellIdentifier        = @"OttaMyQuesti
 
 #pragma mark - UITableview Delegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    if (indexPath.row >= dataForShow.count)
+        return;
     // do something
+    //Change the selected background view of the cell.
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 - (void)tableView:(UITableView *)tableView didEndDisplayingCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
+    if (indexPath.row >= dataForShow.count)
+        return;
+    
     OttaMyQuestionData* dto = [dataForShow objectAtIndex:indexPath.row];
     
     switch (dto.dataType) {
@@ -277,6 +289,8 @@ static NSString * const OttaMyQuestionDoneCellIdentifier        = @"OttaMyQuesti
         case MyQuestionDataTypeAnswerPicture:
             break;
         case MyQuestionDataTypeFooterSeeAll:
+            break;
+        case MyQuestionDataTypeFooterCollapse:
             break;
         case MyQuestionDataTypeDone:
             [self fixFrameForDoneCell:(OttaMyQuestionDoneCell*)cell];
@@ -310,6 +324,9 @@ static NSString * const OttaMyQuestionDoneCellIdentifier        = @"OttaMyQuesti
 }
  */
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    if (indexPath.row >= dataForShow.count)
+        return 0;
+    
     OttaMyQuestionData* dto = [dataForShow objectAtIndex:indexPath.row];
 
     switch (dto.dataType) {
@@ -326,6 +343,9 @@ static NSString * const OttaMyQuestionDoneCellIdentifier        = @"OttaMyQuesti
             return [self heightForPictureCellAtIndexPath:indexPath];
             break;
         case MyQuestionDataTypeFooterSeeAll:
+            return [self heightForFooterCellAtIndexPath:indexPath];
+            break;
+        case MyQuestionDataTypeFooterCollapse:
             return [self heightForFooterCellAtIndexPath:indexPath];
             break;
         case MyQuestionDataTypeDone:
@@ -458,6 +478,9 @@ static NSString * const OttaMyQuestionDoneCellIdentifier        = @"OttaMyQuesti
     OttaMyQuestionData *dto = dataForShow[indexPath.row];
     
     cell.btnSeeAll.hidden = (dto.dataType == MyQuestionDataTypeFooterNormal) ? YES:NO;
+    NSString *title = dto.dataType == MyQuestionDataTypeFooterSeeAll ? kSeeAll : kCollapse;
+    [cell.btnSeeAll setTitle:title forState:UIControlStateNormal];
+    
     cell.lblTime.text = [NSString stringWithFormat:@"%d min",dto.expirationDate];
     cell.referIndex = dto.referIndex;
     cell.currIndex  = dto.currentTableIndex;
@@ -495,17 +518,44 @@ static NSString * const OttaMyQuestionDoneCellIdentifier        = @"OttaMyQuesti
 }
 #pragma mark - OttaMyQuestionFooterCell Delegate
 - (void)ottaMyQuestionFooterCellDidSelectSeeAllAtIndex:(int)referIndex atCurrentIndex:(NSInteger)currIndex{
-    ((OttaQuestion*)datas[referIndex]).isSeeAll = !((OttaQuestion*)datas[referIndex]).isSeeAll;
+    BOOL isSeeAll = !((OttaQuestion*)datas[referIndex]).isSeeAll;
+    ((OttaQuestion*)datas[referIndex]).isSeeAll = isSeeAll;
+    
     [self processDataForShow];
     
-    NSLog(@"refer index %d",referIndex);
-    NSLog(@"CURRENT index %ld",currIndex);
-    /*
-    for (int i=0; i < ((OttaQuestion*)datas[referIndex]).ottaAnswers.count; i++) {
-        NSIndexPath *indexPath = [NSIndexPath alloc] initWithIndex:<#(NSUInteger)#>
+    if(isSeeAll){
+        // For show addition row
+        [UIView animateWithDuration:0.0 animations:^{
+            [self.myTableView reloadData];
+        } completion:^(BOOL finished) {
+            NSMutableArray *rowsToReload = [[NSMutableArray alloc] initWithCapacity:5];
+            for(int i=1; i <= ((OttaQuestion*)datas[referIndex]).ottaAnswers.count - 1; i++){
+                NSInteger index = currIndex + i;
+                NSIndexPath* rowToReload = [NSIndexPath indexPathForRow:index inSection:0];
+                if (index < dataForShow.count) {
+                    [rowsToReload addObject:rowToReload];
+                }
+            }
+            
+            [self.myTableView reloadRowsAtIndexPaths:rowsToReload withRowAnimation:UITableViewRowAnimationBottom];
+        }];
+    }else{
+        
+        [UIView animateWithDuration:0.3f animations:^{
+            // For hide above row
+            NSMutableArray *rowsToReload = [[NSMutableArray alloc] initWithCapacity:5];
+            for(int i=1; i <= ((OttaQuestion*)datas[referIndex]).ottaAnswers.count - 1; i++){
+                NSIndexPath* rowToReload = [NSIndexPath indexPathForRow:currIndex-i inSection:0];
+                [rowsToReload addObject:rowToReload];
+            }
+            [self.myTableView deleteRowsAtIndexPaths:rowsToReload withRowAnimation:UITableViewRowAnimationTop];
+        } completion:^(BOOL finished) {
+            if (finished) {
+                [self.myTableView reloadData];
+            }
+        }];
     }
-     */
-    [self.myTableView reloadData];
+    
 }
 
 @end

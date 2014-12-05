@@ -2611,7 +2611,7 @@ EE5leHQ
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" placeholderIntrinsicWidth="185" placeholderIntrinsicHeight="75" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="185" translatesAutoresizingMaskIntoConstraints="NO" id="hFu-dZ-iek">
                                                     <rect key="frame" x="125" y="2" width="185" height="75"/>
                                                     <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="17"/>
-                                                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -2695,7 +2695,7 @@ EE5leHQ
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="270" translatesAutoresizingMaskIntoConstraints="NO" id="euh-T8-XZt">
                                                     <rect key="frame" x="42" y="1" width="270" height="20"/>
                                                     <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="15"/>
-                                                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -2722,7 +2722,7 @@ EE5leHQ
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="8 min" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="185" translatesAutoresizingMaskIntoConstraints="NO" id="w9E-Es-5zl">
                                                     <rect key="frame" x="150" y="0.0" width="130" height="21"/>
                                                     <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="15"/>
-                                                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Eeq-lq-1bO">
@@ -2732,7 +2732,7 @@ EE5leHQ
                                                     </constraints>
                                                     <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="15"/>
                                                     <state key="normal" title="See all...">
-                                                        <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
                                                     <connections>
@@ -2773,14 +2773,14 @@ EE5leHQ
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Which Dress!?" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="257" translatesAutoresizingMaskIntoConstraints="NO" id="Eub-k0-P29">
                                                     <rect key="frame" x="10" y="5" width="257" height="20"/>
                                                     <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="22"/>
-                                                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="icon_check.png" translatesAutoresizingMaskIntoConstraints="NO" id="2t7-Up-PMS">
-                                                    <rect key="frame" x="284" y="2" width="26" height="26"/>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="Otta_questions_shape_check.png" translatesAutoresizingMaskIntoConstraints="NO" id="2t7-Up-PMS">
+                                                    <rect key="frame" x="283" y="4" width="27" height="21"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="26" id="V6M-O2-9HQ"/>
-                                                        <constraint firstAttribute="height" constant="26" id="t6f-pT-ryz"/>
+                                                        <constraint firstAttribute="width" constant="27" id="V6M-O2-9HQ"/>
+                                                        <constraint firstAttribute="height" constant="21" id="t6f-pT-ryz"/>
                                                     </constraints>
                                                 </imageView>
                                                 <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fWT-wo-VCH">
@@ -2871,6 +2871,7 @@ EE5leHQ
         <image name="Otta_header_button_ask.png" width="250" height="250"/>
         <image name="Otta_header_button_menu.png" width="244" height="171"/>
         <image name="Otta_header_shape_bar.png" width="2667" height="512"/>
+        <image name="Otta_questions_shape_check.png" width="183" height="144"/>
         <image name="addPhotoOtta.png" width="134" height="112"/>
         <image name="btnAddContact.png" width="288" height="34"/>
         <image name="btnAddFBFriend.png" width="288" height="34"/>
@@ -2878,7 +2879,6 @@ EE5leHQ
         <image name="btn_join.png" width="362" height="104"/>
         <image name="btn_login.png" width="361" height="104"/>
         <image name="greenLogo.png" width="626" height="281"/>
-        <image name="icon_check.png" width="182" height="182"/>
         <image name="icon_find.png" width="52" height="53"/>
         <image name="icon_open_mail.png" width="176" height="176"/>
         <image name="icon_sandclock.png" width="78" height="146"/>
