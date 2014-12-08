@@ -8,8 +8,18 @@
 
 #import <UIKit/UIKit.h>
 
-@interface OttaMyQuestionFooterCell : UIView
-@property (weak, nonatomic) IBOutlet UILabel *lblTime;
+@protocol OttaMyQuestionFooterCellDelegate <NSObject>
 
+- (void)ottaMyQuestionFooterCellDidSelectSeeAllAtIndex:(int)referIndex atCurrentIndex:(NSInteger)currIndex;
+
+@end
+
+@interface OttaMyQuestionFooterCell : UITableViewCell
+@property (weak, nonatomic) IBOutlet UILabel *lblTime;
+@property (strong, nonatomic) IBOutlet UIButton *btnSeeAll;
+
+@property (nonatomic, assign) id <OttaMyQuestionFooterCellDelegate>delegate;
+@property (nonatomic, assign) int referIndex;
+@property (nonatomic, assign) NSInteger currIndex;
 - (IBAction)clickSeeAll:(id)sender;
 @end
