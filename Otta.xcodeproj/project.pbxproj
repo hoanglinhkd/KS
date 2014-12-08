@@ -164,6 +164,7 @@
 		C21E8BEA1A30431400F63345 /* RWLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = C21E8BE91A30431400F63345 /* RWLabel.m */; };
 		C28D780D1A2F204A00703019 /* OttaMyQuestionDoneCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C28D780C1A2F204900703019 /* OttaMyQuestionDoneCell.m */; };
 		CE0106971A277FEE006CBB57 /* MainHL.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE0106961A277FEE006CBB57 /* MainHL.storyboard */; };
+		CE940ABC1A360620000DBEAC /* OttaMyQuestionVoteCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CE940ABB1A360620000DBEAC /* OttaMyQuestionVoteCell.m */; };
 		CEA31B0B1A2F7E2A0001F08C /* OttaMyQuestionData.m in Sources */ = {isa = PBXBuildFile; fileRef = CEA31B0A1A2F7E2A0001F08C /* OttaMyQuestionData.m */; };
 		CEA6545C1A2DFF2600233156 /* OttaMyQuestionFooterCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CEA654531A2DFF2600233156 /* OttaMyQuestionFooterCell.m */; };
 		CEA6545E1A2DFF2600233156 /* OttaMyQuestionHeaderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CEA654561A2DFF2600233156 /* OttaMyQuestionHeaderCell.m */; };
@@ -406,6 +407,8 @@
 		C28D780B1A2F204900703019 /* OttaMyQuestionDoneCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OttaMyQuestionDoneCell.h; sourceTree = "<group>"; };
 		C28D780C1A2F204900703019 /* OttaMyQuestionDoneCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OttaMyQuestionDoneCell.m; sourceTree = "<group>"; };
 		CE0106961A277FEE006CBB57 /* MainHL.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = MainHL.storyboard; path = Otta/MainHL.storyboard; sourceTree = SOURCE_ROOT; };
+		CE940ABA1A360620000DBEAC /* OttaMyQuestionVoteCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OttaMyQuestionVoteCell.h; sourceTree = "<group>"; };
+		CE940ABB1A360620000DBEAC /* OttaMyQuestionVoteCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OttaMyQuestionVoteCell.m; sourceTree = "<group>"; };
 		CEA31B091A2F7E2A0001F08C /* OttaMyQuestionData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OttaMyQuestionData.h; sourceTree = "<group>"; };
 		CEA31B0A1A2F7E2A0001F08C /* OttaMyQuestionData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OttaMyQuestionData.m; sourceTree = "<group>"; };
 		CEA654521A2DFF2600233156 /* OttaMyQuestionFooterCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OttaMyQuestionFooterCell.h; sourceTree = "<group>"; };
@@ -959,6 +962,8 @@
 				CEA31B0A1A2F7E2A0001F08C /* OttaMyQuestionData.m */,
 				C21E8BE81A30431400F63345 /* RWLabel.h */,
 				C21E8BE91A30431400F63345 /* RWLabel.m */,
+				CE940ABA1A360620000DBEAC /* OttaMyQuestionVoteCell.h */,
+				CE940ABB1A360620000DBEAC /* OttaMyQuestionVoteCell.m */,
 			);
 			path = OttaMyQuestionView;
 			sourceTree = "<group>";
@@ -1410,6 +1415,7 @@
 				663665EE1A1EEE00007F0EFC /* MEDynamicTransition.m in Sources */,
 				663665EF1A1EEE00007F0EFC /* MEFoldAnimationController.m in Sources */,
 				C21E8BEA1A30431400F63345 /* RWLabel.m in Sources */,
+				CE940ABC1A360620000DBEAC /* OttaMyQuestionVoteCell.m in Sources */,
 				CEA654611A2DFF2600233156 /* OttaMyQuestionTextCell.m in Sources */,
 				CEA6545C1A2DFF2600233156 /* OttaMyQuestionFooterCell.m in Sources */,
 				CEA654601A2DFF2600233156 /* OttaMyQuestionPictureCell.m in Sources */,

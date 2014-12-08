@@ -271,6 +271,33 @@ static NSString * const OttaMyQuestionDoneCellIdentifier        = @"OttaMyQuesti
     // do something
     //Change the selected background view of the cell.
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    if (indexPath.row >= dataForShow.count)
+        return;
+    
+    OttaMyQuestionData* dto = [dataForShow objectAtIndex:indexPath.row];
+    
+    switch (dto.dataType) {
+        case MyQuestionDataTypeHeader:
+            //[self fixFrameForHeaderCell:(OttaMyQuestionHeaderCell*)cell];
+            break;
+        case MyQuestionDataTypeAnswer:
+            break;
+        case MyQuestionDataTypeFooterNormal:
+            break;
+        case MyQuestionDataTypeAnswerPicture:
+            break;
+        case MyQuestionDataTypeFooterSeeAll:
+            break;
+        case MyQuestionDataTypeFooterCollapse:
+            break;
+        case MyQuestionDataTypeDone:
+            //[self fixFrameForDoneCell:(OttaMyQuestionDoneCell*)cell];
+            break;
+        default:
+            break;
+    }
+    
 }
 - (void)tableView:(UITableView *)tableView didEndDisplayingCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.row >= dataForShow.count)
