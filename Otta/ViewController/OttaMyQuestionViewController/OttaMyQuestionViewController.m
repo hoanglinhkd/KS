@@ -551,21 +551,15 @@ static NSString * const OttaMyQuestionDoneCellIdentifier        = @"OttaMyQuesti
     [self processDataForShow];
     
     if(isSeeAll){
-        // For show addition row
-        [UIView animateWithDuration:0.0 animations:^{
-            [self.myTableView reloadData];
-        } completion:^(BOOL finished) {
-            NSMutableArray *rowsToReload = [[NSMutableArray alloc] initWithCapacity:5];
-            for(int i=1; i <= ((OttaQuestion*)datas[referIndex]).ottaAnswers.count - 1; i++){
-                NSInteger index = currIndex + i;
-                NSIndexPath* rowToReload = [NSIndexPath indexPathForRow:index inSection:0];
-                if (index < dataForShow.count) {
-                    [rowsToReload addObject:rowToReload];
-                }
-            }
-            
-            [self.myTableView reloadRowsAtIndexPaths:rowsToReload withRowAnimation:UITableViewRowAnimationBottom];
-        }];
+        
+        NSMutableArray *arrInsertIdxPaths = [[NSMutableArray alloc] initWithCapacity:3];
+        for (int i=0; i<((OttaQuestion*)datas[referIndex]).ottaAnswers.count - 1; i++) {
+            NSIndexPath *newIndexPath = [NSIndexPath indexPathForRow:currIndex+i inSection:0];
+            [arrInsertIdxPaths addObject:newIndexPath];
+        }
+        
+        [self.myTableView insertRowsAtIndexPaths:arrInsertIdxPaths withRowAnimation:UITableViewRowAnimationFade];
+        
     }else{
         
         [UIView animateWithDuration:0.3f animations:^{
