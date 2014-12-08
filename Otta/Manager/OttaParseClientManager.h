@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <Parse/Parse.h>
+#import "OttaQuestion.h"
 
 
 #define kObjectId       @"objectId"
@@ -38,6 +39,7 @@
 #define kQuestionText   @"questionText"
 #define kAnswers        @"answers"
 #define kIsPublic       @"isPublic"
+#define kResponders     @"responders"
 
 
 @interface OttaParseClientManager : NSObject
@@ -143,4 +145,14 @@ typedef void(^OttaCountBlock)(int count, NSError* error);
  *  @param resultBlock
  */
 - (void)countUsersFollowFromUser:(PFUser*)user withBlock:(OttaCountBlock)resultBlock;
+
+
+
+/**
+ *  Add new Questions
+ *
+ *  @param ottaQuestion
+ *  @param resultBlock
+ */
+- (void)addQuestion:(OttaQuestion*)ottaQuestion withBlock:(OttaGeneralResultBlock)resultBlock;
 @end

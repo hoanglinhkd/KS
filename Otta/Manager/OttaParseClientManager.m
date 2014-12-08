@@ -8,7 +8,7 @@
 
 #import "OttaParseClientManager.h"
 #import "Constant.h"
-#import "OttaQuestion.h"
+#import "NSDate-Utilities.h"
 #import "OttaAnswer.h"
 
 
@@ -227,12 +227,15 @@
     NSMutableArray* optionArray = [NSMutableArray new];
     
     for (OttaAnswer *answer in ottaQuestion.ottaAnswers) {
+        
+        NSData *imageData = UIImagePNGRepresentation(answer.answerImage);
+        PFFile *imageFile = [PFFile fileWithName:[NSString stringWithFormat:@"%f.png",[[NSDate date] timeIntervalSince1970]] data:imageData];
+        
         PFObject *option = [PFObject objectWithClassName:kOttaAnswer];
-        [option setObject:answer.answerImage forKey:kImage];
+        [option setObject:imageFile forKey:kImage];
         [option setObject:answer.answerText forKey:kDescription];
         [optionArray addObject:option];
     }
-    
     
     PFObject *question = [PFObject objectWithClassName:kOttaQuestion];
     
@@ -242,6 +245,16 @@
     [question setObject:optionArray forKey:kAnswers];
     
     [question setValue:@(ottaQuestion.isPublic) forKey:kIsPublic];
+    
+    
+    PFRelation *relation = [question relationForKey:kResponders];
+    for (PFUser *friend in ottaQuestion.responders) {
+        [relation addObject:friend];
+    }
+    
+    [question saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        resultBlock(succeeded, error);
+    }];
 }
 
 @end
