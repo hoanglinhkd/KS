@@ -269,12 +269,14 @@ replacementString:(NSString *)string {
     } else {
         
         [[OttaAlertManager sharedManager] showYesNoAlertOnView:appDelegate.window withContent:[NSString stringWithFormat:@"Do you want to follow %@ ?", friend.name] complete:^{
-            
+            [MBProgressHUD showHUDAddedTo:self.view animated:YES];
             [[OttaParseClientManager sharedManager] followUser:[PFUser currentUser] toUser:friend.pfUser withBlock:^(BOOL isSucceeded, NSError *error) {
+                [MBProgressHUD hideHUDForView:self.view animated:YES];
                 if(isSucceeded) {
                     friend.isSelected = YES;
                     [_listFollowedFriends addObject:friend.pfUser.objectId];
                     [_searchResultTableView reloadData];
+                    
                 } else {
                     [[OttaAlertManager sharedManager] showSimpleAlertOnView:appDelegate.window withContent:@"Error on following friend" complete:nil];
                 }

@@ -44,7 +44,6 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UIImage *btnImage;
     
     static NSString *cellIdentifier = @"OttaFindFriendsCellID";
     
@@ -71,11 +70,11 @@
     }];
     
     if ([follow[kIsBlocked] boolValue]) {
-        btnImage = [UIImage imageNamed:@"Otta_friends_button_block.png"];
+        cell.lblText.textColor = [UIColor redColor];
     } else {
-        btnImage = [UIImage imageNamed:@"Otta_friends_button_added.png"];
+        cell.lblText.textColor = [UIColor blackColor];
     }
-    [cell.imgIcon setImage:btnImage];
+    [cell.imgIcon setImage:[UIImage imageNamed:@"Otta_friends_button_added.png"]];
     
     return cell;
 }
