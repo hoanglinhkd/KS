@@ -45,5 +45,9 @@
 "Connect" = "Connect";
 "Cannot invite friend" = "Cannot invite friend";
 "Invite friends success" = "Invite friends success";
-"Invite" = "Invite";
-"Connect" = "Connect";
+"INVITE" = "INVITE";
+"CONNECT" = "CONNECT";
+"Your device cannot send SMS at this time" = "Your device cannot send SMS at this time";
+"Cannot login Facebook" = "Cannot login Facebook" ;
+"This user cannot be accessed phone number" = "This user cannot be accessed phone number";
+"This user cannot be accessed email" = "This user cannot be accessed email";
