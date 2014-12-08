@@ -28,22 +28,34 @@
 
 @implementation OttaFindFriendsViewController
 
+-(void)initializeUIFirstOnload
+{
+    if (_isFromContact){
+        self.txtLabel.text = [@"Find Contacts" toCurrentLanguage];
+        [_txtFindContactFriends setPlaceholder:[@"Find Contacts" toCurrentLanguage]];
+    } else {
+        self.txtLabel.text = [@"Find Friends" toCurrentLanguage];
+        [_txtFindContactFriends setPlaceholder:[@"Find Friends" toCurrentLanguage]];
+    }
+    if (_isInviteMode) {
+        [self.inviteLbl setText:[@"INVITE" toCurrentLanguage]];
+        [_connectCaption setHidden:YES];
+    } else {
+        [_inviteLbl setHidden:YES];
+        [_toggleBtn setHidden:YES];
+        [_smsLbl setHidden:YES];
+        [_emailLbl setHidden:YES];
+        [self.inviteLbl setText:[@"CONNECT" toCurrentLanguage]];
+    }
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    [self initializeUIFirstOnload];
+    
     addressBook = [[RHAddressBook alloc] init] ;
     searchResults = [NSMutableArray array ];
-    // Do any additional setup after loading the view.
-    self.txtLabel.text = [@"Find Friends" toCurrentLanguage];
-    if (_isFromContact){
-        self.txtLabel.text = [@"Find Contacts" toCurrentLanguage];
-    }
-    if (_isInviteMode) {
-        [self.inviteLbl setText:@"Invite"];
-    } else {
-        [self.inviteLbl setText:@"Connect"];
-    }
-    
     isSelectSMS = YES;
     [_toggleBtn setBackgroundImage:[UIImage imageNamed:@"switch-1.png"] forState:UIControlStateNormal];
 }
@@ -420,16 +432,20 @@ replacementString:(NSString *)string {
         }
         
     } else {
-        if (indexPath.row == 0){
+        if (indexPath.row == 0 && !_isInviteMode){
             cell.lblText.text = [@"Select All" toCurrentLanguage];
             [cell.lblText setFont:[UIFont fontWithName:@"OpenSans-Semibold" size:18.00f]];
         } else {
-            OttaFriend *f = (OttaFriend *)[friends objectAtIndex:indexPath.row -1];
+            OttaFriend *f = (OttaFriend *)[friends objectAtIndex:indexPath.row - (_isInviteMode ? 0 : 1)];
             cell.lblText.text = f.name;
             [cell.lblText setFont:[UIFont fontWithName:@"OpenSans-Light" size:18.00f]];
             
-            if (f.isFriend || f.isSelected){
-                image = [UIImage imageNamed:@"Otta_friends_button_added.png"];
+            if(_isInviteMode) {
+                image = [UIImage imageNamed:@"icon_email.png"];
+            } else {
+                if (f.isFriend || f.isSelected){
+                    image = [UIImage imageNamed:@"Otta_friends_button_added.png"];
+                }
             }
         }
     }
@@ -444,7 +460,12 @@ replacementString:(NSString *)string {
     if(isSearching) {
         return [searchResults count];
     }
-    return [friends count] + 1;
+    
+    if(_isInviteMode) {
+        return [friends count];
+    } else {
+        return [friends count] + 1;
+    }
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -460,16 +481,52 @@ replacementString:(NSString *)string {
         }
         
     } else {
-        if(indexPath.row == 0) {
+        if(indexPath.row == 0 && !_isInviteMode) {
             
             [self selectAllFriends];
             [tableView reloadData];
             
         } else {
-            OttaFriend *curFriend = [friends objectAtIndex:indexPath.row - 1]; //we don't use index = 0;
-            if(!curFriend.isFriend) {
-                curFriend.isSelected = !curFriend.isSelected;
-                [tableView reloadData];
+            if (_isInviteMode) {
+                OttaFriend *curFriend = [friends objectAtIndex:indexPath.row];
+                
+                if(isSelectSMS) {
+//                    if(curFriend.phoneNumber.length <= 0) {
+//                        [[OttaAlertManager sharedManager] showSimpleAlertWithContent:[@"This user cannot be accessed phone number" toCurrentLanguage] complete:nil];
+//                    } else {
+                        MFMessageComposeViewController *controller = [[MFMessageComposeViewController alloc] init];
+                        if([MFMessageComposeViewController canSendText]) {
+                            controller.body = [NSString stringWithFormat:@"Hi %@, join with us!", curFriend.name];
+                            controller.recipients = [NSArray arrayWithObjects:curFriend.phoneNumber, nil];
+                            controller.messageComposeDelegate = self;
+                            [self presentViewController:controller animated:YES completion:nil];
+//                        } else {
+//                            //[[OttaAlertManager sharedManager] showSimpleAlertWithContent:[@"Your device cannot send SMS at this time" toCurrentLanguage] complete:nil];
+//                        }
+                    }
+                } else {
+//                    if(curFriend.emailAdress.length <= 0) {
+//                        [[OttaAlertManager sharedManager] showSimpleAlertWithContent:[@"This user cannot be accessed email" toCurrentLanguage] complete:nil];
+//                    } else {
+                        MFMailComposeViewController* controller = [[MFMailComposeViewController alloc] init];
+                        controller.mailComposeDelegate = self;
+                    if(curFriend.emailAdress.length > 0) {
+                        [controller setToRecipients:[NSArray arrayWithObject:curFriend.emailAdress]];
+                    }
+                        [controller setSubject:[NSString stringWithFormat:@"Hi %@, join with us!", curFriend.name]];
+                        [controller setMessageBody:@"Hello There" isHTML:NO];
+                        if (controller) {
+                            [self presentViewController:controller animated:YES completion:nil];
+                        }
+//                    }
+                }
+                
+            } else {
+                OttaFriend *curFriend = [friends objectAtIndex:indexPath.row];
+                if(!curFriend.isFriend) {
+                    curFriend.isSelected = !curFriend.isSelected;
+                    [tableView reloadData];
+                }
             }
         }
     }
@@ -479,7 +536,16 @@ replacementString:(NSString *)string {
 {
     isSelectSMS = !isSelectSMS;
     
-    [_toggleBtn setBackgroundImage:isSelectSMS ? [UIImage imageNamed:@"switch-1.png"] : [UIImage imageNamed:@"switch-2.png"] forState:UIControlStateNormal];
+    if(isSelectSMS) {
+        [_toggleBtn setBackgroundImage:[UIImage imageNamed:@"switch-1.png"] forState:UIControlStateNormal];
+        [_smsLbl setTextColor:[UIColor whiteColor]];
+        [_emailLbl setTextColor:[UIColor lightGrayColor]];
+    } else {
+        [_toggleBtn setBackgroundImage:[UIImage imageNamed:@"switch-2.png"] forState:UIControlStateNormal];
+        [_smsLbl setTextColor:[UIColor lightGrayColor]];
+        [_emailLbl setTextColor:[UIColor whiteColor]];
+    }
+    
 }
 
 - (IBAction)backButtonPressed:(id)sender {
@@ -575,6 +641,16 @@ replacementString:(NSString *)string {
                                   }];
                               }
                           }];
+}
+
+#pragma mark - EMAIL DELEGATE
+- (void)mailComposeController:(MFMailComposeViewController*)controller
+          didFinishWithResult:(MFMailComposeResult)result
+                        error:(NSError*)error;
+{
+    if (result == MFMailComposeResultSent) {
+        [[OttaAlertManager sharedManager] showSimpleAlertWithContent:@"Email sent success" complete:nil];
+    }
 }
 
 @end

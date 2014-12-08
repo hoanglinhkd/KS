@@ -18,6 +18,8 @@
 @property (weak, nonatomic) IBOutlet UITableView *searchResultTableView;
 @property (weak, nonatomic) IBOutlet UIButton *btnSkipNext;
 @property (weak, nonatomic) IBOutlet UILabel *viewNameLbl;
+@property (weak, nonatomic) IBOutlet UIImageView *imgSearch;
+@property (weak, nonatomic) IBOutlet UITextField *txtSearch;
 
 @property (assign) BOOL isInviteMode;
 @property (assign, nonatomic) BOOL isFromInApp;

@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
+#define FacebookPermissions @[@"publish_actions", @"user_friends", @"public_profile", @"user_about_me", @"user_relationships", @"user_birthday", @"user_location"]
 
 #define cusGreencolor [UIColor colorWithRed:0.486275 green:0.741176 blue:0.192157 alpha:1]
 

@@ -18,9 +18,12 @@
 @property (assign) BOOL isFromContact;//facebook = false, contacts = true
 @property (assign) BOOL isInviteMode;
 @property (weak, nonatomic) IBOutlet UIView *inviteView;
+@property (weak, nonatomic) IBOutlet UILabel *connectCaption;
 @property (weak, nonatomic) IBOutlet UILabel *smsLbl;
 @property (weak, nonatomic) IBOutlet UILabel *emailLbl;
 @property (weak, nonatomic) IBOutlet UIButton *toggleBtn;
+@property (weak, nonatomic) IBOutlet UITextField *txtFindContactFriends;
+
 - (IBAction)changeInviteMethod:(id)sender;
 - (IBAction)nextButtonPressed:(id)sender;
 

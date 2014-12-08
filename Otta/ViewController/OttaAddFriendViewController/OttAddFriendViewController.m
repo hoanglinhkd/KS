@@ -12,6 +12,7 @@
 #import "OttaParseClientManager.h"
 #import "OttaAlertManager.h"
 #import "OttaAppDelegate.h"
+#import "MBProgressHUD.h"
 
 @interface OttAddFriendViewController()
 
@@ -27,9 +28,11 @@
     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"OttaSideMenuBackground.png"]];
     
     if (_isInviteMode) {
-        _viewNameLbl.text = [@"Invite" toCurrentLanguage];
+        _viewNameLbl.text = [@"INVITE" toCurrentLanguage];
+        [_imgSearch setHidden:YES];
+        [_txtSearch setHidden:YES];
     } else {
-        _viewNameLbl.text = [@"Connect" toCurrentLanguage];
+        _viewNameLbl.text = [@"CONNECT" toCurrentLanguage];
     }
     
     _listFollowedFriends = [NSMutableArray array];
@@ -51,9 +54,9 @@
 
 - (void)viewDidAppear:(BOOL)animated{
     if (_isInviteMode) {
-        _viewNameLbl.text = [@"Invite" toCurrentLanguage];
+        _viewNameLbl.text = [@"INVITE" toCurrentLanguage];
     }else{
-        _viewNameLbl.text = [@"Connect" toCurrentLanguage];
+        _viewNameLbl.text = [@"CONNECT" toCurrentLanguage];
     }
 }
 - (void)inittempData {
@@ -92,7 +95,22 @@
 
 -(IBAction)btnFacebookFriendPressed:(id)sender
 {
-    [self performSegueWithIdentifier:@"connectFriendSegue" sender:@"FacebookFriends"];
+    BOOL linkedWithFacebook = [PFFacebookUtils isLinkedWithUser:[PFUser currentUser]];
+    if(linkedWithFacebook) {
+        [self performSegueWithIdentifier:@"connectFriendSegue" sender:@"FacebookFriends"];
+    } else {
+        
+        [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+        NSArray *permissionsArray = FacebookPermissions;
+        [PFFacebookUtils linkUser:[PFUser currentUser] permissions:permissionsArray block:^(BOOL succeeded, NSError *error) {
+            [MBProgressHUD hideHUDForView:self.view animated:YES];
+            if(!error) {
+                [self performSegueWithIdentifier:@"connectFriendSegue" sender:@"FacebookFriends"];
+            } else {
+                [[OttaAlertManager sharedManager] showSimpleAlertWithContent:@"Cannot login Facebook" complete:nil];
+            }
+        }];
+    }
 }
 
 -(IBAction)btnContactPressed:(id)sender
@@ -210,6 +228,7 @@ replacementString:(NSString *)string {
         [cell.accessoryView setFrame:CGRectMake(0, 0, 15, 15)];
     }
     
+    [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
     return cell;
 }
 
@@ -223,8 +242,8 @@ replacementString:(NSString *)string {
     
     if (friend.isSelected) {
         
-        [[OttaAlertManager sharedManager] showYesNoAlertOnView:appDelegate.window withContent:[NSString stringWithFormat:@"Do you want to unfollow %@ ?", friend.name] complete:^{
-            
+//        [[OttaAlertManager sharedManager] showYesNoAlertOnView:appDelegate.window withContent:[NSString stringWithFormat:@"Do you want to unfollow %@ ?", friend.name] complete:^{
+//            
 //            [[OttaParseClientManager sharedManager] removeFollowFromUser:[PFUser currentUser] toUser:friend.pfUser withBlock:^(BOOL isSucceeded, NSError *error) {
 //                if(isSucceeded) {
 //                    
@@ -242,10 +261,10 @@ replacementString:(NSString *)string {
 //                     [[OttaAlertManager sharedManager] showSimpleAlertOnView:appDelegate.window withContent:@"Error on unfollowing friend" complete:nil];
 //                }
 //            }];
-            
-        } cancel:^{
-            
-        }];
+//            
+//        } cancel:^{
+//            
+//        }];
         
     } else {
         
