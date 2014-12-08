@@ -59,63 +59,6 @@
 - (void)inittempData {
     _friends = [NSMutableArray array];
     _searchResults = [NSMutableArray array];
-    /*
-    NSMutableArray *names = [NSMutableArray array];
-    
-    [names addObject:@"Adam"];
-    [names addObject:@"Adrian"];
-    [names addObject:@"Alan"];
-    [names addObject:@"Alexander"];
-    [names addObject:@"Andrew"];
-    [names addObject:@"Anthony"];
-    [names addObject:@"Austin"];
-    [names addObject:@"Benjamin"];
-    [names addObject:@"Blake"];
-    [names addObject:@"Boris"];
-    [names addObject:@"Brandon"];
-    [names addObject:@"Brian"];
-    [names addObject:@"Cameron"];
-    [names addObject:@"Carl"];
-    [names addObject:@"Charles"];
-    [names addObject:@"Christian"];
-    [names addObject:@"Christopher"];
-    [names addObject:@"Colin"];
-    [names addObject:@"Connor"];
-    [names addObject:@"Dan"];
-    [names addObject:@"David"];
-    [names addObject:@"Dominic"];
-    [names addObject:@"Dylan"];
-    [names addObject:@"Edward"];
-    [names addObject:@"Eric"];
-    [names addObject:@"Evan"];
-    [names addObject:@"Frank"];
-    [names addObject:@"Gavin"];
-    [names addObject:@"Gordon"];
-    [names addObject:@"Harry"];
-    [names addObject:@"Ian"];
-    [names addObject:@"Isaac"];
-    [names addObject:@"Jack"];
-    [names addObject:@"Jacob"];
-    [names addObject:@"Jake"];
-    [names addObject:@"James"];
-    [names addObject:@"Jason"];
-    [names addObject:@"Joe"];
-    [names addObject:@"John"];
-    [names addObject:@"Jonatha"];
-    [names addObject:@"Joseph"];
-    [names addObject:@"Joshua"];
-    [names addObject:@"Julian"];
-    [names addObject:@"Justin"];
-    [names addObject:@"Keith"];
-    [names addObject:@"Kevin"];
-    [names addObject:@"Leonard"];
-    [names addObject:@"Liam"];
-    
-    for (NSString *name in names) {
-        OttaFriend *friendToAdd = [[OttaFriend alloc] initWithName:name friendStatus:NO];
-        [_friends addObject:friendToAdd];
-    }
-     */
 }
 
 - (IBAction)backButtonPressed:(id)sender {
@@ -304,7 +247,7 @@ replacementString:(NSString *)string {
             
         }];
         
-    }else {
+    } else {
         
         [[OttaAlertManager sharedManager] showYesNoAlertOnView:appDelegate.window withContent:[NSString stringWithFormat:@"Do you want to follow %@ ?", friend.name] complete:^{
             
