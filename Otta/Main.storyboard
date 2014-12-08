@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="jFH-gY-aPy">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="jFH-gY-aPy">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
@@ -7,6 +7,7 @@
     </dependencies>
     <customFonts key="customFonts">
         <mutableArray key="OpenSans-Bold.ttf">
+            <string>OpenSans-Bold</string>
             <string>OpenSans-Bold</string>
             <string>OpenSans-Bold</string>
             <string>OpenSans-Bold</string>
@@ -1144,6 +1145,12 @@
                                             <action selector="changeInviteMethod:" destination="ok4-nK-fyt" eventType="touchUpInside" id="ap8-0f-94d"/>
                                         </connections>
                                     </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="CONNECT" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LF3-oR-EPH">
+                                        <rect key="frame" x="95" y="17" width="131" height="25"/>
+                                        <fontDescription key="fontDescription" name="OpenSans-Bold" family="Open Sans" pointSize="18"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
@@ -1174,12 +1181,14 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="connectCaption" destination="LF3-oR-EPH" id="Xjq-gL-n6P"/>
                         <outlet property="emailLbl" destination="D6q-FK-uIp" id="B5f-Ri-mY1"/>
                         <outlet property="inviteLbl" destination="XsG-nZ-6VI" id="jdj-uh-Xhk"/>
                         <outlet property="inviteView" destination="hY7-lv-W6T" id="WAp-dH-JcC"/>
                         <outlet property="smsLbl" destination="TMt-ab-YhF" id="IYf-3r-P9A"/>
                         <outlet property="tableFriends" destination="XoY-zJ-9RH" id="GnM-eC-SxA"/>
                         <outlet property="toggleBtn" destination="Hg0-d9-LMr" id="oyz-Yf-AhZ"/>
+                        <outlet property="txtFindContactFriends" destination="Fje-8V-nQ6" id="3So-mS-ozo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="InE-Rq-9wN" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1213,7 +1222,7 @@
                                                     <constraint firstAttribute="width" constant="241" id="4WS-NF-r3o"/>
                                                     <constraint firstAttribute="height" constant="26" id="UYb-T8-OFK"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" name="OpenSans-Bold" family="Open Sans" pointSize="18"/>
+                                                <fontDescription key="fontDescription" name="OpenSans-Bold" family="Open Sans" pointSize="20"/>
                                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -1385,7 +1394,7 @@ EE5leHQ
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HpG-K3-5ZQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-731" y="-81"/>
+            <point key="canvasLocation" x="-711" y="-81"/>
         </scene>
         <!--Answerers Asker View Controller-->
         <scene sceneID="0s8-rw-yG7">
@@ -3222,7 +3231,7 @@ EE5leHQ
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="JNh-LD-reh"/>
+        <segue reference="3Iu-Ui-5LO"/>
         <segue reference="Q7F-7b-5wm"/>
     </inferredMetricsTieBreakers>
 </document>
