@@ -176,6 +176,7 @@
 		CEA654611A2DFF2600233156 /* OttaMyQuestionTextCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CEA6545B1A2DFF2600233156 /* OttaMyQuestionTextCell.m */; };
 		CECC3F4F1A2B628200B3F7B6 /* OttaMyQuestionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CECC3F4E1A2B628200B3F7B6 /* OttaMyQuestionViewController.m */; };
 		D9286F431A12190500C28770 /* OttaParseClientManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D9286F421A12190500C28770 /* OttaParseClientManager.m */; };
+		D98CBCDD1A37452B00A6CCED /* PFUser+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = D98CBCDC1A37452B00A6CCED /* PFUser+Extension.m */; };
 		D98E30B21A1777950080B934 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D98E30B41A1777950080B934 /* Localizable.strings */; };
 		D98E30BC1A1779110080B934 /* LanguageHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = D98E30BB1A1779110080B934 /* LanguageHelper.m */; };
 		D98E30BF1A1779340080B934 /* NSString+Language.m in Sources */ = {isa = PBXBuildFile; fileRef = D98E30BE1A1779340080B934 /* NSString+Language.m */; };
@@ -431,6 +432,8 @@
 		D45B044B7810A706377E3F1A /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		D9286F411A12190500C28770 /* OttaParseClientManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OttaParseClientManager.h; sourceTree = "<group>"; };
 		D9286F421A12190500C28770 /* OttaParseClientManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OttaParseClientManager.m; sourceTree = "<group>"; };
+		D98CBCDB1A37452B00A6CCED /* PFUser+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "PFUser+Extension.h"; sourceTree = "<group>"; };
+		D98CBCDC1A37452B00A6CCED /* PFUser+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "PFUser+Extension.m"; sourceTree = "<group>"; };
 		D98E30B31A1777950080B934 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		D98E30B51A1777A40080B934 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		D98E30BA1A1779110080B934 /* LanguageHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LanguageHelper.h; sourceTree = "<group>"; };
@@ -834,6 +837,8 @@
 				D98E30C51A1797CD0080B934 /* AFPickerView */,
 				D98E30B91A1779110080B934 /* Language */,
 				66FD4B5C1A11AD6B005ACD58 /* Testflight */,
+				D98CBCDB1A37452B00A6CCED /* PFUser+Extension.h */,
+				D98CBCDC1A37452B00A6CCED /* PFUser+Extension.m */,
 			);
 			path = Lib;
 			sourceTree = "<group>";
@@ -1392,6 +1397,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D98CBCDD1A37452B00A6CCED /* PFUser+Extension.m in Sources */,
 				6AA695E81A21DD4E001F6953 /* OttaBasicQuestionCell.m in Sources */,
 				3847CFB31A1863E1002599E7 /* OttaViewController.m in Sources */,
 				6AA695E91A21DD4E001F6953 /* OttaMediaQuestionCell.m in Sources */,
