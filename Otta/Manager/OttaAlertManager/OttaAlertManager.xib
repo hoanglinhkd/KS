@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="14C68k" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="14C78c" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
     </dependencies>
     <customFonts key="customFonts">
         <mutableArray key="OpenSans-Bold.ttf">
+            <string>OpenSans-Bold</string>
             <string>OpenSans-Bold</string>
             <string>OpenSans-Bold</string>
             <string>OpenSans-Bold</string>
@@ -21,6 +22,8 @@
             <string>OpenSans-Semibold</string>
             <string>OpenSans-Semibold</string>
             <string>OpenSans-Semibold</string>
+            <string>OpenSans-Semibold</string>
+            <string>OpenSans-Semibold</string>
         </mutableArray>
     </customFonts>
     <objects>
@@ -29,8 +32,10 @@
                 <outlet property="btnBlock" destination="srp-7H-xrO" id="3Pt-9d-2wf"/>
                 <outlet property="emailAlertView" destination="l7x-A0-XT3" id="5D4-1l-ow5"/>
                 <outlet property="friendAlertView" destination="G4Z-6t-Gdv" id="ACr-ko-GV4"/>
+                <outlet property="friendNoBlockAlertView" destination="agv-5A-3p2" id="y19-ff-2ro"/>
                 <outlet property="imagePicker" destination="34" id="69"/>
                 <outlet property="lblFriendName" destination="GA4-tV-9bD" id="ToE-O8-jFX"/>
+                <outlet property="lblFriendName2" destination="mE3-vx-QvN" id="eVE-Tl-n9i"/>
                 <outlet property="lblSimpleContent" destination="19" id="56"/>
                 <outlet property="lblYesNoContent" destination="59" id="66"/>
                 <outlet property="limitTimerAlertView" destination="31" id="52"/>
@@ -387,9 +392,77 @@
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <point key="canvasLocation" x="-705" y="12"/>
         </view>
+        <view contentMode="scaleToFill" id="agv-5A-3p2">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="211"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Otta_friends_shape_popup2.png" translatesAutoresizingMaskIntoConstraints="NO" id="Jh1-WX-0t4">
+                    <rect key="frame" x="10" y="0.0" width="301" height="211"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="211" id="UWN-AK-psh"/>
+                        <constraint firstAttribute="width" constant="301" id="fJY-hR-ck7"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Chloe Fulton" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mE3-vx-QvN">
+                    <rect key="frame" x="32" y="35" width="257" height="28"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="28" id="3el-yr-2m5"/>
+                        <constraint firstAttribute="width" constant="257" id="P4S-Xg-RVn"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="OpenSans-Bold" family="Open Sans" pointSize="19"/>
+                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UqS-Wb-F45">
+                    <rect key="frame" x="22" y="136" width="277" height="50"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="GNT-vm-DlJ"/>
+                        <constraint firstAttribute="width" constant="277" id="e9B-CM-zKe"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="OpenSans-Semibold" family="Open Sans" pointSize="18"/>
+                    <state key="normal" title="Cancel">
+                        <color key="titleColor" red="0.97254901959999995" green="0.62352941179999999" blue="0.08235294118" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="cancelFriend2:" destination="-1" eventType="touchUpInside" id="iJb-if-Z5s"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rse-Jd-Xpx">
+                    <rect key="frame" x="22" y="81" width="277" height="50"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="277" id="rf3-eH-GBi"/>
+                        <constraint firstAttribute="height" constant="50" id="yw8-JV-iAR"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="OpenSans-Semibold" family="Open Sans" pointSize="18"/>
+                    <state key="normal" title="Remove">
+                        <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="removeFriend2:" destination="-1" eventType="touchUpInside" id="Heg-Qt-YpG"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="Jh1-WX-0t4" firstAttribute="top" secondItem="agv-5A-3p2" secondAttribute="top" id="3Sb-iJ-mpL"/>
+                <constraint firstItem="mE3-vx-QvN" firstAttribute="top" secondItem="agv-5A-3p2" secondAttribute="top" constant="35" id="6dc-zK-Max"/>
+                <constraint firstItem="rse-Jd-Xpx" firstAttribute="top" secondItem="mE3-vx-QvN" secondAttribute="bottom" constant="18" id="ATK-5w-UiP"/>
+                <constraint firstItem="rse-Jd-Xpx" firstAttribute="centerX" secondItem="mE3-vx-QvN" secondAttribute="centerX" id="OVO-Ib-Fxy"/>
+                <constraint firstAttribute="centerX" secondItem="Jh1-WX-0t4" secondAttribute="centerX" id="TH2-KO-Yot"/>
+                <constraint firstItem="mE3-vx-QvN" firstAttribute="centerX" secondItem="UqS-Wb-F45" secondAttribute="centerX" id="cgB-LG-dxA"/>
+                <constraint firstAttribute="centerX" secondItem="mE3-vx-QvN" secondAttribute="centerX" constant="-0.5" id="fSh-dp-G2d"/>
+                <constraint firstItem="UqS-Wb-F45" firstAttribute="top" secondItem="agv-5A-3p2" secondAttribute="top" constant="136" id="qlT-M4-NFY"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="-705" y="608.5"/>
+        </view>
     </objects>
     <resources>
         <image name="Otta_friends_shape_popup.png" width="2304" height="1745"/>
+        <image name="Otta_friends_shape_popup2.png" width="2304" height="1308"/>
         <image name="Otta_intro_popup_yesorno.png" width="2304" height="787"/>
         <image name="bgalert_white.png" width="535" height="194"/>
         <image name="bgalert_white_big.png" width="535" height="292"/>

@@ -69,7 +69,7 @@
         cell.lblText.text = name;
     }];
     
-    if ([follow[kIsBlocked] boolValue]) {
+    if ([follow[kIsBlocked] boolValue] && _isAnswererTab) {
         cell.lblText.textColor = [UIColor redColor];
     } else {
         cell.lblText.textColor = [UIColor blackColor];
@@ -97,40 +97,59 @@
     NSString *name = [NSString stringWithFormat:@"%@ %@", user[kFirstName], user[kLastName]];
     BOOL isBlocked = [follow[kIsBlocked] boolValue];
     
-    [[OttaAlertManager sharedManager] showFriendAlertOnView:self.view withName:name isBlock:isBlocked complete:^(FriendAction action) {
-        switch (action) {
-            case FriendActionBlock:
-            {
-                [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-                PFObject *follow = _follows[indexPath.row];
-                
-                [[OttaParseClientManager sharedManager] setBlockFollow:follow withValue:!isBlocked withBlock:^(BOOL isSucceeded, NSError *error) {
-                    //[self updateAnswerersAskersCount];
-                    [_table reloadData];
-                    [MBProgressHUD hideHUDForView:self.view animated:YES];
-                }];
+    
+    if (_isAnswererTab) {
+        [[OttaAlertManager sharedManager] showFriendAlertOnView:self.view withName:name isBlock:isBlocked complete:^(FriendAction action) {
+            switch (action) {
+                case FriendActionBlock:
+                {
+                    [self actionBlockOrUnblock:isBlocked row:indexPath.row];
+                }
+                    break;
+                case FriendActionRemove:
+                {
+                    [self actionRemove:indexPath.row];
+                }
+                    break;
+                default:
+                    break;
             }
-                break;
-            case FriendActionRemove:
-            {
-                [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-                PFObject *follow = _follows[indexPath.row];
-                [[OttaParseClientManager sharedManager] removeFollow:follow withBlock:^(BOOL isSucceeded, NSError *error) {
-                    //remove object in list manually for fixing cache issue
-                    arr = [NSMutableArray arrayWithArray:_follows];
-                    [arr removeObjectAtIndex:indexPath.row];
-                    _follows = [[NSArray alloc] initWithArray:arr];
-                    _followsStorage = [[NSArray alloc] initWithArray:arr];
-                    
-                    [self updateAnswerersAskersCount];
-                    [_table reloadData];
-                    [MBProgressHUD hideHUDForView:self.view animated:YES];
-                }];
+        }];
+    } else {
+        [[OttaAlertManager sharedManager] showFriendNoBlockOnView:self.view withName:name complete:^(FriendAction action) {
+            if (action == FriendActionRemove) {
+                [self actionRemove:indexPath.row];
             }
-                break;
-            default:
-                break;
-        }
+        }];
+    }
+}
+
+- (void)actionBlockOrUnblock:(BOOL)isBlocked row:(NSInteger)row {
+    
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    PFObject *follow = _follows[row];
+    
+    [[OttaParseClientManager sharedManager] setBlockFollow:follow withValue:!isBlocked withBlock:^(BOOL isSucceeded, NSError *error) {
+        //[self updateAnswerersAskersCount];
+        [_table reloadData];
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
+    }];
+}
+
+- (void)actionRemove:(NSInteger)row {
+    
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    PFObject *follow = _follows[row];
+    [[OttaParseClientManager sharedManager] removeFollow:follow withBlock:^(BOOL isSucceeded, NSError *error) {
+        //remove object in list manually for fixing cache issue
+        arr = [NSMutableArray arrayWithArray:_follows];
+        [arr removeObjectAtIndex:row];
+        _follows = [[NSArray alloc] initWithArray:arr];
+        _followsStorage = [[NSArray alloc] initWithArray:arr];
+        
+        [self updateAnswerersAskersCount];
+        [_table reloadData];
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
     }];
 }
 

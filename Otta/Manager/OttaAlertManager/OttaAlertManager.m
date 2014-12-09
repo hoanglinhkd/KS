@@ -40,6 +40,9 @@
 @property (weak, nonatomic) IBOutlet UILabel *lblFriendName;
 @property (weak, nonatomic) IBOutlet UIButton *btnBlock;
 
+@property (strong, nonatomic) IBOutlet UIView *friendNoBlockAlertView;
+@property (weak, nonatomic) IBOutlet UILabel *lblFriendName2;
+
 @property (strong, nonatomic) IBOutlet UIView *emailAlertView;
 @property (weak, nonatomic) IBOutlet UITextField *txtEmail;
 
@@ -97,7 +100,9 @@
     [_yesNoAlertView removeFromSuperview];
     [_limitTimerAlertView removeFromSuperview];
     [_friendAlertView removeFromSuperview];
+    [_friendNoBlockAlertView removeFromSuperview];
     [_emailAlertView removeFromSuperview];
+    
     
     if ([self.view superview] != nil) {
         [self.view removeFromSuperview];
@@ -249,7 +254,7 @@
     }
 }
 
-#pragma mark - Timer Picker
+#pragma mark - Friend Picker
 
 - (void)showFriendAlertOnView:(UIView*)parentView withName:(NSString*)name isBlock:(BOOL)isBlock complete:(OttaFriendAlertCompletion)completionBlock {
   
@@ -283,6 +288,31 @@
 
 - (IBAction)cancelFriend:(id)sender {
     [self hideAlertAction:_friendAlertView];
+    if (ottaFriendAlertCompletion != nil) {
+        ottaFriendAlertCompletion(FriendActionCancel);
+    }
+}
+
+- (void)showFriendNoBlockOnView:(UIView*)parentView withName:(NSString*)name complete:(OttaFriendAlertCompletion)completionBlock {
+    
+    self.view.frame = parentView.bounds;
+    [parentView addSubview:self.view];
+    _lblFriendName2.text = name;
+    ottaFriendAlertCompletion = completionBlock;
+    if ([_friendNoBlockAlertView superview] == nil) {
+        [self showAleartWithView:_friendNoBlockAlertView];
+    }
+}
+
+- (IBAction)removeFriend2:(id)sender {
+    [self hideAlertAction:_friendNoBlockAlertView];
+    if (ottaFriendAlertCompletion != nil) {
+        ottaFriendAlertCompletion(FriendActionRemove);
+    }
+}
+
+- (IBAction)cancelFriend2:(id)sender {
+    [self hideAlertAction:_friendNoBlockAlertView];
     if (ottaFriendAlertCompletion != nil) {
         ottaFriendAlertCompletion(FriendActionCancel);
     }
