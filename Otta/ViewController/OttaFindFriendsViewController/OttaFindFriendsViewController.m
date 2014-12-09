@@ -172,9 +172,10 @@
     for (NSDictionary *friendObject in listFacebooks) {
         NSString *friendID = [friendObject objectForKey:@"id"];
         NSString *friendName = [friendObject objectForKey:@"name"];
-        OttaFriend *friendToAdd = [[OttaFriend alloc] initWithName:friendName friendStatus:NO];
-        friendToAdd.facebookUserTokenId = friendID;
-        friendToAdd.name = friendName;
+        
+        PFUser *friendToAdd = [PFUser user];
+        [friendToAdd setName:friendName];
+        [friendToAdd setFacebookUserTokenId:friendID];
         [friends addObject:friendToAdd];
     }
     
@@ -191,13 +192,7 @@
         [friends removeAllObjects];
     }
     
-    for (PFUser *curUser in listFacebooks) {
-        OttaFriend *friendToAdd = [[OttaFriend alloc] initWithName:curUser.username friendStatus:NO];
-        friendToAdd.emailAdress = curUser.email;
-        friendToAdd.pfUser = curUser;
-        friendToAdd.name = [NSString stringWithFormat:@"%@ %@", curUser[@"firstName"], curUser[@"lastName"]];
-        [friends addObject:friendToAdd];
-    }
+    [friends addObjectsFromArray:listFacebooks];
     
     return friends;
 }
@@ -205,7 +200,7 @@
 //Return true if found
 -(BOOL) findUserInformation:(PFUser*)curUser contact:(RHPerson*)contact
 {
-    NSString *phoneNumber = [curUser objectForKey:@"phone"];
+    NSString *phoneNumber = [curUser phone];
     if(phoneNumber.length > 0) {
         //List phone to compare
         RHMultiValue *phoneNumbers = contact.phoneNumbers;
@@ -292,19 +287,21 @@
             //Load contacts to invite
             for (RHPerson *curPersion in listContacts) {
                 
-                OttaFriend *friendToAdd = [[OttaFriend alloc] initWithName:curPersion.name friendStatus:NO];
+                PFUser *friendToAdd = [PFUser user];
+                [friendToAdd setName:curPersion.name];
+                [friendToAdd setIsFriend:NO];
                 
                 //List phone to compare
                 RHMultiValue *phoneNumbers = curPersion.phoneNumbers;
                 NSArray *listPhoneCompare = [phoneNumbers values];
                 
                 //
-                friendToAdd.phoneNumber = listPhoneCompare.count > 0 ? listPhoneCompare[0] : @"";
+                [friendToAdd setPhone:listPhoneCompare.count > 0 ? listPhoneCompare[0] : @""];
                 
                 //List Email to compare
                 RHMultiValue *emails = curPersion.emails;
                 NSArray *listEmails = [emails values];
-                friendToAdd.emailAdress = listEmails.count > 0 ? listEmails[0] : @"";
+                friendToAdd.email = listEmails.count > 0 ? listEmails[0] : @"";
                 
                 [friends addObject:friendToAdd];
             }
@@ -350,14 +347,12 @@
         PFQuery *query = [PFQuery orQueryWithSubqueries:@[phoneQuery, emailQuery]];
         [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
             
-            //Remove redundant contacts
-            for (PFUser *curUser in objects) {
-                OttaFriend *friendToAdd = [[OttaFriend alloc] initWithName:curUser.username friendStatus:NO];
-                friendToAdd.emailAdress = curUser.email;
-                friendToAdd.pfUser = curUser;
-                friendToAdd.name = [NSString stringWithFormat:@"%@ %@", curUser[@"firstName"], curUser[@"lastName"]];
-                [friends addObject:friendToAdd];
+            if (!friends) {
+                friends = [NSMutableArray array];
             }
+            
+            [friends removeAllObjects];
+            [friends addObjectsFromArray:objects];
             
             dispatch_async(dispatch_get_main_queue(), ^{
                 [_tableFriends reloadData];
@@ -369,9 +364,9 @@
 
 -(void) selectAllFriends
 {
-    for (OttaFriend *curFriend in friends) {
-        if (!curFriend.isFriend) {
-            curFriend.isSelected = YES;
+    for (PFUser *curFriend in friends) {
+        if (![curFriend isFriend]) {
+            [curFriend setIsSelected:YES];
         }
     }
 }
@@ -395,8 +390,8 @@ replacementString:(NSString *)string {
 - (void)searchWithName:(NSString*)searchname
 {
     [searchResults removeAllObjects];
-    for (OttaFriend *curFriend in friends) {
-        if([curFriend.name rangeOfString:searchname options:NSCaseInsensitiveSearch].location != NSNotFound) {
+    for (PFUser *curFriend in friends) {
+        if([[curFriend name] rangeOfString:searchname options:NSCaseInsensitiveSearch].location != NSNotFound) {
             [searchResults addObject:curFriend];
         }
     }
@@ -423,11 +418,11 @@ replacementString:(NSString *)string {
     
     if([searchResults count] > 0 && isSearching) {
         
-        OttaFriend *f = (OttaFriend *)[searchResults objectAtIndex:indexPath.row];
-        cell.lblText.text = f.name;
+        PFUser *f = (PFUser *)[searchResults objectAtIndex:indexPath.row];
+        cell.lblText.text = [f name];
         [cell.lblText setFont:[UIFont fontWithName:@"OpenSans-Light" size:18.00f]];
         
-        if (f.isFriend || f.isSelected){
+        if ([f isFriend] || [f isSelected]){
             image = [UIImage imageNamed:@"Otta_friends_button_added.png"];
         }
         
@@ -436,14 +431,14 @@ replacementString:(NSString *)string {
             cell.lblText.text = [@"Select All" toCurrentLanguage];
             [cell.lblText setFont:[UIFont fontWithName:@"OpenSans-Semibold" size:18.00f]];
         } else {
-            OttaFriend *f = (OttaFriend *)[friends objectAtIndex:indexPath.row - (_isInviteMode ? 0 : 1)];
-            cell.lblText.text = f.name;
+            PFUser *f = (PFUser *)[friends objectAtIndex:indexPath.row - (_isInviteMode ? 0 : 1)];
+            cell.lblText.text = [f name];
             [cell.lblText setFont:[UIFont fontWithName:@"OpenSans-Light" size:18.00f]];
             
             if(_isInviteMode) {
                 image = [UIImage imageNamed:@"icon_email.png"];
             } else {
-                if (f.isFriend || f.isSelected){
+                if ([f isFriend] || [f isSelected]){
                     image = [UIImage imageNamed:@"Otta_friends_button_added.png"];
                 }
             }
@@ -474,9 +469,9 @@ replacementString:(NSString *)string {
     //Searching
     if(isSearching) {
         
-        OttaFriend *curFriend = [searchResults objectAtIndex:indexPath.row];
-        if(!curFriend.isFriend) {
-            curFriend.isSelected = !curFriend.isSelected;
+        PFUser *curFriend = [searchResults objectAtIndex:indexPath.row];
+        if(![curFriend isFriend]) {
+            [curFriend setIsSelected:![curFriend isSelected]];
             [tableView reloadData];
         }
         
@@ -488,43 +483,33 @@ replacementString:(NSString *)string {
             
         } else {
             if (_isInviteMode) {
-                OttaFriend *curFriend = [friends objectAtIndex:indexPath.row];
+                PFUser *curFriend = [friends objectAtIndex:indexPath.row];
                 
                 if(isSelectSMS) {
-//                    if(curFriend.phoneNumber.length <= 0) {
-//                        [[OttaAlertManager sharedManager] showSimpleAlertWithContent:[@"This user cannot be accessed phone number" toCurrentLanguage] complete:nil];
-//                    } else {
-                        MFMessageComposeViewController *controller = [[MFMessageComposeViewController alloc] init];
-                        if([MFMessageComposeViewController canSendText]) {
-                            controller.body = [NSString stringWithFormat:@"Hi %@, join with us!", curFriend.name];
-                            controller.recipients = [NSArray arrayWithObjects:curFriend.phoneNumber, nil];
-                            controller.messageComposeDelegate = self;
-                            [self presentViewController:controller animated:YES completion:nil];
-//                        } else {
-//                            //[[OttaAlertManager sharedManager] showSimpleAlertWithContent:[@"Your device cannot send SMS at this time" toCurrentLanguage] complete:nil];
-//                        }
+                    MFMessageComposeViewController *controller = [[MFMessageComposeViewController alloc] init];
+                    if([MFMessageComposeViewController canSendText]) {
+                        controller.body = [NSString stringWithFormat:@"Hi %@, join with us!", curFriend.name];
+                        controller.recipients = [NSArray arrayWithObjects:[curFriend phone], nil];
+                        controller.messageComposeDelegate = self;
+                        [self presentViewController:controller animated:YES completion:nil];
                     }
                 } else {
-//                    if(curFriend.emailAdress.length <= 0) {
-//                        [[OttaAlertManager sharedManager] showSimpleAlertWithContent:[@"This user cannot be accessed email" toCurrentLanguage] complete:nil];
-//                    } else {
-                        MFMailComposeViewController* controller = [[MFMailComposeViewController alloc] init];
-                        controller.mailComposeDelegate = self;
-                    if(curFriend.emailAdress.length > 0) {
-                        [controller setToRecipients:[NSArray arrayWithObject:curFriend.emailAdress]];
+                    MFMailComposeViewController* controller = [[MFMailComposeViewController alloc] init];
+                    controller.mailComposeDelegate = self;
+                    if(curFriend.email.length > 0) {
+                        [controller setToRecipients:[NSArray arrayWithObject:curFriend.email]];
                     }
-                        [controller setSubject:[NSString stringWithFormat:@"Hi %@, join with us!", curFriend.name]];
-                        [controller setMessageBody:@"Hello There" isHTML:NO];
-                        if (controller) {
-                            [self presentViewController:controller animated:YES completion:nil];
-                        }
-//                    }
+                    [controller setSubject:[NSString stringWithFormat:@"Hi %@, join with us!", curFriend.name]];
+                    [controller setMessageBody:@"Hello There" isHTML:NO];
+                    if (controller) {
+                        [self presentViewController:controller animated:YES completion:nil];
+                    }
                 }
                 
             } else {
-                OttaFriend *curFriend = [friends objectAtIndex:indexPath.row];
-                if(!curFriend.isFriend) {
-                    curFriend.isSelected = !curFriend.isSelected;
+                PFUser *curFriend = [friends objectAtIndex:indexPath.row];
+                if(![curFriend isFriend]) {
+                    [curFriend setIsSelected: ![curFriend isSelected]];
                     [tableView reloadData];
                 }
             }
@@ -559,8 +544,8 @@ replacementString:(NSString *)string {
         
         NSMutableString *listUserId = [[NSMutableString alloc] initWithString:@""];
         
-        for (OttaFriend *curFriend in friends) {
-            if(curFriend.isSelected) {
+        for (PFUser *curFriend in friends) {
+            if([curFriend isSelected]) {
                 [listUserId appendFormat:@"%@,", curFriend.facebookUserTokenId];
             }
         }
@@ -625,7 +610,6 @@ replacementString:(NSString *)string {
                                    listUserId, @"tags",
                                    nil];
     
-   
     [FBRequestConnection startWithGraphPath:@"me/feed"
                                  parameters:params
                                  HTTPMethod:@"POST"
