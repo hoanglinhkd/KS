@@ -6,6 +6,7 @@
 
 @interface OttaAnswerersViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 
+@property (strong, nonatomic) NSArray *follows;
 @property (weak, nonatomic) IBOutlet UIButton *btnCheck;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 

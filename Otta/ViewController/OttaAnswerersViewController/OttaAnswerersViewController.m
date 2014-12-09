@@ -1,6 +1,8 @@
 
 
 #import "OttaAnswerersViewController.h"
+#import "OttaParseClientManager.h"
+#import "MBProgressHUD.h"
 
 @interface OttaAnswerersViewController ()
 {
@@ -16,28 +18,19 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     isSelectAll = NO;
-    [self loadData];
+    //[self loadData];
 }
 
 -(void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
+    [self loadFriends];
+    friends = [[NSMutableArray alloc] init];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-}
-
-- (void)loadData{
-    OttaFriend *f1 = [[OttaFriend alloc] initWithName:@"Jamie Moskowitz" selected:YES];
-    OttaFriend *f2 = [[OttaFriend alloc] initWithName:@"Danny Madriz" selected:NO];
-    OttaFriend *f3 = [[OttaFriend alloc] initWithName:@"Brandon Baer" selected:YES];
-    OttaFriend *f4 = [[OttaFriend alloc] initWithName:@"Austin Thomas" selected:YES];
-    OttaFriend *f5 = [[OttaFriend alloc] initWithName:@"Chloe Fulton" selected:NO];
-    OttaFriend *f6 = [[OttaFriend alloc] initWithName:@"David Chu" selected:YES];
-    OttaFriend *f7 = [[OttaFriend alloc] initWithName:@"Peter Carey" selected:NO];
-    friends = [[NSMutableArray alloc] initWithObjects:f1,f2,f3,f4,f5,f6,f7,nil];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -55,20 +48,32 @@
                 UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
     }
     
-    OttaFriend *f = [friends objectAtIndex:indexPath.row];
-    cell.lblText.text = f.name;
+    PFObject *follow = _follows[indexPath.row];
+    PFUser *user = follow[kTo];
+    cell.lblText.text = @"";
+    [user fetchIfNeededInBackgroundWithBlock:^(PFObject *object, NSError *error) {
+        NSString *name = [NSString stringWithFormat:@"%@ %@", user[kFirstName], user[kLastName]];
+        OttaFriend *ottaFriend = [[OttaFriend alloc] initWithName:@"Jamie Moskowitz" selected:NO];
+        ottaFriend.pfUser = user;
+        [friends addObject:ottaFriend];
+        cell.lblText.text = name;
+    }];
     
-    if (f.isSelected){
-        cell.imgIcon.image = [UIImage imageNamed:@"Otta_friends_button_added.png"];
-    } else {
-        cell.imgIcon.image = [UIImage imageNamed:@"Otta_ask_button_add_grey.png"];
+    cell.imgIcon.image = [UIImage imageNamed:@"Otta_ask_button_add_grey.png"];
+    @try {
+        OttaFriend *f = [friends objectAtIndex:indexPath.row];
+        if (f.isSelected){
+            cell.imgIcon.image = [UIImage imageNamed:@"Otta_friends_button_added.png"];
+        }
     }
-    
+    @catch (NSException *exception) {
+        //<#Handle an exception thrown in the @try block#>
+    }
     return cell;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [friends count];
+    return [_follows count];
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -99,6 +104,18 @@
 
 - (IBAction)btnBackPress:(id)sender {
     [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void) loadFriends {
+    
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    [[OttaParseClientManager sharedManager] getAllFollowFromUser:[PFUser currentUser] withBlock:^(NSArray *array, NSError *error) {
+        _follows = [[NSArray alloc] initWithArray:array];
+        [_tableView reloadData];
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
+    }];
+
+    
 }
 
 @end
