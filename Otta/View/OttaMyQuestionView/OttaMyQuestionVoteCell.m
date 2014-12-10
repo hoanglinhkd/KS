@@ -42,15 +42,15 @@
     if (cell==nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
         cell.textLabel.textColor = [UIColor whiteColor];
+        cell.textLabel.font = [UIFont fontWithName:@"OpenSans" size:13];
     }
     OttaUser *dto = [arrData objectAtIndex:indexPath.row];
-    cell.textLabel.text = [dto.firstName stringByAppendingFormat:@" %@",dto.lastName];
-    cell.textLabel.textAlignment = NSTextAlignmentCenter;
+    cell.textLabel.text = [@"       " stringByAppendingFormat:@"%@ %@",dto.firstName,dto.lastName];
     cell.backgroundColor = tableView.backgroundColor;
     return cell;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 30.0;
+    return 20.0;
 }
 @end

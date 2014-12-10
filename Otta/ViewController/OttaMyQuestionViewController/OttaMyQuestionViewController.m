@@ -331,6 +331,7 @@ static NSString * const OttaMyQuestionVoteCellIdentifier        = @"OttaMyQuesti
         case MyQuestionDataTypeFooterNormal:
             break;
         case MyQuestionDataTypeAnswerPicture:
+            [self processVoteDataForRowAtIndex:indexPath];
             break;
         case MyQuestionDataTypeFooterSeeAll:
             break;
@@ -669,15 +670,34 @@ static NSString * const OttaMyQuestionVoteCellIdentifier        = @"OttaMyQuesti
     
 }
 - (void)processVoteDataForRowAtIndex:(NSIndexPath*)indexPath{
-    OttaMyQuestionData *obj = [[OttaMyQuestionData alloc] init];
-    
-    NSArray *voteData = [dictVoteData valueForKey:[NSString stringWithFormat:@"%.0ld",(long)indexPath.row]];
-    obj.voteUsers = [[NSArray alloc] initWithArray:voteData];
-    obj.dataType = MyQuestionDataTypeVote;
-    [dataForShow insertObject:obj atIndex:indexPath.row+1];
-    NSIndexPath *newIndexPath = [NSIndexPath indexPathForRow:indexPath.row+1 inSection:0];
-    NSArray *arrInsertIdxPaths = [[NSArray alloc] initWithObjects:newIndexPath, nil];
-    
-    [self.myTableView insertRowsAtIndexPaths:arrInsertIdxPaths withRowAnimation:UITableViewRowAnimationFade];
+    OttaMyQuestionData *currQuestion = [dataForShow objectAtIndex:indexPath.row];
+    if (currQuestion.isShowedVote) {
+        currQuestion.isShowedVote = NO;
+        // Remove data at dataForShow
+        [dataForShow removeObjectAtIndex:indexPath.row + 1];
+        
+        // Animation for delete row
+        NSIndexPath* rowIndexPath = [NSIndexPath indexPathForRow:indexPath.row+1 inSection:0];
+        NSArray *rowsToDelete = [[NSArray alloc] initWithObjects:rowIndexPath, nil];
+        [self.myTableView deleteRowsAtIndexPaths:rowsToDelete withRowAnimation:UITableViewRowAnimationTop];
+        
+    }else{
+        currQuestion.isShowedVote = YES;
+        
+        //get Data for vote at index
+        OttaMyQuestionData *obj = [[OttaMyQuestionData alloc] init];
+        NSArray *voteData = [dictVoteData valueForKey:@"1"];
+        obj.voteUsers = [[NSArray alloc] initWithArray:voteData];
+        obj.dataType = MyQuestionDataTypeVote;
+        
+        // add new data for vote cell
+        [dataForShow insertObject:obj atIndex:indexPath.row+1];
+        
+        // Animation for add cell
+        NSIndexPath *newIndexPath = [NSIndexPath indexPathForRow:indexPath.row+1 inSection:0];
+        NSArray *arrInsertIdxPaths = [[NSArray alloc] initWithObjects:newIndexPath, nil];
+        [self.myTableView insertRowsAtIndexPaths:arrInsertIdxPaths withRowAnimation:UITableViewRowAnimationFade];
+        
+    }
 }
 @end
