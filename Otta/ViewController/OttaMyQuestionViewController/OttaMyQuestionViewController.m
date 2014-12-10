@@ -298,7 +298,7 @@ static NSString * const OttaMyQuestionVoteCellIdentifier        = @"OttaMyQuesti
             return [self doneCellAtIndexPath:indexPath];;
             break;
         case MyQuestionDataTypeVote:
-            return [self doneCellAtIndexPath:indexPath];;
+            return [self voteCellAtIndexPath:indexPath];;
             break;
         default:
             break;
