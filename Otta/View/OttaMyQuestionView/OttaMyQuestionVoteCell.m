@@ -7,6 +7,7 @@
 //
 
 #import "OttaMyQuestionVoteCell.h"
+#import "OttaUser.h"
 
 @interface OttaMyQuestionVoteCell()<UITableViewDataSource, UITableViewDelegate>{
     NSArray *arrData;
@@ -40,9 +41,16 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     if (cell==nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
+        cell.textLabel.textColor = [UIColor whiteColor];
     }
-    
-    cell.textLabel.text = @"123";
+    OttaUser *dto = [arrData objectAtIndex:indexPath.row];
+    cell.textLabel.text = [dto.firstName stringByAppendingFormat:@" %@",dto.lastName];
+    cell.textLabel.textAlignment = NSTextAlignmentCenter;
+    cell.backgroundColor = tableView.backgroundColor;
     return cell;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return 30.0;
 }
 @end

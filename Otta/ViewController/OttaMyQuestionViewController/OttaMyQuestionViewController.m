@@ -48,6 +48,7 @@ static NSString * const OttaMyQuestionVoteCellIdentifier        = @"OttaMyQuesti
     // Do any additional setup after loading the view.
     [self createDemoData];
     [self processDataForShow];
+    [self createVoteData];
     [myTableView reloadData];
 }
 -(void)viewDidAppear:(BOOL)animated
@@ -74,7 +75,7 @@ static NSString * const OttaMyQuestionVoteCellIdentifier        = @"OttaMyQuesti
  */
 - (void)createVoteData{
     dictVoteData = [[NSMutableDictionary alloc] initWithCapacity:10];
-    for (int i=0; i < dataForShow.count; i++) {
+    for (NSInteger i=0; i < dataForShow.count; i++) {
         NSMutableArray *data = [[NSMutableArray alloc] init];
         
         OttaUser *user1 = [[OttaUser alloc] init];
@@ -104,7 +105,7 @@ static NSString * const OttaMyQuestionVoteCellIdentifier        = @"OttaMyQuesti
         
         OttaMyQuestionData *dto = dataForShow[i];
         if (dto.dataType == MyQuestionDataTypeAnswer) {
-            [dictVoteData setValue:data forKey:[NSString stringWithFormat:@"%d",i]];
+            [dictVoteData setValue:data forKey:[NSString stringWithFormat:@"%.0ld",i]];
         }
     }
 }
@@ -422,6 +423,9 @@ static NSString * const OttaMyQuestionVoteCellIdentifier        = @"OttaMyQuesti
         case MyQuestionDataTypeDone:
             return [self heightForDoneCellAtIndexPath:indexPath];
             break;
+        case MyQuestionDataTypeVote:
+            return 80.0;
+            break;
         default:
             break;
     }
@@ -605,8 +609,36 @@ static NSString * const OttaMyQuestionVoteCellIdentifier        = @"OttaMyQuesti
     BOOL isSeeAll = !((OttaQuestion*)datas[referIndex]).isSeeAll;
     ((OttaQuestion*)datas[referIndex]).isSeeAll = isSeeAll;
     
-    [self processDataForShow];
+    //[self processDataForShow];
+    // Process Data
+    int numberLocation = -1;
+    if (isSeeAll) {
+        BOOL flagHasPhoTo = NO;
+        for (OttaAnswer *ans in ((OttaQuestion*)datas[referIndex]).ottaAnswers) {
+            if(numberLocation >= 0){
+                OttaMyQuestionData *objAnswer1 = [[OttaMyQuestionData alloc] init];
+                ans.numberAnswer = numberLocation+2;
+                if (ans.answerHasphoto) {
+                    objAnswer1.dataType = MyQuestionDataTypeAnswerPicture;
+                    flagHasPhoTo = YES;
+                }else{
+                    objAnswer1.dataType = MyQuestionDataTypeAnswer;
+                }
+                objAnswer1.answer = ans;
+                [dataForShow insertObject:objAnswer1 atIndex:currIndex + numberLocation];
+            }
+            numberLocation++;
+        }
+        OttaMyQuestionData *objFooter1 = [dataForShow objectAtIndex:currIndex+numberLocation];
+        objFooter1.dataType = flagHasPhoTo ? MyQuestionDataTypeFooterCollapse:MyQuestionDataTypeFooterNormal;
+        objFooter1.currentTableIndex = (int)currIndex + numberLocation;
+    }else{
+        OttaMyQuestionData *objFooter2 = [dataForShow objectAtIndex:currIndex];
+        objFooter2.dataType = MyQuestionDataTypeFooterSeeAll;
+    }
     
+    // -- End Process Data
+    // Animation
     if(isSeeAll){
         
         NSMutableArray *arrInsertIdxPaths = [[NSMutableArray alloc] initWithCapacity:3];
@@ -625,6 +657,7 @@ static NSString * const OttaMyQuestionVoteCellIdentifier        = @"OttaMyQuesti
             for(int i=1; i <= ((OttaQuestion*)datas[referIndex]).ottaAnswers.count - 1; i++){
                 NSIndexPath* rowToReload = [NSIndexPath indexPathForRow:currIndex-i inSection:0];
                 [rowsToReload addObject:rowToReload];
+                [dataForShow removeObjectAtIndex:rowToReload.row];
             }
             [self.myTableView deleteRowsAtIndexPaths:rowsToReload withRowAnimation:UITableViewRowAnimationTop];
         } completion:^(BOOL finished) {
@@ -636,6 +669,15 @@ static NSString * const OttaMyQuestionVoteCellIdentifier        = @"OttaMyQuesti
     
 }
 - (void)processVoteDataForRowAtIndex:(NSIndexPath*)indexPath{
+    OttaMyQuestionData *obj = [[OttaMyQuestionData alloc] init];
     
+    NSArray *voteData = [dictVoteData valueForKey:[NSString stringWithFormat:@"%.0ld",(long)indexPath.row]];
+    obj.voteUsers = [[NSArray alloc] initWithArray:voteData];
+    obj.dataType = MyQuestionDataTypeVote;
+    [dataForShow insertObject:obj atIndex:indexPath.row+1];
+    NSIndexPath *newIndexPath = [NSIndexPath indexPathForRow:indexPath.row+1 inSection:0];
+    NSArray *arrInsertIdxPaths = [[NSArray alloc] initWithObjects:newIndexPath, nil];
+    
+    [self.myTableView insertRowsAtIndexPaths:arrInsertIdxPaths withRowAnimation:UITableViewRowAnimationFade];
 }
 @end
