@@ -39,4 +39,6 @@ enum MyQuestionDataType{
 @property (nonatomic, strong) NSArray *voteUsers;
 @property (nonatomic, assign) BOOL isShowedVote;
 
+
+
 @end

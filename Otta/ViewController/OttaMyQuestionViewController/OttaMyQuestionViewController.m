@@ -28,6 +28,8 @@ static NSString * const OttaMyQuestionPictureCellIdentifier     = @"OttaMyQuesti
 static NSString * const OttaMyQuestionDoneCellIdentifier        = @"OttaMyQuestionDoneCell";
 static NSString * const OttaMyQuestionVoteCellIdentifier        = @"OttaMyQuestionVoteCell";
 
+#define kDefaultColorBackGround [UIColor colorWithRed:143*1.0/255 green:202*1.0/255 blue:64*1.0/255 alpha:1.0f]
+
 @interface OttaMyQuestionViewController ()<UITableViewDataSource, UITableViewDelegate, OttaMyQuestionFooterCellDelegate>{
     NSMutableArray *datas;
     
@@ -121,9 +123,9 @@ static NSString * const OttaMyQuestionVoteCellIdentifier        = @"OttaMyQuesti
             OttaAnswer *answer = [[OttaAnswer alloc] init];
             //answer.answerImage = [UIImage imageNamed:@"creme_brelee.jpg"];
             if (j==2) {
-                answer.answerText  = [NSString stringWithFormat:@"this is an answer with very long content, may be it will look like this number %d",j];
+                answer.answerText  = [NSString stringWithFormat:@"this is an answer with very long content, may be it will look like this number - %d",j];
             }else{
-                answer.answerText  = [NSString stringWithFormat:@"answer number %d",j];
+                answer.answerText  = [NSString stringWithFormat:@"answer number - %d",j];
             }
             
             answer.answerHasContent = YES;
@@ -150,11 +152,11 @@ static NSString * const OttaMyQuestionVoteCellIdentifier        = @"OttaMyQuesti
             OttaAnswer *answer = [[OttaAnswer alloc] init];
             answer.answerImage = [UIImage imageNamed:@"creme_brelee.jpg"];
             if (j==2) {
-                answer.answerText  = [NSString stringWithFormat:@"this is an answer with very long content, may be it will look like this number %d",j];
+                answer.answerText  = [NSString stringWithFormat:@"this is an answer with very long content, may be it will look like this number - %d",j];
             }else if(j==3){
-                answer.answerText  = [NSString stringWithFormat:@"this is an answer with very long content, may be it will look like this number, this is an answer with very long content, may be it will look like this number %d",j];
+                answer.answerText  = [NSString stringWithFormat:@"this is an answer with very long content, may be it will look like this number, this is an answer with very long content, may be it will look like this number - %d",j];
             }else{
-                answer.answerText  = [NSString stringWithFormat:@"answer number %d",j];
+                answer.answerText  = [NSString stringWithFormat:@"answer number - %d",j];
             }
             
             answer.answerHasContent = YES;
@@ -515,7 +517,16 @@ static NSString * const OttaMyQuestionVoteCellIdentifier        = @"OttaMyQuesti
     OttaMyQuestionData *dto = dataForShow[indexPath.row];
     
     cell.lblOrderNumber.text = [NSString stringWithFormat:@"%d",dto.answer.numberAnswer];
-    cell.lblText.text = dto.answer.answerText;
+    
+    NSString *text = dto.answer.answerText;
+    NSRange range = [text rangeOfString:@"-"];
+    range.location += 2;
+    range.length = text.length - range.location;
+    
+    NSMutableAttributedString *mutable = [[NSMutableAttributedString alloc] initWithString:text];
+    [mutable addAttribute: NSForegroundColorAttributeName value:kDefaultColorBackGround range:range];
+    
+    [cell.lblText setAttributedText:mutable];
 }
 // For text cell
 - (OttaMyQuestionPictureCell *)pictureCellAtIndexPath:(NSIndexPath *)indexPath {
@@ -528,8 +539,16 @@ static NSString * const OttaMyQuestionVoteCellIdentifier        = @"OttaMyQuesti
     OttaMyQuestionData *dto = dataForShow[indexPath.row];
     
     cell.lblOrderNumber.text = [NSString stringWithFormat:@"%d",dto.answer.numberAnswer];
-    cell.lblText.text = dto.answer.answerText;
     cell.imageViewData.image = dto.answer.answerImage;
+    
+    NSString *text = dto.answer.answerText;
+    NSRange range = [text rangeOfString:@"-"];
+    range.location += 2;
+    range.length = text.length - range.location;
+    
+    NSMutableAttributedString *mutable = [[NSMutableAttributedString alloc] initWithString:text];
+    [mutable addAttribute: NSForegroundColorAttributeName value:kDefaultColorBackGround range:range];
+    [cell.lblText setAttributedText:mutable];
 }
 // For Header Cell
 - (OttaMyQuestionHeaderCell *)headerCellAtIndexPath:(NSIndexPath *)indexPath {
@@ -658,6 +677,11 @@ static NSString * const OttaMyQuestionVoteCellIdentifier        = @"OttaMyQuesti
             for(int i=1; i <= ((OttaQuestion*)datas[referIndex]).ottaAnswers.count - 1; i++){
                 NSIndexPath* rowToReload = [NSIndexPath indexPathForRow:currIndex-i inSection:0];
                 [rowsToReload addObject:rowToReload];
+                
+                OttaMyQuestionData *dataAtCurrent = [dataForShow objectAtIndex:rowToReload.row];
+                if (dataAtCurrent.isShowedVote) {
+                    [self tableView:self.myTableView didSelectRowAtIndexPath:rowToReload];
+                }
                 [dataForShow removeObjectAtIndex:rowToReload.row];
             }
             [self.myTableView deleteRowsAtIndexPaths:rowsToReload withRowAnimation:UITableViewRowAnimationTop];
