@@ -183,6 +183,12 @@
         case 3:
             [self performSegueWithIdentifier:@"segueFriends" sender:nil];
             break;
+        case 4:
+            [self performSegueWithIdentifier:@"segueSetting" sender:nil];
+            break;
+        case 5:
+            [self performSegueWithIdentifier:@"segueAbout" sender:nil];
+            break;
             
         default:
             [self performSegueWithIdentifier:@"segueAskQuestion" sender:nil];
