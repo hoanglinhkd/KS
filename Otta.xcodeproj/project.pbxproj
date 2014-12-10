@@ -1605,7 +1605,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: GottaOtta, Inc.  (3VMD94Y2M8)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -1619,6 +1619,7 @@
 					"$(PROJECT_DIR)/Otta/Lib/Testflight",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "856b340c-812f-4d2e-99b4-263af68781e8";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -1629,8 +1630,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Sojo Digital Inc. (NJYXP339SK)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Sojo Digital Inc. (NJYXP339SK)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: GottaOtta, Inc.  (3VMD94Y2M8)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: GottaOtta, Inc.  (3VMD94Y2M8)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -1644,7 +1645,7 @@
 					"$(PROJECT_DIR)/Otta/Lib/Testflight",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "809ab396-582e-4ab9-903a-141994317fc0";
+				PROVISIONING_PROFILE = "856b340c-812f-4d2e-99b4-263af68781e8";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

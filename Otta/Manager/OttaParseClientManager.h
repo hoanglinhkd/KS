@@ -107,28 +107,12 @@ typedef void(^OttaCountBlock)(int count, NSError* error);
 - (void)getAllFollowToUser:(PFUser*)user withBlock:(OttaArrayDataBlock)resultBlock;
 
 /**
- *  Get All follower by user
- *
- *  @param user
- *  @param resultBlock
- */
-- (void)getAllUsersFollowToUser:(PFUser*)user withBlock:(OttaArrayDataBlock)resultBlock;
-
-/**
  *  Get All followed by user
  *
  *  @param user
  *  @param resultBlock
  */
 - (void)getAllFollowFromUser:(PFUser*)user withBlock:(OttaArrayDataBlock)resultBlock;
-
-/**
- *  Get All followed by user
- *
- *  @param user
- *  @param resultBlock
- */
-- (void)getAllUsersFollowFromUser:(PFUser*)user withBlock:(OttaArrayDataBlock)resultBlock;
 
 /**
  *  count follower by user

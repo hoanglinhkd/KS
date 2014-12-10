@@ -150,6 +150,7 @@
     // set up the query on the Follow table
     PFQuery *query = [PFQuery queryWithClassName:kOttaFollow];
     [query whereKey:kTo equalTo:user];
+    [query includeKey:kFrom];
     
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
             // o is an entry in the Follow table
@@ -160,26 +161,11 @@
     }];
 }
 
-- (void)getAllUsersFollowToUser:(PFUser*)user withBlock:(OttaArrayDataBlock)resultBlock {
-    NSMutableArray *userIDs = [[NSMutableArray alloc] init];
-    // set up the query on the Follow table
-    [self getAllFollowToUser:user withBlock:^(NSArray *array, NSError *error) {
-        for (PFUser *objUser in array) {
-            PFUser *cur = [objUser objectForKey:kFrom];
-            [userIDs addObject:cur.objectId];
-        }
-        PFQuery *query = [PFUser query];
-        [query whereKey:kObjectId containedIn:userIDs];
-        [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-            resultBlock(objects, error);
-        }];
-    }];
-}
-
 - (void)getAllFollowFromUser:(PFUser*)user withBlock:(OttaArrayDataBlock)resultBlock {
     // set up the query on the Follow table
     PFQuery *query = [PFQuery queryWithClassName:kOttaFollow];
     [query whereKey:kFrom equalTo:user];
+    [query includeKey:kTo];
     
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         // o is an entry in the Follow table
@@ -187,22 +173,6 @@
         //PFUser *otherUser = [o objectForKey@"to"];
         
         resultBlock(objects, error);
-    }];
-}
-
-- (void)getAllUsersFollowFromUser:(PFUser*)user withBlock:(OttaArrayDataBlock)resultBlock {
-    NSMutableArray *userIDs = [[NSMutableArray alloc] init];
-    // set up the query on the Follow table
-    [self getAllFollowFromUser:user withBlock:^(NSArray *array, NSError *error) {
-        for (PFUser *objUser in array) {
-            PFUser *cur = [objUser objectForKey:kTo];
-            [userIDs addObject:cur.objectId];
-        }
-        PFQuery *query = [PFUser query];
-        [query whereKey:kObjectId containedIn:userIDs];
-        [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-            resultBlock(objects, error);
-        }];
     }];
 }
 
@@ -254,6 +224,15 @@
     
     [question saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         resultBlock(succeeded, error);
+    }];
+}
+
+- (void)getMyQuestionFromUser:(PFUser*)user withBlock:(OttaArrayDataBlock)resultBlock {
+    PFQuery *query = [PFQuery queryWithClassName:kOttaQuestion];
+    [query whereKey:kAsker equalTo:user];
+    [query includeKey:kAnswers];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        resultBlock(objects, error);
     }];
 }
 

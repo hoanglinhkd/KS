@@ -64,10 +64,12 @@
     }
     
     cell.lblText.text = @"";
-    [user fetchIfNeededInBackgroundWithBlock:^(PFObject *object, NSError *error) {
-        NSString *name = [NSString stringWithFormat:@"%@ %@", user[kFirstName], user[kLastName]];
-        cell.lblText.text = name;
-    }];
+    //[user fetchIfNeededInBackgroundWithBlock:^(PFObject *object, NSError *error) {
+    
+    NSString *name = [NSString stringWithFormat:@"%@ %@", user[kFirstName], user[kLastName]];
+    cell.lblText.text = name;
+    
+    //}];
     
     if ([follow[kIsBlocked] boolValue] && _isAnswererTab) {
         cell.lblText.textColor = [UIColor redColor];

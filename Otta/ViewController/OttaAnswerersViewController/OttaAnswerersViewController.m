@@ -51,13 +51,15 @@
     PFObject *follow = _follows[indexPath.row];
     PFUser *user = follow[kTo];
     cell.lblText.text = @"";
-    [user fetchIfNeededInBackgroundWithBlock:^(PFObject *object, NSError *error) {
-        NSString *name = [NSString stringWithFormat:@"%@ %@", user[kFirstName], user[kLastName]];
-        OttaFriend *ottaFriend = [[OttaFriend alloc] initWithName:@"Jamie Moskowitz" selected:NO];
-        ottaFriend.pfUser = user;
-        [friends addObject:ottaFriend];
-        cell.lblText.text = name;
-    }];
+    //[user fetchIfNeededInBackgroundWithBlock:^(PFObject *object, NSError *error) {
+    
+    NSString *name = [NSString stringWithFormat:@"%@ %@", user[kFirstName], user[kLastName]];
+    OttaFriend *ottaFriend = [[OttaFriend alloc] initWithName:@"Jamie Moskowitz" selected:NO];
+    ottaFriend.pfUser = user;
+    [friends addObject:ottaFriend];
+    cell.lblText.text = name;
+    
+    //}];
     
     cell.imgIcon.image = [UIImage imageNamed:@"Otta_ask_button_add_grey.png"];
     @try {
