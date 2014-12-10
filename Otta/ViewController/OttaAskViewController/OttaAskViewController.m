@@ -14,11 +14,14 @@
 #import "OttaAlertManager.h"
 #import "NSString+Language.h"
 #import "UIViewController+ECSlidingViewController.h"
+#import "OttaAnswerersViewController.h"
 
 @interface OttaAskViewController ()
 {
     NSMutableDictionary *listHeightQuestion;
     NSString* deadlineString;
+    int selectedTimeValue;
+    TimeSelection selectedDuration;
 }
 
 @property (strong) OttaOptionCell *editingOptionCell;
@@ -77,6 +80,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+
+    selectedTimeValue = 0;
     [self.navigationController setNavigationBarHidden:YES];
     
     listHeightQuestion = [NSMutableDictionary dictionary];
@@ -355,15 +360,19 @@ UITextView itsTextView = [[UITextView alloc] initWithFrame:CGRectMake(0, 0, itsT
     if ((_optionsArray.count < 4 && indexPath.row == _optionsArray.count + 1) || (_optionsArray.count == 4 && indexPath.row == _optionsArray.count)) {
         // Choose deadline
         [[OttaAlertManager sharedManager] showLimitTimerPickerOnView:self.view completionBlock:^(NSInteger timeValue, TimeSelection timeSelectionValue) {
+            
+            selectedTimeValue = timeValue;
+            selectedDuration = timeSelectionValue;
+            
             NSString *str = @"";
             switch (timeSelectionValue) {
-                case 0:
+                case TimeSelection_Minutes:
                     str = [NSString stringWithFormat:@"%d Minutes",timeValue];
                     break;
-                case 1:
+                case TimeSelection_Hours:
                     str = [NSString stringWithFormat:@"%d Hours",timeValue];
                     break;
-                case 2:
+                case TimeSelection_Days:
                     str = [NSString stringWithFormat:@"%d Days",timeValue];
                     break;
                 default:
@@ -453,6 +462,12 @@ UITextView itsTextView = [[UITextView alloc] initWithFrame:CGRectMake(0, 0, itsT
         dest.image = self.editingOptionCell.imgMain.image;
         dest.question =  _itsTextView.text;
         dest.delegate = self;
+    } else if([[segue identifier] isEqualToString:@"segueAnswerers"]) {
+        OttaAnswerersViewController *answerVC = (OttaAnswerersViewController*)[segue destinationViewController];
+        answerVC.optionsArray = _optionsArray;
+        answerVC.selectedDuration = selectedDuration;
+        answerVC.selectedTimeValue = selectedTimeValue;
+        answerVC.askQuestionValue = _itsTextView.text;
     }
 }
 
