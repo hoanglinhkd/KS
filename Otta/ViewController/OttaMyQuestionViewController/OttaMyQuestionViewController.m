@@ -11,6 +11,7 @@
 
 #import "OttaQuestion.h"
 #import "OttaAnswer.h"
+#import "OttaUser.h"
 #import "OttaMyQuestionData.h"
 
 #import "OttaMyQuestionHeaderCell.h"
@@ -18,17 +19,20 @@
 #import "OttaMyQuestionTextCell.h"
 #import "OttaMyQuestionPictureCell.h"
 #import "OttaMyQuestionDoneCell.h"
+#import "OttaMyQuestionVoteCell.h"
 
 static NSString * const OttaMyQuestionHeaderCellIdentifier      = @"OttaMyQuestionHeaderCell";
 static NSString * const OttaMyQuestionTextCellIdentifier        = @"OttaMyQuestionTextCell";
 static NSString * const OttaMyQuestionFooterCellIdentifier      = @"OttaMyQuestionFooterCell";
 static NSString * const OttaMyQuestionPictureCellIdentifier     = @"OttaMyQuestionPictureCell";
 static NSString * const OttaMyQuestionDoneCellIdentifier        = @"OttaMyQuestionDoneCell";
+static NSString * const OttaMyQuestionVoteCellIdentifier        = @"OttaMyQuestionVoteCell";
 
 @interface OttaMyQuestionViewController ()<UITableViewDataSource, UITableViewDelegate, OttaMyQuestionFooterCellDelegate>{
     NSMutableArray *datas;
     
     NSMutableArray *dataForShow;
+    NSMutableDictionary *dictVoteData;
 }
 
 @end
@@ -68,6 +72,42 @@ static NSString * const OttaMyQuestionDoneCellIdentifier        = @"OttaMyQuesti
  @property (nonatomic,assign) BOOL answerHasContent;
  @property (nonatomic, assign) BOOL answerHasphoto;
  */
+- (void)createVoteData{
+    dictVoteData = [[NSMutableDictionary alloc] initWithCapacity:10];
+    for (int i=0; i < dataForShow.count; i++) {
+        NSMutableArray *data = [[NSMutableArray alloc] init];
+        
+        OttaUser *user1 = [[OttaUser alloc] init];
+        user1.firstName = @"Hao";
+        user1.lastName  = @"Tran";
+        [data addObject:user1];
+        
+        OttaUser *user2 = [OttaUser new];
+        user2.firstName = @"Linh";
+        user2.lastName = @"Nguyen";
+        [data addObject:user2];
+        
+        OttaUser *user3 = [OttaUser new];
+        user3.firstName = @"Thien";
+        user3.lastName = @"Chau";
+        [data addObject:user3];
+        
+        OttaUser *user4 = [OttaUser new];
+        user4.firstName = @"Dong";
+        user4.lastName = @"Nguyen";
+        [data addObject:user4];
+        
+        OttaUser *user5 = [OttaUser new];
+        user5.firstName = @"Phuc";
+        user5.lastName = @"Nguyen";
+        [data addObject:user5];
+        
+        OttaMyQuestionData *dto = dataForShow[i];
+        if (dto.dataType == MyQuestionDataTypeAnswer) {
+            [dictVoteData setValue:data forKey:[NSString stringWithFormat:@"%d",i]];
+        }
+    }
+}
 - (void)createDemoData{
     datas = [[NSMutableArray alloc] initWithCapacity:5];
     
@@ -257,6 +297,9 @@ static NSString * const OttaMyQuestionDoneCellIdentifier        = @"OttaMyQuesti
         case MyQuestionDataTypeDone:
             return [self doneCellAtIndexPath:indexPath];;
             break;
+        case MyQuestionDataTypeVote:
+            return [self doneCellAtIndexPath:indexPath];;
+            break;
         default:
             break;
     }
@@ -282,6 +325,7 @@ static NSString * const OttaMyQuestionDoneCellIdentifier        = @"OttaMyQuesti
             //[self fixFrameForHeaderCell:(OttaMyQuestionHeaderCell*)cell];
             break;
         case MyQuestionDataTypeAnswer:
+            [self processVoteDataForRowAtIndex:indexPath];
             break;
         case MyQuestionDataTypeFooterNormal:
             break;
@@ -492,6 +536,7 @@ static NSString * const OttaMyQuestionDoneCellIdentifier        = @"OttaMyQuesti
 - (void)configureHeaderCell:(OttaMyQuestionHeaderCell *)cell atIndexPath:(NSIndexPath *)indexPath {
     OttaMyQuestionData *dto = dataForShow[indexPath.row];
     
+    cell.vDivide.hidden = indexPath.row == 0 ? YES:NO;
     cell.lblTextHeader.text = dto.questionText;
 }
 // For Footer Cell
@@ -525,6 +570,18 @@ static NSString * const OttaMyQuestionDoneCellIdentifier        = @"OttaMyQuesti
     OttaMyQuestionData *dto = dataForShow[indexPath.row];
     
     cell.lblText.text = dto.questionText;
+}
+// For Vote cell
+- (OttaMyQuestionVoteCell *)voteCellAtIndexPath:(NSIndexPath *)indexPath {
+    OttaMyQuestionVoteCell *cell = [self.myTableView dequeueReusableCellWithIdentifier:OttaMyQuestionVoteCellIdentifier forIndexPath:indexPath];
+    [self configureVoteCell:cell atIndexPath:indexPath];
+    return cell;
+}
+
+- (void)configureVoteCell:(OttaMyQuestionVoteCell *)cell atIndexPath:(NSIndexPath *)indexPath {
+    OttaMyQuestionData *dto = dataForShow[indexPath.row];
+    
+    [cell setData:dto.voteUsers];
 }
 #pragma mark - Fix UI Custome
 - (void)fixFrameForHeaderCell:(OttaMyQuestionHeaderCell*)cell{
@@ -562,7 +619,7 @@ static NSString * const OttaMyQuestionDoneCellIdentifier        = @"OttaMyQuesti
         
     }else{
         
-        [UIView animateWithDuration:0.3f animations:^{
+        [UIView animateWithDuration:0.2f animations:^{
             // For hide above row
             NSMutableArray *rowsToReload = [[NSMutableArray alloc] initWithCapacity:5];
             for(int i=1; i <= ((OttaQuestion*)datas[referIndex]).ottaAnswers.count - 1; i++){
@@ -578,5 +635,7 @@ static NSString * const OttaMyQuestionDoneCellIdentifier        = @"OttaMyQuesti
     }
     
 }
-
+- (void)processVoteDataForRowAtIndex:(NSIndexPath*)indexPath{
+    
+}
 @end

@@ -19,7 +19,8 @@ enum MyQuestionDataType{
     MyQuestionDataTypeFooterSeeAll = 4,
     MyQuestionDataTypeFooterCollapse = 5,
     MyQuestionDataTypeAnswerPicture = 6,
-    MyQuestionDataTypeDone = 7
+    MyQuestionDataTypeDone = 7,
+    MyQuestionDataTypeVote = 8
 };
 
 @interface OttaMyQuestionData : NSObject
@@ -34,5 +35,8 @@ enum MyQuestionDataType{
 
 @property (nonatomic,assign) int referIndex;
 @property (nonatomic,assign) NSInteger currentTableIndex;
+
+@property (nonatomic, strong) NSArray *voteUsers;
+@property (nonatomic, assign) BOOL isShowedVote;
 
 @end
