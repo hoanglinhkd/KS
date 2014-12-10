@@ -3,11 +3,14 @@
 #import "OttaAnswerersViewController.h"
 #import "OttaParseClientManager.h"
 #import "MBProgressHUD.h"
+#import "OttaAnswer.h"
+#import "NSDate-Utilities.h"
 
 @interface OttaAnswerersViewController ()
 {
     OttaFriendsCell *lastCellSelected;
-    NSMutableArray *friends;
+    NSMutableDictionary *friends;
+    NSMutableArray *listSelected;
     BOOL isSelectAll;
 }
 @end
@@ -18,6 +21,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     isSelectAll = NO;
+    listSelected = [NSMutableArray array];
     //[self loadData];
 }
 
@@ -25,7 +29,7 @@
 {
     [super viewDidAppear:animated];
     [self loadFriends];
-    friends = [[NSMutableArray alloc] init];
+    friends = [NSMutableDictionary dictionary];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -51,25 +55,27 @@
     PFObject *follow = _follows[indexPath.row];
     PFUser *user = follow[kTo];
     cell.lblText.text = @"";
-    //[user fetchIfNeededInBackgroundWithBlock:^(PFObject *object, NSError *error) {
     
-    NSString *name = [NSString stringWithFormat:@"%@ %@", user[kFirstName], user[kLastName]];
-    OttaFriend *ottaFriend = [[OttaFriend alloc] initWithName:@"Jamie Moskowitz" selected:NO];
-    ottaFriend.pfUser = user;
-    [friends addObject:ottaFriend];
-    cell.lblText.text = name;
-    
-    //}];
+    PFUser *f = [friends objectForKey:[NSString stringWithFormat:@"%d",indexPath.row]];
+    if(f == nil) {
+        [user fetchIfNeededInBackgroundWithBlock:^(PFObject *object, NSError *error) {
+            NSString *name = [NSString stringWithFormat:@"%@ %@", user[kFirstName], user[kLastName]];
+            [user setName:name];
+            [friends setObject:user forKey:[NSString stringWithFormat:@"%d",indexPath.row]];
+            cell.lblText.text = name;
+        }];
+    } else {
+        cell.lblText.text = [f name];
+    }
     
     cell.imgIcon.image = [UIImage imageNamed:@"Otta_ask_button_add_grey.png"];
     @try {
-        OttaFriend *f = [friends objectAtIndex:indexPath.row];
-        if (f.isSelected){
+        if ([f isSelected]){
             cell.imgIcon.image = [UIImage imageNamed:@"Otta_friends_button_added.png"];
         }
     }
     @catch (NSException *exception) {
-        //<#Handle an exception thrown in the @try block#>
+        
     }
     return cell;
 }
@@ -80,14 +86,30 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    OttaFriend *f = [friends objectAtIndex:indexPath.row];
-    f.isSelected = !f.isSelected;
+    PFUser *f = [friends objectForKey:[NSString stringWithFormat:@"%d",indexPath.row]];
+    if(![f isSelected]) {
+        [f setIsSelected:YES];
+        [listSelected addObject:f];
+    } else {
+        [f setIsSelected:NO];
+        [listSelected removeObject:f];
+    }
+    
+    if(isSelectAll) {
+        isSelectAll = NO;
+        [btnCheck setImage:[UIImage imageNamed:@"Otta_ask_box_unchecked"] forState:UIControlStateNormal];
+    }
     [tableView reloadData];
 }
 
 - (void) selectAllFriends:(BOOL)isSelect{
-    for (OttaFriend *curFriend in friends) {
-        curFriend.isSelected = isSelect;
+    
+    [listSelected removeAllObjects];
+    
+    NSArray *allUsers = [friends allValues];
+    for (PFUser *curFriend in allUsers) {
+        [curFriend setIsSelected:isSelect];
+        [listSelected addObject:curFriend];
     }
 }
 
@@ -104,10 +126,30 @@
     }
 }
 
-- (IBAction)btnBackPress:(id)sender {
-    [self dismissViewControllerAnimated:YES completion:nil];
+-(IBAction)btnAskPress:(id)sender{
+    
+    OttaQuestion* question = [[OttaQuestion alloc] init];
+    question.questionText = _askQuestionValue;
+    question.ottaAnswers = _optionsArray;
+    
+    if(_selectedDuration == TimeSelection_Days) {
+         question.expTime = [NSDate dateWithDaysFromNow:_selectedTimeValue];
+    } else if(_selectedDuration == TimeSelection_Hours) {
+         question.expTime = [NSDate dateWithHoursFromNow:_selectedTimeValue];
+    } else if(_selectedDuration == TimeSelection_Minutes) {
+         question.expTime = [NSDate dateWithMinutesFromNow:_selectedTimeValue];
+    }
+    
+    question.isPublic = isSelectAll;
+    if(!isSelectAll) {
+        question.responders = listSelected;
+    }
+    
+    [[OttaParseClientManager sharedManager] addQuestion:question withBlock:^(BOOL isSucceeded, NSError *error) {
+        [self dismissViewControllerAnimated:YES completion:nil];
+    }];
+    
 }
-
 - (void) loadFriends {
     
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
@@ -116,8 +158,8 @@
         [_tableView reloadData];
         [MBProgressHUD hideHUDForView:self.view animated:YES];
     }];
-
     
 }
+
 
 @end
