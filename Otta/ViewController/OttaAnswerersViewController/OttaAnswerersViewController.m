@@ -135,6 +135,7 @@
     }];
     
     return;
+    // TO Hào: Please comment code if it does not done yet. Don't leave a crash same here >"<
     
     OttaQuestion* question = [[OttaQuestion alloc] init];
     question.questionText = _askQuestionValue;
