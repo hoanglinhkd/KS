@@ -11,6 +11,7 @@
 
 #import "OttaQuestion.h"
 #import "OttaAnswer.h"
+#import "OttaUser.h"
 #import "OttaMyQuestionData.h"
 
 #import "OttaMyQuestionHeaderCell.h"
@@ -18,17 +19,22 @@
 #import "OttaMyQuestionTextCell.h"
 #import "OttaMyQuestionPictureCell.h"
 #import "OttaMyQuestionDoneCell.h"
+#import "OttaMyQuestionVoteCell.h"
 
 static NSString * const OttaMyQuestionHeaderCellIdentifier      = @"OttaMyQuestionHeaderCell";
 static NSString * const OttaMyQuestionTextCellIdentifier        = @"OttaMyQuestionTextCell";
 static NSString * const OttaMyQuestionFooterCellIdentifier      = @"OttaMyQuestionFooterCell";
 static NSString * const OttaMyQuestionPictureCellIdentifier     = @"OttaMyQuestionPictureCell";
 static NSString * const OttaMyQuestionDoneCellIdentifier        = @"OttaMyQuestionDoneCell";
+static NSString * const OttaMyQuestionVoteCellIdentifier        = @"OttaMyQuestionVoteCell";
+
+#define kDefaultColorBackGround [UIColor colorWithRed:143*1.0/255 green:202*1.0/255 blue:64*1.0/255 alpha:1.0f]
 
 @interface OttaMyQuestionViewController ()<UITableViewDataSource, UITableViewDelegate, OttaMyQuestionFooterCellDelegate>{
     NSMutableArray *datas;
     
     NSMutableArray *dataForShow;
+    NSMutableDictionary *dictVoteData;
 }
 
 @end
@@ -44,6 +50,7 @@ static NSString * const OttaMyQuestionDoneCellIdentifier        = @"OttaMyQuesti
     // Do any additional setup after loading the view.
     [self createDemoData];
     [self processDataForShow];
+    [self createVoteData];
     [myTableView reloadData];
 }
 -(void)viewDidAppear:(BOOL)animated
@@ -68,6 +75,42 @@ static NSString * const OttaMyQuestionDoneCellIdentifier        = @"OttaMyQuesti
  @property (nonatomic,assign) BOOL answerHasContent;
  @property (nonatomic, assign) BOOL answerHasphoto;
  */
+- (void)createVoteData{
+    dictVoteData = [[NSMutableDictionary alloc] initWithCapacity:10];
+    for (NSInteger i=0; i < dataForShow.count; i++) {
+        NSMutableArray *data = [[NSMutableArray alloc] init];
+        
+        OttaUser *user1 = [[OttaUser alloc] init];
+        user1.firstName = @"Hao";
+        user1.lastName  = @"Tran";
+        [data addObject:user1];
+        
+        OttaUser *user2 = [OttaUser new];
+        user2.firstName = @"Linh";
+        user2.lastName = @"Nguyen";
+        [data addObject:user2];
+        
+        OttaUser *user3 = [OttaUser new];
+        user3.firstName = @"Thien";
+        user3.lastName = @"Chau";
+        [data addObject:user3];
+        
+        OttaUser *user4 = [OttaUser new];
+        user4.firstName = @"Dong";
+        user4.lastName = @"Nguyen";
+        [data addObject:user4];
+        
+        OttaUser *user5 = [OttaUser new];
+        user5.firstName = @"Phuc";
+        user5.lastName = @"Nguyen";
+        [data addObject:user5];
+        
+        OttaMyQuestionData *dto = dataForShow[i];
+        if (dto.dataType == MyQuestionDataTypeAnswer) {
+            [dictVoteData setValue:data forKey:[NSString stringWithFormat:@"%.0ld",i]];
+        }
+    }
+}
 - (void)createDemoData{
     datas = [[NSMutableArray alloc] initWithCapacity:5];
     
@@ -80,9 +123,9 @@ static NSString * const OttaMyQuestionDoneCellIdentifier        = @"OttaMyQuesti
             OttaAnswer *answer = [[OttaAnswer alloc] init];
             //answer.answerImage = [UIImage imageNamed:@"creme_brelee.jpg"];
             if (j==2) {
-                answer.answerText  = [NSString stringWithFormat:@"this is an answer with very long content, may be it will look like this number %d",j];
+                answer.answerText  = [NSString stringWithFormat:@"this is an answer with very long content, may be it will look like this number - %d",j];
             }else{
-                answer.answerText  = [NSString stringWithFormat:@"answer number %d",j];
+                answer.answerText  = [NSString stringWithFormat:@"answer number - %d",j];
             }
             
             answer.answerHasContent = YES;
@@ -109,11 +152,11 @@ static NSString * const OttaMyQuestionDoneCellIdentifier        = @"OttaMyQuesti
             OttaAnswer *answer = [[OttaAnswer alloc] init];
             answer.answerImage = [UIImage imageNamed:@"creme_brelee.jpg"];
             if (j==2) {
-                answer.answerText  = [NSString stringWithFormat:@"this is an answer with very long content, may be it will look like this number %d",j];
+                answer.answerText  = [NSString stringWithFormat:@"this is an answer with very long content, may be it will look like this number - %d",j];
             }else if(j==3){
-                answer.answerText  = [NSString stringWithFormat:@"this is an answer with very long content, may be it will look like this number, this is an answer with very long content, may be it will look like this number %d",j];
+                answer.answerText  = [NSString stringWithFormat:@"this is an answer with very long content, may be it will look like this number, this is an answer with very long content, may be it will look like this number - %d",j];
             }else{
-                answer.answerText  = [NSString stringWithFormat:@"answer number %d",j];
+                answer.answerText  = [NSString stringWithFormat:@"answer number - %d",j];
             }
             
             answer.answerHasContent = YES;
@@ -257,6 +300,9 @@ static NSString * const OttaMyQuestionDoneCellIdentifier        = @"OttaMyQuesti
         case MyQuestionDataTypeDone:
             return [self doneCellAtIndexPath:indexPath];;
             break;
+        case MyQuestionDataTypeVote:
+            return [self voteCellAtIndexPath:indexPath];;
+            break;
         default:
             break;
     }
@@ -271,6 +317,35 @@ static NSString * const OttaMyQuestionDoneCellIdentifier        = @"OttaMyQuesti
     // do something
     //Change the selected background view of the cell.
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    if (indexPath.row >= dataForShow.count)
+        return;
+    
+    OttaMyQuestionData* dto = [dataForShow objectAtIndex:indexPath.row];
+    
+    switch (dto.dataType) {
+        case MyQuestionDataTypeHeader:
+            //[self fixFrameForHeaderCell:(OttaMyQuestionHeaderCell*)cell];
+            break;
+        case MyQuestionDataTypeAnswer:
+            [self processVoteDataForRowAtIndex:indexPath];
+            break;
+        case MyQuestionDataTypeFooterNormal:
+            break;
+        case MyQuestionDataTypeAnswerPicture:
+            [self processVoteDataForRowAtIndex:indexPath];
+            break;
+        case MyQuestionDataTypeFooterSeeAll:
+            break;
+        case MyQuestionDataTypeFooterCollapse:
+            break;
+        case MyQuestionDataTypeDone:
+            //[self fixFrameForDoneCell:(OttaMyQuestionDoneCell*)cell];
+            break;
+        default:
+            break;
+    }
+    
 }
 - (void)tableView:(UITableView *)tableView didEndDisplayingCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.row >= dataForShow.count)
@@ -350,6 +425,9 @@ static NSString * const OttaMyQuestionDoneCellIdentifier        = @"OttaMyQuesti
             break;
         case MyQuestionDataTypeDone:
             return [self heightForDoneCellAtIndexPath:indexPath];
+            break;
+        case MyQuestionDataTypeVote:
+            return 80.0;
             break;
         default:
             break;
@@ -439,7 +517,16 @@ static NSString * const OttaMyQuestionDoneCellIdentifier        = @"OttaMyQuesti
     OttaMyQuestionData *dto = dataForShow[indexPath.row];
     
     cell.lblOrderNumber.text = [NSString stringWithFormat:@"%d",dto.answer.numberAnswer];
-    cell.lblText.text = dto.answer.answerText;
+    
+    NSString *text = dto.answer.answerText;
+    NSRange range = [text rangeOfString:@"-"];
+    range.location += 2;
+    range.length = text.length - range.location;
+    
+    NSMutableAttributedString *mutable = [[NSMutableAttributedString alloc] initWithString:text];
+    [mutable addAttribute: NSForegroundColorAttributeName value:kDefaultColorBackGround range:range];
+    
+    [cell.lblText setAttributedText:mutable];
 }
 // For text cell
 - (OttaMyQuestionPictureCell *)pictureCellAtIndexPath:(NSIndexPath *)indexPath {
@@ -452,8 +539,16 @@ static NSString * const OttaMyQuestionDoneCellIdentifier        = @"OttaMyQuesti
     OttaMyQuestionData *dto = dataForShow[indexPath.row];
     
     cell.lblOrderNumber.text = [NSString stringWithFormat:@"%d",dto.answer.numberAnswer];
-    cell.lblText.text = dto.answer.answerText;
     cell.imageViewData.image = dto.answer.answerImage;
+    
+    NSString *text = dto.answer.answerText;
+    NSRange range = [text rangeOfString:@"-"];
+    range.location += 2;
+    range.length = text.length - range.location;
+    
+    NSMutableAttributedString *mutable = [[NSMutableAttributedString alloc] initWithString:text];
+    [mutable addAttribute: NSForegroundColorAttributeName value:kDefaultColorBackGround range:range];
+    [cell.lblText setAttributedText:mutable];
 }
 // For Header Cell
 - (OttaMyQuestionHeaderCell *)headerCellAtIndexPath:(NSIndexPath *)indexPath {
@@ -465,6 +560,7 @@ static NSString * const OttaMyQuestionDoneCellIdentifier        = @"OttaMyQuesti
 - (void)configureHeaderCell:(OttaMyQuestionHeaderCell *)cell atIndexPath:(NSIndexPath *)indexPath {
     OttaMyQuestionData *dto = dataForShow[indexPath.row];
     
+    cell.vDivide.hidden = indexPath.row == 0 ? YES:NO;
     cell.lblTextHeader.text = dto.questionText;
 }
 // For Footer Cell
@@ -499,6 +595,18 @@ static NSString * const OttaMyQuestionDoneCellIdentifier        = @"OttaMyQuesti
     
     cell.lblText.text = dto.questionText;
 }
+// For Vote cell
+- (OttaMyQuestionVoteCell *)voteCellAtIndexPath:(NSIndexPath *)indexPath {
+    OttaMyQuestionVoteCell *cell = [self.myTableView dequeueReusableCellWithIdentifier:OttaMyQuestionVoteCellIdentifier forIndexPath:indexPath];
+    [self configureVoteCell:cell atIndexPath:indexPath];
+    return cell;
+}
+
+- (void)configureVoteCell:(OttaMyQuestionVoteCell *)cell atIndexPath:(NSIndexPath *)indexPath {
+    OttaMyQuestionData *dto = dataForShow[indexPath.row];
+    
+    [cell setData:dto.voteUsers];
+}
 #pragma mark - Fix UI Custome
 - (void)fixFrameForHeaderCell:(OttaMyQuestionHeaderCell*)cell{
     if ([cell respondsToSelector:@selector(vDivide)]) {
@@ -521,32 +629,60 @@ static NSString * const OttaMyQuestionDoneCellIdentifier        = @"OttaMyQuesti
     BOOL isSeeAll = !((OttaQuestion*)datas[referIndex]).isSeeAll;
     ((OttaQuestion*)datas[referIndex]).isSeeAll = isSeeAll;
     
-    [self processDataForShow];
-    
-    if(isSeeAll){
-        // For show addition row
-        [UIView animateWithDuration:0.0 animations:^{
-            [self.myTableView reloadData];
-        } completion:^(BOOL finished) {
-            NSMutableArray *rowsToReload = [[NSMutableArray alloc] initWithCapacity:5];
-            for(int i=1; i <= ((OttaQuestion*)datas[referIndex]).ottaAnswers.count - 1; i++){
-                NSInteger index = currIndex + i;
-                NSIndexPath* rowToReload = [NSIndexPath indexPathForRow:index inSection:0];
-                if (index < dataForShow.count) {
-                    [rowsToReload addObject:rowToReload];
+    //[self processDataForShow];
+    // Process Data
+    int numberLocation = -1;
+    if (isSeeAll) {
+        BOOL flagHasPhoTo = NO;
+        for (OttaAnswer *ans in ((OttaQuestion*)datas[referIndex]).ottaAnswers) {
+            if(numberLocation >= 0){
+                OttaMyQuestionData *objAnswer1 = [[OttaMyQuestionData alloc] init];
+                ans.numberAnswer = numberLocation+2;
+                if (ans.answerHasphoto) {
+                    objAnswer1.dataType = MyQuestionDataTypeAnswerPicture;
+                    flagHasPhoTo = YES;
+                }else{
+                    objAnswer1.dataType = MyQuestionDataTypeAnswer;
                 }
+                objAnswer1.answer = ans;
+                [dataForShow insertObject:objAnswer1 atIndex:currIndex + numberLocation];
             }
-            
-            [self.myTableView reloadRowsAtIndexPaths:rowsToReload withRowAnimation:UITableViewRowAnimationBottom];
-        }];
+            numberLocation++;
+        }
+        OttaMyQuestionData *objFooter1 = [dataForShow objectAtIndex:currIndex+numberLocation];
+        objFooter1.dataType = flagHasPhoTo ? MyQuestionDataTypeFooterCollapse:MyQuestionDataTypeFooterNormal;
+        objFooter1.currentTableIndex = (int)currIndex + numberLocation;
+    }else{
+        OttaMyQuestionData *objFooter2 = [dataForShow objectAtIndex:currIndex];
+        objFooter2.dataType = MyQuestionDataTypeFooterSeeAll;
+    }
+    
+    // -- End Process Data
+    // Animation
+    if(isSeeAll){
+        
+        NSMutableArray *arrInsertIdxPaths = [[NSMutableArray alloc] initWithCapacity:3];
+        for (int i=0; i<((OttaQuestion*)datas[referIndex]).ottaAnswers.count - 1; i++) {
+            NSIndexPath *newIndexPath = [NSIndexPath indexPathForRow:currIndex+i inSection:0];
+            [arrInsertIdxPaths addObject:newIndexPath];
+        }
+        
+        [self.myTableView insertRowsAtIndexPaths:arrInsertIdxPaths withRowAnimation:UITableViewRowAnimationFade];
+        
     }else{
         
-        [UIView animateWithDuration:0.3f animations:^{
+        [UIView animateWithDuration:0.2f animations:^{
             // For hide above row
             NSMutableArray *rowsToReload = [[NSMutableArray alloc] initWithCapacity:5];
             for(int i=1; i <= ((OttaQuestion*)datas[referIndex]).ottaAnswers.count - 1; i++){
                 NSIndexPath* rowToReload = [NSIndexPath indexPathForRow:currIndex-i inSection:0];
                 [rowsToReload addObject:rowToReload];
+                
+                OttaMyQuestionData *dataAtCurrent = [dataForShow objectAtIndex:rowToReload.row];
+                if (dataAtCurrent.isShowedVote) {
+                    [self tableView:self.myTableView didSelectRowAtIndexPath:rowToReload];
+                }
+                [dataForShow removeObjectAtIndex:rowToReload.row];
             }
             [self.myTableView deleteRowsAtIndexPaths:rowsToReload withRowAnimation:UITableViewRowAnimationTop];
         } completion:^(BOOL finished) {
@@ -557,5 +693,35 @@ static NSString * const OttaMyQuestionDoneCellIdentifier        = @"OttaMyQuesti
     }
     
 }
-
+- (void)processVoteDataForRowAtIndex:(NSIndexPath*)indexPath{
+    OttaMyQuestionData *currQuestion = [dataForShow objectAtIndex:indexPath.row];
+    if (currQuestion.isShowedVote) {
+        currQuestion.isShowedVote = NO;
+        // Remove data at dataForShow
+        [dataForShow removeObjectAtIndex:indexPath.row + 1];
+        
+        // Animation for delete row
+        NSIndexPath* rowIndexPath = [NSIndexPath indexPathForRow:indexPath.row+1 inSection:0];
+        NSArray *rowsToDelete = [[NSArray alloc] initWithObjects:rowIndexPath, nil];
+        [self.myTableView deleteRowsAtIndexPaths:rowsToDelete withRowAnimation:UITableViewRowAnimationTop];
+        
+    }else{
+        currQuestion.isShowedVote = YES;
+        
+        //get Data for vote at index
+        OttaMyQuestionData *obj = [[OttaMyQuestionData alloc] init];
+        NSArray *voteData = [dictVoteData valueForKey:@"1"];
+        obj.voteUsers = [[NSArray alloc] initWithArray:voteData];
+        obj.dataType = MyQuestionDataTypeVote;
+        
+        // add new data for vote cell
+        [dataForShow insertObject:obj atIndex:indexPath.row+1];
+        
+        // Animation for add cell
+        NSIndexPath *newIndexPath = [NSIndexPath indexPathForRow:indexPath.row+1 inSection:0];
+        NSArray *arrInsertIdxPaths = [[NSArray alloc] initWithObjects:newIndexPath, nil];
+        [self.myTableView insertRowsAtIndexPaths:arrInsertIdxPaths withRowAnimation:UITableViewRowAnimationFade];
+        
+    }
+}
 @end

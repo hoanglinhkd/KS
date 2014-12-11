@@ -25,8 +25,11 @@
         [self.btnSeeAll setTitle:kCollapse forState:UIControlStateNormal];
     }
     
+    UITableView *tv = (UITableView *)self.superview.superview;
+    NSIndexPath* pathOfTheCell = [tv indexPathForCell:self];
+    
     if (self.delegate && [self.delegate respondsToSelector:@selector(ottaMyQuestionFooterCellDidSelectSeeAllAtIndex:atCurrentIndex:)]) {
-        [self.delegate ottaMyQuestionFooterCellDidSelectSeeAllAtIndex:self.referIndex atCurrentIndex:self.currIndex];
+        [self.delegate ottaMyQuestionFooterCellDidSelectSeeAllAtIndex:self.referIndex atCurrentIndex:pathOfTheCell.row];
     }
 }
 @end
