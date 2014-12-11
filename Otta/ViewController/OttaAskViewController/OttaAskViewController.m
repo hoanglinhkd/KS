@@ -376,6 +376,12 @@ UITextView itsTextView = [[UITextView alloc] initWithFrame:CGRectMake(0, 0, itsT
                 case TimeSelection_Days:
                     str = [NSString stringWithFormat:@"%ld Days",timeValue];
                     break;
+                case TimeSelection_Weeks:
+                    str = [NSString stringWithFormat:@"%d Weeks",timeValue];
+                    break;
+                case TimeSelection_Months:
+                    str = [NSString stringWithFormat:@"%d Months",timeValue];
+                    break;
                 default:
                     break;
             }
