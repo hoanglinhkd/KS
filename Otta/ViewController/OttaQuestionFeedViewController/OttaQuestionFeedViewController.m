@@ -11,6 +11,7 @@
 #import "OttaAnswer.h"
 #import "OttaQuestion.h"
 #import "OttaMediaQuestionDetailViewController.h"
+#import "SideMenuViewController.h"
 
 
 static NSString * const QuestionFeedCellId = @"QuestionFeedCellId";
@@ -339,6 +340,9 @@ static NSString * const QuestionFeedCellId = @"QuestionFeedCellId";
     }
 }
 
-
+#pragma mark - Actions
+- (IBAction)pressBtnLogo:(id)sender{
+    [[SideMenuViewController sharedInstance] tableView:[SideMenuViewController sharedInstance].menuTableView didSelectRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
+}
 
 @end

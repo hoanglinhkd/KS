@@ -13,5 +13,5 @@
 
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-
+- (IBAction)pressBtnLogo:(id)sender;
 @end

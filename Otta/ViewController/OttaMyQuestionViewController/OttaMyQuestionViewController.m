@@ -8,6 +8,7 @@
 
 #import "OttaMyQuestionViewController.h"
 #import "UIViewController+ECSlidingViewController.h"
+#import "SideMenuViewController.h"
 
 #import "OttaQuestion.h"
 #import "OttaAnswer.h"
@@ -266,6 +267,9 @@ static NSString * const OttaMyQuestionVoteCellIdentifier        = @"OttaMyQuesti
 #pragma mark - action
 - (IBAction)pressMenuBtn:(id)sender {
     [self.slidingViewController anchorTopViewToRightAnimated:YES];
+}
+- (IBAction)pressBtnLogo:(id)sender{
+    [[SideMenuViewController sharedInstance] tableView:[SideMenuViewController sharedInstance].menuTableView didSelectRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
 }
 #pragma mark - UITableView Datasource
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{

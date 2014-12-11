@@ -16,6 +16,7 @@
 #import "UIViewController+ECSlidingViewController.h"
 #import "OttaAnswerersViewController.h"
 #import "CZPhotoPreviewViewController.h"
+#import "SideMenuViewController.h"
 
 @interface OttaAskViewController ()
 {
@@ -487,5 +488,8 @@ UITextView itsTextView = [[UITextView alloc] initWithFrame:CGRectMake(0, 0, itsT
 
 - (IBAction)btnNextPress:(id)sender {
     [self performSegueWithIdentifier:@"segueAnswerers" sender:self];
+}
+- (IBAction)pressBtnLogo:(id)sender{
+    [[SideMenuViewController sharedInstance] tableView:[SideMenuViewController sharedInstance].menuTableView didSelectRowAtIndexPath:[NSIndexPath indexPathForRow:1 inSection:0]];
 }
 @end
