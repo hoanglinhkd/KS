@@ -167,6 +167,8 @@
 		7E2DA36A1A2458420064A523 /* OttaAnswerersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E2DA3691A2458420064A523 /* OttaAnswerersViewController.m */; };
 		7ED16B0A1A380AC1001347A8 /* OttaSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ED16B091A380AC1001347A8 /* OttaSettingViewController.m */; };
 		7ED16B0D1A380ADD001347A8 /* OttaAboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ED16B0C1A380ADD001347A8 /* OttaAboutViewController.m */; };
+		C2043AC11A395383008EDF48 /* OttaMyQuestionVoteCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C2043AC01A395383008EDF48 /* OttaMyQuestionVoteCell.m */; };
+		C2043AC41A395423008EDF48 /* OttaUser.m in Sources */ = {isa = PBXBuildFile; fileRef = C2043AC31A395423008EDF48 /* OttaUser.m */; };
 		CE0E08371A32538B00085055 /* Otta_questions_shape_background_answerers.png in Resources */ = {isa = PBXBuildFile; fileRef = CE0E08351A32538B00085055 /* Otta_questions_shape_background_answerers.png */; };
 		CE0E08381A32538B00085055 /* Otta_questions_shape_check.png in Resources */ = {isa = PBXBuildFile; fileRef = CE0E08361A32538B00085055 /* Otta_questions_shape_check.png */; };
 		CE0E083F1A3254CE00085055 /* OttaMyQuestionData.m in Sources */ = {isa = PBXBuildFile; fileRef = CE0E083A1A3254CE00085055 /* OttaMyQuestionData.m */; };
@@ -416,6 +418,10 @@
 		7ED16B0B1A380ADD001347A8 /* OttaAboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OttaAboutViewController.h; path = OttaAboutViewController/OttaAboutViewController.h; sourceTree = "<group>"; };
 		7ED16B0C1A380ADD001347A8 /* OttaAboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OttaAboutViewController.m; path = OttaAboutViewController/OttaAboutViewController.m; sourceTree = "<group>"; };
 		C1E9BE3193743527323F1CDA /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		C2043ABF1A395383008EDF48 /* OttaMyQuestionVoteCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OttaMyQuestionVoteCell.h; sourceTree = "<group>"; };
+		C2043AC01A395383008EDF48 /* OttaMyQuestionVoteCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OttaMyQuestionVoteCell.m; sourceTree = "<group>"; };
+		C2043AC21A395423008EDF48 /* OttaUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OttaUser.h; sourceTree = "<group>"; };
+		C2043AC31A395423008EDF48 /* OttaUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OttaUser.m; sourceTree = "<group>"; };
 		CE0E08351A32538B00085055 /* Otta_questions_shape_background_answerers.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Otta_questions_shape_background_answerers.png; sourceTree = "<group>"; };
 		CE0E08361A32538B00085055 /* Otta_questions_shape_check.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Otta_questions_shape_check.png; sourceTree = "<group>"; };
 		CE0E08391A3254CE00085055 /* OttaMyQuestionData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OttaMyQuestionData.h; sourceTree = "<group>"; };
@@ -995,6 +1001,10 @@
 		CEA654511A2DFF2600233156 /* OttaMyQuestionView */ = {
 			isa = PBXGroup;
 			children = (
+				C2043AC21A395423008EDF48 /* OttaUser.h */,
+				C2043AC31A395423008EDF48 /* OttaUser.m */,
+				C2043ABF1A395383008EDF48 /* OttaMyQuestionVoteCell.h */,
+				C2043AC01A395383008EDF48 /* OttaMyQuestionVoteCell.m */,
 				CE0E08391A3254CE00085055 /* OttaMyQuestionData.h */,
 				CE0E083A1A3254CE00085055 /* OttaMyQuestionData.m */,
 				CE0E083B1A3254CE00085055 /* OttaMyQuestionDoneCell.h */,
@@ -1455,6 +1465,7 @@
 				CEA6545C1A2DFF2600233156 /* OttaMyQuestionFooterCell.m in Sources */,
 				CEA654601A2DFF2600233156 /* OttaMyQuestionPictureCell.m in Sources */,
 				66502BE71A14653300A9472D /* OttaOptionCell.m in Sources */,
+				C2043AC41A395423008EDF48 /* OttaUser.m in Sources */,
 				D9CD79981A22EA8C007C6E15 /* OttaLoginSegue.m in Sources */,
 				D98E30CA1A1797CD0080B934 /* AFPickerView.m in Sources */,
 				663665F01A1EEE00007F0EFC /* MEZoomAnimationController.m in Sources */,
@@ -1472,6 +1483,7 @@
 				38A37D771A171FCD00771881 /* OttaAlertManager.m in Sources */,
 				6AA695E01A21DD30001F6953 /* OttaQuestionFeedViewController.m in Sources */,
 				CE0E08401A3254CE00085055 /* OttaMyQuestionDoneCell.m in Sources */,
+				C2043AC11A395383008EDF48 /* OttaMyQuestionVoteCell.m in Sources */,
 				66FD4B5A1A11ABF9005ACD58 /* OttaAnswerTableController.m in Sources */,
 				CECC3F4F1A2B628200B3F7B6 /* OttaMyQuestionViewController.m in Sources */,
 				38CB1C7D1A35F87E00CB0F53 /* NSDate-Utilities.m in Sources */,
