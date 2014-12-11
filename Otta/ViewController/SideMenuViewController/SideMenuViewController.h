@@ -14,4 +14,7 @@
 @property (weak, nonatomic) IBOutlet UITableView *menuTableView;
 @property (weak, nonatomic) IBOutlet UIButton *btnAbout;
 
+
++ (SideMenuViewController*)sharedInstance;
+
 @end

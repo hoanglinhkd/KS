@@ -12,6 +12,7 @@
 #import "OttAddFriendViewController.h"
 #import "OttaParseClientManager.h"
 #import "MBProgressHUD.h"
+#import "SideMenuViewController.h"
 
 
 
@@ -189,6 +190,10 @@
     [self updateUI:NO];
 }
 
+- (IBAction)pressBtnLogo:(id)sender {
+    [[SideMenuViewController sharedInstance] tableView:[SideMenuViewController sharedInstance].menuTableView didSelectRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
+}
+
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([[segue identifier] isEqualToString:@"AddNewSegue"])
     {
@@ -231,7 +236,7 @@
         [[OttaParseClientManager sharedManager] getAllFollowToUser:[PFUser currentUser] withBlock:^(NSArray *array, NSError *error) {
             _follows = [[NSArray alloc] initWithArray:array];
             _followsStorage = [[NSArray alloc] initWithArray:array];
-            self.lblAnswerersCount.text = [NSString stringWithFormat:@"%d",_follows.count];
+            self.lblAnswerersCount.text = [NSString stringWithFormat:@"%ld",_follows.count];
             [self.table reloadData];
             [MBProgressHUD hideHUDForView:self.view animated:YES];
         }];
@@ -246,7 +251,7 @@
         [[OttaParseClientManager sharedManager] getAllFollowFromUser:[PFUser currentUser] withBlock:^(NSArray *array, NSError *error) {
             _follows = [[NSArray alloc] initWithArray:array];
             _followsStorage = [[NSArray alloc] initWithArray:array];
-            self.lblAskersCount.text = [NSString stringWithFormat:@"%d",_follows.count];
+            self.lblAskersCount.text = [NSString stringWithFormat:@"%ld",_follows.count];
             [self.table reloadData];
             [MBProgressHUD hideHUDForView:self.view animated:YES];
         }];

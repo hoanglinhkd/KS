@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="jFH-gY-aPy">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="jFH-gY-aPy">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
@@ -1578,6 +1578,9 @@ EE5leHQ
                                             <constraint firstAttribute="width" constant="30" id="jby-Py-7Ph"/>
                                         </constraints>
                                         <state key="normal" image="OttaRightSidebar.png"/>
+                                        <connections>
+                                            <action selector="pressBtnLogo:" destination="8xt-Yc-1kg" eventType="touchUpInside" id="sX5-33-2OO"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.56078433989999998" green="0.79215693470000004" blue="0.25098040700000002" alpha="1" colorSpace="deviceRGB"/>

@@ -22,8 +22,12 @@
 @property (nonatomic, strong) UIPanGestureRecognizer *dynamicTransitionPanGesture;
 @end
 
+static SideMenuViewController *shareInstance;
 @implementation SideMenuViewController
 
++ (SideMenuViewController*)sharedInstance{
+    return shareInstance;
+}
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -36,9 +40,12 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    // Do any additional setup after loading the view.
+    // For share instance
+    shareInstance = self;
+    
     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"OttaSideMenuBackground.png"]];
     self.menuTableView.backgroundColor = [UIColor clearColor];
-    // Do any additional setup after loading the view.
     
     selectedSideIndex = 0;
     

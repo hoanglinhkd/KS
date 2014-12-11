@@ -19,12 +19,13 @@
 - (void)optionCell:(OttaOptionCell*)cell beginTakePicture:(id)imageView;
 - (void)optionCell:(OttaOptionCell*)cell textView:(HPGrowingTextView*)textViewUpdateHeight willChangeHeight:(float)height;
 - (void)optionCell:(OttaOptionCell*)cell addCabtion:(id)caption;
+- (void)optionCell:(OttaOptionCell*)cell needEditPicture:(id)imageView;
 
 @end
 
 @interface OttaOptionCell : UITableViewCell<OttaOptionCellDelegate, UITextViewDelegate, HPGrowingTextViewDelegate>
 
-@property (nonatomic, assign) id<OttaOptionCellDelegate> delegate;
+@property (nonatomic, assign) id <OttaOptionCellDelegate> delegate;
 @property (weak, nonatomic) IBOutlet UILabel *lblNumber;
 @property (weak, nonatomic) IBOutlet HPGrowingTextView *txtContent;
 @property (weak, nonatomic) IBOutlet UIView *viewAction;
