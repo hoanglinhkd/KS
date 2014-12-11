@@ -110,7 +110,7 @@
         
         // glass
         UIImage *glassImage = [UIImage imageNamed:@"pickerGlass.png"];
-        glassImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0.0, 39.4, 50.0f, glassImage.size.height)];
+        glassImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0.0, 39.4, frame.size.width, glassImage.size.height)];
         glassImageView.image = glassImage;
         [self addSubview:glassImageView];
     }

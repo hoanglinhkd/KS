@@ -200,8 +200,10 @@
     [timeTitleData addObject:[@"mins" toCurrentLanguage]];
     [timeTitleData addObject:[@"hrs" toCurrentLanguage]];
     [timeTitleData addObject:[@"days" toCurrentLanguage]];
+    [timeTitleData addObject:[@"weeks" toCurrentLanguage]];
+    [timeTitleData addObject:[@"months" toCurrentLanguage]];
     
-    pickerTimeTitle = [[AFPickerView alloc] initWithFrame:CGRectMake(xPosition + 55.0, yPosition, 50.0f, 117.0f)];
+    pickerTimeTitle = [[AFPickerView alloc] initWithFrame:CGRectMake(xPosition + 55.0, yPosition, 70.0f, 117.0f)];
     pickerTimeTitle.dataSource = self;
     pickerTimeTitle.delegate = self;
     pickerTimeTitle.rowFont = [UIFont boldSystemFontOfSize:19.0];
