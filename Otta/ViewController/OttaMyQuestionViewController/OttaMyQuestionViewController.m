@@ -107,7 +107,7 @@ static NSString * const OttaMyQuestionVoteCellIdentifier        = @"OttaMyQuesti
         [data addObject:user5];
         
         OttaMyQuestionData *dto = dataForShow[i];
-        if (dto.dataType == MyQuestionDataTypeAnswer) {
+        if (dto.dataType == MyQuestionDataTypeAnswer ||dto.dataType == MyQuestionDataTypeAnswerPicture) {
             [dictVoteData setValue:data forKey:[NSString stringWithFormat:@"%.0ld",i]];
         }
     }
@@ -116,36 +116,7 @@ static NSString * const OttaMyQuestionVoteCellIdentifier        = @"OttaMyQuesti
     datas = [[NSMutableArray alloc] initWithCapacity:5];
     
     int i,j;
-    for (i=0; i<5; i++) {
-        OttaQuestion *myQs = [[OttaQuestion alloc] init];
-        myQs.questionID = [NSString stringWithFormat:@"%d",i];
-        myQs.ottaAnswers = [[NSMutableArray alloc] init];
-        for (j=0; j<4; j++) {
-            OttaAnswer *answer = [[OttaAnswer alloc] init];
-            //answer.answerImage = [UIImage imageNamed:@"creme_brelee.jpg"];
-            if (j==2) {
-                answer.answerText  = [NSString stringWithFormat:@"this is an answer with very long content, may be it will look like this number - %d",j];
-            }else{
-                answer.answerText  = [NSString stringWithFormat:@"answer number - %d",j];
-            }
-            
-            answer.answerHasContent = YES;
-            answer.answerHasphoto   = NO;
-            [myQs.ottaAnswers addObject:answer];
-        }
-        myQs.askerID = [NSString stringWithFormat:@"162817629"];
-        myQs.expirationDate = 5;
-        myQs.isSeeAll = YES;
-        if (i==2) {
-            myQs.questionText = @"Is it a short question?";
-        }else{
-            myQs.questionText = @"What food we should to eat tonight, Do you to eat more food without healthy, come to London, right now?";
-        }
-        
-        [datas addObject:myQs];
-    }
-    
-    for (i = 0; i<4; i++) {
+    for (i = 0; i<3; i++) {
         OttaQuestion *myQs = [[OttaQuestion alloc] init];
         myQs.questionID = [NSString stringWithFormat:@"%d",i];
         myQs.ottaAnswers = [[NSMutableArray alloc] init];
@@ -175,7 +146,35 @@ static NSString * const OttaMyQuestionVoteCellIdentifier        = @"OttaMyQuesti
         
         [datas addObject:myQs];
     }
-    
+    for (i=0; i<2; i++) {
+        OttaQuestion *myQs = [[OttaQuestion alloc] init];
+        myQs.questionID = [NSString stringWithFormat:@"%d",i];
+        myQs.ottaAnswers = [[NSMutableArray alloc] init];
+        for (j=0; j<4; j++) {
+            OttaAnswer *answer = [[OttaAnswer alloc] init];
+            //answer.answerImage = [UIImage imageNamed:@"creme_brelee.jpg"];
+            if (j==2) {
+                answer.answerText  = [NSString stringWithFormat:@"this is an answer with very long content, may be it will look like this number - %d",j];
+            }else{
+                answer.answerText  = [NSString stringWithFormat:@"answer number - %d",j];
+            }
+            
+            answer.answerHasContent = YES;
+            answer.answerHasphoto   = NO;
+            [myQs.ottaAnswers addObject:answer];
+        }
+        myQs.askerID = [NSString stringWithFormat:@"162817629"];
+        myQs.expirationDate = 5;
+        myQs.isSeeAll = YES;
+        if (i==2) {
+            myQs.questionText = @"Is it a short question?";
+        }else{
+            myQs.questionText = @"What food we should to eat tonight, Do you to eat more food without healthy, come to London, right now?";
+        }
+        
+        [datas addObject:myQs];
+    }
+
     for (i = 0; i<5; i++) {
         OttaQuestion *myQs = [[OttaQuestion alloc] init];
         myQs.questionID = [NSString stringWithFormat:@"%d",i];
