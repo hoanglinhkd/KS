@@ -117,7 +117,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7TB-dE-zmc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-123" y="324"/>
+            <point key="canvasLocation" x="95" y="562"/>
         </scene>
         <!--Otta Ask View Controller-->
         <scene sceneID="0A0-dA-ezo">
@@ -168,6 +168,7 @@
                                         </state>
                                         <connections>
                                             <action selector="pressBtnLogo:" destination="Vr1-Kh-wSh" eventType="touchUpInside" id="caN-pU-TWk"/>
+                                            <segue destination="QEH-XF-4aU" kind="push" identifier="segueAskQuestion" id="ENZ-O5-Sy9"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -493,7 +494,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HOd-FJ-vaq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="931" y="684"/>
+            <point key="canvasLocation" x="651" y="1396"/>
         </scene>
         <!--About View Controller-->
         <scene sceneID="mOX-io-JSa">
@@ -1583,6 +1584,7 @@ EE5leHQ
                                         <state key="normal" image="OttaRightSidebar.png"/>
                                         <connections>
                                             <action selector="pressBtnLogo:" destination="8xt-Yc-1kg" eventType="touchUpInside" id="sX5-33-2OO"/>
+                                            <segue destination="Vr1-Kh-wSh" kind="push" id="Rv5-b9-Jw9"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -1859,7 +1861,7 @@ EE5leHQ
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="v8p-AU-RSb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-121" y="1514"/>
+            <point key="canvasLocation" x="41" y="1377"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="sWr-Tv-fg3">
@@ -2443,6 +2445,7 @@ EE5leHQ
                                         <state key="normal" image="OttaRightSidebar.png"/>
                                         <connections>
                                             <action selector="pressBtnLogo:" destination="QEH-XF-4aU" eventType="touchUpInside" id="nT1-MY-2kw"/>
+                                            <segue destination="Vr1-Kh-wSh" kind="push" id="9wb-bJ-bBU"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -2722,7 +2725,7 @@ EE5leHQ
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jVK-Al-NCL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-133" y="2379"/>
+            <point key="canvasLocation" x="-2043" y="2057"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="OAq-PP-pHB">
@@ -2740,7 +2743,7 @@ EE5leHQ
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sra-b4-eQu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-731" y="2385"/>
+            <point key="canvasLocation" x="-873" y="2223"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="EJE-7h-oLa">
@@ -3089,6 +3092,7 @@ EE5leHQ
                                         <state key="normal" image="OttaRightSidebar.png"/>
                                         <connections>
                                             <action selector="pressBtnLogo:" destination="Qua-VX-DYR" eventType="touchUpInside" id="Xxs-92-pep"/>
+                                            <segue destination="Vr1-Kh-wSh" kind="push" identifier="segueAskQuestion" id="hR6-UA-nju"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -3388,7 +3392,7 @@ EE5leHQ
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="N8k-RK-DQH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2013" y="1258"/>
+            <point key="canvasLocation" x="-2002" y="1229"/>
         </scene>
     </scenes>
     <resources>
@@ -3434,6 +3438,8 @@ EE5leHQ
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
         <segue reference="3Iu-Ui-5LO"/>
+        <segue reference="Rv5-b9-Jw9"/>
         <segue reference="Q7F-7b-5wm"/>
+        <segue reference="ENZ-O5-Sy9"/>
     </inferredMetricsTieBreakers>
 </document>
