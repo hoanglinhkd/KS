@@ -673,18 +673,25 @@ static NSString * const OttaMyQuestionVoteCellIdentifier        = @"OttaMyQuesti
         
         [UIView animateWithDuration:0.2f animations:^{
             // For hide above row
-            NSMutableArray *rowsToReload = [[NSMutableArray alloc] initWithCapacity:5];
-            for(int i=1; i <= ((OttaQuestion*)datas[referIndex]).ottaAnswers.count - 1; i++){
-                NSIndexPath* rowToReload = [NSIndexPath indexPathForRow:currIndex-i inSection:0];
-                [rowsToReload addObject:rowToReload];
+            NSMutableArray *rowsToDelete = [[NSMutableArray alloc] initWithCapacity:5];
+            for(int i=1; i < currIndex; i++){
+                NSIndexPath* indexPathToDelete = [NSIndexPath indexPathForRow:currIndex-i - 1 inSection:0];
                 
-                OttaMyQuestionData *dataAtCurrent = [dataForShow objectAtIndex:rowToReload.row];
-                if (dataAtCurrent.isShowedVote) {
-                    [self tableView:self.myTableView didSelectRowAtIndexPath:rowToReload];
+                //Check Data
+                OttaMyQuestionData *dataAtCurrent = [dataForShow objectAtIndex:indexPathToDelete.row];
+                if (dataAtCurrent.dataType != MyQuestionDataTypeHeader) {
+                    dataAtCurrent.isShowedVote = NO;
+                    OttaMyQuestionData *dataNextCurrent = [dataForShow objectAtIndex:indexPathToDelete.row+1];
+                    if (dataNextCurrent.dataType != MyQuestionDataTypeHeader) {
+                        [rowsToDelete addObject:[NSIndexPath indexPathForRow:indexPathToDelete.row+1 inSection:0]];
+                        [dataForShow removeObjectAtIndex:indexPathToDelete.row+1];
+                    }
+                }else{
+                    break;
                 }
-                [dataForShow removeObjectAtIndex:rowToReload.row];
             }
-            [self.myTableView deleteRowsAtIndexPaths:rowsToReload withRowAnimation:UITableViewRowAnimationTop];
+            [self.myTableView deleteRowsAtIndexPaths:rowsToDelete withRowAnimation:UITableViewRowAnimationTop];
+            [self.myTableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:currIndex-rowsToDelete.count-2 inSection:0] atScrollPosition:UITableViewScrollPositionNone animated:YES];
         } completion:^(BOOL finished) {
             if (finished) {
                 [self.myTableView reloadData];
