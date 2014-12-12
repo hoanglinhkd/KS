@@ -168,6 +168,7 @@
 		7ED16B0D1A380ADD001347A8 /* OttaAboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ED16B0C1A380ADD001347A8 /* OttaAboutViewController.m */; };
 		C2043AC11A395383008EDF48 /* OttaMyQuestionVoteCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C2043AC01A395383008EDF48 /* OttaMyQuestionVoteCell.m */; };
 		C2043AC41A395423008EDF48 /* OttaUser.m in Sources */ = {isa = PBXBuildFile; fileRef = C2043AC31A395423008EDF48 /* OttaUser.m */; };
+		C2A3E99E1A3AFEF400AC4AC8 /* MainHL.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C2A3E99D1A3AFEF400AC4AC8 /* MainHL.storyboard */; };
 		CE0E08371A32538B00085055 /* Otta_questions_shape_background_answerers.png in Resources */ = {isa = PBXBuildFile; fileRef = CE0E08351A32538B00085055 /* Otta_questions_shape_background_answerers.png */; };
 		CE0E08381A32538B00085055 /* Otta_questions_shape_check.png in Resources */ = {isa = PBXBuildFile; fileRef = CE0E08361A32538B00085055 /* Otta_questions_shape_check.png */; };
 		CE0E083F1A3254CE00085055 /* OttaMyQuestionData.m in Sources */ = {isa = PBXBuildFile; fileRef = CE0E083A1A3254CE00085055 /* OttaMyQuestionData.m */; };
@@ -420,6 +421,7 @@
 		C2043AC01A395383008EDF48 /* OttaMyQuestionVoteCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OttaMyQuestionVoteCell.m; sourceTree = "<group>"; };
 		C2043AC21A395423008EDF48 /* OttaUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OttaUser.h; sourceTree = "<group>"; };
 		C2043AC31A395423008EDF48 /* OttaUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OttaUser.m; sourceTree = "<group>"; };
+		C2A3E99D1A3AFEF400AC4AC8 /* MainHL.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainHL.storyboard; sourceTree = "<group>"; };
 		CE0E08351A32538B00085055 /* Otta_questions_shape_background_answerers.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Otta_questions_shape_background_answerers.png; sourceTree = "<group>"; };
 		CE0E08361A32538B00085055 /* Otta_questions_shape_check.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Otta_questions_shape_check.png; sourceTree = "<group>"; };
 		CE0E08391A3254CE00085055 /* OttaMyQuestionData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OttaMyQuestionData.h; sourceTree = "<group>"; };
@@ -998,6 +1000,7 @@
 		CEA654511A2DFF2600233156 /* OttaMyQuestionView */ = {
 			isa = PBXGroup;
 			children = (
+				C2A3E99D1A3AFEF400AC4AC8 /* MainHL.storyboard */,
 				C2043AC21A395423008EDF48 /* OttaUser.h */,
 				C2043AC31A395423008EDF48 /* OttaUser.m */,
 				C2043ABF1A395383008EDF48 /* OttaMyQuestionVoteCell.h */,
@@ -1283,6 +1286,7 @@
 				D98E30CC1A1797CD0080B934 /* pickerGlass@2x.png in Resources */,
 				6AA695F41A21DD7B001F6953 /* button_yellow.png in Resources */,
 				66FD4B111A11A6CC005ACD58 /* starbucks_coffee.jpg in Resources */,
+				C2A3E99E1A3AFEF400AC4AC8 /* MainHL.storyboard in Resources */,
 				66FD4B131A11A6CC005ACD58 /* vegetable_curry.jpg in Resources */,
 				38F3DA4A1A30AD5600224B57 /* Otta_friends_button_block.png in Resources */,
 				383400601A17B804006A913E /* btn_alert_ok.png in Resources */,

@@ -175,13 +175,59 @@ static NSString * const OttaMyQuestionVoteCellIdentifier        = @"OttaMyQuesti
         [datas addObject:myQs];
     }
 
-    for (i = 0; i<5; i++) {
+    // For done cell with picture
+    for (i = 0; i<2; i++) {
         OttaQuestion *myQs = [[OttaQuestion alloc] init];
         myQs.questionID = [NSString stringWithFormat:@"%d",i];
+        myQs.ottaAnswers = [[NSMutableArray alloc] init];
+        for (j=0; j<4; j++) {
+            OttaAnswer *answer = [[OttaAnswer alloc] init];
+            answer.answerImage = [UIImage imageNamed:@"creme_brelee.jpg"];
+            if (j==2) {
+                answer.answerText  = [NSString stringWithFormat:@"this is an answer with very long content, may be it will look like this number - %d",j];
+            }else if(j==3){
+                answer.answerText  = [NSString stringWithFormat:@"this is an answer with very long content, may be it will look like this number, this is an answer with very long content, may be it will look like this number - %d",j];
+            }else{
+                answer.answerText  = [NSString stringWithFormat:@"answer number - %d",j];
+            }
+            
+            answer.answerHasContent = YES;
+            answer.answerHasphoto   = YES;
+            [myQs.ottaAnswers addObject:answer];
+        }
         myQs.askerID = [NSString stringWithFormat:@"162817629"];
         myQs.expirationDate = 0;
         myQs.isSeeAll = NO;
-        if (i%2==0) {
+        if (i==1) {
+            myQs.questionText = @"Is it a short question?";
+        }else{
+            myQs.questionText = @"What food we should to eat tonight, Do you to eat more food without healthy, come to London, right now?";
+        }
+        
+        [datas addObject:myQs];
+    }
+    // For done cell with Text
+    for (i=0; i<2; i++) {
+        OttaQuestion *myQs = [[OttaQuestion alloc] init];
+        myQs.questionID = [NSString stringWithFormat:@"%d",i];
+        myQs.ottaAnswers = [[NSMutableArray alloc] init];
+        for (j=0; j<4; j++) {
+            OttaAnswer *answer = [[OttaAnswer alloc] init];
+           
+            if (j==2) {
+                answer.answerText  = [NSString stringWithFormat:@"this is an answer with very long content, may be it will look like this number - %d",j];
+            }else{
+                answer.answerText  = [NSString stringWithFormat:@"answer number - %d",j];
+            }
+            
+            answer.answerHasContent = YES;
+            answer.answerHasphoto   = NO;
+            [myQs.ottaAnswers addObject:answer];
+        }
+        myQs.askerID = [NSString stringWithFormat:@"162817629"];
+        myQs.expirationDate = 0;
+        myQs.isSeeAll = YES;
+        if (i==1) {
             myQs.questionText = @"Is it a short question?";
         }else{
             myQs.questionText = @"What food we should to eat tonight, Do you to eat more food without healthy, come to London, right now?";
@@ -678,7 +724,7 @@ static NSString * const OttaMyQuestionVoteCellIdentifier        = @"OttaMyQuesti
     }else{
         
         [UIView animateWithDuration:0.2f animations:^{
-            // For hide above row
+            
             NSMutableArray *rowsToDelete = [[NSMutableArray alloc] initWithCapacity:5];
             for(int i=1; i < currIndex; i++){
                 NSIndexPath* indexPathToDelete = [NSIndexPath indexPathForRow:currIndex-i - 1 inSection:0];
@@ -697,7 +743,7 @@ static NSString * const OttaMyQuestionVoteCellIdentifier        = @"OttaMyQuesti
                 }
             }
             [self.myTableView deleteRowsAtIndexPaths:rowsToDelete withRowAnimation:UITableViewRowAnimationTop];
-            [self.myTableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:currIndex-rowsToDelete.count-2 inSection:0] atScrollPosition:UITableViewScrollPositionNone animated:YES];
+            [self.myTableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:currIndex-rowsToDelete.count-2 inSection:0] atScrollPosition:UITableViewScrollPositionTop animated:YES];
         } completion:^(BOOL finished) {
             if (finished) {
                 [self.myTableView reloadData];
