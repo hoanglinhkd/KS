@@ -191,7 +191,7 @@
 }
 
 - (IBAction)pressBtnLogo:(id)sender {
-    [[SideMenuViewController sharedInstance] tableView:[SideMenuViewController sharedInstance].menuTableView didSelectRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
+    [[SideMenuViewController sharedInstance] selectRowAtIndex:[NSIndexPath indexPathForRow:0 inSection:0] forViewController:self];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {

@@ -16,7 +16,7 @@
 @interface SideMenuViewController ()
 {
     OttaMenuCell *lastCellSelected;
-    int selectedSideIndex;
+    NSInteger selectedSideIndex;
 }
 @property (nonatomic, strong) METransitions *transitions;
 @property (nonatomic, strong) UIPanGestureRecognizer *dynamicTransitionPanGesture;
@@ -250,5 +250,40 @@ static SideMenuViewController *shareInstance;
         [self.navigationController.view addGestureRecognizer:self.slidingViewController.panGesture];
     }
 }
-
+- (void)selectRowAtIndex:(NSIndexPath*)indexPath forViewController:(UIViewController*)vc{
+    if (indexPath.row == selectedSideIndex) {
+        [self.slidingViewController resetTopViewAnimated:YES];
+        return;
+    }
+    
+    [self dehighlightAboutButton];
+    selectedSideIndex = indexPath.row;
+    [self.menuTableView reloadData];
+    /*
+    switch (indexPath.row) {
+        case 0:
+            [vc performSegueWithIdentifier:@"segueAskQuestion" sender:nil];
+            break;
+        case 1:
+            [vc performSegueWithIdentifier:@"segueQuestionFeed" sender:nil];
+            break;
+        case 2:
+            [vc performSegueWithIdentifier:@"segueMyQuestion" sender:nil];
+            break;
+        case 3:
+            [vc performSegueWithIdentifier:@"segueFriends" sender:nil];
+            break;
+        case 4:
+            [vc performSegueWithIdentifier:@"segueSetting" sender:nil];
+            break;
+        case 5:
+            [vc performSegueWithIdentifier:@"segueAbout" sender:nil];
+            break;
+            
+        default:
+            [self performSegueWithIdentifier:@"segueAskQuestion" sender:nil];
+            break;
+    }
+     */
+}
 @end

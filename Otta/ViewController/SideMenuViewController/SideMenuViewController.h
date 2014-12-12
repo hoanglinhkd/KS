@@ -16,5 +16,6 @@
 
 
 + (SideMenuViewController*)sharedInstance;
+- (void)selectRowAtIndex:(NSIndexPath*)indexPath forViewController:(UIViewController*)vc;
 
 @end
