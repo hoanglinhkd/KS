@@ -30,6 +30,7 @@ enum MyQuestionDataType{
 @property (nonatomic,strong) NSString * questionID;
 @property (nonatomic,strong) NSString * askerID;
 @property (nonatomic,assign) int expirationDate;
+@property (nonatomic,retain) NSDate *expTime;
 @property (nonatomic,strong) NSString * questionText;
 @property (nonatomic,strong) OttaAnswer * answer;
 
