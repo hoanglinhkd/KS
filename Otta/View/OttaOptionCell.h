@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "HPGrowingTextView.h"
+#import "OttaAnswer.h"
 
 @class OttaOptionCell;
 @protocol OttaOptionCellDelegate
@@ -23,15 +24,19 @@
 @end
 
 @interface OttaOptionCell : UITableViewCell<OttaOptionCellDelegate, UITextViewDelegate, HPGrowingTextViewDelegate>
+{
+}
 
-@property (nonatomic, assign) id<OttaOptionCellDelegate> delegate;
+@property (nonatomic, weak) id<OttaOptionCellDelegate> delegate;
 @property (weak, nonatomic) IBOutlet UILabel *lblNumber;
 @property (weak, nonatomic) IBOutlet HPGrowingTextView *txtContent;
 @property (weak, nonatomic) IBOutlet UIView *viewAction;
 @property (weak, nonatomic) IBOutlet HPGrowingTextView *txtImageDescription;
-
 @property (weak, nonatomic) IBOutlet UIView *viewContent2;
 @property (weak, nonatomic) IBOutlet UIImageView *imgMain;
+@property (strong, nonatomic) NSIndexPath *indexPath;
+
+@property (strong, nonatomic) OttaAnswer *answer;
 
 - (IBAction)textButtonPressed:(id)sender;
 - (IBAction)imageButtonPressed:(id)sender;
@@ -39,6 +44,7 @@
 - (void) enableAutoHeightCell;
 - (void)displayThumbAndCaption:(UIImage*)thumb caption:(NSString*)caption;
 - (void)displayCabtion:(id)caption;
-
+- (void)displayContent:(NSString*)answerContent;
+-(void)displayViewAction;
 
 @end

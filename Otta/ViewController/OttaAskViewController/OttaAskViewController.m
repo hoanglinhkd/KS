@@ -328,9 +328,20 @@ UITextView itsTextView = [[UITextView alloc] initWithFrame:CGRectMake(0, 0, itsT
         cell = [[OttaOptionCell alloc]initWithStyle:
                 UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
     }
-    
+    cell.indexPath = indexPath;
     [cell enableAutoHeightCell];
     [cell.lblNumber setText:[NSString stringWithFormat:@"%d", indexPath.row + 1]];
+    
+    //Mapping data model
+    OttaAnswer *curAnswer = [_optionsArray objectAtIndex:indexPath.row];
+    cell.answer = curAnswer;
+    if(curAnswer.answerHasphoto) {
+        [cell displayThumbAndCaption:curAnswer.answerImage caption:curAnswer.answerCaptionImage];
+    } else if(curAnswer.answerHasContent){
+        [cell displayContent:curAnswer.answerText];
+    } else {
+        [cell displayViewAction];
+    }
     
     cell.delegate = self;
     
@@ -411,8 +422,10 @@ UITextView itsTextView = [[UITextView alloc] initWithFrame:CGRectMake(0, 0, itsT
 
 - (void)optionCell:(OttaOptionCell*)cell textEndEditing:(id)textview
 {
-    
+    OttaAnswer *curAnswer = [_optionsArray objectAtIndex:cell.indexPath.row];
+    curAnswer.answerText = textview;
 }
+
 - (void)optionCell:(OttaOptionCell*)cell beginTakePicture:(id)imageView
 {
     NSLog(@"take image");

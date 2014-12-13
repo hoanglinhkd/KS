@@ -20,19 +20,35 @@
     // Configure the view for the selected state
 }
 
+-(void)displayViewAction
+{
+    _viewAction.hidden = NO;
+    _txtContent.hidden = YES;
+}
+
+-(void)displayContent:(NSString *)answerContent
+{
+    _viewAction.hidden = TRUE;
+    _txtContent.hidden = FALSE;
+    [_txtContent setText:answerContent];
+}
+
 - (IBAction)textButtonPressed:(id)sender {
     _viewAction.hidden = TRUE;
     _txtContent.hidden = FALSE;
+    _txtContent.delegate = self;
+    _answer.answerHasContent = YES;
     [_txtContent becomeFirstResponder];
-    
+    [_txtContent setText:_answer.answerText];
     [_delegate optionCell:self textBeginEditing:_txtContent];
 }
 
 - (IBAction)imageButtonPressed:(id)sender {
-    
     [_delegate optionCell:self beginTakePicture:_imgMain];
+    _answer.answerHasphoto = YES;
     
 }
+
 - (void)displayThumbAndCaption:(UIImage*)thumb caption:(NSString*)caption {
     
     [self.viewAction setHidden:YES];
@@ -64,18 +80,31 @@
 }
 
 #pragma mark textView delegate
+
+- (void)growingTextViewDidEndEditing:(HPGrowingTextView *)growingTextView
+{
+    if (growingTextView == _txtContent) {
+        [_delegate optionCell:self textEndEditing:_txtContent.text];
+    } else if (growingTextView == _txtImageDescription) {
+        [_delegate optionCell:self textEndEditing:_txtImageDescription.text];
+    }
+    
+}
+
 - (BOOL) textViewShouldBeginEditing:(UITextView *)textView {
     
     return YES;
 }
 - (void)textViewDidEndEditing:(UITextView *)textView {
     [_txtContent resignFirstResponder];
+    [_delegate optionCell:self textEndEditing:_txtContent];
     
 }
 - (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text;
 {
     if ( [text isEqualToString:@"\n"] ) {
         [_txtContent resignFirstResponder];
+        [_delegate optionCell:self textEndEditing:_txtContent.text];
     }
     return YES;
 }
