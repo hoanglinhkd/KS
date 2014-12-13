@@ -451,7 +451,7 @@ UITextView itsTextView = [[UITextView alloc] initWithFrame:CGRectMake(0, 0, itsT
     
     _photoPicker = [[CZPhotoPickerController alloc] initWithPresentingViewController:self withCompletionBlock:^(UIImagePickerController *imagePickerController, NSDictionary *imageInfoDict) {
         UIImage *selectedImage = nil;
-        NSString *caption = @"Just4Test";
+        NSString *caption = @"Input caption";
         if (imageInfoDict) {
             if (imagePickerController.allowsEditing) {
                 selectedImage = imageInfoDict[UIImagePickerControllerEditedImage];

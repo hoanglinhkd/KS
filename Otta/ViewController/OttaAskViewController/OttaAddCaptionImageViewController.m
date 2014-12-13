@@ -19,6 +19,11 @@
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
+-(void)viewDidLoad
+{
+    [super viewDidLoad];
+}
+
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     self.selectedImageView.image = self.image;
@@ -27,5 +32,21 @@
     
     _captionTextView.placeholderTextColor = [UIColor whiteColor];
     _captionTextView.placeholder = @"Add a caption?";
+    
+    [_scrollContent contentSizeToFit];
+    [_scrollContent setContentOffset:_parentViewCaption.frame.origin animated:NO];
 }
+
+
+- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text {
+    
+    if([text isEqualToString:@"\n"]) {
+        [textView resignFirstResponder];
+        return NO;
+    }
+    
+    return YES;
+}
+
+
 @end

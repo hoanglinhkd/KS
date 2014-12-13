@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "SZTextView.h"
+#import "TPKeyboardAvoidingScrollView.h"
 
 @class OttaAddCaptionImageViewController;
 
@@ -27,6 +28,9 @@
 @property (weak, nonatomic) IBOutlet UIImageView *selectedImageView;
 @property (weak, nonatomic) IBOutlet SZTextView *captionTextView;
 @property (weak, nonatomic) IBOutlet UITextView *questionTextView;
+@property (weak, nonatomic) IBOutlet UIView *parentViewCaption;
 @property (weak, nonatomic) UIImage *image;
 @property (strong, nonatomic) NSString *question;
+
+@property (weak, nonatomic) IBOutlet TPKeyboardAvoidingScrollView *scrollContent;
 @end
