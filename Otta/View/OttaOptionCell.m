@@ -45,13 +45,18 @@
     _answer.answerHasContent = YES;
     [_txtContent becomeFirstResponder];
     [_txtContent setText:_answer.answerText];
-    [_delegate optionCell:self textBeginEditing:_txtContent];
+    
+    if([_delegate respondsToSelector:@selector(optionCell:textBeginEditing:)]) {
+        [_delegate optionCell:self textBeginEditing:_txtContent];
+    }
 }
 
 - (IBAction)imageButtonPressed:(id)sender {
-    [_delegate optionCell:self beginTakePicture:_imgMain];
+    if([_delegate respondsToSelector:@selector(optionCell:beginTakePicture:)]) {
+        [_delegate optionCell:self beginTakePicture:_imgMain];
+    }
     _answer.answerHasphoto = YES;
-    
+    _txtImageDescription.delegate = self;
 }
 
 - (void)displayThumbAndCaption:(UIImage*)thumb caption:(NSString*)caption {
@@ -62,11 +67,14 @@
     _imgMain.image = thumb;
     _txtImageDescription.hidden = FALSE;
     _txtImageDescription.text = caption;
+    _answer.answerImage = thumb;
+    _answer.answerText = caption;
 }
 
 - (void)displayCabtion:(id)caption {
     [self.viewAction setHidden:YES];
     [self.viewContent2 setHidden:NO];
+    _answer.answerText = caption;
     _txtImageDescription.hidden = FALSE;
     _txtImageDescription.text = caption;
 }
@@ -81,7 +89,14 @@
 
 -(void)growingTextView:(HPGrowingTextView *)growingTextView willChangeHeight:(float)height
 {
-    [_delegate optionCell:self textView:growingTextView willChangeHeight:height];
+    if([_delegate respondsToSelector:@selector(optionCell:textView:willChangeHeight:)]) {
+        [_delegate optionCell:self textView:growingTextView willChangeHeight:height];
+    }
+}
+
+-(void)growingTextViewDidChange:(HPGrowingTextView *)growingTextView
+{
+    _answer.answerText = growingTextView.text;
 }
 
 #pragma mark textView delegate
@@ -89,9 +104,13 @@
 - (void)growingTextViewDidEndEditing:(HPGrowingTextView *)growingTextView
 {
     if (growingTextView == _txtContent) {
-        [_delegate optionCell:self textEndEditing:_txtContent.text];
+        if([_delegate respondsToSelector:@selector(optionCell:textEndEditing:)]) {
+            [_delegate optionCell:self textEndEditing:_txtContent.text];
+        }
     } else if (growingTextView == _txtImageDescription) {
-        [_delegate optionCell:self textEndEditing:_txtImageDescription.text];
+        if([_delegate respondsToSelector:@selector(optionCell:textEndEditing:)]) {
+            [_delegate optionCell:self textEndEditing:_txtImageDescription.text];
+        }
     }
     
 }
@@ -102,14 +121,18 @@
 }
 - (void)textViewDidEndEditing:(UITextView *)textView {
     [_txtContent resignFirstResponder];
-    [_delegate optionCell:self textEndEditing:_txtContent];
+    if([_delegate respondsToSelector:@selector(optionCell:textEndEditing:)]) {
+        [_delegate optionCell:self textEndEditing:_txtContent];
+    }
     
 }
 - (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text;
 {
     if ( [text isEqualToString:@"\n"] ) {
         [_txtContent resignFirstResponder];
-        [_delegate optionCell:self textEndEditing:_txtContent.text];
+        if([_delegate respondsToSelector:@selector(optionCell:textEndEditing:)]) {
+            [_delegate optionCell:self textEndEditing:_txtContent.text];
+        }
     }
     return YES;
 }

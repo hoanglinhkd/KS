@@ -11,7 +11,7 @@
 
 @class OttaAddCaptionImageViewController;
 
-@protocol OttaAddCaptionDelegate
+@protocol OttaAddCaptionDelegate <NSObject>
 
 @optional
 

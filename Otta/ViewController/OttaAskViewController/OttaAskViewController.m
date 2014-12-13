@@ -84,6 +84,7 @@
     [super viewDidLoad];
 
     selectedTimeValue = 0;
+    selectedDuration = -1;
     [self.navigationController setNavigationBarHidden:YES];
     
     listHeightQuestion = [NSMutableDictionary dictionary];
@@ -332,13 +333,13 @@ UITextView itsTextView = [[UITextView alloc] initWithFrame:CGRectMake(0, 0, itsT
     }
     cell.indexPath = indexPath;
     [cell enableAutoHeightCell];
-    [cell.lblNumber setText:[NSString stringWithFormat:@"%ld", indexPath.row + 1]];
+    [cell.lblNumber setText:[NSString stringWithFormat:@"%d", indexPath.row + 1]];
     
     //Mapping data model
     OttaAnswer *curAnswer = [_optionsArray objectAtIndex:indexPath.row];
     cell.answer = curAnswer;
     if(curAnswer.answerHasphoto) {
-        [cell displayThumbAndCaption:curAnswer.answerImage caption:curAnswer.answerCaptionImage];
+        [cell displayThumbAndCaption:curAnswer.answerImage caption:curAnswer.answerText];
     } else if(curAnswer.answerHasContent){
         [cell displayContent:curAnswer.answerText];
     } else {
@@ -362,7 +363,7 @@ UITextView itsTextView = [[UITextView alloc] initWithFrame:CGRectMake(0, 0, itsT
         return 55;
     }
     
-    NSNumber *currentRowHeight = [listHeightQuestion objectForKey:[NSString stringWithFormat:@"row%ld", indexPath.row]];
+    NSNumber *currentRowHeight = [listHeightQuestion objectForKey:[NSString stringWithFormat:@"row%d", indexPath.row]];
     return [currentRowHeight floatValue];
 }
 
@@ -380,13 +381,13 @@ UITextView itsTextView = [[UITextView alloc] initWithFrame:CGRectMake(0, 0, itsT
             NSString *str = @"";
             switch (timeSelectionValue) {
                 case TimeSelection_Minutes:
-                    str = [NSString stringWithFormat:@"%ld Minutes",timeValue];
+                    str = [NSString stringWithFormat:@"%d Minutes",timeValue];
                     break;
                 case TimeSelection_Hours:
-                    str = [NSString stringWithFormat:@"%ld Hours",timeValue];
+                    str = [NSString stringWithFormat:@"%d Hours",timeValue];
                     break;
                 case TimeSelection_Days:
-                    str = [NSString stringWithFormat:@"%ld Days",timeValue];
+                    str = [NSString stringWithFormat:@"%d Days",timeValue];
                     break;
                 case TimeSelection_Weeks:
                     str = [NSString stringWithFormat:@"%d Weeks",timeValue];
@@ -405,7 +406,7 @@ UITextView itsTextView = [[UITextView alloc] initWithFrame:CGRectMake(0, 0, itsT
     if (_optionsArray.count < 4 && indexPath.row == _optionsArray.count) {
         // Add option
         [_optionsArray addObject:[[OttaAnswer alloc] init]];
-        [listHeightQuestion setObject:[NSNumber numberWithFloat:70.0f] forKey:[NSString stringWithFormat:@"row%ld", indexPath.row]];
+        [listHeightQuestion setObject:[NSNumber numberWithFloat:70.0f] forKey:[NSString stringWithFormat:@"row%d", indexPath.row]];
         [tableView reloadData];
     }
    
@@ -476,7 +477,26 @@ UITextView itsTextView = [[UITextView alloc] initWithFrame:CGRectMake(0, 0, itsT
     UIBarButtonItem * somebarbutton =[[UIBarButtonItem alloc]init];
     [_photoPicker showFromBarButtonItem:somebarbutton];
 }
+
+#pragma mark - Answerer VC delegate
+
+-(void)askSuccessed
+{
+    [self clearAllDataViews];
+}
+
 #pragma mark -
+
+- (void) clearAllDataViews
+{
+    [_optionsArray removeAllObjects];
+    [_optionsArray addObject:[[OttaAnswer alloc] init]];
+    selectedDuration = 0;
+    selectedTimeValue = -1;
+    _itsTextView.text = @"";
+    deadlineString = @"";
+    [_tableAsk reloadData];
+}
 
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
@@ -492,6 +512,7 @@ UITextView itsTextView = [[UITextView alloc] initWithFrame:CGRectMake(0, 0, itsT
         answerVC.selectedDuration = selectedDuration;
         answerVC.selectedTimeValue = selectedTimeValue;
         answerVC.askQuestionValue = _itsTextView.text;
+        answerVC.delegate  = self;
     }
 }
 
@@ -500,7 +521,27 @@ UITextView itsTextView = [[UITextView alloc] initWithFrame:CGRectMake(0, 0, itsT
 }
 
 - (IBAction)btnNextPress:(id)sender {
+    
+    //Validate options
+    for (OttaAnswer *curAnswer in _optionsArray) {
+        if(curAnswer.answerImage == nil && curAnswer.answerText.length <= 0) {
+            [[OttaAlertManager sharedManager] showSimpleAlertWithContent:[@"Please provide option" toCurrentLanguage] complete:nil];
+            return;
+        }
+    }
+    
+    
+    if(_itsTextView.text.length <= 0) {
+        [[OttaAlertManager sharedManager] showSimpleAlertWithContent:[@"Please provide question" toCurrentLanguage] complete:nil];
+        return;
+    }
+    
+    if(selectedTimeValue <= 0) {
+        [[OttaAlertManager sharedManager] showSimpleAlertWithContent:[@"Please choose deadline" toCurrentLanguage] complete:nil];
+        return;
+    }
     [self performSegueWithIdentifier:@"segueAnswerers" sender:self];
+    
 }
 - (IBAction)pressBtnLogo:(id)sender{
     [[SideMenuViewController sharedInstance] selectRowAtIndex:[NSIndexPath indexPathForRow:1 inSection:0] forViewController:self];

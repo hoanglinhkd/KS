@@ -198,12 +198,14 @@
     
     for (OttaAnswer *answer in ottaQuestion.ottaAnswers) {
         
-        NSData *imageData = UIImagePNGRepresentation(answer.answerImage);
-        PFFile *imageFile = [PFFile fileWithName:[NSString stringWithFormat:@"%f.png",[[NSDate date] timeIntervalSince1970]] data:imageData];
-        
         PFObject *option = [PFObject objectWithClassName:kOttaAnswer];
-        [option setObject:imageFile forKey:kImage];
-        [option setObject:answer.answerText forKey:kDescription];
+        NSData *imageData = UIImagePNGRepresentation(answer.answerImage);
+        if(imageData) {
+            PFFile *imageFile = [PFFile fileWithName:[NSString stringWithFormat:@"%f.png",[[NSDate date] timeIntervalSince1970]] data:imageData];
+            [option setObject:imageFile forKey:kImage];
+        }
+        
+        [option setObject:(answer.answerText.length <= 0 ? @"" : answer.answerText) forKey:kDescription];
         [optionArray addObject:option];
     }
     

@@ -11,7 +11,7 @@
 #import "OttaAnswer.h"
 
 @class OttaOptionCell;
-@protocol OttaOptionCellDelegate
+@protocol OttaOptionCellDelegate <NSObject>
 
 @optional
 

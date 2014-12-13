@@ -14,8 +14,9 @@
 #import "OttaAddCaptionImageViewController.h"
 #import "OttaTransitionViewController.h"
 #import "SZTextView.h"
+#import "OttaAnswerersViewController.h"
 
-@interface OttaAskViewController : OttaTransitionViewController <UITableViewDataSource, UITableViewDelegate, OttaOptionCellDelegate, OttaAddCaptionDelegate>
+@interface OttaAskViewController : OttaTransitionViewController <UITableViewDataSource, UITableViewDelegate, OttaOptionCellDelegate, OttaAddCaptionDelegate, OttaAnswerersViewControllerDelegate>
 
 //@property (nonatomic,strong) OttaAnswerTableController * answerViewController;
 //@property (nonatomic,strong) IBOutlet TPKeyboardAvoidingTableView * answerTableView;

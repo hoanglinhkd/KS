@@ -13,7 +13,9 @@
 
 -(IBAction)btnNextTapped:(id)sender
 {
-    [self.delegate addCaptionVC:self addCaption:_captionTextView.text];
+    if([self.delegate respondsToSelector:@selector(addCaptionVC:addCaption:)]) {
+        [self.delegate addCaptionVC:self addCaption:_captionTextView.text];
+    }
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 

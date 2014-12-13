@@ -41,6 +41,23 @@
 	return [NSDate dateWithDaysBeforeNow:1];
 }
 
++ (NSDate *) dateWithMonthsFromNow:(NSInteger)dMonths {
+    
+    NSCalendar *calendar = [NSCalendar currentCalendar];
+    
+    NSDateComponents *components = [[NSDateComponents alloc] init];
+    [components setMonth:dMonths];
+    
+    return [calendar dateByAddingComponents:components toDate:[NSDate date] options:0];
+}
+
++ (NSDate *) dateWithWeeksFromNow: (NSInteger) dWeeks
+{
+    NSTimeInterval aTimeInterval = [[NSDate date] timeIntervalSinceReferenceDate] + D_WEEK * dWeeks;
+    NSDate *newDate = [NSDate dateWithTimeIntervalSinceReferenceDate:aTimeInterval];
+    return newDate;
+}
+
 + (NSDate *) dateWithHoursFromNow: (NSInteger) dHours
 {
 	NSTimeInterval aTimeInterval = [[NSDate date] timeIntervalSinceReferenceDate] + D_HOUR * dHours;

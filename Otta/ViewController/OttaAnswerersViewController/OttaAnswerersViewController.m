@@ -127,15 +127,19 @@
     }
 }
 
+-(IBAction)btnBackPress:(id)sender
+{
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
 -(IBAction)btnAskPress:(id)sender{
     
+    if (!isSelectAll && listSelected.count <= 0) {
+        [[OttaAlertManager sharedManager] showSimpleAlertWithContent:[@"Please select your friends" toCurrentLanguage] complete:nil];
+        return;
+    }
     
-    [[OttaAlertManager sharedManager] showSimpleAlertOnView:self.view withContent:@"Sent" complete:^{
-        [self dismissViewControllerAnimated:YES completion:nil];
-    }];
-    
-    return;
-    // TO Hào: Please comment code if it does not done yet. Don't leave a crash same here >"<
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     
     OttaQuestion* question = [[OttaQuestion alloc] init];
     question.questionText = _askQuestionValue;
@@ -147,6 +151,10 @@
          question.expTime = [NSDate dateWithHoursFromNow:_selectedTimeValue];
     } else if(_selectedDuration == TimeSelection_Minutes) {
          question.expTime = [NSDate dateWithMinutesFromNow:_selectedTimeValue];
+    } else if(_selectedDuration == TimeSelection_Weeks) {
+        question.expTime = [NSDate dateWithWeeksFromNow:_selectedTimeValue];
+    } else if(_selectedDuration == TimeSelection_Months) {
+        question.expTime = [NSDate dateWithMonthsFromNow:_selectedTimeValue];
     }
     
     question.isPublic = isSelectAll;
@@ -154,8 +162,24 @@
         question.responders = listSelected;
     }
     
+    
     [[OttaParseClientManager sharedManager] addQuestion:question withBlock:^(BOOL isSucceeded, NSError *error) {
-        [self dismissViewControllerAnimated:YES completion:nil];
+        if(isSucceeded) {
+            [[OttaAlertManager sharedManager] showSimpleAlertOnView:self.view withContent:[@"Ask completed" toCurrentLanguage] complete:^{
+                
+                if ([_delegate respondsToSelector:@selector(askSuccessed)]) {
+                    [_delegate askSuccessed];
+                }
+                
+                [MBProgressHUD hideHUDForView:self.view animated:YES];
+                [self dismissViewControllerAnimated:YES completion:nil];
+            }];
+        } else {
+            
+            [MBProgressHUD hideHUDForView:self.view animated:YES];
+            [[OttaAlertManager sharedManager] showSimpleAlertOnView:self.view withContent:[@"Ask failed" toCurrentLanguage] complete:nil];
+        }
+        
     }];
     
 }
