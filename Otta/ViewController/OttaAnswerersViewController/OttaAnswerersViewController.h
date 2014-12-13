@@ -8,7 +8,7 @@
 
 @property (strong, nonatomic) NSArray *follows;
 @property (strong, nonatomic) NSMutableArray *optionsArray;
-@property (assign, nonatomic) int selectedTimeValue;
+@property (assign, nonatomic) NSInteger selectedTimeValue;
 @property (strong, nonatomic) NSString *askQuestionValue;
 @property (assign, nonatomic) TimeSelection selectedDuration;
 @property (weak, nonatomic) IBOutlet UIButton *btnCheck;

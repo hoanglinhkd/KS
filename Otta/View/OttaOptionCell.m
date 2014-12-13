@@ -12,12 +12,17 @@
 
 - (void)awakeFromNib {
     // Initialization code
+    _imgMain.userInteractionEnabled = YES;
+    
+    UITapGestureRecognizer *tapped = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handlePinch:)];
+    tapped.numberOfTapsRequired = 1;
+    [_imgMain addGestureRecognizer:tapped];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
-
     // Configure the view for the selected state
+    NSLog(@"touch here");
 }
 
 -(void)displayViewAction
@@ -107,6 +112,15 @@
         [_delegate optionCell:self textEndEditing:_txtContent.text];
     }
     return YES;
+}
+
+#pragma mark - Selector
+- (void)handlePinch:(UIPinchGestureRecognizer *)pinchGestureRecognizer
+{
+    //handle pinch
+    if (self.delegate && [(NSObject*)self.delegate respondsToSelector:@selector(optionCell:needEditPicture:)]) {
+        [self.delegate optionCell:self needEditPicture:_imgMain];
+    }
 }
 
 @end

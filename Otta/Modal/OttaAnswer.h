@@ -12,6 +12,7 @@
 
 @property (nonatomic,strong)UIImage * answerImage;
 @property (nonatomic,strong)NSString * answerCaptionImage;
+@property (nonatomic,strong)PFFile * answerImageFile;
 @property (nonatomic,strong)NSString * imageURL;
 @property (nonatomic,strong)NSString * answerText;
 @property (nonatomic,assign) BOOL answerHasContent;

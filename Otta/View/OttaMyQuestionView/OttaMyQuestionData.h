@@ -19,7 +19,8 @@ enum MyQuestionDataType{
     MyQuestionDataTypeFooterSeeAll = 4,
     MyQuestionDataTypeFooterCollapse = 5,
     MyQuestionDataTypeAnswerPicture = 6,
-    MyQuestionDataTypeDone = 7
+    MyQuestionDataTypeDone = 7,
+    MyQuestionDataTypeVote = 8
 };
 
 @interface OttaMyQuestionData : NSObject
@@ -29,10 +30,16 @@ enum MyQuestionDataType{
 @property (nonatomic,strong) NSString * questionID;
 @property (nonatomic,strong) NSString * askerID;
 @property (nonatomic,assign) int expirationDate;
+@property (nonatomic,retain) NSDate *expTime;
 @property (nonatomic,strong) NSString * questionText;
 @property (nonatomic,strong) OttaAnswer * answer;
 
 @property (nonatomic,assign) int referIndex;
 @property (nonatomic,assign) NSInteger currentTableIndex;
+
+@property (nonatomic, strong) NSArray *voteUsers;
+@property (nonatomic, assign) BOOL isShowedVote;
+
+
 
 @end

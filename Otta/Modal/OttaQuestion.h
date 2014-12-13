@@ -15,7 +15,7 @@
 @property (nonatomic, strong) NSMutableArray* responders;
 @property (nonatomic, strong) NSString* askerID;
 @property (nonatomic, assign) int expirationDate;
-@property (nonatomic, assign) NSDate* expTime;
+@property (nonatomic, retain) NSDate* expTime;
 @property (nonatomic, strong) NSString* questionText;
 @property (nonatomic, assign) BOOL isPublic;
 

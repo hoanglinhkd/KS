@@ -139,4 +139,12 @@ typedef void(^OttaCountBlock)(int count, NSError* error);
  *  @param resultBlock
  */
 - (void)addQuestion:(OttaQuestion*)ottaQuestion withBlock:(OttaGeneralResultBlock)resultBlock;
+
+/**
+ *  Get My Question
+ *
+ *  @param user        pass current User
+ *  @param resultBlock
+ */
+- (void)getMyQuestionFromUser:(PFUser*)user withBlock:(OttaArrayDataBlock)resultBlock;
 @end

@@ -14,4 +14,8 @@
 @property (weak, nonatomic) IBOutlet UITableView *menuTableView;
 @property (weak, nonatomic) IBOutlet UIButton *btnAbout;
 
+
++ (SideMenuViewController*)sharedInstance;
+- (void)selectRowAtIndex:(NSIndexPath*)indexPath forViewController:(UIViewController*)vc;
+
 @end

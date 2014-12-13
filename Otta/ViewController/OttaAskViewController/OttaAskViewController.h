@@ -27,4 +27,6 @@
 @property (nonatomic, strong) NSMutableArray* optionsArray;
 - (IBAction)btnNextPress:(id)sender;
 
+- (IBAction)pressBtnLogo:(id)sender;
+
 @end

@@ -5,6 +5,7 @@
 #import "MBProgressHUD.h"
 #import "OttaAnswer.h"
 #import "NSDate-Utilities.h"
+#import "OttaAlertManager.h"
 
 @interface OttaAnswerersViewController ()
 {
@@ -127,6 +128,14 @@
 }
 
 -(IBAction)btnAskPress:(id)sender{
+    
+    
+    [[OttaAlertManager sharedManager] showSimpleAlertOnView:self.view withContent:@"Sent" complete:^{
+        [self dismissViewControllerAnimated:YES completion:nil];
+    }];
+    
+    return;
+    // TO Hào: Please comment code if it does not done yet. Don't leave a crash same here >"<
     
     OttaQuestion* question = [[OttaQuestion alloc] init];
     question.questionText = _askQuestionValue;

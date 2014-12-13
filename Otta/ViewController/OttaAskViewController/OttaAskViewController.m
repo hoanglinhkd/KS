@@ -15,12 +15,14 @@
 #import "NSString+Language.h"
 #import "UIViewController+ECSlidingViewController.h"
 #import "OttaAnswerersViewController.h"
+#import "CZPhotoPreviewViewController.h"
+#import "SideMenuViewController.h"
 
 @interface OttaAskViewController ()
 {
     NSMutableDictionary *listHeightQuestion;
     NSString* deadlineString;
-    int selectedTimeValue;
+    NSInteger selectedTimeValue;
     TimeSelection selectedDuration;
 }
 
@@ -236,7 +238,7 @@ testAnswer.answerText = @"Creme Brelee";
     [self.photoPicker showFromBarButtonItem:somebarbutton];
     
 }
- /*
+ */
 
 /*
 #pragma mark - Navigation
@@ -330,7 +332,7 @@ UITextView itsTextView = [[UITextView alloc] initWithFrame:CGRectMake(0, 0, itsT
     }
     cell.indexPath = indexPath;
     [cell enableAutoHeightCell];
-    [cell.lblNumber setText:[NSString stringWithFormat:@"%d", indexPath.row + 1]];
+    [cell.lblNumber setText:[NSString stringWithFormat:@"%ld", indexPath.row + 1]];
     
     //Mapping data model
     OttaAnswer *curAnswer = [_optionsArray objectAtIndex:indexPath.row];
@@ -360,7 +362,7 @@ UITextView itsTextView = [[UITextView alloc] initWithFrame:CGRectMake(0, 0, itsT
         return 55;
     }
     
-    NSNumber *currentRowHeight = [listHeightQuestion objectForKey:[NSString stringWithFormat:@"row%d", indexPath.row]];
+    NSNumber *currentRowHeight = [listHeightQuestion objectForKey:[NSString stringWithFormat:@"row%ld", indexPath.row]];
     return [currentRowHeight floatValue];
 }
 
@@ -378,13 +380,19 @@ UITextView itsTextView = [[UITextView alloc] initWithFrame:CGRectMake(0, 0, itsT
             NSString *str = @"";
             switch (timeSelectionValue) {
                 case TimeSelection_Minutes:
-                    str = [NSString stringWithFormat:@"%d Minutes",timeValue];
+                    str = [NSString stringWithFormat:@"%ld Minutes",timeValue];
                     break;
                 case TimeSelection_Hours:
-                    str = [NSString stringWithFormat:@"%d Hours",timeValue];
+                    str = [NSString stringWithFormat:@"%ld Hours",timeValue];
                     break;
                 case TimeSelection_Days:
-                    str = [NSString stringWithFormat:@"%d Days",timeValue];
+                    str = [NSString stringWithFormat:@"%ld Days",timeValue];
+                    break;
+                case TimeSelection_Weeks:
+                    str = [NSString stringWithFormat:@"%d Weeks",timeValue];
+                    break;
+                case TimeSelection_Months:
+                    str = [NSString stringWithFormat:@"%d Months",timeValue];
                     break;
                 default:
                     break;
@@ -397,7 +405,7 @@ UITextView itsTextView = [[UITextView alloc] initWithFrame:CGRectMake(0, 0, itsT
     if (_optionsArray.count < 4 && indexPath.row == _optionsArray.count) {
         // Add option
         [_optionsArray addObject:[[OttaAnswer alloc] init]];
-        [listHeightQuestion setObject:[NSNumber numberWithFloat:70.0f] forKey:[NSString stringWithFormat:@"row%d", indexPath.row]];
+        [listHeightQuestion setObject:[NSNumber numberWithFloat:70.0f] forKey:[NSString stringWithFormat:@"row%ld", indexPath.row]];
         [tableView reloadData];
     }
    
@@ -409,7 +417,7 @@ UITextView itsTextView = [[UITextView alloc] initWithFrame:CGRectMake(0, 0, itsT
 {
     NSLog(@"Height = %f", height);
     if(cell.viewContent2.isHidden) {
-        NSIndexPath *indexPath = [self.tableAsk indexPathForCell:cell];
+        //NSIndexPath *indexPath = [self.tableAsk indexPathForCell:cell];
         //[listHeightQuestion setObject:[NSNumber numberWithFloat:height + 20] forKey:[NSString stringWithFormat:@"row%d",indexPath.row]];
         //[self.tableAsk reloadData];
     }
@@ -426,6 +434,9 @@ UITextView itsTextView = [[UITextView alloc] initWithFrame:CGRectMake(0, 0, itsT
     curAnswer.answerText = textview;
 }
 
+- (void)optionCell:(OttaOptionCell *)cell needEditPicture:(id)imageView{
+    [_photoPicker showFromRect:self.view.bounds];
+}
 - (void)optionCell:(OttaOptionCell*)cell beginTakePicture:(id)imageView
 {
     NSLog(@"take image");
@@ -490,5 +501,8 @@ UITextView itsTextView = [[UITextView alloc] initWithFrame:CGRectMake(0, 0, itsT
 
 - (IBAction)btnNextPress:(id)sender {
     [self performSegueWithIdentifier:@"segueAnswerers" sender:self];
+}
+- (IBAction)pressBtnLogo:(id)sender{
+    [[SideMenuViewController sharedInstance] selectRowAtIndex:[NSIndexPath indexPathForRow:1 inSection:0] forViewController:self];
 }
 @end

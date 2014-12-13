@@ -32,4 +32,6 @@
 - (IBAction)btnAnswerPressed:(id)sender;
 - (IBAction)btnAskPressed:(id)sender;
 
+- (IBAction)pressBtnLogo:(id)sender;
+
 @end
