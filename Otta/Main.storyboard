@@ -117,7 +117,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7TB-dE-zmc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="95" y="562"/>
+            <point key="canvasLocation" x="649" y="640"/>
         </scene>
         <!--Otta Ask View Controller-->
         <scene sceneID="0A0-dA-ezo">
@@ -168,6 +168,7 @@
                                         </state>
                                         <connections>
                                             <action selector="pressBtnLogo:" destination="Vr1-Kh-wSh" eventType="touchUpInside" id="caN-pU-TWk"/>
+                                            <segue destination="jCl-07-7Vf" kind="custom" customClass="ECSlidingSegue" id="E1q-wn-UAr"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -493,7 +494,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HOd-FJ-vaq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="658" y="1502"/>
+            <point key="canvasLocation" x="319" y="1590"/>
         </scene>
         <!--About View Controller-->
         <scene sceneID="mOX-io-JSa">
@@ -513,10 +514,10 @@
                                 <color key="textColor" red="0.48627450980392156" green="0.74117647058823533" blue="0.19215686274509805" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleAspectFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sbm-ms-GQv">
+                            <view contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="sbm-ms-GQv">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="80"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="Otta_header_shape_bar.png" translatesAutoresizingMaskIntoConstraints="NO" id="lVD-q7-Z3Z">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Otta_header_shape_bar.png" translatesAutoresizingMaskIntoConstraints="NO" id="lVD-q7-Z3Z">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="80"/>
                                     </imageView>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="Otta_header_brand_name.png" translatesAutoresizingMaskIntoConstraints="NO" id="UbD-mc-Aim">
@@ -577,13 +578,13 @@
                                 <color key="textColor" red="0.48627450979999998" green="0.74117647060000003" blue="0.19215686269999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="6ep-8v-gWp">
+                            <view contentMode="scaleAspectFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6ep-8v-gWp">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="80"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Otta_header_shape_bar.png" translatesAutoresizingMaskIntoConstraints="NO" id="m8T-Up-hhB">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="Otta_header_shape_bar.png" translatesAutoresizingMaskIntoConstraints="NO" id="m8T-Up-hhB">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="80"/>
                                     </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="Otta_header_brand_name.png" translatesAutoresizingMaskIntoConstraints="NO" id="Plo-cg-FI1">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="Otta_header_brand_name.png" translatesAutoresizingMaskIntoConstraints="NO" id="Plo-cg-FI1">
                                         <rect key="frame" x="105" y="35" width="111" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="111" id="N8U-1R-0We"/>
@@ -751,7 +752,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CcS-Hm-vcd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1060" y="380"/>
+            <point key="canvasLocation" x="-992" y="284"/>
         </scene>
         <!--Otta Add Caption Image View Controller-->
         <scene sceneID="Mcj-hz-ZKm">
@@ -1888,7 +1889,7 @@ EE5leHQ
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="v8p-AU-RSb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="41" y="1377"/>
+            <point key="canvasLocation" x="-81" y="1211"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="sWr-Tv-fg3">
@@ -1906,7 +1907,7 @@ EE5leHQ
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HWf-ay-P0T" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-288" y="1171"/>
+            <point key="canvasLocation" x="-564" y="1053"/>
         </scene>
         <!--Otta Join Detail View Controller-->
         <scene sceneID="vnu-0B-n1Z">
@@ -2236,7 +2237,7 @@ EE5leHQ
                         <rect key="frame" x="0.0" y="0.0" width="320" height="442"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="I8g-YS-BJD" userLabel="FaceBookDetailView" customClass="TPKeyboardAvoidingScrollView">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="I8g-YS-BJD" userLabel="FaceBookDetailView" customClass="TPKeyboardAvoidingScrollView">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="247"/>
                                 <subviews>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Hba-ng-RCr">
@@ -2425,10 +2426,10 @@ EE5leHQ
             </objects>
             <point key="canvasLocation" x="159" y="-1975"/>
         </scene>
-        <!--Question Feed Controller-->
+        <!--QuestionFeedController-->
         <scene sceneID="7jg-8K-CGZ">
             <objects>
-                <viewController title="Question Feed Controller" id="QEH-XF-4aU" customClass="OttaQuestionFeedViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="QuestionFeedController" title="QuestionFeedController" id="QEH-XF-4aU" customClass="OttaQuestionFeedViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="cZ0-M7-im4"/>
                         <viewControllerLayoutGuide type="bottom" id="sGp-0u-r6v"/>
@@ -2752,13 +2753,14 @@ EE5leHQ
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jVK-Al-NCL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2043" y="2057"/>
+            <point key="canvasLocation" x="-133" y="2225"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="OAq-PP-pHB">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="jCl-07-7Vf" sceneMemberID="viewController">
                     <toolbarItems/>
+                    <navigationItem key="navigationItem" id="sJJ-dZ-kXu"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="PQt-Cp-z69">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -2770,7 +2772,7 @@ EE5leHQ
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sra-b4-eQu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-873" y="2223"/>
+            <point key="canvasLocation" x="-413" y="1759"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="EJE-7h-oLa">
@@ -3033,7 +3035,7 @@ EE5leHQ
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GhC-CR-nu9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="512" y="2379"/>
+            <point key="canvasLocation" x="584" y="2285"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="XaX-UK-gbe">
@@ -3419,7 +3421,7 @@ EE5leHQ
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="N8k-RK-DQH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2002" y="1229"/>
+            <point key="canvasLocation" x="-1884" y="1243"/>
         </scene>
     </scenes>
     <resources>
@@ -3464,8 +3466,9 @@ EE5leHQ
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="3Iu-Ui-5LO"/>
-        <segue reference="Rv5-b9-Jw9"/>
+        <segue reference="9wb-bJ-bBU"/>
+        <segue reference="E1q-wn-UAr"/>
         <segue reference="Q7F-7b-5wm"/>
+        <segue reference="3Iu-Ui-5LO"/>
     </inferredMetricsTieBreakers>
 </document>
