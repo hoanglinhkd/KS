@@ -40,6 +40,10 @@ enum MyQuestionDataType{
 @property (nonatomic, strong) NSArray *voteUsers;
 @property (nonatomic, assign) BOOL isShowedVote;
 
+@property (nonatomic, assign) BOOL isShowedOptionDone;
+@property (nonatomic, assign) BOOL disableSelecting;
+
+
 
 
 @end

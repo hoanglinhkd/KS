@@ -226,7 +226,7 @@ static NSString * const OttaMyQuestionVoteCellIdentifier        = @"OttaMyQuesti
         }
         myQs.askerID = [NSString stringWithFormat:@"162817629"];
         myQs.expirationDate = 0;
-        myQs.isSeeAll = YES;
+        myQs.isSeeAll = NO;
         if (i==1) {
             myQs.questionText = @"Is it a short question?";
         }else{
@@ -245,6 +245,8 @@ static NSString * const OttaMyQuestionVoteCellIdentifier        = @"OttaMyQuesti
         if (qs.expirationDate <= 0) {
             obj.dataType = MyQuestionDataTypeDone;
             obj.questionText = qs.questionText;
+            obj.isShowedOptionDone = NO;
+            obj.referIndex = i;
             [dataForShow addObject:obj];
         }else{
             obj.dataType = MyQuestionDataTypeHeader;
@@ -380,19 +382,23 @@ static NSString * const OttaMyQuestionVoteCellIdentifier        = @"OttaMyQuesti
             //[self fixFrameForHeaderCell:(OttaMyQuestionHeaderCell*)cell];
             break;
         case MyQuestionDataTypeAnswer:
-            [self processVoteDataForRowAtIndex:indexPath];
+            if (!dto.disableSelecting) {
+                [self processVoteDataForRowAtIndex:indexPath];
+            }
             break;
         case MyQuestionDataTypeFooterNormal:
             break;
         case MyQuestionDataTypeAnswerPicture:
-            [self processVoteDataForRowAtIndex:indexPath];
+            if (!dto.disableSelecting) {
+                [self processVoteDataForRowAtIndex:indexPath];
+            }
             break;
         case MyQuestionDataTypeFooterSeeAll:
             break;
         case MyQuestionDataTypeFooterCollapse:
             break;
         case MyQuestionDataTypeDone:
-            //[self fixFrameForDoneCell:(OttaMyQuestionDoneCell*)cell];
+            [self processOptionDoneQuestionForRowAtIndex:indexPath];
             break;
         default:
             break;
@@ -781,6 +787,68 @@ static NSString * const OttaMyQuestionVoteCellIdentifier        = @"OttaMyQuesti
         NSArray *arrInsertIdxPaths = [[NSArray alloc] initWithObjects:newIndexPath, nil];
         [self.myTableView insertRowsAtIndexPaths:arrInsertIdxPaths withRowAnimation:UITableViewRowAnimationFade];
         
+    }
+}
+
+- (void)processOptionDoneQuestionForRowAtIndex:(NSIndexPath*)indexPath{
+    OttaMyQuestionData *currQuestion = [dataForShow objectAtIndex:indexPath.row];
+    
+    
+    if (currQuestion.isShowedOptionDone) {
+        
+        currQuestion.isShowedOptionDone = NO;
+        
+        NSMutableArray *rowsToDelete = [[NSMutableArray alloc] initWithCapacity:5];
+        // Remove data at dataForShow
+        for (NSInteger i = indexPath.row + 1; i < dataForShow.count; i++) {
+            
+            OttaMyQuestionData *checkOptionQuestion = [dataForShow objectAtIndex:i];
+            if (checkOptionQuestion.dataType == MyQuestionDataTypeAnswer || checkOptionQuestion.dataType == MyQuestionDataTypeAnswerPicture) {
+                
+                NSIndexPath* rowIndexPath = [NSIndexPath indexPathForRow:i inSection:0];
+                [rowsToDelete addObject:rowIndexPath];
+            }else{
+                break;
+            }
+            
+        }
+        
+        // Remove data
+        for (NSInteger j = rowsToDelete.count-1; j >= 0; j--) {
+            [dataForShow removeObjectAtIndex:((NSIndexPath*)rowsToDelete[j]).row];
+        }
+        // Animation for delete row
+        [self.myTableView deleteRowsAtIndexPaths:rowsToDelete withRowAnimation:UITableViewRowAnimationTop];
+        
+    }else{
+        currQuestion.isShowedOptionDone = YES;
+        
+        OttaQuestion *qs = [datas objectAtIndex:currQuestion.referIndex];
+        int numberLocation = 1;
+        
+        // animation add cell and data
+        NSMutableArray *arrInsertIdxPaths = [[NSMutableArray alloc] init];
+        for (OttaAnswer *answer in qs.ottaAnswers) {
+            OttaMyQuestionData *optionData = [[OttaMyQuestionData alloc] init];
+            
+            answer.numberAnswer = numberLocation;
+            if (answer.answerHasphoto) {
+                optionData.dataType = MyQuestionDataTypeAnswerPicture;
+            }else{
+                optionData.dataType = MyQuestionDataTypeAnswer;
+            }
+            optionData.answer = answer;
+            optionData.disableSelecting = YES;
+            NSIndexPath *newIndexPath = [NSIndexPath indexPathForRow:indexPath.row+numberLocation inSection:0];
+            [arrInsertIdxPaths addObject:newIndexPath];
+            [dataForShow insertObject:optionData atIndex:newIndexPath.row];
+            
+            numberLocation++;
+        }
+        
+        // Animation for add cell
+        [self.myTableView insertRowsAtIndexPaths:arrInsertIdxPaths withRowAnimation:UITableViewRowAnimationFade];
+        [self.myTableView scrollToRowAtIndexPath:((NSIndexPath*)[arrInsertIdxPaths lastObject]) atScrollPosition:UITableViewScrollPositionBottom animated:YES];
     }
 }
 @end
