@@ -12,6 +12,7 @@
 #import "UIViewController+ECSlidingViewController.h"
 #import "MEDynamicTransition.h"
 #import "METransitions.h"
+#import "OttaAppDelegate.h"
 
 @interface SideMenuViewController ()
 {
@@ -168,39 +169,50 @@ static SideMenuViewController *shareInstance;
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    if (indexPath.row == selectedSideIndex) {
-        [self.slidingViewController resetTopViewAnimated:YES];
-        return;
-    }
+    OttaAppDelegate *appDelegate = (OttaAppDelegate*)[UIApplication sharedApplication].delegate;
+    UIView *windowView = appDelegate.window;
+    [MBProgressHUD showHUDAddedTo:windowView animated:YES];
     
-    [self dehighlightAboutButton];
-    selectedSideIndex = indexPath.row;
-    [tableView reloadData];
+    //Fix pending too long when press on side bar
+    //ßshowing loading indicator while loading data
+    dispatch_async(dispatch_get_main_queue(), ^{
+        
+        if (indexPath.row == selectedSideIndex) {
+            [self.slidingViewController resetTopViewAnimated:YES];
+            return;
+        }
+        
+        [self dehighlightAboutButton];
+        selectedSideIndex = indexPath.row;
+        [tableView reloadData];
+        switch (indexPath.row) {
+            case 0:
+                [self performSegueWithIdentifier:@"segueAskQuestion" sender:nil];
+                break;
+            case 1:
+                [self performSegueWithIdentifier:@"segueQuestionFeed" sender:nil];
+                break;
+            case 2:
+                [self performSegueWithIdentifier:@"segueMyQuestion" sender:nil];
+                break;
+            case 3:
+                [self performSegueWithIdentifier:@"segueFriends" sender:nil];
+                break;
+            case 4:
+                [self performSegueWithIdentifier:@"segueSetting" sender:nil];
+                break;
+            case 5:
+                [self performSegueWithIdentifier:@"segueAbout" sender:nil];
+                break;
+                
+            default:
+                [self performSegueWithIdentifier:@"segueAskQuestion" sender:nil];
+                break;
+        }
+        [MBProgressHUD hideAllHUDsForView:windowView animated:YES];
+        
+    });
     
-    switch (indexPath.row) {
-        case 0:
-            [self performSegueWithIdentifier:@"segueAskQuestion" sender:nil];
-            break;
-        case 1:
-            [self performSegueWithIdentifier:@"segueQuestionFeed" sender:nil];
-            break;
-        case 2:
-            [self performSegueWithIdentifier:@"segueMyQuestion" sender:nil];
-            break;
-        case 3:
-            [self performSegueWithIdentifier:@"segueFriends" sender:nil];
-            break;
-        case 4:
-            [self performSegueWithIdentifier:@"segueSetting" sender:nil];
-            break;
-        case 5:
-            [self performSegueWithIdentifier:@"segueAbout" sender:nil];
-            break;
-            
-        default:
-            [self performSegueWithIdentifier:@"segueAskQuestion" sender:nil];
-            break;
-    }
 }
 
 #pragma mark - Properties
