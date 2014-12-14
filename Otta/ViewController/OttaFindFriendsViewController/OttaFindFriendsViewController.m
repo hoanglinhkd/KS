@@ -38,8 +38,18 @@
         [_txtFindContactFriends setPlaceholder:[@"Find Friends" toCurrentLanguage]];
     }
     if (_isInviteMode) {
-        [self.inviteLbl setText:[@"INVITE" toCurrentLanguage]];
-        [_connectCaption setHidden:YES];
+        if(_isFromContact) {
+            [self.inviteLbl setText:[@"INVITE" toCurrentLanguage]];
+            [_connectCaption setHidden:YES];
+        } else {
+            [_inviteLbl setHidden:YES];
+            [_connectCaption setHidden:NO];
+            [_connectCaption setText:[@"INVITE" toCurrentLanguage]];
+            [_toggleBtn setHidden:YES];
+            [_smsLbl setHidden:YES];
+            [_emailLbl setHidden:YES];
+        }
+        
     } else {
         [_inviteLbl setHidden:YES];
         [_toggleBtn setHidden:YES];
@@ -435,12 +445,8 @@ replacementString:(NSString *)string {
             cell.lblText.text = [f name];
             [cell.lblText setFont:[UIFont fontWithName:@"OpenSans-Light" size:18.00f]];
             
-            if(_isInviteMode) {
-                image = [UIImage imageNamed:@"icon_email.png"];
-            } else {
-                if ([f isFriend] || [f isSelected]){
-                    image = [UIImage imageNamed:@"Otta_friends_button_added.png"];
-                }
+            if ([f isFriend] || [f isSelected]){
+                image = [UIImage imageNamed:@"Otta_friends_button_added.png"];
             }
         }
     }
@@ -482,36 +488,10 @@ replacementString:(NSString *)string {
             [tableView reloadData];
             
         } else {
-            if (_isInviteMode) {
-                PFUser *curFriend = [friends objectAtIndex:indexPath.row];
-                
-                if(isSelectSMS) {
-                    MFMessageComposeViewController *controller = [[MFMessageComposeViewController alloc] init];
-                    if([MFMessageComposeViewController canSendText]) {
-                        controller.body = [NSString stringWithFormat:@"Hi %@, join with us!", curFriend.name];
-                        controller.recipients = [NSArray arrayWithObjects:[curFriend phone], nil];
-                        controller.messageComposeDelegate = self;
-                        [self presentViewController:controller animated:YES completion:nil];
-                    }
-                } else {
-                    MFMailComposeViewController* controller = [[MFMailComposeViewController alloc] init];
-                    controller.mailComposeDelegate = self;
-                    if(curFriend.email.length > 0) {
-                        [controller setToRecipients:[NSArray arrayWithObject:curFriend.email]];
-                    }
-                    [controller setSubject:[NSString stringWithFormat:@"Hi %@, join with us!", curFriend.name]];
-                    [controller setMessageBody:@"Hello There" isHTML:NO];
-                    if (controller) {
-                        [self presentViewController:controller animated:YES completion:nil];
-                    }
-                }
-                
-            } else {
-                PFUser *curFriend = [friends objectAtIndex:indexPath.row];
-                if(![curFriend isFriend]) {
-                    [curFriend setIsSelected: ![curFriend isSelected]];
-                    [tableView reloadData];
-                }
+            PFUser *curFriend = [friends objectAtIndex:indexPath.row];
+            if(![curFriend isFriend]) {
+                [curFriend setIsSelected: ![curFriend isSelected]];
+                [tableView reloadData];
             }
         }
     }
@@ -558,6 +538,36 @@ replacementString:(NSString *)string {
         
         } else {
             [MBProgressHUD hideHUDForView:self.view animated:YES];
+            [self dismissViewControllerAnimated:YES completion:nil];
+        }
+        
+    } else if(_isFromContact && _isInviteMode){
+        
+        NSMutableArray *listEmailsPhones = [NSMutableArray array];
+        
+        if(isSelectSMS) {
+            for (PFUser *curFriend in friends) {
+                if([curFriend isSelected]) {
+                    [listEmailsPhones addObject:[curFriend phone]];
+                }
+            }
+        } else { //Select EMail
+            for (PFUser *curFriend in friends) {
+                if([curFriend isSelected]) {
+                    [listEmailsPhones addObject:[curFriend email]];
+                }
+            }
+        }
+        
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
+        
+        if(listEmailsPhones.count > 0) {
+            if (isSelectSMS) {
+                [self postSMSToPhones:listEmailsPhones];
+            } else {
+                [self postEmailToUsers:listEmailsPhones];
+            }
+        } else {
             [self dismissViewControllerAnimated:YES completion:nil];
         }
         
@@ -627,14 +637,74 @@ replacementString:(NSString *)string {
                           }];
 }
 
+-(void) postSMSToPhones:(NSMutableArray*)listPhoneNumbers
+{
+    MFMessageComposeViewController *controller = [[MFMessageComposeViewController alloc] init];
+    if([MFMessageComposeViewController canSendText]) {
+        controller.body = [NSString stringWithFormat:@"Hi there, join with me!"];
+        controller.recipients = listPhoneNumbers;
+        controller.messageComposeDelegate = self;
+        [self presentViewController:controller animated:YES completion:nil];
+    }
+}
+
+-(void) postEmailToUsers:(NSMutableArray*)listEmail
+{
+    MFMailComposeViewController* controller = [[MFMailComposeViewController alloc] init];
+    controller.mailComposeDelegate = self;
+    [controller setToRecipients:listEmail];
+    [controller setSubject:@"Hi there, join with me!"];
+    [controller setMessageBody:@"Hello There" isHTML:NO];
+    if (controller) {
+        [self presentViewController:controller animated:YES completion:nil];
+    }
+}
+
 #pragma mark - EMAIL DELEGATE
 - (void)mailComposeController:(MFMailComposeViewController*)controller
           didFinishWithResult:(MFMailComposeResult)result
                         error:(NSError*)error;
 {
     if (result == MFMailComposeResultSent) {
-        [[OttaAlertManager sharedManager] showSimpleAlertWithContent:@"Email sent success" complete:nil];
+        [[OttaAlertManager sharedManager] showSimpleAlertWithContent:[@"Email sent success" toCurrentLanguage] complete:^{
+            [controller dismissViewControllerAnimated:YES completion:nil];
+            [self dismissViewControllerAnimated:YES completion:nil];
+        }];
+        
+    } else if(result == MFMailComposeResultFailed) {
+        [[OttaAlertManager sharedManager] showSimpleAlertWithContent:[@"Email sent failed" toCurrentLanguage]  complete:^{
+            [controller dismissViewControllerAnimated:YES completion:nil];
+        }];
+    } else if(result == MFMailComposeResultSaved){
+        [[OttaAlertManager sharedManager] showSimpleAlertWithContent:[@"Email saved" toCurrentLanguage]  complete:^{
+            [controller dismissViewControllerAnimated:YES completion:nil];
+            [self dismissViewControllerAnimated:YES completion:nil];
+        }];
+    } else if(result == MFMailComposeResultCancelled){
+        [[OttaAlertManager sharedManager] showSimpleAlertWithContent:[@"Email cancelled" toCurrentLanguage]  complete:^{
+            [controller dismissViewControllerAnimated:YES completion:nil];
+        }];
     }
+}
+
+#pragma mark - SMS DELEGATE
+
+- (void)messageComposeViewController:(MFMessageComposeViewController *)controller didFinishWithResult:(MessageComposeResult)result
+{
+    if (result == MessageComposeResultSent) {
+        
+        [[OttaAlertManager sharedManager] showSimpleAlertWithContent:[@"SMS sent success" toCurrentLanguage] complete:nil];
+        [controller dismissViewControllerAnimated:YES completion:nil];
+        [self dismissViewControllerAnimated:YES completion:nil];
+        
+    } else if(result == MessageComposeResultFailed) {
+            [controller dismissViewControllerAnimated:YES completion:nil];
+            [self dismissViewControllerAnimated:YES completion:nil];
+    } else if(result == MessageComposeResultCancelled) {
+            [controller dismissViewControllerAnimated:YES completion:nil];
+            [self dismissViewControllerAnimated:YES completion:nil];
+    }
+
 }
 
 @end

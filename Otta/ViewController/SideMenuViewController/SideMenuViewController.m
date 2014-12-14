@@ -179,6 +179,7 @@ static SideMenuViewController *shareInstance;
         
         if (indexPath.row == selectedSideIndex) {
             [self.slidingViewController resetTopViewAnimated:YES];
+            [MBProgressHUD hideAllHUDsForView:windowView animated:YES];
             return;
         }
         

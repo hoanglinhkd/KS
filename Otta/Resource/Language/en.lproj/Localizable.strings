@@ -57,3 +57,11 @@
 "Ask completed" = "Ask completed";
 "Ask failed" = "Ask failed";
 "Please select your friends" = "Please select your friends";
+"Email sent success" = "Email sent success";
+"Email cancelled" = "Email cancelled";
+"Email saved" = "Email saved";
+"Email sent failed" = "Email sent failed";
+"SMS sent success" = "SMS sent success";
+"SMS sent falied" = "SMS sent falied";
+"SMS sent cancelled" = "SMS sent cancelled";
+"Sent" = "Sent";
