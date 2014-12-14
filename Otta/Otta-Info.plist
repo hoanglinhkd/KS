@@ -24,6 +24,17 @@
 	<string>100</string>
 	<key>FacebookAppID</key>
 	<string>704589186254786</string>
+	<key>FacebookDisplayName</key>
+	<string>Otta</string>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>fb704589186254786</string>
+			</array>
+		</dict>
+	</array>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>UIAppFonts</key>
