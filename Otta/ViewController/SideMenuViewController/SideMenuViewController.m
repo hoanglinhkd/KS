@@ -174,7 +174,7 @@ static SideMenuViewController *shareInstance;
     [MBProgressHUD showHUDAddedTo:windowView animated:YES];
     
     //Fix pending too long when press on side bar
-    //ßshowing loading indicator while loading data
+    //showing loading indicator while loading data
     dispatch_async(dispatch_get_main_queue(), ^{
         
         if (indexPath.row == selectedSideIndex) {
