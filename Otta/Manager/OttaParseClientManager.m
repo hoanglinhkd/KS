@@ -239,6 +239,27 @@
     }];
 }
 
+- (void)getQuestionFeedFromeUser:(PFUser*)user withBlock:(OttaArrayDataBlock)resultBlock {
+    // Get public question first
+    PFQuery *followQuery = [PFQuery queryWithClassName:kOttaFollow];
+    [followQuery whereKey:kFrom equalTo:user];
+    [followQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        
+        NSMutableArray* askers = [NSMutableArray new];
+        for (PFObject* follow in objects) {
+            [askers addObject:follow[kFrom]];
+        }
+        
+        PFQuery *query = [PFQuery queryWithClassName:kOttaQuestion];
+        [query whereKey:kIsPublic equalTo:@YES];
+        [query whereKey:kAsker containedIn:askers];
+        [query whereKey:kExpTime greaterThan:[NSDate date]];
+        [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+            resultBlock(objects, error);
+        }];
+    }];
+}
+
 - (void)voteFromUser:(PFUser*)user withAnswer:(PFObject*)answer withBlock:(OttaGeneralResultBlock)resultBlock {
     // create an entry in the OttaVote table
     PFObject *vote = [PFObject objectWithClassName:kOttaVote];
