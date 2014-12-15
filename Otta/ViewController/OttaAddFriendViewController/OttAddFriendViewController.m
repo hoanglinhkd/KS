@@ -95,22 +95,21 @@
 
 -(IBAction)btnFacebookFriendPressed:(id)sender
 {
-    BOOL linkedWithFacebook = [PFFacebookUtils isLinkedWithUser:[PFUser currentUser]];
-    if(linkedWithFacebook) {
-        [self performSegueWithIdentifier:@"connectFriendSegue" sender:@"FacebookFriends"];
-    } else {
+    
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    NSArray *permissionsArray = FacebookPermissions;
+    
+    [PFFacebookUtils logInWithPermissions:permissionsArray block:^(PFUser *user, NSError *error) {
         
-        [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-        NSArray *permissionsArray = FacebookPermissions;
-        [PFFacebookUtils linkUser:[PFUser currentUser] permissions:permissionsArray block:^(BOOL succeeded, NSError *error) {
-            [MBProgressHUD hideHUDForView:self.view animated:YES];
-            if(!error) {
-                [self performSegueWithIdentifier:@"connectFriendSegue" sender:@"FacebookFriends"];
-            } else {
-                [[OttaAlertManager sharedManager] showSimpleAlertWithContent:@"Cannot login Facebook" complete:nil];
-            }
-        }];
-    }
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
+        
+        if(!error) {
+            [self performSegueWithIdentifier:@"connectFriendSegue" sender:@"FacebookFriends"];
+        } else {
+            [[OttaAlertManager sharedManager] showSimpleAlertWithContent:@"Cannot login Facebook" complete:nil];
+        }
+        
+    }];
 }
 
 -(IBAction)btnContactPressed:(id)sender
