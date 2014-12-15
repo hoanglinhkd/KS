@@ -29,6 +29,8 @@
 {
     _viewAction.hidden = NO;
     _txtContent.hidden = YES;
+    _txtImageDescription.returnKeyType = UIReturnKeyDone;
+    _txtContent.returnKeyType = UIReturnKeyDone;
 }
 
 -(void)displayContent:(NSString *)answerContent
@@ -36,6 +38,7 @@
     _viewAction.hidden = TRUE;
     _txtContent.hidden = FALSE;
     [_txtContent setText:answerContent];
+    _txtContent.returnKeyType = UIReturnKeyDone;
 }
 
 - (IBAction)textButtonPressed:(id)sender {
@@ -45,6 +48,7 @@
     _answer.answerHasContent = YES;
     [_txtContent becomeFirstResponder];
     [_txtContent setText:_answer.answerText];
+    _txtContent.returnKeyType = UIReturnKeyDone;
     
     if([_delegate respondsToSelector:@selector(optionCell:textBeginEditing:)]) {
         [_delegate optionCell:self textBeginEditing:_txtContent];
@@ -57,6 +61,7 @@
     }
     _answer.answerHasphoto = YES;
     _txtImageDescription.delegate = self;
+    _txtImageDescription.returnKeyType = UIReturnKeyDone;
 }
 
 - (void)displayThumbAndCaption:(UIImage*)thumb caption:(NSString*)caption {
@@ -67,6 +72,7 @@
     _imgMain.image = thumb;
     _txtImageDescription.hidden = FALSE;
     _txtImageDescription.text = caption;
+    _txtImageDescription.returnKeyType = UIReturnKeyDone;
     _answer.answerImage = thumb;
     _answer.answerText = caption;
 }
@@ -77,6 +83,7 @@
     _answer.answerText = caption;
     _txtImageDescription.hidden = FALSE;
     _txtImageDescription.text = caption;
+    _txtImageDescription.returnKeyType = UIReturnKeyDone;
 }
 
 
@@ -115,6 +122,14 @@
     
 }
 
+- (BOOL)growingTextView:(HPGrowingTextView *)growingTextView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text
+{
+    if ([text isEqualToString:@"\n"]) {
+        [growingTextView resignFirstResponder];
+        return NO;
+    }
+    return YES;
+}
 - (BOOL) textViewShouldBeginEditing:(UITextView *)textView {
     
     return YES;

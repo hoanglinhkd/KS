@@ -171,6 +171,15 @@ testAnswer.answerText = @"Creme Brelee";
     return YES;
 }
 
+- (BOOL) textView:(UITextView*)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString*) text
+{
+    if ([text isEqualToString:@"\n"]) {
+        [textView resignFirstResponder];
+        return NO;
+    }
+    return YES;
+}
+
 - (IBAction)menuButtonPressed:(id)sender {
     [self.slidingViewController anchorTopViewToRightAnimated:YES];
 }
@@ -522,14 +531,20 @@ UITextView itsTextView = [[UITextView alloc] initWithFrame:CGRectMake(0, 0, itsT
 
 - (IBAction)btnNextPress:(id)sender {
     
-    //Validate options
+    //For check the real option data. we can't not user count property to check the count options
+    int countingOptions = 0;
     for (OttaAnswer *curAnswer in _optionsArray) {
         if(curAnswer.answerImage == nil && curAnswer.answerText.length <= 0) {
             [[OttaAlertManager sharedManager] showSimpleAlertWithContent:[@"Please provide option" toCurrentLanguage] complete:nil];
             return;
         }
+        countingOptions ++;
     }
     
+    if(countingOptions < 2) {
+        [[OttaAlertManager sharedManager] showSimpleAlertWithContent:[@"The number of options must be greater than 2" toCurrentLanguage] complete:nil];
+        return;
+    }
     
     if(_itsTextView.text.length <= 0) {
         [[OttaAlertManager sharedManager] showSimpleAlertWithContent:[@"Please provide question" toCurrentLanguage] complete:nil];
