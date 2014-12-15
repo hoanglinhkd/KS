@@ -54,7 +54,7 @@
     }
     
     PFObject *follow = _follows[indexPath.row];
-    PFUser *user = follow[kTo];
+    PFUser *user = follow[kFrom];
     cell.lblText.text = @"";
     
     PFUser *f = [friends objectForKey:[NSString stringWithFormat:@"%d",indexPath.row]];
@@ -186,7 +186,7 @@
 - (void) loadFriends {
     
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    [[OttaParseClientManager sharedManager] getAllFollowFromUser:[PFUser currentUser] withBlock:^(NSArray *array, NSError *error) {
+    [[OttaParseClientManager sharedManager] getAllFollowToUser:[PFUser currentUser] withBlock:^(NSArray *array, NSError *error) {
         _follows = [[NSArray alloc] initWithArray:array];
         [_tableView reloadData];
         [MBProgressHUD hideHUDForView:self.view animated:YES];

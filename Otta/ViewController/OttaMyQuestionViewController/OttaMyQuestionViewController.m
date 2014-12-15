@@ -236,7 +236,7 @@ static NSString * const OttaMyQuestionVoteCellIdentifier        = @"OttaMyQuesti
         OttaQuestion *qs = datas[i];
         OttaMyQuestionData *obj = [[OttaMyQuestionData alloc] init];
         NSDate * now = [NSDate date];
-        if([now compare:qs.expTime] == NSOrderedAscending) {
+        if([now compare:qs.expTime] == NSOrderedDescending) {
         //if (qs.expirationDate <= 0) {
             obj.dataType = MyQuestionDataTypeDone;
             obj.questionText = qs.questionText;
@@ -894,6 +894,7 @@ static NSString * const OttaMyQuestionVoteCellIdentifier        = @"OttaMyQuesti
 -(NSString *) timeAgo:(NSDate *)origDate {
     NSDate *timeNow = [[NSDate alloc] init];
     double ti = [timeNow timeIntervalSinceDate:origDate];
+    ti = ti*-1;
     if (ti < 60) {
         return [NSString stringWithFormat:@"%d sec",(int) ti];
     } else if (ti < 3600) {
