@@ -397,11 +397,16 @@ replacementString:(NSString *)string {
     return YES;
 }
 
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [textField resignFirstResponder];
+    return NO;
+}
+
 - (void)searchWithName:(NSString*)searchname
 {
     [searchResults removeAllObjects];
     for (PFUser *curFriend in friends) {
-        if([[curFriend name] rangeOfString:searchname options:NSCaseInsensitiveSearch].location != NSNotFound) {
+        if([[curFriend name] rangeOfString:searchname options:NSCaseInsensitiveSearch|NSDiacriticInsensitiveSearch|NSWidthInsensitiveSearch].location != NSNotFound) {
             [searchResults addObject:curFriend];
         }
     }
