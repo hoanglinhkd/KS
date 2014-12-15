@@ -21,7 +21,18 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    [self vote];
+}
+
+- (void)vote {
+    PFQuery *query = [PFUser query];
+    PFUser *user1  = (PFUser *)[query getObjectWithId:@"PTPIJPXItY"];
+    PFQuery *query2 = [PFQuery queryWithClassName:kOttaAnswer];
+    PFObject *answer = [query2 getObjectWithId:@"HwmfBW4FRM"];
     
+    [[OttaParseClientManager sharedManager] voteFromUser:user1 withAnswer:answer withBlock:^(BOOL isSucceeded, NSError *error) {
+        NSLog(@"hihi");
+    }];
 }
 
 - (void)addTmpQuestion {

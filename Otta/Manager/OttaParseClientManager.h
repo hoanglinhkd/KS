@@ -41,6 +41,11 @@
 #define kIsPublic       @"isPublic"
 #define kResponders     @"responders"
 
+// Vote table
+#define kOttaVote       @"OttaVote"
+#define kVoteComment    @"voteComment"
+#define kResponder      @"responder"
+#define kAnswer         @"answer"
 
 @interface OttaParseClientManager : NSObject
 
@@ -147,4 +152,14 @@ typedef void(^OttaCountBlock)(int count, NSError* error);
  *  @param resultBlock
  */
 - (void)getMyQuestionFromUser:(PFUser*)user withBlock:(OttaArrayDataBlock)resultBlock;
+
+
+/**
+ *  Vote an Answer
+ *
+ *  @param user        <#user description#>
+ *  @param answer      <#answer description#>
+ *  @param resultBlock <#resultBlock description#>
+ */
+- (void)voteFromUser:(PFUser*)user withAnswer:(PFObject*)answer withBlock:(OttaGeneralResultBlock)resultBlock;
 @end

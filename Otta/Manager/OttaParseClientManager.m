@@ -239,4 +239,15 @@
     }];
 }
 
+- (void)voteFromUser:(PFUser*)user withAnswer:(PFObject*)answer withBlock:(OttaGeneralResultBlock)resultBlock {
+    // create an entry in the OttaVote table
+    PFObject *vote = [PFObject objectWithClassName:kOttaVote];
+    [vote setObject:user forKey:kResponder];
+    [vote setObject:answer forKey:kAnswer];
+    [vote setObject:@"" forKey:kVoteComment];
+    [vote saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        resultBlock(succeeded, error);
+    }];
+}
+
 @end
