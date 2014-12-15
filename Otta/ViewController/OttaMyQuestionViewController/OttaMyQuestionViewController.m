@@ -22,6 +22,9 @@
 #import "OttaMyQuestionDoneCell.h"
 #import "OttaMyQuestionVoteCell.h"
 
+#import "OttaParseClientManager.h"
+#import "MBProgressHUD.h"
+
 static NSString * const OttaMyQuestionHeaderCellIdentifier      = @"OttaMyQuestionHeaderCell";
 static NSString * const OttaMyQuestionTextCellIdentifier        = @"OttaMyQuestionTextCell";
 static NSString * const OttaMyQuestionFooterCellIdentifier      = @"OttaMyQuestionFooterCell";
@@ -49,14 +52,15 @@ static NSString * const OttaMyQuestionVoteCellIdentifier        = @"OttaMyQuesti
     myTableView.delegate    = self;
     
     // Do any additional setup after loading the view.
-    [self createDemoData];
-    [self processDataForShow];
-    [self createVoteData];
-    [myTableView reloadData];
+    //[self createDemoData];
+    //[self processDataForShow];
+    //[self createVoteData];
+    //[myTableView reloadData];
 }
 -(void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
+    [self loadData];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -64,18 +68,6 @@ static NSString * const OttaMyQuestionVoteCellIdentifier        = @"OttaMyQuesti
     // Dispose of any resources that can be recreated.
 }
 /*
- @property (nonatomic,strong) NSString * questionID;
- @property (nonatomic,strong) NSMutableArray * ottaAnswers;
- @property (nonatomic,strong) NSString * askerID;
- @property (nonatomic,assign) int * expirationDate;
- @property (nonatomic,strong) NSString * questionText;
- */
-/*
- @property (nonatomic,strong)UIImage * answerImage;
- @property (nonatomic,strong)NSString * answerText;
- @property (nonatomic,assign) BOOL answerHasContent;
- @property (nonatomic, assign) BOOL answerHasphoto;
- */
 - (void)createVoteData{
     dictVoteData = [[NSMutableDictionary alloc] initWithCapacity:10];
     for (NSInteger i=0; i < dataForShow.count; i++) {
@@ -236,13 +228,16 @@ static NSString * const OttaMyQuestionVoteCellIdentifier        = @"OttaMyQuesti
         [datas addObject:myQs];
     }
 }
+ */
 - (void)processDataForShow{
-    dataForShow = [[NSMutableArray alloc] initWithCapacity:20];
+    dataForShow = [[NSMutableArray alloc] initWithCapacity:[datas count]];
     
     for (int i=0;i<datas.count;i++) {
         OttaQuestion *qs = datas[i];
         OttaMyQuestionData *obj = [[OttaMyQuestionData alloc] init];
-        if (qs.expirationDate <= 0) {
+        NSDate * now = [NSDate date];
+        if([now compare:qs.expTime] == NSOrderedAscending) {
+        //if (qs.expirationDate <= 0) {
             obj.dataType = MyQuestionDataTypeDone;
             obj.questionText = qs.questionText;
             obj.isShowedOptionDone = NO;
@@ -273,7 +268,8 @@ static NSString * const OttaMyQuestionVoteCellIdentifier        = @"OttaMyQuesti
                 
                 OttaMyQuestionData *objFooter1 = [[OttaMyQuestionData alloc] init];
                 objFooter1.dataType = flagHasPhoTo ? MyQuestionDataTypeFooterCollapse:MyQuestionDataTypeFooterNormal;
-                objFooter1.expirationDate = qs.expirationDate;
+                //objFooter1.expirationDate = qs.expirationDate;
+                objFooter1.expTime = qs.expTime;
                 objFooter1.referIndex = i;
                 objFooter1.currentTableIndex = dataForShow.count;
                 [dataForShow addObject:objFooter1];
@@ -289,7 +285,8 @@ static NSString * const OttaMyQuestionVoteCellIdentifier        = @"OttaMyQuesti
                     
                     OttaMyQuestionData *objFooter2 = [[OttaMyQuestionData alloc] init];
                     objFooter2.dataType = MyQuestionDataTypeFooterSeeAll;
-                    objFooter2.expirationDate = qs.expirationDate;
+                    //objFooter2.expirationDate = qs.expirationDate;
+                    objFooter2.expTime = qs.expTime;
                     objFooter2.referIndex = i;
                     objFooter2.currentTableIndex = dataForShow.count;
                     [dataForShow addObject:objFooter2];
@@ -578,7 +575,7 @@ static NSString * const OttaMyQuestionVoteCellIdentifier        = @"OttaMyQuesti
     
     NSString *text = dto.answer.answerText;
     NSRange range = [text rangeOfString:@"-"];
-    range.location += 2;
+    //range.location += 2;
     range.length = text.length - range.location;
     
     NSMutableAttributedString *mutable = [[NSMutableAttributedString alloc] initWithString:text];
@@ -597,11 +594,16 @@ static NSString * const OttaMyQuestionVoteCellIdentifier        = @"OttaMyQuesti
     OttaMyQuestionData *dto = dataForShow[indexPath.row];
     
     cell.lblOrderNumber.text = [NSString stringWithFormat:@"%d",dto.answer.numberAnswer];
-    cell.imageViewData.image = dto.answer.answerImage;
-    
+    //cell.imageViewData.image = dto.answer.answerImage;
+    [dto.answer.answerImageFile getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
+        if (!error) {
+            cell.imageViewData.image =  [UIImage imageWithData:data];
+        }
+    }];
+
     NSString *text = dto.answer.answerText;
     NSRange range = [text rangeOfString:@"-"];
-    range.location += 2;
+    //range.location += 2;
     range.length = text.length - range.location;
     
     NSMutableAttributedString *mutable = [[NSMutableAttributedString alloc] initWithString:text];
@@ -635,7 +637,8 @@ static NSString * const OttaMyQuestionVoteCellIdentifier        = @"OttaMyQuesti
     NSString *title = dto.dataType == MyQuestionDataTypeFooterSeeAll ? kSeeAll : kCollapse;
     [cell.btnSeeAll setTitle:title forState:UIControlStateNormal];
     
-    cell.lblTime.text = [NSString stringWithFormat:@"%d min",dto.expirationDate];
+    cell.lblTime.text = [self timeAgo:dto.expTime];
+    //cell.lblTime.text = [NSString stringWithFormat:@"%d min",dto.expirationDate];
     cell.referIndex = dto.referIndex;
     cell.currIndex  = dto.currentTableIndex;
     
@@ -851,4 +854,59 @@ static NSString * const OttaMyQuestionVoteCellIdentifier        = @"OttaMyQuesti
         [self.myTableView scrollToRowAtIndexPath:((NSIndexPath*)[arrInsertIdxPaths lastObject]) atScrollPosition:UITableViewScrollPositionBottom animated:YES];
     }
 }
+
+- (void)loadData{
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    datas = [[NSMutableArray alloc] init];
+    [[OttaParseClientManager sharedManager] getMyQuestionFromUser:[PFUser currentUser] withBlock:^(NSArray *array, NSError *error) {
+        for (PFObject *object in array) {
+            OttaQuestion *myQs = [[OttaQuestion alloc] init];
+            myQs.questionID = object.objectId;
+            myQs.askerID = [PFUser currentUser].objectId;
+            myQs.expTime = object[@"expTime"];
+            myQs.expirationDate = 8;
+            myQs.isSeeAll = NO;
+            myQs.questionText = object[@"questionText"];
+            
+            myQs.ottaAnswers = [[NSMutableArray alloc] init];
+            for (PFObject *pfAnswer in object[@"answers"]) {
+                OttaAnswer* answer = [[OttaAnswer alloc] init];
+                //answer.answerText = pfAnswer[@"description"];
+                //hardcode vote number 1 - 10
+                int randomNumber = (arc4random() % 10) + 1;
+                answer.answerText =[NSString stringWithFormat:@"%@ - %d",pfAnswer[@"description"], randomNumber];
+                answer.answerHasContent = YES;
+                answer.answerHasphoto   = NO;
+                if (pfAnswer[@"image"] != nil) {
+                    answer.answerHasphoto   = YES;
+                    answer.answerImageFile = pfAnswer[@"image"];
+                }
+                [myQs.ottaAnswers addObject:answer];
+            }
+            [datas addObject:myQs];
+        }
+        [self processDataForShow];
+        [myTableView reloadData];
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
+    }];
+}
+
+-(NSString *) timeAgo:(NSDate *)origDate {
+    NSDate *timeNow = [[NSDate alloc] init];
+    double ti = [timeNow timeIntervalSinceDate:origDate];
+    if (ti < 60) {
+        return [NSString stringWithFormat:@"%d sec",(int) ti];
+    } else if (ti < 3600) {
+        int diff = round(ti / 60);
+        return [NSString stringWithFormat:@"%d min", diff];
+    } else if (ti < 86400) {
+        int diff = round(ti / 60 / 60);
+        return[NSString stringWithFormat:@"%d hour", diff];
+    } else if (ti < 2629743) {
+        int diff = round(ti / 60 / 60 / 24);
+        return[NSString stringWithFormat:@"%d day", diff];
+    }
+    return @"";
+}
+
 @end
