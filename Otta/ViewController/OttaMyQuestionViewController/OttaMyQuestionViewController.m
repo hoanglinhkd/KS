@@ -278,9 +278,13 @@ static NSString * const OttaMyQuestionVoteCellIdentifier        = @"OttaMyQuesti
                 if (qs.ottaAnswers.count > 0) {
                     OttaMyQuestionData *objAnswer2 = [[OttaMyQuestionData alloc] init];
                     ((OttaAnswer*)qs.ottaAnswers[0]).numberAnswer = numberLocation;
-                    objAnswer2.dataType = MyQuestionDataTypeAnswerPicture;
+                    //objAnswer2.dataType = MyQuestionDataTypeAnswerPicture;
                     objAnswer2.answer = qs.ottaAnswers[0];
-                    
+                    if (objAnswer2.answer.answerHasphoto) {
+                        objAnswer2.dataType = MyQuestionDataTypeAnswerPicture;
+                    }else{
+                        objAnswer2.dataType = MyQuestionDataTypeAnswer;
+                    }
                     [dataForShow addObject:objAnswer2];
                     
                     OttaMyQuestionData *objFooter2 = [[OttaMyQuestionData alloc] init];
