@@ -432,8 +432,12 @@ replacementString:(NSString *)string {
         cell.lblText.text = [f name];
         [cell.lblText setFont:[UIFont fontWithName:@"OpenSans-Light" size:18.00f]];
         
-        if ([f isFriend] || [f isSelected]){
-            image = [UIImage imageNamed:@"Otta_friends_button_added.png"];
+        if(_isInviteMode && _isFromContact) {
+            image = [UIImage imageNamed:@"icon_email.png"];
+        } else {
+            if ([f isFriend] || [f isSelected]){
+                image = [UIImage imageNamed:@"Otta_friends_button_added.png"];
+            }
         }
         
     } else {
@@ -445,8 +449,12 @@ replacementString:(NSString *)string {
             cell.lblText.text = [f name];
             [cell.lblText setFont:[UIFont fontWithName:@"OpenSans-Light" size:18.00f]];
             
-            if ([f isFriend] || [f isSelected]){
-                image = [UIImage imageNamed:@"Otta_friends_button_added.png"];
+            if(_isInviteMode && _isFromContact) {
+                image = [UIImage imageNamed:@"icon_email.png"];
+            } else {
+                if ([f isFriend] || [f isSelected]){
+                    image = [UIImage imageNamed:@"Otta_friends_button_added.png"];
+                }
             }
         }
     }
@@ -476,11 +484,21 @@ replacementString:(NSString *)string {
     if(isSearching) {
         
         PFUser *curFriend = [searchResults objectAtIndex:indexPath.row];
-        if(![curFriend isFriend]) {
-            [curFriend setIsSelected:![curFriend isSelected]];
-            [tableView reloadData];
-        }
         
+        if (_isInviteMode && _isFromContact) {
+            
+            if(isSelectSMS) {
+                [self postSMSToPhones:[curFriend phone] userName:[curFriend name]];
+            } else {
+                [self postEmailToAddress:[curFriend email] userName:[curFriend name]];
+            }
+            
+        } else {
+            if(![curFriend isFriend]) {
+                [curFriend setIsSelected:![curFriend isSelected]];
+                [tableView reloadData];
+            }
+        }
     } else {
         if(indexPath.row == 0 && !_isInviteMode) {
             
@@ -488,10 +506,21 @@ replacementString:(NSString *)string {
             [tableView reloadData];
             
         } else {
-            PFUser *curFriend = [friends objectAtIndex:indexPath.row];
-            if(![curFriend isFriend]) {
-                [curFriend setIsSelected: ![curFriend isSelected]];
-                [tableView reloadData];
+            if (_isInviteMode && _isFromContact) {
+                PFUser *curFriend = [friends objectAtIndex:indexPath.row];
+                
+                if(isSelectSMS) {
+                    [self postSMSToPhones:[curFriend phone] userName:[curFriend name]];
+                } else {
+                    [self postEmailToAddress:[curFriend email] userName:[curFriend name]];
+                }
+                
+            } else {
+                PFUser *curFriend = [friends objectAtIndex:indexPath.row];
+                if(![curFriend isFriend]) {
+                    [curFriend setIsSelected: ![curFriend isSelected]];
+                    [tableView reloadData];
+                }
             }
         }
     }
@@ -538,36 +567,6 @@ replacementString:(NSString *)string {
         
         } else {
             [MBProgressHUD hideHUDForView:self.view animated:YES];
-            [self dismissViewControllerAnimated:YES completion:nil];
-        }
-        
-    } else if(_isFromContact && _isInviteMode){
-        
-        NSMutableArray *listEmailsPhones = [NSMutableArray array];
-        
-        if(isSelectSMS) {
-            for (PFUser *curFriend in friends) {
-                if([curFriend isSelected]) {
-                    [listEmailsPhones addObject:[curFriend phone]];
-                }
-            }
-        } else { //Select EMail
-            for (PFUser *curFriend in friends) {
-                if([curFriend isSelected]) {
-                    [listEmailsPhones addObject:[curFriend email]];
-                }
-            }
-        }
-        
-        [MBProgressHUD hideHUDForView:self.view animated:YES];
-        
-        if(listEmailsPhones.count > 0) {
-            if (isSelectSMS) {
-                [self postSMSToPhones:listEmailsPhones];
-            } else {
-                [self postEmailToUsers:listEmailsPhones];
-            }
-        } else {
             [self dismissViewControllerAnimated:YES completion:nil];
         }
         
@@ -637,24 +636,24 @@ replacementString:(NSString *)string {
                           }];
 }
 
--(void) postSMSToPhones:(NSMutableArray*)listPhoneNumbers
+-(void) postSMSToPhones:(NSString*)phoneNumber userName:(NSString*)userName
 {
     MFMessageComposeViewController *controller = [[MFMessageComposeViewController alloc] init];
     if([MFMessageComposeViewController canSendText]) {
-        controller.body = [NSString stringWithFormat:@"Hi there, join with me!"];
-        controller.recipients = listPhoneNumbers;
+        controller.body = [NSString stringWithFormat:@"Hi %@, download Otta to ask questions, get input, and answer your friends’ questions.", userName];
+        controller.recipients = [NSArray arrayWithObject:phoneNumber];
         controller.messageComposeDelegate = self;
         [self presentViewController:controller animated:YES completion:nil];
     }
 }
 
--(void) postEmailToUsers:(NSMutableArray*)listEmail
+-(void) postEmailToAddress:(NSString*)emailAddress userName:(NSString*)userName
 {
     MFMailComposeViewController* controller = [[MFMailComposeViewController alloc] init];
     controller.mailComposeDelegate = self;
-    [controller setToRecipients:listEmail];
-    [controller setSubject:@"Hi there, join with me!"];
-    [controller setMessageBody:@"Hello There" isHTML:NO];
+    [controller setToRecipients:[NSArray arrayWithObject:emailAddress]];
+    [controller setSubject:@"Otta Invitation"];
+    [controller setMessageBody:[NSString stringWithFormat:@"Hi %@, download Otta to ask questions, get input, and answer your friends’ questions.", userName] isHTML:YES];
     if (controller) {
         [self presentViewController:controller animated:YES completion:nil];
     }
@@ -666,25 +665,16 @@ replacementString:(NSString *)string {
                         error:(NSError*)error;
 {
     if (result == MFMailComposeResultSent) {
-        [[OttaAlertManager sharedManager] showSimpleAlertWithContent:[@"Email sent success" toCurrentLanguage] complete:^{
-            [controller dismissViewControllerAnimated:YES completion:nil];
-            [self dismissViewControllerAnimated:YES completion:nil];
-        }];
-        
+        [[OttaAlertManager sharedManager] showSimpleAlertWithContent:[@"Email sent success" toCurrentLanguage] complete:nil];
     } else if(result == MFMailComposeResultFailed) {
-        [[OttaAlertManager sharedManager] showSimpleAlertWithContent:[@"Email sent failed" toCurrentLanguage]  complete:^{
-            [controller dismissViewControllerAnimated:YES completion:nil];
-        }];
+        [[OttaAlertManager sharedManager] showSimpleAlertWithContent:[@"Email sent failed" toCurrentLanguage]  complete:nil];
     } else if(result == MFMailComposeResultSaved){
-        [[OttaAlertManager sharedManager] showSimpleAlertWithContent:[@"Email saved" toCurrentLanguage]  complete:^{
-            [controller dismissViewControllerAnimated:YES completion:nil];
-            [self dismissViewControllerAnimated:YES completion:nil];
-        }];
+        [[OttaAlertManager sharedManager] showSimpleAlertWithContent:[@"Email saved" toCurrentLanguage]  complete:nil];
     } else if(result == MFMailComposeResultCancelled){
-        [[OttaAlertManager sharedManager] showSimpleAlertWithContent:[@"Email cancelled" toCurrentLanguage]  complete:^{
-            [controller dismissViewControllerAnimated:YES completion:nil];
-        }];
+        [[OttaAlertManager sharedManager] showSimpleAlertWithContent:[@"Email cancelled" toCurrentLanguage]  complete:nil];
     }
+    
+    [controller dismissViewControllerAnimated:YES completion:nil];
 }
 
 #pragma mark - SMS DELEGATE
@@ -694,17 +684,14 @@ replacementString:(NSString *)string {
     if (result == MessageComposeResultSent) {
         
         [[OttaAlertManager sharedManager] showSimpleAlertWithContent:[@"SMS sent success" toCurrentLanguage] complete:nil];
-        [controller dismissViewControllerAnimated:YES completion:nil];
-        [self dismissViewControllerAnimated:YES completion:nil];
         
     } else if(result == MessageComposeResultFailed) {
-            [controller dismissViewControllerAnimated:YES completion:nil];
-            [self dismissViewControllerAnimated:YES completion:nil];
-    } else if(result == MessageComposeResultCancelled) {
-            [controller dismissViewControllerAnimated:YES completion:nil];
-            [self dismissViewControllerAnimated:YES completion:nil];
-    }
 
+    } else if(result == MessageComposeResultCancelled) {
+
+    }
+    
+    [controller dismissViewControllerAnimated:YES completion:nil];
 }
 
 @end
