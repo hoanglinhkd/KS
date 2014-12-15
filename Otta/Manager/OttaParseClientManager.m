@@ -233,6 +233,7 @@
     PFQuery *query = [PFQuery queryWithClassName:kOttaQuestion];
     [query whereKey:kAsker equalTo:user];
     [query includeKey:kAnswers];
+    [query orderByDescending:@"createdAt"];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         resultBlock(objects, error);
     }];
