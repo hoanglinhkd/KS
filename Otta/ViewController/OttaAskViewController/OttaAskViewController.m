@@ -412,7 +412,9 @@ UITextView itsTextView = [[UITextView alloc] initWithFrame:CGRectMake(0, 0, itsT
         }];
     }
     
-    if (_optionsArray.count < 4 && indexPath.row == _optionsArray.count) {
+    //Check has any option empty or not. Don't allow add more option if has empty option
+    BOOL hasOptionEmpty = [self hasOptionEmpty:_optionsArray];
+    if (_optionsArray.count < 4 && indexPath.row == _optionsArray.count && !hasOptionEmpty) {
         // Add option
         [_optionsArray addObject:[[OttaAnswer alloc] init]];
         [listHeightQuestion setObject:[NSNumber numberWithFloat:70.0f] forKey:[NSString stringWithFormat:@"row%d", indexPath.row]];
@@ -440,8 +442,11 @@ UITextView itsTextView = [[UITextView alloc] initWithFrame:CGRectMake(0, 0, itsT
 
 - (void)optionCell:(OttaOptionCell*)cell textEndEditing:(id)textview
 {
-    OttaAnswer *curAnswer = [_optionsArray objectAtIndex:cell.indexPath.row];
-    curAnswer.answerText = textview;
+    //Avoid crashing because of index change
+    if(_optionsArray.count >= (cell.indexPath.row - 1)) {
+        OttaAnswer *curAnswer = [_optionsArray objectAtIndex:cell.indexPath.row];
+        curAnswer.answerText = textview;
+    }
 }
 
 - (void)optionCell:(OttaOptionCell *)cell needEditPicture:(id)imageView{
@@ -496,6 +501,16 @@ UITextView itsTextView = [[UITextView alloc] initWithFrame:CGRectMake(0, 0, itsT
 
 #pragma mark -
 
+-(BOOL) hasOptionEmpty:(NSMutableArray*) arrayOptions
+{
+    for (OttaAnswer *curAnswer in arrayOptions) {
+        if(curAnswer.answerImage == nil && curAnswer.answerText.length <= 0) {
+            return YES;
+        }
+    }
+    return NO;
+}
+
 - (void) clearAllDataViews
 {
     [_optionsArray removeAllObjects];
@@ -531,21 +546,6 @@ UITextView itsTextView = [[UITextView alloc] initWithFrame:CGRectMake(0, 0, itsT
 
 - (IBAction)btnNextPress:(id)sender {
     
-    //For check the real option data. we can't not user count property to check the count options
-    int countingOptions = 0;
-    for (OttaAnswer *curAnswer in _optionsArray) {
-        if(curAnswer.answerImage == nil && curAnswer.answerText.length <= 0) {
-            [[OttaAlertManager sharedManager] showSimpleAlertWithContent:[@"Please provide option" toCurrentLanguage] complete:nil];
-            return;
-        }
-        countingOptions ++;
-    }
-    
-    if(countingOptions < 2) {
-        [[OttaAlertManager sharedManager] showSimpleAlertWithContent:[@"The number of options must be greater than 2" toCurrentLanguage] complete:nil];
-        return;
-    }
-    
     if(_itsTextView.text.length <= 0) {
         [[OttaAlertManager sharedManager] showSimpleAlertWithContent:[@"Please provide question" toCurrentLanguage] complete:nil];
         return;
@@ -555,6 +555,29 @@ UITextView itsTextView = [[UITextView alloc] initWithFrame:CGRectMake(0, 0, itsT
         [[OttaAlertManager sharedManager] showSimpleAlertWithContent:[@"Please choose deadline" toCurrentLanguage] complete:nil];
         return;
     }
+    
+    NSMutableArray *optionToRemove = [NSMutableArray array];
+    //For check the real option data. we can't not user count property to check the count options
+    int countingOptions = 0;
+    for (OttaAnswer *curAnswer in _optionsArray) {
+        if(curAnswer.answerImage == nil && curAnswer.answerText.length <= 0) {
+            //To remove option don't have value
+            [optionToRemove addObject:curAnswer];
+        } else {
+            countingOptions ++;
+        }
+    }
+    
+    if(countingOptions < 2) {
+        [[OttaAlertManager sharedManager] showSimpleAlertWithContent:[@"The number of options must be greater than 1" toCurrentLanguage] complete:nil];
+        return;
+    } else {
+        //Remove options don't have value
+        if (optionToRemove.count > 0) {
+            [_optionsArray removeObjectsInArray:optionToRemove];
+        }
+    }
+    
     [self performSegueWithIdentifier:@"segueAnswerers" sender:self];
     
 }
