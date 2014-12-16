@@ -532,7 +532,7 @@ UITextView itsTextView = [[UITextView alloc] initWithFrame:CGRectMake(0, 0, itsT
         dest.delegate = self;
     } else if([[segue identifier] isEqualToString:@"segueAnswerers"]) {
         OttaAnswerersViewController *answerVC = (OttaAnswerersViewController*)[segue destinationViewController];
-        answerVC.optionsArray = _optionsArray;
+        answerVC.optionsArray = sender;
         answerVC.selectedDuration = selectedDuration;
         answerVC.selectedTimeValue = selectedTimeValue;
         answerVC.askQuestionValue = _itsTextView.text;
@@ -556,29 +556,22 @@ UITextView itsTextView = [[UITextView alloc] initWithFrame:CGRectMake(0, 0, itsT
         return;
     }
     
-    NSMutableArray *optionToRemove = [NSMutableArray array];
+    NSMutableArray *optionToAdd = [NSMutableArray array];
     //For check the real option data. we can't not user count property to check the count options
-    int countingOptions = 0;
     for (OttaAnswer *curAnswer in _optionsArray) {
         if(curAnswer.answerImage == nil && curAnswer.answerText.length <= 0) {
-            //To remove option don't have value
-            [optionToRemove addObject:curAnswer];
+            
         } else {
-            countingOptions ++;
+            [optionToAdd addObject:curAnswer];
         }
     }
     
-    if(countingOptions < 2) {
+    if(optionToAdd.count < 2) {
         [[OttaAlertManager sharedManager] showSimpleAlertWithContent:[@"The number of options must be greater than 1" toCurrentLanguage] complete:nil];
         return;
-    } else {
-        //Remove options don't have value
-        if (optionToRemove.count > 0) {
-            [_optionsArray removeObjectsInArray:optionToRemove];
-        }
     }
     
-    [self performSegueWithIdentifier:@"segueAnswerers" sender:self];
+    [self performSegueWithIdentifier:@"segueAnswerers" sender:optionToAdd];
     
 }
 - (IBAction)pressBtnLogo:(id)sender{
