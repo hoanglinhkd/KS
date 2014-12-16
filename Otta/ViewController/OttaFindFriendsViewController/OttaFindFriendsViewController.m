@@ -125,6 +125,21 @@
                 [friendQuery whereKey:@"facebookId" containedIn:friendIds];
                 [friendQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
                     friends = [self loadFriendsFromRegisterdFacebooks:objects];
+                    
+                    [[OttaParseClientManager sharedManager] getAllFollowFromUser:[PFUser currentUser] withBlock:^(NSArray *array, NSError *error) {
+                        
+                        for (id curUserFollow in array) {
+                            PFUser *curFollow = [curUserFollow objectForKey:@"to"];
+                            for (PFUser *compareUser in friends) {
+                                if([curFollow.objectId isEqualToString:compareUser.objectId]) {
+                                    [compareUser setIsSelected:YES];
+                                }
+                            }
+                        }
+                        
+                        [_tableFriends reloadData];
+                    }];
+                    
                     [_tableFriends reloadData];
                     [MBProgressHUD hideHUDForView:self.view animated:YES];
                 }];
@@ -368,6 +383,22 @@
             [friends removeAllObjects];
             [friends addObjectsFromArray:objects];
             
+            
+            [[OttaParseClientManager sharedManager] getAllFollowFromUser:[PFUser currentUser] withBlock:^(NSArray *array, NSError *error) {
+                
+                for (id curUserFollow in array) {
+                    PFUser *curFollow = [curUserFollow objectForKey:@"to"];
+                    for (PFUser *compareUser in friends) {
+                        if([curFollow.objectId isEqualToString:compareUser.objectId]) {
+                            [compareUser setIsSelected:YES];
+                        }
+                    }
+                }
+                
+                [_tableFriends reloadData];
+            }];
+            
+            
             dispatch_async(dispatch_get_main_queue(), ^{
                 [_tableFriends reloadData];
                 [MBProgressHUD hideHUDForView:self.view animated:YES];
@@ -503,9 +534,28 @@ replacementString:(NSString *)string {
             }
             
         } else {
-            if(![curFriend isFriend]) {
-                [curFriend setIsSelected:![curFriend isSelected]];
-                [tableView reloadData];
+            
+            if(!_isInviteMode) {
+                
+                if(![curFriend isFriend] && ![curFriend isSelected]) {
+                    
+                    [[OttaParseClientManager sharedManager] followUser:[PFUser currentUser] toUser:curFriend withBlock:^(BOOL isSucceeded, NSError *error) {
+                        [MBProgressHUD hideHUDForView:self.view animated:YES];
+                        
+                        if(isSucceeded) {
+                            [curFriend setIsSelected:YES];
+                            [tableView reloadData];
+                        } else {
+                            [[OttaAlertManager sharedManager] showSimpleAlertWithContent:@"Error on following friend" complete:nil];
+                        }
+                    }];
+                }
+                
+            } else {
+                if(![curFriend isFriend]) {
+                    [curFriend setIsSelected:![curFriend isSelected]];
+                    [tableView reloadData];
+                }
             }
         }
     } else {
@@ -524,7 +574,25 @@ replacementString:(NSString *)string {
                     [self postEmailToAddress:[curFriend email] userName:[curFriend name]];
                 }
                 
-            } else {
+            } else if(!_isInviteMode) {
+                
+                PFUser *curFriend = [friends objectAtIndex:indexPath.row - (_isInviteMode ? 0 : 1)];
+                
+                if(![curFriend isFriend] && ![curFriend isSelected]) {
+                    
+                    [[OttaParseClientManager sharedManager] followUser:[PFUser currentUser] toUser:curFriend withBlock:^(BOOL isSucceeded, NSError *error) {
+                        [MBProgressHUD hideHUDForView:self.view animated:YES];
+                        
+                        if(isSucceeded) {
+                            [curFriend setIsSelected:YES];
+                            [tableView reloadData];
+                        } else {
+                            [[OttaAlertManager sharedManager] showSimpleAlertWithContent:@"Error on following friend" complete:nil];
+                        }
+                    }];
+                }
+                
+            } else  {
                 PFUser *curFriend = [friends objectAtIndex:indexPath.row - (_isInviteMode ? 0 : 1)];
                 if(![curFriend isFriend]) {
                     [curFriend setIsSelected: ![curFriend isSelected]];
