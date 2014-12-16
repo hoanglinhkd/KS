@@ -521,7 +521,7 @@ replacementString:(NSString *)string {
                 }
                 
             } else {
-                PFUser *curFriend = [friends objectAtIndex:indexPath.row];
+                PFUser *curFriend = [friends objectAtIndex:indexPath.row - (_isInviteMode ? 0 : 1)];
                 if(![curFriend isFriend]) {
                     [curFriend setIsSelected: ![curFriend isSelected]];
                     [tableView reloadData];
