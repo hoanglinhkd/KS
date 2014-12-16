@@ -239,7 +239,7 @@
     }];
 }
 
-- (void)getQuestionFeedFromeUser:(PFUser*)user withBlock:(OttaArrayDataBlock)resultBlock {
+- (void)getQuestionFeedFromUser:(PFUser*)user withBlock:(OttaArrayDataBlock)resultBlock {
     // Get public question first
     PFQuery *followQuery = [PFQuery queryWithClassName:kOttaFollow];
     [followQuery whereKey:kFrom equalTo:user];
@@ -247,13 +247,15 @@
         
         NSMutableArray* askers = [NSMutableArray new];
         for (PFObject* follow in objects) {
-            [askers addObject:follow[kFrom]];
+            [askers addObject:follow[kTo]];
         }
         
         PFQuery *query = [PFQuery queryWithClassName:kOttaQuestion];
         [query whereKey:kIsPublic equalTo:@YES];
         [query whereKey:kAsker containedIn:askers];
         [query whereKey:kExpTime greaterThan:[NSDate date]];
+        [query includeKey:kAsker];
+        [query includeKey:kAnswers];
         [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
             resultBlock(objects, error);
         }];

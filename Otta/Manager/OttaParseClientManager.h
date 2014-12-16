@@ -159,7 +159,7 @@ typedef void(^OttaCountBlock)(int count, NSError* error);
  *  @param user        <#user description#>
  *  @param resultBlock <#resultBlock description#>
  */
-- (void)getQuestionFeedFromeUser:(PFUser*)user withBlock:(OttaArrayDataBlock)resultBlock;
+- (void)getQuestionFeedFromUser:(PFUser*)user withBlock:(OttaArrayDataBlock)resultBlock;
 /**
  *  Vote an Answer
  *

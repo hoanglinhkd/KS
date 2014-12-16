@@ -12,7 +12,8 @@
 #import "OttaQuestion.h"
 #import "OttaMediaQuestionDetailViewController.h"
 #import "SideMenuViewController.h"
-
+#import "OttaParseClientManager.h"
+#import "MBProgressHUD.h"
 
 static NSString * const QuestionFeedCellId = @"QuestionFeedCellId";
 
@@ -31,7 +32,7 @@ static NSString * const QuestionFeedCellId = @"QuestionFeedCellId";
     
     viewAllModeCellArray = [[NSMutableArray alloc] init];
     feedItems = [[NSMutableArray alloc] init];
-    
+    /*
     ///////////////////////Q1
     OttaQuestion *question = [[OttaQuestion alloc] init];
     question.askerID = @"Jamie Moskowitz";
@@ -218,6 +219,13 @@ static NSString * const QuestionFeedCellId = @"QuestionFeedCellId";
     question.ottaAnswers = [NSMutableArray arrayWithArray:answers];
     
     [feedItems addObject:question];
+     */
+}
+
+-(void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    [self loadData];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -284,7 +292,8 @@ static NSString * const QuestionFeedCellId = @"QuestionFeedCellId";
 - (void)setTitleForCell:(OttaQuestionFeedCell *)cell item:(OttaQuestion *)item {
     NSString *title = item.questionText?: NSLocalizedString(@"[No Title]", nil);
     [cell.questionLbl setText:title];
-    [cell.ownerNameLbl setText:@"Brandon Baer"];
+    [cell.ownerNameLbl setText:item.askerName];
+    [cell.timeLbl setText:[self timeAgo:item.expTime]];
     cell.answers = item.ottaAnswers;
 }
 
@@ -343,6 +352,54 @@ static NSString * const QuestionFeedCellId = @"QuestionFeedCellId";
 #pragma mark - Actions
 - (IBAction)pressBtnLogo:(id)sender{
     [[SideMenuViewController sharedInstance] selectRowAtIndex:[NSIndexPath indexPathForRow:0 inSection:0] forViewController:self];
+}
+
+- (void) loadData{
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    [[OttaParseClientManager sharedManager] getQuestionFeedFromUser:[PFUser currentUser] withBlock:^(NSArray *array, NSError *error) {
+
+        for (PFObject *object in array) {
+            OttaQuestion *question = [[OttaQuestion alloc] init];
+            PFUser *asker = object[kAsker];
+            question.askerID = object.objectId;
+            question.askerName = [NSString stringWithFormat:@"%@ %@",asker.firstName, asker.lastName];
+            question.questionText = object[@"questionText"];
+            question.expTime = object[@"expTime"];
+            question.ottaAnswers = [[NSMutableArray alloc] init];
+            
+            for (PFObject *pfAnswer in object[kAnswers]) {
+                OttaAnswer* answer = [[OttaAnswer alloc] init];
+                answer.answerText = pfAnswer[@"description"];
+                if (pfAnswer[@"image"] != nil) {
+                    answer.answerImageFile = pfAnswer[@"image"];
+                }
+                
+                [question.ottaAnswers addObject:answer];
+            }
+            [feedItems addObject:question];
+            [_tableView reloadData];
+        }
+        
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
+    }];
+}
+-(NSString *) timeAgo:(NSDate *)origDate {
+    NSDate *timeNow = [[NSDate alloc] init];
+    double ti = [timeNow timeIntervalSinceDate:origDate];
+    ti = ti*-1;
+    if (ti < 60) {
+        return [NSString stringWithFormat:@"%d sec",(int) ti];
+    } else if (ti < 3600) {
+        int diff = round(ti / 60);
+        return [NSString stringWithFormat:@"%d min", diff];
+    } else if (ti < 86400) {
+        int diff = round(ti / 60 / 60);
+        return[NSString stringWithFormat:@"%d hour", diff];
+    } else if (ti < 2629743) {
+        int diff = round(ti / 60 / 60 / 24);
+        return[NSString stringWithFormat:@"%d day", diff];
+    }
+    return @"";
 }
 
 @end

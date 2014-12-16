@@ -127,6 +127,9 @@ static NSString * const MediaCellId = @"MediaQuestionCellId";
 
 - (BOOL)hasImageAtIndexPath:(NSIndexPath *)indexPath {
     OttaAnswer *answer = (OttaAnswer*)[self.answers objectAtIndex:indexPath.row];
+    if (answer.answerImageFile) {
+        return true;
+    }
     if (answer.answerImage) {
         return true;
     }
@@ -177,7 +180,15 @@ static NSString * const MediaCellId = @"MediaQuestionCellId";
 - (void)setImageForCell:(OttaMediaQuestionCell *)cell item:(OttaAnswer *)item {
     
     [cell.customImageView setImage:nil];
-    [cell.customImageView setImage:item.answerImage];
+    if (item.answerImageFile != nil){
+        [item.answerImageFile getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
+            if (!error) {
+                cell.customImageView.image =  [UIImage imageWithData:data];
+            }
+        }];
+    } else {
+        [cell.customImageView setImage:item.answerImage];
+    }
 }
 
 

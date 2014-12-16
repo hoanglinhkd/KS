@@ -29,7 +29,7 @@
     PFQuery *query = [PFUser query];
     PFUser *user1  = (PFUser *)[query getObjectWithId:@"NpTfcSQ49v"];
     
-    [[OttaParseClientManager sharedManager] getQuestionFeedFromeUser:user1 withBlock:^(NSArray *array, NSError *error) {
+    [[OttaParseClientManager sharedManager] getQuestionFeedFromUser:user1 withBlock:^(NSArray *array, NSError *error) {
         NSLog(@"dsa");
     }];
 }

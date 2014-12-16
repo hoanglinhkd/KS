@@ -14,6 +14,7 @@
 @property (nonatomic, strong) NSMutableArray* ottaAnswers;
 @property (nonatomic, strong) NSMutableArray* responders;
 @property (nonatomic, strong) NSString* askerID;
+@property (nonatomic, strong) NSString* askerName;
 @property (nonatomic, assign) int expirationDate;
 @property (nonatomic, retain) NSDate* expTime;
 @property (nonatomic, strong) NSString* questionText;
