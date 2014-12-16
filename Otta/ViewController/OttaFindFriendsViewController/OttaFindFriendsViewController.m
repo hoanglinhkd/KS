@@ -13,6 +13,7 @@
 #import "MBProgressHUD.h"
 #import "OttaAlertManager.h"
 #import "OttaAppDelegate.h"
+#import "OttaParseClientManager.h"
 
 @interface OttaFindFriendsViewController ()
 {
@@ -336,7 +337,9 @@
             NSArray *listPhoneCompare = [phoneNumbers values];
             
             for (NSString *curPhone in listPhoneCompare) {
-                [listPhone addObject:curPhone];
+                NSArray* words = [curPhone componentsSeparatedByCharactersInSet :[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+                NSString* nospacestring = [words componentsJoinedByString:@""];
+                [listPhone addObject:nospacestring];
             }
             
             //List Email to compare
@@ -348,11 +351,12 @@
             }
         }
         
-        PFQuery * phoneQuery = [PFQuery queryWithClassName:@"User"];
-        [phoneQuery whereKey:@"phone" containedIn:listPhone];
         
-        PFQuery * emailQuery = [PFQuery queryWithClassName:@"User"];
-        [emailQuery whereKey:@"email" containedIn:listEmail];
+        PFQuery * phoneQuery = [PFUser query];
+        [phoneQuery whereKey:kPhone containedIn:listPhone];
+        
+        PFQuery * emailQuery = [PFUser query];
+        [emailQuery whereKey:kEmail containedIn:listEmail];
         
         PFQuery *query = [PFQuery orQueryWithSubqueries:@[phoneQuery, emailQuery]];
         [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
