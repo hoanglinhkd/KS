@@ -31,8 +31,9 @@ static NSString * const QuestionFeedCellId = @"QuestionFeedCellId";
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    viewAllModeCellArray = [[NSMutableArray alloc] init];
-    feedItems = [[NSMutableArray alloc] init];
+    
+    
+    [self loadData];
     /*
     ///////////////////////Q1
     OttaQuestion *question = [[OttaQuestion alloc] init];
@@ -226,7 +227,6 @@ static NSString * const QuestionFeedCellId = @"QuestionFeedCellId";
 -(void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
-    [self loadData];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -373,6 +373,8 @@ static NSString * const QuestionFeedCellId = @"QuestionFeedCellId";
 
 - (void) loadData{
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    viewAllModeCellArray = [[NSMutableArray alloc] init];
+    feedItems = [[NSMutableArray alloc] init];
     [[OttaParseClientManager sharedManager] getQuestionFeedFromUser:[PFUser currentUser] withBlock:^(NSArray *array, NSError *error) {
 
         for (PFObject *object in array) {
