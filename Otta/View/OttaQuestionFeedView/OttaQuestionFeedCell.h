@@ -7,6 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "OttaBasicQuestionCell.h"
+
+#define kDefaultColorBackGround [UIColor colorWithRed:143*1.0/255 green:202*1.0/255 blue:64*1.0/255 alpha:1.0f]
 
 @class OttaQuestionFeedCell;
 @protocol OttaQuestionFeedCellDelegate
@@ -17,18 +20,21 @@
 - (void)optionCell:(OttaQuestionFeedCell*)cell collapseBtnTapped:(id)row;
 - (void)optionCell:(OttaQuestionFeedCell*)cell imageBtnTappedAtRow:(id)row;
 
-- (void)optionCell:(OttaQuestionFeedCell*)cell withReferIndexPath:(NSIndexPath*)referIdx didSelectRowAtIndexPath:(NSIndexPath*)childIdxPath;
-
+- (void)questionFeedCell:(OttaQuestionFeedCell*)parentCell optionCell:(OttaBasicQuestionCell*)cell withReferIndexPath:(NSIndexPath*)referIdx didSelectRowAtIndexPath:(NSIndexPath*)childIdxPath withMaximumCount:(NSInteger)maxCount;
+- (void)questionFeedCell:(OttaQuestionFeedCell*)parentCell needToForceRemoveAtReferIndex:(NSIndexPath*)indexPath;
 @end
 
 @interface OttaQuestionFeedCell : UITableViewCell <UITableViewDataSource,  UITableViewDelegate>
 
+
+@property (strong, nonatomic) UIButton *viewForSubmit;
+@property (strong, nonatomic) NSIndexPath *selectedIndexPath;
 @property (weak, nonatomic) id <OttaQuestionFeedCellDelegate>delegate;
 @property (weak, nonatomic) IBOutlet UILabel *timeLbl;
 
 @property (weak, nonatomic) IBOutlet UILabel *ownerNameLbl;
 @property (weak, nonatomic) IBOutlet UILabel *questionLbl;
-@property (strong, nonatomic) NSArray *answers;
+@property (strong, nonatomic) NSMutableArray *answers;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic) BOOL isViewAllMode;
 @property (nonatomic) int cell3Position;

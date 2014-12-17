@@ -332,7 +332,7 @@ static NSString * const QuestionFeedCellId = @"QuestionFeedCellId";
     }
 
 }
-- (void)optionCell:(OttaQuestionFeedCell *)cell withReferIndexPath:(NSIndexPath *)referIdx didSelectRowAtIndexPath:(NSIndexPath *)childIdxPath{
+- (void)questionFeedCell:(OttaQuestionFeedCell*)parentCell optionCell:(OttaBasicQuestionCell *)cell withReferIndexPath:(NSIndexPath *)referIdx didSelectRowAtIndexPath:(NSIndexPath *)childIdxPath withMaximumCount:(NSInteger)maxCount{
     // For submit Cell
     OttaQuestion *item = feedItems[referIdx.row];
     PFObject *answer = [item.ottaAnswers objectAtIndex:childIdxPath.row];
@@ -342,11 +342,46 @@ static NSString * const QuestionFeedCellId = @"QuestionFeedCellId";
     [[OttaParseClientManager sharedManager] voteFromUser:[PFUser currentUser] withAnswer:answer withBlock:^(BOOL isSucceeded, NSError *error) {
         if(isSucceeded) {
             NSLog(@"Submit answer success");
+            //cell.orderLbl.backgroundColor = kDefaultColorBackGround;
+            // Remove the other Rows
+            [UIView animateWithDuration:1.0 animations:^{
+                NSMutableArray *arrIndexPathForRemove = [[NSMutableArray alloc] init];
+                for (NSInteger i = item.ottaAnswers.count-1; i >= 0; i--) {
+                    if (i != childIdxPath.row) {
+                        if (i < maxCount) {
+                            NSIndexPath *tmpIdxPath = [NSIndexPath indexPathForRow:i inSection:0];
+                            [arrIndexPathForRemove addObject:tmpIdxPath];
+                        }
+                        [item.ottaAnswers removeObjectAtIndex:i];
+                    }
+                }
+                
+                [parentCell.tableView deleteRowsAtIndexPaths:arrIndexPathForRemove withRowAnimation:UITableViewRowAnimationFade];
+                /*
+                NSDictionary *savedDict = [[NSDictionary alloc] initWithObjectsAndKeys:self.tableView,@"tableView",
+                referIdx,@"currentIndexPath", nil];
+                */
+                
+                [self performSelector:@selector(processReloadData:) withObject:self.tableView afterDelay:0.2f];
+                [self performSelector:@selector(forceDeleteData:) withObject:referIdx afterDelay:3.0f];
+            } completion:^(BOOL finished) {
+                if (finished) {
+                    parentCell.viewForSubmit.hidden = NO;
+                    [parentCell.viewForSubmit setTitle:@"Done" forState:UIControlStateNormal];
+                }
+            }];
+        
         } else {
             NSLog(@"Submit answer failed");
         }
     }];
 }
+- (void)questionFeedCell:(OttaQuestionFeedCell *)parentCell needToForceRemoveAtReferIndex:(NSIndexPath *)indexPath{
+    [feedItems removeObjectAtIndex:indexPath.row];
+    [self.tableView reloadData];
+}
+
+
 
 - (IBAction)menuButtonPressed:(id)sender {
     [self.slidingViewController anchorTopViewToRightAnimated:YES];
@@ -396,5 +431,21 @@ static NSString * const QuestionFeedCellId = @"QuestionFeedCellId";
         [MBProgressHUD hideHUDForView:self.view animated:YES];
     }];
 }
-
+#pragma mark - Selectors
+- (void)processReloadData:(UITableView*)tableView{
+    /*
+    UITableView* myTable = [dict objectForKey:@"tableView"];
+    NSIndexPath* curr = [dict objectForKey:@"currentIndexPath"];
+    OttaQuestionFeedCell *cell = (OttaQuestionFeedCell*)[self.tableView cellForRowAtIndexPath:curr];
+    //cell.selectedIndexPath = nil;
+    */
+    
+    [tableView reloadData];
+}
+- (void)forceDeleteData:(NSIndexPath*)indexPath{
+    OttaQuestionFeedCell *cell = (OttaQuestionFeedCell*)[self.tableView cellForRowAtIndexPath:indexPath];
+    cell.selectedIndexPath = nil;
+    [feedItems removeObjectAtIndex:indexPath.row];
+    [self.tableView reloadData];
+}
 @end
