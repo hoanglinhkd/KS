@@ -99,17 +99,34 @@
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     NSArray *permissionsArray = FacebookPermissions;
     
-    [PFFacebookUtils logInWithPermissions:permissionsArray block:^(PFUser *user, NSError *error) {
+    if ([FBSession activeSession].state == FBSessionStateCreatedTokenLoaded) {
+        [[FBSession activeSession] openWithBehavior:FBSessionLoginBehaviorWithFallbackToWebView completionHandler:^(FBSession *session, FBSessionState status, NSError *error)
+        {
+            [MBProgressHUD hideHUDForView:self.view animated:YES];
+            if(!error) {
+                [self performSegueWithIdentifier:@"connectFriendSegue" sender:@"FacebookFriends"];
+            } else {
+                [[OttaAlertManager sharedManager] showSimpleAlertWithContent:@"Cannot login Facebook" complete:nil];
+            }
+        }];
+    } else {
         
-        [MBProgressHUD hideHUDForView:self.view animated:YES];
-        
-        if(!error) {
-            [self performSegueWithIdentifier:@"connectFriendSegue" sender:@"FacebookFriends"];
-        } else {
-            [[OttaAlertManager sharedManager] showSimpleAlertWithContent:@"Cannot login Facebook" complete:nil];
-        }
-        
-    }];
+        // create a new facebook session
+        FBSession *fbSession = [[FBSession alloc] initWithPermissions:permissionsArray];
+        [FBSession setActiveSession:fbSession];
+        [fbSession openWithBehavior:FBSessionLoginBehaviorWithFallbackToWebView completionHandler:^(FBSession *session, FBSessionState status, NSError *error)
+        {
+            [MBProgressHUD hideHUDForView:self.view animated:YES];
+            if(!error) {
+                [self performSegueWithIdentifier:@"connectFriendSegue" sender:@"FacebookFriends"];
+            } else {
+                [[OttaAlertManager sharedManager] showSimpleAlertWithContent:@"Cannot login Facebook" complete:nil];
+            }
+        }];
+    }
+
+    
+    
 }
 
 -(IBAction)btnContactPressed:(id)sender
