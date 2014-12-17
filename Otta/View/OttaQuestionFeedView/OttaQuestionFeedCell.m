@@ -236,7 +236,8 @@ static NSString * const MediaCellId = @"MediaQuestionCellId";
             }
         }];
     } else {
-        [cell.customImageView setImage:item[kImage]];
+        //Remove because don't have image data
+        //[cell.customImageView setImage:item[kImage]];
     }
 }
 

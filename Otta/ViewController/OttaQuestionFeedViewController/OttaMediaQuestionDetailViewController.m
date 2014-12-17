@@ -9,6 +9,7 @@
 #import "OttaMediaQuestionDetailViewController.h"
 #import "OttaAnswer.h"
 #import "UIImageView+AFNetworking.h"
+#import "OttaParseClientManager.h"
 
 @interface OttaMediaQuestionDetailViewController ()
 
@@ -31,8 +32,8 @@
     [super viewDidAppear:animated];
     
     self.questionbl.text = self.question.questionText;
-    self.optionLbl.text = ((OttaAnswer*)[self.question.ottaAnswers objectAtIndex:0]).answerText;
-    OttaAnswer *answer;
+    self.optionLbl.text = ((PFObject*)[self.question.ottaAnswers objectAtIndex:0])[kDescription];
+    PFObject *answer;
     
     for (int i = 0; i < self.question.ottaAnswers.count; i++) {
         answer = [self.question.ottaAnswers objectAtIndex:i];
@@ -45,18 +46,16 @@
         imageView.contentMode = UIViewContentModeScaleAspectFill;
         [imageView setClipsToBounds:YES];
         
-        NSURL *url = [NSURL URLWithString:answer.imageURL];
+        NSURL *url = [NSURL URLWithString:((PFFile*)answer[kImage]).url];
         NSURLRequest *request = [NSURLRequest requestWithURL:url];
-        UIImage *placeholderImage = [UIImage imageNamed:@"OttaLandingTopLogo.png"];
+        //UIImage *placeholderImage = [UIImage imageNamed:@"OttaLandingTopLogo.png"];
         
         //Indicator
         UIActivityIndicatorView *indicator = [[UIActivityIndicatorView alloc] init];
         indicator.center = imageView.center;
         indicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyleWhiteLarge;
         [indicator startAnimating];
-        if (answer.answerImage != nil){
-            [imageView setImage:answer.answerImage];
-        } else if (answer.imageURL){
+        if (((PFFile*)answer[kImage]).url.length > 0){
             //Lazy loading image
             [imageView setImageWithURLRequest:request
                              placeholderImage:nil
@@ -95,13 +94,13 @@
     int page = floor((self.imgscrollView.contentOffset.x - pageWidth / 2) / pageWidth) + 1;
 
     self.currentOption = page;
-    OttaAnswer *answer = [self.question.ottaAnswers objectAtIndex:page];
+    PFObject *answer = [self.question.ottaAnswers objectAtIndex:page];
     [UIView animateWithDuration:0.2
                      animations:^{
                          self.optionLbl.alpha = 0.0f;
                          self.orderLbl.alpha = 0.0f;
                          self.orderLbl.text = [NSString stringWithFormat:@"%d",page+1];
-                         self.optionLbl.text = answer.answerText;
+                         self.optionLbl.text = answer[kDescription];
                          self.optionLbl.alpha = 1.0f;
                          self.orderLbl.alpha = 1.0f;
                          
