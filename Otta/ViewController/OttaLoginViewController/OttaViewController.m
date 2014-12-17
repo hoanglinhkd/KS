@@ -194,6 +194,8 @@
     //[[OttaSessionManager sharedManager]loginWithFacebook];
     
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    
+    [FBSession.activeSession closeAndClearTokenInformation];
     NSArray *permissionsArray = FacebookPermissions;
     // Login PFUser using Facebook
     [PFFacebookUtils logInWithPermissions:permissionsArray block:^(PFUser *user, NSError *error) {
