@@ -83,6 +83,7 @@ static SideMenuViewController *shareInstance;
 
 -(void)logOutAction {
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    [FBSession.activeSession closeAndClearTokenInformation];
     [PFUser logOut];
     [self performSegueWithIdentifier:@"segueLogin" sender:self];
     [MBProgressHUD hideHUDForView:self.view animated:YES];

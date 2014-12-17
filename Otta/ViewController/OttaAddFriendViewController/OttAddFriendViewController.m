@@ -111,6 +111,9 @@
         }];
     } else {
         
+        [FBSession.activeSession closeAndClearTokenInformation];
+        [FBSession setActiveSession:nil];
+        
         // create a new facebook session
         FBSession *fbSession = [[FBSession alloc] initWithPermissions:permissionsArray];
         [FBSession setActiveSession:fbSession];
