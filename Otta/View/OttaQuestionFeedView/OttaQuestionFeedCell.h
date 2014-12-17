@@ -17,7 +17,7 @@
 - (void)optionCell:(OttaQuestionFeedCell*)cell collapseBtnTapped:(id)row;
 - (void)optionCell:(OttaQuestionFeedCell*)cell imageBtnTappedAtRow:(id)row;
 
-- (void)optionCell:(OttaQuestionFeedCell*)cell didSelectRowAtIndexPath:(NSIndexPath*)idxPath; 
+- (void)optionCell:(OttaQuestionFeedCell*)cell withReferIndexPath:(NSIndexPath*)referIdx didSelectRowAtIndexPath:(NSIndexPath*)childIdxPath;
 
 @end
 
