@@ -54,15 +54,19 @@
         indicator.center = imageView.center;
         indicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyleWhiteLarge;
         [indicator startAnimating];
-        
-        //Lazy loading image
-        [imageView setImageWithURLRequest:request
+        if (answer.answerImage != nil){
+            [imageView setImage:answer.answerImage];
+        } else if (answer.imageURL){
+            //Lazy loading image
+            [imageView setImageWithURLRequest:request
                              placeholderImage:nil
                                       success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
                                           
                                           imageView.image = image;
                                           [indicator stopAnimating];
                                       } failure:nil];
+        }
+    
         
         
         [self.imgscrollView addSubview:imageView];

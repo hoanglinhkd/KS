@@ -24,6 +24,7 @@
 
 #import "OttaParseClientManager.h"
 #import "MBProgressHUD.h"
+#import "Utility.h"
 
 static NSString * const OttaMyQuestionHeaderCellIdentifier      = @"OttaMyQuestionHeaderCell";
 static NSString * const OttaMyQuestionTextCellIdentifier        = @"OttaMyQuestionTextCell";
@@ -641,7 +642,7 @@ static NSString * const OttaMyQuestionVoteCellIdentifier        = @"OttaMyQuesti
     NSString *title = dto.dataType == MyQuestionDataTypeFooterSeeAll ? kSeeAll : kCollapse;
     [cell.btnSeeAll setTitle:title forState:UIControlStateNormal];
     
-    cell.lblTime.text = [self timeAgo:dto.expTime];
+    cell.lblTime.text = [Utility timeAgo:dto.expTime];
     //cell.lblTime.text = [NSString stringWithFormat:@"%d min",dto.expirationDate];
     cell.referIndex = dto.referIndex;
     cell.currIndex  = dto.currentTableIndex;
@@ -893,25 +894,6 @@ static NSString * const OttaMyQuestionVoteCellIdentifier        = @"OttaMyQuesti
         [myTableView reloadData];
         [MBProgressHUD hideHUDForView:self.view animated:YES];
     }];
-}
-
--(NSString *) timeAgo:(NSDate *)origDate {
-    NSDate *timeNow = [[NSDate alloc] init];
-    double ti = [timeNow timeIntervalSinceDate:origDate];
-    ti = ti*-1;
-    if (ti < 60) {
-        return [NSString stringWithFormat:@"%d sec",(int) ti];
-    } else if (ti < 3600) {
-        int diff = round(ti / 60);
-        return [NSString stringWithFormat:@"%d min", diff];
-    } else if (ti < 86400) {
-        int diff = round(ti / 60 / 60);
-        return[NSString stringWithFormat:@"%d hour", diff];
-    } else if (ti < 2629743) {
-        int diff = round(ti / 60 / 60 / 24);
-        return[NSString stringWithFormat:@"%d day", diff];
-    }
-    return @"";
 }
 
 @end

@@ -14,6 +14,7 @@
 #import "SideMenuViewController.h"
 #import "OttaParseClientManager.h"
 #import "MBProgressHUD.h"
+#import "Utility.h"
 
 static NSString * const QuestionFeedCellId = @"QuestionFeedCellId";
 
@@ -32,7 +33,7 @@ static NSString * const QuestionFeedCellId = @"QuestionFeedCellId";
     
     viewAllModeCellArray = [[NSMutableArray alloc] init];
     feedItems = [[NSMutableArray alloc] init];
-    
+    /*
     ///////////////////////Q1
     OttaQuestion *question = [[OttaQuestion alloc] init];
     question.askerID = @"Jamie Moskowitz";
@@ -219,12 +220,13 @@ static NSString * const QuestionFeedCellId = @"QuestionFeedCellId";
     question.ottaAnswers = [NSMutableArray arrayWithArray:answers];
     
     [feedItems addObject:question];
+     */
 }
 
 -(void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
-    //[self loadData];
+    [self loadData];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -292,7 +294,7 @@ static NSString * const QuestionFeedCellId = @"QuestionFeedCellId";
     NSString *title = item.questionText?: NSLocalizedString(@"[No Title]", nil);
     [cell.questionLbl setText:title];
     [cell.ownerNameLbl setText:item.askerName];
-    [cell.timeLbl setText:[self timeAgo:item.expTime]];
+    [cell.timeLbl setText:[Utility timeAgo:item.expTime]];
     cell.answers = item.ottaAnswers;
 }
 
@@ -324,7 +326,8 @@ static NSString * const QuestionFeedCellId = @"QuestionFeedCellId";
     NSIndexPath* pathOfTheCell = [self.tableView indexPathForCell:cell];
     selectedQuestion = [feedItems objectAtIndex:pathOfTheCell.row];
     selectedOption = [(NSNumber*)row intValue];
-    if (((OttaAnswer*)[selectedQuestion.ottaAnswers objectAtIndex:0]).imageURL) {
+    OttaAnswer *answer = (OttaAnswer*)[selectedQuestion.ottaAnswers objectAtIndex:selectedOption];
+    if (answer.imageURL || answer.answerImage) {
         [self performSegueWithIdentifier:@"segueMediaQuestionDetail" sender:self];
     }
 }
@@ -378,6 +381,7 @@ static NSString * const QuestionFeedCellId = @"QuestionFeedCellId";
                 answer.answerText = pfAnswer[@"description"];
                 if (pfAnswer[@"image"] != nil) {
                     answer.answerImageFile = pfAnswer[@"image"];
+                    answer.imageURL =  ((PFFile*)pfAnswer[@"image"]).url;
                 }
                 
                 [question.ottaAnswers addObject:answer];
@@ -388,24 +392,6 @@ static NSString * const QuestionFeedCellId = @"QuestionFeedCellId";
         
         [MBProgressHUD hideHUDForView:self.view animated:YES];
     }];
-}
--(NSString *) timeAgo:(NSDate *)origDate {
-    NSDate *timeNow = [[NSDate alloc] init];
-    double ti = [timeNow timeIntervalSinceDate:origDate];
-    ti = ti*-1;
-    if (ti < 60) {
-        return [NSString stringWithFormat:@"%d sec",(int) ti];
-    } else if (ti < 3600) {
-        int diff = round(ti / 60);
-        return [NSString stringWithFormat:@"%d min", diff];
-    } else if (ti < 86400) {
-        int diff = round(ti / 60 / 60);
-        return[NSString stringWithFormat:@"%d hour", diff];
-    } else if (ti < 2629743) {
-        int diff = round(ti / 60 / 60 / 24);
-        return[NSString stringWithFormat:@"%d day", diff];
-    }
-    return @"";
 }
 
 @end
