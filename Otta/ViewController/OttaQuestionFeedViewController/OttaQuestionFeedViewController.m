@@ -326,18 +326,26 @@ static NSString * const QuestionFeedCellId = @"QuestionFeedCellId";
     NSIndexPath* pathOfTheCell = [self.tableView indexPathForCell:cell];
     selectedQuestion = [feedItems objectAtIndex:pathOfTheCell.row];
     selectedOption = [(NSNumber*)row intValue];
-    OttaAnswer *answer = (OttaAnswer*)[selectedQuestion.ottaAnswers objectAtIndex:selectedOption];
-    if (answer.imageURL || answer.answerImage) {
+    PFObject *answer = [selectedQuestion.ottaAnswers objectAtIndex:selectedOption];
+    if (((PFFile*)answer[kImage]).url.length > 0) {
         [self performSegueWithIdentifier:@"segueMediaQuestionDetail" sender:self];
     }
+
 }
 - (void)optionCell:(OttaQuestionFeedCell *)cell withReferIndexPath:(NSIndexPath *)referIdx didSelectRowAtIndexPath:(NSIndexPath *)childIdxPath{
     // For submit Cell
     OttaQuestion *item = feedItems[referIdx.row];
-    OttaAnswer *answer = [item.ottaAnswers objectAtIndex:childIdxPath.row];
+    PFObject *answer = [item.ottaAnswers objectAtIndex:childIdxPath.row];
     NSLog(@"submit cell %@",item.questionText);
-    NSLog(@"anser %@",answer.answerText);
+    NSLog(@"anser %@",answer[kDescription]);
     
+    [[OttaParseClientManager sharedManager] voteFromUser:[PFUser currentUser] withAnswer:answer withBlock:^(BOOL isSucceeded, NSError *error) {
+        if(isSucceeded) {
+            NSLog(@"Submit answer success");
+        } else {
+            NSLog(@"Submit answer failed");
+        }
+    }];
 }
 
 - (IBAction)menuButtonPressed:(id)sender {
@@ -372,20 +380,13 @@ static NSString * const QuestionFeedCellId = @"QuestionFeedCellId";
             PFUser *asker = object[kAsker];
             question.askerID = object.objectId;
             question.askerName = [NSString stringWithFormat:@"%@ %@",asker.firstName, asker.lastName];
-            question.questionText = object[@"questionText"];
-            question.expTime = object[@"expTime"];
+            question.questionText = object[kQuestionText];
+            question.expTime = object[kExpTime];
             question.ottaAnswers = [[NSMutableArray alloc] init];
-            
-            for (PFObject *pfAnswer in object[kAnswers]) {
-                OttaAnswer* answer = [[OttaAnswer alloc] init];
-                answer.answerText = pfAnswer[@"description"];
-                if (pfAnswer[@"image"] != nil) {
-                    answer.answerImageFile = pfAnswer[@"image"];
-                    answer.imageURL =  ((PFFile*)pfAnswer[@"image"]).url;
-                }
-                
-                [question.ottaAnswers addObject:answer];
+            if(object[kAnswers]){
+                [question.ottaAnswers addObjectsFromArray:object[kAnswers]];
             }
+            
             [feedItems addObject:question];
             [_tableView reloadData];
         }

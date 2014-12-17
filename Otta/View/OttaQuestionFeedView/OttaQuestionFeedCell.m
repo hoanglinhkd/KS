@@ -9,7 +9,8 @@
 #import "OttaQuestionFeedCell.h"
 #import "OttaBasicQuestionCell.h"
 #import "OttaMediaQuestionCell.h"
-#import  "OttaAnswer.h"
+#import "OttaAnswer.h"
+#import "OttaParseClientManager.h"
 
 static NSString * const BasicCellId = @"BasicQuestionCellId";
 static NSString * const MediaCellId = @"MediaQuestionCellId";
@@ -127,14 +128,14 @@ static NSString * const MediaCellId = @"MediaQuestionCellId";
 }
 
 - (void)configureBasicCell:(OttaBasicQuestionCell *)cell atIndexPath:(NSIndexPath *)indexPath {
-    OttaAnswer *answer = self.answers[indexPath.row];
+    PFObject *answer = self.answers[indexPath.row];
     [self setTitleForCell:cell item:answer];
     [self setOrderForCell:cell order:[NSString stringWithFormat:@"%ld", indexPath.row +1]];
    
 }
 
-- (void)setTitleForCell:(OttaBasicQuestionCell *)cell item:(OttaAnswer *)item {
-    NSString *title = item.answerText?: NSLocalizedString(@"[No Title]", nil);
+- (void)setTitleForCell:(OttaBasicQuestionCell *)cell item:(PFObject *)item {
+    NSString *title = ((NSString*)item[kDescription]).length > 0 ? item[kDescription] : NSLocalizedString(@"[No Title]", nil);
     [cell.titleLbl setText:title];
 }
 
@@ -145,11 +146,9 @@ static NSString * const MediaCellId = @"MediaQuestionCellId";
 #pragma mark Media Cell
 
 - (BOOL)hasImageAtIndexPath:(NSIndexPath *)indexPath {
-    OttaAnswer *answer = (OttaAnswer*)[self.answers objectAtIndex:indexPath.row];
-    if (answer.answerImageFile) {
-        return true;
-    }
-    if (answer.answerImage) {
+    PFObject *answer = [self.answers objectAtIndex:indexPath.row];
+
+    if (((PFFile*)answer[kImage]).url.length > 0) {
         return true;
     }
     return false ;
@@ -162,9 +161,9 @@ static NSString * const MediaCellId = @"MediaQuestionCellId";
 }
 
 - (void)configureImageCell:(OttaMediaQuestionCell *)cell atIndexPath:(NSIndexPath *)indexPath {
-    OttaAnswer *item = self.answers[indexPath.row];
+    PFObject *item = self.answers[indexPath.row];
     [self setTitleForCell:cell item:item];
-    [self setOrderForCell:cell order:[NSString stringWithFormat:@"%ld", indexPath.row +1]];
+    [self setOrderForCell:cell order:[NSString stringWithFormat:@"%ld", indexPath.row + 1]];
     [self setImageForCell:(id)cell item:item];
     cell.imageBtn.tag = indexPath.row;
     if (self.answers.count > 3 ) {
@@ -220,17 +219,18 @@ static NSString * const MediaCellId = @"MediaQuestionCellId";
 }
 
 
-- (void)setImageForCell:(OttaMediaQuestionCell *)cell item:(OttaAnswer *)item {
+- (void)setImageForCell:(OttaMediaQuestionCell *)cell item:(PFObject *)item {
     
     [cell.customImageView setImage:nil];
-    if (item.answerImageFile != nil){
-        [item.answerImageFile getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
+
+    if (item[kImage] != nil){
+        [item[kImage] getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
             if (!error) {
-                cell.customImageView.image =  [UIImage imageWithData:data];
+                cell.customImageView.image = [UIImage imageWithData:data];
             }
         }];
     } else {
-        [cell.customImageView setImage:item.answerImage];
+        [cell.customImageView setImage:item[kImage]];
     }
 }
 
