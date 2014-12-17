@@ -339,7 +339,9 @@ static NSString * const QuestionFeedCellId = @"QuestionFeedCellId";
     NSLog(@"submit cell %@",item.questionText);
     NSLog(@"anser %@",answer[kDescription]);
     
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     [[OttaParseClientManager sharedManager] voteFromUser:[PFUser currentUser] withAnswer:answer withBlock:^(BOOL isSucceeded, NSError *error) {
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
         if(isSucceeded) {
             NSLog(@"Submit answer success");
         } else {
