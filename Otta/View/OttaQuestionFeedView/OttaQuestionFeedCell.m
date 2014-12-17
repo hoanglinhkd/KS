@@ -15,16 +15,14 @@
 static NSString * const BasicCellId = @"BasicQuestionCellId";
 static NSString * const MediaCellId = @"MediaQuestionCellId";
 
-#define kDefaultColorBackGround [UIColor colorWithRed:143*1.0/255 green:202*1.0/255 blue:64*1.0/255 alpha:1.0f]
-
 @interface OttaQuestionFeedCell(){
-    NSIndexPath *selectedIndexPath;
-    UIButton *viewForSubmit;
+    
 }
 
 @end
 
 @implementation OttaQuestionFeedCell
+@synthesize viewForSubmit, selectedIndexPath;
 
 - (void)awakeFromNib {
     // Initialization code
@@ -115,13 +113,22 @@ static NSString * const MediaCellId = @"MediaQuestionCellId";
     }
 }
 - (UIView*)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{
+    
     viewForSubmit = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, tableView.bounds.size.width, 40.0)];
     [viewForSubmit setBackgroundImage:[self imageFromColor:[UIColor orangeColor]] forState:UIControlStateNormal];
     [viewForSubmit setBackgroundImage:[self imageFromColor:kDefaultColorBackGround] forState:UIControlStateSelected];
     [viewForSubmit setBackgroundImage:[self imageFromColor:kDefaultColorBackGround] forState:UIControlStateHighlighted];
-    viewForSubmit.hidden = YES;
-    [viewForSubmit setTitle:@"Submit" forState:UIControlStateNormal];
-    [viewForSubmit addTarget:self action:@selector(submitCellSelected:) forControlEvents:UIControlEventTouchUpInside];
+    
+    
+    if (selectedIndexPath == nil) {
+        [viewForSubmit setTitle:@"Submit" forState:UIControlStateNormal];
+        viewForSubmit.hidden = YES;
+        [viewForSubmit addTarget:self action:@selector(submitCellSelected:) forControlEvents:UIControlEventTouchUpInside];
+    }else{
+        [viewForSubmit setTitle:@"Done" forState:UIControlStateNormal];
+        viewForSubmit.hidden = NO;
+        [viewForSubmit addTarget:self action:@selector(doneCellSelected:) forControlEvents:UIControlEventTouchUpInside];
+    }
     
     return viewForSubmit;
 }
@@ -289,11 +296,52 @@ static NSString * const MediaCellId = @"MediaQuestionCellId";
 }
 #pragma mark - Selectors
 - (void)submitCellSelected:(id)sender{
+    [UIView animateWithDuration:1.0 animations:^{
+        [viewForSubmit setTitle:@"Done" forState:UIControlStateNormal];
+    } completion:^(BOOL finished) {
+        if (finished) {
+            UITableView *tbView = (UITableView*)self.superview.superview;
+            NSIndexPath *referIdxPath = [tbView indexPathForCell:self];
+            NSLog(@"%ld",referIdxPath.row);
+            if (self.delegate && [((NSObject*)self.delegate) respondsToSelector:@selector(questionFeedCell:optionCell:withReferIndexPath:didSelectRowAtIndexPath:withMaximumCount:)]) {
+        
+                NSIndexPath *tmpIndexPath = [NSIndexPath indexPathForRow:selectedIndexPath.row inSection:0];
+                NSInteger maxCount = [self tableView:self.tableView numberOfRowsInSection:0];
+                
+                selectedIndexPath = [NSIndexPath indexPathForRow:0 inSection:0];
+                [self.delegate questionFeedCell:self optionCell:(OttaBasicQuestionCell*)[self.tableView cellForRowAtIndexPath:tmpIndexPath] withReferIndexPath:referIdxPath didSelectRowAtIndexPath:tmpIndexPath withMaximumCount:maxCount];
+                
+                
+            }
+        }
+    }];
+}
+- (void)doneCellSelected:(id)sender{
+    return;
     UITableView *tbView = (UITableView*)self.superview.superview;
     NSIndexPath *referIdxPath = [tbView indexPathForCell:self];
-    NSLog(@"%ld",referIdxPath.row);
-    if (self.delegate && [((NSObject*)self.delegate) respondsToSelector:@selector(optionCell:withReferIndexPath:didSelectRowAtIndexPath:)]) {
-        [self.delegate optionCell:self withReferIndexPath:referIdxPath didSelectRowAtIndexPath:selectedIndexPath];
+    if (self.delegate && [((NSObject*)self.delegate) respondsToSelector:@selector(questionFeedCell:needToForceRemoveAtReferIndex:)]) {
+        [self.delegate questionFeedCell:self needToForceRemoveAtReferIndex:referIdxPath];
     }
 }
 @end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
