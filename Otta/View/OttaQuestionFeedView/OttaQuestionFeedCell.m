@@ -93,9 +93,15 @@ static NSString * const MediaCellId = @"MediaQuestionCellId";
     NSIndexPath *firstAnswer =[NSIndexPath indexPathForRow:0 inSection:0];
 
     
-    if (!_isViewAllMode &&[self hasImageAtIndexPath:firstAnswer])
+    if (!_isViewAllMode &&[self hasImageAtIndexPath:firstAnswer]) {
         
-        return 3;
+        if([self.answers count] > 3) {
+            //Fix max = 3 row
+            return 3;
+        } else {
+            [self.answers count];
+        }
+    }
     
     return [self.answers count];
 }
