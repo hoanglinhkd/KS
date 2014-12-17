@@ -328,7 +328,14 @@ static NSString * const QuestionFeedCellId = @"QuestionFeedCellId";
         [self performSegueWithIdentifier:@"segueMediaQuestionDetail" sender:self];
     }
 }
-
+- (void)optionCell:(OttaQuestionFeedCell *)cell withReferIndexPath:(NSIndexPath *)referIdx didSelectRowAtIndexPath:(NSIndexPath *)childIdxPath{
+    // For submit Cell
+    OttaQuestion *item = feedItems[referIdx.row];
+    OttaAnswer *answer = [item.ottaAnswers objectAtIndex:childIdxPath.row];
+    NSLog(@"submit cell %@",item.questionText);
+    NSLog(@"anser %@",answer.answerText);
+    
+}
 
 - (IBAction)menuButtonPressed:(id)sender {
     [self.slidingViewController anchorTopViewToRightAnimated:YES];
