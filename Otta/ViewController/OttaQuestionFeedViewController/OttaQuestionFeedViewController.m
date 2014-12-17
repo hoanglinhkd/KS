@@ -32,7 +32,7 @@ static NSString * const QuestionFeedCellId = @"QuestionFeedCellId";
     
     viewAllModeCellArray = [[NSMutableArray alloc] init];
     feedItems = [[NSMutableArray alloc] init];
-    /*
+    
     ///////////////////////Q1
     OttaQuestion *question = [[OttaQuestion alloc] init];
     question.askerID = @"Jamie Moskowitz";
@@ -219,13 +219,12 @@ static NSString * const QuestionFeedCellId = @"QuestionFeedCellId";
     question.ottaAnswers = [NSMutableArray arrayWithArray:answers];
     
     [feedItems addObject:question];
-     */
 }
 
 -(void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
-    [self loadData];
+    //[self loadData];
 }
 
 - (void)didReceiveMemoryWarning {

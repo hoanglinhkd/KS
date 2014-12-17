@@ -17,6 +17,8 @@
 - (void)optionCell:(OttaQuestionFeedCell*)cell collapseBtnTapped:(id)row;
 - (void)optionCell:(OttaQuestionFeedCell*)cell imageBtnTappedAtRow:(id)row;
 
+- (void)optionCell:(OttaQuestionFeedCell*)cell withReferIndexPath:(NSIndexPath*)referIdx didSelectRowAtIndexPath:(NSIndexPath*)childIdxPath;
+
 @end
 
 @interface OttaQuestionFeedCell : UITableViewCell <UITableViewDataSource,  UITableViewDelegate>

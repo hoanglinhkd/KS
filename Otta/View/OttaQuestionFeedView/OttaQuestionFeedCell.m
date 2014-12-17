@@ -14,6 +14,15 @@
 static NSString * const BasicCellId = @"BasicQuestionCellId";
 static NSString * const MediaCellId = @"MediaQuestionCellId";
 
+#define kDefaultColorBackGround [UIColor colorWithRed:143*1.0/255 green:202*1.0/255 blue:64*1.0/255 alpha:1.0f]
+
+@interface OttaQuestionFeedCell(){
+    NSIndexPath *selectedIndexPath;
+    UIButton *viewForSubmit;
+}
+
+@end
+
 @implementation OttaQuestionFeedCell
 
 - (void)awakeFromNib {
@@ -98,7 +107,17 @@ static NSString * const MediaCellId = @"MediaQuestionCellId";
         return [self basicCellAtIndexPath:indexPath];
     }
 }
-
+- (UIView*)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{
+    viewForSubmit = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, tableView.bounds.size.width, 40.0)];
+    [viewForSubmit setBackgroundImage:[self imageFromColor:[UIColor orangeColor]] forState:UIControlStateNormal];
+    [viewForSubmit setBackgroundImage:[self imageFromColor:kDefaultColorBackGround] forState:UIControlStateSelected];
+    [viewForSubmit setBackgroundImage:[self imageFromColor:kDefaultColorBackGround] forState:UIControlStateHighlighted];
+    viewForSubmit.hidden = YES;
+    [viewForSubmit setTitle:@"Submit" forState:UIControlStateNormal];
+    [viewForSubmit addTarget:self action:@selector(submitCellSelected:) forControlEvents:UIControlEventTouchUpInside];
+    
+    return viewForSubmit;
+}
 #pragma mark Basic Cell
 
 - (OttaBasicQuestionCell *)basicCellAtIndexPath:(NSIndexPath *)indexPath {
@@ -110,7 +129,7 @@ static NSString * const MediaCellId = @"MediaQuestionCellId";
 - (void)configureBasicCell:(OttaBasicQuestionCell *)cell atIndexPath:(NSIndexPath *)indexPath {
     OttaAnswer *answer = self.answers[indexPath.row];
     [self setTitleForCell:cell item:answer];
-    [self setOrderForCell:cell order:[NSString stringWithFormat:@"%d", indexPath.row +1]];
+    [self setOrderForCell:cell order:[NSString stringWithFormat:@"%ld", indexPath.row +1]];
    
 }
 
@@ -145,7 +164,7 @@ static NSString * const MediaCellId = @"MediaQuestionCellId";
 - (void)configureImageCell:(OttaMediaQuestionCell *)cell atIndexPath:(NSIndexPath *)indexPath {
     OttaAnswer *item = self.answers[indexPath.row];
     [self setTitleForCell:cell item:item];
-    [self setOrderForCell:cell order:[NSString stringWithFormat:@"%d", indexPath.row +1]];
+    [self setOrderForCell:cell order:[NSString stringWithFormat:@"%ld", indexPath.row +1]];
     [self setImageForCell:(id)cell item:item];
     cell.imageBtn.tag = indexPath.row;
     if (self.answers.count > 3 ) {
@@ -171,9 +190,33 @@ static NSString * const MediaCellId = @"MediaQuestionCellId";
 
 }
 #pragma mark Tableview Delegate
-
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
+    return 40.0;
+}
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    [tableView deselectRowAtIndexPath:indexPath animated:TRUE];
+    if (selectedIndexPath == indexPath) {
+        selectedIndexPath = nil;
+        OttaBasicQuestionCell *cell = (OttaBasicQuestionCell*)[tableView cellForRowAtIndexPath:indexPath];
+        cell.orderLbl.backgroundColor = kDefaultColorBackGround;
+        [tableView deselectRowAtIndexPath:indexPath animated:YES];
+        viewForSubmit.hidden = YES;
+        return;
+    }else if(selectedIndexPath!=nil){
+        OttaBasicQuestionCell *cell = (OttaBasicQuestionCell*)[tableView cellForRowAtIndexPath:selectedIndexPath];
+        cell.orderLbl.backgroundColor = kDefaultColorBackGround;
+    }
+    
+    selectedIndexPath = indexPath;
+    if ([self hasImageAtIndexPath:indexPath]) {
+        OttaBasicQuestionCell *cell = (OttaBasicQuestionCell*)[tableView cellForRowAtIndexPath:indexPath];
+        cell.orderLbl.backgroundColor = [UIColor orangeColor];
+    } else {
+        OttaBasicQuestionCell *cell = (OttaBasicQuestionCell*)[tableView cellForRowAtIndexPath:indexPath];
+        cell.orderLbl.backgroundColor = [UIColor orangeColor];
+    }
+    viewForSubmit.hidden = NO;
+    //[tableView beginUpdates];
+    //[tableView endUpdates];
 }
 
 
@@ -225,5 +268,25 @@ static NSString * const MediaCellId = @"MediaQuestionCellId";
     UIButton *btn = (UIButton *)sender;
     NSInteger row = btn.tag;
     [self.delegate optionCell:self imageBtnTappedAtRow:[NSNumber numberWithInteger:row]];
+}
+#pragma mark - Utils
+- (UIImage *)imageFromColor:(UIColor *)color {
+    CGRect rect = CGRectMake(0, 0, 1, 1);
+    UIGraphicsBeginImageContext(rect.size);
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    CGContextSetFillColorWithColor(context, [color CGColor]);
+    CGContextFillRect(context, rect);
+    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return image;
+}
+#pragma mark - Selectors
+- (void)submitCellSelected:(id)sender{
+    UITableView *tbView = (UITableView*)self.superview.superview;
+    NSIndexPath *referIdxPath = [tbView indexPathForCell:self];
+    NSLog(@"%ld",referIdxPath.row);
+    if (self.delegate && [((NSObject*)self.delegate) respondsToSelector:@selector(optionCell:withReferIndexPath:didSelectRowAtIndexPath:)]) {
+        [self.delegate optionCell:self withReferIndexPath:referIdxPath didSelectRowAtIndexPath:selectedIndexPath];
+    }
 }
 @end

@@ -1622,7 +1622,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Thien Chau (B5C6XKM622)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Duy An Huynh (PNK43AD7Y4)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -1636,7 +1636,7 @@
 					"$(PROJECT_DIR)/Otta/Lib/Testflight",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "9ef28093-7b21-4984-988b-d1af0b33ad8b";
+				PROVISIONING_PROFILE = "5cd876c0-75c9-4dfe-9930-7b9c6a1f4f46";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -1662,7 +1662,7 @@
 					"$(PROJECT_DIR)/Otta/Lib/Testflight",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "856b340c-812f-4d2e-99b4-263af68781e8";
+				PROVISIONING_PROFILE = "5cd876c0-75c9-4dfe-9930-7b9c6a1f4f46";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -1671,6 +1671,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Otta.app/Otta";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SRCROOT)/**",
 					"$(SDKROOT)/Developer/Library/Frameworks",
@@ -1685,6 +1687,7 @@
 				);
 				INFOPLIST_FILE = "OttaTests/OttaTests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
 			};
@@ -1694,6 +1697,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Otta.app/Otta";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SRCROOT)/**",
 					"$(SDKROOT)/Developer/Library/Frameworks",
@@ -1704,6 +1709,7 @@
 				GCC_PREFIX_HEADER = "Otta/Otta-Prefix.pch";
 				INFOPLIST_FILE = "OttaTests/OttaTests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
 			};
