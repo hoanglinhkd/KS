@@ -48,7 +48,7 @@
         return;
     }
     
-    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    [MBProgressHUD showHUDAddedTo:self.loginView.view animated:YES];
     
     [[OttaParseClientManager sharedManager] loginWithNameOrEmail:self.usernameTextField.text andPassword:self.passwordTextField.text withResult:^(BOOL joinSucceeded, PFUser *pUser, NSError* error) {
         
@@ -62,7 +62,7 @@
             [[OttaAlertManager sharedManager] showSimpleAlertOnView:windowView withContent:[@"Login Failed" toCurrentLanguage] complete:nil];
         }
         
-        [MBProgressHUD hideHUDForView:self.view animated:YES];
+        [MBProgressHUD hideHUDForView:self.loginView.view animated:YES];
     }];
     
 }

@@ -44,6 +44,7 @@
 		386E89C21A12606000459171 /* icon_uncheck.png in Resources */ = {isa = PBXBuildFile; fileRef = 386E89BE1A12606000459171 /* icon_uncheck.png */; };
 		386E89C81A126AC100459171 /* OttAddFriendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 386E89C71A126AC100459171 /* OttAddFriendViewController.m */; };
 		386E89CA1A126DEF00459171 /* icon_check2.png in Resources */ = {isa = PBXBuildFile; fileRef = 386E89C91A126DEF00459171 /* icon_check2.png */; };
+		3878FFBC1A41CF61006B6868 /* OttaUlti.m in Sources */ = {isa = PBXBuildFile; fileRef = 3878FFBB1A41CF61006B6868 /* OttaUlti.m */; };
 		387F66C01A2B6746005D31D2 /* OttaDataViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 387F66BF1A2B6746005D31D2 /* OttaDataViewController.m */; };
 		38A37D771A171FCD00771881 /* OttaAlertManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 38A37D761A171FCD00771881 /* OttaAlertManager.m */; };
 		38A37D7B1A171FF900771881 /* bgalert_white.png in Resources */ = {isa = PBXBuildFile; fileRef = 38A37D781A171FF900771881 /* bgalert_white.png */; };
@@ -264,6 +265,8 @@
 		386E89C61A126AC100459171 /* OttAddFriendViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OttAddFriendViewController.h; sourceTree = "<group>"; };
 		386E89C71A126AC100459171 /* OttAddFriendViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OttAddFriendViewController.m; sourceTree = "<group>"; };
 		386E89C91A126DEF00459171 /* icon_check2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_check2.png; sourceTree = "<group>"; };
+		3878FFBA1A41CF61006B6868 /* OttaUlti.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OttaUlti.h; sourceTree = "<group>"; };
+		3878FFBB1A41CF61006B6868 /* OttaUlti.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OttaUlti.m; sourceTree = "<group>"; };
 		387F66BE1A2B6746005D31D2 /* OttaDataViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OttaDataViewController.h; sourceTree = "<group>"; };
 		387F66BF1A2B6746005D31D2 /* OttaDataViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OttaDataViewController.m; sourceTree = "<group>"; };
 		38A37D751A171FCD00771881 /* OttaAlertManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OttaAlertManager.h; sourceTree = "<group>"; };
@@ -1045,6 +1048,8 @@
 				D98E30C31A1795D70080B934 /* Constant.m */,
 				D9286F411A12190500C28770 /* OttaParseClientManager.h */,
 				D9286F421A12190500C28770 /* OttaParseClientManager.m */,
+				3878FFBA1A41CF61006B6868 /* OttaUlti.h */,
+				3878FFBB1A41CF61006B6868 /* OttaUlti.m */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -1221,10 +1226,10 @@
 				ORGANIZATIONNAME = SojoDigital;
 				TargetAttributes = {
 					F0BC6511198606BD0097A87C = {
-						DevelopmentTeam = NJYXP339SK;
+						DevelopmentTeam = 3VMD94Y2M8;
 					};
 					F0BC6532198606BD0097A87C = {
-						DevelopmentTeam = ST4BY352FH;
+						DevelopmentTeam = 3VMD94Y2M8;
 						TestTargetID = F0BC6511198606BD0097A87C;
 					};
 				};
@@ -1462,6 +1467,7 @@
 				668BFDD41A26C5A8003CC194 /* SZTextView.m in Sources */,
 				F0BC6522198606BD0097A87C /* main.m in Sources */,
 				7ED16B0D1A380ADD001347A8 /* OttaAboutViewController.m in Sources */,
+				3878FFBC1A41CF61006B6868 /* OttaUlti.m in Sources */,
 				D9286F431A12190500C28770 /* OttaParseClientManager.m in Sources */,
 				D9CD79951A22EA8C007C6E15 /* OttaJoinDetailViewController.m in Sources */,
 				663665EE1A1EEE00007F0EFC /* MEDynamicTransition.m in Sources */,
@@ -1628,7 +1634,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Duy An Huynh (PNK43AD7Y4)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -1642,7 +1648,7 @@
 					"$(PROJECT_DIR)/Otta/Lib/Testflight",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "5cd876c0-75c9-4dfe-9930-7b9c6a1f4f46";
+				PROVISIONING_PROFILE = "9ef28093-7b21-4984-988b-d1af0b33ad8b";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -1668,7 +1674,7 @@
 					"$(PROJECT_DIR)/Otta/Lib/Testflight",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "5cd876c0-75c9-4dfe-9930-7b9c6a1f4f46";
+				PROVISIONING_PROFILE = "856b340c-812f-4d2e-99b4-263af68781e8";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

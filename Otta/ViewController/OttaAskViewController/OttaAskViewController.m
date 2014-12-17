@@ -473,6 +473,8 @@ UITextView itsTextView = [[UITextView alloc] initWithFrame:CGRectMake(0, 0, itsT
             else {
                 selectedImage = imageInfoDict[UIImagePickerControllerOriginalImage];
             }
+            
+            selectedImage = [OttaUlti resizeImage:selectedImage];
         
             //weakSelf.editingOptionCell.imgMain.image = selectedImage;
             [weakSelf.editingOptionCell displayThumbAndCaption:selectedImage caption:caption];

@@ -17,6 +17,7 @@
     #import "LanguageHelper.h"
     #import "Constant.h"
     #import "PFUser+Extension.h"
+    #import "OttaUlti.h"
 #endif
 
 #define openSansFontRegular [UIFont fontWithName:@"OpenSans-Regular" size:18.00f]
