@@ -599,7 +599,7 @@ static NSString * const OttaMyQuestionVoteCellIdentifier        = @"OttaMyQuesti
     OttaMyQuestionData *dto = dataForShow[indexPath.row];
     
     cell.lblOrderNumber.text = [NSString stringWithFormat:@"%d",dto.answer.numberAnswer];
-    //cell.imageViewData.image = dto.answer.answerImage;
+    cell.imageViewData.image = [UIImage imageNamed:@"thumb.png"];
     [dto.answer.answerImageFile getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
         if (!error) {
             cell.imageViewData.image =  [UIImage imageWithData:data];

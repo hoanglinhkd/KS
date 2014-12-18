@@ -237,6 +237,7 @@ static NSString * const MediaCellId = @"MediaQuestionCellId";
     [cell.customImageView setImage:nil];
 
     if (item[kImage] != nil){
+        cell.customImageView.image = [UIImage imageNamed:@"thumb.png"];
         [item[kImage] getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
             if (!error) {
                 cell.customImageView.image = [UIImage imageWithData:data];
