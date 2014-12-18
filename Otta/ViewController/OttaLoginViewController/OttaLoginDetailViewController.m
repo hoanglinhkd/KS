@@ -54,6 +54,10 @@
         return;
     }
     
+    if([OttaNetworkManager isOfflineShowedAlertView]) {
+        return;
+    }
+    
     [MBProgressHUD showHUDAddedTo:self.loginView.view animated:YES];
     
     [[OttaParseClientManager sharedManager] loginWithNameOrEmail:self.usernameTextField.text andPassword:self.passwordTextField.text withResult:^(BOOL joinSucceeded, PFUser *pUser, NSError* error) {
@@ -106,6 +110,11 @@
     [[OttaAlertManager sharedManager] showEmailAlertOnView:windowView complete:^(NSString *email) {
         __block NSString* mess = @"Invalid email!";
         if ([Constant isValidEmail:email]) {
+            
+            if([OttaNetworkManager isOfflineShowedAlertView]) {
+                return;
+            }
+            
             [MBProgressHUD showHUDAddedTo:windowView animated:YES];
             [[OttaParseClientManager sharedManager] resetPasswordWithEmail:email withResult:^(BOOL isSucceeded, NSError *error) {
                 [MBProgressHUD hideHUDForView:windowView animated:YES];

@@ -84,6 +84,10 @@
 
 - (void) loadFacebookFriends
 {
+    if([OttaNetworkManager isOfflineShowedAlertView]) {
+        return;
+    }
+    
     if(_isInviteMode) {
         
         [MBProgressHUD showHUDAddedTo:self.view animated:YES];
@@ -519,6 +523,10 @@ replacementString:(NSString *)string {
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    if([OttaNetworkManager isOfflineShowedAlertView]) {
+        return;
+    }
     
     //Searching
     if(isSearching) {

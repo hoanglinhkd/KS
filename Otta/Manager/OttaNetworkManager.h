@@ -16,7 +16,7 @@
 +(BOOL)isOffline;
 
 /*! 
- Show dialog "No network connection" and return FALSE
+ Show dialog "No network connection" and return TRUE if offline
  */
 +(BOOL)isOfflineShowedAlertView;
 

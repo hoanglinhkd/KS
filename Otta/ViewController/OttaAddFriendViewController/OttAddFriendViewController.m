@@ -37,14 +37,16 @@
     
     _listFollowedFriends = [NSMutableArray array];
     
-    [[OttaParseClientManager sharedManager] getAllFollowFromUser:[PFUser currentUser] withBlock:^(NSArray *array, NSError *error) {
-        
-        [_listFollowedFriends removeAllObjects];
-        for (id curUserFollow in array) {
-            PFUser *curFollow = [curUserFollow objectForKey:@"to"];
-            [_listFollowedFriends addObject:curFollow.objectId];
-        }
-    }];
+    if([OttaNetworkManager isOnline]) {
+        [[OttaParseClientManager sharedManager] getAllFollowFromUser:[PFUser currentUser] withBlock:^(NSArray *array, NSError *error) {
+            
+            [_listFollowedFriends removeAllObjects];
+            for (id curUserFollow in array) {
+                PFUser *curFollow = [curUserFollow objectForKey:@"to"];
+                [_listFollowedFriends addObject:curFollow.objectId];
+            }
+        }];
+    }
     
     [self updateNextButtonText];
     
@@ -180,6 +182,10 @@ replacementString:(NSString *)string {
 
 - (void)searchWithName:(NSString*)searchname
 {
+    if([OttaNetworkManager isOfflineShowedAlertView]) {
+        return;
+    }
+    
     [[OttaParseClientManager sharedManager] findUsers:searchname withResult:^(NSArray *users, NSError *error) {
         [_searchResults removeAllObjects];
         for(PFUser *user in users) {
@@ -286,6 +292,10 @@ replacementString:(NSString *)string {
 //        }];
         
     } else {
+        
+        if([OttaNetworkManager isOfflineShowedAlertView]) {
+            return;
+        }
         
         [[OttaAlertManager sharedManager] showYesNoAlertOnView:appDelegate.window withContent:[NSString stringWithFormat:[@"Do you want to follow %@ ?" toCurrentLanguage], friend.name] complete:^{
             [MBProgressHUD showHUDAddedTo:self.view animated:YES];

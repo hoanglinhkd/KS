@@ -139,6 +139,10 @@
         return;
     }
     
+    if([OttaNetworkManager isOfflineShowedAlertView]) {
+        return;
+    }
+    
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     
     OttaQuestion* question = [[OttaQuestion alloc] init];
@@ -184,6 +188,10 @@
     
 }
 - (void) loadFriends {
+    
+    if([OttaNetworkManager isOfflineShowedAlertView]) {
+        return;
+    }
     
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     [[OttaParseClientManager sharedManager] getAllFollowToUser:[PFUser currentUser] withBlock:^(NSArray *array, NSError *error) {

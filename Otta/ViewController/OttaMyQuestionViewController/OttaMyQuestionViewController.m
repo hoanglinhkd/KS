@@ -861,6 +861,11 @@ static NSString * const OttaMyQuestionVoteCellIdentifier        = @"OttaMyQuesti
 }
 
 - (void)loadData{
+    
+    if([OttaNetworkManager isOfflineShowedAlertView]) {
+        return;
+    }
+    
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     datas = [[NSMutableArray alloc] init];
     [[OttaParseClientManager sharedManager] getMyQuestionFromUser:[PFUser currentUser] withBlock:^(NSArray *array, NSError *error) {

@@ -32,6 +32,10 @@
     if (![self validateJoin])
         return;
     
+    if([OttaNetworkManager isOfflineShowedAlertView]) {
+        return;
+    }
+    
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     
     [[OttaParseClientManager sharedManager] joinWithEmail:_emailJoinDetail.text firstName:_firstNameJoinDetail.text phone:_phoneJoinDetail.text lastName:_lastNameJoinDetail.text  password:_passwordJoinDetail.text withResult:^(BOOL joinSucceeded, PFUser* pUser, NSError* error) {
