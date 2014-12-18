@@ -33,7 +33,7 @@ static NSString * const QuestionFeedCellId = @"QuestionFeedCellId";
     [super viewDidLoad];
     
     
-    
+    _tableView.hidden = YES;
     [self loadData];
     /*
     ///////////////////////Q1
@@ -424,7 +424,7 @@ static NSString * const QuestionFeedCellId = @"QuestionFeedCellId";
     viewAllModeCellArray = [[NSMutableArray alloc] init];
     feedItems = [[NSMutableArray alloc] init];
     [[OttaParseClientManager sharedManager] getQuestionFeedFromUser:[PFUser currentUser] withBlock:^(NSArray *array, NSError *error) {
-        feedItems1 = array;
+        feedItems1 = [NSMutableArray arrayWithArray:array];
         for (PFObject *object in array) {
             OttaQuestion *question = [[OttaQuestion alloc] init];
             PFUser *asker = object[kAsker];
@@ -439,6 +439,7 @@ static NSString * const QuestionFeedCellId = @"QuestionFeedCellId";
             
             [feedItems addObject:question];
             [_tableView reloadData];
+            _tableView.hidden = NO;
         }
         
         [MBProgressHUD hideHUDForView:self.view animated:YES];
