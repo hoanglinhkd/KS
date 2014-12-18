@@ -10,7 +10,7 @@
 #import "OttaAnswer.h"
 #import "UIImageView+AFNetworking.h"
 #import "OttaParseClientManager.h"
-
+#import "Utility.h"
 @interface OttaMediaQuestionDetailViewController ()
 
 @end
@@ -30,8 +30,9 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    
+    self.ownerNameLbl.text = self.question.askerName;
     self.questionbl.text = self.question.questionText;
+    self.expirationDateLbl.text = [Utility timeAgo:self.question.expTime];
     self.optionLbl.text = ((PFObject*)[self.question.ottaAnswers objectAtIndex:0])[kDescription];
     PFObject *answer;
     
