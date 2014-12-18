@@ -20,6 +20,7 @@ static NSString * const QuestionFeedCellId = @"QuestionFeedCellId";
 
 @interface OttaQuestionFeedViewController () {
     NSMutableArray *feedItems;
+    NSMutableArray *feedItems1;
     NSMutableArray *viewAllModeCellArray;
     OttaQuestion *selectedQuestion;
     int selectedOption;
@@ -340,7 +341,7 @@ static NSString * const QuestionFeedCellId = @"QuestionFeedCellId";
     NSLog(@"anser %@",answer[kDescription]);
     
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    [[OttaParseClientManager sharedManager] voteFromUser:[PFUser currentUser] withAnswer:answer withBlock:^(BOOL isSucceeded, NSError *error) {
+    [[OttaParseClientManager sharedManager] voteFromUser:[PFUser currentUser] withQuestion:feedItems1[referIdx.row] withAnswer:answer withBlock:^(BOOL isSucceeded, NSError *error) {
         [MBProgressHUD hideHUDForView:self.view animated:YES];
         if(isSucceeded) {
             NSLog(@"Submit answer success");
@@ -413,7 +414,7 @@ static NSString * const QuestionFeedCellId = @"QuestionFeedCellId";
     viewAllModeCellArray = [[NSMutableArray alloc] init];
     feedItems = [[NSMutableArray alloc] init];
     [[OttaParseClientManager sharedManager] getQuestionFeedFromUser:[PFUser currentUser] withBlock:^(NSArray *array, NSError *error) {
-
+        feedItems1 = array;
         for (PFObject *object in array) {
             OttaQuestion *question = [[OttaQuestion alloc] init];
             PFUser *asker = object[kAsker];

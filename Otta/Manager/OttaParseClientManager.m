@@ -233,43 +233,82 @@
     PFQuery *query = [PFQuery queryWithClassName:kOttaQuestion];
     [query whereKey:kAsker equalTo:user];
     [query includeKey:kAnswers];
-    [query orderByDescending:@"createdAt"];
+    [query orderByDescending:kCreatedAt];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         resultBlock(objects, error);
     }];
 }
 
+//- (void)getQuestionFeedFromUser:(PFUser*)user withBlock:(OttaArrayDataBlock)resultBlock {
+//    // Get public question first
+//    PFQuery *followQuery = [PFQuery queryWithClassName:kOttaFollow];
+//    [followQuery whereKey:kFrom equalTo:user];
+//    [followQuery whereKey:kIsBlocked equalTo:@NO];
+//    [followQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+//        
+//        NSMutableArray* askers = [NSMutableArray new];
+//        for (PFObject* follow in objects) {
+//            [askers addObject:follow[kTo]];
+//        }
+//        
+//        PFQuery *query = [PFQuery queryWithClassName:kOttaQuestion];
+//        [query whereKey:kIsPublic equalTo:@YES];
+//        [query whereKey:kAsker containedIn:askers];
+//        [query whereKey:kExpTime greaterThan:[NSDate date]];
+//        [query includeKey:kAsker];
+//        [query includeKey:kAnswers];
+//        [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+//            resultBlock(objects, error);
+//        }];
+//    }];
+//}
+
 - (void)getQuestionFeedFromUser:(PFUser*)user withBlock:(OttaArrayDataBlock)resultBlock {
-    // Get public question first
+    
     PFQuery *followQuery = [PFQuery queryWithClassName:kOttaFollow];
     [followQuery whereKey:kFrom equalTo:user];
-    [followQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-        
-        NSMutableArray* askers = [NSMutableArray new];
-        for (PFObject* follow in objects) {
-            [askers addObject:follow[kTo]];
-        }
-        
-        PFQuery *query = [PFQuery queryWithClassName:kOttaQuestion];
-        [query whereKey:kIsPublic equalTo:@YES];
-        [query whereKey:kAsker containedIn:askers];
-        [query whereKey:kExpTime greaterThan:[NSDate date]];
-        [query includeKey:kAsker];
-        [query includeKey:kAnswers];
-        [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-            resultBlock(objects, error);
-        }];
+    [followQuery whereKey:kIsBlocked equalTo:@NO];
+    
+    PFQuery *query = [PFQuery queryWithClassName:kOttaQuestion];
+    [query whereKey:kAsker matchesKey:kTo inQuery:followQuery];
+    [query whereKey:kIsPublic equalTo:@YES];
+    
+    PFQuery *query1 = [PFQuery queryWithClassName:kOttaQuestion];
+    [query1 whereKey:kAsker matchesKey:kTo inQuery:followQuery];
+    [query1 whereKey:kIsPublic equalTo:@NO];
+    [query1 whereKey:kResponders equalTo:user];
+    
+    PFQuery *queryAll = [PFQuery orQueryWithSubqueries:@[query, query1]];
+    [queryAll whereKey:kExpTime greaterThan:[NSDate date]];
+    [queryAll includeKey:kAsker];
+    [queryAll includeKey:kAnswers];
+    [queryAll orderByAscending:kExpTime];
+    [queryAll whereKey:kAnswerers notEqualTo:user];
+    
+    [queryAll findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        resultBlock(objects, error);
     }];
 }
 
-- (void)voteFromUser:(PFUser*)user withAnswer:(PFObject*)answer withBlock:(OttaGeneralResultBlock)resultBlock {
+- (void)voteFromUser:(PFUser*)user withQuestion:(PFObject*)question withAnswer:(PFObject*)answer withBlock:(OttaGeneralResultBlock)resultBlock {
     // create an entry in the OttaVote table
     PFObject *vote = [PFObject objectWithClassName:kOttaVote];
     [vote setObject:user forKey:kResponder];
     [vote setObject:answer forKey:kAnswer];
     [vote setObject:@"" forKey:kVoteComment];
     [vote saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-        resultBlock(succeeded, error);
+        
+        if (!succeeded) {
+            resultBlock(succeeded, error);
+            return;
+        }
+        
+        PFRelation *relation = [question relationForKey:kAnswerers];
+        [relation addObject:user];
+        [question saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+            resultBlock(succeeded, error);
+        }];
+        
     }];
 }
 

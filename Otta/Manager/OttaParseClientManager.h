@@ -12,6 +12,7 @@
 
 
 #define kObjectId       @"objectId"
+#define kCreatedAt      @"createdAt"
 
 #define kFirstName      @"firstName"
 #define kLastName       @"lastName"
@@ -40,6 +41,7 @@
 #define kAnswers        @"answers"
 #define kIsPublic       @"isPublic"
 #define kResponders     @"responders"
+#define kAnswerers     @"answerers"
 
 // Vote table
 #define kOttaVote       @"OttaVote"
@@ -167,5 +169,5 @@ typedef void(^OttaCountBlock)(int count, NSError* error);
  *  @param answer      <#answer description#>
  *  @param resultBlock <#resultBlock description#>
  */
-- (void)voteFromUser:(PFUser*)user withAnswer:(PFObject*)answer withBlock:(OttaGeneralResultBlock)resultBlock;
+- (void)voteFromUser:(PFUser*)user withQuestion:(PFObject*)question withAnswer:(PFObject*)answer withBlock:(OttaGeneralResultBlock)resultBlock;
 @end

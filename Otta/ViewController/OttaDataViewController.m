@@ -40,9 +40,9 @@
     PFQuery *query2 = [PFQuery queryWithClassName:kOttaAnswer];
     PFObject *answer = [query2 getObjectWithId:@"HwmfBW4FRM"];
     
-    [[OttaParseClientManager sharedManager] voteFromUser:user1 withAnswer:answer withBlock:^(BOOL isSucceeded, NSError *error) {
-        NSLog(@"hihi");
-    }];
+//    [[OttaParseClientManager sharedManager] voteFromUser:user1 withAnswer:answer withBlock:^(BOOL isSucceeded, NSError *error) {
+//        NSLog(@"hihi");
+//    }];
 }
 
 - (void)addTmpQuestion {
