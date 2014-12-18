@@ -539,6 +539,7 @@ replacementString:(NSString *)string {
                 
                 if(![curFriend isFriend] && ![curFriend isSelected]) {
                     
+                    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
                     [[OttaParseClientManager sharedManager] followUser:[PFUser currentUser] toUser:curFriend withBlock:^(BOOL isSucceeded, NSError *error) {
                         [MBProgressHUD hideHUDForView:self.view animated:YES];
                         
@@ -579,6 +580,8 @@ replacementString:(NSString *)string {
                 PFUser *curFriend = [friends objectAtIndex:indexPath.row - (_isInviteMode ? 0 : 1)];
                 
                 if(![curFriend isFriend] && ![curFriend isSelected]) {
+                    
+                    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
                     
                     [[OttaParseClientManager sharedManager] followUser:[PFUser currentUser] toUser:curFriend withBlock:^(BOOL isSucceeded, NSError *error) {
                         [MBProgressHUD hideHUDForView:self.view animated:YES];
