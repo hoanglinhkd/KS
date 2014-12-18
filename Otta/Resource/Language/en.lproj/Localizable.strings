@@ -67,4 +67,4 @@
 "Sent" = "Sent";
 "The number of options must be greater than 1" = "The number of options must be greater than 1";
 "Do you want to follow %@ ?" = "Do you want to follow %@ ?";
-
+"No network connection" = "No network connection";
