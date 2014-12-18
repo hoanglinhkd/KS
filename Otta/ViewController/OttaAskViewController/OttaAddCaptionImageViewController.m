@@ -8,6 +8,14 @@
 
 #import "OttaAddCaptionImageViewController.h"
 
+@interface OttaAddCaptionImageViewController ()
+
+@property (nonatomic, strong) NSLayoutConstraint *bottomConstraint;
+
+- (void)keyboardWillHide:(NSNotification *)sender;
+- (void)keyboardDidShow:(NSNotification *)sender;
+
+@end
 
 @implementation OttaAddCaptionImageViewController
 
@@ -22,6 +30,7 @@
 -(void)viewDidLoad
 {
     [super viewDidLoad];
+    
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -32,11 +41,18 @@
     
     _captionTextView.placeholderTextColor = [UIColor whiteColor];
     _captionTextView.placeholder = @"Add a caption?";
+    _captionTextView.delegate = self;
     
-    [_scrollContent contentSizeToFit];
-    [_scrollContent setContentOffset:_parentViewCaption.frame.origin animated:NO];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardDidShow:) name:UIKeyboardDidShowNotification object:nil];;
 }
 
+
+-(void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
 
 - (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text {
     
@@ -48,5 +64,33 @@
     return YES;
 }
 
+
+#pragma mark - Notification Handlers
+
+- (void)keyboardDidShow:(NSNotification *)sender {
+    NSDictionary *userInfo = sender.userInfo;
+    NSTimeInterval duration = [userInfo[UIKeyboardAnimationDurationUserInfoKey] doubleValue];
+    UIViewAnimationCurve curve = [userInfo[UIKeyboardAnimationCurveUserInfoKey] integerValue];
+    
+    CGRect keyboardFrameEnd = [userInfo[UIKeyboardFrameEndUserInfoKey] CGRectValue];
+    keyboardFrameEnd = [self.view convertRect:keyboardFrameEnd fromView:nil];
+    
+    [UIView animateWithDuration:duration delay:0 options:UIViewAnimationOptionBeginFromCurrentState | curve animations:^{
+        self.view.frame = CGRectMake(0, 0, keyboardFrameEnd.size.width, keyboardFrameEnd.origin.y);
+    } completion:nil];
+}
+
+- (void)keyboardWillHide:(NSNotification *)sender {
+    NSDictionary *userInfo = sender.userInfo;
+    NSTimeInterval duration = [userInfo[UIKeyboardAnimationDurationUserInfoKey] doubleValue];
+    UIViewAnimationCurve curve = [userInfo[UIKeyboardAnimationCurveUserInfoKey] integerValue];
+    
+    CGRect keyboardFrameEnd = [userInfo[UIKeyboardFrameEndUserInfoKey] CGRectValue];
+    keyboardFrameEnd = [self.view convertRect:keyboardFrameEnd fromView:nil];
+    
+    [UIView animateWithDuration:duration delay:0 options:UIViewAnimationOptionBeginFromCurrentState | curve animations:^{
+        self.view.frame = CGRectMake(0, 0, keyboardFrameEnd.size.width, keyboardFrameEnd.origin.y);
+    } completion:nil];
+}
 
 @end
