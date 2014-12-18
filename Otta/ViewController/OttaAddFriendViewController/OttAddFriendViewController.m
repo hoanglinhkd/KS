@@ -287,7 +287,7 @@ replacementString:(NSString *)string {
         
     } else {
         
-        [[OttaAlertManager sharedManager] showYesNoAlertOnView:appDelegate.window withContent:[NSString stringWithFormat:@"Do you want to follow %@ ?", friend.name] complete:^{
+        [[OttaAlertManager sharedManager] showYesNoAlertOnView:appDelegate.window withContent:[NSString stringWithFormat:[@"Do you want to follow %@ ?" toCurrentLanguage], friend.name] complete:^{
             [MBProgressHUD showHUDAddedTo:self.view animated:YES];
             [[OttaParseClientManager sharedManager] followUser:[PFUser currentUser] toUser:friend.pfUser withBlock:^(BOOL isSucceeded, NSError *error) {
                 [MBProgressHUD hideHUDForView:self.view animated:YES];

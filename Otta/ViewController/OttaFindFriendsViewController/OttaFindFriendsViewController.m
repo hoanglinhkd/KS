@@ -539,17 +539,20 @@ replacementString:(NSString *)string {
                 
                 if(![curFriend isFriend] && ![curFriend isSelected]) {
                     
-                    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-                    [[OttaParseClientManager sharedManager] followUser:[PFUser currentUser] toUser:curFriend withBlock:^(BOOL isSucceeded, NSError *error) {
-                        [MBProgressHUD hideHUDForView:self.view animated:YES];
-                        
-                        if(isSucceeded) {
-                            [curFriend setIsSelected:YES];
-                            [tableView reloadData];
-                        } else {
-                            [[OttaAlertManager sharedManager] showSimpleAlertWithContent:@"Error on following friend" complete:nil];
-                        }
-                    }];
+                    OttaAppDelegate *appDelegate = (OttaAppDelegate*)[UIApplication sharedApplication].delegate;
+                    [[OttaAlertManager sharedManager] showYesNoAlertOnView:appDelegate.window withContent:[NSString stringWithFormat:[@"Do you want to follow %@ ?" toCurrentLanguage], curFriend.name] complete:^{
+                        [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+                        [[OttaParseClientManager sharedManager] followUser:[PFUser currentUser] toUser:curFriend withBlock:^(BOOL isSucceeded, NSError *error) {
+                            [MBProgressHUD hideHUDForView:self.view animated:YES];
+                            
+                            if(isSucceeded) {
+                                [curFriend setIsSelected:YES];
+                                [tableView reloadData];
+                            } else {
+                                [[OttaAlertManager sharedManager] showSimpleAlertWithContent:@"Error on following friend" complete:nil];
+                            }
+                        }];
+                    } cancel:^{}];
                 }
                 
             } else {
@@ -581,18 +584,22 @@ replacementString:(NSString *)string {
                 
                 if(![curFriend isFriend] && ![curFriend isSelected]) {
                     
-                    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-                    
-                    [[OttaParseClientManager sharedManager] followUser:[PFUser currentUser] toUser:curFriend withBlock:^(BOOL isSucceeded, NSError *error) {
-                        [MBProgressHUD hideHUDForView:self.view animated:YES];
+                    OttaAppDelegate *appDelegate = (OttaAppDelegate*)[UIApplication sharedApplication].delegate;
+                    [[OttaAlertManager sharedManager] showYesNoAlertOnView:appDelegate.window withContent:[NSString stringWithFormat:[@"Do you want to follow %@ ?" toCurrentLanguage], curFriend.name] complete:^{
                         
-                        if(isSucceeded) {
-                            [curFriend setIsSelected:YES];
-                            [tableView reloadData];
-                        } else {
-                            [[OttaAlertManager sharedManager] showSimpleAlertWithContent:@"Error on following friend" complete:nil];
-                        }
-                    }];
+                        [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+                        
+                        [[OttaParseClientManager sharedManager] followUser:[PFUser currentUser] toUser:curFriend withBlock:^(BOOL isSucceeded, NSError *error) {
+                            [MBProgressHUD hideHUDForView:self.view animated:YES];
+                            
+                            if(isSucceeded) {
+                                [curFriend setIsSelected:YES];
+                                [tableView reloadData];
+                            } else {
+                                [[OttaAlertManager sharedManager] showSimpleAlertWithContent:@"Error on following friend" complete:nil];
+                            }
+                        }];
+                    } cancel:^{}];
                 }
                 
             } else  {
