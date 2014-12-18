@@ -40,6 +40,11 @@
     [self updateUI:self.isAnswererTab];
 }
 
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [textField resignFirstResponder];
+    return NO;
+}
+
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return 57.0;
 }
@@ -129,6 +134,10 @@
 
 - (void)actionBlockOrUnblock:(BOOL)isBlocked row:(NSInteger)row {
     
+    if([OttaNetworkManager isOfflineShowedAlertView]) {
+        return;
+    }
+    
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     PFObject *follow = _follows[row];
     
@@ -140,6 +149,10 @@
 }
 
 - (void)actionRemove:(NSInteger)row {
+    
+    if([OttaNetworkManager isOfflineShowedAlertView]) {
+        return;
+    }
     
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     PFObject *follow = _follows[row];
@@ -212,6 +225,10 @@
 
 - (void) updateAnswerersAskersCount {
     
+    if([OttaNetworkManager isOfflineShowedAlertView]) {
+        return;
+    }
+    
     [[OttaParseClientManager sharedManager] countUsersFollowToUser:[PFUser currentUser] withBlock:^(int count, NSError *error) {
         self.lblAnswerersCount.text = [NSString stringWithFormat:@"%d",count];
     }];
@@ -222,6 +239,11 @@
 
 - (void) updateUI:(BOOL) isAnswererTab
 {
+    
+    if([OttaNetworkManager isOfflineShowedAlertView]) {
+        return;
+    }
+    
     _follows = [NSArray new];
     [_table reloadData];
     

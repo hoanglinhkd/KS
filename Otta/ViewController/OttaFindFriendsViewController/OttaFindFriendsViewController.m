@@ -84,6 +84,10 @@
 
 - (void) loadFacebookFriends
 {
+    if([OttaNetworkManager isOfflineShowedAlertView]) {
+        return;
+    }
+    
     if(_isInviteMode) {
         
         [MBProgressHUD showHUDAddedTo:self.view animated:YES];
@@ -520,6 +524,10 @@ replacementString:(NSString *)string {
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
+    if([OttaNetworkManager isOfflineShowedAlertView]) {
+        return;
+    }
+    
     //Searching
     if(isSearching) {
         
@@ -539,16 +547,20 @@ replacementString:(NSString *)string {
                 
                 if(![curFriend isFriend] && ![curFriend isSelected]) {
                     
-                    [[OttaParseClientManager sharedManager] followUser:[PFUser currentUser] toUser:curFriend withBlock:^(BOOL isSucceeded, NSError *error) {
-                        [MBProgressHUD hideHUDForView:self.view animated:YES];
-                        
-                        if(isSucceeded) {
-                            [curFriend setIsSelected:YES];
-                            [tableView reloadData];
-                        } else {
-                            [[OttaAlertManager sharedManager] showSimpleAlertWithContent:@"Error on following friend" complete:nil];
-                        }
-                    }];
+                    OttaAppDelegate *appDelegate = (OttaAppDelegate*)[UIApplication sharedApplication].delegate;
+                    [[OttaAlertManager sharedManager] showYesNoAlertOnView:appDelegate.window withContent:[NSString stringWithFormat:[@"Do you want to follow %@ ?" toCurrentLanguage], curFriend.name] complete:^{
+                        [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+                        [[OttaParseClientManager sharedManager] followUser:[PFUser currentUser] toUser:curFriend withBlock:^(BOOL isSucceeded, NSError *error) {
+                            [MBProgressHUD hideHUDForView:self.view animated:YES];
+                            
+                            if(isSucceeded) {
+                                [curFriend setIsSelected:YES];
+                                [tableView reloadData];
+                            } else {
+                                [[OttaAlertManager sharedManager] showSimpleAlertWithContent:@"Error on following friend" complete:nil];
+                            }
+                        }];
+                    } cancel:^{}];
                 }
                 
             } else {
@@ -580,16 +592,22 @@ replacementString:(NSString *)string {
                 
                 if(![curFriend isFriend] && ![curFriend isSelected]) {
                     
-                    [[OttaParseClientManager sharedManager] followUser:[PFUser currentUser] toUser:curFriend withBlock:^(BOOL isSucceeded, NSError *error) {
-                        [MBProgressHUD hideHUDForView:self.view animated:YES];
+                    OttaAppDelegate *appDelegate = (OttaAppDelegate*)[UIApplication sharedApplication].delegate;
+                    [[OttaAlertManager sharedManager] showYesNoAlertOnView:appDelegate.window withContent:[NSString stringWithFormat:[@"Do you want to follow %@ ?" toCurrentLanguage], curFriend.name] complete:^{
                         
-                        if(isSucceeded) {
-                            [curFriend setIsSelected:YES];
-                            [tableView reloadData];
-                        } else {
-                            [[OttaAlertManager sharedManager] showSimpleAlertWithContent:@"Error on following friend" complete:nil];
-                        }
-                    }];
+                        [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+                        
+                        [[OttaParseClientManager sharedManager] followUser:[PFUser currentUser] toUser:curFriend withBlock:^(BOOL isSucceeded, NSError *error) {
+                            [MBProgressHUD hideHUDForView:self.view animated:YES];
+                            
+                            if(isSucceeded) {
+                                [curFriend setIsSelected:YES];
+                                [tableView reloadData];
+                            } else {
+                                [[OttaAlertManager sharedManager] showSimpleAlertWithContent:@"Error on following friend" complete:nil];
+                            }
+                        }];
+                    } cancel:^{}];
                 }
                 
             } else  {

@@ -191,6 +191,8 @@
 		D98E30CB1A1797CD0080B934 /* pickerGlass.png in Resources */ = {isa = PBXBuildFile; fileRef = D98E30C81A1797CD0080B934 /* pickerGlass.png */; };
 		D98E30CC1A1797CD0080B934 /* pickerGlass@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D98E30C91A1797CD0080B934 /* pickerGlass@2x.png */; };
 		D99F7C3E1A1BA4BB0030D239 /* OttaAddCaptionImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D99F7C3D1A1BA4BB0030D239 /* OttaAddCaptionImageViewController.m */; };
+		D9C30AE61A432FC40087A96D /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = D9C30AE51A432FC40087A96D /* Reachability.m */; };
+		D9C30AE91A432FE50087A96D /* OttaNetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D9C30AE81A432FE50087A96D /* OttaNetworkManager.m */; };
 		D9CD79941A22EA8C007C6E15 /* OttaFacebookDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9CD798B1A22EA8C007C6E15 /* OttaFacebookDetailViewController.m */; };
 		D9CD79951A22EA8C007C6E15 /* OttaJoinDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9CD798D1A22EA8C007C6E15 /* OttaJoinDetailViewController.m */; };
 		D9CD79961A22EA8C007C6E15 /* OttaLoginContainerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9CD798F1A22EA8C007C6E15 /* OttaLoginContainerViewController.m */; };
@@ -466,6 +468,10 @@
 		D98E30C91A1797CD0080B934 /* pickerGlass@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pickerGlass@2x.png"; sourceTree = "<group>"; };
 		D99F7C3C1A1BA4BB0030D239 /* OttaAddCaptionImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OttaAddCaptionImageViewController.h; sourceTree = "<group>"; };
 		D99F7C3D1A1BA4BB0030D239 /* OttaAddCaptionImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OttaAddCaptionImageViewController.m; sourceTree = "<group>"; };
+		D9C30AE41A432FC40087A96D /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		D9C30AE51A432FC40087A96D /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
+		D9C30AE71A432FE50087A96D /* OttaNetworkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OttaNetworkManager.h; sourceTree = "<group>"; };
+		D9C30AE81A432FE50087A96D /* OttaNetworkManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OttaNetworkManager.m; sourceTree = "<group>"; };
 		D9CD798A1A22EA8C007C6E15 /* OttaFacebookDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OttaFacebookDetailViewController.h; sourceTree = "<group>"; };
 		D9CD798B1A22EA8C007C6E15 /* OttaFacebookDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OttaFacebookDetailViewController.m; sourceTree = "<group>"; };
 		D9CD798C1A22EA8C007C6E15 /* OttaJoinDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OttaJoinDetailViewController.h; sourceTree = "<group>"; };
@@ -852,6 +858,7 @@
 				D98CBCE21A3764E400A6CCED /* PFUser+Extension.m */,
 				38CB1C7B1A35F87E00CB0F53 /* NSDate-Utilities.h */,
 				38CB1C7C1A35F87E00CB0F53 /* NSDate-Utilities.m */,
+				D9C30AE31A432FC40087A96D /* Reachability */,
 				668BFDD11A26C5A8003CC194 /* SZTextField */,
 				663665E71A1EEE00007F0EFC /* Transitions */,
 				D9F04A0C1A1B60430049AD41 /* HPTextView */,
@@ -1050,6 +1057,8 @@
 				D9286F421A12190500C28770 /* OttaParseClientManager.m */,
 				3878FFBA1A41CF61006B6868 /* OttaUlti.h */,
 				3878FFBB1A41CF61006B6868 /* OttaUlti.m */,
+				D9C30AE71A432FE50087A96D /* OttaNetworkManager.h */,
+				D9C30AE81A432FE50087A96D /* OttaNetworkManager.m */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -1082,6 +1091,15 @@
 				D98E30C91A1797CD0080B934 /* pickerGlass@2x.png */,
 			);
 			path = AFPickerView;
+			sourceTree = "<group>";
+		};
+		D9C30AE31A432FC40087A96D /* Reachability */ = {
+			isa = PBXGroup;
+			children = (
+				D9C30AE41A432FC40087A96D /* Reachability.h */,
+				D9C30AE51A432FC40087A96D /* Reachability.m */,
+			);
+			path = Reachability;
 			sourceTree = "<group>";
 		};
 		D9F04A0C1A1B60430049AD41 /* HPTextView */ = {
@@ -1470,6 +1488,7 @@
 				3878FFBC1A41CF61006B6868 /* OttaUlti.m in Sources */,
 				D9286F431A12190500C28770 /* OttaParseClientManager.m in Sources */,
 				D9CD79951A22EA8C007C6E15 /* OttaJoinDetailViewController.m in Sources */,
+				D9C30AE91A432FE50087A96D /* OttaNetworkManager.m in Sources */,
 				663665EE1A1EEE00007F0EFC /* MEDynamicTransition.m in Sources */,
 				663665EF1A1EEE00007F0EFC /* MEFoldAnimationController.m in Sources */,
 				CEA654611A2DFF2600233156 /* OttaMyQuestionTextCell.m in Sources */,
@@ -1493,6 +1512,7 @@
 				CE0E083F1A3254CE00085055 /* OttaMyQuestionData.m in Sources */,
 				66FD4B361A11A8A5005ACD58 /* OttaAskViewController.m in Sources */,
 				386E89C81A126AC100459171 /* OttAddFriendViewController.m in Sources */,
+				D9C30AE61A432FC40087A96D /* Reachability.m in Sources */,
 				38A37D771A171FCD00771881 /* OttaAlertManager.m in Sources */,
 				6AA695E01A21DD30001F6953 /* OttaQuestionFeedViewController.m in Sources */,
 				CE0E08401A3254CE00085055 /* OttaMyQuestionDoneCell.m in Sources */,

@@ -26,6 +26,10 @@
 
 - (void)getQuestionFeed {
     
+    if([OttaNetworkManager isOfflineShowedAlertView]) {
+        return;
+    }
+    
     PFQuery *query = [PFUser query];
     PFUser *user1  = (PFUser *)[query getObjectWithId:@"NpTfcSQ49v"];
     
@@ -35,6 +39,11 @@
 }
 
 - (void)vote {
+    
+    if([OttaNetworkManager isOfflineShowedAlertView]) {
+        return;
+    }
+    
     PFQuery *query = [PFUser query];
     PFUser *user1  = (PFUser *)[query getObjectWithId:@"PTPIJPXItY"];
     PFQuery *query2 = [PFQuery queryWithClassName:kOttaAnswer];
@@ -46,6 +55,11 @@
 }
 
 - (void)addTmpQuestion {
+    
+    if([OttaNetworkManager isOfflineShowedAlertView]) {
+        return;
+    }
+    
     PFQuery *query = [PFUser query];
     PFUser *user1  = (PFUser *)[query getObjectWithId:@"JMEoDSbGsd"];
     PFUser *user2  = (PFUser *)[query getObjectWithId:@"GUOL5Zpm0M"];

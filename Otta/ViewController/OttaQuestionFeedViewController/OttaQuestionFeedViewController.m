@@ -334,6 +334,11 @@ static NSString * const QuestionFeedCellId = @"QuestionFeedCellId";
 
 }
 - (void)questionFeedCell:(OttaQuestionFeedCell*)parentCell optionCell:(OttaBasicQuestionCell *)cell withReferIndexPath:(NSIndexPath *)referIdx didSelectRowAtIndexPath:(NSIndexPath *)childIdxPath withMaximumCount:(NSInteger)maxCount{
+    
+    if([OttaNetworkManager isOfflineShowedAlertView]) {
+        return;
+    }
+    
     // For submit Cell
     OttaQuestion *item = feedItems[referIdx.row];
     PFObject *answer = [item.ottaAnswers objectAtIndex:childIdxPath.row];
@@ -410,6 +415,11 @@ static NSString * const QuestionFeedCellId = @"QuestionFeedCellId";
 }
 
 - (void) loadData{
+    
+    if([OttaNetworkManager isOfflineShowedAlertView]) {
+        return;
+    }
+    
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     viewAllModeCellArray = [[NSMutableArray alloc] init];
     feedItems = [[NSMutableArray alloc] init];

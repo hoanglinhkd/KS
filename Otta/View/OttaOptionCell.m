@@ -27,6 +27,11 @@
 
 -(void)displayViewAction
 {
+    //clear old data at previous post question
+    _viewContent2.hidden = YES;
+    [_imgMain setImage:nil];
+    _txtImageDescription.text = @"";
+    
     _viewAction.hidden = NO;
     _txtContent.hidden = YES;
     _txtImageDescription.returnKeyType = UIReturnKeyDone;
