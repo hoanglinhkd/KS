@@ -514,13 +514,13 @@
                                 <color key="textColor" red="0.48627450980392156" green="0.74117647058823533" blue="0.19215686274509805" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="sbm-ms-GQv">
+                            <view contentMode="scaleAspectFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sbm-ms-GQv">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="80"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Otta_header_shape_bar.png" translatesAutoresizingMaskIntoConstraints="NO" id="lVD-q7-Z3Z">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="Otta_header_shape_bar.png" translatesAutoresizingMaskIntoConstraints="NO" id="lVD-q7-Z3Z">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="80"/>
                                     </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="Otta_header_brand_name.png" translatesAutoresizingMaskIntoConstraints="NO" id="UbD-mc-Aim">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="Otta_header_brand_name.png" translatesAutoresizingMaskIntoConstraints="NO" id="UbD-mc-Aim">
                                         <rect key="frame" x="105" y="35" width="111" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="3od-lE-D37"/>
@@ -578,13 +578,13 @@
                                 <color key="textColor" red="0.48627450979999998" green="0.74117647060000003" blue="0.19215686269999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="6ep-8v-gWp">
+                            <view contentMode="scaleAspectFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6ep-8v-gWp">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="80"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Otta_header_shape_bar.png" translatesAutoresizingMaskIntoConstraints="NO" id="m8T-Up-hhB">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="Otta_header_shape_bar.png" translatesAutoresizingMaskIntoConstraints="NO" id="m8T-Up-hhB">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="80"/>
                                     </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="Otta_header_brand_name.png" translatesAutoresizingMaskIntoConstraints="NO" id="Plo-cg-FI1">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="Otta_header_brand_name.png" translatesAutoresizingMaskIntoConstraints="NO" id="Plo-cg-FI1">
                                         <rect key="frame" x="105" y="35" width="111" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="111" id="N8U-1R-0We"/>
@@ -3365,7 +3365,7 @@ EE5leHQ
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="17"/>
-                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done"/>
                                     </textView>
                                 </subviews>
                                 <color key="backgroundColor" red="0.14901960780000001" green="0.14901960780000001" blue="0.14901960780000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -3419,7 +3419,7 @@ EE5leHQ
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sjB-0a-OxL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1238" y="1792"/>
+            <point key="canvasLocation" x="1352" y="1931"/>
         </scene>
     </scenes>
     <resources>
