@@ -29,6 +29,7 @@
 
 @property (strong, nonatomic) UIButton *viewForSubmit;
 @property (strong, nonatomic) NSIndexPath *selectedIndexPath;
+@property (strong, nonatomic) NSIndexPath *submittedIndexPath;
 @property (weak, nonatomic) id <OttaQuestionFeedCellDelegate>delegate;
 @property (weak, nonatomic) IBOutlet UILabel *timeLbl;
 
