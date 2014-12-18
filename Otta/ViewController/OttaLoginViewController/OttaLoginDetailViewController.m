@@ -41,6 +41,12 @@
     }
 }
 
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [textField resignFirstResponder];
+    [self btnLoginTapped:nil];
+    return YES;
+}
+
 -(IBAction)btnLoginTapped:(id)sender
 {
     //Validate required field
