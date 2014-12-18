@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="jFH-gY-aPy">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C81f" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="jFH-gY-aPy">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
@@ -264,12 +264,12 @@
                                                     <rect key="frame" x="53" y="17" width="249" height="57"/>
                                                     <subviews>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E4x-ZH-cfo">
-                                                            <rect key="frame" x="25" y="6" width="63" height="45"/>
+                                                            <rect key="frame" x="31" y="9" width="40" height="40"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="height" constant="45" id="uMQ-vC-ULL"/>
-                                                                <constraint firstAttribute="width" constant="63" id="vhF-Z6-95f"/>
+                                                                <constraint firstAttribute="height" constant="40" id="uMQ-vC-ULL"/>
+                                                                <constraint firstAttribute="width" constant="40" id="vhF-Z6-95f"/>
                                                             </constraints>
-                                                            <state key="normal" image="OttaAddTextButton.png">
+                                                            <state key="normal" image="Otta_ask_button_add text.png">
                                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                             </state>
                                                             <connections>
@@ -277,12 +277,12 @@
                                                             </connections>
                                                         </button>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SMt-lw-ReY">
-                                                            <rect key="frame" x="112" y="8" width="51" height="41"/>
+                                                            <rect key="frame" x="113" y="9" width="46" height="40"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="width" constant="51" id="6Lh-P4-5e7"/>
-                                                                <constraint firstAttribute="height" constant="41" id="Wcx-by-N9m"/>
+                                                                <constraint firstAttribute="width" constant="46" id="6Lh-P4-5e7"/>
+                                                                <constraint firstAttribute="height" constant="40" id="Wcx-by-N9m"/>
                                                             </constraints>
-                                                            <state key="normal" image="addPhotoOtta.png"/>
+                                                            <state key="normal" image="Otta_ask_button_add photo.png"/>
                                                             <connections>
                                                                 <action selector="imageButtonPressed:" destination="WYr-vF-G7i" eventType="touchUpInside" id="10Q-Ht-FYZ"/>
                                                             </connections>
@@ -291,10 +291,10 @@
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     <constraints>
                                                         <constraint firstAttribute="centerY" secondItem="SMt-lw-ReY" secondAttribute="centerY" id="4Io-Hv-rrR"/>
-                                                        <constraint firstItem="E4x-ZH-cfo" firstAttribute="leading" secondItem="D3V-vM-FXS" secondAttribute="leading" constant="25" id="DCs-ws-ORW"/>
+                                                        <constraint firstItem="E4x-ZH-cfo" firstAttribute="leading" secondItem="D3V-vM-FXS" secondAttribute="leading" constant="31" id="DCs-ws-ORW"/>
                                                         <constraint firstAttribute="height" constant="57" id="mbj-eM-PWj"/>
                                                         <constraint firstAttribute="centerY" secondItem="E4x-ZH-cfo" secondAttribute="centerY" id="tGv-s3-e3D"/>
-                                                        <constraint firstItem="SMt-lw-ReY" firstAttribute="leading" secondItem="D3V-vM-FXS" secondAttribute="leading" constant="112" id="trd-wR-eIm"/>
+                                                        <constraint firstItem="SMt-lw-ReY" firstAttribute="leading" secondItem="D3V-vM-FXS" secondAttribute="leading" constant="113" id="trd-wR-eIm"/>
                                                     </constraints>
                                                 </view>
                                                 <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ns9-2c-s9K">
@@ -584,10 +584,10 @@
                                 <color key="textColor" red="0.48627450979999998" green="0.74117647060000003" blue="0.19215686269999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleAspectFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6ep-8v-gWp">
+                            <view contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="6ep-8v-gWp">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="80"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="Otta_header_shape_bar.png" translatesAutoresizingMaskIntoConstraints="NO" id="m8T-Up-hhB">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Otta_header_shape_bar.png" translatesAutoresizingMaskIntoConstraints="NO" id="m8T-Up-hhB">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="80"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="80" id="paN-F6-YfO"/>
@@ -3441,11 +3441,12 @@ EE5leHQ
     <resources>
         <image name="FBConnect.png" width="252" height="72"/>
         <image name="OttaAddAnswerButton.png" width="90" height="102"/>
-        <image name="OttaAddTextButton.png" width="134" height="112"/>
         <image name="OttaNumberBackground.png" width="73" height="73"/>
         <image name="OttaRightSidebar.png" width="250" height="250"/>
         <image name="OttaSideMenuBackground.png" width="640" height="1136"/>
         <image name="Otta_ask_box_unchecked.png" width="143" height="143"/>
+        <image name="Otta_ask_button_add photo.png" width="242" height="208"/>
+        <image name="Otta_ask_button_add text.png" width="215" height="215"/>
         <image name="Otta_ask_button_yellow.png" width="2667" height="305"/>
         <image name="Otta_friends_button_add.png" width="150" height="150"/>
         <image name="Otta_friends_button_yellow.png" width="2667" height="305"/>
@@ -3456,7 +3457,6 @@ EE5leHQ
         <image name="Otta_header_button_menu.png" width="244" height="171"/>
         <image name="Otta_header_shape_bar.png" width="2667" height="512"/>
         <image name="Otta_questions_shape_check.png" width="183" height="144"/>
-        <image name="addPhotoOtta.png" width="134" height="112"/>
         <image name="btnAddContact.png" width="288" height="34"/>
         <image name="btnAddFBFriend.png" width="288" height="34"/>
         <image name="btn_back.png" width="226" height="153"/>
