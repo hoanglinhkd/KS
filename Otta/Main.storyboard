@@ -514,13 +514,16 @@
                                 <color key="textColor" red="0.48627450980392156" green="0.74117647058823533" blue="0.19215686274509805" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleAspectFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sbm-ms-GQv">
+                            <view contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="sbm-ms-GQv">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="80"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="Otta_header_shape_bar.png" translatesAutoresizingMaskIntoConstraints="NO" id="lVD-q7-Z3Z">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Otta_header_shape_bar.png" translatesAutoresizingMaskIntoConstraints="NO" id="lVD-q7-Z3Z">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="80"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="80" id="Dbj-ym-9yX"/>
+                                        </constraints>
                                     </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="Otta_header_brand_name.png" translatesAutoresizingMaskIntoConstraints="NO" id="UbD-mc-Aim">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="Otta_header_brand_name.png" translatesAutoresizingMaskIntoConstraints="NO" id="UbD-mc-Aim">
                                         <rect key="frame" x="105" y="35" width="111" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="3od-lE-D37"/>
@@ -545,10 +548,13 @@
                                 <constraints>
                                     <constraint firstAttribute="width" constant="320" id="5oj-w0-ivZ"/>
                                     <constraint firstAttribute="bottom" secondItem="lVD-q7-Z3Z" secondAttribute="bottom" id="L4v-5f-VTw"/>
+                                    <constraint firstItem="lVD-q7-Z3Z" firstAttribute="top" secondItem="sbm-ms-GQv" secondAttribute="top" id="SEK-y5-fcm"/>
                                     <constraint firstItem="lVD-q7-Z3Z" firstAttribute="top" secondItem="sbm-ms-GQv" secondAttribute="top" id="Ur2-WV-GOG"/>
                                     <constraint firstAttribute="trailing" secondItem="lVD-q7-Z3Z" secondAttribute="trailing" id="X0P-os-SKm"/>
                                     <constraint firstAttribute="height" constant="80" id="bpY-0f-pnx"/>
                                     <constraint firstItem="lVD-q7-Z3Z" firstAttribute="leading" secondItem="sbm-ms-GQv" secondAttribute="leading" id="h9X-k4-VBQ"/>
+                                    <constraint firstAttribute="trailing" secondItem="lVD-q7-Z3Z" secondAttribute="trailing" id="umG-xl-U2H"/>
+                                    <constraint firstItem="lVD-q7-Z3Z" firstAttribute="leading" secondItem="sbm-ms-GQv" secondAttribute="leading" id="xzO-Ts-MnT"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -572,7 +578,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Setting" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S4g-RW-YJh">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Setting" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S4g-RW-YJh">
                                 <rect key="frame" x="0.0" y="190" width="320" height="100"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="50"/>
                                 <color key="textColor" red="0.48627450979999998" green="0.74117647060000003" blue="0.19215686269999999" alpha="1" colorSpace="calibratedRGB"/>
@@ -583,6 +589,9 @@
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="Otta_header_shape_bar.png" translatesAutoresizingMaskIntoConstraints="NO" id="m8T-Up-hhB">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="80"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="80" id="paN-F6-YfO"/>
+                                        </constraints>
                                     </imageView>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="Otta_header_brand_name.png" translatesAutoresizingMaskIntoConstraints="NO" id="Plo-cg-FI1">
                                         <rect key="frame" x="105" y="35" width="111" height="30"/>
@@ -608,7 +617,10 @@
                                 <color key="backgroundColor" red="0.56078433989999998" green="0.79215693470000004" blue="0.25098040700000002" alpha="1" colorSpace="deviceRGB"/>
                                 <constraints>
                                     <constraint firstItem="m8T-Up-hhB" firstAttribute="leading" secondItem="6ep-8v-gWp" secondAttribute="leading" id="5fj-4c-y6E"/>
+                                    <constraint firstItem="m8T-Up-hhB" firstAttribute="leading" secondItem="6ep-8v-gWp" secondAttribute="leading" id="8Q5-YI-FX1"/>
                                     <constraint firstAttribute="height" constant="80" id="I3g-Fc-mep"/>
+                                    <constraint firstAttribute="trailing" secondItem="m8T-Up-hhB" secondAttribute="trailing" id="PKr-TU-BY3"/>
+                                    <constraint firstItem="m8T-Up-hhB" firstAttribute="top" secondItem="6ep-8v-gWp" secondAttribute="top" id="RSC-GH-c5W"/>
                                     <constraint firstAttribute="width" constant="320" id="nkG-33-nUr"/>
                                     <constraint firstItem="m8T-Up-hhB" firstAttribute="top" secondItem="6ep-8v-gWp" secondAttribute="top" id="p9G-pg-A5y"/>
                                     <constraint firstAttribute="bottom" secondItem="m8T-Up-hhB" secondAttribute="bottom" id="xPA-xZ-5Lb"/>
@@ -617,6 +629,10 @@
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="centerY" secondItem="S4g-RW-YJh" secondAttribute="centerY" constant="44" id="OZz-AB-tO9"/>
+                            <constraint firstAttribute="centerX" secondItem="S4g-RW-YJh" secondAttribute="centerX" id="PXJ-T8-D7j"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="aRZ-Xb-VFb"/>
                     <nil key="simulatedTopBarMetrics"/>
@@ -939,13 +955,13 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="rkl-j5-ENg" firstAttribute="leading" secondItem="82v-tp-fDg" secondAttribute="leadingMargin" constant="-16" id="07F-QE-KoM"/>
                             <constraint firstItem="aFi-dq-PXb" firstAttribute="top" secondItem="CdG-mW-SRa" secondAttribute="bottom" id="0jj-FW-G6f"/>
                             <constraint firstItem="aFi-dq-PXb" firstAttribute="leading" secondItem="82v-tp-fDg" secondAttribute="leading" id="1LE-sN-YT5"/>
+                            <constraint firstItem="rkl-j5-ENg" firstAttribute="leading" secondItem="82v-tp-fDg" secondAttribute="leading" id="1kP-07-8n9"/>
                             <constraint firstItem="CdG-mW-SRa" firstAttribute="top" secondItem="N1T-Yd-MRH" secondAttribute="bottom" id="Bi7-rj-lPo"/>
                             <constraint firstItem="nCn-Gb-qhe" firstAttribute="top" secondItem="aFi-dq-PXb" secondAttribute="bottom" id="DaL-WD-ukB"/>
                             <constraint firstItem="CdG-mW-SRa" firstAttribute="leading" secondItem="82v-tp-fDg" secondAttribute="leadingMargin" constant="-16" id="I6x-91-YHS"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="rkl-j5-ENg" secondAttribute="trailing" constant="-16" id="kDP-Em-sEe"/>
+                            <constraint firstAttribute="trailing" secondItem="rkl-j5-ENg" secondAttribute="trailing" id="gE9-C3-XiQ"/>
                             <constraint firstAttribute="trailing" secondItem="aFi-dq-PXb" secondAttribute="trailing" id="nRX-nO-nFQ"/>
                             <constraint firstItem="rkl-j5-ENg" firstAttribute="top" secondItem="82v-tp-fDg" secondAttribute="topMargin" id="nsD-A0-BxQ"/>
                             <constraint firstAttribute="trailingMargin" secondItem="CdG-mW-SRa" secondAttribute="trailing" constant="-16" id="r8a-Hs-FS0"/>
@@ -2096,7 +2112,7 @@ EE5leHQ
                         <rect key="frame" x="0.0" y="0.0" width="320" height="442"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="I8g-YS-BJD" userLabel="FaceBookDetailView" customClass="TPKeyboardAvoidingScrollView">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="I8g-YS-BJD" userLabel="FaceBookDetailView" customClass="TPKeyboardAvoidingScrollView">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="247"/>
                                 <subviews>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Hba-ng-RCr">
