@@ -44,5 +44,6 @@
 - (IBAction)viewAllBtnTapped:(id)sender;
 - (IBAction)imageBtnTapped:(id)sender;
 
+- (void) startPerformSelectorForDelete;
 
 @end

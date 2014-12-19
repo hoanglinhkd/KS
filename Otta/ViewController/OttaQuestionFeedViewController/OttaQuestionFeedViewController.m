@@ -365,13 +365,9 @@ static NSString * const QuestionFeedCellId = @"QuestionFeedCellId";
                 }
                 
                 [parentCell.tableView deleteRowsAtIndexPaths:arrIndexPathForRemove withRowAnimation:UITableViewRowAnimationFade];
-                /*
-                NSDictionary *savedDict = [[NSDictionary alloc] initWithObjectsAndKeys:self.tableView,@"tableView",
-                referIdx,@"currentIndexPath", nil];
-                */
                 
-                [self performSelector:@selector(processReloadData:) withObject:self.tableView afterDelay:0.2f];
-                [self performSelector:@selector(forceDeleteData:) withObject:referIdx afterDelay:3.0f];
+                [self performSelector:@selector(processReloadData:) withObject:parentCell afterDelay:0.2f];
+                
             } completion:^(BOOL finished) {
                 if (finished) {
                     parentCell.viewForSubmit.hidden = NO;
@@ -446,20 +442,15 @@ static NSString * const QuestionFeedCellId = @"QuestionFeedCellId";
     }];
 }
 #pragma mark - Selectors
-- (void)processReloadData:(UITableView*)tableView{
-    /*
-    UITableView* myTable = [dict objectForKey:@"tableView"];
-    NSIndexPath* curr = [dict objectForKey:@"currentIndexPath"];
-    OttaQuestionFeedCell *cell = (OttaQuestionFeedCell*)[self.tableView cellForRowAtIndexPath:curr];
-    //cell.selectedIndexPath = nil;
-    */
+- (void)processReloadData:(OttaQuestionFeedCell*)cell{
     
-    [tableView reloadData];
-}
-- (void)forceDeleteData:(NSIndexPath*)indexPath{
-    OttaQuestionFeedCell *cell = (OttaQuestionFeedCell*)[self.tableView cellForRowAtIndexPath:indexPath];
-    cell.selectedIndexPath = nil;
-    [feedItems removeObjectAtIndex:indexPath.row];
-    [self.tableView reloadData];
+    [UIView animateWithDuration:1.0 animations:^{
+        [self.tableView reloadData];
+    } completion:^(BOOL finished) {
+        if (finished) {
+            [cell startPerformSelectorForDelete];
+        }
+    }];
+    
 }
 @end

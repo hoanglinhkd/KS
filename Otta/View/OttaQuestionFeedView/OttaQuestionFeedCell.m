@@ -16,7 +16,7 @@ static NSString * const BasicCellId = @"BasicQuestionCellId";
 static NSString * const MediaCellId = @"MediaQuestionCellId";
 
 @interface OttaQuestionFeedCell(){
-    
+    BOOL isForcedDelete;
 }
 
 @end
@@ -317,12 +317,19 @@ static NSString * const MediaCellId = @"MediaQuestionCellId";
     }
 }
 - (void)doneCellSelected:(id)sender{
-    return;
+    if (isForcedDelete)
+        return;
+    
+    isForcedDelete = YES;
     UITableView *tbView = (UITableView*)self.superview.superview;
     NSIndexPath *referIdxPath = [tbView indexPathForCell:self];
     if (self.delegate && [((NSObject*)self.delegate) respondsToSelector:@selector(questionFeedCell:needToForceRemoveAtReferIndex:)]) {
         [self.delegate questionFeedCell:self needToForceRemoveAtReferIndex:referIdxPath];
     }
+}
+
+- (void) startPerformSelectorForDelete{
+    [self performSelector:@selector(doneCellSelected:) withObject:nil afterDelay:5.0f];
 }
 @end
 
