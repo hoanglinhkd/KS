@@ -17,7 +17,7 @@
 @optional
 
 - (void)addCaptionVC:(OttaAddCaptionImageViewController*)captionVC addCaption:(id)caption;
-
+- (void)deleteCaptionVC:(OttaAddCaptionImageViewController*)captionVC;
 
 @end
 
@@ -28,6 +28,8 @@
 @property (weak, nonatomic) IBOutlet UIImageView *selectedImageView;
 @property (weak, nonatomic) IBOutlet SZTextView *captionTextView;
 @property (weak, nonatomic) IBOutlet UITextView *questionTextView;
+@property (weak, nonatomic) IBOutlet UIButton *btnDiscard;
+@property (assign, nonatomic) BOOL shouldHideBtnDiscard;
 @property (weak, nonatomic) UIImage *image;
 @property (strong, nonatomic) NSString *question;
 

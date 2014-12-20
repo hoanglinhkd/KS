@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C81f" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="jFH-gY-aPy">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="jFH-gY-aPy">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
@@ -514,16 +514,16 @@
                                 <color key="textColor" red="0.48627450980392156" green="0.74117647058823533" blue="0.19215686274509805" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleAspectFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sbm-ms-GQv">
+                            <view contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="sbm-ms-GQv">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="80"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="Otta_header_shape_bar.png" translatesAutoresizingMaskIntoConstraints="NO" id="lVD-q7-Z3Z">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Otta_header_shape_bar.png" translatesAutoresizingMaskIntoConstraints="NO" id="lVD-q7-Z3Z">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="80"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="80" id="Dbj-ym-9yX"/>
                                         </constraints>
                                     </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="Otta_header_brand_name.png" translatesAutoresizingMaskIntoConstraints="NO" id="UbD-mc-Aim">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="Otta_header_brand_name.png" translatesAutoresizingMaskIntoConstraints="NO" id="UbD-mc-Aim">
                                         <rect key="frame" x="105" y="35" width="111" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="3od-lE-D37"/>
@@ -593,7 +593,7 @@
                                             <constraint firstAttribute="height" constant="80" id="paN-F6-YfO"/>
                                         </constraints>
                                     </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="Otta_header_brand_name.png" translatesAutoresizingMaskIntoConstraints="NO" id="Plo-cg-FI1">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="Otta_header_brand_name.png" translatesAutoresizingMaskIntoConstraints="NO" id="Plo-cg-FI1">
                                         <rect key="frame" x="105" y="35" width="111" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="111" id="N8U-1R-0We"/>
@@ -3405,6 +3405,15 @@ EE5leHQ
                                 <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="18"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Ha-WL-lYS">
+                                <rect key="frame" x="6" y="143" width="25" height="25"/>
+                                <state key="normal" image="Otta_ask_button_discard.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="btnDiscardTapped:" destination="buD-t4-zlQ" eventType="touchUpInside" id="qGb-l7-7xx"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -3428,6 +3437,7 @@ EE5leHQ
                     </view>
                     <navigationItem key="navigationItem" id="6EA-Vo-vB3"/>
                     <connections>
+                        <outlet property="btnDiscard" destination="8Ha-WL-lYS" id="whU-ZG-UA1"/>
                         <outlet property="captionTextView" destination="kho-qX-5RG" id="kqf-bo-4tq"/>
                         <outlet property="questionTextView" destination="0uz-vW-0mm" id="zq3-Bc-rf3"/>
                         <outlet property="selectedImageView" destination="3gO-pC-NAn" id="kTI-vh-ZXQ"/>
@@ -3447,6 +3457,7 @@ EE5leHQ
         <image name="Otta_ask_box_unchecked.png" width="143" height="143"/>
         <image name="Otta_ask_button_add photo.png" width="242" height="208"/>
         <image name="Otta_ask_button_add text.png" width="215" height="215"/>
+        <image name="Otta_ask_button_discard.png" width="150" height="150"/>
         <image name="Otta_ask_button_yellow.png" width="2667" height="305"/>
         <image name="Otta_friends_button_add.png" width="150" height="150"/>
         <image name="Otta_friends_button_yellow.png" width="2667" height="305"/>

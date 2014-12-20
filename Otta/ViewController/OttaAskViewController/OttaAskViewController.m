@@ -450,7 +450,10 @@ UITextView itsTextView = [[UITextView alloc] initWithFrame:CGRectMake(0, 0, itsT
 }
 
 - (void)optionCell:(OttaOptionCell *)cell needEditPicture:(id)imageView{
-    [_photoPicker showFromRect:self.view.bounds];
+    //Don't need to choose photo
+    //[_photoPicker showFromRect:self.view.bounds];
+    _editingOptionCell = cell;
+    [self performSegueWithIdentifier:@"segueAddCaptionPicture" sender:@NO];
 }
 - (void)optionCell:(OttaOptionCell*)cell beginTakePicture:(id)imageView
 {
@@ -465,7 +468,6 @@ UITextView itsTextView = [[UITextView alloc] initWithFrame:CGRectMake(0, 0, itsT
     
     _photoPicker = [[CZPhotoPickerController alloc] initWithPresentingViewController:self withCompletionBlock:^(UIImagePickerController *imagePickerController, NSDictionary *imageInfoDict) {
         UIImage *selectedImage = nil;
-        NSString *caption = @"Input caption";
         if (imageInfoDict) {
             if (imagePickerController.allowsEditing) {
                 selectedImage = imageInfoDict[UIImagePickerControllerEditedImage];
@@ -475,12 +477,12 @@ UITextView itsTextView = [[UITextView alloc] initWithFrame:CGRectMake(0, 0, itsT
             }
             
             selectedImage = [OttaUlti resizeImage:selectedImage];
-        
-            //weakSelf.editingOptionCell.imgMain.image = selectedImage;
-            [weakSelf.editingOptionCell displayThumbAndCaption:selectedImage caption:caption];
+            if(weakSelf.editingOptionCell.answer) {
+                weakSelf.editingOptionCell.answer.answerImage = selectedImage;
+            }
             [weakSelf.photoPicker dismissAnimated:YES];
             
-            [self performSegueWithIdentifier:@"segueAddCaptionPicture" sender:self];
+            [self performSegueWithIdentifier:@"segueAddCaptionPicture" sender:@YES];//YES mean shouldHideBtnDiscard = YES: hide button discard image when the view showed because in this case it is taking picture
             
         } else {
             [weakSelf.photoPicker dismissAnimated:YES];
@@ -529,9 +531,12 @@ UITextView itsTextView = [[UITextView alloc] initWithFrame:CGRectMake(0, 0, itsT
     if ([[segue identifier] isEqualToString: @"segueAddCaptionPicture"]) {
         OttaAddCaptionImageViewController *dest = (OttaAddCaptionImageViewController *)[segue destinationViewController];
         //the sender is what you pass into the previous method
-        dest.image = self.editingOptionCell.imgMain.image;
+        dest.image = self.editingOptionCell.answer.answerImage;
         dest.question =  _itsTextView.text;
         dest.delegate = self;
+        if (sender) {
+            dest.shouldHideBtnDiscard = [sender boolValue];
+        }
     } else if([[segue identifier] isEqualToString:@"segueAnswerers"]) {
         OttaAnswerersViewController *answerVC = (OttaAnswerersViewController*)[segue destinationViewController];
         answerVC.optionsArray = sender;
@@ -543,7 +548,21 @@ UITextView itsTextView = [[UITextView alloc] initWithFrame:CGRectMake(0, 0, itsT
 }
 
 - (void)addCaptionVC:(OttaAddCaptionImageViewController*)captionVC addCaption:(id)caption {
-    [_editingOptionCell displayCabtion:caption];
+    OttaAnswer *answer = _editingOptionCell.answer;
+    if(answer) { //Has mapping answer modal
+        answer.answerText = caption;
+        [_editingOptionCell displayThumbAndCaption:answer.answerImage caption:caption];
+    } else { //just display caption if don't have answer modal
+        [_editingOptionCell displayCabtion:caption];
+    }
+    
+}
+
+-(void)deleteCaptionVC:(OttaAddCaptionImageViewController *)captionVC
+{
+    OttaAnswer *answer = _editingOptionCell.answer;
+    [_optionsArray removeObject:answer];
+    [_tableAsk reloadData];
 }
 
 - (IBAction)btnNextPress:(id)sender {

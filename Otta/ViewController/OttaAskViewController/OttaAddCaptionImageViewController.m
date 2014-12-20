@@ -7,6 +7,7 @@
 //
 
 #import "OttaAddCaptionImageViewController.h"
+#import "OttaAppDelegate.h"
 
 @interface OttaAddCaptionImageViewController ()
 
@@ -27,20 +28,39 @@
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
+-(IBAction)btnDiscardTapped:(id)sender
+{
+    OttaAppDelegate *appDelegate = (OttaAppDelegate*)[UIApplication sharedApplication].delegate;
+    [[OttaAlertManager sharedManager] showYesNoAlertOnView:appDelegate.window withContent:[@"Do you want to delete ?" toCurrentLanguage] complete:^{
+        
+        if([self.delegate respondsToSelector:@selector(deleteCaptionVC:)]) {
+            [self.delegate deleteCaptionVC:self];
+        }
+        
+        [self dismissViewControllerAnimated:YES completion:nil];
+        
+    } cancel:^{
+        
+    }];
+}
+
 -(void)viewDidLoad
 {
     [super viewDidLoad];
-    
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    if(_shouldHideBtnDiscard) {
+        [_btnDiscard setHidden:YES];
+    }
+    
     self.selectedImageView.image = self.image;
     self.questionTextView.text = self.question;
     [_questionTextView setFont:[UIFont fontWithName:@"OpenSans-Light" size:17.00f]];
     
     _captionTextView.placeholderTextColor = [UIColor whiteColor];
-    _captionTextView.placeholder = @"Add a caption?";
+    _captionTextView.placeholder = [@"Add a caption?" toCurrentLanguage];
     _captionTextView.delegate = self;
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
