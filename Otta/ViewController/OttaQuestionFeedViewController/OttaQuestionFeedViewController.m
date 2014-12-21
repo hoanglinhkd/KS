@@ -259,7 +259,13 @@ static NSString * const QuestionFeedCellId = @"QuestionFeedCellId";
     
     CGSize questionSize = [sizingCell.questionLbl systemLayoutSizeFittingSize:UILayoutFittingCompressedSize];
     CGSize size = [sizingCell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize];
-    return size.height + sizingCell.tableView.contentSize.height + questionSize.height;
+    
+    if (sizingCell.selectedIndexPath) {
+        return size.height + sizingCell.tableView.contentSize.height + questionSize.height;
+    }else{
+        return size.height + sizingCell.tableView.contentSize.height + questionSize.height - 20.0;
+    }
+    
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -333,7 +339,7 @@ static NSString * const QuestionFeedCellId = @"QuestionFeedCellId";
     }
 
 }
-- (void)questionFeedCell:(OttaQuestionFeedCell*)parentCell optionCell:(OttaBasicQuestionCell *)cell withReferIndexPath:(NSIndexPath *)referIdx didSelectRowAtIndexPath:(NSIndexPath *)childIdxPath withMaximumCount:(NSInteger)maxCount{
+- (void)questionFeedCell:(OttaQuestionFeedCell*)parentCell optionCell:(OttaBasicQuestionCell *)cell withReferIndexPath:(NSIndexPath *)referIdx didSubmitRowAtIndexPath:(NSIndexPath *)childIdxPath withMaximumCount:(NSInteger)maxCount{
     
     if([OttaNetworkManager isOfflineShowedAlertView]) {
         return;
@@ -385,6 +391,12 @@ static NSString * const QuestionFeedCellId = @"QuestionFeedCellId";
     [self.tableView reloadData];
 }
 
+- (void)questionFeedCell:(OttaQuestionFeedCell *)cell DidSelectedRowAtIndexPath:(NSIndexPath *)indexPath{
+    //NSArray *arrReload = [[NSArray alloc] initWithObjects:indexPath, nil];
+    //[self.tableView reloadRowsAtIndexPaths:arrReload withRowAnimation:UITableViewRowAnimationFade];
+    [self.tableView beginUpdates];
+    [self.tableView endUpdates];
+}
 
 
 - (IBAction)menuButtonPressed:(id)sender {

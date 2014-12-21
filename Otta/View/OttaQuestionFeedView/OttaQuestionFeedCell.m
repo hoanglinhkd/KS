@@ -15,6 +15,8 @@
 static NSString * const BasicCellId = @"BasicQuestionCellId";
 static NSString * const MediaCellId = @"MediaQuestionCellId";
 
+#define kIntervalForceDelete 5.0f
+
 @interface OttaQuestionFeedCell(){
     BOOL isForcedDelete;
 }
@@ -232,6 +234,13 @@ static NSString * const MediaCellId = @"MediaQuestionCellId";
         cell.orderLbl.backgroundColor = [UIColor orangeColor];
     }
     viewForSubmit.hidden = NO;
+    
+    if (self.delegate && ([(NSObject*)self.delegate respondsToSelector:@selector(questionFeedCell:DidSelectedRowAtIndexPath:)])) {
+        
+        UITableView *tbView = (UITableView*)self.superview.superview;
+        NSIndexPath *referIdxPath = [tbView indexPathForCell:self];
+        [self.delegate questionFeedCell:self DidSelectedRowAtIndexPath:referIdxPath];
+    }
 }
 
 
@@ -276,7 +285,6 @@ static NSString * const MediaCellId = @"MediaQuestionCellId";
     NSIndexPath* pathOfTheCell = [tv indexPathForCell:self];
     [self.delegate optionCell:self viewMoreBtnTapped:[NSNumber numberWithInteger:pathOfTheCell.row]];
     [UIView animateWithDuration:0.25 animations:^{
-
         [tv beginUpdates];
         [tv endUpdates];
     }];
@@ -304,14 +312,14 @@ static NSString * const MediaCellId = @"MediaQuestionCellId";
     UITableView *tbView = (UITableView*)self.superview.superview;
     NSIndexPath *referIdxPath = [tbView indexPathForCell:self];
     NSLog(@"%ld",referIdxPath.row);
-    if (self.delegate && [((NSObject*)self.delegate) respondsToSelector:@selector(questionFeedCell:optionCell:withReferIndexPath:didSelectRowAtIndexPath:withMaximumCount:)]) {
+    if (self.delegate && [((NSObject*)self.delegate) respondsToSelector:@selector(questionFeedCell:optionCell:withReferIndexPath:didSubmitRowAtIndexPath:withMaximumCount:)]) {
         
         submittedIndexPath = [NSIndexPath indexPathForRow:selectedIndexPath.row inSection:0];
         NSInteger maxCount = [self tableView:self.tableView numberOfRowsInSection:0];
         
         selectedIndexPath = nil;
         
-        [self.delegate questionFeedCell:self optionCell:(OttaBasicQuestionCell*)[self.tableView cellForRowAtIndexPath:submittedIndexPath] withReferIndexPath:referIdxPath didSelectRowAtIndexPath:submittedIndexPath withMaximumCount:maxCount];
+        [self.delegate questionFeedCell:self optionCell:(OttaBasicQuestionCell*)[self.tableView cellForRowAtIndexPath:submittedIndexPath] withReferIndexPath:referIdxPath didSubmitRowAtIndexPath:submittedIndexPath withMaximumCount:maxCount];
         
         
     }
@@ -329,7 +337,7 @@ static NSString * const MediaCellId = @"MediaQuestionCellId";
 }
 
 - (void) startPerformSelectorForDelete{
-    [self performSelector:@selector(doneCellSelected:) withObject:nil afterDelay:5.0f];
+    [self performSelector:@selector(doneCellSelected:) withObject:nil afterDelay:kIntervalForceDelete];
 }
 @end
 

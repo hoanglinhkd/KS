@@ -20,7 +20,8 @@
 - (void)optionCell:(OttaQuestionFeedCell*)cell collapseBtnTapped:(id)row;
 - (void)optionCell:(OttaQuestionFeedCell*)cell imageBtnTappedAtRow:(id)row;
 
-- (void)questionFeedCell:(OttaQuestionFeedCell*)parentCell optionCell:(OttaBasicQuestionCell*)cell withReferIndexPath:(NSIndexPath*)referIdx didSelectRowAtIndexPath:(NSIndexPath*)childIdxPath withMaximumCount:(NSInteger)maxCount;
+- (void)questionFeedCell:(OttaQuestionFeedCell*)cell DidSelectedRowAtIndexPath:(NSIndexPath*)indexPath;
+- (void)questionFeedCell:(OttaQuestionFeedCell*)parentCell optionCell:(OttaBasicQuestionCell*)cell withReferIndexPath:(NSIndexPath*)referIdx didSubmitRowAtIndexPath:(NSIndexPath*)childIdxPath withMaximumCount:(NSInteger)maxCount;
 - (void)questionFeedCell:(OttaQuestionFeedCell*)parentCell needToForceRemoveAtReferIndex:(NSIndexPath*)indexPath;
 @end
 
