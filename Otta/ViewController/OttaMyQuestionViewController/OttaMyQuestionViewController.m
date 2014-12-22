@@ -52,6 +52,10 @@ static NSString * const OttaMyQuestionVoteCellIdentifier        = @"OttaMyQuesti
     myTableView.dataSource  = self;
     myTableView.delegate    = self;
     
+    [myTableView addPullToRefreshWithActionHandler:^{
+        [self loadDataWithoutLoadingIndicator];
+    }];
+    
     // Do any additional setup after loading the view.
     //[self createDemoData];
     //[self processDataForShow];
@@ -61,6 +65,12 @@ static NSString * const OttaMyQuestionVoteCellIdentifier        = @"OttaMyQuesti
 -(void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
+    
+    //myTableView.pullToRefreshView.backgroundColor = [UIColor orangeColor];
+    myTableView.pullToRefreshView.activityIndicatorViewColor = [UIColor orangeColor];
+    myTableView.pullToRefreshView.arrowColor = [UIColor orangeColor];
+    myTableView.pullToRefreshView.textColor = [UIColor orangeColor];
+    
     [self loadData];
 }
 
@@ -860,14 +870,22 @@ static NSString * const OttaMyQuestionVoteCellIdentifier        = @"OttaMyQuesti
     }
 }
 
+//This function call in ViewDidAppear
 - (void)loadData{
-    
-    if([OttaNetworkManager isOfflineShowedAlertView]) {
-        return;
-    }
     
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     datas = [[NSMutableArray alloc] init];
+    [self loadDataWithoutLoadingIndicator];
+}
+
+-(void)loadDataWithoutLoadingIndicator
+{
+    if([OttaNetworkManager isOfflineShowedAlertView]) {
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
+        return;
+    }
+    
+    [datas removeAllObjects];
     [[OttaParseClientManager sharedManager] getMyQuestionFromUser:[PFUser currentUser] withBlock:^(NSArray *array, NSError *error) {
         for (PFObject *object in array) {
             OttaQuestion *myQs = [[OttaQuestion alloc] init];
@@ -896,6 +914,9 @@ static NSString * const OttaMyQuestionVoteCellIdentifier        = @"OttaMyQuesti
             [datas addObject:myQs];
         }
         [self processDataForShow];
+        
+        //Stop animating for pull down refresh table
+        [myTableView.pullToRefreshView stopAnimating];
         [myTableView reloadData];
         [MBProgressHUD hideHUDForView:self.view animated:YES];
     }];

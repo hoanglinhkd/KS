@@ -32,6 +32,9 @@ static NSString * const QuestionFeedCellId = @"QuestionFeedCellId";
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    [_tableView addPullToRefreshWithActionHandler:^{
+        [self loadDataWithoutLoadingIndicator];
+    }];
     
     _tableView.hidden = YES;
     [self loadData];
@@ -228,6 +231,10 @@ static NSString * const QuestionFeedCellId = @"QuestionFeedCellId";
 -(void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
+    _tableView.pullToRefreshView.activityIndicatorViewColor = [UIColor orangeColor];
+    _tableView.pullToRefreshView.arrowColor = [UIColor orangeColor];
+    _tableView.pullToRefreshView.textColor = [UIColor orangeColor];
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -424,11 +431,18 @@ static NSString * const QuestionFeedCellId = @"QuestionFeedCellId";
 
 - (void) loadData{
     
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    
+    [self loadDataWithoutLoadingIndicator];
+}
+
+-(void) loadDataWithoutLoadingIndicator
+{
     if([OttaNetworkManager isOfflineShowedAlertView]) {
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
         return;
     }
     
-    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     viewAllModeCellArray = [[NSMutableArray alloc] init];
     feedItems = [[NSMutableArray alloc] init];
     [[OttaParseClientManager sharedManager] getQuestionFeedFromUser:[PFUser currentUser] withBlock:^(NSArray *array, NSError *error) {
@@ -450,9 +464,13 @@ static NSString * const QuestionFeedCellId = @"QuestionFeedCellId";
             _tableView.hidden = NO;
         }
         
+        //Stop animating for pull down refresh table
+        [_tableView.pullToRefreshView stopAnimating];
+
         [MBProgressHUD hideHUDForView:self.view animated:YES];
     }];
 }
+
 #pragma mark - Selectors
 - (void)processReloadData:(OttaQuestionFeedCell*)cell{
     

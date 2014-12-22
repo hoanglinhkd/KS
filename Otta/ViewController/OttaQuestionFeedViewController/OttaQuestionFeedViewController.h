@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "OttaQuestionFeedCell.h"
+#import "SVPullToRefresh.h"
 
 @interface OttaQuestionFeedViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, OttaQuestionFeedCellDelegate>
 
