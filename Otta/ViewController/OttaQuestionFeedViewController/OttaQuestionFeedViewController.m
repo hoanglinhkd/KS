@@ -448,10 +448,14 @@ static NSString * const QuestionFeedCellId = @"QuestionFeedCellId";
         return;
     }
     
-    viewAllModeCellArray = [[NSMutableArray alloc] init];
-    feedItems = [[NSMutableArray alloc] init];
     [[OttaParseClientManager sharedManager] getQuestionFeedFromUser:[PFUser currentUser] withBlock:^(NSArray *array, NSError *error) {
-        feedItems1 = [NSMutableArray arrayWithArray:array];
+        
+        if(array) {
+            viewAllModeCellArray = [[NSMutableArray alloc] init];
+            feedItems = [[NSMutableArray alloc] init];
+            feedItems1 = [NSMutableArray arrayWithArray:array];
+        }
+        
         for (PFObject *object in array) {
             OttaQuestion *question = [[OttaQuestion alloc] init];
             PFUser *asker = object[kAsker];
