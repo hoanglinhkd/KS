@@ -24,6 +24,7 @@ static NSString * const QuestionFeedCellId = @"QuestionFeedCellId";
     NSMutableArray *viewAllModeCellArray;
     OttaQuestion *selectedQuestion;
     int selectedOption;
+    UIRefreshControl *refreshControl;
 }
 @end
 
@@ -32,9 +33,9 @@ static NSString * const QuestionFeedCellId = @"QuestionFeedCellId";
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [_tableView addPullToRefreshWithActionHandler:^{
-        [self loadDataWithoutLoadingIndicator];
-    }];
+    refreshControl = [[UIRefreshControl alloc]init];
+    [_tableView addSubview:refreshControl];
+    [refreshControl addTarget:self action:@selector(loadDataWithoutLoadingIndicator) forControlEvents:UIControlEventValueChanged];
     
     _tableView.hidden = YES;
     [self loadData];
@@ -231,9 +232,6 @@ static NSString * const QuestionFeedCellId = @"QuestionFeedCellId";
 -(void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
-    _tableView.pullToRefreshView.activityIndicatorViewColor = [UIColor orangeColor];
-    _tableView.pullToRefreshView.arrowColor = [UIColor orangeColor];
-    _tableView.pullToRefreshView.textColor = [UIColor orangeColor];
     
 }
 
@@ -465,8 +463,7 @@ static NSString * const QuestionFeedCellId = @"QuestionFeedCellId";
         }
         
         //Stop animating for pull down refresh table
-        [_tableView.pullToRefreshView stopAnimating];
-
+        [refreshControl endRefreshing];
         [MBProgressHUD hideHUDForView:self.view animated:YES];
     }];
 }

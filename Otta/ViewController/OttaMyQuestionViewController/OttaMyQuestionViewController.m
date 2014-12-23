@@ -40,6 +40,7 @@ static NSString * const OttaMyQuestionVoteCellIdentifier        = @"OttaMyQuesti
     
     NSMutableArray *dataForShow;
     NSMutableDictionary *dictVoteData;
+    UIRefreshControl *refreshControl;
 }
 
 @end
@@ -52,9 +53,9 @@ static NSString * const OttaMyQuestionVoteCellIdentifier        = @"OttaMyQuesti
     myTableView.dataSource  = self;
     myTableView.delegate    = self;
     
-    [myTableView addPullToRefreshWithActionHandler:^{
-        [self loadDataWithoutLoadingIndicator];
-    }];
+    refreshControl = [[UIRefreshControl alloc]init];
+    [myTableView addSubview:refreshControl];
+    [refreshControl addTarget:self action:@selector(loadDataWithoutLoadingIndicator) forControlEvents:UIControlEventValueChanged];
     
     // Do any additional setup after loading the view.
     //[self createDemoData];
@@ -65,11 +66,6 @@ static NSString * const OttaMyQuestionVoteCellIdentifier        = @"OttaMyQuesti
 -(void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
-    
-    //myTableView.pullToRefreshView.backgroundColor = [UIColor orangeColor];
-    myTableView.pullToRefreshView.activityIndicatorViewColor = [UIColor orangeColor];
-    myTableView.pullToRefreshView.arrowColor = [UIColor orangeColor];
-    myTableView.pullToRefreshView.textColor = [UIColor orangeColor];
     
     [self loadData];
 }
@@ -928,7 +924,7 @@ static NSString * const OttaMyQuestionVoteCellIdentifier        = @"OttaMyQuesti
         [self processDataForShow];
         
         //Stop animating for pull down refresh table
-        [myTableView.pullToRefreshView stopAnimating];
+        [refreshControl endRefreshing];
         [myTableView reloadData];
         [MBProgressHUD hideHUDForView:self.view animated:YES];
     }];
