@@ -10,7 +10,6 @@
 #import "UIViewController+ECSlidingViewController.h"
 #import "OttaAnswer.h"
 #import "OttaQuestion.h"
-#import "OttaMediaQuestionDetailViewController.h"
 #import "SideMenuViewController.h"
 #import "OttaParseClientManager.h"
 #import "MBProgressHUD.h"
@@ -340,8 +339,9 @@ static NSString * const QuestionFeedCellId = @"QuestionFeedCellId";
     selectedQuestion = [feedItems objectAtIndex:pathOfTheCell.row];
     selectedOption = [(NSNumber*)row intValue];
     PFObject *answer = [selectedQuestion.ottaAnswers objectAtIndex:selectedOption];
+    
     if (((PFFile*)answer[kImage]).url.length > 0) {
-        [self performSegueWithIdentifier:@"segueMediaQuestionDetail" sender:self];
+        [self performSegueWithIdentifier:@"segueMediaQuestionDetail" sender:cell];
     }
 
 }
@@ -426,6 +426,7 @@ static NSString * const QuestionFeedCellId = @"QuestionFeedCellId";
         //the sender is what you pass into the previous method
         dest.question = selectedQuestion;
         dest.currentOption = selectedOption;
+        dest.selectedCell = sender;
     }
 }
 
@@ -489,6 +490,16 @@ static NSString * const QuestionFeedCellId = @"QuestionFeedCellId";
             [cell startPerformSelectorForDelete];
         }
     }];
+    
+}
+
+#pragma mark - Media Detail Delegate
+-(void) didSelectOptionIndex:(int)index forCell:(OttaQuestionFeedCell*)currentCell
+{
+    if(previousSelectionCell != currentCell) {
+        [previousSelectionCell deselectCell];
+    }
+    previousSelectionCell = currentCell;
     
 }
 @end

@@ -44,6 +44,7 @@
         frame.size = self.imgscrollView.frame.size;
         
         UIImageView *imageView = [[UIImageView alloc] initWithFrame:frame];
+        __weak UIImageView *imageShowing = imageView;
         imageView.contentMode = UIViewContentModeScaleAspectFill;
         [imageView setClipsToBounds:YES];
         
@@ -62,7 +63,7 @@
                              placeholderImage:nil
                                       success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
                                           
-                                          imageView.image = image;
+                                          imageShowing.image = image;
                                           [indicator stopAnimating];
                                       } failure:nil];
         }
@@ -133,6 +134,12 @@
 }
 
 - (IBAction)btnBackPress:(id)sender {
+    [self.navigationController popViewControllerAnimated:TRUE];
+}
+
+- (IBAction)btnSelectPress:(id)sender
+{
+    [_selectedCell selectAnswerIndex:self.currentOption];
     [self.navigationController popViewControllerAnimated:TRUE];
 }
 
