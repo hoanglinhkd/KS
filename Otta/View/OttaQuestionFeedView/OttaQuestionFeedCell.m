@@ -9,16 +9,22 @@
 #import "OttaQuestionFeedCell.h"
 #import "OttaBasicQuestionCell.h"
 #import "OttaMediaQuestionCell.h"
+#import "OttaViewAllCell.h"
 #import "OttaAnswer.h"
 #import "OttaParseClientManager.h"
 
 static NSString * const BasicCellId = @"BasicQuestionCellId";
 static NSString * const MediaCellId = @"MediaQuestionCellId";
+static NSString * const ViewAllCellId = @"OttaViewAllCell";
 
 #define kIntervalForceDelete 5.0f
+#define kDefaultShowedRow 0
+#define kRowForViewAll 1
 
 @interface OttaQuestionFeedCell(){
     BOOL isForcedDelete;
+    
+    
 }
 
 @end
@@ -45,6 +51,9 @@ static NSString * const MediaCellId = @"MediaQuestionCellId";
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    if (indexPath.row == self.answers.count) {
+        return 30;
+    }
     if ([self hasImageAtIndexPath:indexPath]) {
         return [self heightForImageCellAtIndexPath:indexPath];
     } else {
@@ -88,26 +97,29 @@ static NSString * const MediaCellId = @"MediaQuestionCellId";
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
-    NSIndexPath *firstAnswer =[NSIndexPath indexPathForRow:0 inSection:0];
+    //NSIndexPath *firstAnswer =[NSIndexPath indexPathForRow:0 inSection:0];
 
-    
-    if (!_isViewAllMode &&[self hasImageAtIndexPath:firstAnswer]) {
-        
-        if([self.answers count] > 3) {
-            //Fix max = 3 row
-            return 3;
-        } else {
-            [self.answers count];
-        }
+    if (!_isViewAllMode) {
+        return kDefaultShowedRow + kRowForViewAll;
     }
     
-    return [self.answers count];
+    return [self.answers count] + kRowForViewAll;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (_isViewAllMode) {
+        if (indexPath.row == self.answers.count) {
+            return [self cellForViewAllAtIndexPath:indexPath];
+        }
+    }else{
+        if (indexPath.row == 0) {
+            return [self cellForViewAllAtIndexPath:indexPath];
+        }
+    }
+    
+    
     if ([self hasImageAtIndexPath:indexPath]) {
         return [self galleryCellAtIndexPath:indexPath];
-        
     } else {
         return [self basicCellAtIndexPath:indexPath];
     }
@@ -162,17 +174,15 @@ static NSString * const MediaCellId = @"MediaQuestionCellId";
         cell.orderLbl.backgroundColor = kDefaultColorBackGround;
     }
 }
-
 - (void) selectAnswerIndex:(int)answerIndex
 {
     //Refresh UI
     [self deselectCell];
     [self tableView:_tableView didSelectRowAtIndexPath:[NSIndexPath indexPathForRow:answerIndex inSection:0]];
 }
-
 - (void) deselectCell
 {
-    int rowCount = [self tableView:_tableView numberOfRowsInSection:0];
+    NSInteger rowCount = [self tableView:_tableView numberOfRowsInSection:0];
     for (int i = 0; i < rowCount; i ++) {
         NSIndexPath *indexPathRestore = [NSIndexPath indexPathForRow:i inSection:0];
         OttaBasicQuestionCell *cell = (OttaBasicQuestionCell*)[_tableView cellForRowAtIndexPath:indexPathRestore];
@@ -192,7 +202,19 @@ static NSString * const MediaCellId = @"MediaQuestionCellId";
     }
     return false ;
 }
-
+- (OttaViewAllCell*)cellForViewAllAtIndexPath:(NSIndexPath*)indexPath{
+    OttaViewAllCell *cell = [self.tableView dequeueReusableCellWithIdentifier:ViewAllCellId forIndexPath:indexPath];
+    
+    if (_isViewAllMode) {
+        [cell.btnViewAll setTitle:@"Collapse" forState:UIControlStateNormal];
+        [cell.btnViewAll addTarget:self action:@selector(collapseBtnTapped:) forControlEvents:UIControlEventTouchUpInside];
+    }else{
+        [cell.btnViewAll setTitle:@"View all..." forState:UIControlStateNormal];
+        [cell.btnViewAll addTarget:self action:@selector(viewAllBtnTapped:) forControlEvents:UIControlEventTouchUpInside];
+    }
+    
+    return cell;
+}
 - (OttaMediaQuestionCell *)galleryCellAtIndexPath:(NSIndexPath *)indexPath {
     OttaMediaQuestionCell *cell = [self.tableView dequeueReusableCellWithIdentifier:MediaCellId forIndexPath:indexPath];
     [self configureImageCell:cell atIndexPath:indexPath];
@@ -205,6 +227,9 @@ static NSString * const MediaCellId = @"MediaQuestionCellId";
     [self setOrderForCell:cell order:indexPath];
     [self setImageForCell:(id)cell item:item];
     cell.imageBtn.tag = indexPath.row;
+    cell.viewAllBtn.hidden = YES;
+    cell.collapseBtn.hidden = YES;
+    /*
     if (self.answers.count > 3 ) {
         if (indexPath.row == 2 && _isViewAllMode == FALSE) {
             cell.viewAllBtn.hidden = NO;
@@ -225,21 +250,22 @@ static NSString * const MediaCellId = @"MediaQuestionCellId";
         cell.collapseBtn.hidden = YES;
         cell.collapseHeghtConstraint.constant = 0;
     }
-
+     */
+    
 }
 #pragma mark Tableview Delegate
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
     return 40.0;
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (selectedIndexPath && selectedIndexPath.row == indexPath.row) {
+    if (selectedIndexPath == indexPath) {
         selectedIndexPath = nil;
         OttaBasicQuestionCell *cell = (OttaBasicQuestionCell*)[tableView cellForRowAtIndexPath:indexPath];
         cell.orderLbl.backgroundColor = kDefaultColorBackGround;
         [tableView deselectRowAtIndexPath:indexPath animated:YES];
         viewForSubmit.hidden = YES;
         return;
-    }else if(selectedIndexPath != nil){
+    }else if(selectedIndexPath!=nil){
         OttaBasicQuestionCell *cell = (OttaBasicQuestionCell*)[tableView cellForRowAtIndexPath:selectedIndexPath];
         cell.orderLbl.backgroundColor = kDefaultColorBackGround;
     }

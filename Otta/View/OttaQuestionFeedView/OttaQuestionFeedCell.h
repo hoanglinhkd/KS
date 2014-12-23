@@ -48,4 +48,5 @@
 
 - (void) selectAnswerIndex:(int)answerIndex;
 - (void) deselectCell;
+
 @end
