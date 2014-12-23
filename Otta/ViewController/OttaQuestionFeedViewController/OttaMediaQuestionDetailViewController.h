@@ -8,6 +8,13 @@
 
 #import <UIKit/UIKit.h>
 #import "OttaQuestion.h"
+#import "OttaQuestionFeedCell.h"
+
+@protocol  OttaMediaQuestionDetailViewControllerDelegate <NSObject>
+
+-(void) didSelectOptionIndex:(int)index forCell:(OttaQuestionFeedCell*)currentCell;
+
+@end
 
 @interface OttaMediaQuestionDetailViewController : UIViewController
 
@@ -22,8 +29,9 @@
 
 @property (weak, nonatomic) IBOutlet UIButton *leftBtn;
 @property (weak, nonatomic) IBOutlet UIButton *rightBtn;
-- (IBAction)leftBtnTapped:(id)sender;
+@property (strong, nonatomic) OttaQuestionFeedCell *selectedCell;
 
+- (IBAction)leftBtnTapped:(id)sender;
 - (IBAction)rightBtnTapped:(id)sender;
 
 @property int currentOption;

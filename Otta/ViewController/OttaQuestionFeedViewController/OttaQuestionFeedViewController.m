@@ -10,7 +10,6 @@
 #import "UIViewController+ECSlidingViewController.h"
 #import "OttaAnswer.h"
 #import "OttaQuestion.h"
-#import "OttaMediaQuestionDetailViewController.h"
 #import "SideMenuViewController.h"
 #import "OttaParseClientManager.h"
 #import "MBProgressHUD.h"
@@ -24,6 +23,8 @@ static NSString * const QuestionFeedCellId = @"QuestionFeedCellId";
     NSMutableArray *viewAllModeCellArray;
     OttaQuestion *selectedQuestion;
     int selectedOption;
+    UIRefreshControl *refreshControl;
+    OttaQuestionFeedCell *previousSelectionCell;
 }
 @end
 
@@ -32,9 +33,9 @@ static NSString * const QuestionFeedCellId = @"QuestionFeedCellId";
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [_tableView addPullToRefreshWithActionHandler:^{
-        [self loadDataWithoutLoadingIndicator];
-    }];
+    refreshControl = [[UIRefreshControl alloc]init];
+    [_tableView addSubview:refreshControl];
+    [refreshControl addTarget:self action:@selector(loadDataWithoutLoadingIndicator) forControlEvents:UIControlEventValueChanged];
     
     _tableView.hidden = YES;
     [self loadData];
@@ -231,9 +232,6 @@ static NSString * const QuestionFeedCellId = @"QuestionFeedCellId";
 -(void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
-    _tableView.pullToRefreshView.activityIndicatorViewColor = [UIColor orangeColor];
-    _tableView.pullToRefreshView.arrowColor = [UIColor orangeColor];
-    _tableView.pullToRefreshView.textColor = [UIColor orangeColor];
     
 }
 
@@ -341,8 +339,9 @@ static NSString * const QuestionFeedCellId = @"QuestionFeedCellId";
     selectedQuestion = [feedItems objectAtIndex:pathOfTheCell.row];
     selectedOption = [(NSNumber*)row intValue];
     PFObject *answer = [selectedQuestion.ottaAnswers objectAtIndex:selectedOption];
+    
     if (((PFFile*)answer[kImage]).url.length > 0) {
-        [self performSegueWithIdentifier:@"segueMediaQuestionDetail" sender:self];
+        [self performSegueWithIdentifier:@"segueMediaQuestionDetail" sender:cell];
     }
 
 }
@@ -401,6 +400,12 @@ static NSString * const QuestionFeedCellId = @"QuestionFeedCellId";
 - (void)questionFeedCell:(OttaQuestionFeedCell *)cell DidSelectedRowAtIndexPath:(NSIndexPath *)indexPath{
     //NSArray *arrReload = [[NSArray alloc] initWithObjects:indexPath, nil];
     //[self.tableView reloadRowsAtIndexPaths:arrReload withRowAnimation:UITableViewRowAnimationFade];
+    
+    if(previousSelectionCell != cell) {
+        [previousSelectionCell deselectCell];
+    }
+    previousSelectionCell = cell;
+    
     [self.tableView beginUpdates];
     [self.tableView endUpdates];
 }
@@ -421,6 +426,7 @@ static NSString * const QuestionFeedCellId = @"QuestionFeedCellId";
         //the sender is what you pass into the previous method
         dest.question = selectedQuestion;
         dest.currentOption = selectedOption;
+        dest.selectedCell = sender;
     }
 }
 
@@ -443,10 +449,14 @@ static NSString * const QuestionFeedCellId = @"QuestionFeedCellId";
         return;
     }
     
-    viewAllModeCellArray = [[NSMutableArray alloc] init];
-    feedItems = [[NSMutableArray alloc] init];
     [[OttaParseClientManager sharedManager] getQuestionFeedFromUser:[PFUser currentUser] withBlock:^(NSArray *array, NSError *error) {
-        feedItems1 = [NSMutableArray arrayWithArray:array];
+        
+        if(array) {
+            viewAllModeCellArray = [[NSMutableArray alloc] init];
+            feedItems = [[NSMutableArray alloc] init];
+            feedItems1 = [NSMutableArray arrayWithArray:array];
+        }
+        
         for (PFObject *object in array) {
             OttaQuestion *question = [[OttaQuestion alloc] init];
             PFUser *asker = object[kAsker];
@@ -465,8 +475,7 @@ static NSString * const QuestionFeedCellId = @"QuestionFeedCellId";
         }
         
         //Stop animating for pull down refresh table
-        [_tableView.pullToRefreshView stopAnimating];
-
+        [refreshControl endRefreshing];
         [MBProgressHUD hideHUDForView:self.view animated:YES];
     }];
 }
@@ -482,5 +491,14 @@ static NSString * const QuestionFeedCellId = @"QuestionFeedCellId";
         }
     }];
     
+}
+
+#pragma mark - Media Detail Delegate
+-(void) didSelectOptionIndex:(int)index forCell:(OttaQuestionFeedCell*)currentCell
+{
+    if(previousSelectionCell != currentCell) {
+        [previousSelectionCell deselectCell];
+    }
+    previousSelectionCell = currentCell;
 }
 @end

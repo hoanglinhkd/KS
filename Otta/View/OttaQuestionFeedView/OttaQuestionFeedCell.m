@@ -163,6 +163,25 @@ static NSString * const MediaCellId = @"MediaQuestionCellId";
     }
 }
 
+- (void) selectAnswerIndex:(int)answerIndex
+{
+    //Refresh UI
+    [self deselectCell];
+    [self tableView:_tableView didSelectRowAtIndexPath:[NSIndexPath indexPathForRow:answerIndex inSection:0]];
+}
+
+- (void) deselectCell
+{
+    int rowCount = [self tableView:_tableView numberOfRowsInSection:0];
+    for (int i = 0; i < rowCount; i ++) {
+        NSIndexPath *indexPathRestore = [NSIndexPath indexPathForRow:i inSection:0];
+        OttaBasicQuestionCell *cell = (OttaBasicQuestionCell*)[_tableView cellForRowAtIndexPath:indexPathRestore];
+        cell.orderLbl.backgroundColor = kDefaultColorBackGround;
+    }
+    selectedIndexPath = nil;
+    viewForSubmit.hidden = YES;
+}
+
 #pragma mark Media Cell
 
 - (BOOL)hasImageAtIndexPath:(NSIndexPath *)indexPath {
@@ -213,14 +232,14 @@ static NSString * const MediaCellId = @"MediaQuestionCellId";
     return 40.0;
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (selectedIndexPath == indexPath) {
+    if (selectedIndexPath && selectedIndexPath.row == indexPath.row) {
         selectedIndexPath = nil;
         OttaBasicQuestionCell *cell = (OttaBasicQuestionCell*)[tableView cellForRowAtIndexPath:indexPath];
         cell.orderLbl.backgroundColor = kDefaultColorBackGround;
         [tableView deselectRowAtIndexPath:indexPath animated:YES];
         viewForSubmit.hidden = YES;
         return;
-    }else if(selectedIndexPath!=nil){
+    }else if(selectedIndexPath != nil){
         OttaBasicQuestionCell *cell = (OttaBasicQuestionCell*)[tableView cellForRowAtIndexPath:selectedIndexPath];
         cell.orderLbl.backgroundColor = kDefaultColorBackGround;
     }

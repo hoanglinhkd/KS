@@ -44,7 +44,8 @@
 - (IBAction)collapseBtnTapped:(id)sender;
 - (IBAction)viewAllBtnTapped:(id)sender;
 - (IBAction)imageBtnTapped:(id)sender;
-
 - (void) startPerformSelectorForDelete;
 
+- (void) selectAnswerIndex:(int)answerIndex;
+- (void) deselectCell;
 @end

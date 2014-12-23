@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "SVPullToRefresh.h"
 
 @interface OttaMyQuestionViewController : UIViewController
 - (IBAction)pressMenuBtn:(id)sender;
