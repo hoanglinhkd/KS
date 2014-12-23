@@ -102,6 +102,13 @@
                          self.optionLbl.alpha = 0.0f;
                          self.orderLbl.alpha = 0.0f;
                          self.orderLbl.text = [NSString stringWithFormat:@"%d",page+1];
+                         if(_selectedCell.selectedIndexPath && _selectedCell.selectedIndexPath.row == self.currentOption) {
+                             self.orderLbl.backgroundColor = [UIColor orangeColor];
+                             [self.selectBtn setTitle:[@"Selected" toCurrentLanguage] forState:UIControlStateNormal];
+                         } else {
+                             self.orderLbl.backgroundColor = kDefaultColorBackGround;
+                             [self.selectBtn setTitle:[@"Select?" toCurrentLanguage] forState:UIControlStateNormal];
+                         }
                          self.optionLbl.text = answer[kDescription];
                          self.optionLbl.alpha = 1.0f;
                          self.orderLbl.alpha = 1.0f;
@@ -130,6 +137,13 @@
     frame.origin.x = self.imgscrollView.frame.size.width * page;
     frame.origin.y = 0;
     frame.size = self.imgscrollView.frame.size;
+    if(_selectedCell.selectedIndexPath && _selectedCell.selectedIndexPath.row == self.currentOption) {
+        self.orderLbl.backgroundColor = [UIColor orangeColor];
+        [self.selectBtn setTitle:[@"Selected" toCurrentLanguage] forState:UIControlStateNormal];
+    } else {
+        self.orderLbl.backgroundColor = kDefaultColorBackGround;
+        [self.selectBtn setTitle:[@"Select?" toCurrentLanguage] forState:UIControlStateNormal];
+    }
     [self.imgscrollView scrollRectToVisible:frame animated:YES];
 }
 

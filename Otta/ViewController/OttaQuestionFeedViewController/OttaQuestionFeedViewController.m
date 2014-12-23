@@ -500,6 +500,5 @@ static NSString * const QuestionFeedCellId = @"QuestionFeedCellId";
         [previousSelectionCell deselectCell];
     }
     previousSelectionCell = currentCell;
-    
 }
 @end
