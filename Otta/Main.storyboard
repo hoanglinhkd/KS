@@ -2506,7 +2506,7 @@ EE5leHQ
                                                                         </constraints>
                                                                         <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="13"/>
                                                                         <state key="normal" title="Collapse">
-                                                                            <color key="titleColor" red="0.56078433989999998" green="0.79215693470000004" blue="0.25098040700000002" alpha="1" colorSpace="deviceRGB"/>
+                                                                            <color key="titleColor" red="0.5607843137254902" green="0.792156862745098" blue="0.25098039215686274" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                                         </state>
                                                                         <connections>
@@ -2579,6 +2579,7 @@ EE5leHQ
                                                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="140" id="dLC-Pk-jfP"/>
                                                                         </constraints>
                                                                         <state key="normal" title="View All">
+                                                                            <color key="titleColor" red="0.5607843137254902" green="0.792156862745098" blue="0.25098039215686274" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                                         </state>
                                                                     </button>
