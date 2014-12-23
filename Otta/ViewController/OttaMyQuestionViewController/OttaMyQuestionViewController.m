@@ -287,6 +287,16 @@ static NSString * const OttaMyQuestionVoteCellIdentifier        = @"OttaMyQuesti
                 
             }else{
                 if (qs.ottaAnswers.count > 0) {
+                    OttaMyQuestionData *objFooter2 = [[OttaMyQuestionData alloc] init];
+                    objFooter2.dataType = MyQuestionDataTypeFooterSeeAll;
+                    objFooter2.expTime = qs.expTime;
+                    objFooter2.referIndex = i;
+                    objFooter2.currentTableIndex = dataForShow.count;
+                    [dataForShow addObject:objFooter2];
+                }
+                /*
+                 // Show 1 option in answers
+                if (qs.ottaAnswers.count > 0) {
                     OttaMyQuestionData *objAnswer2 = [[OttaMyQuestionData alloc] init];
                     ((OttaAnswer*)qs.ottaAnswers[0]).numberAnswer = numberLocation;
                     //objAnswer2.dataType = MyQuestionDataTypeAnswerPicture;
@@ -306,6 +316,8 @@ static NSString * const OttaMyQuestionVoteCellIdentifier        = @"OttaMyQuesti
                     objFooter2.currentTableIndex = dataForShow.count;
                     [dataForShow addObject:objFooter2];
                 }
+                 */
+                
             }
         }
     }
@@ -707,13 +719,13 @@ static NSString * const OttaMyQuestionVoteCellIdentifier        = @"OttaMyQuesti
     
     //[self processDataForShow];
     // Process Data
-    int numberLocation = -1;
+    int numberLocation = 0;
     if (isSeeAll) {
         BOOL flagHasPhoTo = NO;
         for (OttaAnswer *ans in ((OttaQuestion*)datas[referIndex]).ottaAnswers) {
             if(numberLocation >= 0){
                 OttaMyQuestionData *objAnswer1 = [[OttaMyQuestionData alloc] init];
-                ans.numberAnswer = numberLocation+2;
+                ans.numberAnswer = numberLocation+1;
                 if (ans.answerHasphoto) {
                     objAnswer1.dataType = MyQuestionDataTypeAnswerPicture;
                     flagHasPhoTo = YES;
@@ -738,7 +750,7 @@ static NSString * const OttaMyQuestionVoteCellIdentifier        = @"OttaMyQuesti
     if(isSeeAll){
         
         NSMutableArray *arrInsertIdxPaths = [[NSMutableArray alloc] initWithCapacity:3];
-        for (int i=0; i<((OttaQuestion*)datas[referIndex]).ottaAnswers.count - 1; i++) {
+        for (int i=0; i<((OttaQuestion*)datas[referIndex]).ottaAnswers.count; i++) {
             NSIndexPath *newIndexPath = [NSIndexPath indexPathForRow:currIndex+i inSection:0];
             [arrInsertIdxPaths addObject:newIndexPath];
         }
@@ -750,24 +762,24 @@ static NSString * const OttaMyQuestionVoteCellIdentifier        = @"OttaMyQuesti
         [UIView animateWithDuration:0.2f animations:^{
             
             NSMutableArray *rowsToDelete = [[NSMutableArray alloc] initWithCapacity:5];
-            for(int i=1; i < currIndex; i++){
+            for(int i=0; i < currIndex; i++){
                 NSIndexPath* indexPathToDelete = [NSIndexPath indexPathForRow:currIndex-i - 1 inSection:0];
                 
                 //Check Data
                 OttaMyQuestionData *dataAtCurrent = [dataForShow objectAtIndex:indexPathToDelete.row];
                 if (dataAtCurrent.dataType != MyQuestionDataTypeHeader) {
                     dataAtCurrent.isShowedVote = NO;
-                    OttaMyQuestionData *dataNextCurrent = [dataForShow objectAtIndex:indexPathToDelete.row+1];
+                    OttaMyQuestionData *dataNextCurrent = [dataForShow objectAtIndex:indexPathToDelete.row];
                     if (dataNextCurrent.dataType != MyQuestionDataTypeHeader) {
-                        [rowsToDelete addObject:[NSIndexPath indexPathForRow:indexPathToDelete.row+1 inSection:0]];
-                        [dataForShow removeObjectAtIndex:indexPathToDelete.row+1];
+                        [rowsToDelete addObject:[NSIndexPath indexPathForRow:indexPathToDelete.row inSection:0]];
+                        [dataForShow removeObjectAtIndex:indexPathToDelete.row];
                     }
                 }else{
                     break;
                 }
             }
             [self.myTableView deleteRowsAtIndexPaths:rowsToDelete withRowAnimation:UITableViewRowAnimationTop];
-            [self.myTableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:currIndex-rowsToDelete.count-2 inSection:0] atScrollPosition:UITableViewScrollPositionTop animated:YES];
+            [self.myTableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:currIndex-rowsToDelete.count-1 inSection:0] atScrollPosition:UITableViewScrollPositionTop animated:YES];
         } completion:^(BOOL finished) {
             if (finished) {
                 [self.myTableView reloadData];
