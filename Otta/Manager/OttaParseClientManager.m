@@ -235,33 +235,52 @@
     [query includeKey:kAnswers];
     [query orderByDescending:kCreatedAt];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-        resultBlock(objects, error);
+        [self getAllVotingFromQuestions:objects withBlock:resultBlock];
     }];
 }
 
-//- (void)getQuestionFeedFromUser:(PFUser*)user withBlock:(OttaArrayDataBlock)resultBlock {
-//    // Get public question first
-//    PFQuery *followQuery = [PFQuery queryWithClassName:kOttaFollow];
-//    [followQuery whereKey:kFrom equalTo:user];
-//    [followQuery whereKey:kIsBlocked equalTo:@NO];
-//    [followQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-//        
-//        NSMutableArray* askers = [NSMutableArray new];
-//        for (PFObject* follow in objects) {
-//            [askers addObject:follow[kTo]];
-//        }
-//        
-//        PFQuery *query = [PFQuery queryWithClassName:kOttaQuestion];
-//        [query whereKey:kIsPublic equalTo:@YES];
-//        [query whereKey:kAsker containedIn:askers];
-//        [query whereKey:kExpTime greaterThan:[NSDate date]];
-//        [query includeKey:kAsker];
-//        [query includeKey:kAnswers];
-//        [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-//            resultBlock(objects, error);
-//        }];
-//    }];
-//}
+- (void)getAllVotingFromQuestions:(NSArray*)questions withBlock:(OttaArrayDataBlock)resultBlock {
+    NSMutableArray* answers = [NSMutableArray new];
+    for (PFObject* question in questions) {
+        [answers addObjectsFromArray:question[kAnswers]];
+    }
+    
+    PFQuery *query = [PFQuery queryWithClassName:kOttaVote];
+    [query whereKey:kAnswer containedIn:answers];
+    [query includeKey:kResponder];
+    [query orderByAscending:kCreatedAt];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        NSMutableDictionary* dic = [[NSMutableDictionary alloc] init];
+        for (PFObject* vote in objects) {
+            PFObject* answer = vote[kAnswer];
+            NSString* answerID = answer.objectId;
+            NSMutableArray* array = dic[answerID];
+            if (array == nil) {
+                array = [NSMutableArray new];
+                dic[answerID] = array;
+            }
+            [array addObject:vote];
+        }
+        
+        for (NSString* key in dic) {
+            for (PFObject* question in questions) {
+                BOOL isMap = NO;
+                for (PFObject* answer in question[kAnswers]) {
+                    if ([key isEqualToString:answer.objectId]) {
+                        question[key] = dic[key];
+                        isMap =  YES;
+                        break;
+                    }
+                }
+                if (isMap) {
+                    break;
+                }
+            }
+        }
+        
+        resultBlock(questions, error);
+    }];
+}
 
 - (void)getQuestionFeedFromUser:(PFUser*)user withBlock:(OttaArrayDataBlock)resultBlock {
     

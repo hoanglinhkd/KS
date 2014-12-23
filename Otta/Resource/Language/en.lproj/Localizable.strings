@@ -66,7 +66,7 @@
 "SMS sent cancelled" = "SMS sent cancelled";
 "Sent" = "Sent";
 "The number of options must be greater than 1" = "The number of options must be greater than 1";
-"Do you want to follow %@ ?" = "Do you want to follow %@ ?";
+"Do you want to follow %@?" = "Do you want to follow %@?";
 "No network connection" = "No network connection";
-"Do you want to delete ?" = "Do you want to delete ?";
+"Do you want to delete?" = "Do you want to delete?";
 "Add a caption?" = "Add a caption?";

@@ -31,7 +31,7 @@
 -(IBAction)btnDiscardTapped:(id)sender
 {
     OttaAppDelegate *appDelegate = (OttaAppDelegate*)[UIApplication sharedApplication].delegate;
-    [[OttaAlertManager sharedManager] showYesNoAlertOnView:appDelegate.window withContent:[@"Do you want to delete ?" toCurrentLanguage] complete:^{
+    [[OttaAlertManager sharedManager] showYesNoAlertOnView:appDelegate.window withContent:[@"Do you want to delete?" toCurrentLanguage] complete:^{
         
         if([self.delegate respondsToSelector:@selector(deleteCaptionVC:)]) {
             [self.delegate deleteCaptionVC:self];

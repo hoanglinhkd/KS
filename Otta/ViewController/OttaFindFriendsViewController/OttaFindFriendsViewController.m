@@ -548,7 +548,7 @@ replacementString:(NSString *)string {
                 if(![curFriend isFriend] && ![curFriend isSelected]) {
                     
                     OttaAppDelegate *appDelegate = (OttaAppDelegate*)[UIApplication sharedApplication].delegate;
-                    [[OttaAlertManager sharedManager] showYesNoAlertOnView:appDelegate.window withContent:[NSString stringWithFormat:[@"Do you want to follow %@ ?" toCurrentLanguage], curFriend.name] complete:^{
+                    [[OttaAlertManager sharedManager] showYesNoAlertOnView:appDelegate.window withContent:[NSString stringWithFormat:[@"Do you want to follow %@?" toCurrentLanguage], curFriend.name] complete:^{
                         [MBProgressHUD showHUDAddedTo:self.view animated:YES];
                         [[OttaParseClientManager sharedManager] followUser:[PFUser currentUser] toUser:curFriend withBlock:^(BOOL isSucceeded, NSError *error) {
                             [MBProgressHUD hideHUDForView:self.view animated:YES];
@@ -593,7 +593,7 @@ replacementString:(NSString *)string {
                 if(![curFriend isFriend] && ![curFriend isSelected]) {
                     
                     OttaAppDelegate *appDelegate = (OttaAppDelegate*)[UIApplication sharedApplication].delegate;
-                    [[OttaAlertManager sharedManager] showYesNoAlertOnView:appDelegate.window withContent:[NSString stringWithFormat:[@"Do you want to follow %@ ?" toCurrentLanguage], curFriend.name] complete:^{
+                    [[OttaAlertManager sharedManager] showYesNoAlertOnView:appDelegate.window withContent:[NSString stringWithFormat:[@"Do you want to follow %@?" toCurrentLanguage], curFriend.name] complete:^{
                         
                         [MBProgressHUD showHUDAddedTo:self.view animated:YES];
                         

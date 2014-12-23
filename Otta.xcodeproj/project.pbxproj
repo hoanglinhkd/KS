@@ -1067,12 +1067,12 @@
 				38A37D741A171FCD00771881 /* OttaAlertManager */,
 				D98E30C21A1795D70080B934 /* Constant.h */,
 				D98E30C31A1795D70080B934 /* Constant.m */,
-				D9286F411A12190500C28770 /* OttaParseClientManager.h */,
-				D9286F421A12190500C28770 /* OttaParseClientManager.m */,
 				3878FFBA1A41CF61006B6868 /* OttaUlti.h */,
 				3878FFBB1A41CF61006B6868 /* OttaUlti.m */,
 				D9C30AE71A432FE50087A96D /* OttaNetworkManager.h */,
 				D9C30AE81A432FE50087A96D /* OttaNetworkManager.m */,
+				D9286F411A12190500C28770 /* OttaParseClientManager.h */,
+				D9286F421A12190500C28770 /* OttaParseClientManager.m */,
 			);
 			path = Manager;
 			sourceTree = "<group>";

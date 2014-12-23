@@ -41,7 +41,7 @@
 #define kAnswers        @"answers"
 #define kIsPublic       @"isPublic"
 #define kResponders     @"responders"
-#define kAnswerers     @"answerers"
+#define kAnswerers      @"answerers"
 
 // Vote table
 #define kOttaVote       @"OttaVote"
