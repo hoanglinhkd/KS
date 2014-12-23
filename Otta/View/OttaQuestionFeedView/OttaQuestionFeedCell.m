@@ -163,6 +163,18 @@ static NSString * const MediaCellId = @"MediaQuestionCellId";
     }
 }
 
+- (void) deselectCell
+{
+    int rowCount = [self tableView:_tableView numberOfRowsInSection:0];
+    for (int i = 0; i < rowCount; i ++) {
+        NSIndexPath *indexPathRestore = [NSIndexPath indexPathForRow:i inSection:0];
+        OttaBasicQuestionCell *cell = (OttaBasicQuestionCell*)[_tableView cellForRowAtIndexPath:indexPathRestore];
+        cell.orderLbl.backgroundColor = kDefaultColorBackGround;
+    }
+    selectedIndexPath = nil;
+    viewForSubmit.hidden = YES;
+}
+
 #pragma mark Media Cell
 
 - (BOOL)hasImageAtIndexPath:(NSIndexPath *)indexPath {

@@ -25,6 +25,7 @@ static NSString * const QuestionFeedCellId = @"QuestionFeedCellId";
     OttaQuestion *selectedQuestion;
     int selectedOption;
     UIRefreshControl *refreshControl;
+    OttaQuestionFeedCell *previousSelectionCell;
 }
 @end
 
@@ -399,6 +400,12 @@ static NSString * const QuestionFeedCellId = @"QuestionFeedCellId";
 - (void)questionFeedCell:(OttaQuestionFeedCell *)cell DidSelectedRowAtIndexPath:(NSIndexPath *)indexPath{
     //NSArray *arrReload = [[NSArray alloc] initWithObjects:indexPath, nil];
     //[self.tableView reloadRowsAtIndexPaths:arrReload withRowAnimation:UITableViewRowAnimationFade];
+    
+    if(previousSelectionCell != cell) {
+        [previousSelectionCell deselectCell];
+    }
+    previousSelectionCell = cell;
+    
     [self.tableView beginUpdates];
     [self.tableView endUpdates];
 }
