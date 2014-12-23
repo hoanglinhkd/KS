@@ -656,7 +656,7 @@ static NSString * const OttaMyQuestionVoteCellIdentifier        = @"OttaMyQuesti
 - (void)configureFooterCell:(OttaMyQuestionFooterCell *)cell atIndexPath:(NSIndexPath *)indexPath {
     OttaMyQuestionData *dto = dataForShow[indexPath.row];
     
-    cell.btnSeeAll.hidden = (dto.dataType == MyQuestionDataTypeFooterNormal) ? YES:NO;
+    //cell.btnSeeAll.hidden = (dto.dataType == MyQuestionDataTypeFooterSeeAll) ? NO:YES;
     NSString *title = dto.dataType == MyQuestionDataTypeFooterSeeAll ? kSeeAll : kCollapse;
     [cell.btnSeeAll setTitle:title forState:UIControlStateNormal];
     
