@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "OttaBasicQuestionCell.h"
 
-@interface OttaViewAllCell : UITableViewCell
+@interface OttaViewAllCell : OttaBasicQuestionCell
 
 @property (weak, nonatomic) IBOutlet UIButton *btnViewAll;
 

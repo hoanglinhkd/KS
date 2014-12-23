@@ -255,9 +255,19 @@ static NSString * const ViewAllCellId = @"OttaViewAllCell";
 }
 #pragma mark Tableview Delegate
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
-    return 40.0;
+    if (_isViewAllMode) {
+        return 40.0;
+    }
+    return 0.0;
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (!_isViewAllMode) {
+        return;
+    }
+    if (indexPath.row >= self.answers.count) {
+        return;
+    }
+    
     if (selectedIndexPath == indexPath) {
         selectedIndexPath = nil;
         OttaBasicQuestionCell *cell = (OttaBasicQuestionCell*)[tableView cellForRowAtIndexPath:indexPath];
@@ -309,6 +319,7 @@ static NSString * const ViewAllCellId = @"OttaViewAllCell";
 
 - (IBAction)collapseBtnTapped:(id)sender {
     _isViewAllMode = NO;
+    selectedIndexPath = nil;
     [self.tableView reloadData];
     
     UITableView *tv = (UITableView *) self.superview.superview;
