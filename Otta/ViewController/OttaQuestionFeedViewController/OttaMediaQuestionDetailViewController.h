@@ -19,7 +19,7 @@
 @interface OttaMediaQuestionDetailViewController : UIViewController
 
 @property (weak, nonatomic) IBOutlet UILabel *questionbl;
-@property (strong, nonatomic) OttaQuestion *question;
+@property (strong, nonatomic) PFObject *question;
 @property (weak, nonatomic) IBOutlet UILabel *ownerNameLbl;
 @property (weak, nonatomic) IBOutlet UILabel *expirationDateLbl;
 @property (weak, nonatomic) IBOutlet UIScrollView *imgscrollView;

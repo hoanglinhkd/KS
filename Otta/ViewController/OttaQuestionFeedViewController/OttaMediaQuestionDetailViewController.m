@@ -21,23 +21,27 @@
     [super viewDidLoad];
     
     self.orderLbl.clipsToBounds = YES;
-
+    
 }
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-
+    
 }
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    self.ownerNameLbl.text = self.question.askerName;
-    self.questionbl.text = self.question.questionText;
-    self.expirationDateLbl.text = [Utility timeAgo:self.question.expTime];
-    self.optionLbl.text = ((PFObject*)[self.question.ottaAnswers objectAtIndex:0])[kDescription];
+    
+    
+    PFUser *asker = _question[kAsker];
+    self.ownerNameLbl.text = [NSString stringWithFormat:@"%@ %@",asker.firstName, asker.lastName];
+    self.questionbl.text = _question[kQuestionText];
+    self.expirationDateLbl.text = [Utility timeAgo:_question[kExpTime]];
+    NSArray *arrAnswers = [NSArray arrayWithArray:_question[kAnswers]];
+    self.optionLbl.text = ((PFObject*)[arrAnswers objectAtIndex:0])[kDescription];
     PFObject *answer;
     
-    for (int i = 0; i < self.question.ottaAnswers.count; i++) {
-        answer = [self.question.ottaAnswers objectAtIndex:i];
+    for (int i = 0; i < arrAnswers.count; i++) {
+        answer = [arrAnswers objectAtIndex:i];
         CGRect frame;
         frame.origin.x = self.imgscrollView.frame.size.width * i;
         frame.origin.y = 0;
@@ -67,15 +71,15 @@
                                           [indicator stopAnimating];
                                       } failure:nil];
         }
-    
+        
         
         
         [self.imgscrollView addSubview:imageView];
         [self.imgscrollView addSubview:indicator];
-
+        
     }
     
-    self.imgscrollView.contentSize = CGSizeMake(self.imgscrollView.frame.size.width *  self.question.ottaAnswers.count, self.imgscrollView.frame.size.height);
+    self.imgscrollView.contentSize = CGSizeMake(self.imgscrollView.frame.size.width *  arrAnswers.count, self.imgscrollView.frame.size.height);
     
     [self scrollToPage:self.currentOption];
     
@@ -94,9 +98,9 @@
     // Update the page when more than 50% of the previous/next page is visible
     CGFloat pageWidth = self.imgscrollView.frame.size.width;
     int page = floor((self.imgscrollView.contentOffset.x - pageWidth / 2) / pageWidth) + 1;
-
+    
     self.currentOption = page;
-    PFObject *answer = [self.question.ottaAnswers objectAtIndex:page];
+    PFObject *answer = [_question[kAnswers] objectAtIndex:page];
     [UIView animateWithDuration:0.2
                      animations:^{
                          self.optionLbl.alpha = 0.0f;
@@ -114,7 +118,7 @@
                          self.orderLbl.alpha = 1.0f;
                          
                      }];
-  
+    
 }
 
 
@@ -126,7 +130,7 @@
 }
 
 - (IBAction)rightBtnTapped:(id)sender {
-    if (self.currentOption == self.question.ottaAnswers.count -1)
+    if (self.currentOption == [_question[kAnswers] count] -1)
         return;
     self.currentOption  += 1;
     [self scrollToPage:self.currentOption];
