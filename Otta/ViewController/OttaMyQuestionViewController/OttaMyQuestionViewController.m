@@ -37,7 +37,7 @@ static NSString * const OttaMyQuestionVoteCellIdentifier        = @"OttaMyQuesti
 
 @interface OttaMyQuestionViewController ()<UITableViewDataSource, UITableViewDelegate, OttaMyQuestionFooterCellDelegate>{
     NSMutableArray *datas;
-    
+    NSMutableArray *viewAllModeCellArray;
     NSMutableArray *dataForShow;
     NSMutableDictionary *dictVoteData;
     UIRefreshControl *refreshControl;
@@ -56,7 +56,6 @@ static NSString * const OttaMyQuestionVoteCellIdentifier        = @"OttaMyQuesti
     refreshControl = [[UIRefreshControl alloc]init];
     [myTableView addSubview:refreshControl];
     [refreshControl addTarget:self action:@selector(loadDataWithoutLoadingIndicator) forControlEvents:UIControlEventValueChanged];
-    
     // Do any additional setup after loading the view.
     //[self createDemoData];
     //[self processDataForShow];
@@ -66,7 +65,7 @@ static NSString * const OttaMyQuestionVoteCellIdentifier        = @"OttaMyQuesti
 -(void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
-    
+    viewAllModeCellArray = [[NSMutableArray alloc] init];
     [self loadData];
 }
 
@@ -74,194 +73,32 @@ static NSString * const OttaMyQuestionVoteCellIdentifier        = @"OttaMyQuesti
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-/*
-- (void)createVoteData{
-    dictVoteData = [[NSMutableDictionary alloc] initWithCapacity:10];
-    for (NSInteger i=0; i < dataForShow.count; i++) {
-        NSMutableArray *data = [[NSMutableArray alloc] init];
-        
-        OttaUser *user1 = [[OttaUser alloc] init];
-        user1.firstName = @"Hao";
-        user1.lastName  = @"Tran";
-        [data addObject:user1];
-        
-        OttaUser *user2 = [OttaUser new];
-        user2.firstName = @"Linh";
-        user2.lastName = @"Nguyen";
-        [data addObject:user2];
-        
-        OttaUser *user3 = [OttaUser new];
-        user3.firstName = @"Thien";
-        user3.lastName = @"Chau";
-        [data addObject:user3];
-        
-        OttaUser *user4 = [OttaUser new];
-        user4.firstName = @"Dong";
-        user4.lastName = @"Nguyen";
-        [data addObject:user4];
-        
-        OttaUser *user5 = [OttaUser new];
-        user5.firstName = @"Phuc";
-        user5.lastName = @"Nguyen";
-        [data addObject:user5];
-        
-        OttaMyQuestionData *dto = dataForShow[i];
-        if (dto.dataType == MyQuestionDataTypeAnswer ||dto.dataType == MyQuestionDataTypeAnswerPicture) {
-            [dictVoteData setValue:data forKey:[NSString stringWithFormat:@"%.0ld",i]];
-        }
-    }
-}
-- (void)createDemoData{
-    datas = [[NSMutableArray alloc] initWithCapacity:5];
-    
-    int i,j;
-    for (i = 0; i<3; i++) {
-        OttaQuestion *myQs = [[OttaQuestion alloc] init];
-        myQs.questionID = [NSString stringWithFormat:@"%d",i];
-        myQs.ottaAnswers = [[NSMutableArray alloc] init];
-        for (j=0; j<4; j++) {
-            OttaAnswer *answer = [[OttaAnswer alloc] init];
-            answer.answerImage = [UIImage imageNamed:@"creme_brelee.jpg"];
-            if (j==2) {
-                answer.answerText  = [NSString stringWithFormat:@"this is an answer with very long content, may be it will look like this number - %d",j];
-            }else if(j==3){
-                answer.answerText  = [NSString stringWithFormat:@"this is an answer with very long content, may be it will look like this number, this is an answer with very long content, may be it will look like this number - %d",j];
-            }else{
-                answer.answerText  = [NSString stringWithFormat:@"answer number - %d",j];
-            }
-            
-            answer.answerHasContent = YES;
-            answer.answerHasphoto   = YES;
-            [myQs.ottaAnswers addObject:answer];
-        }
-        myQs.askerID = [NSString stringWithFormat:@"162817629"];
-        myQs.expirationDate = 8;
-        myQs.isSeeAll = NO;
-        if (i==2) {
-            myQs.questionText = @"Is it a short question?";
-        }else{
-            myQs.questionText = @"What food we should to eat tonight, Do you to eat more food without healthy, come to London, right now?";
-        }
-        
-        [datas addObject:myQs];
-    }
-    for (i=0; i<2; i++) {
-        OttaQuestion *myQs = [[OttaQuestion alloc] init];
-        myQs.questionID = [NSString stringWithFormat:@"%d",i];
-        myQs.ottaAnswers = [[NSMutableArray alloc] init];
-        for (j=0; j<4; j++) {
-            OttaAnswer *answer = [[OttaAnswer alloc] init];
-            //answer.answerImage = [UIImage imageNamed:@"creme_brelee.jpg"];
-            if (j==2) {
-                answer.answerText  = [NSString stringWithFormat:@"this is an answer with very long content, may be it will look like this number - %d",j];
-            }else{
-                answer.answerText  = [NSString stringWithFormat:@"answer number - %d",j];
-            }
-            
-            answer.answerHasContent = YES;
-            answer.answerHasphoto   = NO;
-            [myQs.ottaAnswers addObject:answer];
-        }
-        myQs.askerID = [NSString stringWithFormat:@"162817629"];
-        myQs.expirationDate = 5;
-        myQs.isSeeAll = YES;
-        if (i==2) {
-            myQs.questionText = @"Is it a short question?";
-        }else{
-            myQs.questionText = @"What food we should to eat tonight, Do you to eat more food without healthy, come to London, right now?";
-        }
-        
-        [datas addObject:myQs];
-    }
 
-    // For done cell with picture
-    for (i = 0; i<2; i++) {
-        OttaQuestion *myQs = [[OttaQuestion alloc] init];
-        myQs.questionID = [NSString stringWithFormat:@"%d",i];
-        myQs.ottaAnswers = [[NSMutableArray alloc] init];
-        for (j=0; j<4; j++) {
-            OttaAnswer *answer = [[OttaAnswer alloc] init];
-            answer.answerImage = [UIImage imageNamed:@"creme_brelee.jpg"];
-            if (j==2) {
-                answer.answerText  = [NSString stringWithFormat:@"this is an answer with very long content, may be it will look like this number - %d",j];
-            }else if(j==3){
-                answer.answerText  = [NSString stringWithFormat:@"this is an answer with very long content, may be it will look like this number, this is an answer with very long content, may be it will look like this number - %d",j];
-            }else{
-                answer.answerText  = [NSString stringWithFormat:@"answer number - %d",j];
-            }
-            
-            answer.answerHasContent = YES;
-            answer.answerHasphoto   = YES;
-            [myQs.ottaAnswers addObject:answer];
-        }
-        myQs.askerID = [NSString stringWithFormat:@"162817629"];
-        myQs.expirationDate = 0;
-        myQs.isSeeAll = NO;
-        if (i==1) {
-            myQs.questionText = @"Is it a short question?";
-        }else{
-            myQs.questionText = @"What food we should to eat tonight, Do you to eat more food without healthy, come to London, right now?";
-        }
-        
-        [datas addObject:myQs];
-    }
-    // For done cell with Text
-    for (i=0; i<2; i++) {
-        OttaQuestion *myQs = [[OttaQuestion alloc] init];
-        myQs.questionID = [NSString stringWithFormat:@"%d",i];
-        myQs.ottaAnswers = [[NSMutableArray alloc] init];
-        for (j=0; j<4; j++) {
-            OttaAnswer *answer = [[OttaAnswer alloc] init];
-           
-            if (j==2) {
-                answer.answerText  = [NSString stringWithFormat:@"this is an answer with very long content, may be it will look like this number - %d",j];
-            }else{
-                answer.answerText  = [NSString stringWithFormat:@"answer number - %d",j];
-            }
-            
-            answer.answerHasContent = YES;
-            answer.answerHasphoto   = NO;
-            [myQs.ottaAnswers addObject:answer];
-        }
-        myQs.askerID = [NSString stringWithFormat:@"162817629"];
-        myQs.expirationDate = 0;
-        myQs.isSeeAll = NO;
-        if (i==1) {
-            myQs.questionText = @"Is it a short question?";
-        }else{
-            myQs.questionText = @"What food we should to eat tonight, Do you to eat more food without healthy, come to London, right now?";
-        }
-        
-        [datas addObject:myQs];
-    }
-}
- */
 - (void)processDataForShow{
     dataForShow = [[NSMutableArray alloc] initWithCapacity:[datas count]];
     
     for (int i=0;i<datas.count;i++) {
-        OttaQuestion *qs = datas[i];
+        PFObject *qs = datas[i];
         OttaMyQuestionData *obj = [[OttaMyQuestionData alloc] init];
         NSDate * now = [NSDate date];
-        if([now compare:qs.expTime] == NSOrderedDescending) {
-        //if (qs.expirationDate <= 0) {
+        if([now compare:qs[@"expTime"]] == NSOrderedDescending) {
             obj.dataType = MyQuestionDataTypeDone;
-            obj.questionText = qs.questionText;
+            obj.questionText = qs[@"questionText"];
             obj.isShowedOptionDone = NO;
             obj.referIndex = i;
             [dataForShow addObject:obj];
         }else{
             obj.dataType = MyQuestionDataTypeHeader;
-            obj.questionText = qs.questionText;
+            obj.questionText = qs[@"questionText"];
             [dataForShow addObject:obj];
             
             int numberLocation = 1;
-            if (qs.isSeeAll) {
+            if ([viewAllModeCellArray containsObject:qs]) {
                 BOOL flagHasPhoTo = NO;
-                for (OttaAnswer *ans in qs.ottaAnswers) {
+                for (PFObject *ans in qs[@"answers"]) {
                     OttaMyQuestionData *objAnswer1 = [[OttaMyQuestionData alloc] init];
-                    ans.numberAnswer = numberLocation;
-                    if (ans.answerHasphoto) {
+                    objAnswer1.numberAnswer = numberLocation;
+                    if (ans[@"image"]) {
                         objAnswer1.dataType = MyQuestionDataTypeAnswerPicture;
                         flagHasPhoTo = YES;
                     }else{
@@ -276,44 +113,20 @@ static NSString * const OttaMyQuestionVoteCellIdentifier        = @"OttaMyQuesti
                 OttaMyQuestionData *objFooter1 = [[OttaMyQuestionData alloc] init];
                 objFooter1.dataType = flagHasPhoTo ? MyQuestionDataTypeFooterCollapse:MyQuestionDataTypeFooterNormal;
                 //objFooter1.expirationDate = qs.expirationDate;
-                objFooter1.expTime = qs.expTime;
+                objFooter1.expTime = qs[@"expTime"];
                 objFooter1.referIndex = i;
                 objFooter1.currentTableIndex = dataForShow.count;
                 [dataForShow addObject:objFooter1];
                 
             }else{
-                if (qs.ottaAnswers.count > 0) {
+                if ([qs[kAnswers] count] > 0) {
                     OttaMyQuestionData *objFooter2 = [[OttaMyQuestionData alloc] init];
                     objFooter2.dataType = MyQuestionDataTypeFooterSeeAll;
-                    objFooter2.expTime = qs.expTime;
+                    objFooter2.expTime = qs[@"expTime"];
                     objFooter2.referIndex = i;
                     objFooter2.currentTableIndex = dataForShow.count;
                     [dataForShow addObject:objFooter2];
                 }
-                /*
-                 // Show 1 option in answers
-                if (qs.ottaAnswers.count > 0) {
-                    OttaMyQuestionData *objAnswer2 = [[OttaMyQuestionData alloc] init];
-                    ((OttaAnswer*)qs.ottaAnswers[0]).numberAnswer = numberLocation;
-                    //objAnswer2.dataType = MyQuestionDataTypeAnswerPicture;
-                    objAnswer2.answer = qs.ottaAnswers[0];
-                    if (objAnswer2.answer.answerHasphoto) {
-                        objAnswer2.dataType = MyQuestionDataTypeAnswerPicture;
-                    }else{
-                        objAnswer2.dataType = MyQuestionDataTypeAnswer;
-                    }
-                    [dataForShow addObject:objAnswer2];
-                    
-                    OttaMyQuestionData *objFooter2 = [[OttaMyQuestionData alloc] init];
-                    objFooter2.dataType = MyQuestionDataTypeFooterSeeAll;
-                    //objFooter2.expirationDate = qs.expirationDate;
-                    objFooter2.expTime = qs.expTime;
-                    objFooter2.referIndex = i;
-                    objFooter2.currentTableIndex = dataForShow.count;
-                    [dataForShow addObject:objFooter2];
-                }
-                 */
-                
             }
         }
     }
@@ -594,9 +407,9 @@ static NSString * const OttaMyQuestionVoteCellIdentifier        = @"OttaMyQuesti
 - (void)configureTextCell:(OttaMyQuestionTextCell *)cell atIndexPath:(NSIndexPath *)indexPath {
     OttaMyQuestionData *dto = dataForShow[indexPath.row];
     
-    cell.lblOrderNumber.text = [NSString stringWithFormat:@"%d",dto.answer.numberAnswer];
-    
-    NSString *text = dto.answer.answerText;
+    cell.lblOrderNumber.text = [NSString stringWithFormat:@"%d",dto.numberAnswer];
+    int randomNumber = (arc4random() % 10) + 1;
+    NSString *text = [NSString stringWithFormat:@"%@ - %d",dto.answer[@"description"], randomNumber];
     NSRange range = [text rangeOfString:@"-"];
     //range.location += 2;
     range.length = text.length - range.location;
@@ -616,15 +429,16 @@ static NSString * const OttaMyQuestionVoteCellIdentifier        = @"OttaMyQuesti
 - (void)configurePictureCell:(OttaMyQuestionPictureCell *)cell atIndexPath:(NSIndexPath *)indexPath {
     OttaMyQuestionData *dto = dataForShow[indexPath.row];
     
-    cell.lblOrderNumber.text = [NSString stringWithFormat:@"%d",dto.answer.numberAnswer];
+    cell.lblOrderNumber.text = [NSString stringWithFormat:@"%d",dto.numberAnswer];
     cell.imageViewData.image = [UIImage imageNamed:@"thumb.png"];
-    [dto.answer.answerImageFile getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
+    [dto.answer[@"image"] getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
         if (!error) {
             cell.imageViewData.image =  [UIImage imageWithData:data];
         }
     }];
 
-    NSString *text = dto.answer.answerText;
+    int randomNumber = (arc4random() % 10) + 1;
+    NSString *text = [NSString stringWithFormat:@"%@ - %d",dto.answer[@"description"], randomNumber];
     NSRange range = [text rangeOfString:@"-"];
     //range.location += 2;
     range.length = text.length - range.location;
@@ -710,19 +524,26 @@ static NSString * const OttaMyQuestionVoteCellIdentifier        = @"OttaMyQuesti
 }
 #pragma mark - OttaMyQuestionFooterCell Delegate
 - (void)ottaMyQuestionFooterCellDidSelectSeeAllAtIndex:(int)referIndex atCurrentIndex:(NSInteger)currIndex{
-    BOOL isSeeAll = !((OttaQuestion*)datas[referIndex]).isSeeAll;
-    ((OttaQuestion*)datas[referIndex]).isSeeAll = isSeeAll;
-    
+    BOOL isSeeAll = false;
+    if ([viewAllModeCellArray containsObject:datas[referIndex]]){
+        isSeeAll = false;
+        [viewAllModeCellArray removeObject:datas[referIndex]];
+    }
+    else {
+        isSeeAll = true;
+        [viewAllModeCellArray addObject:datas[referIndex]];
+    }
+
     //[self processDataForShow];
     // Process Data
     int numberLocation = 0;
     if (isSeeAll) {
         BOOL flagHasPhoTo = NO;
-        for (OttaAnswer *ans in ((OttaQuestion*)datas[referIndex]).ottaAnswers) {
+        for (PFObject *ans in datas[referIndex][@"answers"]) {
             if(numberLocation >= 0){
                 OttaMyQuestionData *objAnswer1 = [[OttaMyQuestionData alloc] init];
-                ans.numberAnswer = numberLocation+1;
-                if (ans.answerHasphoto) {
+                objAnswer1.numberAnswer = numberLocation+1;
+                if (ans[@"image"]) {
                     objAnswer1.dataType = MyQuestionDataTypeAnswerPicture;
                     flagHasPhoTo = YES;
                 }else{
@@ -746,7 +567,7 @@ static NSString * const OttaMyQuestionVoteCellIdentifier        = @"OttaMyQuesti
     if(isSeeAll){
         
         NSMutableArray *arrInsertIdxPaths = [[NSMutableArray alloc] initWithCapacity:3];
-        for (int i=0; i<((OttaQuestion*)datas[referIndex]).ottaAnswers.count; i++) {
+        for (int i=0; i<[datas[referIndex][@"answers"] count]; i++) {
             NSIndexPath *newIndexPath = [NSIndexPath indexPathForRow:currIndex+i inSection:0];
             [arrInsertIdxPaths addObject:newIndexPath];
         }
@@ -849,16 +670,16 @@ static NSString * const OttaMyQuestionVoteCellIdentifier        = @"OttaMyQuesti
     }else{
         currQuestion.isShowedOptionDone = YES;
         
-        OttaQuestion *qs = [datas objectAtIndex:currQuestion.referIndex];
+        PFObject *qs = [datas objectAtIndex:currQuestion.referIndex];
         int numberLocation = 1;
         
         // animation add cell and data
         NSMutableArray *arrInsertIdxPaths = [[NSMutableArray alloc] init];
-        for (OttaAnswer *answer in qs.ottaAnswers) {
+        for (PFObject *answer in qs[@"answers"]) {
             OttaMyQuestionData *optionData = [[OttaMyQuestionData alloc] init];
             
-            answer.numberAnswer = numberLocation;
-            if (answer.answerHasphoto) {
+            optionData.numberAnswer = numberLocation;
+            if (answer[@"image"]) {
                 optionData.dataType = MyQuestionDataTypeAnswerPicture;
             }else{
                 optionData.dataType = MyQuestionDataTypeAnswer;
@@ -895,32 +716,7 @@ static NSString * const OttaMyQuestionVoteCellIdentifier        = @"OttaMyQuesti
     
     [datas removeAllObjects];
     [[OttaParseClientManager sharedManager] getMyQuestionFromUser:[PFUser currentUser] withBlock:^(NSArray *array, NSError *error) {
-        for (PFObject *object in array) {
-            OttaQuestion *myQs = [[OttaQuestion alloc] init];
-            myQs.questionID = object.objectId;
-            myQs.askerID = [PFUser currentUser].objectId;
-            myQs.expTime = object[@"expTime"];
-            myQs.expirationDate = 8;
-            myQs.isSeeAll = NO;
-            myQs.questionText = object[@"questionText"];
-            
-            myQs.ottaAnswers = [[NSMutableArray alloc] init];
-            for (PFObject *pfAnswer in object[@"answers"]) {
-                OttaAnswer* answer = [[OttaAnswer alloc] init];
-                //answer.answerText = pfAnswer[@"description"];
-                //hardcode vote number 1 - 10
-                int randomNumber = (arc4random() % 10) + 1;
-                answer.answerText =[NSString stringWithFormat:@"%@ - %d",pfAnswer[@"description"], randomNumber];
-                answer.answerHasContent = YES;
-                answer.answerHasphoto   = NO;
-                if (pfAnswer[@"image"] != nil) {
-                    answer.answerHasphoto   = YES;
-                    answer.answerImageFile = pfAnswer[@"image"];
-                }
-                [myQs.ottaAnswers addObject:answer];
-            }
-            [datas addObject:myQs];
-        }
+        datas = [NSMutableArray arrayWithArray:array];
         [self processDataForShow];
         
         //Stop animating for pull down refresh table

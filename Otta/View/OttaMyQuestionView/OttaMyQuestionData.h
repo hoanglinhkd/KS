@@ -32,7 +32,7 @@ enum MyQuestionDataType{
 @property (nonatomic,assign) int expirationDate;
 @property (nonatomic,retain) NSDate *expTime;
 @property (nonatomic,strong) NSString * questionText;
-@property (nonatomic,strong) OttaAnswer * answer;
+@property (nonatomic,strong) PFObject * answer;
 
 @property (nonatomic,assign) int referIndex;
 @property (nonatomic,assign) NSInteger currentTableIndex;
@@ -42,6 +42,7 @@ enum MyQuestionDataType{
 
 @property (nonatomic, assign) BOOL isShowedOptionDone;
 @property (nonatomic, assign) BOOL disableSelecting;
+@property (nonatomic,assign)  int numberAnswer;
 
 
 
