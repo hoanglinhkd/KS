@@ -191,7 +191,7 @@ static NSString * const QuestionFeedCellId = @"QuestionFeedCellId";
                     }
                 }
                 [parentCell.tableView deleteRowsAtIndexPaths:arrIndexPathForRemove withRowAnimation:UITableViewRowAnimationFade];
-                [self performSelector:@selector(processReloadData:) withObject:parentCell afterDelay:0.2f];
+                [self performSelector:@selector(processReloadData:) withObject:parentCell afterDelay:1.0f];
             } completion:^(BOOL finished) {
                 if (finished) {
                     parentCell.viewForSubmit.hidden = NO;
@@ -273,9 +273,10 @@ static NSString * const QuestionFeedCellId = @"QuestionFeedCellId";
 
 #pragma mark - Selectors
 - (void)processReloadData:(OttaQuestionFeedCell*)cell{
-    
-    [UIView animateWithDuration:1.0 animations:^{
+    [UIView animateWithDuration:0.0 animations:^{
         [self.tableView reloadData];
+        //[self.tableView beginUpdates];
+        //[self.tableView endUpdates];
     } completion:^(BOOL finished) {
         if (finished) {
             [cell startPerformSelectorForDelete];
