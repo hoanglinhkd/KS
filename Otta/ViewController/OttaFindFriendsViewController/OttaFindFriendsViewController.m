@@ -237,13 +237,15 @@
         NSArray *listPhoneCompare = [phoneNumbers values];
         
         for (NSString *curPhone in listPhoneCompare) {
-            if([phoneNumber isEqualToString:curPhone]) {
+            NSArray* words = [curPhone componentsSeparatedByCharactersInSet :[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+            NSString* nospacestring = [words componentsJoinedByString:@""];
+            if([phoneNumber isEqualToString:nospacestring]) {
                 return YES;
             }
         }
     }
     
-    NSString *email = [curUser objectForKey:@"email"];
+    NSString *email = [curUser objectForKey:kEmail];
     if(email.length > 0) {
         //List Email to compare
         RHMultiValue *emails = contact.emails;
@@ -281,9 +283,10 @@
             NSArray *listPhoneCompare = [phoneNumbers values];
             
             for (NSString *curPhone in listPhoneCompare) {
-                [listPhone addObject:curPhone];
+                NSArray* words = [curPhone componentsSeparatedByCharactersInSet :[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+                NSString* nospacestring = [words componentsJoinedByString:@""];
+                [listPhone addObject:nospacestring];
             }
-            
             //List Email to compare
             RHMultiValue *emails = curPersion.emails;
             NSArray *listEmails = [emails values];
@@ -294,11 +297,11 @@
         }
 
         
-        PFQuery * phoneQuery = [PFQuery queryWithClassName:@"User"];
-        [phoneQuery whereKey:@"phone" containedIn:listPhone];
+        PFQuery * phoneQuery = [PFUser query];
+        [phoneQuery whereKey:kPhone containedIn:listPhone];
         
-        PFQuery * emailQuery = [PFQuery queryWithClassName:@"User"];
-        [emailQuery whereKey:@"email" containedIn:listEmail];
+        PFQuery * emailQuery = [PFUser query];
+        [emailQuery whereKey:kEmail containedIn:listEmail];
         
         PFQuery *query = [PFQuery orQueryWithSubqueries:@[phoneQuery, emailQuery]];
         [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
