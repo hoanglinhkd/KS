@@ -91,7 +91,7 @@ static NSString * const ViewAllCellId = @"OttaViewAllCell";
     [sizingCell layoutIfNeeded];
     
     CGSize size = [sizingCell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize];
-    NSLog(@"Basic height %f",size.height);
+    //NSLog(@"Basic height %f",size.height);
     return size.height;
 }
 
@@ -281,21 +281,25 @@ static NSString * const ViewAllCellId = @"OttaViewAllCell";
     }
     
     selectedIndexPath = indexPath;
-    if ([self hasImageAtIndexPath:indexPath]) {
-        OttaBasicQuestionCell *cell = (OttaBasicQuestionCell*)[tableView cellForRowAtIndexPath:indexPath];
-        cell.orderLbl.backgroundColor = [UIColor orangeColor];
-    } else {
-        OttaBasicQuestionCell *cell = (OttaBasicQuestionCell*)[tableView cellForRowAtIndexPath:indexPath];
-        cell.orderLbl.backgroundColor = [UIColor orangeColor];
-    }
-    viewForSubmit.hidden = NO;
+    OttaBasicQuestionCell *cell = (OttaBasicQuestionCell*)[tableView cellForRowAtIndexPath:indexPath];
+    cell.orderLbl.backgroundColor = [UIColor orangeColor];
     
-    if (self.delegate && ([(NSObject*)self.delegate respondsToSelector:@selector(questionFeedCell:DidSelectedRowAtIndexPath:)])) {
+    viewForSubmit.hidden = NO;
+    // update show submit button
+    [UIView animateWithDuration:0.0 animations:^{
+        if (self.delegate && ([(NSObject*)self.delegate respondsToSelector:@selector(questionFeedCell:DidSelectedRowAtIndexPath:)])) {
+            UITableView *tbView = (UITableView*)self.superview.superview;
+            NSIndexPath *referIdxPath = [tbView indexPathForCell:self];
+            [self.delegate questionFeedCell:self DidSelectedRowAtIndexPath:referIdxPath];
+        }
         
-        UITableView *tbView = (UITableView*)self.superview.superview;
-        NSIndexPath *referIdxPath = [tbView indexPathForCell:self];
-        [self.delegate questionFeedCell:self DidSelectedRowAtIndexPath:referIdxPath];
-    }
+    } completion:^(BOOL finished) {
+        if (finished) {
+            [self.tableView beginUpdates];
+            [self.tableView endUpdates];
+        }
+    }];
+    
 }
 
 
