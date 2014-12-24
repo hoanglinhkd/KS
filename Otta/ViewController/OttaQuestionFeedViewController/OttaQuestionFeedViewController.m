@@ -252,25 +252,31 @@ static NSString * const QuestionFeedCellId = @"QuestionFeedCellId";
     dispatch_once(&onceToken, ^{
         sizingCell = [self.tableView dequeueReusableCellWithIdentifier:QuestionFeedCellId];
     });
-
-    [self configureBasicCell:sizingCell atIndexPath:indexPath];
-    return [self calculateHeightForConfiguredSizingCell:sizingCell];
+    
+    if (sizingCell == previousSelectionCell) {
+        [self configureBasicCell:previousSelectionCell atIndexPath:indexPath];
+        return [self calculateHeightForConfiguredSizingCell:previousSelectionCell];
+    }else{
+        [self configureBasicCell:sizingCell atIndexPath:indexPath];
+        return [self calculateHeightForConfiguredSizingCell:sizingCell];
+    }
 }
 
 - (CGFloat)calculateHeightForConfiguredSizingCell:(OttaQuestionFeedCell *)sizingCell {
     [sizingCell setNeedsLayout];
     [sizingCell layoutIfNeeded];
 
-    
     CGSize questionSize = [sizingCell.questionLbl systemLayoutSizeFittingSize:UILayoutFittingCompressedSize];
+    CGSize tableSize = sizingCell.tableView.contentSize;
     CGSize size = [sizingCell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize];
+    NSLog(@"%f - %f  - %f",sizingCell.questionLbl.bounds.size.height, size.height, tableSize.height);
     
-    if (sizingCell.selectedIndexPath) {
-        return size.height + sizingCell.tableView.contentSize.height + questionSize.height;
+    
+    if (sizingCell.isViewAllMode) {
+        return size.height + tableSize.height;
     }else{
-        return size.height + sizingCell.tableView.contentSize.height + questionSize.height - 20.0;
+        return size.height + 30;
     }
-    
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
