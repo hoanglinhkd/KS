@@ -39,7 +39,6 @@ static NSString * const OttaMyQuestionVoteCellIdentifier        = @"OttaMyQuesti
     NSMutableArray *datas;
     NSMutableArray *viewAllModeCellArray;
     NSMutableArray *dataForShow;
-    NSMutableDictionary *dictVoteData;
     UIRefreshControl *refreshControl;
 }
 
@@ -408,8 +407,8 @@ static NSString * const OttaMyQuestionVoteCellIdentifier        = @"OttaMyQuesti
     OttaMyQuestionData *dto = dataForShow[indexPath.row];
     
     cell.lblOrderNumber.text = [NSString stringWithFormat:@"%d",dto.numberAnswer];
-    int randomNumber = (arc4random() % 10) + 1;
-    NSString *text = [NSString stringWithFormat:@"%@ - %d",dto.answer[@"description"], randomNumber];
+    //int randomNumber = (arc4random() % 10) + 1;
+    NSString *text = [NSString stringWithFormat:@"%@ - %d",dto.answer[@"description"], [dto.voteUsers count]];
     NSRange range = [text rangeOfString:@"-"];
     //range.location += 2;
     range.length = text.length - range.location;
@@ -437,8 +436,8 @@ static NSString * const OttaMyQuestionVoteCellIdentifier        = @"OttaMyQuesti
         }
     }];
 
-    int randomNumber = (arc4random() % 10) + 1;
-    NSString *text = [NSString stringWithFormat:@"%@ - %d",dto.answer[@"description"], randomNumber];
+    //int randomNumber = (arc4random() % 10) + 1;
+    NSString *text = [NSString stringWithFormat:@"%@ - %d",dto.answer[@"description"], [dto.voteUsers count]];
     NSRange range = [text rangeOfString:@"-"];
     //range.location += 2;
     range.length = text.length - range.location;
@@ -543,6 +542,15 @@ static NSString * const OttaMyQuestionVoteCellIdentifier        = @"OttaMyQuesti
             if(numberLocation >= 0){
                 OttaMyQuestionData *objAnswer1 = [[OttaMyQuestionData alloc] init];
                 objAnswer1.numberAnswer = numberLocation+1;
+                
+                NSArray *listVotes = datas[referIndex][ans.objectId];
+                if(listVotes.count > 0) {
+                    NSMutableArray *responders = [NSMutableArray array];
+                    for (PFObject *curVote in listVotes) {
+                        [responders addObject:[curVote objectForKey:kResponder]];
+                    }
+                    objAnswer1.voteUsers = responders;
+                }
                 if (ans[@"image"]) {
                     objAnswer1.dataType = MyQuestionDataTypeAnswerPicture;
                     flagHasPhoTo = YES;
@@ -622,8 +630,7 @@ static NSString * const OttaMyQuestionVoteCellIdentifier        = @"OttaMyQuesti
         
         //get Data for vote at index
         OttaMyQuestionData *obj = [[OttaMyQuestionData alloc] init];
-        NSArray *voteData = [dictVoteData valueForKey:@"1"];
-        obj.voteUsers = [[NSArray alloc] initWithArray:voteData];
+        obj.voteUsers = currQuestion.voteUsers;
         obj.dataType = MyQuestionDataTypeVote;
         
         // add new data for vote cell
