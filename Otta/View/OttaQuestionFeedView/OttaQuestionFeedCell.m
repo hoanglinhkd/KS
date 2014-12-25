@@ -23,8 +23,6 @@ static NSString * const ViewAllCellId = @"OttaViewAllCell";
 
 @interface OttaQuestionFeedCell(){
     BOOL isForcedDelete;
-    
-    
 }
 
 @end
@@ -44,6 +42,11 @@ static NSString * const ViewAllCellId = @"OttaViewAllCell";
 
 - (void)setAnswers:(NSMutableArray *)answers {
     _answers = answers;
+    
+    isForcedDelete = NO;
+    if(submittedIndexPath){
+        _answers = [NSMutableArray arrayWithObject:answers[submittedIndexPath.row]];
+    }
     [self.tableView reloadData];
 }
 
@@ -392,6 +395,10 @@ static NSString * const ViewAllCellId = @"OttaViewAllCell";
     UITableView *tbView = (UITableView*)self.superview.superview;
     NSIndexPath *referIdxPath = [tbView indexPathForCell:self];
     if (self.delegate && [((NSObject*)self.delegate) respondsToSelector:@selector(questionFeedCell:needToForceRemoveAtReferIndex:)]) {
+        
+        submittedIndexPath = nil;
+        selectedIndexPath = nil;
+        _isViewAllMode = NO;
         [self.delegate questionFeedCell:self needToForceRemoveAtReferIndex:referIdxPath];
     }
 }

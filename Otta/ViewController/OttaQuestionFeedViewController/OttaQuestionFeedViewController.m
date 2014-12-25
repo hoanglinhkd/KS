@@ -188,8 +188,14 @@ static NSString * const QuestionFeedCellId = @"QuestionFeedCellId";
                         [parentCell.answers removeObjectAtIndex:i];
                     }
                 }
-                [parentCell.tableView deleteRowsAtIndexPaths:arrIndexPathForRemove withRowAnimation:UITableViewRowAnimationFade];
-                [self performSelector:@selector(processReloadData:) withObject:parentCell afterDelay:1.0f];
+                [UIView animateWithDuration:0.0 animations:^{
+                    [parentCell.tableView deleteRowsAtIndexPaths:arrIndexPathForRemove withRowAnimation:UITableViewRowAnimationFade];
+                } completion:^(BOOL finished) {
+                    if (finished) {
+                        [self performSelector:@selector(processReloadData:) withObject:parentCell afterDelay:0.2f];
+                    }
+                }];
+                
             } completion:^(BOOL finished) {
                 if (finished) {
                     parentCell.viewForSubmit.hidden = NO;
@@ -216,8 +222,10 @@ static NSString * const QuestionFeedCellId = @"QuestionFeedCellId";
     }
     previousSelectionCell = cell;
     
+    /*
     [self.tableView beginUpdates];
     [self.tableView endUpdates];
+     */
 }
 
 - (IBAction)menuButtonPressed:(id)sender {
@@ -272,9 +280,8 @@ static NSString * const QuestionFeedCellId = @"QuestionFeedCellId";
 #pragma mark - Selectors
 - (void)processReloadData:(OttaQuestionFeedCell*)cell{
     [UIView animateWithDuration:0.0 animations:^{
-        [self.tableView reloadData];
-        //[self.tableView beginUpdates];
-        //[self.tableView endUpdates];
+        [self.tableView beginUpdates];
+        [self.tableView endUpdates];
     } completion:^(BOOL finished) {
         if (finished) {
             [cell startPerformSelectorForDelete];
