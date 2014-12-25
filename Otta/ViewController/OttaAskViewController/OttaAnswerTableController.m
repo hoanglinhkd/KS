@@ -34,11 +34,9 @@
                 cell = (OttaQuestionTableViewCell *)currentObject;
                 break;
             }
-        
-        
-        
         }
     }
+    
     OttaAnswer * ottaAnswer = [ottaAnswers objectAtIndex:indexPath.row];
     UIImage * ottaNumberBackground = [UIImage imageNamed:@"OttaNumberBackground.png"];
     UIImageView * ottaNumberBackgroundImageView = [[UIImageView alloc]initWithImage:ottaNumberBackground];

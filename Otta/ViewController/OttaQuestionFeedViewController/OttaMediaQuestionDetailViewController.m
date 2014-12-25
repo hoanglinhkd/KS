@@ -10,7 +10,7 @@
 #import "OttaAnswer.h"
 #import "UIImageView+AFNetworking.h"
 #import "OttaParseClientManager.h"
-#import "Utility.h"
+
 @interface OttaMediaQuestionDetailViewController ()
 
 @end
@@ -35,7 +35,7 @@
     PFUser *asker = _question[kAsker];
     self.ownerNameLbl.text = [NSString stringWithFormat:@"%@ %@",asker.firstName, asker.lastName];
     self.questionbl.text = _question[kQuestionText];
-    self.expirationDateLbl.text = [Utility timeAgo:_question[kExpTime]];
+    self.expirationDateLbl.text = [OttaUlti timeAgo:_question[kExpTime]];
     NSArray *arrAnswers = [NSArray arrayWithArray:_question[kAnswers]];
     self.optionLbl.text = ((PFObject*)[arrAnswers objectAtIndex:0])[kDescription];
     PFObject *answer;

@@ -82,17 +82,19 @@
 
 - (void)hideAlertAction:(UIView*) currentView {
     CAKeyframeAnimation *hideAnimation = [CAKeyframeAnimation animationWithKeyPath:@"transform"];
-    hideAnimation.duration = 0.4;
-    hideAnimation.values = @[[NSValue valueWithCATransform3D:CATransform3DMakeScale(1.1f, 1.1f, 1.0f)],
-                             [NSValue valueWithCATransform3D:CATransform3DMakeScale(1.0f, 1.0f, 1.0f)],
-                             [NSValue valueWithCATransform3D:CATransform3DMakeScale(0.00f, 0.00f, 0.00f)]];
-    hideAnimation.keyTimes = @[@0.2f, @0.5f, @0.75f];
-    hideAnimation.timingFunctions = @[[CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut],
-                                      [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut],
-                                      [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut]];
-    hideAnimation.delegate = self;
-    [currentView.layer addAnimation:hideAnimation forKey:nil];
+    hideAnimation.duration = 0.0;
+//    hideAnimation.values = @[[NSValue valueWithCATransform3D:CATransform3DMakeScale(1.1f, 1.1f, 1.0f)],
+//                             [NSValue valueWithCATransform3D:CATransform3DMakeScale(1.0f, 1.0f, 1.0f)],
+//                             [NSValue valueWithCATransform3D:CATransform3DMakeScale(0.00f, 0.00f, 0.00f)]];
+//    hideAnimation.keyTimes = @[@0.2f, @0.5f, @1.0f];
+//    hideAnimation.timingFunctions = @[[CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut],
+//                                      [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut],
+//                                      [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut]];
     
+    
+    hideAnimation.delegate = self;
+    //[currentView.layer addAnimation:hideAnimation forKey:nil];
+    [self animationDidStop:nil finished:YES];
 }
 
 - (void)animationDidStop:(CAAnimation *)anim finished:(BOOL)flag {

@@ -11,5 +11,5 @@
 @interface OttaUlti : NSObject
 
 + (UIImage*)resizeImage:(UIImage*)image;
-
++ (NSString *) timeAgo:(NSDate *)origDate;
 @end

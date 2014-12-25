@@ -24,8 +24,6 @@
 
 #import "OttaParseClientManager.h"
 
-#import "Utility.h"
-
 static NSString * const OttaMyQuestionHeaderCellIdentifier      = @"OttaMyQuestionHeaderCell";
 static NSString * const OttaMyQuestionTextCellIdentifier        = @"OttaMyQuestionTextCell";
 static NSString * const OttaMyQuestionFooterCellIdentifier      = @"OttaMyQuestionFooterCell";
@@ -473,7 +471,7 @@ static NSString * const OttaMyQuestionVoteCellIdentifier        = @"OttaMyQuesti
     NSString *title = dto.dataType == MyQuestionDataTypeFooterSeeAll ? kSeeAll : kCollapse;
     [cell.btnSeeAll setTitle:title forState:UIControlStateNormal];
     
-    cell.lblTime.text = [Utility timeAgo:dto.expTime];
+    cell.lblTime.text = [OttaUlti timeAgo:dto.expTime];
     //cell.lblTime.text = [NSString stringWithFormat:@"%d min",dto.expirationDate];
     cell.referIndex = dto.referIndex;
     cell.currIndex  = dto.currentTableIndex;

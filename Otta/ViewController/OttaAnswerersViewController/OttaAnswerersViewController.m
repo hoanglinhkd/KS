@@ -168,19 +168,18 @@
     
     
     [[OttaParseClientManager sharedManager] addQuestion:question withBlock:^(BOOL isSucceeded, NSError *error) {
+        
+        [[OttaLoadingManager sharedManager] hide];
+        
         if(isSucceeded) {
+            
             [[OttaAlertManager sharedManager] showSimpleAlertOnView:self.view withContent:[@"Sent" toCurrentLanguage] complete:^{
-                
                 if ([_delegate respondsToSelector:@selector(askSuccessed)]) {
                     [_delegate askSuccessed];
                 }
-                
-                [[OttaLoadingManager sharedManager] hide];
                 [self dismissViewControllerAnimated:YES completion:nil];
             }];
         } else {
-            
-            [[OttaLoadingManager sharedManager] hide];
             [[OttaAlertManager sharedManager] showSimpleAlertOnView:self.view withContent:[@"Ask failed" toCurrentLanguage] complete:nil];
         }
         

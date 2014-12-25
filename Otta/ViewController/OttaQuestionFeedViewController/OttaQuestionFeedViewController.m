@@ -13,8 +13,6 @@
 #import "SideMenuViewController.h"
 #import "OttaParseClientManager.h"
 
-#import "Utility.h"
-
 static NSString * const QuestionFeedCellId = @"QuestionFeedCellId";
 
 @interface OttaQuestionFeedViewController () {
@@ -121,7 +119,7 @@ static NSString * const QuestionFeedCellId = @"QuestionFeedCellId";
     NSString *title = item[kQuestionText]?: NSLocalizedString(@"[No Title]", nil);
     [cell.questionLbl setText:title];
     [cell.ownerNameLbl setText:[NSString stringWithFormat:@"%@ %@",asker.firstName, asker.lastName]];
-    [cell.timeLbl setText:[Utility timeAgo:item[kExpTime]]];
+    [cell.timeLbl setText:[OttaUlti timeAgo:item[kExpTime]]];
     cell.answers = [NSMutableArray arrayWithArray:item[kAnswers]];
 }
 
