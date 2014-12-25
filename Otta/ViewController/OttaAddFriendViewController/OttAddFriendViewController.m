@@ -12,7 +12,7 @@
 #import "OttaParseClientManager.h"
 #import "OttaAlertManager.h"
 #import "OttaAppDelegate.h"
-#import "MBProgressHUD.h"
+
 
 @interface OttAddFriendViewController()
 
@@ -98,13 +98,13 @@
 -(IBAction)btnFacebookFriendPressed:(id)sender
 {
     
-    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    [[OttaLoadingManager sharedManager] show];
     NSArray *permissionsArray = FacebookPermissions;
     
     if ([FBSession activeSession].state == FBSessionStateCreatedTokenLoaded) {
         [[FBSession activeSession] openWithBehavior:FBSessionLoginBehaviorWithFallbackToWebView completionHandler:^(FBSession *session, FBSessionState status, NSError *error)
         {
-            [MBProgressHUD hideHUDForView:self.view animated:YES];
+            [[OttaLoadingManager sharedManager] hide];
             if(!error) {
                 [self performSegueWithIdentifier:@"connectFriendSegue" sender:@"FacebookFriends"];
             } else {
@@ -121,7 +121,7 @@
         [FBSession setActiveSession:fbSession];
         [fbSession openWithBehavior:FBSessionLoginBehaviorWithFallbackToWebView completionHandler:^(FBSession *session, FBSessionState status, NSError *error)
         {
-            [MBProgressHUD hideHUDForView:self.view animated:YES];
+            [[OttaLoadingManager sharedManager] hide];
             if(!error) {
                 [self performSegueWithIdentifier:@"connectFriendSegue" sender:@"FacebookFriends"];
             } else {
@@ -298,9 +298,9 @@ replacementString:(NSString *)string {
         }
         
         [[OttaAlertManager sharedManager] showYesNoAlertOnView:appDelegate.window withContent:[NSString stringWithFormat:[@"Do you want to follow %@?" toCurrentLanguage], friend.name] complete:^{
-            [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+            [[OttaLoadingManager sharedManager] show];
             [[OttaParseClientManager sharedManager] followUser:[PFUser currentUser] toUser:friend.pfUser withBlock:^(BOOL isSucceeded, NSError *error) {
-                [MBProgressHUD hideHUDForView:self.view animated:YES];
+                [[OttaLoadingManager sharedManager] hide];
                 if(isSucceeded) {
                     friend.isSelected = YES;
                     [_listFollowedFriends addObject:friend.pfUser.objectId];

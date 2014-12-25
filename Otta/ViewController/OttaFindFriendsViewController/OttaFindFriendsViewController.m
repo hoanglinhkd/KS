@@ -10,7 +10,7 @@
 #import <RHAddressBook/AddressBook.h>
 #import <Parse/Parse.h>
 #import "FBRequestConnection.h"
-#import "MBProgressHUD.h"
+
 #import "OttaAlertManager.h"
 #import "OttaAppDelegate.h"
 #import "OttaParseClientManager.h"
@@ -90,7 +90,7 @@
     
     if(_isInviteMode) {
         
-        [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+        [[OttaLoadingManager sharedManager] show];
         [FBRequestConnection startWithGraphPath:@"/me/taggable_friends"  //@"/me/invitable_friends"
                                      parameters:nil
                                      HTTPMethod:@"GET"
@@ -109,11 +109,11 @@
                  [_tableFriends reloadData];
              }
              
-             [MBProgressHUD hideHUDForView:self.view animated:YES];
+             [[OttaLoadingManager sharedManager] hide];
          }];
         
     } else {
-        [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+        [[OttaLoadingManager sharedManager] show];
         [FBRequestConnection startForMyFriendsWithCompletionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
             
             if (!error) {
@@ -145,10 +145,10 @@
                     }];
                     
                     [_tableFriends reloadData];
-                    [MBProgressHUD hideHUDForView:self.view animated:YES];
+                    [[OttaLoadingManager sharedManager] hide];
                 }];
             } else {
-                [MBProgressHUD hideHUDForView:self.view animated:YES];
+                [[OttaLoadingManager sharedManager] hide];
             }
         }];
     }
@@ -174,7 +174,7 @@
 }
 
 - (void)loadContact {
-    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    [[OttaLoadingManager sharedManager] show];
     
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
         
@@ -341,7 +341,7 @@
             
             dispatch_async(dispatch_get_main_queue(), ^{
                 [_tableFriends reloadData];
-                [MBProgressHUD hideHUDForView:self.view animated:YES];
+                [[OttaLoadingManager sharedManager] hide];
             });
             
         }];
@@ -408,7 +408,7 @@
             
             dispatch_async(dispatch_get_main_queue(), ^{
                 [_tableFriends reloadData];
-                [MBProgressHUD hideHUDForView:self.view animated:YES];
+                [[OttaLoadingManager sharedManager] hide];
             });
         }];
     }
@@ -552,9 +552,9 @@ replacementString:(NSString *)string {
                     
                     OttaAppDelegate *appDelegate = (OttaAppDelegate*)[UIApplication sharedApplication].delegate;
                     [[OttaAlertManager sharedManager] showYesNoAlertOnView:appDelegate.window withContent:[NSString stringWithFormat:[@"Do you want to follow %@?" toCurrentLanguage], curFriend.name] complete:^{
-                        [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+                        [[OttaLoadingManager sharedManager] show];
                         [[OttaParseClientManager sharedManager] followUser:[PFUser currentUser] toUser:curFriend withBlock:^(BOOL isSucceeded, NSError *error) {
-                            [MBProgressHUD hideHUDForView:self.view animated:YES];
+                            [[OttaLoadingManager sharedManager] hide];
                             
                             if(isSucceeded) {
                                 [curFriend setIsSelected:YES];
@@ -598,10 +598,10 @@ replacementString:(NSString *)string {
                     OttaAppDelegate *appDelegate = (OttaAppDelegate*)[UIApplication sharedApplication].delegate;
                     [[OttaAlertManager sharedManager] showYesNoAlertOnView:appDelegate.window withContent:[NSString stringWithFormat:[@"Do you want to follow %@?" toCurrentLanguage], curFriend.name] complete:^{
                         
-                        [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+                        [[OttaLoadingManager sharedManager] show];
                         
                         [[OttaParseClientManager sharedManager] followUser:[PFUser currentUser] toUser:curFriend withBlock:^(BOOL isSucceeded, NSError *error) {
-                            [MBProgressHUD hideHUDForView:self.view animated:YES];
+                            [[OttaLoadingManager sharedManager] hide];
                             
                             if(isSucceeded) {
                                 [curFriend setIsSelected:YES];
@@ -646,7 +646,7 @@ replacementString:(NSString *)string {
 
 -(IBAction)nextButtonPressed:(id)sender
 {
-    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    [[OttaLoadingManager sharedManager] show];
     if(!_isFromContact && _isInviteMode) {
         
         NSMutableString *listUserId = [[NSMutableString alloc] initWithString:@""];
@@ -664,12 +664,12 @@ replacementString:(NSString *)string {
             [self postToUserFeed:listUserId];
         
         } else {
-            [MBProgressHUD hideHUDForView:self.view animated:YES];
+            [[OttaLoadingManager sharedManager] hide];
             [self dismissViewControllerAnimated:YES completion:nil];
         }
         
     } else {
-        [MBProgressHUD hideHUDForView:self.view animated:YES];
+        [[OttaLoadingManager sharedManager] hide];
         [self dismissViewControllerAnimated:YES completion:nil];
     }
 }
@@ -722,7 +722,7 @@ replacementString:(NSString *)string {
                                  HTTPMethod:@"POST"
                           completionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
                               
-                              [MBProgressHUD hideHUDForView:self.view animated:YES];
+                              [[OttaLoadingManager sharedManager] hide];
                               if(error) {
                                   [[OttaAlertManager sharedManager] showSimpleAlertWithContent:[@"Cannot invite friends" toCurrentLanguage] complete:nil];
                               } else {

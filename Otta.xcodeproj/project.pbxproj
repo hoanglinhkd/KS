@@ -184,8 +184,6 @@
 		CECC3F4F1A2B628200B3F7B6 /* OttaMyQuestionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CECC3F4E1A2B628200B3F7B6 /* OttaMyQuestionViewController.m */; };
 		CEFC0C4F1A49D34000835844 /* OttaViewAllCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CEFC0C4E1A49D34000835844 /* OttaViewAllCell.m */; };
 		D9286F431A12190500C28770 /* OttaParseClientManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D9286F421A12190500C28770 /* OttaParseClientManager.m */; };
-		D97FA8711A485AB9001925A7 /* UIScrollView+SVInfiniteScrolling.m in Sources */ = {isa = PBXBuildFile; fileRef = D97FA86E1A485AB9001925A7 /* UIScrollView+SVInfiniteScrolling.m */; };
-		D97FA8721A485AB9001925A7 /* UIScrollView+SVPullToRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = D97FA8701A485AB9001925A7 /* UIScrollView+SVPullToRefresh.m */; };
 		D97FA8741A485BC4001925A7 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D97FA8731A485BC4001925A7 /* QuartzCore.framework */; };
 		D98CBCE31A3764E400A6CCED /* PFUser+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = D98CBCE21A3764E400A6CCED /* PFUser+Extension.m */; };
 		D98E30B21A1777950080B934 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D98E30B41A1777950080B934 /* Localizable.strings */; };
@@ -195,6 +193,7 @@
 		D98E30CA1A1797CD0080B934 /* AFPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = D98E30C71A1797CD0080B934 /* AFPickerView.m */; };
 		D98E30CB1A1797CD0080B934 /* pickerGlass.png in Resources */ = {isa = PBXBuildFile; fileRef = D98E30C81A1797CD0080B934 /* pickerGlass.png */; };
 		D98E30CC1A1797CD0080B934 /* pickerGlass@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D98E30C91A1797CD0080B934 /* pickerGlass@2x.png */; };
+		D98E5D4F1A4C24FB0060F89B /* OttaLoadingManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D98E5D4E1A4C24FB0060F89B /* OttaLoadingManager.m */; };
 		D99F7C3E1A1BA4BB0030D239 /* OttaAddCaptionImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D99F7C3D1A1BA4BB0030D239 /* OttaAddCaptionImageViewController.m */; };
 		D9C30AE61A432FC40087A96D /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = D9C30AE51A432FC40087A96D /* Reachability.m */; };
 		D9C30AE91A432FE50087A96D /* OttaNetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D9C30AE81A432FE50087A96D /* OttaNetworkManager.m */; };
@@ -460,11 +459,6 @@
 		D45B044B7810A706377E3F1A /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		D9286F411A12190500C28770 /* OttaParseClientManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OttaParseClientManager.h; sourceTree = "<group>"; };
 		D9286F421A12190500C28770 /* OttaParseClientManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OttaParseClientManager.m; sourceTree = "<group>"; };
-		D97FA86C1A485AB9001925A7 /* SVPullToRefresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVPullToRefresh.h; sourceTree = "<group>"; };
-		D97FA86D1A485AB9001925A7 /* UIScrollView+SVInfiniteScrolling.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+SVInfiniteScrolling.h"; sourceTree = "<group>"; };
-		D97FA86E1A485AB9001925A7 /* UIScrollView+SVInfiniteScrolling.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+SVInfiniteScrolling.m"; sourceTree = "<group>"; };
-		D97FA86F1A485AB9001925A7 /* UIScrollView+SVPullToRefresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+SVPullToRefresh.h"; sourceTree = "<group>"; };
-		D97FA8701A485AB9001925A7 /* UIScrollView+SVPullToRefresh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+SVPullToRefresh.m"; sourceTree = "<group>"; };
 		D97FA8731A485BC4001925A7 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		D98CBCE11A3764E400A6CCED /* PFUser+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "PFUser+Extension.h"; sourceTree = "<group>"; };
 		D98CBCE21A3764E400A6CCED /* PFUser+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "PFUser+Extension.m"; sourceTree = "<group>"; };
@@ -480,6 +474,8 @@
 		D98E30C71A1797CD0080B934 /* AFPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFPickerView.m; sourceTree = "<group>"; };
 		D98E30C81A1797CD0080B934 /* pickerGlass.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pickerGlass.png; sourceTree = "<group>"; };
 		D98E30C91A1797CD0080B934 /* pickerGlass@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pickerGlass@2x.png"; sourceTree = "<group>"; };
+		D98E5D4D1A4C24FB0060F89B /* OttaLoadingManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OttaLoadingManager.h; sourceTree = "<group>"; };
+		D98E5D4E1A4C24FB0060F89B /* OttaLoadingManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OttaLoadingManager.m; sourceTree = "<group>"; };
 		D99F7C3C1A1BA4BB0030D239 /* OttaAddCaptionImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OttaAddCaptionImageViewController.h; sourceTree = "<group>"; };
 		D99F7C3D1A1BA4BB0030D239 /* OttaAddCaptionImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OttaAddCaptionImageViewController.m; sourceTree = "<group>"; };
 		D9C30AE41A432FC40087A96D /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
@@ -874,7 +870,6 @@
 				D98CBCE21A3764E400A6CCED /* PFUser+Extension.m */,
 				38CB1C7B1A35F87E00CB0F53 /* NSDate-Utilities.h */,
 				38CB1C7C1A35F87E00CB0F53 /* NSDate-Utilities.m */,
-				D97FA86B1A485AB9001925A7 /* SVPullToRefresh */,
 				D9C30AE31A432FC40087A96D /* Reachability */,
 				668BFDD11A26C5A8003CC194 /* SZTextField */,
 				663665E71A1EEE00007F0EFC /* Transitions */,
@@ -1078,20 +1073,10 @@
 				D9C30AE81A432FE50087A96D /* OttaNetworkManager.m */,
 				D9286F411A12190500C28770 /* OttaParseClientManager.h */,
 				D9286F421A12190500C28770 /* OttaParseClientManager.m */,
+				D98E5D4D1A4C24FB0060F89B /* OttaLoadingManager.h */,
+				D98E5D4E1A4C24FB0060F89B /* OttaLoadingManager.m */,
 			);
 			path = Manager;
-			sourceTree = "<group>";
-		};
-		D97FA86B1A485AB9001925A7 /* SVPullToRefresh */ = {
-			isa = PBXGroup;
-			children = (
-				D97FA86C1A485AB9001925A7 /* SVPullToRefresh.h */,
-				D97FA86D1A485AB9001925A7 /* UIScrollView+SVInfiniteScrolling.h */,
-				D97FA86E1A485AB9001925A7 /* UIScrollView+SVInfiniteScrolling.m */,
-				D97FA86F1A485AB9001925A7 /* UIScrollView+SVPullToRefresh.h */,
-				D97FA8701A485AB9001925A7 /* UIScrollView+SVPullToRefresh.m */,
-			);
-			path = SVPullToRefresh;
 			sourceTree = "<group>";
 		};
 		D98E30AF1A1777670080B934 /* Language */ = {
@@ -1532,9 +1517,9 @@
 				66502BE71A14653300A9472D /* OttaOptionCell.m in Sources */,
 				C2043AC41A395423008EDF48 /* OttaUser.m in Sources */,
 				D9CD79981A22EA8C007C6E15 /* OttaLoginSegue.m in Sources */,
-				D97FA8721A485AB9001925A7 /* UIScrollView+SVPullToRefresh.m in Sources */,
 				D98E30CA1A1797CD0080B934 /* AFPickerView.m in Sources */,
 				663665F01A1EEE00007F0EFC /* MEZoomAnimationController.m in Sources */,
+				D98E5D4F1A4C24FB0060F89B /* OttaLoadingManager.m in Sources */,
 				7E2DA36A1A2458420064A523 /* OttaAnswerersViewController.m in Sources */,
 				D9CD79961A22EA8C007C6E15 /* OttaLoginContainerViewController.m in Sources */,
 				66FD4B3A1A11A8F0005ACD58 /* OttaQuestionTableViewCell.m in Sources */,
@@ -1544,7 +1529,6 @@
 				D9F04A111A1B60430049AD41 /* HPGrowingTextView.m in Sources */,
 				66FD4B431A11A962005ACD58 /* SideMenuViewController.m in Sources */,
 				38E161461A1E56E20093998E /* OttaAnswerersAskersViewController.m in Sources */,
-				D97FA8711A485AB9001925A7 /* UIScrollView+SVInfiniteScrolling.m in Sources */,
 				CE0E083F1A3254CE00085055 /* OttaMyQuestionData.m in Sources */,
 				66FD4B361A11A8A5005ACD58 /* OttaAskViewController.m in Sources */,
 				386E89C81A126AC100459171 /* OttAddFriendViewController.m in Sources */,

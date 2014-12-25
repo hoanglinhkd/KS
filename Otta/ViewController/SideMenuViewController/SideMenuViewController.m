@@ -8,7 +8,7 @@
 
 #import "SideMenuViewController.h"
 #import <Parse/Parse.h>
-#import "MBProgressHUD.h"
+
 #import "UIViewController+ECSlidingViewController.h"
 #import "MEDynamicTransition.h"
 #import "METransitions.h"
@@ -82,11 +82,11 @@ static SideMenuViewController *shareInstance;
 }
 
 -(void)logOutAction {
-    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    [[OttaLoadingManager sharedManager] show];
     [FBSession.activeSession closeAndClearTokenInformation];
     [PFUser logOut];
     [self performSegueWithIdentifier:@"segueLogin" sender:self];
-    [MBProgressHUD hideHUDForView:self.view animated:YES];
+    [[OttaLoadingManager sharedManager] hide];
 }
 
 - (IBAction)unwindToSideMenu:(UIStoryboardSegue *)unwindSegue
@@ -172,7 +172,7 @@ static SideMenuViewController *shareInstance;
     
     OttaAppDelegate *appDelegate = (OttaAppDelegate*)[UIApplication sharedApplication].delegate;
     UIView *windowView = appDelegate.window;
-    [MBProgressHUD showHUDAddedTo:windowView animated:YES];
+    [[OttaLoadingManager sharedManager] show];
     
     //Fix pending too long when press on side bar
     //showing loading indicator while loading data
@@ -180,7 +180,7 @@ static SideMenuViewController *shareInstance;
         
         if (indexPath.row == selectedSideIndex) {
             [self.slidingViewController resetTopViewAnimated:YES];
-            [MBProgressHUD hideAllHUDsForView:windowView animated:YES];
+            [[OttaLoadingManager sharedManager] hide];
             return;
         }
         
@@ -211,7 +211,7 @@ static SideMenuViewController *shareInstance;
                 [self performSegueWithIdentifier:@"segueAskQuestion" sender:nil];
                 break;
         }
-        [MBProgressHUD hideAllHUDsForView:windowView animated:YES];
+        [[OttaLoadingManager sharedManager] hide];
         
     });
     

@@ -8,7 +8,7 @@
 
 #import "OttaJoinDetailViewController.h"
 #import "OttaAlertManager.h"
-#import "MBProgressHUD.h"
+
 #import "OttaParseClientManager.h"
 #import "OttaAppDelegate.h"
 
@@ -36,7 +36,7 @@
         return;
     }
     
-    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    [[OttaLoadingManager sharedManager] show];
     
     [[OttaParseClientManager sharedManager] joinWithEmail:_emailJoinDetail.text firstName:_firstNameJoinDetail.text phone:_phoneJoinDetail.text lastName:_lastNameJoinDetail.text  password:_passwordJoinDetail.text withResult:^(BOOL joinSucceeded, PFUser* pUser, NSError* error) {
         
@@ -55,7 +55,7 @@
             [[OttaAlertManager sharedManager] showSimpleAlertOnView:windowView withContent:str complete:nil];
         }
         
-        [MBProgressHUD hideHUDForView:self.view animated:YES];
+        [[OttaLoadingManager sharedManager] hide];
     }];
     
 }

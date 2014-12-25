@@ -11,9 +11,7 @@
 #import "OttaAlertManager.h"
 #import "OttAddFriendViewController.h"
 #import "OttaParseClientManager.h"
-#import "MBProgressHUD.h"
 #import "SideMenuViewController.h"
-
 
 
 @interface OttaAnswerersAskersViewController ()
@@ -138,13 +136,13 @@
         return;
     }
     
-    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    [[OttaLoadingManager sharedManager] show];
     PFObject *follow = _follows[row];
     
     [[OttaParseClientManager sharedManager] setBlockFollow:follow withValue:!isBlocked withBlock:^(BOOL isSucceeded, NSError *error) {
         //[self updateAnswerersAskersCount];
         [_table reloadData];
-        [MBProgressHUD hideHUDForView:self.view animated:YES];
+        [[OttaLoadingManager sharedManager] hide];
     }];
 }
 
@@ -154,7 +152,7 @@
         return;
     }
     
-    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    [[OttaLoadingManager sharedManager] show];
     PFObject *follow = _follows[row];
     [[OttaParseClientManager sharedManager] removeFollow:follow withBlock:^(BOOL isSucceeded, NSError *error) {
         //remove object in list manually for fixing cache issue
@@ -165,7 +163,7 @@
         
         [self updateAnswerersAskersCount];
         [_table reloadData];
-        [MBProgressHUD hideHUDForView:self.view animated:YES];
+        [[OttaLoadingManager sharedManager] hide];
     }];
 }
 
@@ -247,7 +245,7 @@
     _follows = [NSArray new];
     [_table reloadData];
     
-    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    [[OttaLoadingManager sharedManager] show];
     self.isAnswererTab = isAnswererTab;
     _txtLabel.text = @"";
     if (isAnswererTab) {
@@ -260,7 +258,7 @@
             _followsStorage = [[NSArray alloc] initWithArray:array];
             self.lblAnswerersCount.text = [NSString stringWithFormat:@"%ld",_follows.count];
             [self.table reloadData];
-            [MBProgressHUD hideHUDForView:self.view animated:YES];
+            [[OttaLoadingManager sharedManager] hide];
         }];
 
     } else {
@@ -275,7 +273,7 @@
             _followsStorage = [[NSArray alloc] initWithArray:array];
             self.lblAskersCount.text = [NSString stringWithFormat:@"%ld",_follows.count];
             [self.table reloadData];
-            [MBProgressHUD hideHUDForView:self.view animated:YES];
+            [[OttaLoadingManager sharedManager] hide];
         }];
     }
 

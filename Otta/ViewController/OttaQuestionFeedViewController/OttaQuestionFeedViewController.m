@@ -12,7 +12,7 @@
 #import "OttaQuestion.h"
 #import "SideMenuViewController.h"
 #import "OttaParseClientManager.h"
-#import "MBProgressHUD.h"
+
 #import "Utility.h"
 
 static NSString * const QuestionFeedCellId = @"QuestionFeedCellId";
@@ -169,11 +169,11 @@ static NSString * const QuestionFeedCellId = @"QuestionFeedCellId";
     PFObject *question = feedItems[referIdx.row];
     NSMutableArray *arrAnswers = [NSMutableArray arrayWithArray:question[kAnswers]];
     PFObject *answer = [arrAnswers objectAtIndex:childIdxPath.row];
-    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    [[OttaLoadingManager sharedManager] show];
     
     [[OttaParseClientManager sharedManager] voteFromUser:[PFUser currentUser] withQuestion:feedItems1[referIdx.row] withAnswer:answer withBlock:^(BOOL isSucceeded, NSError *error) {
         
-        [MBProgressHUD hideHUDForView:self.view animated:YES];
+        [[OttaLoadingManager sharedManager] hide];
         if(isSucceeded) {
             NSLog(@"Submit answer success");
             //cell.orderLbl.backgroundColor = kDefaultColorBackGround;
@@ -244,14 +244,14 @@ static NSString * const QuestionFeedCellId = @"QuestionFeedCellId";
 }
 
 - (void) loadData{
-    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    [[OttaLoadingManager sharedManager] show];
     [self loadDataWithoutLoadingIndicator];
 }
 
 -(void) loadDataWithoutLoadingIndicator
 {
     if([OttaNetworkManager isOfflineShowedAlertView]) {
-        [MBProgressHUD hideHUDForView:self.view animated:YES];
+        [[OttaLoadingManager sharedManager] hide];
         return;
     }
     
@@ -267,7 +267,7 @@ static NSString * const QuestionFeedCellId = @"QuestionFeedCellId";
         
         //Stop animating for pull down refresh table
         [refreshControl endRefreshing];
-        [MBProgressHUD hideHUDForView:self.view animated:YES];
+        [[OttaLoadingManager sharedManager] hide];
     }];
 }
 

@@ -23,7 +23,7 @@
 #import "OttaMyQuestionVoteCell.h"
 
 #import "OttaParseClientManager.h"
-#import "MBProgressHUD.h"
+
 #import "Utility.h"
 
 static NSString * const OttaMyQuestionHeaderCellIdentifier      = @"OttaMyQuestionHeaderCell";
@@ -709,7 +709,7 @@ static NSString * const OttaMyQuestionVoteCellIdentifier        = @"OttaMyQuesti
 //This function call in ViewDidAppear
 - (void)loadData{
     
-    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    [[OttaLoadingManager sharedManager] show];
     datas = [[NSMutableArray alloc] init];
     [self loadDataWithoutLoadingIndicator];
 }
@@ -717,7 +717,7 @@ static NSString * const OttaMyQuestionVoteCellIdentifier        = @"OttaMyQuesti
 -(void)loadDataWithoutLoadingIndicator
 {
     if([OttaNetworkManager isOfflineShowedAlertView]) {
-        [MBProgressHUD hideHUDForView:self.view animated:YES];
+        [[OttaLoadingManager sharedManager] hide];
         return;
     }
     
@@ -729,7 +729,7 @@ static NSString * const OttaMyQuestionVoteCellIdentifier        = @"OttaMyQuesti
         //Stop animating for pull down refresh table
         [refreshControl endRefreshing];
         [myTableView reloadData];
-        [MBProgressHUD hideHUDForView:self.view animated:YES];
+        [[OttaLoadingManager sharedManager] hide];
     }];
 }
 

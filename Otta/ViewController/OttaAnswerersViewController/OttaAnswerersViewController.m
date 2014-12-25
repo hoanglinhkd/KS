@@ -2,7 +2,7 @@
 
 #import "OttaAnswerersViewController.h"
 #import "OttaParseClientManager.h"
-#import "MBProgressHUD.h"
+
 #import "OttaAnswer.h"
 #import "NSDate-Utilities.h"
 #import "OttaAlertManager.h"
@@ -143,7 +143,7 @@
         return;
     }
     
-    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    [[OttaLoadingManager sharedManager] show];
     
     OttaQuestion* question = [[OttaQuestion alloc] init];
     question.questionText = _askQuestionValue;
@@ -175,12 +175,12 @@
                     [_delegate askSuccessed];
                 }
                 
-                [MBProgressHUD hideHUDForView:self.view animated:YES];
+                [[OttaLoadingManager sharedManager] hide];
                 [self dismissViewControllerAnimated:YES completion:nil];
             }];
         } else {
             
-            [MBProgressHUD hideHUDForView:self.view animated:YES];
+            [[OttaLoadingManager sharedManager] hide];
             [[OttaAlertManager sharedManager] showSimpleAlertOnView:self.view withContent:[@"Ask failed" toCurrentLanguage] complete:nil];
         }
         
@@ -193,11 +193,11 @@
         return;
     }
     
-    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    [[OttaLoadingManager sharedManager] show];
     [[OttaParseClientManager sharedManager] getAllFollowToUser:[PFUser currentUser] withBlock:^(NSArray *array, NSError *error) {
         _follows = [[NSArray alloc] initWithArray:array];
         [_tableView reloadData];
-        [MBProgressHUD hideHUDForView:self.view animated:YES];
+        [[OttaLoadingManager sharedManager] hide];
     }];
     
 }

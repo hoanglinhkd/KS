@@ -7,7 +7,7 @@
 //
 #import "OttaViewController.h"
 #import "OttaAlertManager.h"
-#import "MBProgressHUD.h"
+
 #import "OttaLoginContainerViewController.h"
 
 @interface OttaViewController ()<EAIntroDelegate> {
@@ -193,14 +193,14 @@
 {
     //[[OttaSessionManager sharedManager]loginWithFacebook];
     
-    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    [[OttaLoadingManager sharedManager] show];
     
     [FBSession.activeSession closeAndClearTokenInformation];
     NSArray *permissionsArray = FacebookPermissions;
     // Login PFUser using Facebook
     [PFFacebookUtils logInWithPermissions:permissionsArray block:^(PFUser *user, NSError *error) {
         
-        [MBProgressHUD hideHUDForView:self.view animated:YES];
+        [[OttaLoadingManager sharedManager] hide];
         
         if (!user) {
             if (!error) {

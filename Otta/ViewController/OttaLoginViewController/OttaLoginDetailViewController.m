@@ -8,7 +8,7 @@
 
 #import "OttaLoginDetailViewController.h"
 #import "OttaAlertManager.h"
-#import "MBProgressHUD.h"
+
 #import "OttaParseClientManager.h"
 #import "OttaAppDelegate.h"
 
@@ -58,8 +58,7 @@
         return;
     }
     
-    [MBProgressHUD showHUDAddedTo:self.loginView.view animated:YES];
-    
+    [[OttaLoadingManager sharedManager] show];
     [[OttaParseClientManager sharedManager] loginWithNameOrEmail:self.usernameTextField.text andPassword:self.passwordTextField.text withResult:^(BOOL joinSucceeded, PFUser *pUser, NSError* error) {
         
         if (joinSucceeded) {
@@ -72,7 +71,7 @@
             [[OttaAlertManager sharedManager] showSimpleAlertOnView:windowView withContent:[@"Login Failed" toCurrentLanguage] complete:nil];
         }
         
-        [MBProgressHUD hideHUDForView:self.loginView.view animated:YES];
+        [[OttaLoadingManager sharedManager] hide];
     }];
     
 }
@@ -115,9 +114,9 @@
                 return;
             }
             
-            [MBProgressHUD showHUDAddedTo:windowView animated:YES];
+            [[OttaLoadingManager sharedManager] show];
             [[OttaParseClientManager sharedManager] resetPasswordWithEmail:email withResult:^(BOOL isSucceeded, NSError *error) {
-                [MBProgressHUD hideHUDForView:windowView animated:YES];
+                [[OttaLoadingManager sharedManager] hide];
                 
                 if (isSucceeded) {
                     mess = [@"Password reset successful. Please check your email!" toCurrentLanguage];
