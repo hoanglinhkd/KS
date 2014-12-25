@@ -10,16 +10,19 @@
 #import "OttaBasicQuestionCell.h"
 #import "OttaMediaQuestionCell.h"
 #import "OttaViewAllCell.h"
+#import "OttaDoneButtonCell.h"
 #import "OttaAnswer.h"
 #import "OttaParseClientManager.h"
 
-static NSString * const BasicCellId = @"BasicQuestionCellId";
-static NSString * const MediaCellId = @"MediaQuestionCellId";
-static NSString * const ViewAllCellId = @"OttaViewAllCell";
+static NSString * const BasicCellId     = @"BasicQuestionCellId";
+static NSString * const MediaCellId     = @"MediaQuestionCellId";
+static NSString * const ViewAllCellId   = @"OttaViewAllCell";
+static NSString * const DoneCellId      = @"OttaDoneButtonCell";
 
 #define kIntervalForceDelete 5.0f
 #define kDefaultShowedRow 0
 #define kRowForViewAll 1
+#define KRowForDoneButton 1
 
 @interface OttaQuestionFeedCell(){
     BOOL isForcedDelete;
@@ -28,7 +31,7 @@ static NSString * const ViewAllCellId = @"OttaViewAllCell";
 @end
 
 @implementation OttaQuestionFeedCell
-@synthesize viewForSubmit, selectedIndexPath, submittedIndexPath;
+@synthesize selectedIndexPath, submittedIndexPath;
 
 - (void)awakeFromNib {
     // Initialization code
@@ -50,73 +53,35 @@ static NSString * const ViewAllCellId = @"OttaViewAllCell";
     [self.tableView reloadData];
 }
 
-#pragma Table datasource delegate
-
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (indexPath.row == self.answers.count) {
-        return 30;
-    }
-    if ([self hasImageAtIndexPath:indexPath]) {
-        return [self heightForImageCellAtIndexPath:indexPath];
-    } else {
-        return [self heightForBasicCellAtIndexPath:indexPath];
-        
-    }
-}
-
-- (CGFloat)heightForImageCellAtIndexPath:(NSIndexPath *)indexPath
-{
-    static OttaMediaQuestionCell *sizingCell = nil;
-    
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        sizingCell = [self.tableView dequeueReusableCellWithIdentifier:MediaCellId];
-    });
-    
-    [self configureImageCell:sizingCell atIndexPath:indexPath];
-    return [self calculateHeightForConfiguredSizingCell:sizingCell];
-}
-
-- (CGFloat)heightForBasicCellAtIndexPath:(NSIndexPath *)indexPath {
-    static OttaBasicQuestionCell *sizingCell = nil;
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        sizingCell = [self.tableView dequeueReusableCellWithIdentifier:BasicCellId];
-    });
-    
-    [self configureBasicCell:sizingCell atIndexPath:indexPath];
-    return [self calculateHeightForConfiguredSizingCell:sizingCell];
-}
-
-- (CGFloat)calculateHeightForConfiguredSizingCell:(UITableViewCell *)sizingCell {
-    [sizingCell setNeedsLayout];
-    [sizingCell layoutIfNeeded];
-    
-    CGSize size = [sizingCell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize];
-    //NSLog(@"Basic height %f",size.height);
-    return size.height;
-}
-
+#pragma mark - Table Datasource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
     //NSIndexPath *firstAnswer =[NSIndexPath indexPathForRow:0 inSection:0];
 
     if (!_isViewAllMode) {
         return kDefaultShowedRow + kRowForViewAll;
+    }else{
+        if (selectedIndexPath || submittedIndexPath) {
+            return [self.answers count] + kRowForViewAll + KRowForDoneButton;
+        }else{
+            return [self.answers count] + kRowForViewAll;
+        }
     }
-    
-    return [self.answers count] + kRowForViewAll;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (_isViewAllMode) {
-        if (indexPath.row == self.answers.count) {
-            return [self cellForViewAllAtIndexPath:indexPath];
+        if (selectedIndexPath || submittedIndexPath) {
+            if (indexPath.row == ([self tableView:tableView numberOfRowsInSection:0] - 1)) {
+                // is Done button
+            }else if(indexPath.row == ([self tableView:tableView numberOfRowsInSection:0] - 2)){
+                // is View All Cell
+                return [self cellViewAllAtIndexPath:indexPath];
+            }
         }
     }else{
         if (indexPath.row == 0) {
-            return [self cellForViewAllAtIndexPath:indexPath];
+            return [self cellViewAllAtIndexPath:indexPath];
         }
     }
     
@@ -127,6 +92,7 @@ static NSString * const ViewAllCellId = @"OttaViewAllCell";
         return [self basicCellAtIndexPath:indexPath];
     }
 }
+/*
 - (UIView*)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{
     
     viewForSubmit = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, tableView.bounds.size.width, 40.0)];
@@ -148,6 +114,7 @@ static NSString * const ViewAllCellId = @"OttaViewAllCell";
     
     return viewForSubmit;
 }
+ */
 #pragma mark Basic Cell
 
 - (OttaBasicQuestionCell *)basicCellAtIndexPath:(NSIndexPath *)indexPath {
@@ -192,7 +159,6 @@ static NSString * const ViewAllCellId = @"OttaViewAllCell";
         cell.orderLbl.backgroundColor = kDefaultColorBackGround;
     }
     selectedIndexPath = nil;
-    viewForSubmit.hidden = YES;
 }
 
 #pragma mark Media Cell
@@ -204,19 +170,6 @@ static NSString * const ViewAllCellId = @"OttaViewAllCell";
         return true;
     }
     return false ;
-}
-- (OttaViewAllCell*)cellForViewAllAtIndexPath:(NSIndexPath*)indexPath{
-    OttaViewAllCell *cell = [self.tableView dequeueReusableCellWithIdentifier:ViewAllCellId forIndexPath:indexPath];
-    
-    if (_isViewAllMode) {
-        [cell.btnViewAll setTitle:@"Collapse" forState:UIControlStateNormal];
-        [cell.btnViewAll addTarget:self action:@selector(collapseBtnTapped:) forControlEvents:UIControlEventTouchUpInside];
-    }else{
-        [cell.btnViewAll setTitle:@"View all..." forState:UIControlStateNormal];
-        [cell.btnViewAll addTarget:self action:@selector(viewAllBtnTapped:) forControlEvents:UIControlEventTouchUpInside];
-    }
-    
-    return cell;
 }
 - (OttaMediaQuestionCell *)galleryCellAtIndexPath:(NSIndexPath *)indexPath {
     OttaMediaQuestionCell *cell = [self.tableView dequeueReusableCellWithIdentifier:MediaCellId forIndexPath:indexPath];
@@ -232,37 +185,36 @@ static NSString * const ViewAllCellId = @"OttaViewAllCell";
     cell.imageBtn.tag = indexPath.row;
     cell.viewAllBtn.hidden = YES;
     cell.collapseBtn.hidden = YES;
-    /*
-    if (self.answers.count > 3 ) {
-        if (indexPath.row == 2 && _isViewAllMode == FALSE) {
-            cell.viewAllBtn.hidden = NO;
-            cell.collapseBtn.hidden = YES;
-            cell.collapseHeghtConstraint.constant = 22;
-        } else if (indexPath.row == self.answers.count -1 ) {
-            cell.collapseBtn.hidden = NO;
-            cell.viewAllBtn.hidden = YES;
-            cell.collapseHeghtConstraint.constant = 22;
-        } else {
-            cell.viewAllBtn.hidden = YES;
-            cell.collapseBtn.hidden = YES;
-            cell.collapseHeghtConstraint.constant = 0;
-        }
-
-    } else {
-        cell.viewAllBtn.hidden = YES;
-        cell.collapseBtn.hidden = YES;
-        cell.collapseHeghtConstraint.constant = 0;
-    }
-     */
+}
+#pragma mark - Done Cell
+- (OttaDoneButtonCell *)doneCellAtIndexPath:(NSIndexPath *)indexPath{
+    OttaDoneButtonCell *cell = [self.tableView dequeueReusableCellWithIdentifier:DoneCellId forIndexPath:indexPath];
     
-}
-#pragma mark Tableview Delegate
-- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
-    if (_isViewAllMode) {
-        return 40.0;
+    if (submittedIndexPath) {
+        [cell.btnSubmit setTitle:@"Done" forState:UIControlStateNormal];
+        [cell.btnSubmit addTarget:self action:@selector(doneCellSelected:) forControlEvents:UIControlEventTouchUpInside];
+    }else if(selectedIndexPath){
+        [cell.btnSubmit setTitle:@"Submit" forState:UIControlStateNormal];
+        [cell.btnSubmit addTarget:self action:@selector(submitCellSelected:) forControlEvents:UIControlEventTouchUpInside];
     }
-    return 0.0;
+    return cell;
 }
+#pragma mark - View All Cell
+- (OttaViewAllCell*)cellViewAllAtIndexPath:(NSIndexPath*)indexPath{
+    OttaViewAllCell *cell = [self.tableView dequeueReusableCellWithIdentifier:ViewAllCellId forIndexPath:indexPath];
+    
+    if (_isViewAllMode) {
+        [cell.btnViewAll setTitle:@"Collapse" forState:UIControlStateNormal];
+        [cell.btnViewAll addTarget:self action:@selector(collapseBtnTapped:) forControlEvents:UIControlEventTouchUpInside];
+    }else{
+        [cell.btnViewAll setTitle:@"View all..." forState:UIControlStateNormal];
+        [cell.btnViewAll addTarget:self action:@selector(viewAllBtnTapped:) forControlEvents:UIControlEventTouchUpInside];
+    }
+    
+    return cell;
+}
+
+#pragma mark Tableview Delegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if (!_isViewAllMode) {
         return;
@@ -276,7 +228,6 @@ static NSString * const ViewAllCellId = @"OttaViewAllCell";
         OttaBasicQuestionCell *cell = (OttaBasicQuestionCell*)[tableView cellForRowAtIndexPath:indexPath];
         cell.orderLbl.backgroundColor = kDefaultColorBackGround;
         [tableView deselectRowAtIndexPath:indexPath animated:YES];
-        viewForSubmit.hidden = YES;
         return;
     }else if(selectedIndexPath!=nil){
         OttaBasicQuestionCell *cell = (OttaBasicQuestionCell*)[tableView cellForRowAtIndexPath:selectedIndexPath];
@@ -287,7 +238,6 @@ static NSString * const ViewAllCellId = @"OttaViewAllCell";
     OttaBasicQuestionCell *cell = (OttaBasicQuestionCell*)[tableView cellForRowAtIndexPath:indexPath];
     cell.orderLbl.backgroundColor = [UIColor orangeColor];
     
-    viewForSubmit.hidden = NO;
     // update show submit button
     [UIView animateWithDuration:0.0 animations:^{
         if (self.delegate && ([(NSObject*)self.delegate respondsToSelector:@selector(questionFeedCell:DidSelectedRowAtIndexPath:)])) {
@@ -304,7 +254,6 @@ static NSString * const ViewAllCellId = @"OttaViewAllCell";
     }];
     
 }
-
 
 - (void)setImageForCell:(OttaMediaQuestionCell *)cell item:(PFObject *)item {
     
@@ -358,6 +307,53 @@ static NSString * const ViewAllCellId = @"OttaViewAllCell";
     NSInteger row = btn.tag;
     [self.delegate optionCell:self imageBtnTappedAtRow:[NSNumber numberWithInteger:row]];
 }
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath.row == self.answers.count) {
+        return 30;
+    }
+    if ([self hasImageAtIndexPath:indexPath]) {
+        return [self heightForImageCellAtIndexPath:indexPath];
+    } else {
+        return [self heightForBasicCellAtIndexPath:indexPath];
+        
+    }
+}
+
+- (CGFloat)heightForImageCellAtIndexPath:(NSIndexPath *)indexPath
+{
+    static OttaMediaQuestionCell *sizingCell = nil;
+    
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        sizingCell = [self.tableView dequeueReusableCellWithIdentifier:MediaCellId];
+    });
+    
+    [self configureImageCell:sizingCell atIndexPath:indexPath];
+    return [self calculateHeightForConfiguredSizingCell:sizingCell];
+}
+
+- (CGFloat)heightForBasicCellAtIndexPath:(NSIndexPath *)indexPath {
+    static OttaBasicQuestionCell *sizingCell = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        sizingCell = [self.tableView dequeueReusableCellWithIdentifier:BasicCellId];
+    });
+    
+    [self configureBasicCell:sizingCell atIndexPath:indexPath];
+    return [self calculateHeightForConfiguredSizingCell:sizingCell];
+}
+
+- (CGFloat)calculateHeightForConfiguredSizingCell:(UITableViewCell *)sizingCell {
+    [sizingCell setNeedsLayout];
+    [sizingCell layoutIfNeeded];
+    
+    CGSize size = [sizingCell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize];
+    //NSLog(@"Basic height %f",size.height);
+    return size.height;
+}
+
 #pragma mark - Utils
 - (UIImage *)imageFromColor:(UIColor *)color {
     CGRect rect = CGRectMake(0, 0, 1, 1);
