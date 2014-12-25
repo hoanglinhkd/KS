@@ -181,6 +181,7 @@
 		CEA6545E1A2DFF2600233156 /* OttaMyQuestionHeaderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CEA654561A2DFF2600233156 /* OttaMyQuestionHeaderCell.m */; };
 		CEA654601A2DFF2600233156 /* OttaMyQuestionPictureCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CEA654591A2DFF2600233156 /* OttaMyQuestionPictureCell.m */; };
 		CEA654611A2DFF2600233156 /* OttaMyQuestionTextCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CEA6545B1A2DFF2600233156 /* OttaMyQuestionTextCell.m */; };
+		CEC4E0C81A4C72C3005BCF50 /* OttaDoneButtonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CEC4E0C71A4C72C3005BCF50 /* OttaDoneButtonCell.m */; };
 		CECC3F4F1A2B628200B3F7B6 /* OttaMyQuestionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CECC3F4E1A2B628200B3F7B6 /* OttaMyQuestionViewController.m */; };
 		CEFC0C4F1A49D34000835844 /* OttaViewAllCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CEFC0C4E1A49D34000835844 /* OttaViewAllCell.m */; };
 		D9286F431A12190500C28770 /* OttaParseClientManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D9286F421A12190500C28770 /* OttaParseClientManager.m */; };
@@ -451,6 +452,8 @@
 		CEA654591A2DFF2600233156 /* OttaMyQuestionPictureCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OttaMyQuestionPictureCell.m; sourceTree = "<group>"; };
 		CEA6545A1A2DFF2600233156 /* OttaMyQuestionTextCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OttaMyQuestionTextCell.h; sourceTree = "<group>"; };
 		CEA6545B1A2DFF2600233156 /* OttaMyQuestionTextCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OttaMyQuestionTextCell.m; sourceTree = "<group>"; };
+		CEC4E0C61A4C72C3005BCF50 /* OttaDoneButtonCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OttaDoneButtonCell.h; sourceTree = "<group>"; };
+		CEC4E0C71A4C72C3005BCF50 /* OttaDoneButtonCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OttaDoneButtonCell.m; sourceTree = "<group>"; };
 		CECC3F4D1A2B628200B3F7B6 /* OttaMyQuestionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OttaMyQuestionViewController.h; sourceTree = "<group>"; };
 		CECC3F4E1A2B628200B3F7B6 /* OttaMyQuestionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OttaMyQuestionViewController.m; sourceTree = "<group>"; };
 		CEFC0C4D1A49D34000835844 /* OttaViewAllCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OttaViewAllCell.h; sourceTree = "<group>"; };
@@ -911,6 +914,8 @@
 			children = (
 				CEFC0C4D1A49D34000835844 /* OttaViewAllCell.h */,
 				CEFC0C4E1A49D34000835844 /* OttaViewAllCell.m */,
+				CEC4E0C61A4C72C3005BCF50 /* OttaDoneButtonCell.h */,
+				CEC4E0C71A4C72C3005BCF50 /* OttaDoneButtonCell.m */,
 				6AA695E21A21DD4E001F6953 /* OttaBasicQuestionCell.h */,
 				6AA695E31A21DD4E001F6953 /* OttaBasicQuestionCell.m */,
 				6AA695E41A21DD4E001F6953 /* OttaMediaQuestionCell.h */,
@@ -1509,6 +1514,7 @@
 				D9CD79951A22EA8C007C6E15 /* OttaJoinDetailViewController.m in Sources */,
 				D9C30AE91A432FE50087A96D /* OttaNetworkManager.m in Sources */,
 				663665EE1A1EEE00007F0EFC /* MEDynamicTransition.m in Sources */,
+				CEC4E0C81A4C72C3005BCF50 /* OttaDoneButtonCell.m in Sources */,
 				663665EF1A1EEE00007F0EFC /* MEFoldAnimationController.m in Sources */,
 				CEA654611A2DFF2600233156 /* OttaMyQuestionTextCell.m in Sources */,
 				CE0E08411A3254CE00085055 /* RWLabel.m in Sources */,
