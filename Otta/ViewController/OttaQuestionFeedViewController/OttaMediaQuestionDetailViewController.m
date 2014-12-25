@@ -80,7 +80,6 @@
     }
     
     self.imgscrollView.contentSize = CGSizeMake(self.imgscrollView.frame.size.width *  arrAnswers.count, self.imgscrollView.frame.size.height);
-    
     [self scrollToPage:self.currentOption];
     
 }
@@ -100,6 +99,7 @@
     int page = floor((self.imgscrollView.contentOffset.x - pageWidth / 2) / pageWidth) + 1;
     
     self.currentOption = page;
+    [self setVisisbleButton];
     PFObject *answer = [_question[kAnswers] objectAtIndex:page];
     [UIView animateWithDuration:0.2
                      animations:^{
@@ -137,6 +137,7 @@
 }
 
 - (void)scrollToPage:(int)page {
+    [self setVisisbleButton];
     CGRect frame;
     frame.origin.x = self.imgscrollView.frame.size.width * page;
     frame.origin.y = 0;
@@ -159,6 +160,18 @@
 {
     [_selectedCell selectAnswerIndex:self.currentOption];
     [self.navigationController popViewControllerAnimated:TRUE];
+}
+
+- (void) setVisisbleButton{
+    _leftBtn.hidden = FALSE;
+    _rightBtn.hidden = FALSE;
+    if (self.currentOption == 0){
+        _leftBtn.hidden = TRUE;
+    }
+    if (self.currentOption == [_question[kAnswers] count] -1){
+        _rightBtn.hidden = TRUE;
+    }
+
 }
 
 @end
