@@ -398,6 +398,7 @@ static NSString * const ViewAllCellId = @"OttaViewAllCell";
         
         submittedIndexPath = nil;
         selectedIndexPath = nil;
+        _isViewAllMode = NO;
         [self.delegate questionFeedCell:self needToForceRemoveAtReferIndex:referIdxPath];
     }
 }
