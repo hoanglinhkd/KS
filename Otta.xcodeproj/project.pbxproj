@@ -1721,6 +1721,7 @@
 		};
 		F0BC6548198606BD0097A87C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C1E9BE3193743527323F1CDA /* Pods.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Otta.app/Otta";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -1737,6 +1738,11 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
+				HEADER_SEARCH_PATHS = (
+					"${PODS_HEADERS_SEARCH_PATHS}",
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+				);
 				INFOPLIST_FILE = "OttaTests/OttaTests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -1747,6 +1753,7 @@
 		};
 		F0BC6549198606BD0097A87C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D45B044B7810A706377E3F1A /* Pods.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Otta.app/Otta";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -1759,6 +1766,11 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Otta/Otta-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"${PODS_HEADERS_SEARCH_PATHS}",
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+				);
 				INFOPLIST_FILE = "OttaTests/OttaTests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
