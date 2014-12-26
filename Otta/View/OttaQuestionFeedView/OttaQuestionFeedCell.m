@@ -74,7 +74,13 @@ static NSString * const DoneCellId      = @"OttaDoneButtonCell";
         if (selectedIndexPath || submittedIndexPath) {
             if (indexPath.row == ([self tableView:tableView numberOfRowsInSection:0] - 1)) {
                 // is Done button
+                return [self doneCellAtIndexPath:indexPath];
             }else if(indexPath.row == ([self tableView:tableView numberOfRowsInSection:0] - 2)){
+                // is View All Cell
+                return [self cellViewAllAtIndexPath:indexPath];
+            }
+        }else{
+            if(indexPath.row == ([self tableView:tableView numberOfRowsInSection:0] - 1)){
                 // is View All Cell
                 return [self cellViewAllAtIndexPath:indexPath];
             }
@@ -248,8 +254,8 @@ static NSString * const DoneCellId      = @"OttaDoneButtonCell";
         
     } completion:^(BOOL finished) {
         if (finished) {
-            [self.tableView beginUpdates];
-            [self.tableView endUpdates];
+            //[self.tableView beginUpdates];
+            //[self.tableView endUpdates];
         }
     }];
     
@@ -310,9 +316,26 @@ static NSString * const DoneCellId      = @"OttaDoneButtonCell";
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (indexPath.row == self.answers.count) {
-        return 30;
+    if (_isViewAllMode) {
+        if (selectedIndexPath || submittedIndexPath) {
+            if (indexPath.row == ([self tableView:tableView numberOfRowsInSection:0] - 1)) {
+                // is Done button
+                return 40.0;
+            }else if(indexPath.row == ([self tableView:tableView numberOfRowsInSection:0] - 2)){
+                // is View All Cell
+                return 30.0;
+            }
+        }else{
+            if (indexPath.row == ([self tableView:tableView numberOfRowsInSection:0] - 1)) {
+                return 30.0;
+            }
+        }
+    }else{
+        if (indexPath.row == 0) {
+            return 30.0;
+        }
     }
+    
     if ([self hasImageAtIndexPath:indexPath]) {
         return [self heightForImageCellAtIndexPath:indexPath];
     } else {
