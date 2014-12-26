@@ -193,7 +193,7 @@ static NSString * const DoneCellId      = @"OttaDoneButtonCell";
 #pragma mark - Done Cell
 - (OttaDoneButtonCell *)doneCellAtIndexPath:(NSIndexPath *)indexPath{
     OttaDoneButtonCell *cell = [self.tableView dequeueReusableCellWithIdentifier:DoneCellId forIndexPath:indexPath];
-    
+   
     if (submittedIndexPath) {
         [cell.btnSubmit setTitle:@"Done" forState:UIControlStateNormal];
         [cell.btnSubmit addTarget:self action:@selector(doneCellSelected:) forControlEvents:UIControlEventTouchUpInside];
@@ -278,8 +278,6 @@ static NSString * const DoneCellId      = @"OttaDoneButtonCell";
 
 
 - (IBAction)collapseBtnTapped:(id)sender {
-    isViewAllMode = NO;
-    
     if (self.delegate && [((NSObject*)self.delegate) respondsToSelector:@selector(optionCell:collapseBtnTapped:)]) {
         UITableView *tv = (UITableView *) self.superview.superview;
         NSIndexPath* pathOfTheCell = [tv indexPathForCell:self];
@@ -288,7 +286,6 @@ static NSString * const DoneCellId      = @"OttaDoneButtonCell";
 }
 
 - (IBAction)viewAllBtnTapped:(id)sender {
-    isViewAllMode = YES;
     if (self.delegate && [((NSObject*)self.delegate) respondsToSelector:@selector(optionCell:viewMoreBtnTapped:)]) {
         UITableView *tv = (UITableView *) self.superview.superview;
         NSIndexPath* pathOfTheCell = [tv indexPathForCell:self];
@@ -298,6 +295,7 @@ static NSString * const DoneCellId      = @"OttaDoneButtonCell";
 
 
 - (IBAction)imageBtnTapped:(id)sender {
+    return;
     UIButton *btn = (UIButton *)sender;
     NSInteger row = btn.tag;
     [self.delegate optionCell:self imageBtnTappedAtRow:[NSNumber numberWithInteger:row]];
