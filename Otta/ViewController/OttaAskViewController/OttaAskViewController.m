@@ -124,8 +124,8 @@ testAnswer.answerText = @"Creme Brelee";
 //    [self.answerTableView reloadData];
 //    self.answerViewController.mainViewController = self;
     //[_itsTextView setReturnKeyType:UIReturnKeyDone];
+    
     [_itsTextView setFont:[UIFont fontWithName:@"OpenSans-Light" size:17.00f]];
-    [_itsTextView setTextColor:[UIColor lightGrayColor]];
     
     _itsTextView.placeholder = [@"Ask a question..." toCurrentLanguage];
     _itsTextView.placeholderTextColor = [UIColor lightGrayColor];
