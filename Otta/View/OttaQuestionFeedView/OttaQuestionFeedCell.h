@@ -16,9 +16,9 @@
 
 @optional
 
-- (void)optionCell:(OttaQuestionFeedCell*)cell viewMoreBtnTapped:(id)row;
-- (void)optionCell:(OttaQuestionFeedCell*)cell collapseBtnTapped:(id)row;
-- (void)optionCell:(OttaQuestionFeedCell*)cell imageBtnTappedAtRow:(id)row;
+- (void)optionCell:(OttaQuestionFeedCell*)cell viewMoreBtnTapped:(NSIndexPath*)idxPath;
+- (void)optionCell:(OttaQuestionFeedCell*)cell collapseBtnTapped:(NSIndexPath*)idxPath;
+- (void)optionCell:(OttaQuestionFeedCell*)cell imageBtnTappedAtRow:(NSIndexPath*)idxPath;
 
 - (void)questionFeedCell:(OttaQuestionFeedCell*)cell DidSelectedRowAtIndexPath:(NSIndexPath*)indexPath;
 - (void)questionFeedCell:(OttaQuestionFeedCell*)parentCell optionCell:(OttaBasicQuestionCell*)cell withReferIndexPath:(NSIndexPath*)referIdx didSubmitRowAtIndexPath:(NSIndexPath*)childIdxPath withMaximumCount:(NSInteger)maxCount;
@@ -38,7 +38,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *questionLbl;
 @property (strong, nonatomic) NSMutableArray *answers;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-@property (nonatomic) BOOL isViewAllMode;
+@property (nonatomic, assign) BOOL isViewAllMode;
 @property (nonatomic) int cell3Position;
 
 - (IBAction)collapseBtnTapped:(id)sender;

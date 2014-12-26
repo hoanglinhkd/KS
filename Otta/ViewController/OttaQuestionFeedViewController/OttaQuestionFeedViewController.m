@@ -18,18 +18,26 @@ static NSString * const QuestionFeedCellId = @"QuestionFeedCellId";
 @interface OttaQuestionFeedViewController () {
     NSMutableArray *feedItems;
     NSMutableArray *feedItems1;
-    NSMutableArray *viewAllModeCellArray;
+    
     PFObject *selectedQuestion;
     int selectedOption;
     UIRefreshControl *refreshControl;
     OttaQuestionFeedCell *previousSelectionCell;
+    
+    NSMutableDictionary *dictViewAllMode;
+    NSMutableDictionary *dictSelectedMode;
+    NSMutableDictionary *dictSubmitedMode;
+    
 }
 @end
 
 @implementation OttaQuestionFeedViewController
-
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    dictViewAllMode      = [[NSMutableDictionary alloc] init];
+    dictSelectedMode     = [[NSMutableDictionary alloc] init];
+    dictSubmitedMode     = [[NSMutableDictionary alloc] init];
     
     refreshControl = [[UIRefreshControl alloc]init];
     [_tableView addSubview:refreshControl];
@@ -42,7 +50,6 @@ static NSString * const QuestionFeedCellId = @"QuestionFeedCellId";
 -(void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
-    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -51,7 +58,6 @@ static NSString * const QuestionFeedCellId = @"QuestionFeedCellId";
 }
 
 #pragma Table datasource delegate
-
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return [self heightForBasicCellAtIndexPath:indexPath];
 }
@@ -63,20 +69,18 @@ static NSString * const QuestionFeedCellId = @"QuestionFeedCellId";
         sizingCell = [self.tableView dequeueReusableCellWithIdentifier:QuestionFeedCellId];
     });
     
-
     [self configureBasicCell:sizingCell atIndexPath:indexPath];
     return [self calculateHeightForConfiguredSizingCell:sizingCell];
 }
 
-- (CGFloat)calculateHeightForConfiguredSizingCell:(OttaQuestionFeedCell *)sizingCell {
+- (CGFloat)calculateHeightForConfiguredSizingCell:(OttaQuestionFeedCell *)sizingCell{
     [sizingCell setNeedsLayout];
     [sizingCell layoutIfNeeded];
 
-    CGSize questionSize = [sizingCell.questionLbl systemLayoutSizeFittingSize:UILayoutFittingCompressedSize];
+    //CGSize questionSize = [sizingCell.questionLbl systemLayoutSizeFittingSize:UILayoutFittingCompressedSize];
     CGSize tableSize = sizingCell.tableView.contentSize;
     CGSize size = [sizingCell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize];
     NSLog(@"%f - %f  - %f",sizingCell.questionLbl.bounds.size.height, size.height, tableSize.height);
-    
     
     if (sizingCell.isViewAllMode) {
         return size.height + tableSize.height;
@@ -104,27 +108,28 @@ static NSString * const QuestionFeedCellId = @"QuestionFeedCellId";
 - (void)configureBasicCell:(OttaQuestionFeedCell *)cell atIndexPath:(NSIndexPath *)indexPath {
     PFObject *item = feedItems[indexPath.row];
     
-    if ([viewAllModeCellArray containsObject:[NSNumber numberWithInteger:indexPath.row]])
-        cell.isViewAllMode = true;
-    else {
-        cell.isViewAllMode = false;
+    if ([dictViewAllMode objectForKey:[NSString stringWithFormat:@"%ld",indexPath.row]]){
+        if (indexPath.row == ((NSIndexPath*)[dictViewAllMode objectForKey:[NSString stringWithFormat:@"%ld",indexPath.row]]).row) {
+            cell.isViewAllMode = YES;
+        }
+    }else{
+        cell.isViewAllMode = NO;
     }
     
     [self setTitleForCell:cell item:item];
-    
 }
 
 - (void)setTitleForCell:(OttaQuestionFeedCell *)cell item:(PFObject *)item {
     PFUser *asker = item[kAsker];
-    NSString *title = item[kQuestionText]?: NSLocalizedString(@"[No Title]", nil);
+    NSString *title = item[kQuestionText] ?: NSLocalizedString(@"[No Title]", nil);
     [cell.questionLbl setText:title];
     [cell.ownerNameLbl setText:[NSString stringWithFormat:@"%@ %@",asker.firstName, asker.lastName]];
     [cell.timeLbl setText:[OttaUlti timeAgo:item[kExpTime]]];
+    cell.delegate = self;
     cell.answers = [NSMutableArray arrayWithArray:item[kAnswers]];
 }
 
-#pragma mark  tableview delegate
-
+#pragma mark  Tableview Delegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:TRUE];
 }
@@ -137,14 +142,19 @@ static NSString * const QuestionFeedCellId = @"QuestionFeedCellId";
  // Pass the selected object to the new view controller.
  }
  */
-#pragma mark - OttaQuestionFeedCellDelegate
-
-- (void)optionCell:(OttaQuestionFeedCell*)cell viewMoreBtnTapped:(id)row {
+#pragma mark - OttaQuestionFeedCell Delegate
+- (void)optionCell:(OttaQuestionFeedCell*)cell viewMoreBtnTapped:(NSIndexPath*)idxPath{
     
-    [viewAllModeCellArray addObject:row];
+    [dictViewAllMode setValue:idxPath forKey:[NSString stringWithFormat:@"%ld",idxPath.row]];
+    
+    NSArray *reloadCellIndexs = [NSArray arrayWithObjects:idxPath, nil];
+    [self.tableView reloadRowsAtIndexPaths:reloadCellIndexs withRowAnimation:UITableViewRowAnimationFade];
 }
-- (void)optionCell:(OttaQuestionFeedCell*)cell collapseBtnTapped:(id)row {
-    [viewAllModeCellArray removeObject:row];
+- (void)optionCell:(OttaQuestionFeedCell*)cell collapseBtnTapped:(NSIndexPath*)idxPath {
+    [dictViewAllMode removeObjectForKey:[NSString stringWithFormat:@"%ld",idxPath.row]];
+    
+    NSArray *reloadCellIndexs = [NSArray arrayWithObjects:idxPath, nil];
+    [self.tableView reloadRowsAtIndexPaths:reloadCellIndexs withRowAnimation:UITableViewRowAnimationFade];
 }
 
 - (void)optionCell:(OttaQuestionFeedCell *)cell imageBtnTappedAtRow:(id)row {
@@ -222,10 +232,8 @@ static NSString * const QuestionFeedCellId = @"QuestionFeedCellId";
     }
     previousSelectionCell = cell;
     
-    /*
     [self.tableView beginUpdates];
     [self.tableView endUpdates];
-     */
 }
 
 - (IBAction)menuButtonPressed:(id)sender {
@@ -264,10 +272,14 @@ static NSString * const QuestionFeedCellId = @"QuestionFeedCellId";
     [[OttaParseClientManager sharedManager] getQuestionFeedFromUser:[PFUser currentUser] withBlock:^(NSArray *array, NSError *error) {
         
         if(array) {
-            viewAllModeCellArray = [[NSMutableArray alloc] init];
             feedItems = [NSMutableArray arrayWithArray:array];
             feedItems1 = [NSMutableArray arrayWithArray:array];
+            
+            dictViewAllMode     = [[NSMutableDictionary alloc] init];
+            dictSelectedMode    = [[NSMutableDictionary alloc] init];
+            dictSubmitedMode    = [[NSMutableDictionary alloc] init];
         }
+        
         [_tableView reloadData];
         _tableView.hidden = NO;
         

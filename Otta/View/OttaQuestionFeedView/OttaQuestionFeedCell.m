@@ -32,6 +32,7 @@ static NSString * const DoneCellId      = @"OttaDoneButtonCell";
 
 @implementation OttaQuestionFeedCell
 @synthesize selectedIndexPath, submittedIndexPath;
+@synthesize isViewAllMode;
 
 - (void)awakeFromNib {
     // Initialization code
@@ -58,7 +59,7 @@ static NSString * const DoneCellId      = @"OttaDoneButtonCell";
     
     //NSIndexPath *firstAnswer =[NSIndexPath indexPathForRow:0 inSection:0];
 
-    if (!_isViewAllMode) {
+    if (!isViewAllMode) {
         return kDefaultShowedRow + kRowForViewAll;
     }else{
         if (selectedIndexPath || submittedIndexPath) {
@@ -70,7 +71,7 @@ static NSString * const DoneCellId      = @"OttaDoneButtonCell";
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (_isViewAllMode) {
+    if (isViewAllMode) {
         if (selectedIndexPath || submittedIndexPath) {
             if (indexPath.row == ([self tableView:tableView numberOfRowsInSection:0] - 1)) {
                 // is Done button
@@ -86,11 +87,8 @@ static NSString * const DoneCellId      = @"OttaDoneButtonCell";
             }
         }
     }else{
-        if (indexPath.row == 0) {
-            return [self cellViewAllAtIndexPath:indexPath];
-        }
+        return [self cellViewAllAtIndexPath:indexPath];
     }
-    
     
     if ([self hasImageAtIndexPath:indexPath]) {
         return [self galleryCellAtIndexPath:indexPath];
@@ -209,7 +207,7 @@ static NSString * const DoneCellId      = @"OttaDoneButtonCell";
 - (OttaViewAllCell*)cellViewAllAtIndexPath:(NSIndexPath*)indexPath{
     OttaViewAllCell *cell = [self.tableView dequeueReusableCellWithIdentifier:ViewAllCellId forIndexPath:indexPath];
     
-    if (_isViewAllMode) {
+    if (isViewAllMode) {
         [cell.btnViewAll setTitle:@"Collapse" forState:UIControlStateNormal];
         [cell.btnViewAll addTarget:self action:@selector(collapseBtnTapped:) forControlEvents:UIControlEventTouchUpInside];
     }else{
@@ -222,7 +220,7 @@ static NSString * const DoneCellId      = @"OttaDoneButtonCell";
 
 #pragma mark Tableview Delegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (!_isViewAllMode) {
+    if (!isViewAllMode) {
         return;
     }
     if (indexPath.row >= self.answers.count) {
@@ -280,33 +278,24 @@ static NSString * const DoneCellId      = @"OttaDoneButtonCell";
 
 
 - (IBAction)collapseBtnTapped:(id)sender {
-    _isViewAllMode = NO;
-    selectedIndexPath = nil;
-    [self.tableView reloadData];
+    isViewAllMode = NO;
     
-    UITableView *tv = (UITableView *) self.superview.superview;
-    NSIndexPath* pathOfTheCell = [tv indexPathForCell:self];
-    
-    [self.delegate optionCell:self collapseBtnTapped:[NSNumber numberWithInteger:pathOfTheCell.row]];
-    [UIView animateWithDuration:0.25 animations:^{
-        
-        [tv beginUpdates];
-        [tv endUpdates];
-        
-    }];
+    if (self.delegate && [((NSObject*)self.delegate) respondsToSelector:@selector(optionCell:collapseBtnTapped:)]) {
+        UITableView *tv = (UITableView *) self.superview.superview;
+        NSIndexPath* pathOfTheCell = [tv indexPathForCell:self];
+        [self.delegate optionCell:self collapseBtnTapped:pathOfTheCell];
+    }
 }
 
 - (IBAction)viewAllBtnTapped:(id)sender {
-    _isViewAllMode = YES;
-    [self.tableView reloadData];
-    UITableView *tv = (UITableView *) self.superview.superview;
-    NSIndexPath* pathOfTheCell = [tv indexPathForCell:self];
-    [self.delegate optionCell:self viewMoreBtnTapped:[NSNumber numberWithInteger:pathOfTheCell.row]];
-    [UIView animateWithDuration:0.25 animations:^{
-        [tv beginUpdates];
-        [tv endUpdates];
-    }];
+    isViewAllMode = YES;
+    if (self.delegate && [((NSObject*)self.delegate) respondsToSelector:@selector(optionCell:viewMoreBtnTapped:)]) {
+        UITableView *tv = (UITableView *) self.superview.superview;
+        NSIndexPath* pathOfTheCell = [tv indexPathForCell:self];
+        [self.delegate optionCell:self viewMoreBtnTapped:pathOfTheCell];
+    }
 }
+
 
 - (IBAction)imageBtnTapped:(id)sender {
     UIButton *btn = (UIButton *)sender;
@@ -316,7 +305,7 @@ static NSString * const DoneCellId      = @"OttaDoneButtonCell";
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (_isViewAllMode) {
+    if (isViewAllMode) {
         if (selectedIndexPath || submittedIndexPath) {
             if (indexPath.row == ([self tableView:tableView numberOfRowsInSection:0] - 1)) {
                 // is Done button
@@ -417,7 +406,7 @@ static NSString * const DoneCellId      = @"OttaDoneButtonCell";
         
         submittedIndexPath = nil;
         selectedIndexPath = nil;
-        _isViewAllMode = NO;
+        isViewAllMode = NO;
         [self.delegate questionFeedCell:self needToForceRemoveAtReferIndex:referIdxPath];
     }
 }
