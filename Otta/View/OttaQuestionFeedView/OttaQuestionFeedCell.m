@@ -207,11 +207,14 @@ static NSString * const DoneCellId      = @"OttaDoneButtonCell";
 - (OttaViewAllCell*)cellViewAllAtIndexPath:(NSIndexPath*)indexPath{
     OttaViewAllCell *cell = [self.tableView dequeueReusableCellWithIdentifier:ViewAllCellId forIndexPath:indexPath];
     
+    
     if (isViewAllMode) {
         [cell.btnViewAll setTitle:@"Collapse" forState:UIControlStateNormal];
+        [cell.btnViewAll removeTarget:self action:@selector(viewAllBtnTapped:) forControlEvents:UIControlEventTouchUpInside];
         [cell.btnViewAll addTarget:self action:@selector(collapseBtnTapped:) forControlEvents:UIControlEventTouchUpInside];
     }else{
         [cell.btnViewAll setTitle:@"View all..." forState:UIControlStateNormal];
+        [cell.btnViewAll removeTarget:self action:@selector(collapseBtnTapped:) forControlEvents:UIControlEventTouchUpInside];
         [cell.btnViewAll addTarget:self action:@selector(viewAllBtnTapped:) forControlEvents:UIControlEventTouchUpInside];
     }
     
