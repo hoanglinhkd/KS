@@ -196,9 +196,11 @@ static NSString * const DoneCellId      = @"OttaDoneButtonCell";
    
     if (submittedIndexPath) {
         [cell.btnSubmit setTitle:@"Done" forState:UIControlStateNormal];
+        [cell.btnSubmit removeTarget:self action:@selector(submitCellSelected:) forControlEvents:UIControlEventTouchUpInside];
         [cell.btnSubmit addTarget:self action:@selector(doneCellSelected:) forControlEvents:UIControlEventTouchUpInside];
     }else if(selectedIndexPath){
         [cell.btnSubmit setTitle:@"Submit" forState:UIControlStateNormal];
+        [cell.btnSubmit removeTarget:self action:@selector(doneCellSelected:) forControlEvents:UIControlEventTouchUpInside];
         [cell.btnSubmit addTarget:self action:@selector(submitCellSelected:) forControlEvents:UIControlEventTouchUpInside];
     }
     return cell;
@@ -206,7 +208,6 @@ static NSString * const DoneCellId      = @"OttaDoneButtonCell";
 #pragma mark - View All Cell
 - (OttaViewAllCell*)cellViewAllAtIndexPath:(NSIndexPath*)indexPath{
     OttaViewAllCell *cell = [self.tableView dequeueReusableCellWithIdentifier:ViewAllCellId forIndexPath:indexPath];
-    
     
     if (isViewAllMode) {
         [cell.btnViewAll setTitle:@"Collapse" forState:UIControlStateNormal];
@@ -231,28 +232,29 @@ static NSString * const DoneCellId      = @"OttaDoneButtonCell";
     }
     
     if (selectedIndexPath == indexPath) {
+        // for deselected current cell
         selectedIndexPath = nil;
         OttaBasicQuestionCell *cell = (OttaBasicQuestionCell*)[tableView cellForRowAtIndexPath:indexPath];
         cell.orderLbl.backgroundColor = kDefaultColorBackGround;
         [tableView deselectRowAtIndexPath:indexPath animated:YES];
-        return;
-    }else if(selectedIndexPath!=nil){
+    }else if(selectedIndexPath != nil){
+        // set color for old cell
         OttaBasicQuestionCell *cell = (OttaBasicQuestionCell*)[tableView cellForRowAtIndexPath:selectedIndexPath];
         cell.orderLbl.backgroundColor = kDefaultColorBackGround;
+    }else{
+        // for current selected cell
+        selectedIndexPath = indexPath;
+        OttaBasicQuestionCell *cell = (OttaBasicQuestionCell*)[tableView cellForRowAtIndexPath:indexPath];
+        cell.orderLbl.backgroundColor = [UIColor orangeColor];
     }
-    
-    selectedIndexPath = indexPath;
-    OttaBasicQuestionCell *cell = (OttaBasicQuestionCell*)[tableView cellForRowAtIndexPath:indexPath];
-    cell.orderLbl.backgroundColor = [UIColor orangeColor];
     
     // update show submit button
     [UIView animateWithDuration:0.0 animations:^{
-        if (self.delegate && ([(NSObject*)self.delegate respondsToSelector:@selector(questionFeedCell:DidSelectedRowAtIndexPath:)])) {
+        if (self.delegate && ([(NSObject*)self.delegate respondsToSelector:@selector(questionFeedCell:DidSelectedRowAtIndexPath:withSelectedIndex:)])) {
             UITableView *tbView = (UITableView*)self.superview.superview;
             NSIndexPath *referIdxPath = [tbView indexPathForCell:self];
-            [self.delegate questionFeedCell:self DidSelectedRowAtIndexPath:referIdxPath];
+            [self.delegate questionFeedCell:self DidSelectedRowAtIndexPath:referIdxPath withSelectedIndex:selectedIndexPath];
         }
-        
     } completion:^(BOOL finished) {
         if (finished) {
             //[self.tableView beginUpdates];

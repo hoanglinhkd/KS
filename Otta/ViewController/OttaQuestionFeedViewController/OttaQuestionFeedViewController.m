@@ -22,7 +22,7 @@ static NSString * const QuestionFeedCellId = @"QuestionFeedCellId";
     PFObject *selectedQuestion;
     int selectedOption;
     UIRefreshControl *refreshControl;
-    OttaQuestionFeedCell *previousSelectionCell;
+    OttaQuestionFeedCell *currentSelectedCell;
     
     NSMutableDictionary *dictViewAllMode;
     NSMutableDictionary *dictSelectedMode;
@@ -111,9 +111,20 @@ static NSString * const QuestionFeedCellId = @"QuestionFeedCellId";
     if ([dictViewAllMode objectForKey:[NSString stringWithFormat:@"%ld",indexPath.row]]){
         if (indexPath.row == ((NSIndexPath*)[dictViewAllMode objectForKey:[NSString stringWithFormat:@"%ld",indexPath.row]]).row) {
             cell.isViewAllMode = YES;
+            
+            // for selected cell
+            if ([dictSelectedMode objectForKey:[NSString stringWithFormat:@"%ld",indexPath.row]]) {
+                NSIndexPath *selectedRow = [dictSelectedMode objectForKey:[NSString stringWithFormat:@"%ld", indexPath.row]];
+                cell.selectedIndexPath = selectedRow;
+            }else{
+                cell.selectedIndexPath = nil;
+            }
         }
     }else{
         cell.isViewAllMode = NO;
+        
+        // reset status for cell
+        cell.selectedIndexPath = nil;
     }
     
     [self setTitleForCell:cell item:item];
@@ -223,17 +234,27 @@ static NSString * const QuestionFeedCellId = @"QuestionFeedCellId";
     [self.tableView reloadData];
 }
 
-- (void)questionFeedCell:(OttaQuestionFeedCell *)cell DidSelectedRowAtIndexPath:(NSIndexPath *)indexPath{
-    //NSArray *arrReload = [[NSArray alloc] initWithObjects:indexPath, nil];
-    //[self.tableView reloadRowsAtIndexPaths:arrReload withRowAnimation:UITableViewRowAnimationFade];
+- (void)questionFeedCell:(OttaQuestionFeedCell *)cell DidSelectedRowAtIndexPath:(NSIndexPath *)indexPath withSelectedIndex:(NSIndexPath *)childIdxPath{
     
-    if(previousSelectionCell != cell) {
-        [previousSelectionCell deselectCell];
+    // Refresh other cell
+    if(currentSelectedCell != cell) {
+        [currentSelectedCell deselectCell];
     }
-    previousSelectionCell = cell;
+    currentSelectedCell = cell;
     
+    // Cache to load selected indexpath
+    if (childIdxPath==nil) {
+        [dictSelectedMode removeObjectForKey:[NSString stringWithFormat:@"%ld",indexPath.row]];
+    }else{
+        [dictSelectedMode setValue:childIdxPath forKey:[NSString stringWithFormat:@"%ld",indexPath.row]];
+    }
+    
+    NSArray *arrReload = [[NSArray alloc] initWithObjects:indexPath, nil];
+    [self.tableView reloadRowsAtIndexPaths:arrReload withRowAnimation:UITableViewRowAnimationFade];
+    /*
     [self.tableView beginUpdates];
     [self.tableView endUpdates];
+     */
 }
 
 - (IBAction)menuButtonPressed:(id)sender {
@@ -304,9 +325,9 @@ static NSString * const QuestionFeedCellId = @"QuestionFeedCellId";
 #pragma mark - Media Detail Delegate
 -(void) didSelectOptionIndex:(int)index forCell:(OttaQuestionFeedCell*)currentCell
 {
-    if(previousSelectionCell != currentCell) {
-        [previousSelectionCell deselectCell];
+    if(currentSelectedCell != currentCell) {
+        [currentSelectedCell deselectCell];
     }
-    previousSelectionCell = currentCell;
+    currentSelectedCell = currentCell;
 }
 @end
