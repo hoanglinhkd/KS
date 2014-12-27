@@ -85,6 +85,7 @@
 
     selectedTimeValue = 0;
     selectedDuration = -1;
+    
     [self.navigationController setNavigationBarHidden:YES];
     
     listHeightQuestion = [NSMutableDictionary dictionary];
@@ -421,6 +422,21 @@ UITextView itsTextView = [[UITextView alloc] initWithFrame:CGRectMake(0, 0, itsT
         [tableView reloadData];
     }
    
+}
+
+- (void)textViewDidChange:(UITextView *)textView
+{
+    //Defining auto height of Ask Question
+    if(textView == _itsTextView) {
+        if(textView.contentSize.height > 92.0f) { //92 is 4 lines
+            _heightAskContent.constant = 92.0f;
+        } else {
+            _heightAskContent.constant = textView.contentSize.height;
+        }
+        [UIView animateWithDuration:0.4 animations:^{
+            [self.view layoutIfNeeded];
+        }];
+    }
 }
 
 #pragma mark option cell delegate

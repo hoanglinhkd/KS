@@ -24,7 +24,7 @@
 @property (nonatomic,strong) IBOutlet SZTextView * itsTextView;
 @property (nonatomic,strong) UITextView *activeTextField;
 @property (nonatomic,strong) IBOutlet UITableView *tableAsk;
-
+@property (nonatomic,strong) IBOutlet NSLayoutConstraint *heightAskContent;
 @property (nonatomic, strong) NSMutableArray* optionsArray;
 - (IBAction)btnNextPress:(id)sender;
 

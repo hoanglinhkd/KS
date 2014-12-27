@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="jFH-gY-aPy">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="jFH-gY-aPy">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -192,7 +192,6 @@
                                 <rect key="frame" x="16" y="124" width="288" height="18"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="288" id="D8D-yc-n9y"/>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="18" id="RBt-vL-SZb"/>
                                     <constraint firstAttribute="height" constant="18" id="waC-Zd-lwp"/>
                                 </constraints>
                             </imageView>
@@ -456,6 +455,9 @@
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IwQ-rb-xVj" customClass="SZTextView">
                                 <rect key="frame" x="8" y="83" width="305" height="46"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="46" id="WNe-ES-8Od"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done"/>
                                 <connections>
@@ -472,9 +474,8 @@
                             <constraint firstItem="IwQ-rb-xVj" firstAttribute="leading" secondItem="J9Z-Ye-xuB" secondAttribute="leadingMargin" constant="-8" id="Ex8-Ys-MRT"/>
                             <constraint firstItem="WS2-pS-foB" firstAttribute="leading" secondItem="J9Z-Ye-xuB" secondAttribute="leadingMargin" constant="-16" id="FWp-bV-jXy"/>
                             <constraint firstAttribute="trailingMargin" secondItem="WS2-pS-foB" secondAttribute="trailing" constant="-16" id="MeW-3V-Ldu"/>
+                            <constraint firstItem="Nx4-1g-pn3" firstAttribute="top" secondItem="IwQ-rb-xVj" secondAttribute="bottom" constant="-5" id="VOB-CX-Q40"/>
                             <constraint firstItem="WS2-pS-foB" firstAttribute="top" secondItem="IwQ-rb-xVj" secondAttribute="bottom" constant="8" id="Vob-Hi-b9v"/>
-                            <constraint firstItem="WS2-pS-foB" firstAttribute="top" secondItem="AJB-qm-yeH" secondAttribute="bottom" constant="117" id="ZhJ-yA-VRe"/>
-                            <constraint firstItem="Nx4-1g-pn3" firstAttribute="top" secondItem="8ui-dY-AOp" secondAttribute="bottom" constant="44" id="aaf-6z-uYC"/>
                             <constraint firstAttribute="trailing" secondItem="8ui-dY-AOp" secondAttribute="trailing" id="fJm-SG-58y"/>
                             <constraint firstItem="mps-Lf-qZE" firstAttribute="top" secondItem="WS2-pS-foB" secondAttribute="bottom" id="heF-Z8-o5M"/>
                             <constraint firstItem="mps-Lf-qZE" firstAttribute="leading" secondItem="J9Z-Ye-xuB" secondAttribute="leading" id="k6i-Sg-m75"/>
@@ -487,6 +488,7 @@
                     <navigationItem key="navigationItem" id="78C-cG-Egf"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
+                        <outlet property="heightAskContent" destination="WNe-ES-8Od" id="3Gs-VH-G6c"/>
                         <outlet property="itsTextView" destination="IwQ-rb-xVj" id="HSX-KN-Khn"/>
                         <outlet property="tableAsk" destination="WS2-pS-foB" id="5VD-5Q-NhB"/>
                         <segue destination="IL4-Co-cEQ" kind="modal" identifier="segueAnswerers" id="Bdu-xs-RYL"/>
