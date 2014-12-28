@@ -15,6 +15,8 @@
 #import "OttaAppDelegate.h"
 #import "OttaParseClientManager.h"
 
+
+
 @interface OttaFindFriendsViewController ()
 {
     OttaFriendsCell *lastCellSelected;
@@ -738,7 +740,7 @@ replacementString:(NSString *)string {
 {
     MFMessageComposeViewController *controller = [[MFMessageComposeViewController alloc] init];
     if([MFMessageComposeViewController canSendText]) {
-        controller.body = [NSString stringWithFormat:@"Hi %@, download Otta to ask questions, get input, and answer your friends’ questions.", userName];
+        controller.body = [NSString stringWithFormat:@"Hi %@, download Otta to ask questions, get input, and answer your friends’ questions.\n%@", userName, kAppLink];
         controller.recipients = [NSArray arrayWithObject:phoneNumber];
         controller.messageComposeDelegate = self;
         [self presentViewController:controller animated:YES completion:nil];
@@ -751,7 +753,7 @@ replacementString:(NSString *)string {
     controller.mailComposeDelegate = self;
     [controller setToRecipients:[NSArray arrayWithObject:emailAddress]];
     [controller setSubject:@"Otta Invitation"];
-    [controller setMessageBody:[NSString stringWithFormat:@"Hi %@, download Otta to ask questions, get input, and answer your friends’ questions.", userName] isHTML:YES];
+    [controller setMessageBody:[NSString stringWithFormat:@"Hi %@, download Otta to ask questions, get input, and answer your friends’ questions.\n%@", userName, kAppLink] isHTML:YES];
     if (controller) {
         [self presentViewController:controller animated:YES completion:nil];
     }

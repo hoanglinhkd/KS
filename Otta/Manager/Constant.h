@@ -12,7 +12,7 @@
 
 #define cusGreencolor [UIColor colorWithRed:0.486275 green:0.741176 blue:0.192157 alpha:1]
 
-
+#define kAppLink @"https://itunes.apple.com/vn/app/facebook/id284882215?mt=8"
 
 typedef enum {
     TimeSelection_Minutes = 0,

@@ -1264,7 +1264,7 @@
 						DevelopmentTeam = 3VMD94Y2M8;
 					};
 					F0BC6532198606BD0097A87C = {
-						DevelopmentTeam = ST4BY352FH;
+						DevelopmentTeam = 3VMD94Y2M8;
 						TestTargetID = F0BC6511198606BD0097A87C;
 					};
 				};
@@ -1674,8 +1674,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Duy An Huynh (PNK43AD7Y4)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Duy An Huynh (PNK43AD7Y4)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Thien Chau (B5C6XKM622)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Thien Chau (B5C6XKM622)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -1689,7 +1689,7 @@
 					"$(PROJECT_DIR)/Otta/Lib/Testflight",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "48106677-8488-413f-b66c-a9c645cd06af";
+				PROVISIONING_PROFILE = "9ef28093-7b21-4984-988b-d1af0b33ad8b";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -1715,7 +1715,7 @@
 					"$(PROJECT_DIR)/Otta/Lib/Testflight",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "48106677-8488-413f-b66c-a9c645cd06af";
+				PROVISIONING_PROFILE = "856b340c-812f-4d2e-99b4-263af68781e8";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
