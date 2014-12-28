@@ -13,6 +13,7 @@
 #import "OttaDoneButtonCell.h"
 #import "OttaAnswer.h"
 #import "OttaParseClientManager.h"
+#import "OttaQuestionFeedViewController.h"
 
 static NSString * const BasicCellId     = @"BasicQuestionCellId";
 static NSString * const MediaCellId     = @"MediaQuestionCellId";
@@ -72,18 +73,37 @@ static NSString * const DoneCellId      = @"OttaDoneButtonCell";
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (isViewAllMode) {
-        if (selectedIndexPath || submittedIndexPath) {
-            if (indexPath.row == ([self tableView:tableView numberOfRowsInSection:0] - 1)) {
+        if (submittedIndexPath) {
+            if (indexPath.row==0) {
+                // Show simple row
+                if ([self hasImageAtIndexPath:indexPath]) {
+                    return [self galleryCellAtIndexPath:indexPath];
+                } else {
+                    return [self basicCellAtIndexPath:indexPath];
+                }
+            }else if (indexPath.row == 1){
+                // is View All Cell
+                return [self cellViewAllAtIndexPath:indexPath];
+            }else if (indexPath.row == 2){
                 // is Done button
                 return [self doneCellAtIndexPath:indexPath];
-            }else if(indexPath.row == ([self tableView:tableView numberOfRowsInSection:0] - 2)){
-                // is View All Cell
-                return [self cellViewAllAtIndexPath:indexPath];
             }
         }else{
-            if(indexPath.row == ([self tableView:tableView numberOfRowsInSection:0] - 1)){
-                // is View All Cell
-                return [self cellViewAllAtIndexPath:indexPath];
+            // check selected
+            if (selectedIndexPath) {
+                if (indexPath.row == ([self tableView:tableView numberOfRowsInSection:0] - 1)) {
+                    // is Done button
+                    return [self doneCellAtIndexPath:indexPath];
+                }else if(indexPath.row == ([self tableView:tableView numberOfRowsInSection:0] - 2)){
+                    // is View All Cell
+                    return [self cellViewAllAtIndexPath:indexPath];
+                }
+            }else{
+                // is not selected => show view all
+                if(indexPath.row == ([self tableView:tableView numberOfRowsInSection:0] - 1)){
+                    // is View All Cell
+                    return [self cellViewAllAtIndexPath:indexPath];
+                }
             }
         }
     }else{
@@ -142,11 +162,20 @@ static NSString * const DoneCellId      = @"OttaDoneButtonCell";
 - (void)setOrderForCell:(OttaBasicQuestionCell *)cell order:(NSIndexPath*)idx {
     [cell.orderLbl setText:[NSString stringWithFormat:@"%ld", idx.row + 1]];
     
-    if (idx.row == submittedIndexPath.row && submittedIndexPath != nil) {
-        cell.orderLbl.backgroundColor = [UIColor orangeColor];
+    if (submittedIndexPath) {
+        if (idx.row == 0) {
+            cell.orderLbl.backgroundColor = [UIColor orangeColor];
+            cell.orderLbl.text = [NSString stringWithFormat:@"%ld", submittedIndexPath.row + 1];
+        }
     }else{
-        cell.orderLbl.backgroundColor = kDefaultColorBackGround;
+        if (idx.row == selectedIndexPath.row && selectedIndexPath != nil) {
+            cell.orderLbl.backgroundColor = [UIColor orangeColor];
+            cell.orderLbl.text = [NSString stringWithFormat:@"%ld", selectedIndexPath.row + 1];
+        }else{
+            cell.orderLbl.backgroundColor = kDefaultColorBackGround;
+        }
     }
+    
 }
 - (void) selectAnswerIndex:(int)answerIndex
 {
@@ -183,6 +212,7 @@ static NSString * const DoneCellId      = @"OttaDoneButtonCell";
 
 - (void)configureImageCell:(OttaMediaQuestionCell *)cell atIndexPath:(NSIndexPath *)indexPath {
     PFObject *item = self.answers[indexPath.row];
+    
     [self setTitleForCell:cell item:item];
     [self setOrderForCell:cell order:indexPath];
     [self setImageForCell:(id)cell item:item];
@@ -196,9 +226,11 @@ static NSString * const DoneCellId      = @"OttaDoneButtonCell";
    
     if (submittedIndexPath) {
         [cell.btnSubmit setTitle:@"Done" forState:UIControlStateNormal];
+        [cell.btnSubmit removeTarget:self action:@selector(submitCellSelected:) forControlEvents:UIControlEventTouchUpInside];
         [cell.btnSubmit addTarget:self action:@selector(doneCellSelected:) forControlEvents:UIControlEventTouchUpInside];
     }else if(selectedIndexPath){
         [cell.btnSubmit setTitle:@"Submit" forState:UIControlStateNormal];
+        [cell.btnSubmit removeTarget:self action:@selector(doneCellSelected:) forControlEvents:UIControlEventTouchUpInside];
         [cell.btnSubmit addTarget:self action:@selector(submitCellSelected:) forControlEvents:UIControlEventTouchUpInside];
     }
     return cell;
@@ -206,7 +238,6 @@ static NSString * const DoneCellId      = @"OttaDoneButtonCell";
 #pragma mark - View All Cell
 - (OttaViewAllCell*)cellViewAllAtIndexPath:(NSIndexPath*)indexPath{
     OttaViewAllCell *cell = [self.tableView dequeueReusableCellWithIdentifier:ViewAllCellId forIndexPath:indexPath];
-    
     
     if (isViewAllMode) {
         [cell.btnViewAll setTitle:@"Collapse" forState:UIControlStateNormal];
@@ -231,28 +262,23 @@ static NSString * const DoneCellId      = @"OttaDoneButtonCell";
     }
     
     if (selectedIndexPath == indexPath) {
+        // for deselected current cell
         selectedIndexPath = nil;
         OttaBasicQuestionCell *cell = (OttaBasicQuestionCell*)[tableView cellForRowAtIndexPath:indexPath];
         cell.orderLbl.backgroundColor = kDefaultColorBackGround;
         [tableView deselectRowAtIndexPath:indexPath animated:YES];
-        return;
-    }else if(selectedIndexPath!=nil){
-        OttaBasicQuestionCell *cell = (OttaBasicQuestionCell*)[tableView cellForRowAtIndexPath:selectedIndexPath];
-        cell.orderLbl.backgroundColor = kDefaultColorBackGround;
+    }else{
+        // for current selected cell
+        selectedIndexPath = indexPath;
     }
-    
-    selectedIndexPath = indexPath;
-    OttaBasicQuestionCell *cell = (OttaBasicQuestionCell*)[tableView cellForRowAtIndexPath:indexPath];
-    cell.orderLbl.backgroundColor = [UIColor orangeColor];
     
     // update show submit button
     [UIView animateWithDuration:0.0 animations:^{
-        if (self.delegate && ([(NSObject*)self.delegate respondsToSelector:@selector(questionFeedCell:DidSelectedRowAtIndexPath:)])) {
+        if (self.delegate && ([(NSObject*)self.delegate respondsToSelector:@selector(questionFeedCell:DidSelectedRowAtIndexPath:withSelectedIndex:)])) {
             UITableView *tbView = (UITableView*)self.superview.superview;
             NSIndexPath *referIdxPath = [tbView indexPathForCell:self];
-            [self.delegate questionFeedCell:self DidSelectedRowAtIndexPath:referIdxPath];
+            [self.delegate questionFeedCell:self DidSelectedRowAtIndexPath:referIdxPath withSelectedIndex:selectedIndexPath];
         }
-        
     } completion:^(BOOL finished) {
         if (finished) {
             //[self.tableView beginUpdates];
@@ -307,19 +333,38 @@ static NSString * const DoneCellId      = @"OttaDoneButtonCell";
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (isViewAllMode) {
-        if (selectedIndexPath || submittedIndexPath) {
-            if (indexPath.row == ([self tableView:tableView numberOfRowsInSection:0] - 1)) {
-                // is Done button
-                return 40.0;
-            }else if(indexPath.row == ([self tableView:tableView numberOfRowsInSection:0] - 2)){
+        if(submittedIndexPath){
+            if (indexPath.row==0) {
+                // Show simple row
+                if ([self hasImageAtIndexPath:indexPath]) {
+                    return [self heightForImageCellAtIndexPath:indexPath];
+                } else {
+                    return [self heightForBasicCellAtIndexPath:indexPath];
+                    
+                }
+            }else if (indexPath.row == 1){
                 // is View All Cell
                 return 30.0;
+            }else if (indexPath.row == 2){
+                // is Done button
+                return 50.0;
             }
         }else{
-            if (indexPath.row == ([self tableView:tableView numberOfRowsInSection:0] - 1)) {
-                return 30.0;
+            if (selectedIndexPath) {
+                if (indexPath.row == ([self tableView:tableView numberOfRowsInSection:0] - 1)) {
+                    // is Done button
+                    return 50.0;
+                }else if(indexPath.row == ([self tableView:tableView numberOfRowsInSection:0] - 2)){
+                    // is View All Cell
+                    return 30.0;
+                }
+            }else{
+                if (indexPath.row == ([self tableView:tableView numberOfRowsInSection:0] - 1)) {
+                    return 30.0;
+                }
             }
         }
+        
     }else{
         if (indexPath.row == 0) {
             return 30.0;
@@ -389,8 +434,6 @@ static NSString * const DoneCellId      = @"OttaDoneButtonCell";
         submittedIndexPath = [NSIndexPath indexPathForRow:selectedIndexPath.row inSection:0];
         NSInteger maxCount = [self tableView:self.tableView numberOfRowsInSection:0];
         
-        selectedIndexPath = nil;
-        
         [self.delegate questionFeedCell:self optionCell:(OttaBasicQuestionCell*)[self.tableView cellForRowAtIndexPath:submittedIndexPath] withReferIndexPath:referIdxPath didSubmitRowAtIndexPath:submittedIndexPath withMaximumCount:maxCount];
         
         
@@ -401,18 +444,21 @@ static NSString * const DoneCellId      = @"OttaDoneButtonCell";
         return;
     
     isForcedDelete = YES;
-    UITableView *tbView = (UITableView*)self.superview.superview;
-    NSIndexPath *referIdxPath = [tbView indexPathForCell:self];
-    if (self.delegate && [((NSObject*)self.delegate) respondsToSelector:@selector(questionFeedCell:needToForceRemoveAtReferIndex:)]) {
-        
-        submittedIndexPath = nil;
-        selectedIndexPath = nil;
-        isViewAllMode = NO;
-        [self.delegate questionFeedCell:self needToForceRemoveAtReferIndex:referIdxPath];
+   
+    NSIndexPath *referIdxPath = [OttaQuestionFeedViewController sharedInstance].currentSelectedCell;
+    if (referIdxPath!=nil) {
+        NSLog(@"refer %ld",referIdxPath.row);
+        if (self.delegate && [((NSObject*)self.delegate) respondsToSelector:@selector(questionFeedCell:needToForceRemoveAtReferIndex:)]) {
+            [self.delegate questionFeedCell:self needToForceRemoveAtReferIndex:referIdxPath];
+        }
     }
 }
 
 - (void) startPerformSelectorForDelete{
+    // remove before addition more
+    [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(doneCellSelected:) object:nil];
+    
+    // add perform Selector
     [self performSelector:@selector(doneCellSelected:) withObject:nil afterDelay:kIntervalForceDelete];
 }
 @end
