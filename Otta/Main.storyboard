@@ -585,16 +585,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="6ep-8v-gWp">
+                            <view contentMode="scaleAspectFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6ep-8v-gWp">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="80"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Otta_header_shape_bar.png" translatesAutoresizingMaskIntoConstraints="NO" id="m8T-Up-hhB">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="Otta_header_shape_bar.png" translatesAutoresizingMaskIntoConstraints="NO" id="m8T-Up-hhB">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="80"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="80" id="paN-F6-YfO"/>
                                         </constraints>
                                     </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Otta_header_brand_name.png" translatesAutoresizingMaskIntoConstraints="NO" id="Plo-cg-FI1">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="Otta_header_brand_name.png" translatesAutoresizingMaskIntoConstraints="NO" id="Plo-cg-FI1">
                                         <rect key="frame" x="105" y="35" width="111" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="111" id="N8U-1R-0We"/>
@@ -2117,7 +2117,7 @@ EE5leHQ
                         <rect key="frame" x="0.0" y="0.0" width="320" height="442"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="I8g-YS-BJD" userLabel="FaceBookDetailView" customClass="TPKeyboardAvoidingScrollView">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="I8g-YS-BJD" userLabel="FaceBookDetailView" customClass="TPKeyboardAvoidingScrollView">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="247"/>
                                 <subviews>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Hba-ng-RCr">
@@ -3399,21 +3399,20 @@ EE5leHQ
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <action selector="btnBackPress:" destination="yV0-Wg-ikO" eventType="touchUpInside" id="atP-fS-2AI"/>
-                                            <action selector="btnBackTapped:" destination="buD-t4-zlQ" eventType="touchUpInside" id="xSR-wc-8DZ"/>
+                                            <action selector="btnBackTapped:" destination="buD-t4-zlQ" eventType="touchUpInside" id="FEF-fK-C4a"/>
                                         </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.56078433989999998" green="0.79215693470000004" blue="0.25098040700000002" alpha="1" colorSpace="deviceRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="jnS-wI-cSd" secondAttribute="bottom" id="23y-EZ-nzW"/>
-                                    <constraint firstAttribute="trailing" secondItem="jnS-wI-cSd" secondAttribute="trailing" id="4Gh-nR-kd2"/>
-                                    <constraint firstItem="jnS-wI-cSd" firstAttribute="leading" secondItem="VgH-u0-ZIv" secondAttribute="leading" id="Cpv-ko-wEd"/>
                                     <constraint firstAttribute="height" constant="80" id="De4-bP-aTB"/>
                                     <constraint firstItem="dra-jQ-9NJ" firstAttribute="top" secondItem="VgH-u0-ZIv" secondAttribute="top" constant="35" id="GuE-E5-WRo"/>
                                     <constraint firstItem="dra-jQ-9NJ" firstAttribute="leading" secondItem="VgH-u0-ZIv" secondAttribute="leading" constant="8" id="KYH-u0-bGv"/>
                                     <constraint firstItem="Eb2-C8-SbD" firstAttribute="top" secondItem="VgH-u0-ZIv" secondAttribute="top" constant="35" id="NLv-I7-hvw"/>
                                     <constraint firstItem="jnS-wI-cSd" firstAttribute="top" secondItem="VgH-u0-ZIv" secondAttribute="top" id="RUD-BE-cMS"/>
+                                    <constraint firstAttribute="trailing" secondItem="jnS-wI-cSd" secondAttribute="trailing" id="USG-yM-E31"/>
+                                    <constraint firstItem="jnS-wI-cSd" firstAttribute="leading" secondItem="VgH-u0-ZIv" secondAttribute="leading" id="V84-7m-v6K"/>
                                     <constraint firstAttribute="centerX" secondItem="Eb2-C8-SbD" secondAttribute="centerX" id="bjt-ac-VMK"/>
                                     <constraint firstAttribute="trailing" secondItem="PHb-4g-XK3" secondAttribute="trailing" constant="8" id="eVp-CN-SUV"/>
                                     <constraint firstItem="PHb-4g-XK3" firstAttribute="top" secondItem="VgH-u0-ZIv" secondAttribute="top" constant="35" id="fdU-VF-twh"/>
@@ -3477,22 +3476,22 @@ EE5leHQ
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailingMargin" secondItem="3aI-8u-iKw" secondAttribute="trailing" constant="-16" id="1JE-4A-3WA"/>
                             <constraint firstItem="VgH-u0-ZIv" firstAttribute="top" secondItem="ZAH-eG-ITw" secondAttribute="topMargin" id="1dx-qq-B0Z"/>
-                            <constraint firstItem="VgH-u0-ZIv" firstAttribute="leading" secondItem="ZAH-eG-ITw" secondAttribute="leadingMargin" constant="-16" id="GCf-ef-JaY"/>
+                            <constraint firstAttribute="trailing" secondItem="VgH-u0-ZIv" secondAttribute="trailing" id="6Tv-Dc-jPw"/>
                             <constraint firstItem="tya-KQ-g9p" firstAttribute="top" secondItem="3gO-pC-NAn" secondAttribute="bottom" id="N6E-UH-1rP"/>
                             <constraint firstItem="tya-KQ-g9p" firstAttribute="leading" secondItem="ZAH-eG-ITw" secondAttribute="leading" id="NiO-iq-iLy"/>
                             <constraint firstItem="3gO-pC-NAn" firstAttribute="top" secondItem="0uz-vW-0mm" secondAttribute="bottom" constant="8" id="NrN-jZ-Kpg"/>
                             <constraint firstAttribute="trailing" secondItem="tya-KQ-g9p" secondAttribute="trailing" id="R3X-nQ-DI7"/>
                             <constraint firstItem="3aI-8u-iKw" firstAttribute="top" secondItem="tya-KQ-g9p" secondAttribute="bottom" id="R8r-tF-Wa6"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="3gO-pC-NAn" secondAttribute="trailing" constant="-16" id="RC5-6I-s7x"/>
                             <constraint firstAttribute="trailingMargin" secondItem="0uz-vW-0mm" secondAttribute="trailing" constant="-16" id="V2L-w4-OgC"/>
-                            <constraint firstItem="3aI-8u-iKw" firstAttribute="leading" secondItem="ZAH-eG-ITw" secondAttribute="leadingMargin" constant="-16" id="VHp-jS-0rR"/>
                             <constraint firstItem="0uz-vW-0mm" firstAttribute="leading" secondItem="ZAH-eG-ITw" secondAttribute="leadingMargin" constant="-16" id="WXI-Sk-vlo"/>
+                            <constraint firstAttribute="trailing" secondItem="3gO-pC-NAn" secondAttribute="trailing" id="XxT-rC-664"/>
                             <constraint firstItem="0uz-vW-0mm" firstAttribute="top" secondItem="VgH-u0-ZIv" secondAttribute="bottom" constant="8" id="YHz-hx-cUf"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="VgH-u0-ZIv" secondAttribute="trailing" constant="-16" id="Ydv-Gb-kqa"/>
+                            <constraint firstItem="3gO-pC-NAn" firstAttribute="leading" secondItem="ZAH-eG-ITw" secondAttribute="leading" id="Z7b-xP-WVj"/>
                             <constraint firstItem="dYn-Fh-Qt4" firstAttribute="top" secondItem="3aI-8u-iKw" secondAttribute="bottom" id="cMz-6R-PY0"/>
-                            <constraint firstItem="3gO-pC-NAn" firstAttribute="leading" secondItem="ZAH-eG-ITw" secondAttribute="leadingMargin" constant="-16" id="dau-W0-1yH"/>
+                            <constraint firstAttribute="trailing" secondItem="3aI-8u-iKw" secondAttribute="trailing" id="g7b-GH-kB0"/>
+                            <constraint firstItem="3aI-8u-iKw" firstAttribute="leading" secondItem="ZAH-eG-ITw" secondAttribute="leading" id="kvY-yy-rGp"/>
+                            <constraint firstItem="VgH-u0-ZIv" firstAttribute="leading" secondItem="ZAH-eG-ITw" secondAttribute="leading" id="rrl-Jg-J1u"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="6EA-Vo-vB3"/>
