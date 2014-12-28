@@ -486,8 +486,13 @@ static NSString * const OttaMyQuestionVoteCellIdentifier        = @"OttaMyQuesti
 }
 
 - (void)configureDoneCell:(OttaMyQuestionDoneCell *)cell atIndexPath:(NSIndexPath *)indexPath {
-    OttaMyQuestionData *dto = dataForShow[indexPath.row];
     
+    if(indexPath.row == 0) {
+        [cell.vDivide setHidden:YES];
+    } else {
+        [cell.vDivide setHidden:NO];
+    }
+    OttaMyQuestionData *dto = dataForShow[indexPath.row];
     cell.lblText.text = dto.questionText;
 }
 // For Vote cell
