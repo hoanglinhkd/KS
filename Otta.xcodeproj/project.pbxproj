@@ -200,6 +200,7 @@
 		D9CD79961A22EA8C007C6E15 /* OttaLoginContainerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9CD798F1A22EA8C007C6E15 /* OttaLoginContainerViewController.m */; };
 		D9CD79971A22EA8C007C6E15 /* OttaLoginDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9CD79911A22EA8C007C6E15 /* OttaLoginDetailViewController.m */; };
 		D9CD79981A22EA8C007C6E15 /* OttaLoginSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = D9CD79931A22EA8C007C6E15 /* OttaLoginSegue.m */; };
+		D9CE00E11A4FD9CB0073E998 /* OttaLabelMaxWidth.m in Sources */ = {isa = PBXBuildFile; fileRef = D9CE00E01A4FD9CB0073E998 /* OttaLabelMaxWidth.m */; };
 		D9F04A111A1B60430049AD41 /* HPGrowingTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = D9F04A0E1A1B60430049AD41 /* HPGrowingTextView.m */; };
 		D9F04A121A1B60430049AD41 /* HPTextViewInternal.m in Sources */ = {isa = PBXBuildFile; fileRef = D9F04A101A1B60430049AD41 /* HPTextViewInternal.m */; };
 		F0B6412519A57B11007C4373 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F0B6412419A57B11007C4373 /* libz.dylib */; };
@@ -487,6 +488,8 @@
 		D9CD79911A22EA8C007C6E15 /* OttaLoginDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OttaLoginDetailViewController.m; sourceTree = "<group>"; };
 		D9CD79921A22EA8C007C6E15 /* OttaLoginSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OttaLoginSegue.h; sourceTree = "<group>"; };
 		D9CD79931A22EA8C007C6E15 /* OttaLoginSegue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OttaLoginSegue.m; sourceTree = "<group>"; };
+		D9CE00DF1A4FD9CB0073E998 /* OttaLabelMaxWidth.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OttaLabelMaxWidth.h; sourceTree = "<group>"; };
+		D9CE00E01A4FD9CB0073E998 /* OttaLabelMaxWidth.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OttaLabelMaxWidth.m; sourceTree = "<group>"; };
 		D9F04A0D1A1B60430049AD41 /* HPGrowingTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HPGrowingTextView.h; sourceTree = "<group>"; };
 		D9F04A0E1A1B60430049AD41 /* HPGrowingTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HPGrowingTextView.m; sourceTree = "<group>"; };
 		D9F04A0F1A1B60430049AD41 /* HPTextViewInternal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HPTextViewInternal.h; sourceTree = "<group>"; };
@@ -869,6 +872,8 @@
 				D98E30C51A1797CD0080B934 /* AFPickerView */,
 				D98E30B91A1779110080B934 /* Language */,
 				66FD4B5C1A11AD6B005ACD58 /* Testflight */,
+				D9CE00DF1A4FD9CB0073E998 /* OttaLabelMaxWidth.h */,
+				D9CE00E01A4FD9CB0073E998 /* OttaLabelMaxWidth.m */,
 			);
 			path = Lib;
 			sourceTree = "<group>";
@@ -1483,6 +1488,7 @@
 				7ED16B0A1A380AC1001347A8 /* OttaSettingViewController.m in Sources */,
 				D98E30C41A1795D70080B934 /* Constant.m in Sources */,
 				CEA6545E1A2DFF2600233156 /* OttaMyQuestionHeaderCell.m in Sources */,
+				D9CE00E11A4FD9CB0073E998 /* OttaLabelMaxWidth.m in Sources */,
 				D9F04A121A1B60430049AD41 /* HPTextViewInternal.m in Sources */,
 				66FD4B631A11AD6B005ACD58 /* release_notes.md in Sources */,
 				D98E30BF1A1779340080B934 /* NSString+Language.m in Sources */,
