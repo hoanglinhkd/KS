@@ -14,6 +14,9 @@
 #import "OttaParseClientManager.h"
 
 static NSString * const QuestionFeedCellId = @"QuestionFeedCellId";
+#define kViewAllMode            @"ViewAllModeKey"
+#define kSelectedOption         @"SelectedOptionKey"
+#define kSubmittedOption        @"SubmittedOptionKey"
 
 @interface OttaQuestionFeedViewController () {
     NSMutableArray *feedItems;
@@ -22,22 +25,22 @@ static NSString * const QuestionFeedCellId = @"QuestionFeedCellId";
     PFObject *selectedQuestion;
     int selectedOption;
     UIRefreshControl *refreshControl;
-    NSIndexPath *currentSelectedCell;
-    
-    NSMutableDictionary *dictViewAllMode;
-    NSMutableDictionary *dictSelectedMode;
-    NSMutableDictionary *dictSubmitedMode;
     
 }
 @end
 
 @implementation OttaQuestionFeedViewController
+@synthesize currentSelectedCell;
+
+static OttaQuestionFeedViewController *sharedInstance;
+
++ (OttaQuestionFeedViewController*)sharedInstance{
+    return sharedInstance;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    dictViewAllMode      = [[NSMutableDictionary alloc] init];
-    dictSelectedMode     = [[NSMutableDictionary alloc] init];
-    dictSubmitedMode     = [[NSMutableDictionary alloc] init];
+    sharedInstance = self;
     
     refreshControl = [[UIRefreshControl alloc]init];
     [_tableView addSubview:refreshControl];
@@ -108,29 +111,18 @@ static NSString * const QuestionFeedCellId = @"QuestionFeedCellId";
 - (void)configureBasicCell:(OttaQuestionFeedCell *)cell atIndexPath:(NSIndexPath *)indexPath {
     PFObject *item = feedItems[indexPath.row];
     
-    if ([dictViewAllMode objectForKey:[NSString stringWithFormat:@"%ld",indexPath.row]]){
-        if (indexPath.row == ((NSIndexPath*)[dictViewAllMode objectForKey:[NSString stringWithFormat:@"%ld",indexPath.row]]).row) {
-            cell.isViewAllMode = YES;
-            
-            // for selected cell
-            if ([dictSelectedMode objectForKey:[NSString stringWithFormat:@"%ld",indexPath.row]]) {
-                NSIndexPath *selectedRow = [dictSelectedMode objectForKey:[NSString stringWithFormat:@"%ld", indexPath.row]];
-                cell.selectedIndexPath = selectedRow;
-                
-                //check if submited
-                if ([dictSubmitedMode objectForKey:[NSString stringWithFormat:@"%ld",indexPath.row]]) {
-                    NSIndexPath *childIdxSubmited = [dictSubmitedMode objectForKey:[NSString stringWithFormat:@"%ld",indexPath.row]];
-                    cell.submittedIndexPath = childIdxSubmited;
-                }
-            }else{
-                cell.selectedIndexPath = nil;
-            }
-        }
+    if ([item objectForKey:kViewAllMode]){
+        cell.isViewAllMode = YES;
+        
+        cell.submittedIndexPath = [item objectForKey:kSubmittedOption] ? [NSIndexPath indexPathForRow:[[item objectForKey:kSubmittedOption] integerValue] inSection:0] : nil;
+        cell.selectedIndexPath  = [item objectForKey:kSelectedOption]  ? [NSIndexPath indexPathForRow:[[item objectForKey:kSelectedOption] integerValue] inSection:0] : nil;
+        
     }else{
         cell.isViewAllMode = NO;
         
         // reset status for cell
         cell.selectedIndexPath = nil;
+        cell.submittedIndexPath = nil;
     }
     
     [self setTitleForCell:cell item:item];
@@ -161,15 +153,17 @@ static NSString * const QuestionFeedCellId = @"QuestionFeedCellId";
  */
 #pragma mark - OttaQuestionFeedCell Delegate
 - (void)optionCell:(OttaQuestionFeedCell*)cell viewMoreBtnTapped:(NSIndexPath*)idxPath{
-    
-    [dictViewAllMode setValue:idxPath forKey:[NSString stringWithFormat:@"%ld",idxPath.row]];
+    PFObject *item = feedItems[idxPath.row];
+    [item setObject:@"YES" forKey:kViewAllMode];
     
     NSArray *reloadCellIndexs = [NSArray arrayWithObjects:idxPath, nil];
     [self.tableView reloadRowsAtIndexPaths:reloadCellIndexs withRowAnimation:UITableViewRowAnimationFade];
 }
 - (void)optionCell:(OttaQuestionFeedCell*)cell collapseBtnTapped:(NSIndexPath*)idxPath {
-    [dictViewAllMode removeObjectForKey:[NSString stringWithFormat:@"%ld",idxPath.row]];
+    PFObject *item = feedItems[idxPath.row];
+    [item removeObjectForKey:kViewAllMode];
     
+    //[dictViewAllMode removeObjectForKey:[NSString stringWithFormat:@"%ld",idxPath.row]];
     NSArray *reloadCellIndexs = [NSArray arrayWithObjects:idxPath, nil];
     [self.tableView reloadRowsAtIndexPaths:reloadCellIndexs withRowAnimation:UITableViewRowAnimationFade];
 }
@@ -219,15 +213,16 @@ static NSString * const QuestionFeedCellId = @"QuestionFeedCellId";
                     [parentCell.tableView deleteRowsAtIndexPaths:arrIndexPathForRemove withRowAnimation:UITableViewRowAnimationFade];
                 } completion:^(BOOL finished) {
                     if (finished) {
-                        [dictSubmitedMode setValue:childIdxPath forKey:[NSString stringWithFormat:@"%ld",referIdx.row]];
+                        PFObject *item = feedItems[referIdx.row];
+                        [item setObject:[NSNumber numberWithInteger:childIdxPath.row] forKey:kSubmittedOption];
                         [self performSelector:@selector(processReloadData:) withObject:parentCell afterDelay:0.2f];
                     }
                 }];
                 
             } completion:^(BOOL finished) {
                 if (finished) {
-                    parentCell.viewForSubmit.hidden = NO;
-                    [parentCell.viewForSubmit setTitle:@"Done" forState:UIControlStateNormal];
+                    //parentCell.viewForSubmit.hidden = NO;
+                    //[parentCell.viewForSubmit setTitle:@"Done" forState:UIControlStateNormal];
                 }
             }];
         } else {
@@ -237,23 +232,19 @@ static NSString * const QuestionFeedCellId = @"QuestionFeedCellId";
     
 }
 - (void)questionFeedCell:(OttaQuestionFeedCell *)parentCell needToForceRemoveAtReferIndex:(NSIndexPath *)indexPath{
-    [dictSelectedMode removeAllObjects];
-    [dictSubmitedMode removeAllObjects];
-    [dictViewAllMode  removeAllObjects];
     
     currentSelectedCell = nil;
     
     [feedItems removeObjectAtIndex:indexPath.row];
-    [self loadData];
+    [self.tableView reloadData];
 }
 
 - (void)questionFeedCell:(OttaQuestionFeedCell *)cell DidSelectedRowAtIndexPath:(NSIndexPath *)indexPath withSelectedIndex:(NSIndexPath *)childIdxPath{
     
      NSMutableArray *arrReload = [[NSMutableArray alloc] init];
     // Refresh other cell
-    
     if(currentSelectedCell.row != indexPath.row && currentSelectedCell != nil) {
-        [dictSelectedMode removeObjectForKey:[NSString stringWithFormat:@"%ld",currentSelectedCell.row]];
+        [((PFObject*)feedItems[currentSelectedCell.row]) removeObjectForKey:kSelectedOption];
         
         NSIndexPath *oldIndexPathSelected = [NSIndexPath indexPathForRow:currentSelectedCell.row inSection:0];
         [arrReload addObject:oldIndexPathSelected];
@@ -263,9 +254,9 @@ static NSString * const QuestionFeedCellId = @"QuestionFeedCellId";
     
     // Cache to load selected indexpath
     if (childIdxPath==nil) {
-        [dictSelectedMode removeObjectForKey:[NSString stringWithFormat:@"%ld",indexPath.row]];
+        [((PFObject*)feedItems[indexPath.row]) removeObjectForKey:kSelectedOption];
     }else{
-        [dictSelectedMode setValue:childIdxPath forKey:[NSString stringWithFormat:@"%ld",indexPath.row]];
+        [((PFObject*)feedItems[indexPath.row]) setObject:[NSNumber numberWithInteger:childIdxPath.row] forKey:kSelectedOption];
     }
     
     [arrReload addObject:indexPath];
@@ -314,10 +305,6 @@ static NSString * const QuestionFeedCellId = @"QuestionFeedCellId";
         if(array) {
             feedItems = [NSMutableArray arrayWithArray:array];
             feedItems1 = [NSMutableArray arrayWithArray:array];
-            
-            dictViewAllMode     = [[NSMutableDictionary alloc] init];
-            dictSelectedMode    = [[NSMutableDictionary alloc] init];
-            dictSubmitedMode    = [[NSMutableDictionary alloc] init];
         }
         
         [_tableView reloadData];

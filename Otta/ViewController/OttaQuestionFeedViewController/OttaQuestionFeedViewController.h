@@ -15,4 +15,8 @@
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 - (IBAction)pressBtnLogo:(id)sender;
+
+@property (strong, nonatomic)NSIndexPath *currentSelectedCell;
++ (OttaQuestionFeedViewController*)sharedInstance;
+
 @end

@@ -13,6 +13,7 @@
 #import "OttaDoneButtonCell.h"
 #import "OttaAnswer.h"
 #import "OttaParseClientManager.h"
+#import "OttaQuestionFeedViewController.h"
 
 static NSString * const BasicCellId     = @"BasicQuestionCellId";
 static NSString * const MediaCellId     = @"MediaQuestionCellId";
@@ -443,16 +444,21 @@ static NSString * const DoneCellId      = @"OttaDoneButtonCell";
         return;
     
     isForcedDelete = YES;
-    UITableView *tbView = (UITableView*)self.superview.superview;
-    NSIndexPath *referIdxPath = [tbView indexPathForCell:self];
-    NSLog(@"refer %ld",referIdxPath.row);
-    
-    if (self.delegate && [((NSObject*)self.delegate) respondsToSelector:@selector(questionFeedCell:needToForceRemoveAtReferIndex:)]) {
-        [self.delegate questionFeedCell:self needToForceRemoveAtReferIndex:referIdxPath];
+   
+    NSIndexPath *referIdxPath = [OttaQuestionFeedViewController sharedInstance].currentSelectedCell;
+    if (referIdxPath!=nil) {
+        NSLog(@"refer %ld",referIdxPath.row);
+        if (self.delegate && [((NSObject*)self.delegate) respondsToSelector:@selector(questionFeedCell:needToForceRemoveAtReferIndex:)]) {
+            [self.delegate questionFeedCell:self needToForceRemoveAtReferIndex:referIdxPath];
+        }
     }
 }
 
 - (void) startPerformSelectorForDelete{
+    // remove before addition more
+    [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(doneCellSelected:) object:nil];
+    
+    // add perform Selector
     [self performSelector:@selector(doneCellSelected:) withObject:nil afterDelay:kIntervalForceDelete];
 }
 @end
