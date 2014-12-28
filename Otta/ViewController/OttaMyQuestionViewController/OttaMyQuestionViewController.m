@@ -405,8 +405,13 @@ static NSString * const OttaMyQuestionVoteCellIdentifier        = @"OttaMyQuesti
     OttaMyQuestionData *dto = dataForShow[indexPath.row];
     
     cell.lblOrderNumber.text = [NSString stringWithFormat:@"%d",dto.numberAnswer];
-    //int randomNumber = (arc4random() % 10) + 1;
-    NSString *text = [NSString stringWithFormat:@"%@ - %d",dto.answer[@"description"], [dto.voteUsers count]];
+    long voteUsersCount = [dto.voteUsers count];
+    if(voteUsersCount > 0) {
+        [cell setUserInteractionEnabled:YES];
+    } else {
+        [cell setUserInteractionEnabled:NO];
+    }
+    NSString *text = [NSString stringWithFormat:@"%@ - %ld",dto.answer[@"description"], voteUsersCount];
     NSRange range = [text rangeOfString:@"-"];
     //range.location += 2;
     range.length = text.length - range.location;
@@ -434,8 +439,13 @@ static NSString * const OttaMyQuestionVoteCellIdentifier        = @"OttaMyQuesti
         }
     }];
 
-    //int randomNumber = (arc4random() % 10) + 1;
-    NSString *text = [NSString stringWithFormat:@"%@ - %d",dto.answer[@"description"], [dto.voteUsers count]];
+    long voteUsersCount = [dto.voteUsers count];
+    if(voteUsersCount > 0) {
+        [cell setUserInteractionEnabled:YES];
+    } else {
+        [cell setUserInteractionEnabled:NO];
+    }
+    NSString *text = [NSString stringWithFormat:@"%@ - %ld",dto.answer[@"description"], voteUsersCount];
     NSRange range = [text rangeOfString:@"-"];
     //range.location += 2;
     range.length = text.length - range.location;
