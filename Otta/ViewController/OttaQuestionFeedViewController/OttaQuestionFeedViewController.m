@@ -116,6 +116,12 @@ static NSString * const QuestionFeedCellId = @"QuestionFeedCellId";
             if ([dictSelectedMode objectForKey:[NSString stringWithFormat:@"%ld",indexPath.row]]) {
                 NSIndexPath *selectedRow = [dictSelectedMode objectForKey:[NSString stringWithFormat:@"%ld", indexPath.row]];
                 cell.selectedIndexPath = selectedRow;
+                
+                //check if submited
+                if ([dictSubmitedMode objectForKey:[NSString stringWithFormat:@"%ld",indexPath.row]]) {
+                    NSIndexPath *childIdxSubmited = [dictSubmitedMode objectForKey:[NSString stringWithFormat:@"%ld",indexPath.row]];
+                    cell.submittedIndexPath = childIdxSubmited;
+                }
             }else{
                 cell.selectedIndexPath = nil;
             }
@@ -213,6 +219,7 @@ static NSString * const QuestionFeedCellId = @"QuestionFeedCellId";
                     [parentCell.tableView deleteRowsAtIndexPaths:arrIndexPathForRemove withRowAnimation:UITableViewRowAnimationFade];
                 } completion:^(BOOL finished) {
                     if (finished) {
+                        [dictSubmitedMode setValue:childIdxPath forKey:[NSString stringWithFormat:@"%ld",referIdx.row]];
                         [self performSelector:@selector(processReloadData:) withObject:parentCell afterDelay:0.2f];
                     }
                 }];
@@ -230,19 +237,38 @@ static NSString * const QuestionFeedCellId = @"QuestionFeedCellId";
     
 }
 - (void)questionFeedCell:(OttaQuestionFeedCell *)parentCell needToForceRemoveAtReferIndex:(NSIndexPath *)indexPath{
+    /*
+    dictSubmitedMode    = [[NSMutableDictionary alloc] init];
+    dictViewAllMode     = [[NSMutableDictionary alloc] init];
+    dictSelectedMode    = [[NSMutableDictionary alloc] init];
+    
+    currentSelectedCell = nil;
+    
+    parentCell.isViewAllMode = NO;
+    parentCell.selectedIndexPath = nil;
+    parentCell.submittedIndexPath = nil;
+    
     [feedItems removeObjectAtIndex:indexPath.row];
     [self.tableView reloadData];
+     */
+    OttaQuestionFeedCell *cell = (OttaQuestionFeedCell*)[self.tableView cellForRowAtIndexPath:indexPath];
+    cell = nil;
+    [self loadData];
 }
 
 - (void)questionFeedCell:(OttaQuestionFeedCell *)cell DidSelectedRowAtIndexPath:(NSIndexPath *)indexPath withSelectedIndex:(NSIndexPath *)childIdxPath{
     
+     NSMutableArray *arrReload = [[NSMutableArray alloc] init];
     // Refresh other cell
-    /*
-    if(currentSelectedCell != cell) {
-        [currentSelectedCell deselectCell];
+    
+    if(currentSelectedCell.row != indexPath.row && currentSelectedCell != nil) {
+        [dictSelectedMode removeObjectForKey:[NSString stringWithFormat:@"%ld",currentSelectedCell.row]];
+        
+        NSIndexPath *oldIndexPathSelected = [NSIndexPath indexPathForRow:currentSelectedCell.row inSection:0];
+        [arrReload addObject:oldIndexPathSelected];
     }
-    currentSelectedCell = cell;
-    */
+    currentSelectedCell = indexPath;
+    
     
     // Cache to load selected indexpath
     if (childIdxPath==nil) {
@@ -251,7 +277,7 @@ static NSString * const QuestionFeedCellId = @"QuestionFeedCellId";
         [dictSelectedMode setValue:childIdxPath forKey:[NSString stringWithFormat:@"%ld",indexPath.row]];
     }
     
-    NSArray *arrReload = [[NSArray alloc] initWithObjects:indexPath, nil];
+    [arrReload addObject:indexPath];
     [self.tableView reloadRowsAtIndexPaths:arrReload withRowAnimation:UITableViewRowAnimationFade];
     /*
     [self.tableView beginUpdates];
@@ -315,8 +341,8 @@ static NSString * const QuestionFeedCellId = @"QuestionFeedCellId";
 #pragma mark - Selectors
 - (void)processReloadData:(OttaQuestionFeedCell*)cell{
     [UIView animateWithDuration:0.0 animations:^{
-        [self.tableView beginUpdates];
-        [self.tableView endUpdates];
+        NSArray *arrReload = [[NSArray alloc] initWithObjects:currentSelectedCell, nil];
+        [self.tableView reloadRowsAtIndexPaths:arrReload withRowAnimation:UITableViewRowAnimationFade];
     } completion:^(BOOL finished) {
         if (finished) {
             [cell startPerformSelectorForDelete];

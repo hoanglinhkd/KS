@@ -239,15 +239,9 @@ static NSString * const DoneCellId      = @"OttaDoneButtonCell";
         OttaBasicQuestionCell *cell = (OttaBasicQuestionCell*)[tableView cellForRowAtIndexPath:indexPath];
         cell.orderLbl.backgroundColor = kDefaultColorBackGround;
         [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    }else if(selectedIndexPath != nil){
-        // set color for old cell
-        OttaBasicQuestionCell *cell = (OttaBasicQuestionCell*)[tableView cellForRowAtIndexPath:selectedIndexPath];
-        cell.orderLbl.backgroundColor = kDefaultColorBackGround;
     }else{
         // for current selected cell
         selectedIndexPath = indexPath;
-        OttaBasicQuestionCell *cell = (OttaBasicQuestionCell*)[tableView cellForRowAtIndexPath:indexPath];
-        cell.orderLbl.backgroundColor = [UIColor orangeColor];
     }
     
     // update show submit button
@@ -393,8 +387,6 @@ static NSString * const DoneCellId      = @"OttaDoneButtonCell";
         submittedIndexPath = [NSIndexPath indexPathForRow:selectedIndexPath.row inSection:0];
         NSInteger maxCount = [self tableView:self.tableView numberOfRowsInSection:0];
         
-        selectedIndexPath = nil;
-        
         [self.delegate questionFeedCell:self optionCell:(OttaBasicQuestionCell*)[self.tableView cellForRowAtIndexPath:submittedIndexPath] withReferIndexPath:referIdxPath didSubmitRowAtIndexPath:submittedIndexPath withMaximumCount:maxCount];
         
         
@@ -408,10 +400,6 @@ static NSString * const DoneCellId      = @"OttaDoneButtonCell";
     UITableView *tbView = (UITableView*)self.superview.superview;
     NSIndexPath *referIdxPath = [tbView indexPathForCell:self];
     if (self.delegate && [((NSObject*)self.delegate) respondsToSelector:@selector(questionFeedCell:needToForceRemoveAtReferIndex:)]) {
-        
-        submittedIndexPath = nil;
-        selectedIndexPath = nil;
-        isViewAllMode = NO;
         [self.delegate questionFeedCell:self needToForceRemoveAtReferIndex:referIdxPath];
     }
 }
