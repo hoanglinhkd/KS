@@ -3218,8 +3218,8 @@ EE5leHQ
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="185" translatesAutoresizingMaskIntoConstraints="NO" id="ei6-z8-m6D">
-                                                    <rect key="frame" x="150" y="0.0" width="130" height="21"/>
-                                                    <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="15"/>
+                                                    <rect key="frame" x="149" y="0.0" width="130" height="21"/>
+                                                    <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="14"/>
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -3228,9 +3228,9 @@ EE5leHQ
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="20" id="rBg-oV-Ocm"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="15"/>
-                                                    <state key="normal" title="See all...">
-                                                        <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="14"/>
+                                                    <state key="normal" title="View results…">
+                                                        <color key="titleColor" red="0.52941176470588236" green="0.7803921568627451" blue="0.23529411764705882" alpha="1" colorSpace="calibratedRGB"/>
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
                                                     <connections>
@@ -3238,10 +3238,10 @@ EE5leHQ
                                                     </connections>
                                                 </button>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="icon_sandclock.png" translatesAutoresizingMaskIntoConstraints="NO" id="F6l-im-kFa">
-                                                    <rect key="frame" x="296" y="1" width="14" height="20"/>
+                                                    <rect key="frame" x="296" y="1" width="12" height="22"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="14" id="NoC-Bw-VXN"/>
-                                                        <constraint firstAttribute="height" constant="20" id="gq3-0E-FB3"/>
+                                                        <constraint firstAttribute="height" constant="22" id="Jl9-cM-sGd"/>
+                                                        <constraint firstAttribute="width" constant="12" id="eZ2-PZ-idM"/>
                                                     </constraints>
                                                 </imageView>
                                             </subviews>
@@ -3250,10 +3250,10 @@ EE5leHQ
                                                 <constraint firstAttribute="centerY" secondItem="ei6-z8-m6D" secondAttribute="centerY" id="RDv-LM-7gc"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="F6l-im-kFa" secondAttribute="trailing" constant="10" id="d5g-sS-PjD"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="ei6-z8-m6D" secondAttribute="bottom" constant="1" id="dCK-w7-0n6"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="ei6-z8-m6D" secondAttribute="trailing" constant="33" id="mhy-17-Gzn"/>
                                                 <constraint firstItem="GN5-ts-kEL" firstAttribute="leading" secondItem="rDg-pb-MAq" secondAttribute="leadingMargin" constant="10" id="wSJ-gf-kuY"/>
                                                 <constraint firstItem="ei6-z8-m6D" firstAttribute="top" secondItem="rDg-pb-MAq" secondAttribute="topMargin" constant="1" id="wep-rq-6hR"/>
                                                 <constraint firstAttribute="centerY" secondItem="F6l-im-kFa" secondAttribute="centerY" id="xu3-ge-iKs"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="ei6-z8-m6D" secondAttribute="trailing" constant="40" id="y8e-VA-3Yj"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

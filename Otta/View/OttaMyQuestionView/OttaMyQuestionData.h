@@ -10,7 +10,7 @@
 #import "OttaAnswer.h"
 
 #define kCollapse @"Collapse"
-#define kSeeAll   @"See all..."
+#define kSeeAll   @"View results..."
 
 enum MyQuestionDataType{
     MyQuestionDataTypeHeader = 1,
