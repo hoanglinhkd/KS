@@ -36,6 +36,7 @@
     _txtContent.hidden = YES;
     _txtImageDescription.returnKeyType = UIReturnKeyDone;
     _txtContent.returnKeyType = UIReturnKeyDone;
+
 }
 
 -(void)displayContent:(NSString *)answerContent

@@ -92,7 +92,6 @@
     //Default is having first row
     [listHeightQuestion setObject:[NSNumber numberWithFloat:70.0f] forKey:@"row0"];
     
-    [_itsTextView setFont:[UIFont fontWithName:@"OpenSans-Light" size:17.00f]];
     _itsTextView.placeholder = [@"Ask a question..." toCurrentLanguage];
     _itsTextView.placeholderTextColor = [UIColor lightGrayColor];
     
@@ -110,6 +109,8 @@
     [super viewDidAppear:animated];
     if ([self validateInput:NO]) {
         _btnNext.hidden = NO;
+    } else {
+        _btnNext.hidden = YES;
     }
 }
 
@@ -144,6 +145,8 @@
     
     if ([self validateInput:NO]) {
         _btnNext.hidden = NO;
+    } else {
+        _btnNext.hidden = YES;
     }
     
     return YES;
@@ -156,6 +159,8 @@
         
         if ([self validateInput:NO]) {
             _btnNext.hidden = NO;
+        } else {
+            _btnNext.hidden = YES;
         }
         
         return NO;
@@ -188,11 +193,11 @@
                     UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
         }
         
-        UILabel *label = (UILabel *)[cell viewWithTag:1001];
+        UITextField *label = (UITextField *)[cell viewWithTag:1001];
         if (deadlineString != nil && ![deadlineString isEqualToString:@""]) {
             label.text = deadlineString;
         } else {
-            label.text = [@"Choose deadline..." toCurrentLanguage];
+            label.text = @"";
         }
         
         return cell;
@@ -349,6 +354,13 @@
         OttaAnswer *curAnswer = [_optionsArray objectAtIndex:cell.indexPath.row];
         curAnswer.answerText = textview;
     }
+    
+    if ([self validateInput:NO]) {
+        _btnNext.hidden = NO;
+    } else {
+        _btnNext.hidden = YES;
+    }
+
 }
 
 - (void)optionCell:(OttaOptionCell *)cell needEditPicture:(id)imageView{

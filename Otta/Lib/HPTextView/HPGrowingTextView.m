@@ -95,7 +95,8 @@
 #endif
     internalTextView.delegate = self;
     internalTextView.scrollEnabled = NO;
-    internalTextView.font = [UIFont fontWithName:@"OpenSans-Light" size:14];
+    internalTextView.font = [UIFont fontWithName:@"OpenSans-Light" size:14.00f];
+    
     internalTextView.contentInset = UIEdgeInsetsZero;		
     internalTextView.showsHorizontalScrollIndicator = NO;
     internalTextView.text = @"-";

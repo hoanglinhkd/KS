@@ -36,11 +36,12 @@
             <string>OpenSans-Light</string>
             <string>OpenSans-Light</string>
             <string>OpenSans-Light</string>
-            <string>OpenSans-Light</string>
-            <string>OpenSans-Light</string>
-            <string>OpenSans-Light</string>
         </mutableArray>
         <mutableArray key="OpenSans-Regular.ttf">
+            <string>OpenSans</string>
+            <string>OpenSans</string>
+            <string>OpenSans</string>
+            <string>OpenSans</string>
             <string>OpenSans</string>
             <string>OpenSans</string>
             <string>OpenSans</string>
@@ -266,10 +267,10 @@
                                                     <rect key="frame" x="53" y="17" width="249" height="57"/>
                                                     <subviews>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E4x-ZH-cfo">
-                                                            <rect key="frame" x="31" y="10" width="37" height="37"/>
+                                                            <rect key="frame" x="31" y="11" width="35" height="35"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="height" constant="37" id="uMQ-vC-ULL"/>
-                                                                <constraint firstAttribute="width" constant="37" id="vhF-Z6-95f"/>
+                                                                <constraint firstAttribute="height" constant="35" id="uMQ-vC-ULL"/>
+                                                                <constraint firstAttribute="width" constant="35" id="vhF-Z6-95f"/>
                                                             </constraints>
                                                             <state key="normal" image="Otta_ask_button_add text.png">
                                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -279,10 +280,10 @@
                                                             </connections>
                                                         </button>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SMt-lw-ReY">
-                                                            <rect key="frame" x="113" y="11" width="42" height="36"/>
+                                                            <rect key="frame" x="104" y="11" width="40" height="34"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="width" constant="42" id="6Lh-P4-5e7"/>
-                                                                <constraint firstAttribute="height" constant="36" id="Wcx-by-N9m"/>
+                                                                <constraint firstAttribute="width" constant="40" id="6Lh-P4-5e7"/>
+                                                                <constraint firstAttribute="height" constant="34" id="Wcx-by-N9m"/>
                                                             </constraints>
                                                             <state key="normal" image="Otta_ask_button_add photo.png"/>
                                                             <connections>
@@ -296,7 +297,7 @@
                                                         <constraint firstItem="E4x-ZH-cfo" firstAttribute="leading" secondItem="D3V-vM-FXS" secondAttribute="leading" constant="31" id="DCs-ws-ORW"/>
                                                         <constraint firstAttribute="height" constant="57" id="mbj-eM-PWj"/>
                                                         <constraint firstAttribute="centerY" secondItem="E4x-ZH-cfo" secondAttribute="centerY" id="tGv-s3-e3D"/>
-                                                        <constraint firstItem="SMt-lw-ReY" firstAttribute="leading" secondItem="D3V-vM-FXS" secondAttribute="leading" constant="113" id="trd-wR-eIm"/>
+                                                        <constraint firstItem="SMt-lw-ReY" firstAttribute="leading" secondItem="D3V-vM-FXS" secondAttribute="leading" constant="104" id="trd-wR-eIm"/>
                                                     </constraints>
                                                 </view>
                                                 <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ns9-2c-s9K">
@@ -310,7 +311,7 @@
                                                             </constraints>
                                                         </imageView>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MFV-vC-dWi" customClass="HPGrowingTextView">
-                                                            <rect key="frame" x="86" y="8" width="173" height="70"/>
+                                                            <rect key="frame" x="84" y="8" width="175" height="70"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="70" id="jVk-0b-KyN"/>
                                                             </constraints>
@@ -323,11 +324,11 @@
                                                         <constraint firstAttribute="centerY" secondItem="ee7-sB-sP8" secondAttribute="centerY" id="ROA-N9-qmp"/>
                                                         <constraint firstItem="MFV-vC-dWi" firstAttribute="top" secondItem="ns9-2c-s9K" secondAttribute="top" constant="8" id="abW-EI-dX4"/>
                                                         <constraint firstAttribute="bottom" secondItem="MFV-vC-dWi" secondAttribute="bottom" constant="11" id="jSL-Xs-wYM"/>
-                                                        <constraint firstItem="MFV-vC-dWi" firstAttribute="leading" secondItem="ee7-sB-sP8" secondAttribute="trailing" constant="13" id="rif-Kz-FRo"/>
+                                                        <constraint firstItem="MFV-vC-dWi" firstAttribute="leading" secondItem="ee7-sB-sP8" secondAttribute="trailing" constant="11" id="rif-Kz-FRo"/>
                                                     </constraints>
                                                 </view>
                                                 <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8CE-Vw-Ife" customClass="HPGrowingTextView">
-                                                    <rect key="frame" x="61" y="10" width="252" height="75"/>
+                                                    <rect key="frame" x="58" y="10" width="256" height="75"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="75" id="yvp-yh-H48"/>
@@ -337,17 +338,17 @@
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             <constraints>
                                                 <constraint firstItem="8CE-Vw-Ife" firstAttribute="top" secondItem="zAi-UF-Qn7" secondAttribute="topMargin" constant="2" id="9b9-mZ-744"/>
-                                                <constraint firstItem="8CE-Vw-Ife" firstAttribute="leading" secondItem="mCD-P5-j7Z" secondAttribute="trailing" constant="21" id="AtN-1l-yq0"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="8CE-Vw-Ife" secondAttribute="trailing" constant="-1" id="H3E-U0-SjO"/>
+                                                <constraint firstItem="8CE-Vw-Ife" firstAttribute="leading" secondItem="mCD-P5-j7Z" secondAttribute="trailing" constant="18" id="AtN-1l-yq0"/>
+                                                <constraint firstAttribute="centerY" secondItem="D3V-vM-FXS" secondAttribute="centerY" constant="0.5" id="BwP-dI-E2H"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="8CE-Vw-Ife" secondAttribute="trailing" constant="-2" id="H3E-U0-SjO"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="ns9-2c-s9K" secondAttribute="bottom" constant="-8" id="IVt-yk-jjP"/>
                                                 <constraint firstItem="ns9-2c-s9K" firstAttribute="trailing" secondItem="zAi-UF-Qn7" secondAttribute="trailingMargin" id="OcQ-W8-4CE"/>
                                                 <constraint firstItem="ns9-2c-s9K" firstAttribute="leading" secondItem="mCD-P5-j7Z" secondAttribute="trailing" constant="13" id="RCa-MU-8KY"/>
                                                 <constraint firstItem="D3V-vM-FXS" firstAttribute="leading" secondItem="mCD-P5-j7Z" secondAttribute="trailing" constant="13" id="RI1-QJ-o7J"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="8CE-Vw-Ife" secondAttribute="trailing" constant="-1" id="RII-Y4-Z4u"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="8CE-Vw-Ife" secondAttribute="trailing" constant="-2" id="RII-Y4-Z4u"/>
                                                 <constraint firstItem="mCD-P5-j7Z" firstAttribute="leading" secondItem="zAi-UF-Qn7" secondAttribute="leadingMargin" constant="12" id="UiH-O8-ABq"/>
                                                 <constraint firstAttribute="centerY" secondItem="mCD-P5-j7Z" secondAttribute="centerY" id="cOh-g3-eWR"/>
                                                 <constraint firstItem="ns9-2c-s9K" firstAttribute="top" secondItem="zAi-UF-Qn7" secondAttribute="topMargin" constant="-5" id="ceb-pk-GGM"/>
-                                                <constraint firstItem="D3V-vM-FXS" firstAttribute="top" secondItem="zAi-UF-Qn7" secondAttribute="topMargin" constant="9" id="r6B-0e-RA4"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="D3V-vM-FXS" secondAttribute="trailing" constant="10" id="wpa-s0-6xS"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="8CE-Vw-Ife" secondAttribute="bottom" constant="-1" id="yZa-vj-usn"/>
                                             </constraints>
@@ -379,8 +380,7 @@
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="21" id="GvD-pv-YRh"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" name="OpenSans-Light" family="Open Sans" pointSize="17"/>
-                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="17"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -406,15 +406,14 @@
                                                         <constraint firstAttribute="height" constant="18" id="Vyj-HM-qFZ"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" tag="1001" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose deadline..." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p8S-4X-t3j">
-                                                    <rect key="frame" x="64" y="69" width="240" height="21"/>
+                                                <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="1001" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Choose deadline..." minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jvF-nG-Cj0">
+                                                    <rect key="frame" x="61" y="65" width="247" height="30"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="21" id="jtS-of-Ucb"/>
+                                                        <constraint firstAttribute="height" constant="30" id="cO0-ke-MEQ"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" name="OpenSans-Light" family="Open Sans" pointSize="17"/>
-                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
+                                                    <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="17"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                </textField>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_time.png" translatesAutoresizingMaskIntoConstraints="NO" id="mIW-yn-ZJv">
                                                     <rect key="frame" x="20" y="70" width="20" height="20"/>
                                                     <constraints>
@@ -428,21 +427,21 @@
                                                         <constraint firstAttribute="height" constant="21" id="eSS-1q-lih"/>
                                                         <constraint firstAttribute="width" constant="145" id="uZW-Xl-Ku9"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" name="OpenSans-Light" family="Open Sans" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             <constraints>
-                                                <constraint firstAttribute="trailingMargin" secondItem="p8S-4X-t3j" secondAttribute="trailing" constant="8" id="Kxm-uR-jqQ"/>
+                                                <constraint firstItem="Py4-hm-jrU" firstAttribute="top" secondItem="jvF-nG-Cj0" secondAttribute="bottom" constant="-5" id="I3v-4C-M5f"/>
                                                 <constraint firstItem="v81-f1-xGY" firstAttribute="top" secondItem="91q-tY-epE" secondAttribute="topMargin" constant="25" id="TS2-mj-rnH"/>
-                                                <constraint firstItem="p8S-4X-t3j" firstAttribute="centerY" secondItem="mIW-yn-ZJv" secondAttribute="centerY" constant="-0.5" id="Ya8-nR-poX"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="Py4-hm-jrU" secondAttribute="trailing" constant="8" id="ZSQ-YO-1ND"/>
-                                                <constraint firstItem="p8S-4X-t3j" firstAttribute="leading" secondItem="mIW-yn-ZJv" secondAttribute="trailing" constant="24" id="bgj-kU-81x"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="jvF-nG-Cj0" secondAttribute="trailing" constant="4" id="g5C-zM-KJb"/>
                                                 <constraint firstItem="mIW-yn-ZJv" firstAttribute="top" secondItem="v81-f1-xGY" secondAttribute="bottom" constant="16" id="gz7-JD-BfU"/>
                                                 <constraint firstItem="Py4-hm-jrU" firstAttribute="leading" secondItem="91q-tY-epE" secondAttribute="leadingMargin" constant="49" id="hcD-f1-aw1"/>
-                                                <constraint firstItem="Py4-hm-jrU" firstAttribute="top" secondItem="p8S-4X-t3j" secondAttribute="bottom" id="on1-X3-fAb"/>
+                                                <constraint firstItem="jvF-nG-Cj0" firstAttribute="leading" secondItem="mIW-yn-ZJv" secondAttribute="trailing" constant="21" id="jcS-R4-yul"/>
+                                                <constraint firstItem="mIW-yn-ZJv" firstAttribute="centerY" secondItem="jvF-nG-Cj0" secondAttribute="centerY" id="jhX-km-0xi"/>
                                                 <constraint firstItem="v81-f1-xGY" firstAttribute="leading" secondItem="91q-tY-epE" secondAttribute="leadingMargin" constant="10" id="pOH-v0-HeX"/>
                                                 <constraint firstItem="mIW-yn-ZJv" firstAttribute="leading" secondItem="91q-tY-epE" secondAttribute="leadingMargin" constant="12" id="zvd-Lv-9Y5"/>
                                             </constraints>
@@ -460,7 +459,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="46" id="WNe-ES-8Od"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done"/>
                                 <connections>
                                     <outlet property="delegate" destination="Vr1-Kh-wSh" id="Rbb-wC-fwV"/>
@@ -520,16 +519,16 @@
                                 <color key="textColor" red="0.48627450980392156" green="0.74117647058823533" blue="0.19215686274509805" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleAspectFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sbm-ms-GQv">
+                            <view contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="sbm-ms-GQv">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="80"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="Otta_header_shape_bar.png" translatesAutoresizingMaskIntoConstraints="NO" id="lVD-q7-Z3Z">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Otta_header_shape_bar.png" translatesAutoresizingMaskIntoConstraints="NO" id="lVD-q7-Z3Z">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="80"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="80" id="Dbj-ym-9yX"/>
                                         </constraints>
                                     </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="Otta_header_brand_name.png" translatesAutoresizingMaskIntoConstraints="NO" id="UbD-mc-Aim">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Otta_header_brand_name.png" translatesAutoresizingMaskIntoConstraints="NO" id="UbD-mc-Aim">
                                         <rect key="frame" x="105" y="35" width="111" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="3od-lE-D37"/>
@@ -586,16 +585,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="6ep-8v-gWp">
+                            <view contentMode="scaleAspectFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6ep-8v-gWp">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="80"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Otta_header_shape_bar.png" translatesAutoresizingMaskIntoConstraints="NO" id="m8T-Up-hhB">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="Otta_header_shape_bar.png" translatesAutoresizingMaskIntoConstraints="NO" id="m8T-Up-hhB">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="80"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="80" id="paN-F6-YfO"/>
                                         </constraints>
                                     </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Otta_header_brand_name.png" translatesAutoresizingMaskIntoConstraints="NO" id="Plo-cg-FI1">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="Otta_header_brand_name.png" translatesAutoresizingMaskIntoConstraints="NO" id="Plo-cg-FI1">
                                         <rect key="frame" x="105" y="35" width="111" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="111" id="N8U-1R-0We"/>
@@ -2118,7 +2117,7 @@ EE5leHQ
                         <rect key="frame" x="0.0" y="0.0" width="320" height="442"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="I8g-YS-BJD" userLabel="FaceBookDetailView" customClass="TPKeyboardAvoidingScrollView">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="I8g-YS-BJD" userLabel="FaceBookDetailView" customClass="TPKeyboardAvoidingScrollView">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="247"/>
                                 <subviews>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Hba-ng-RCr">
