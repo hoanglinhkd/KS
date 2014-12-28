@@ -28,6 +28,19 @@
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
+-(IBAction)btnBackTapped:(id)sender
+{
+    if(_shouldHideBtnDiscard) {
+        //Add New Option
+        if([self.delegate respondsToSelector:@selector(cancelCaptionVC:)]) {
+            [self.delegate cancelCaptionVC:self];
+        }
+    } else {
+        //Edit Current Option
+    }
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
 -(IBAction)btnDiscardTapped:(id)sender
 {
     OttaAppDelegate *appDelegate = (OttaAppDelegate*)[UIApplication sharedApplication].delegate;
@@ -53,6 +66,8 @@
     [super viewWillAppear:animated];
     if(_shouldHideBtnDiscard) {
         [_btnDiscard setHidden:YES];
+    } else {
+        _captionTextView.text = _captionValue;
     }
     
     self.selectedImageView.image = self.image;

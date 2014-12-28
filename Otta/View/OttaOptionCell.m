@@ -40,8 +40,10 @@
 
 -(void)displayContent:(NSString *)answerContent
 {
-    _viewAction.hidden = TRUE;
+    _viewContent2.hidden = YES;
+    _viewAction.hidden = YES;
     _txtContent.hidden = FALSE;
+    [_imgMain setImage:nil];
     [_txtContent setText:answerContent];
     _txtContent.returnKeyType = UIReturnKeyDone;
 }
@@ -73,6 +75,7 @@
     
     [self.viewAction setHidden:YES];
     [self.viewContent2 setHidden:NO];
+    [_txtContent setHidden:YES];
     _imgMain.hidden = FALSE;
     _imgMain.image = thumb;
     _txtImageDescription.hidden = FALSE;

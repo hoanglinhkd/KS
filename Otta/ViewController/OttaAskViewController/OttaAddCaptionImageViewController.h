@@ -17,8 +17,8 @@
 @optional
 
 - (void)addCaptionVC:(OttaAddCaptionImageViewController*)captionVC addCaption:(id)caption;
+- (void)cancelCaptionVC:(OttaAddCaptionImageViewController*)captionVC;
 - (void)deleteCaptionVC:(OttaAddCaptionImageViewController*)captionVC;
-
 @end
 
 @interface OttaAddCaptionImageViewController : UIViewController <UITextViewDelegate>
@@ -32,5 +32,6 @@
 @property (assign, nonatomic) BOOL shouldHideBtnDiscard;
 @property (weak, nonatomic) UIImage *image;
 @property (strong, nonatomic) NSString *question;
+@property (strong,nonatomic) NSString *captionValue;
 
 @end

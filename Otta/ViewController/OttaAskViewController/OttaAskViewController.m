@@ -555,6 +555,7 @@ UITextView itsTextView = [[UITextView alloc] initWithFrame:CGRectMake(0, 0, itsT
         dest.image = self.editingOptionCell.answer.answerImage;
         dest.question =  _itsTextView.text;
         dest.delegate = self;
+        dest.captionValue = self.editingOptionCell.answer.answerText;
         if (sender) {
             dest.shouldHideBtnDiscard = [sender boolValue];
         }
@@ -566,6 +567,13 @@ UITextView itsTextView = [[UITextView alloc] initWithFrame:CGRectMake(0, 0, itsT
         answerVC.askQuestionValue = _itsTextView.text;
         answerVC.delegate  = self;
     }
+}
+
+- (void)cancelCaptionVC:(OttaAddCaptionImageViewController *)captionVC
+{
+    OttaAnswer *answer = _editingOptionCell.answer;
+    answer.answerImage = nil;
+    answer.answerHasphoto = NO;
 }
 
 - (void)addCaptionVC:(OttaAddCaptionImageViewController*)captionVC addCaption:(id)caption {
