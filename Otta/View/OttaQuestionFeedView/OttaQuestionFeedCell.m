@@ -72,18 +72,37 @@ static NSString * const DoneCellId      = @"OttaDoneButtonCell";
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (isViewAllMode) {
-        if (selectedIndexPath || submittedIndexPath) {
-            if (indexPath.row == ([self tableView:tableView numberOfRowsInSection:0] - 1)) {
+        if (submittedIndexPath) {
+            if (indexPath.row==0) {
+                // Show simple row
+                if ([self hasImageAtIndexPath:indexPath]) {
+                    return [self galleryCellAtIndexPath:indexPath];
+                } else {
+                    return [self basicCellAtIndexPath:indexPath];
+                }
+            }else if (indexPath.row == 1){
+                // is View All Cell
+                return [self cellViewAllAtIndexPath:indexPath];
+            }else if (indexPath.row == 2){
                 // is Done button
                 return [self doneCellAtIndexPath:indexPath];
-            }else if(indexPath.row == ([self tableView:tableView numberOfRowsInSection:0] - 2)){
-                // is View All Cell
-                return [self cellViewAllAtIndexPath:indexPath];
             }
         }else{
-            if(indexPath.row == ([self tableView:tableView numberOfRowsInSection:0] - 1)){
-                // is View All Cell
-                return [self cellViewAllAtIndexPath:indexPath];
+            // check selected
+            if (selectedIndexPath) {
+                if (indexPath.row == ([self tableView:tableView numberOfRowsInSection:0] - 1)) {
+                    // is Done button
+                    return [self doneCellAtIndexPath:indexPath];
+                }else if(indexPath.row == ([self tableView:tableView numberOfRowsInSection:0] - 2)){
+                    // is View All Cell
+                    return [self cellViewAllAtIndexPath:indexPath];
+                }
+            }else{
+                // is not selected => show view all
+                if(indexPath.row == ([self tableView:tableView numberOfRowsInSection:0] - 1)){
+                    // is View All Cell
+                    return [self cellViewAllAtIndexPath:indexPath];
+                }
             }
         }
     }else{
@@ -142,12 +161,20 @@ static NSString * const DoneCellId      = @"OttaDoneButtonCell";
 - (void)setOrderForCell:(OttaBasicQuestionCell *)cell order:(NSIndexPath*)idx {
     [cell.orderLbl setText:[NSString stringWithFormat:@"%ld", idx.row + 1]];
     
-    if (idx.row == selectedIndexPath.row && selectedIndexPath != nil) {
-        cell.orderLbl.backgroundColor = [UIColor orangeColor];
-        cell.orderLbl.text = [NSString stringWithFormat:@"%ld", selectedIndexPath.row + 1];
+    if (submittedIndexPath) {
+        if (idx.row == 0) {
+            cell.orderLbl.backgroundColor = [UIColor orangeColor];
+            cell.orderLbl.text = [NSString stringWithFormat:@"%ld", submittedIndexPath.row + 1];
+        }
     }else{
-        cell.orderLbl.backgroundColor = kDefaultColorBackGround;
+        if (idx.row == selectedIndexPath.row && selectedIndexPath != nil) {
+            cell.orderLbl.backgroundColor = [UIColor orangeColor];
+            cell.orderLbl.text = [NSString stringWithFormat:@"%ld", selectedIndexPath.row + 1];
+        }else{
+            cell.orderLbl.backgroundColor = kDefaultColorBackGround;
+        }
     }
+    
 }
 - (void) selectAnswerIndex:(int)answerIndex
 {
@@ -305,19 +332,38 @@ static NSString * const DoneCellId      = @"OttaDoneButtonCell";
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (isViewAllMode) {
-        if (selectedIndexPath || submittedIndexPath) {
-            if (indexPath.row == ([self tableView:tableView numberOfRowsInSection:0] - 1)) {
-                // is Done button
-                return 50.0;
-            }else if(indexPath.row == ([self tableView:tableView numberOfRowsInSection:0] - 2)){
+        if(submittedIndexPath){
+            if (indexPath.row==0) {
+                // Show simple row
+                if ([self hasImageAtIndexPath:indexPath]) {
+                    return [self heightForImageCellAtIndexPath:indexPath];
+                } else {
+                    return [self heightForBasicCellAtIndexPath:indexPath];
+                    
+                }
+            }else if (indexPath.row == 1){
                 // is View All Cell
                 return 30.0;
+            }else if (indexPath.row == 2){
+                // is Done button
+                return 50.0;
             }
         }else{
-            if (indexPath.row == ([self tableView:tableView numberOfRowsInSection:0] - 1)) {
-                return 30.0;
+            if (selectedIndexPath) {
+                if (indexPath.row == ([self tableView:tableView numberOfRowsInSection:0] - 1)) {
+                    // is Done button
+                    return 50.0;
+                }else if(indexPath.row == ([self tableView:tableView numberOfRowsInSection:0] - 2)){
+                    // is View All Cell
+                    return 30.0;
+                }
+            }else{
+                if (indexPath.row == ([self tableView:tableView numberOfRowsInSection:0] - 1)) {
+                    return 30.0;
+                }
             }
         }
+        
     }else{
         if (indexPath.row == 0) {
             return 30.0;
@@ -399,6 +445,8 @@ static NSString * const DoneCellId      = @"OttaDoneButtonCell";
     isForcedDelete = YES;
     UITableView *tbView = (UITableView*)self.superview.superview;
     NSIndexPath *referIdxPath = [tbView indexPathForCell:self];
+    NSLog(@"refer %ld",referIdxPath.row);
+    
     if (self.delegate && [((NSObject*)self.delegate) respondsToSelector:@selector(questionFeedCell:needToForceRemoveAtReferIndex:)]) {
         [self.delegate questionFeedCell:self needToForceRemoveAtReferIndex:referIdxPath];
     }

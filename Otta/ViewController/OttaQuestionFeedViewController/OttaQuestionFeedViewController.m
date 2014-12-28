@@ -237,22 +237,13 @@ static NSString * const QuestionFeedCellId = @"QuestionFeedCellId";
     
 }
 - (void)questionFeedCell:(OttaQuestionFeedCell *)parentCell needToForceRemoveAtReferIndex:(NSIndexPath *)indexPath{
-    /*
-    dictSubmitedMode    = [[NSMutableDictionary alloc] init];
-    dictViewAllMode     = [[NSMutableDictionary alloc] init];
-    dictSelectedMode    = [[NSMutableDictionary alloc] init];
+    [dictSelectedMode removeAllObjects];
+    [dictSubmitedMode removeAllObjects];
+    [dictViewAllMode  removeAllObjects];
     
     currentSelectedCell = nil;
     
-    parentCell.isViewAllMode = NO;
-    parentCell.selectedIndexPath = nil;
-    parentCell.submittedIndexPath = nil;
-    
     [feedItems removeObjectAtIndex:indexPath.row];
-    [self.tableView reloadData];
-     */
-    OttaQuestionFeedCell *cell = (OttaQuestionFeedCell*)[self.tableView cellForRowAtIndexPath:indexPath];
-    cell = nil;
     [self loadData];
 }
 
@@ -267,7 +258,7 @@ static NSString * const QuestionFeedCellId = @"QuestionFeedCellId";
         NSIndexPath *oldIndexPathSelected = [NSIndexPath indexPathForRow:currentSelectedCell.row inSection:0];
         [arrReload addObject:oldIndexPathSelected];
     }
-    currentSelectedCell = indexPath;
+    currentSelectedCell = [NSIndexPath indexPathForRow:indexPath.row inSection:0];
     
     
     // Cache to load selected indexpath
