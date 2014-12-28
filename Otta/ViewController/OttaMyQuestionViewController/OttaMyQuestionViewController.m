@@ -216,16 +216,18 @@ static NSString * const OttaMyQuestionVoteCellIdentifier        = @"OttaMyQuesti
                 [self processVoteDataForRowAtIndex:indexPath];
             }
             break;
-        case MyQuestionDataTypeFooterNormal:
-            break;
         case MyQuestionDataTypeAnswerPicture:
             if (!dto.disableSelecting) {
                 [self processVoteDataForRowAtIndex:indexPath];
             }
             break;
+        case MyQuestionDataTypeFooterNormal:
         case MyQuestionDataTypeFooterSeeAll:
-            break;
         case MyQuestionDataTypeFooterCollapse:
+        {
+            OttaMyQuestionFooterCell *cell = (OttaMyQuestionFooterCell*)[tableView cellForRowAtIndexPath:indexPath];
+            [cell clickSeeAll:cell];
+        }
             break;
         case MyQuestionDataTypeDone:
             [self processOptionDoneQuestionForRowAtIndex:indexPath];
