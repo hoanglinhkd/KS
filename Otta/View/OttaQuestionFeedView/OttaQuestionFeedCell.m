@@ -142,8 +142,9 @@ static NSString * const DoneCellId      = @"OttaDoneButtonCell";
 - (void)setOrderForCell:(OttaBasicQuestionCell *)cell order:(NSIndexPath*)idx {
     [cell.orderLbl setText:[NSString stringWithFormat:@"%ld", idx.row + 1]];
     
-    if (idx.row == submittedIndexPath.row && submittedIndexPath != nil) {
+    if (idx.row == selectedIndexPath.row && selectedIndexPath != nil) {
         cell.orderLbl.backgroundColor = [UIColor orangeColor];
+        cell.orderLbl.text = [NSString stringWithFormat:@"%ld", selectedIndexPath.row + 1];
     }else{
         cell.orderLbl.backgroundColor = kDefaultColorBackGround;
     }
@@ -183,6 +184,7 @@ static NSString * const DoneCellId      = @"OttaDoneButtonCell";
 
 - (void)configureImageCell:(OttaMediaQuestionCell *)cell atIndexPath:(NSIndexPath *)indexPath {
     PFObject *item = self.answers[indexPath.row];
+    
     [self setTitleForCell:cell item:item];
     [self setOrderForCell:cell order:indexPath];
     [self setImageForCell:(id)cell item:item];
@@ -312,7 +314,7 @@ static NSString * const DoneCellId      = @"OttaDoneButtonCell";
         if (selectedIndexPath || submittedIndexPath) {
             if (indexPath.row == ([self tableView:tableView numberOfRowsInSection:0] - 1)) {
                 // is Done button
-                return 40.0;
+                return 50.0;
             }else if(indexPath.row == ([self tableView:tableView numberOfRowsInSection:0] - 2)){
                 // is View All Cell
                 return 30.0;

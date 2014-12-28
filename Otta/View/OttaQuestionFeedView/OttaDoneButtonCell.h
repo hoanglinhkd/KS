@@ -10,6 +10,6 @@
 
 @interface OttaDoneButtonCell : UITableViewCell
 
-@property (strong, nonatomic) IBOutlet UIButton *btnSubmit;
+@property (weak, nonatomic) IBOutlet UIButton *btnSubmit;
 
 @end

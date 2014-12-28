@@ -2417,9 +2417,12 @@ EE5leHQ
                                                             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Wi8-RJ-XNm" id="uHa-Gp-4HT">
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <subviews>
-                                                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A5Q-Ay-NF7">
+                                                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A5Q-Ay-NF7">
                                                                         <rect key="frame" x="0.0" y="0.0" width="320" height="40"/>
                                                                         <color key="backgroundColor" red="1" green="0.50196081399917603" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                                        <constraints>
+                                                                            <constraint firstAttribute="height" constant="40" id="AVJ-eP-d41"/>
+                                                                        </constraints>
                                                                         <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="17"/>
                                                                         <state key="normal" title="Submit">
                                                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -2427,6 +2430,12 @@ EE5leHQ
                                                                         </state>
                                                                     </button>
                                                                 </subviews>
+                                                                <constraints>
+                                                                    <constraint firstItem="A5Q-Ay-NF7" firstAttribute="leading" secondItem="uHa-Gp-4HT" secondAttribute="leadingMargin" id="7FO-Lr-El6"/>
+                                                                    <constraint firstAttribute="trailingMargin" secondItem="A5Q-Ay-NF7" secondAttribute="trailing" id="HXh-S3-V8q"/>
+                                                                    <constraint firstItem="A5Q-Ay-NF7" firstAttribute="top" secondItem="uHa-Gp-4HT" secondAttribute="topMargin" id="Tjf-9a-4Rt"/>
+                                                                    <constraint firstAttribute="bottomMargin" secondItem="A5Q-Ay-NF7" secondAttribute="bottom" id="vVh-Nx-7ZA"/>
+                                                                </constraints>
                                                             </tableViewCellContentView>
                                                             <connections>
                                                                 <outlet property="btnSubmit" destination="A5Q-Ay-NF7" id="K7G-ef-UzO"/>

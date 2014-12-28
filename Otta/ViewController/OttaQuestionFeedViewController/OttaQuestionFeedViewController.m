@@ -22,7 +22,7 @@ static NSString * const QuestionFeedCellId = @"QuestionFeedCellId";
     PFObject *selectedQuestion;
     int selectedOption;
     UIRefreshControl *refreshControl;
-    OttaQuestionFeedCell *currentSelectedCell;
+    NSIndexPath *currentSelectedCell;
     
     NSMutableDictionary *dictViewAllMode;
     NSMutableDictionary *dictSelectedMode;
@@ -237,10 +237,12 @@ static NSString * const QuestionFeedCellId = @"QuestionFeedCellId";
 - (void)questionFeedCell:(OttaQuestionFeedCell *)cell DidSelectedRowAtIndexPath:(NSIndexPath *)indexPath withSelectedIndex:(NSIndexPath *)childIdxPath{
     
     // Refresh other cell
+    /*
     if(currentSelectedCell != cell) {
         [currentSelectedCell deselectCell];
     }
     currentSelectedCell = cell;
+    */
     
     // Cache to load selected indexpath
     if (childIdxPath==nil) {
@@ -325,9 +327,11 @@ static NSString * const QuestionFeedCellId = @"QuestionFeedCellId";
 #pragma mark - Media Detail Delegate
 -(void) didSelectOptionIndex:(int)index forCell:(OttaQuestionFeedCell*)currentCell
 {
+    /*
     if(currentSelectedCell != currentCell) {
         [currentSelectedCell deselectCell];
     }
     currentSelectedCell = currentCell;
+     */
 }
 @end
