@@ -428,11 +428,16 @@ UITextView itsTextView = [[UITextView alloc] initWithFrame:CGRectMake(0, 0, itsT
 {
     //Defining auto height of Ask Question
     if(textView == _itsTextView) {
-        if(textView.contentSize.height > 92.0f) { //92 is 4 lines
+        int numLines = textView.contentSize.height / textView.font.leading;
+        
+        if(numLines >= 4) { //Max lines is 4
             _heightAskContent.constant = 92.0f;
+        } else if(numLines == 2) { //Fixed redundant space in bottom for 2 lines text
+            _heightAskContent.constant = 52.0f;
         } else {
             _heightAskContent.constant = textView.contentSize.height;
         }
+        
         [UIView animateWithDuration:0.4 animations:^{
             [self.view layoutIfNeeded];
         }];
