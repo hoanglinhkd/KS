@@ -445,7 +445,10 @@ static NSString * const DoneCellId      = @"OttaDoneButtonCell";
     
     isForcedDelete = YES;
    
-    NSIndexPath *referIdxPath = [OttaQuestionFeedViewController sharedInstance].currentSelectedCell;
+    UITableView *tbView = (UITableView*)self.superview.superview;
+    NSIndexPath *referIdxPath = [tbView indexPathForCell:self];
+    NSLog(@"%ld",referIdxPath.row);
+    
     if (referIdxPath!=nil) {
         NSLog(@"refer %ld",referIdxPath.row);
         if (self.delegate && [((NSObject*)self.delegate) respondsToSelector:@selector(questionFeedCell:needToForceRemoveAtReferIndex:)]) {

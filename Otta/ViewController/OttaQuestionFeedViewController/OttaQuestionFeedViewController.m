@@ -234,6 +234,9 @@ static OttaQuestionFeedViewController *sharedInstance;
 - (void)questionFeedCell:(OttaQuestionFeedCell *)parentCell needToForceRemoveAtReferIndex:(NSIndexPath *)indexPath{
     
     currentSelectedCell = nil;
+    [((PFObject*)feedItems[indexPath.row]) removeObjectForKey:kSubmittedOption];
+    [((PFObject*)feedItems[indexPath.row]) removeObjectForKey:kSelectedOption];
+    [((PFObject*)feedItems[indexPath.row]) removeObjectForKey:kViewAllMode];
     
     [feedItems removeObjectAtIndex:indexPath.row];
     [self.tableView reloadData];
