@@ -239,6 +239,7 @@
     }
     
     cell.delegate = self;
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     
     return cell;
 }

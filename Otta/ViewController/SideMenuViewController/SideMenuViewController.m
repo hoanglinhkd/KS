@@ -170,9 +170,7 @@ static SideMenuViewController *shareInstance;
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    OttaAppDelegate *appDelegate = (OttaAppDelegate*)[UIApplication sharedApplication].delegate;
-    UIView *windowView = appDelegate.window;
-    [[OttaLoadingManager sharedManager] show];
+    //[[OttaLoadingManager sharedManager] show];
     
     //Fix pending too long when press on side bar
     //showing loading indicator while loading data
@@ -180,7 +178,7 @@ static SideMenuViewController *shareInstance;
         
         if (indexPath.row == selectedSideIndex) {
             [self.slidingViewController resetTopViewAnimated:YES];
-            [[OttaLoadingManager sharedManager] hide];
+            //[[OttaLoadingManager sharedManager] hide];
             return;
         }
         
@@ -211,7 +209,7 @@ static SideMenuViewController *shareInstance;
                 [self performSegueWithIdentifier:@"segueAskQuestion" sender:nil];
                 break;
         }
-        [[OttaLoadingManager sharedManager] hide];
+        //[[OttaLoadingManager sharedManager] hide];
         
     });
     
