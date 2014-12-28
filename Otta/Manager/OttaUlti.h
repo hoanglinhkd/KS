@@ -10,6 +10,7 @@
 
 @interface OttaUlti : NSObject
 
++ (BOOL) isValidEmail:(NSString *)checkString;
 + (UIImage*)resizeImage:(UIImage*)image;
 + (NSString *) timeAgo:(NSDate *)origDate;
 @end

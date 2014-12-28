@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="jFH-gY-aPy">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C81f" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="jFH-gY-aPy">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
@@ -197,7 +197,7 @@
                                     <constraint firstAttribute="height" constant="18" id="waC-Zd-lwp"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mps-Lf-qZE">
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mps-Lf-qZE">
                                 <rect key="frame" x="0.0" y="531" width="320" height="37"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="37" id="KyH-4Q-SN2"/>
@@ -266,10 +266,10 @@
                                                     <rect key="frame" x="53" y="17" width="249" height="57"/>
                                                     <subviews>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E4x-ZH-cfo">
-                                                            <rect key="frame" x="31" y="9" width="40" height="40"/>
+                                                            <rect key="frame" x="31" y="10" width="37" height="37"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="height" constant="40" id="uMQ-vC-ULL"/>
-                                                                <constraint firstAttribute="width" constant="40" id="vhF-Z6-95f"/>
+                                                                <constraint firstAttribute="height" constant="37" id="uMQ-vC-ULL"/>
+                                                                <constraint firstAttribute="width" constant="37" id="vhF-Z6-95f"/>
                                                             </constraints>
                                                             <state key="normal" image="Otta_ask_button_add text.png">
                                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -279,10 +279,10 @@
                                                             </connections>
                                                         </button>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SMt-lw-ReY">
-                                                            <rect key="frame" x="113" y="9" width="46" height="40"/>
+                                                            <rect key="frame" x="113" y="11" width="42" height="36"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="width" constant="46" id="6Lh-P4-5e7"/>
-                                                                <constraint firstAttribute="height" constant="40" id="Wcx-by-N9m"/>
+                                                                <constraint firstAttribute="width" constant="42" id="6Lh-P4-5e7"/>
+                                                                <constraint firstAttribute="height" constant="36" id="Wcx-by-N9m"/>
                                                             </constraints>
                                                             <state key="normal" image="Otta_ask_button_add photo.png"/>
                                                             <connections>
@@ -423,7 +423,7 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Need to know in:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v81-f1-xGY">
-                                                    <rect key="frame" x="8" y="33" width="145" height="21"/>
+                                                    <rect key="frame" x="18" y="33" width="145" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="21" id="eSS-1q-lih"/>
                                                         <constraint firstAttribute="width" constant="145" id="uZW-Xl-Ku9"/>
@@ -443,7 +443,7 @@
                                                 <constraint firstItem="mIW-yn-ZJv" firstAttribute="top" secondItem="v81-f1-xGY" secondAttribute="bottom" constant="16" id="gz7-JD-BfU"/>
                                                 <constraint firstItem="Py4-hm-jrU" firstAttribute="leading" secondItem="91q-tY-epE" secondAttribute="leadingMargin" constant="49" id="hcD-f1-aw1"/>
                                                 <constraint firstItem="Py4-hm-jrU" firstAttribute="top" secondItem="p8S-4X-t3j" secondAttribute="bottom" id="on1-X3-fAb"/>
-                                                <constraint firstItem="v81-f1-xGY" firstAttribute="leading" secondItem="91q-tY-epE" secondAttribute="leadingMargin" id="pOH-v0-HeX"/>
+                                                <constraint firstItem="v81-f1-xGY" firstAttribute="leading" secondItem="91q-tY-epE" secondAttribute="leadingMargin" constant="10" id="pOH-v0-HeX"/>
                                                 <constraint firstItem="mIW-yn-ZJv" firstAttribute="leading" secondItem="91q-tY-epE" secondAttribute="leadingMargin" constant="12" id="zvd-Lv-9Y5"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -490,6 +490,7 @@
                     <navigationItem key="navigationItem" id="78C-cG-Egf"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
+                        <outlet property="btnNext" destination="mps-Lf-qZE" id="Wbn-Py-hl7"/>
                         <outlet property="heightAskContent" destination="WNe-ES-8Od" id="3Gs-VH-G6c"/>
                         <outlet property="itsTextView" destination="IwQ-rb-xVj" id="HSX-KN-Khn"/>
                         <outlet property="tableAsk" destination="WS2-pS-foB" id="5VD-5Q-NhB"/>
@@ -585,16 +586,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleAspectFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6ep-8v-gWp">
+                            <view contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="6ep-8v-gWp">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="80"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="Otta_header_shape_bar.png" translatesAutoresizingMaskIntoConstraints="NO" id="m8T-Up-hhB">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Otta_header_shape_bar.png" translatesAutoresizingMaskIntoConstraints="NO" id="m8T-Up-hhB">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="80"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="80" id="paN-F6-YfO"/>
                                         </constraints>
                                     </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="Otta_header_brand_name.png" translatesAutoresizingMaskIntoConstraints="NO" id="Plo-cg-FI1">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Otta_header_brand_name.png" translatesAutoresizingMaskIntoConstraints="NO" id="Plo-cg-FI1">
                                         <rect key="frame" x="105" y="35" width="111" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="111" id="N8U-1R-0We"/>
@@ -2117,7 +2118,7 @@ EE5leHQ
                         <rect key="frame" x="0.0" y="0.0" width="320" height="442"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="I8g-YS-BJD" userLabel="FaceBookDetailView" customClass="TPKeyboardAvoidingScrollView">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="I8g-YS-BJD" userLabel="FaceBookDetailView" customClass="TPKeyboardAvoidingScrollView">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="247"/>
                                 <subviews>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Hba-ng-RCr">
@@ -3274,8 +3275,8 @@ EE5leHQ
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Otta_questions_shape_check.png" translatesAutoresizingMaskIntoConstraints="NO" id="hDE-V3-bnL">
-                                                    <rect key="frame" x="286" y="6.5" width="24" height="18"/>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="Otta_questions_shape_check.png" translatesAutoresizingMaskIntoConstraints="NO" id="hDE-V3-bnL">
+                                                    <rect key="frame" x="286" y="7" width="24" height="18"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="18" id="9lS-I3-KBi"/>
                                                         <constraint firstAttribute="width" constant="24" id="WFy-uB-Kb8"/>

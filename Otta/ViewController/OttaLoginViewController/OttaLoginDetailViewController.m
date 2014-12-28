@@ -108,7 +108,7 @@
     NSLog(@"Forgot pass");
     [[OttaAlertManager sharedManager] showEmailAlertOnView:windowView complete:^(NSString *email) {
         __block NSString* mess = @"Invalid email!";
-        if ([Constant isValidEmail:email]) {
+        if ([OttaUlti isValidEmail:email]) {
             
             if([OttaNetworkManager isOfflineShowedAlertView]) {
                 return;

@@ -92,42 +92,7 @@
     //Default is having first row
     [listHeightQuestion setObject:[NSNumber numberWithFloat:70.0f] forKey:@"row0"];
     
-  /*  [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(keyboardWasShown:)
-                                                 name:UIKeyboardDidShowNotification
-                                               object:nil];
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(keyboardWillHide:)
-                                                 name:UIKeyboardWillHideNotification
-                                               object:nil];
-   */
-   
-  /*  OttaAnswer * testAnswer = [[OttaAnswer alloc]init];
-    OttaAnswer * testAnswer2 = [[OttaAnswer alloc]init];
-    OttaAnswer * testAnswer3 = [[OttaAnswer alloc]init];
-    OttaAnswer * testAnswer4 = [[OttaAnswer alloc]init];
-
-testAnswer.answerText = @"Creme Brelee";
-    testAnswer.answerImage = [UIImage imageNamed:@"creme_brelee.jpg"];
-    testAnswer2.answerText = @"Hamburger";
-    testAnswer2.answerImage =[UIImage imageNamed:@"hamburger.jpg"];
-    
-    
-    self.answerViewController.ottaAnswers = [NSMutableArray arrayWithObjects:testAnswer,testAnswer2, nil];
-    
-   */
-    
-    //self.answerViewController.ottaAnswers = [[NSMutableArray alloc]init];
-
-//   self.answerTableView.delegate = self.answerViewController;
-//    self.answerTableView.dataSource = self.answerViewController;
-//    [self.answerTableView reloadData];
-//    self.answerViewController.mainViewController = self;
-    //[_itsTextView setReturnKeyType:UIReturnKeyDone];
-    
     [_itsTextView setFont:[UIFont fontWithName:@"OpenSans-Light" size:17.00f]];
-    
     _itsTextView.placeholder = [@"Ask a question..." toCurrentLanguage];
     _itsTextView.placeholderTextColor = [UIColor lightGrayColor];
     
@@ -137,9 +102,17 @@ testAnswer.answerText = @"Creme Brelee";
                                                object:nil];
     
     // Do any additional setup after loading the view.
-        _optionsArray = [NSMutableArray new];
+    _optionsArray = [NSMutableArray new];
     [_optionsArray addObject:[[OttaAnswer alloc] init]];
 }
+
+-(void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    if ([self validateInput:NO]) {
+        _btnNext.hidden = NO;
+    }
+}
+
 -(void)reloadQuestions
 {
     //[self.answerTableView reloadData];
@@ -169,6 +142,10 @@ testAnswer.answerText = @"Creme Brelee";
 {
     [textField resignFirstResponder];
     
+    if ([self validateInput:NO]) {
+        _btnNext.hidden = NO;
+    }
+    
     return YES;
 }
 
@@ -176,6 +153,11 @@ testAnswer.answerText = @"Creme Brelee";
 {
     if ([text isEqualToString:@"\n"]) {
         [textView resignFirstResponder];
+        
+        if ([self validateInput:NO]) {
+            _btnNext.hidden = NO;
+        }
+        
         return NO;
     }
     return YES;
@@ -185,110 +167,6 @@ testAnswer.answerText = @"Creme Brelee";
     [self.slidingViewController anchorTopViewToRightAnimated:YES];
 }
 
--(IBAction)addQuestionButtonText:(id)sender
-{
-   /* YIPopupTextView* popupTextView = [[YIPopupTextView alloc] initWithPlaceHolder:@"Add answer here." maxCount:0];
-    popupTextView.delegate = self;
-    popupTextView.caretShiftGestureEnabled = YES;   // default = NO
-    
-   // popupTextView.text = self.textView.text;
-    //popupTextView.editable = NO;                  // set editable=NO to show without keyboard
-    
-    //[popupTextView showInView:self.view];
-    [popupTextView showInViewController:self]; // recommended, especially for iOS7
-    */
-    
-//    if([self.answerViewController.ottaAnswers count]<4)
-//    {
-//    OttaAnswer * newAnswer = [[OttaAnswer alloc]init];
-//    newAnswer.answerHasContent = NO;
-//    newAnswer.answerImage = nil;
-    //[self.answerViewController.ottaAnswers addObject:newAnswer];
-    //[self.answerTableView reloadData];
-       
-    //}
-
-}
-/*
-- (void)popupTextView:(YIPopupTextView*)textView didDismissWithText:(NSString*)text cancelled:(BOOL)cancelled;
-
-{
- 
-    __weak typeof(self) weakSelf = self;
-    
-   
-    
-    OttaAnswer * newAnswer = [[OttaAnswer alloc]init];
-    newAnswer.answerText = [NSString stringWithString:text];
-    newAnswer.answerHasContent = YES;
-    newAnswer.answerImage = nil;
-    
-    
-    self.photoPicker = [[CZPhotoPickerController alloc] initWithPresentingViewController:self withCompletionBlock:^(UIImagePickerController *imagePickerController, NSDictionary *imageInfoDict) {
-        
-        if (imagePickerController.allowsEditing) {
-            newAnswer.answerImage = imageInfoDict[UIImagePickerControllerEditedImage];
-        }
-        else {
-            newAnswer.answerImage = imageInfoDict[UIImagePickerControllerOriginalImage];
-        }
-        
-        [weakSelf.photoPicker dismissAnimated:YES];
-        weakSelf.photoPicker = nil;
-        [weakSelf.answerViewController.ottaAnswers addObject:newAnswer];
-        [weakSelf.answerTableView reloadData];
-        
-    }];
-    
-    self.photoPicker.allowsEditing = YES; // optional
-    
-   // self.photoPicker.cropOverlaySize = CGSizeMake(320, 160); // optional
-    
-  //  [self presentViewController:self.photoPicker animated:YES completion:nil];
-    UIBarButtonItem * somebarbutton =[[UIBarButtonItem alloc]init];
-    [self.photoPicker showFromBarButtonItem:somebarbutton];
-    
-}
- */
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
-
-#pragma mark TextView Delegate methods
-
-/*
-UITextView itsTextView = [[UITextView alloc] initWithFrame:CGRectMake(0, 0, itsTextView.frame.size.width, itsTextView.frame.size.height)];
-[itsTextView setDelegate:self];
-[itsTextView setReturnKeyType:UIReturnKeyDone];
-[itsTextView setText:@"List words or terms separated by commas"];
-[itsTextView setFont:[UIFont fontWithName:@"HelveticaNeue" size:11]];
-[itsTextView setTextColor:[UIColor lightGrayColor]];
- */
-
-/*- (void) textViewDidBeginEditing:(UITextField *)textView {
-    UITableViewCell *cell;
-    
-    if (floor(NSFoundationVersionNumber) <= NSFoundationVersionNumber_iOS_6_1) {
-        // Load resources for iOS 6.1 or earlier
-        cell = (UITableViewCell *) textView.superview.superview;
-        
-    } else {
-        // Load resources for iOS 7 or later
-        cell = (UITableViewCell *) textView.superview.superview.superview;
-        // TextField -> UITableVieCellContentView -> (in iOS 7!)ScrollView -> Cell!
-    }
-    [self.answerTableView scrollToRowAtIndexPath:[self.answerTableView indexPathForCell:cell] atScrollPosition:UITableViewScrollPositionBottom animated:YES];
-}
- */
-
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     if (_optionsArray.count < 4) {
@@ -297,7 +175,6 @@ UITextView itsTextView = [[UITextView alloc] initWithFrame:CGRectMake(0, 0, itsT
         return _optionsArray.count + 1;
     }
 }
-
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
@@ -410,6 +287,10 @@ UITextView itsTextView = [[UITextView alloc] initWithFrame:CGRectMake(0, 0, itsT
             }
             deadlineString = str;
             [tableView reloadData];
+            
+            if ([self validateInput:NO]) {
+                _btnNext.hidden = NO;
+            }
         }];
     }
     
@@ -596,34 +477,54 @@ UITextView itsTextView = [[UITextView alloc] initWithFrame:CGRectMake(0, 0, itsT
 
 - (IBAction)btnNextPress:(id)sender {
     
-    if(_itsTextView.text.length <= 0) {
-        [[OttaAlertManager sharedManager] showSimpleAlertWithContent:[@"Please provide question" toCurrentLanguage] complete:nil];
-        return;
+    if ([self validateInput:YES]) {
+        NSMutableArray *optionToAdd = [NSMutableArray array];
+        for (OttaAnswer *curAnswer in _optionsArray) {
+            if(curAnswer.answerImage == nil && curAnswer.answerText.length <= 0) {
+                // no data
+            } else {
+                [optionToAdd addObject:curAnswer];
+            }
+        }
+        [self performSegueWithIdentifier:@"segueAnswerers" sender:optionToAdd];
     }
-    
-    if(selectedTimeValue <= 0) {
-        [[OttaAlertManager sharedManager] showSimpleAlertWithContent:[@"Please choose deadline" toCurrentLanguage] complete:nil];
-        return;
+}
+
+- (BOOL)validateInput:(BOOL)isShowAlert {
+    if(_itsTextView.text.length <= 0) {
+        if (isShowAlert) {
+            [[OttaAlertManager sharedManager] showSimpleAlertWithContent:[@"Please provide question" toCurrentLanguage] complete:nil];
+        }
+        return NO;
     }
     
     NSMutableArray *optionToAdd = [NSMutableArray array];
     //For check the real option data. we can't not user count property to check the count options
     for (OttaAnswer *curAnswer in _optionsArray) {
         if(curAnswer.answerImage == nil && curAnswer.answerText.length <= 0) {
-            
+            // no data
         } else {
             [optionToAdd addObject:curAnswer];
         }
     }
     
     if(optionToAdd.count < 2) {
-        [[OttaAlertManager sharedManager] showSimpleAlertWithContent:[@"The number of options must be greater than 1" toCurrentLanguage] complete:nil];
-        return;
+        if (isShowAlert) {
+            [[OttaAlertManager sharedManager] showSimpleAlertWithContent:[@"We need more options" toCurrentLanguage] complete:nil];
+        }
+        return NO;
     }
     
-    [self performSegueWithIdentifier:@"segueAnswerers" sender:optionToAdd];
+    if(selectedTimeValue <= 0) {
+        if (isShowAlert) {
+            [[OttaAlertManager sharedManager] showSimpleAlertWithContent:[@"Please choose deadline" toCurrentLanguage] complete:nil];
+        }
+        return NO;
+    }
     
+    return YES;
 }
+
 - (IBAction)pressBtnLogo:(id)sender{
     [[SideMenuViewController sharedInstance] selectRowAtIndex:[NSIndexPath indexPathForRow:1 inSection:0] forViewController:self];
 }

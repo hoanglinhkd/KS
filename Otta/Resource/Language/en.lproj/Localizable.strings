@@ -53,7 +53,7 @@
 "This user cannot be accessed email" = "This user cannot be accessed email";
 "Please choose deadline" = "Please choose deadline";
 "Please provide option" = "Please provide option";
-"Please provide question" = "Please provide question";
+"Please provide question" = "Please enter question content";
 "Ask completed" = "Ask completed";
 "Ask failed" = "Ask failed";
 "Please select your friends" = "Please select your friends";
@@ -65,7 +65,7 @@
 "SMS sent falied" = "SMS sent falied";
 "SMS sent cancelled" = "SMS sent cancelled";
 "Sent" = "Sent";
-"The number of options must be greater than 1" = "The number of options must be greater than 1";
+"We need more options" = "We need more options";
 "Do you want to follow %@?" = "Do you want to follow %@?";
 "No network connection" = "No network connection";
 "Do you want to delete?" = "Do you want to delete?";

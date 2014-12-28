@@ -26,6 +26,11 @@
 @property (nonatomic,strong) IBOutlet UITableView *tableAsk;
 @property (nonatomic,strong) IBOutlet NSLayoutConstraint *heightAskContent;
 @property (nonatomic, strong) NSMutableArray* optionsArray;
+@property (weak, nonatomic) IBOutlet UIButton *btnNext;
+
+
+
+
 - (IBAction)btnNextPress:(id)sender;
 
 - (IBAction)pressBtnLogo:(id)sender;

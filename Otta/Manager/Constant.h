@@ -24,6 +24,4 @@ typedef enum {
 
 @interface Constant : NSObject
 
-+(BOOL) isValidEmail:(NSString *)checkString;
-
 @end
