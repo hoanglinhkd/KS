@@ -23,7 +23,7 @@ static NSString * const QuestionFeedCellId = @"QuestionFeedCellId";
     NSMutableArray *feedItems1;
     
     PFObject *selectedQuestion;
-    int selectedOption;
+    NSInteger selectedOption;
     UIRefreshControl *refreshControl;
     
 }
@@ -125,9 +125,15 @@ static OttaQuestionFeedViewController *sharedInstance;
         cell.submittedIndexPath = nil;
     }
     
+    [self setPerformSelectorForCell:cell withItem:item];
     [self setTitleForCell:cell item:item];
 }
 
+- (void)setPerformSelectorForCell:(OttaQuestionFeedCell*)cell withItem:(PFObject*)item{
+    if (cell.submittedIndexPath) {
+        [cell startPerformSelectorForDelete];
+    }
+}
 - (void)setTitleForCell:(OttaQuestionFeedCell *)cell item:(PFObject *)item {
     PFUser *asker = item[kAsker];
     NSString *title = item[kQuestionText] ?: NSLocalizedString(@"[No Title]", nil);
@@ -168,11 +174,11 @@ static OttaQuestionFeedViewController *sharedInstance;
     [self.tableView reloadRowsAtIndexPaths:reloadCellIndexs withRowAnimation:UITableViewRowAnimationFade];
 }
 
-- (void)optionCell:(OttaQuestionFeedCell *)cell imageBtnTappedAtRow:(id)row {
-    NSIndexPath* pathOfTheCell = [self.tableView indexPathForCell:cell];
-    selectedQuestion = [feedItems objectAtIndex:pathOfTheCell.row];
-    selectedOption = [(NSNumber*)row intValue];
-    PFObject *answer = [selectedQuestion[kAnswers] objectAtIndex:selectedOption];
+- (void)optionCell:(OttaQuestionFeedCell *)cell imageBtnTappedAtRow:(NSInteger)row {
+    NSIndexPath* pathOfTheCell  = [self.tableView indexPathForCell:cell];
+    selectedQuestion            = [feedItems objectAtIndex:pathOfTheCell.row];
+    selectedOption              = row;
+    PFObject *answer            = [selectedQuestion[kAnswers] objectAtIndex:selectedOption];
     
     if (((PFFile*)answer[kImage]).url.length > 0) {
         [self performSegueWithIdentifier:@"segueMediaQuestionDetail" sender:cell];
@@ -215,7 +221,7 @@ static OttaQuestionFeedViewController *sharedInstance;
                     if (finished) {
                         PFObject *item = feedItems[referIdx.row];
                         [item setObject:[NSNumber numberWithInteger:childIdxPath.row] forKey:kSubmittedOption];
-                        [self performSelector:@selector(processReloadData:) withObject:parentCell afterDelay:0.2f];
+                        [self performSelector:@selector(processReloadData:) withObject:referIdx afterDelay:0.2f];
                     }
                 }];
                 
@@ -320,13 +326,17 @@ static OttaQuestionFeedViewController *sharedInstance;
 }
 
 #pragma mark - Selectors
-- (void)processReloadData:(OttaQuestionFeedCell*)cell{
+- (void)processReloadData:(NSIndexPath*)idxPathNeedToDelete{
     [UIView animateWithDuration:0.0 animations:^{
         NSArray *arrReload = [[NSArray alloc] initWithObjects:currentSelectedCell, nil];
         [self.tableView reloadRowsAtIndexPaths:arrReload withRowAnimation:UITableViewRowAnimationFade];
     } completion:^(BOOL finished) {
         if (finished) {
-            [cell startPerformSelectorForDelete];
+            /*
+            OttaQuestionFeedCell* cell = (OttaQuestionFeedCell*)[self.tableView cellForRowAtIndexPath:idxPathNeedToDelete];
+            [arrCacheCellForPerformSelector addObject:cell];
+            [cell startPerformSelectorForDelete:idxPathNeedToDelete];
+             */
         }
     }];
 }

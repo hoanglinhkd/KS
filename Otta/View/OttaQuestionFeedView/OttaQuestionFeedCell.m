@@ -27,9 +27,12 @@ static NSString * const DoneCellId      = @"OttaDoneButtonCell";
 
 @interface OttaQuestionFeedCell(){
     BOOL isForcedDelete;
+    NSIndexPath *myIdxCacheForDelete;
 }
 
 @end
+
+static NSObject *myObj;
 
 @implementation OttaQuestionFeedCell
 @synthesize selectedIndexPath, submittedIndexPath;
@@ -37,6 +40,7 @@ static NSString * const DoneCellId      = @"OttaDoneButtonCell";
 
 - (void)awakeFromNib {
     // Initialization code
+    myObj = [[NSObject alloc] init];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -64,7 +68,7 @@ static NSString * const DoneCellId      = @"OttaDoneButtonCell";
         return kDefaultShowedRow + kRowForViewAll;
     }else{
         if (selectedIndexPath || submittedIndexPath) {
-            return [self.answers count] + kRowForViewAll + KRowForDoneButton;
+            return [self.answers count] + KRowForDoneButton;
         }else{
             return [self.answers count] + kRowForViewAll;
         }
@@ -82,29 +86,22 @@ static NSString * const DoneCellId      = @"OttaDoneButtonCell";
                     return [self basicCellAtIndexPath:indexPath];
                 }
             }else if (indexPath.row == 1){
-                // is View All Cell
-                return [self cellViewAllAtIndexPath:indexPath];
-            }else if (indexPath.row == 2){
                 // is Done button
                 return [self doneCellAtIndexPath:indexPath];
             }
         }else{
-            // check selected
-            if (selectedIndexPath) {
-                if (indexPath.row == ([self tableView:tableView numberOfRowsInSection:0] - 1)) {
+            // check lasted row
+            if (indexPath.row == ([self tableView:tableView numberOfRowsInSection:0] - 1)) {
+                if (selectedIndexPath) {
                     // is Done button
                     return [self doneCellAtIndexPath:indexPath];
-                }else if(indexPath.row == ([self tableView:tableView numberOfRowsInSection:0] - 2)){
-                    // is View All Cell
-                    return [self cellViewAllAtIndexPath:indexPath];
-                }
-            }else{
-                // is not selected => show view all
-                if(indexPath.row == ([self tableView:tableView numberOfRowsInSection:0] - 1)){
+                }else{
+                    // is not selected => show view all
                     // is View All Cell
                     return [self cellViewAllAtIndexPath:indexPath];
                 }
             }
+            
         }
     }else{
         return [self cellViewAllAtIndexPath:indexPath];
@@ -244,7 +241,7 @@ static NSString * const DoneCellId      = @"OttaDoneButtonCell";
         [cell.btnViewAll removeTarget:self action:@selector(viewAllBtnTapped:) forControlEvents:UIControlEventTouchUpInside];
         [cell.btnViewAll addTarget:self action:@selector(collapseBtnTapped:) forControlEvents:UIControlEventTouchUpInside];
     }else{
-        [cell.btnViewAll setTitle:@"View all..." forState:UIControlStateNormal];
+        [cell.btnViewAll setTitle:@"View options..." forState:UIControlStateNormal];
         [cell.btnViewAll removeTarget:self action:@selector(collapseBtnTapped:) forControlEvents:UIControlEventTouchUpInside];
         [cell.btnViewAll addTarget:self action:@selector(viewAllBtnTapped:) forControlEvents:UIControlEventTouchUpInside];
     }
@@ -254,12 +251,27 @@ static NSString * const DoneCellId      = @"OttaDoneButtonCell";
 
 #pragma mark Tableview Delegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    /*
     if (!isViewAllMode) {
+        [tableView deselectRowAtIndexPath:indexPath animated:YES];
         return;
+    }
+     */
+    if (self.selectedIndexPath==nil && submittedIndexPath==nil) {
+        [tableView deselectRowAtIndexPath:indexPath animated:YES];
+        if (indexPath.row == [self tableView:self.tableView numberOfRowsInSection:0] - 1) {
+            if (self.isViewAllMode) {
+                [self collapseBtnTapped:nil];
+            }else{
+                [self viewAllBtnTapped:nil];
+            }
+            return;
+        }
     }
     if (indexPath.row >= self.answers.count) {
         return;
     }
+    
     
     if (selectedIndexPath == indexPath) {
         // for deselected current cell
@@ -324,10 +336,9 @@ static NSString * const DoneCellId      = @"OttaDoneButtonCell";
 
 
 - (IBAction)imageBtnTapped:(id)sender {
-    return;
     UIButton *btn = (UIButton *)sender;
     NSInteger row = btn.tag;
-    [self.delegate optionCell:self imageBtnTappedAtRow:[NSNumber numberWithInteger:row]];
+    [self.delegate optionCell:self imageBtnTappedAtRow:row];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -343,28 +354,20 @@ static NSString * const DoneCellId      = @"OttaDoneButtonCell";
                     
                 }
             }else if (indexPath.row == 1){
-                // is View All Cell
-                return 30.0;
-            }else if (indexPath.row == 2){
                 // is Done button
                 return 50.0;
             }
         }else{
-            if (selectedIndexPath) {
-                if (indexPath.row == ([self tableView:tableView numberOfRowsInSection:0] - 1)) {
+            if (indexPath.row == ([self tableView:tableView numberOfRowsInSection:0] - 1)) {
+                if (selectedIndexPath) {
                     // is Done button
                     return 50.0;
-                }else if(indexPath.row == ([self tableView:tableView numberOfRowsInSection:0] - 2)){
+                }else{
                     // is View All Cell
-                    return 30.0;
-                }
-            }else{
-                if (indexPath.row == ([self tableView:tableView numberOfRowsInSection:0] - 1)) {
                     return 30.0;
                 }
             }
         }
-        
     }else{
         if (indexPath.row == 0) {
             return 30.0;
@@ -444,25 +447,25 @@ static NSString * const DoneCellId      = @"OttaDoneButtonCell";
         return;
     
     isForcedDelete = YES;
-   
     UITableView *tbView = (UITableView*)self.superview.superview;
     NSIndexPath *referIdxPath = [tbView indexPathForCell:self];
-    NSLog(@"%ld",referIdxPath.row);
+    NSLog(@"referIdxPath %ld",referIdxPath.row);
     
     if (referIdxPath!=nil) {
         NSLog(@"refer %ld",referIdxPath.row);
         if (self.delegate && [((NSObject*)self.delegate) respondsToSelector:@selector(questionFeedCell:needToForceRemoveAtReferIndex:)]) {
+            // remove perform seletor
+            [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(doneCellSelected:) object:nil];
+            
+            // Transfer delegate action to ViewController
             [self.delegate questionFeedCell:self needToForceRemoveAtReferIndex:referIdxPath];
         }
     }
 }
 
 - (void) startPerformSelectorForDelete{
-    // remove before addition more
-    [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(doneCellSelected:) object:nil];
-    
     // add perform Selector
-    [self performSelector:@selector(doneCellSelected:) withObject:nil afterDelay:kIntervalForceDelete];
+    [self performSelector:@selector(doneCellSelected:) withObject:self afterDelay:kIntervalForceDelete];
 }
 @end
 
