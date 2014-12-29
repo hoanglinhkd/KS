@@ -9,7 +9,11 @@
 #import <UIKit/UIKit.h>
 #import "OttaBasicQuestionCell.h"
 
+#define UIColorFromRGB(rgbValue) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 #define kDefaultColorBackGround [UIColor colorWithRed:143*1.0/255 green:202*1.0/255 blue:64*1.0/255 alpha:1.0f]
+#define kSelectedColor          [UIColor colorWithRed:255*1.0/255 green:153*1.0/255 blue:0.0/255 alpha:1.0f]
+
+
 
 @class OttaQuestionFeedCell;
 @protocol OttaQuestionFeedCellDelegate

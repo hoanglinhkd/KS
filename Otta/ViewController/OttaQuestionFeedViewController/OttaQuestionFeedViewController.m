@@ -20,7 +20,7 @@ static NSString * const QuestionFeedCellId = @"QuestionFeedCellId";
 
 @interface OttaQuestionFeedViewController () {
     NSMutableArray *feedItems;
-    NSMutableArray *feedItems1;
+    //NSMutableArray *feedItems1;
     
     PFObject *selectedQuestion;
     NSInteger selectedOption;
@@ -196,7 +196,7 @@ static OttaQuestionFeedViewController *sharedInstance;
     PFObject *answer = [arrAnswers objectAtIndex:childIdxPath.row];
     [[OttaLoadingManager sharedManager] show];
     
-    [[OttaParseClientManager sharedManager] voteFromUser:[PFUser currentUser] withQuestion:feedItems1[referIdx.row] withAnswer:answer withBlock:^(BOOL isSucceeded, NSError *error) {
+    [[OttaParseClientManager sharedManager] voteFromUser:[PFUser currentUser] withQuestion:feedItems[referIdx.row] withAnswer:answer withBlock:^(BOOL isSucceeded, NSError *error) {
         
         [[OttaLoadingManager sharedManager] hide];
         if(isSucceeded) {
@@ -245,6 +245,7 @@ static OttaQuestionFeedViewController *sharedInstance;
     [((PFObject*)feedItems[indexPath.row]) removeObjectForKey:kViewAllMode];
     
     [feedItems removeObjectAtIndex:indexPath.row];
+    
     [self.tableView reloadData];
 }
 
@@ -312,8 +313,13 @@ static OttaQuestionFeedViewController *sharedInstance;
     [[OttaParseClientManager sharedManager] getQuestionFeedFromUser:[PFUser currentUser] withBlock:^(NSArray *array, NSError *error) {
         
         if(array) {
+            [feedItems removeAllObjects];
             feedItems = [NSMutableArray arrayWithArray:array];
-            feedItems1 = [NSMutableArray arrayWithArray:array];
+            for (PFObject *obj in feedItems) {
+                [obj removeObjectForKey:kViewAllMode];
+                [obj removeObjectForKey:kSelectedOption];
+                [obj removeObjectForKey:kSubmittedOption];
+            }
         }
         
         [_tableView reloadData];

@@ -161,15 +161,18 @@ static NSObject *myObj;
     
     if (submittedIndexPath) {
         if (idx.row == 0) {
-            cell.orderLbl.backgroundColor = [UIColor orangeColor];
+            cell.orderLbl.backgroundColor = kSelectedColor;
             cell.orderLbl.text = [NSString stringWithFormat:@"%ld", submittedIndexPath.row + 1];
+            [self boldFontForLabel:cell.orderLbl];
         }
     }else{
         if (idx.row == selectedIndexPath.row && selectedIndexPath != nil) {
-            cell.orderLbl.backgroundColor = [UIColor orangeColor];
+            cell.orderLbl.backgroundColor = kSelectedColor;
             cell.orderLbl.text = [NSString stringWithFormat:@"%ld", selectedIndexPath.row + 1];
+            [self boldFontForLabel:cell.orderLbl];
         }else{
             cell.orderLbl.backgroundColor = kDefaultColorBackGround;
+            [self regularFontForLabel:cell.orderLbl];
         }
     }
     
@@ -187,6 +190,7 @@ static NSObject *myObj;
         NSIndexPath *indexPathRestore = [NSIndexPath indexPathForRow:i inSection:0];
         OttaBasicQuestionCell *cell = (OttaBasicQuestionCell*)[_tableView cellForRowAtIndexPath:indexPathRestore];
         cell.orderLbl.backgroundColor = kDefaultColorBackGround;
+        [self regularFontForLabel:cell.orderLbl];
     }
     selectedIndexPath = nil;
 }
@@ -278,6 +282,7 @@ static NSObject *myObj;
         selectedIndexPath = nil;
         OttaBasicQuestionCell *cell = (OttaBasicQuestionCell*)[tableView cellForRowAtIndexPath:indexPath];
         cell.orderLbl.backgroundColor = kDefaultColorBackGround;
+        [self regularFontForLabel:cell.orderLbl];
         [tableView deselectRowAtIndexPath:indexPath animated:YES];
     }else{
         // for current selected cell
@@ -466,6 +471,21 @@ static NSObject *myObj;
 - (void) startPerformSelectorForDelete{
     // add perform Selector
     [self performSelector:@selector(doneCellSelected:) withObject:self afterDelay:kIntervalForceDelete];
+}
+
+
+#pragma mark - Utils
+-(void)boldFontForLabel:(UILabel *)label{
+    UIFont *currentFont = label.font;
+    UIFont *newFont = [UIFont fontWithName:[NSString stringWithFormat:@"%@-Bold",currentFont.fontName] size:15];
+    label.font = newFont;
+}
+-(void)regularFontForLabel:(UILabel*)label{
+    UIFont *currentFont = label.font;
+    NSString *fontName = [[currentFont fontName] stringByReplacingOccurrencesOfString:@"-Bold" withString:@""];
+    
+    UIFont *newFont = [UIFont fontWithName:fontName size:15];
+    label.font = newFont;
 }
 @end
 
