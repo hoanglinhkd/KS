@@ -50,7 +50,7 @@
 - (IBAction)imageBtnTapped:(id)sender;
 - (void) startPerformSelectorForDelete;
 
-- (void) selectAnswerIndex:(int)answerIndex;
+- (void) selectAnswerIndex:(NSInteger)answerIndex;
 - (void) deselectCell;
 
 @end

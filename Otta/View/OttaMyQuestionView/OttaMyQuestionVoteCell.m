@@ -2,7 +2,7 @@
 //  OttaMyQuestionVoteCell.m
 //  Otta
 //
-//  Created by Linh.Nguyen on 12/8/14.
+//  Created by Thien Chau on 12/8/14.
 //  Copyright (c) 2014 SojoDigital. All rights reserved.
 //
 
@@ -42,15 +42,16 @@
     if (cell==nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
         cell.textLabel.textColor = [UIColor whiteColor];
-        cell.textLabel.font = [UIFont fontWithName:@"OpenSans" size:14];
+        cell.textLabel.font = [UIFont fontWithName:@"OpenSans" size:12];
     }
     OttaUser *dto = [arrData objectAtIndex:indexPath.row];
-    cell.textLabel.text = [@"       " stringByAppendingFormat:@"%@ %@",dto.firstName,dto.lastName];
-    cell.backgroundColor = tableView.backgroundColor;
+    cell.textLabel.text = [@"           " stringByAppendingFormat:@"%@ %@",dto.firstName,dto.lastName];
+    cell.backgroundColor = [UIColor clearColor];
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 20.0;
+    return 16.0;
 }
 @end

@@ -19,6 +19,14 @@
     
     // Configure the view for the selected state
 }
+
+- (IBAction)imageBtnTapped:(id)sender {
+    
+    if([self.delegate respondsToSelector:@selector(optionCell:imageBtnTappedAtRow:)]) {
+        [self.delegate optionCell:self imageBtnTappedAtRow:_indexPathCell.row];
+    }
+}
+
 /*
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.

@@ -9,20 +9,18 @@
 #import "OttaMyQuestionViewController.h"
 #import "UIViewController+ECSlidingViewController.h"
 #import "SideMenuViewController.h"
-
 #import "OttaQuestion.h"
 #import "OttaAnswer.h"
 #import "OttaUser.h"
 #import "OttaMyQuestionData.h"
-
 #import "OttaMyQuestionHeaderCell.h"
 #import "OttaMyQuestionFooterCell.h"
 #import "OttaMyQuestionTextCell.h"
 #import "OttaMyQuestionPictureCell.h"
 #import "OttaMyQuestionDoneCell.h"
 #import "OttaMyQuestionVoteCell.h"
-
 #import "OttaParseClientManager.h"
+#import "OttaMediaQuestionDetailViewController.h"
 
 static NSString * const OttaMyQuestionHeaderCellIdentifier      = @"OttaMyQuestionHeaderCell";
 static NSString * const OttaMyQuestionTextCellIdentifier        = @"OttaMyQuestionTextCell";
@@ -33,11 +31,13 @@ static NSString * const OttaMyQuestionVoteCellIdentifier        = @"OttaMyQuesti
 
 #define kDefaultColorBackGround [UIColor colorWithRed:143*1.0/255 green:202*1.0/255 blue:64*1.0/255 alpha:1.0f]
 
-@interface OttaMyQuestionViewController ()<UITableViewDataSource, UITableViewDelegate, OttaMyQuestionFooterCellDelegate>{
+@interface OttaMyQuestionViewController ()<UITableViewDataSource, UITableViewDelegate, OttaMyQuestionFooterCellDelegate, OttaMyQuestionPictureCellDelegate>{
     NSMutableArray *datas;
     NSMutableArray *viewAllModeCellArray;
     NSMutableArray *dataForShow;
     UIRefreshControl *refreshControl;
+    PFObject *selectedQuestion;
+    NSInteger selectedOption;
 }
 
 @end
@@ -435,6 +435,8 @@ static NSString * const OttaMyQuestionVoteCellIdentifier        = @"OttaMyQuesti
     
     cell.lblOrderNumber.text = [NSString stringWithFormat:@"%d",dto.numberAnswer];
     cell.imageViewData.image = [UIImage imageNamed:@"thumb.png"];
+    cell.indexPathCell = indexPath;
+    cell.delegate = self;
     [dto.answer[@"image"] getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
         if (!error) {
             cell.imageViewData.image =  [UIImage imageWithData:data];
@@ -536,6 +538,19 @@ static NSString * const OttaMyQuestionVoteCellIdentifier        = @"OttaMyQuesti
         cell.vDivide.frame = rect;
     }
 }
+#pragma mark - OttaMyQuestionPictureCell Delegate
+- (void)optionCell:(OttaMyQuestionPictureCell *)cell imageBtnTappedAtRow:(NSInteger)row
+{
+    OttaMyQuestionData *currQuestion = [dataForShow objectAtIndex:row];
+    selectedQuestion = [datas objectAtIndex:currQuestion.referIndex];
+    int selectedAnswerIndex = [cell.lblOrderNumber.text intValue] - 1;
+    PFObject *answer  = [selectedQuestion[kAnswers] objectAtIndex:selectedAnswerIndex];
+    
+    if (((PFFile*)answer[kImage]).url.length > 0) {
+        [self performSegueWithIdentifier:@"segueMediaQuestionDetail" sender:cell];
+    }
+}
+
 #pragma mark - OttaMyQuestionFooterCell Delegate
 - (void)ottaMyQuestionFooterCellDidSelectSeeAllAtIndex:(int)referIndex atCurrentIndex:(NSInteger)currIndex{
     BOOL isSeeAll = false;
@@ -557,6 +572,9 @@ static NSString * const OttaMyQuestionVoteCellIdentifier        = @"OttaMyQuesti
             if(numberLocation >= 0){
                 OttaMyQuestionData *objAnswer1 = [[OttaMyQuestionData alloc] init];
                 objAnswer1.numberAnswer = numberLocation+1;
+                
+                //Assign to get referIndex of Data Array List
+                objAnswer1.referIndex = referIndex;
                 
                 NSArray *listVotes = datas[referIndex][ans.objectId];
                 if(listVotes.count > 0) {
@@ -746,6 +764,17 @@ static NSString * const OttaMyQuestionVoteCellIdentifier        = @"OttaMyQuesti
         [myTableView reloadData];
         [[OttaLoadingManager sharedManager] hide];
     }];
+}
+
+#pragma mark - prepareForSegue
+- (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([[segue identifier] isEqualToString: @"segueMediaQuestionDetail"]) {
+        OttaMediaQuestionDetailViewController *dest = (OttaMediaQuestionDetailViewController *)[segue destinationViewController];
+        dest.question = selectedQuestion;
+        dest.currentOption = selectedOption;
+        dest.showFromPage = ShowFromPage_MyQuestion;
+    }
 }
 
 @end

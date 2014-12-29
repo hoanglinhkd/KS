@@ -31,10 +31,20 @@
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     
-    
-    PFUser *asker = _question[kAsker];
-    self.ownerNameLbl.text = [NSString stringWithFormat:@"%@ %@",asker.firstName, asker.lastName];
-    self.questionbl.text = _question[kQuestionText];
+    if(_showFromPage == ShowFromPage_QuestionFeed) {
+        PFUser *asker = _question[kAsker];
+        self.ownerNameLbl.text = [NSString stringWithFormat:@"%@ %@",asker.firstName, asker.lastName];
+        self.questionbl.text = _question[kQuestionText];
+    } else {
+        NSString *questionText = _question[kQuestionText];
+        self.ownerNameLbl.text = questionText;
+        int sumAnswers = 0;
+        for (PFObject *ans in _question[kAnswers]) {
+            NSArray *listVotes = _question[ans.objectId];
+            sumAnswers += [listVotes count];
+        }
+        [self.questionbl setText:[NSString stringWithFormat:[@"%d answers so far" toCurrentLanguage], sumAnswers]];
+    }
     self.expirationDateLbl.text = [OttaUlti timeAgo:_question[kExpTime]];
     NSArray *arrAnswers = [NSArray arrayWithArray:_question[kAnswers]];
     self.optionLbl.text = ((PFObject*)[arrAnswers objectAtIndex:0])[kDescription];
@@ -106,12 +116,17 @@
                          self.optionLbl.alpha = 0.0f;
                          self.orderLbl.alpha = 0.0f;
                          self.orderLbl.text = [NSString stringWithFormat:@"%d",page+1];
-                         if(_selectedCell.selectedIndexPath && _selectedCell.selectedIndexPath.row == self.currentOption) {
-                             self.orderLbl.backgroundColor = [UIColor orangeColor];
-                             [self.selectBtn setTitle:[@"Selected" toCurrentLanguage] forState:UIControlStateNormal];
-                         } else {
-                             self.orderLbl.backgroundColor = kDefaultColorBackGround;
-                             [self.selectBtn setTitle:[@"Select?" toCurrentLanguage] forState:UIControlStateNormal];
+                         
+                         if(_showFromPage == ShowFromPage_MyQuestion) {
+                             [_selectBtn setHidden:YES];
+                         } else { //Show from Question Feed
+                             if(_selectedCell.selectedIndexPath && _selectedCell.selectedIndexPath.row == self.currentOption) {
+                                 self.orderLbl.backgroundColor = [UIColor orangeColor];
+                                 [self.selectBtn setTitle:[@"Selected" toCurrentLanguage] forState:UIControlStateNormal];
+                             } else {
+                                 self.orderLbl.backgroundColor = kDefaultColorBackGround;
+                                 [self.selectBtn setTitle:[@"Select?" toCurrentLanguage] forState:UIControlStateNormal];
+                             }
                          }
                          self.optionLbl.text = answer[kDescription];
                          self.optionLbl.alpha = 1.0f;
@@ -136,18 +151,24 @@
     [self scrollToPage:self.currentOption];
 }
 
-- (void)scrollToPage:(int)page {
+- (void)scrollToPage:(NSInteger)page {
     [self setVisisbleButton];
     CGRect frame;
     frame.origin.x = self.imgscrollView.frame.size.width * page;
     frame.origin.y = 0;
     frame.size = self.imgscrollView.frame.size;
-    if(_selectedCell.selectedIndexPath && _selectedCell.selectedIndexPath.row == self.currentOption) {
-        self.orderLbl.backgroundColor = [UIColor orangeColor];
-        [self.selectBtn setTitle:[@"Selected" toCurrentLanguage] forState:UIControlStateNormal];
-    } else {
-        self.orderLbl.backgroundColor = kDefaultColorBackGround;
-        [self.selectBtn setTitle:[@"Select?" toCurrentLanguage] forState:UIControlStateNormal];
+    
+    if(_showFromPage == ShowFromPage_MyQuestion) {
+        [_selectBtn setHidden:YES];
+        
+    } else { //Question Feed
+        if(_selectedCell.selectedIndexPath && _selectedCell.selectedIndexPath.row == self.currentOption) {
+            self.orderLbl.backgroundColor = [UIColor orangeColor];
+            [self.selectBtn setTitle:[@"Selected" toCurrentLanguage] forState:UIControlStateNormal];
+        } else {
+            self.orderLbl.backgroundColor = kDefaultColorBackGround;
+            [self.selectBtn setTitle:[@"Select?" toCurrentLanguage] forState:UIControlStateNormal];
+        }
     }
     [self.imgscrollView scrollRectToVisible:frame animated:YES];
 }
