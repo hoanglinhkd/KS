@@ -10,6 +10,10 @@
 #import "OttaQuestion.h"
 #import "OttaQuestionFeedCell.h"
 
+typedef enum : NSUInteger {
+    ShowFromPage_QuestionFeed = 0,
+    ShowFromPage_MyQuestion = 1
+} ShowFromPage;
 @protocol  OttaMediaQuestionDetailViewControllerDelegate <NSObject>
 
 -(void) didSelectOptionIndex:(int)index forCell:(OttaQuestionFeedCell*)currentCell;
@@ -29,11 +33,12 @@
 
 @property (weak, nonatomic) IBOutlet UIButton *leftBtn;
 @property (weak, nonatomic) IBOutlet UIButton *rightBtn;
+@property (assign, nonatomic) ShowFromPage showFromPage;
 @property (strong, nonatomic) OttaQuestionFeedCell *selectedCell;
 
 - (IBAction)leftBtnTapped:(id)sender;
 - (IBAction)rightBtnTapped:(id)sender;
 
-@property int currentOption;
+@property NSInteger currentOption;
 
 @end

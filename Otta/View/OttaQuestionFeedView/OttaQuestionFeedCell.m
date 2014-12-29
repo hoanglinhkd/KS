@@ -174,7 +174,7 @@ static NSObject *myObj;
     }
     
 }
-- (void) selectAnswerIndex:(int)answerIndex
+- (void) selectAnswerIndex:(NSInteger)answerIndex
 {
     //Refresh UI
     [self deselectCell];

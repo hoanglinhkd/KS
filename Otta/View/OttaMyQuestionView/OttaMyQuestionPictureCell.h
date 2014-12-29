@@ -8,10 +8,19 @@
 
 #import <UIKit/UIKit.h>
 
+@class OttaMyQuestionPictureCell;
+
+@protocol OttaMyQuestionPictureCellDelegate <NSObject>
+
+- (void)optionCell:(OttaMyQuestionPictureCell *)cell imageBtnTappedAtRow:(NSInteger)row;
+
+@end
+
 @interface OttaMyQuestionPictureCell : UITableViewCell
 
 @property (weak, nonatomic) IBOutlet UILabel *lblOrderNumber;
 @property (weak, nonatomic) IBOutlet UILabel *lblText;
 @property (weak, nonatomic) IBOutlet UIImageView *imageViewData;
-
+@property (weak, nonatomic) id <OttaMyQuestionPictureCellDelegate>delegate;
+@property (strong, nonatomic) NSIndexPath *indexPathCell;
 @end

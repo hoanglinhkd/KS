@@ -288,7 +288,6 @@ static OttaQuestionFeedViewController *sharedInstance;
         //the sender is what you pass into the previous method
         dest.question = selectedQuestion;
         dest.currentOption = selectedOption;
-        dest.selectedCell = sender;
     }
 }
 
