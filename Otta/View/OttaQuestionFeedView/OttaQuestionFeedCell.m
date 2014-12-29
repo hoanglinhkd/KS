@@ -164,15 +164,18 @@ static NSObject *myObj;
             cell.orderLbl.backgroundColor = kSelectedColor;
             cell.orderLbl.text = [NSString stringWithFormat:@"%ld", submittedIndexPath.row + 1];
             [self boldFontForLabel:cell.orderLbl];
+            [self boldFontForLabel:cell.titleLbl];
         }
     }else{
         if (idx.row == selectedIndexPath.row && selectedIndexPath != nil) {
             cell.orderLbl.backgroundColor = kSelectedColor;
             cell.orderLbl.text = [NSString stringWithFormat:@"%ld", selectedIndexPath.row + 1];
             [self boldFontForLabel:cell.orderLbl];
+            [self boldFontForLabel:cell.titleLbl];
         }else{
             cell.orderLbl.backgroundColor = kDefaultColorBackGround;
             [self regularFontForLabel:cell.orderLbl];
+            [self regularFontForLabel:cell.titleLbl];
         }
     }
     
@@ -185,7 +188,7 @@ static NSObject *myObj;
 }
 - (void) deselectCell
 {
-    NSInteger rowCount = [self tableView:_tableView numberOfRowsInSection:0];
+    NSInteger rowCount = [self tableView:_tableView numberOfRowsInSection:0] - kRowForViewAll;
     for (int i = 0; i < rowCount; i ++) {
         NSIndexPath *indexPathRestore = [NSIndexPath indexPathForRow:i inSection:0];
         OttaBasicQuestionCell *cell = (OttaBasicQuestionCell*)[_tableView cellForRowAtIndexPath:indexPathRestore];
