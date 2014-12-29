@@ -280,10 +280,13 @@ static NSObject *myObj;
     if (selectedIndexPath == indexPath) {
         // for deselected current cell
         selectedIndexPath = nil;
+        [tableView deselectRowAtIndexPath:indexPath animated:YES];
+        /*
         OttaBasicQuestionCell *cell = (OttaBasicQuestionCell*)[tableView cellForRowAtIndexPath:indexPath];
         cell.orderLbl.backgroundColor = kDefaultColorBackGround;
         [self regularFontForLabel:cell.orderLbl];
         [tableView deselectRowAtIndexPath:indexPath animated:YES];
+         */
     }else{
         // for current selected cell
         selectedIndexPath = indexPath;
