@@ -2,7 +2,7 @@
 //  OttaViewAllCell.h
 //  Otta
 //
-//  Created by Linh.Nguyen on 12/23/14.
+//  Created by Thien Chau on 12/23/14.
 //  Copyright (c) 2014 SojoDigital. All rights reserved.
 //
 

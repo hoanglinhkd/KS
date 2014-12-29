@@ -2,7 +2,7 @@
 //  OttaDoneButtonCell.m
 //  Otta
 //
-//  Created by Linh.Nguyen on 12/25/14.
+//  Created by Thien Chau on 12/25/14.
 //  Copyright (c) 2014 SojoDigital. All rights reserved.
 //
 
