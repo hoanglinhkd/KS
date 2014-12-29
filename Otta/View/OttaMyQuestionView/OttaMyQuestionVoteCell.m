@@ -42,7 +42,7 @@
     if (cell==nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
         cell.textLabel.textColor = [UIColor whiteColor];
-        cell.textLabel.font = [UIFont fontWithName:@"OpenSans" size:13];
+        cell.textLabel.font = [UIFont fontWithName:@"OpenSans" size:14];
     }
     OttaUser *dto = [arrData objectAtIndex:indexPath.row];
     cell.textLabel.text = [@"       " stringByAppendingFormat:@"%@ %@",dto.firstName,dto.lastName];

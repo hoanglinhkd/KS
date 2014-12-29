@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C81f" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="jFH-gY-aPy">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="jFH-gY-aPy">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
@@ -519,16 +519,16 @@
                                 <color key="textColor" red="0.48627450980392156" green="0.74117647058823533" blue="0.19215686274509805" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="sbm-ms-GQv">
+                            <view contentMode="scaleAspectFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sbm-ms-GQv">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="80"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Otta_header_shape_bar.png" translatesAutoresizingMaskIntoConstraints="NO" id="lVD-q7-Z3Z">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="Otta_header_shape_bar.png" translatesAutoresizingMaskIntoConstraints="NO" id="lVD-q7-Z3Z">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="80"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="80" id="Dbj-ym-9yX"/>
                                         </constraints>
                                     </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Otta_header_brand_name.png" translatesAutoresizingMaskIntoConstraints="NO" id="UbD-mc-Aim">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="Otta_header_brand_name.png" translatesAutoresizingMaskIntoConstraints="NO" id="UbD-mc-Aim">
                                         <rect key="frame" x="105" y="35" width="111" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="3od-lE-D37"/>
@@ -3086,7 +3086,7 @@ EE5leHQ
                                 <rect key="frame" x="0.0" y="80" width="320" height="488"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="OttaMyQuestionPictureCell" rowHeight="80" id="4tt-ap-RXR" customClass="OttaMyQuestionPictureCell">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="OttaMyQuestionPictureCell" rowHeight="63" id="4tt-ap-RXR" customClass="OttaMyQuestionPictureCell">
                                         <rect key="frame" x="8" y="244" width="304" height="80"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="4tt-ap-RXR" id="GoI-2U-cku">
@@ -3116,9 +3116,9 @@ EE5leHQ
                                                     </userDefinedRuntimeAttributes>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" placeholderIntrinsicWidth="185" placeholderIntrinsicHeight="75" text="" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="185" translatesAutoresizingMaskIntoConstraints="NO" id="7AV-7p-PoL">
-                                                    <rect key="frame" x="125" y="2" width="185" height="75"/>
-                                                    <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="18"/>
-                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <rect key="frame" x="127" y="2" width="185" height="75"/>
+                                                    <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="14"/>
+                                                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -3128,12 +3128,12 @@ EE5leHQ
                                                 <constraint firstAttribute="trailingMargin" secondItem="7AV-7p-PoL" secondAttribute="trailing" constant="10" id="9Fq-na-orf"/>
                                                 <constraint firstItem="Vcm-Xg-uwG" firstAttribute="leading" secondItem="GoI-2U-cku" secondAttribute="leadingMargin" constant="10" id="CC9-eV-LNd"/>
                                                 <constraint firstItem="2DP-17-4PZ" firstAttribute="top" relation="greaterThanOrEqual" secondItem="GoI-2U-cku" secondAttribute="topMargin" priority="750" id="G8P-Z4-GEu"/>
-                                                <constraint firstAttribute="bottomMargin" relation="greaterThanOrEqual" secondItem="7AV-7p-PoL" secondAttribute="bottom" priority="999" constant="3" id="PaR-w5-oSB"/>
+                                                <constraint firstAttribute="bottomMargin" relation="greaterThanOrEqual" secondItem="7AV-7p-PoL" secondAttribute="bottom" priority="999" constant="1" id="PaR-w5-oSB"/>
                                                 <constraint firstItem="2DP-17-4PZ" firstAttribute="leading" secondItem="Vcm-Xg-uwG" secondAttribute="trailing" constant="10" id="aMr-4o-adG"/>
                                                 <constraint firstItem="7AV-7p-PoL" firstAttribute="leading" secondItem="2DP-17-4PZ" secondAttribute="trailing" constant="10" id="iP8-GV-IcJ"/>
                                                 <constraint firstAttribute="centerY" secondItem="2DP-17-4PZ" secondAttribute="centerY" id="qO1-VP-YGv"/>
                                                 <constraint firstAttribute="centerY" secondItem="7AV-7p-PoL" secondAttribute="centerY" id="sMj-uf-aU5"/>
-                                                <constraint firstItem="7AV-7p-PoL" firstAttribute="top" secondItem="GoI-2U-cku" secondAttribute="topMargin" constant="2" id="ymf-bv-yQW"/>
+                                                <constraint firstItem="7AV-7p-PoL" firstAttribute="top" secondItem="GoI-2U-cku" secondAttribute="topMargin" constant="1" id="ymf-bv-yQW"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
@@ -3177,7 +3177,7 @@ EE5leHQ
                                             <outlet property="vDivide" destination="GKH-IK-JmZ" id="8XP-V5-W0u"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="OttaMyQuestionTextCell" rowHeight="23" id="SrU-yF-G6p" customClass="OttaMyQuestionTextCell">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="OttaMyQuestionTextCell" rowHeight="18" id="SrU-yF-G6p" customClass="OttaMyQuestionTextCell">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="SrU-yF-G6p" id="c7c-cU-3Kf">
@@ -3201,8 +3201,8 @@ EE5leHQ
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="270" translatesAutoresizingMaskIntoConstraints="NO" id="ivr-Kk-xE5">
                                                     <rect key="frame" x="42" y="1" width="270" height="20"/>
-                                                    <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="15"/>
-                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="14"/>
+                                                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -3229,7 +3229,7 @@ EE5leHQ
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="185" translatesAutoresizingMaskIntoConstraints="NO" id="ei6-z8-m6D">
                                                     <rect key="frame" x="149" y="0.0" width="130" height="21"/>
                                                     <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="14"/>
-                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GN5-ts-kEL">
@@ -3317,22 +3317,22 @@ EE5leHQ
                                             <outlet property="vDivide" destination="swF-5C-jOI" id="Jrf-BH-XSR"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="OttaMyQuestionVoteCell" rowHeight="60" id="xZz-RN-ml5" customClass="OttaMyQuestionVoteCell">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="OttaMyQuestionVoteCell" rowHeight="56" id="xZz-RN-ml5" customClass="OttaMyQuestionVoteCell">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="xZz-RN-ml5" id="xTX-DR-SNe">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="BqF-W5-6Qd">
-                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
-                                                    <color key="backgroundColor" red="0.37254901959999998" green="0.56470588239999997" blue="0.14901960780000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="58"/>
+                                                    <color key="backgroundColor" red="0.49019607843137253" green="0.75294117647058822" blue="0.19215686274509805" alpha="1" colorSpace="calibratedRGB"/>
                                                 </tableView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="BqF-W5-6Qd" firstAttribute="top" secondItem="xTX-DR-SNe" secondAttribute="topMargin" id="B3T-d9-uua"/>
+                                                <constraint firstItem="BqF-W5-6Qd" firstAttribute="leading" secondItem="xTX-DR-SNe" secondAttribute="leadingMargin" constant="-8" id="0C4-mU-3io"/>
+                                                <constraint firstItem="BqF-W5-6Qd" firstAttribute="top" secondItem="xTX-DR-SNe" secondAttribute="topMargin" id="C7J-GI-eBY"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="BqF-W5-6Qd" secondAttribute="bottom" id="IUp-pC-U5n"/>
-                                                <constraint firstItem="BqF-W5-6Qd" firstAttribute="leading" secondItem="xTX-DR-SNe" secondAttribute="leadingMargin" id="VFQ-Wk-QqH"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="BqF-W5-6Qd" secondAttribute="trailing" id="zqa-Na-lNE"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="BqF-W5-6Qd" secondAttribute="trailing" constant="-8" id="ndP-oX-tUP"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
@@ -3560,9 +3560,9 @@ EE5leHQ
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="hR6-UA-nju"/>
         <segue reference="3Iu-Ui-5LO"/>
         <segue reference="Q7F-7b-5wm"/>
+        <segue reference="hR6-UA-nju"/>
         <segue reference="E1q-wn-UAr"/>
     </inferredMetricsTieBreakers>
 </document>
