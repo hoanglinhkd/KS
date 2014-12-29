@@ -152,7 +152,7 @@ static NSObject *myObj;
 }
 
 - (void)setTitleForCell:(OttaBasicQuestionCell *)cell item:(PFObject *)item {
-    NSString *title = ((NSString*)item[kDescription]).length > 0 ? item[kDescription] : NSLocalizedString(@"[No Title]", nil);
+    NSString *title = ((NSString*)item[kDescription]).length > 0 ? item[kDescription] : @"";
     [cell.titleLbl setText:title];
 }
 
