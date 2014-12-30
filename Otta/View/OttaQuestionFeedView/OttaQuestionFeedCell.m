@@ -24,6 +24,9 @@ static NSString * const DoneCellId      = @"OttaDoneButtonCell";
 #define kDefaultShowedRow 0
 #define kRowForViewAll 1
 #define KRowForDoneButton 1
+#define kSelectedColorCell [[UIColor grayColor] colorWithAlphaComponent:0.3f]
+#define kHeightOfDoneButton 37.0f
+#define kHeightOfViewAllCell 30.0f
 
 @interface OttaQuestionFeedCell(){
     BOOL isForcedDelete;
@@ -163,6 +166,7 @@ static NSObject *myObj;
         if (idx.row == 0) {
             cell.orderLbl.backgroundColor = kSelectedColor;
             cell.orderLbl.text = [NSString stringWithFormat:@"%ld", submittedIndexPath.row + 1];
+            cell.backgroundColor = kSelectedColorCell;
             [self boldFontForLabel:cell.orderLbl];
             [self boldFontForLabel:cell.titleLbl];
         }
@@ -170,10 +174,12 @@ static NSObject *myObj;
         if (idx.row == selectedIndexPath.row && selectedIndexPath != nil) {
             cell.orderLbl.backgroundColor = kSelectedColor;
             cell.orderLbl.text = [NSString stringWithFormat:@"%ld", selectedIndexPath.row + 1];
+            cell.backgroundColor = kSelectedColorCell;
             [self boldFontForLabel:cell.orderLbl];
             [self boldFontForLabel:cell.titleLbl];
         }else{
             cell.orderLbl.backgroundColor = kDefaultColorBackGround;
+            cell.backgroundColor = [UIColor whiteColor];
             [self regularFontForLabel:cell.orderLbl];
             [self regularFontForLabel:cell.titleLbl];
         }
@@ -227,7 +233,7 @@ static NSObject *myObj;
 #pragma mark - Done Cell
 - (OttaDoneButtonCell *)doneCellAtIndexPath:(NSIndexPath *)indexPath{
     OttaDoneButtonCell *cell = [self.tableView dequeueReusableCellWithIdentifier:DoneCellId forIndexPath:indexPath];
-   
+    cell.backgroundColor = cell.btnSubmit.backgroundColor;
     if (submittedIndexPath) {
         [cell.btnSubmit setTitle:@"Done" forState:UIControlStateNormal];
         [cell.btnSubmit removeTarget:self action:@selector(submitCellSelected:) forControlEvents:UIControlEventTouchUpInside];
@@ -276,6 +282,7 @@ static NSObject *myObj;
         }
     }
     if (indexPath.row >= self.answers.count) {
+        [tableView deselectRowAtIndexPath:indexPath animated:NO];
         return;
     }
     
@@ -366,22 +373,22 @@ static NSObject *myObj;
                 }
             }else if (indexPath.row == 1){
                 // is Done button
-                return 50.0;
+                return kHeightOfDoneButton;
             }
         }else{
             if (indexPath.row == ([self tableView:tableView numberOfRowsInSection:0] - 1)) {
                 if (selectedIndexPath) {
                     // is Done button
-                    return 50.0;
+                    return kHeightOfDoneButton;
                 }else{
                     // is View All Cell
-                    return 30.0;
+                    return kHeightOfViewAllCell;
                 }
             }
         }
     }else{
         if (indexPath.row == 0) {
-            return 30.0;
+            return kHeightOfViewAllCell;
         }
     }
     
