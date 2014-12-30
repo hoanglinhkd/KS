@@ -58,12 +58,13 @@ static NSString * const OttaMyQuestionVoteCellIdentifier        = @"OttaMyQuesti
     //[self processDataForShow];
     //[self createVoteData];
     //[myTableView reloadData];
+    
+    viewAllModeCellArray = [[NSMutableArray alloc] init];
+    [self loadData];
 }
 -(void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
-    viewAllModeCellArray = [[NSMutableArray alloc] init];
-    [self loadData];
 }
 
 - (void)didReceiveMemoryWarning {
