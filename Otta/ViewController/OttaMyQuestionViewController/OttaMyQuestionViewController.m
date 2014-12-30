@@ -78,7 +78,7 @@ static NSString * const OttaMyQuestionVoteCellIdentifier        = @"OttaMyQuesti
         PFObject *qs = datas[i];
         OttaMyQuestionData *obj = [[OttaMyQuestionData alloc] init];
         NSDate * now = [NSDate date];
-        if([now compare:qs[@"expTime"]] == NSOrderedDescending) {
+        if([now compare:qs[kExpTime]] == NSOrderedDescending) {
             obj.dataType = MyQuestionDataTypeDone;
             obj.questionText = qs[@"questionText"];
             obj.isShowedOptionDone = NO;
@@ -642,7 +642,14 @@ static NSString * const OttaMyQuestionVoteCellIdentifier        = @"OttaMyQuesti
     
 }
 - (void)processVoteDataForRowAtIndex:(NSIndexPath*)indexPath{
+    
     OttaMyQuestionData *currQuestion = [dataForShow objectAtIndex:indexPath.row];
+    PFObject *qs = datas[currQuestion.referIndex];
+    NSDate * now = [NSDate date];
+    if([now compare:qs[kExpTime]] == NSOrderedDescending) {
+        return;
+    }
+    
     if (currQuestion.isShowedVote) {
         currQuestion.isShowedVote = NO;
         // Remove data at dataForShow
@@ -714,6 +721,18 @@ static NSString * const OttaMyQuestionVoteCellIdentifier        = @"OttaMyQuesti
             OttaMyQuestionData *optionData = [[OttaMyQuestionData alloc] init];
             
             optionData.numberAnswer = numberLocation;
+            //Assign to get referIndex of Data Array List
+            optionData.referIndex = currQuestion.referIndex;
+            
+            NSArray *listVotes = datas[currQuestion.referIndex][answer.objectId];
+            if(listVotes.count > 0) {
+                NSMutableArray *responders = [NSMutableArray array];
+                for (PFObject *curVote in listVotes) {
+                    [responders addObject:[curVote objectForKey:kResponder]];
+                }
+                optionData.voteUsers = responders;
+            }
+            
             if (answer[@"image"]) {
                 optionData.dataType = MyQuestionDataTypeAnswerPicture;
             }else{
