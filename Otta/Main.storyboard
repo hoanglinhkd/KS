@@ -2118,7 +2118,7 @@ EE5leHQ
                         <rect key="frame" x="0.0" y="0.0" width="320" height="442"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="I8g-YS-BJD" userLabel="FaceBookDetailView" customClass="TPKeyboardAvoidingScrollView">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="I8g-YS-BJD" userLabel="FaceBookDetailView" customClass="TPKeyboardAvoidingScrollView">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="247"/>
                                 <subviews>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Hba-ng-RCr">
@@ -2966,6 +2966,7 @@ EE5leHQ
                     <navigationItem key="navigationItem" id="Xlb-hh-d3D"/>
                     <connections>
                         <outlet property="expirationDateLbl" destination="meq-qJ-Di7" id="qUc-8u-Lkr"/>
+                        <outlet property="hourglass" destination="c7a-Fd-bWW" id="H2t-de-S3C"/>
                         <outlet property="imgscrollView" destination="e5c-Qn-XPe" id="N4K-Sp-uup"/>
                         <outlet property="leftBtn" destination="HsF-Zq-wZo" id="Pa1-by-MZ9"/>
                         <outlet property="optionLbl" destination="guz-bx-zQI" id="xIb-qg-kQC"/>

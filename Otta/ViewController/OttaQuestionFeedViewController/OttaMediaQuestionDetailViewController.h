@@ -30,7 +30,7 @@ typedef enum : NSUInteger {
 @property (weak, nonatomic) IBOutlet UILabel *orderLbl;
 @property (weak, nonatomic) IBOutlet UILabel *optionLbl;
 @property (weak, nonatomic) IBOutlet UIButton *selectBtn;
-
+@property (weak, nonatomic) IBOutlet UIImageView *hourglass;
 @property (weak, nonatomic) IBOutlet UIButton *leftBtn;
 @property (weak, nonatomic) IBOutlet UIButton *rightBtn;
 @property (assign, nonatomic) ShowFromPage showFromPage;

@@ -45,7 +45,16 @@
         }
         [self.questionbl setText:[NSString stringWithFormat:[@"%d answers so far" toCurrentLanguage], sumAnswers]];
     }
-    self.expirationDateLbl.text = [OttaUlti timeAgo:_question[kExpTime]];
+    
+    NSDate * now = [NSDate date];
+    if([now compare:_question[kExpTime]] == NSOrderedDescending) {
+        [self.expirationDateLbl setHidden:YES];
+        [self.hourglass setHidden:YES];
+    } else {
+        self.expirationDateLbl.text = [OttaUlti timeAgo:_question[kExpTime]];
+    }
+    
+    
     NSArray *arrAnswers = [NSArray arrayWithArray:_question[kAnswers]];
     
     PFObject *answer = ((PFObject*)[arrAnswers objectAtIndex:0]);
