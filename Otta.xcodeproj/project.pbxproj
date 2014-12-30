@@ -661,7 +661,8 @@
 				38E161441A1E56E20093998E /* OttaAnswerersAskersViewController.h */,
 				38E161451A1E56E20093998E /* OttaAnswerersAskersViewController.m */,
 			);
-			path = OttaAnswerersAskersViewController;
+			name = OttaAnswerersAskersViewController;
+			path = ../../ViewController/OttaAnswerersAskersViewController;
 			sourceTree = "<group>";
 		};
 		663665E71A1EEE00007F0EFC /* Transitions */ = {
@@ -792,7 +793,6 @@
 				7E2DA3671A2458420064A523 /* OttaAnswerersViewController */,
 				6AA695DD1A21DD30001F6953 /* OttaQuestionFeedViewController */,
 				663665F11A1EF70C007F0EFC /* OttaTransitionViewController */,
-				38E161431A1E56E20093998E /* OttaAnswerersAskersViewController */,
 				7E1A1DB41A1C8287009FB0E6 /* OttaFindFriendsViewController */,
 				3847CFB01A1863E1002599E7 /* OttaLoginViewController */,
 				386E89C51A126AA400459171 /* OttaAddFriendViewController */,
@@ -905,6 +905,8 @@
 		6AA695E11A21DD4E001F6953 /* OttaQuestionFeedView */ = {
 			isa = PBXGroup;
 			children = (
+				6AA695E61A21DD4E001F6953 /* OttaQuestionFeedCell.h */,
+				6AA695E71A21DD4E001F6953 /* OttaQuestionFeedCell.m */,
 				CEFC0C4D1A49D34000835844 /* OttaViewAllCell.h */,
 				CEFC0C4E1A49D34000835844 /* OttaViewAllCell.m */,
 				CEC4E0C61A4C72C3005BCF50 /* OttaDoneButtonCell.h */,
@@ -913,8 +915,7 @@
 				6AA695E31A21DD4E001F6953 /* OttaBasicQuestionCell.m */,
 				6AA695E41A21DD4E001F6953 /* OttaMediaQuestionCell.h */,
 				6AA695E51A21DD4E001F6953 /* OttaMediaQuestionCell.m */,
-				6AA695E61A21DD4E001F6953 /* OttaQuestionFeedCell.h */,
-				6AA695E71A21DD4E001F6953 /* OttaQuestionFeedCell.m */,
+				38E161431A1E56E20093998E /* OttaAnswerersAskersViewController */,
 			);
 			path = OttaQuestionFeedView;
 			sourceTree = "<group>";
