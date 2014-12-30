@@ -482,15 +482,11 @@ static NSObject *myObj;
 
 #pragma mark - Utils
 -(void)boldFontForLabel:(UILabel *)label{
-    UIFont *currentFont = label.font;
-    UIFont *newFont = [UIFont fontWithName:[NSString stringWithFormat:@"%@-Bold",currentFont.fontName] size:15];
+    UIFont *newFont = [UIFont fontWithName:@"OpenSans-Bold" size:15];
     label.font = newFont;
 }
 -(void)regularFontForLabel:(UILabel*)label{
-    UIFont *currentFont = label.font;
-    NSString *fontName = [[currentFont fontName] stringByReplacingOccurrencesOfString:@"-Bold" withString:@""];
-    
-    UIFont *newFont = [UIFont fontWithName:fontName size:15];
+    UIFont *newFont = [UIFont fontWithName:@"OpenSans" size:15];
     label.font = newFont;
 }
 @end
