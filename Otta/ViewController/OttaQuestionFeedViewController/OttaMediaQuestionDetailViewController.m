@@ -47,9 +47,32 @@
     }
     self.expirationDateLbl.text = [OttaUlti timeAgo:_question[kExpTime]];
     NSArray *arrAnswers = [NSArray arrayWithArray:_question[kAnswers]];
-    self.optionLbl.text = ((PFObject*)[arrAnswers objectAtIndex:0])[kDescription];
-    PFObject *answer;
     
+    PFObject *answer = ((PFObject*)[arrAnswers objectAtIndex:0]);
+    if(_showFromPage == ShowFromPage_MyQuestion) {
+        
+        NSInteger voteUsersCount = [_question[answer.objectId] count];
+        [_selectBtn setHidden:YES];
+        NSString *text = [NSString stringWithFormat:@"%@ - %d",answer[kDescription], voteUsersCount];
+        NSRange range = [text rangeOfString:@"-" options:NSBackwardsSearch]; //Fix for show wrong counter colors
+        range.length = text.length - range.location;
+        
+        NSMutableAttributedString *mutable = [[NSMutableAttributedString alloc] initWithString:text];
+        [mutable addAttribute: NSForegroundColorAttributeName value:kDefaultColorBackGround range:range];
+        [self.optionLbl setAttributedText:mutable];
+        
+    } else { //Show from Question Feed
+        if(_selectedCell.selectedIndexPath && _selectedCell.selectedIndexPath.row == self.currentOption) {
+            self.orderLbl.backgroundColor = [UIColor orangeColor];
+            [self.selectBtn setTitle:[@"Selected" toCurrentLanguage] forState:UIControlStateNormal];
+        } else {
+            self.orderLbl.backgroundColor = kDefaultColorBackGround;
+            [self.selectBtn setTitle:[@"Select?" toCurrentLanguage] forState:UIControlStateNormal];
+        }
+        self.optionLbl.text = answer[kDescription];
+    }
+    
+    answer = nil;
     for (int i = 0; i < arrAnswers.count; i++) {
         answer = [arrAnswers objectAtIndex:i];
         CGRect frame;
@@ -116,9 +139,20 @@
                          self.optionLbl.alpha = 0.0f;
                          self.orderLbl.alpha = 0.0f;
                          self.orderLbl.text = [NSString stringWithFormat:@"%d",page+1];
-                         
+                         self.optionLbl.alpha = 1.0f;
+                         self.orderLbl.alpha = 1.0f;
                          if(_showFromPage == ShowFromPage_MyQuestion) {
+                             
+                             NSInteger voteUsersCount = [_question[answer.objectId] count];
                              [_selectBtn setHidden:YES];
+                             NSString *text = [NSString stringWithFormat:@"%@ - %d",answer[kDescription], voteUsersCount];
+                             NSRange range = [text rangeOfString:@"-" options:NSBackwardsSearch]; //Fix for show wrong counter colors
+                             range.length = text.length - range.location;
+                             
+                             NSMutableAttributedString *mutable = [[NSMutableAttributedString alloc] initWithString:text];
+                             [mutable addAttribute: NSForegroundColorAttributeName value:kDefaultColorBackGround range:range];
+                             [self.optionLbl setAttributedText:mutable];
+                             
                          } else { //Show from Question Feed
                              if(_selectedCell.selectedIndexPath && _selectedCell.selectedIndexPath.row == self.currentOption) {
                                  self.orderLbl.backgroundColor = [UIColor orangeColor];
@@ -127,10 +161,9 @@
                                  self.orderLbl.backgroundColor = kDefaultColorBackGround;
                                  [self.selectBtn setTitle:[@"Select?" toCurrentLanguage] forState:UIControlStateNormal];
                              }
+                             self.optionLbl.text = answer[kDescription];
                          }
-                         self.optionLbl.text = answer[kDescription];
-                         self.optionLbl.alpha = 1.0f;
-                         self.orderLbl.alpha = 1.0f;
+                         
                          
                      }];
     

@@ -450,7 +450,7 @@ static NSString * const OttaMyQuestionVoteCellIdentifier        = @"OttaMyQuesti
         [cell setUserInteractionEnabled:NO];
     }
     NSString *text = [NSString stringWithFormat:@"%@ - %ld",dto.answer[@"description"], voteUsersCount];
-    NSRange range = [text rangeOfString:@"-"];
+    NSRange range = [text rangeOfString:@"-" options:NSBackwardsSearch]; //Fix for show wrong counter colors
     //range.location += 2;
     range.length = text.length - range.location;
     
