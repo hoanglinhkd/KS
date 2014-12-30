@@ -649,6 +649,9 @@ static NSString * const OttaMyQuestionVoteCellIdentifier        = @"OttaMyQuesti
     if([now compare:qs[kExpTime]] == NSOrderedDescending) {
         return;
     }
+    if (currQuestion.voteUsers.count <= 0) {
+        return;
+    }
     
     if (currQuestion.isShowedVote) {
         currQuestion.isShowedVote = NO;
