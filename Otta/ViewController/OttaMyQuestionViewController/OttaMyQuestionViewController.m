@@ -212,14 +212,14 @@ static NSString * const OttaMyQuestionVoteCellIdentifier        = @"OttaMyQuesti
             //[self fixFrameForHeaderCell:(OttaMyQuestionHeaderCell*)cell];
             break;
         case MyQuestionDataTypeAnswer:
-            if (!dto.disableSelecting) {
+            //if (!dto.disableSelecting) {
                 [self processVoteDataForRowAtIndex:indexPath];
-            }
+            //}
             break;
         case MyQuestionDataTypeAnswerPicture:
-            if (!dto.disableSelecting) {
+            //if (!dto.disableSelecting) {
                 [self processVoteDataForRowAtIndex:indexPath];
-            }
+            //}
             break;
         case MyQuestionDataTypeFooterNormal:
         case MyQuestionDataTypeFooterSeeAll:
@@ -644,11 +644,11 @@ static NSString * const OttaMyQuestionVoteCellIdentifier        = @"OttaMyQuesti
 - (void)processVoteDataForRowAtIndex:(NSIndexPath*)indexPath{
     
     OttaMyQuestionData *currQuestion = [dataForShow objectAtIndex:indexPath.row];
-    PFObject *qs = datas[currQuestion.referIndex];
-    NSDate * now = [NSDate date];
-    if([now compare:qs[kExpTime]] == NSOrderedDescending) {
-        return;
-    }
+//    PFObject *qs = datas[currQuestion.referIndex];
+//    NSDate * now = [NSDate date];
+//    if([now compare:qs[kExpTime]] == NSOrderedDescending) {
+//        return;
+//    }
     if (currQuestion.voteUsers.count <= 0) {
         return;
     }
