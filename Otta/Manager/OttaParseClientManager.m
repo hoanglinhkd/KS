@@ -74,28 +74,12 @@
     }];
 }
 
-
-- (void)findUserWithEmail:(NSString*)email withResult: (void (^)(PFUser *)) UserResultBlock{
-  
-    PFQuery *userQuery = [PFUser query];
-    
-    [userQuery whereKey:kEmail equalTo:email];
-    
-    [userQuery getFirstObjectInBackgroundWithBlock:^(PFObject *object, NSError *error) {
-        if (object) {
-            PFUser *user = (PFUser *)object;
-            UserResultBlock(user);
-        } else {
-            UserResultBlock(nil);
-        }
-    }];
-}
-
 - (void)findUsers:(NSString*) str withResult:(OttaUsersBlock) resultblock;{
     PFQuery *userFNQuery = [PFUser query];
     PFQuery *userLNQuery = [PFUser query];
     PFQuery *userFNCapitalQuery = [PFUser query];
     PFQuery *userLNCapitalQuery = [PFUser query];
+    
     if ([str containsString:@" "]){
         NSArray *arrSearch = [str componentsSeparatedByString:@" "];
         NSString *fn = [arrSearch objectAtIndex:0];
@@ -104,16 +88,15 @@
         [userLNQuery whereKey:kLastName containsString:ln];
         [userFNCapitalQuery whereKey:kFirstName containsString:[fn capitalizedString]];
         [userLNCapitalQuery whereKey:kLastName containsString:[ln capitalizedString]];
-    }
-    else {
-        
+    } else {
         [userFNQuery whereKey:kFirstName containsString:str];
         [userLNQuery whereKey:kLastName containsString:str];
         [userFNCapitalQuery whereKey:kFirstName containsString:[str capitalizedString]];
         [userLNCapitalQuery whereKey:kLastName containsString:[str capitalizedString]];
-        
     }
+    
     PFQuery *query = [PFQuery orQueryWithSubqueries:@[userFNQuery,userLNQuery,userFNCapitalQuery,userLNCapitalQuery]];
+    [query setLimit:1000];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         resultblock(objects, error);
     }];
@@ -151,6 +134,7 @@
     PFQuery *query = [PFQuery queryWithClassName:kOttaFollow];
     [query whereKey:kTo equalTo:user];
     [query includeKey:kFrom];
+    [query setLimit:1000];
     
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
             // o is an entry in the Follow table
@@ -166,6 +150,7 @@
     PFQuery *query = [PFQuery queryWithClassName:kOttaFollow];
     [query whereKey:kFrom equalTo:user];
     [query includeKey:kTo];
+    [query setLimit:1000];
     
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         // o is an entry in the Follow table
@@ -179,6 +164,7 @@
 - (void)countUsersFollowToUser:(PFUser*)user withBlock:(OttaCountBlock)resultBlock{
     PFQuery *query = [PFQuery queryWithClassName:kOttaFollow];
     [query whereKey:kTo equalTo:user];
+    [query setLimit:1000];
     [query countObjectsInBackgroundWithBlock:^(int count, NSError *error) {
         resultBlock(count, error);
     }];
@@ -187,6 +173,7 @@
 - (void)countUsersFollowFromUser:(PFUser*)user withBlock:(OttaCountBlock)resultBlock{
     PFQuery *query = [PFQuery queryWithClassName:kOttaFollow];
     [query whereKey:kFrom equalTo:user];
+    [query setLimit:1000];
     [query countObjectsInBackgroundWithBlock:^(int count, NSError *error) {
         resultBlock(count, error);
     }];
@@ -234,6 +221,7 @@
     [query whereKey:kAsker equalTo:user];
     [query includeKey:kAnswers];
     [query orderByDescending:kCreatedAt];
+    [query setLimit:1000];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         [self getAllVotingFromQuestions:objects withBlock:resultBlock];
     }];
@@ -249,11 +237,17 @@
     [query whereKey:kAnswer containedIn:answers];
     [query includeKey:kResponder];
     [query orderByAscending:kCreatedAt];
+    [query setLimit:1000];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         NSMutableDictionary* dic = [[NSMutableDictionary alloc] init];
         for (PFObject* vote in objects) {
             PFObject* answer = vote[kAnswer];
             NSString* answerID = answer.objectId;
+            
+            if ([answerID isEqual:@"aRX3nkQolQ"]) {
+                NSLog(@"fds");
+            }
+            
             NSMutableArray* array = dic[answerID];
             if (array == nil) {
                 array = [NSMutableArray new];
@@ -287,6 +281,7 @@
     PFQuery *followQuery = [PFQuery queryWithClassName:kOttaFollow];
     [followQuery whereKey:kFrom equalTo:user];
     [followQuery whereKey:kIsBlocked equalTo:@NO];
+    [followQuery setLimit:1000];
     
     PFQuery *query = [PFQuery queryWithClassName:kOttaQuestion];
     [query whereKey:kAsker matchesKey:kTo inQuery:followQuery];
@@ -303,6 +298,7 @@
     [queryAll includeKey:kAnswers];
     [queryAll orderByAscending:kExpTime];
     [queryAll whereKey:kAnswerers notEqualTo:user];
+    [queryAll setLimit:1000];
     
     [queryAll findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         resultBlock(objects, error);
