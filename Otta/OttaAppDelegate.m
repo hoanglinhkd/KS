@@ -18,6 +18,8 @@
                   clientKey:@"skHKpIXBu697YzryNCqyw13BdJiCtz3P0E2HONMY"];
     [PFFacebookUtils initializeFacebook];
 
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+    
     return YES;
 }
 							
