@@ -444,11 +444,6 @@ static NSString * const OttaMyQuestionVoteCellIdentifier        = @"OttaMyQuesti
     }];
 
     long voteUsersCount = [dto.voteUsers count];
-    if(voteUsersCount > 0) {
-        [cell setUserInteractionEnabled:YES];
-    } else {
-        [cell setUserInteractionEnabled:NO];
-    }
     NSString *text = [NSString stringWithFormat:@"%@ - %ld",dto.answer[@"description"], voteUsersCount];
     NSRange range = [text rangeOfString:@"-" options:NSBackwardsSearch]; //Fix for show wrong counter colors
     //range.location += 2;
