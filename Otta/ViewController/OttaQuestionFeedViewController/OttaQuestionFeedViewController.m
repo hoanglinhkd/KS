@@ -80,16 +80,18 @@ static OttaQuestionFeedViewController *sharedInstance;
     [sizingCell setNeedsLayout];
     [sizingCell layoutIfNeeded];
 
-    CGSize questionSize = [sizingCell.questionLbl systemLayoutSizeFittingSize:UILayoutFittingExpandedSize];
-    CGSize ownerName    = [sizingCell.ownerNameLbl systemLayoutSizeFittingSize:UILayoutFittingCompressedSize];
+    CGSize questionSize = [sizingCell.questionLbl systemLayoutSizeFittingSize:UILayoutFittingCompressedSize];
+    //at this time the questionlbl have 1 line and 
+    int questionHeigth = (int)(questionSize.width/[[UIScreen mainScreen]bounds].size.width) *questionSize.height;
+    
     CGSize tableSize = sizingCell.tableView.contentSize;
     CGSize size = [sizingCell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize];
-    NSLog(@"%f - %f  - %f",sizingCell.questionLbl.bounds.size.height, size.height, tableSize.height);
+    //NSLog(@"%d - %f  - %f",questionHeigth, size.height, tableSize.height);
     
     if (sizingCell.isViewAllMode) {
-        return size.height + tableSize.height;
+        return size.height + tableSize.height + questionHeigth;
     }else{
-        return size.height + 30;
+        return size.height + 30 + questionHeigth;
     }
 }
 
