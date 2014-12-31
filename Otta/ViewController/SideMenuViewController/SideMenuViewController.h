@@ -7,7 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "OttaMenuCell.h"
 
-@interface SideMenuViewController : UIViewController
+@interface SideMenuViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
+
+@property (weak, nonatomic) IBOutlet UITableView *menuTableView;
+@property (weak, nonatomic) IBOutlet UIButton *btnAbout;
+
+
++ (SideMenuViewController*)sharedInstance;
+- (void)selectRowAtIndex:(NSIndexPath*)indexPath forViewController:(UIViewController*)vc;
 
 @end

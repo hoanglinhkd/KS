@@ -1,0 +1,75 @@
+/* 
+  Localizable.strings
+  Otta
+
+  Created by Gambogo on 11/15/14.
+  Copyright (c) 2014 SojoDigital. All rights reserved.
+*/
+
+"Ask a question." = "Ask a question.";
+"Ask a question" = "Ask a question";
+"Ask a question..." = "Ask a question...";
+"My questions" = "My questions";
+"Friends" = "Friends";
+"Settings" = "Settings";
+"Question feed" = "Question feed";
+"Get input." = "Get input.";
+"Answer your friends’ questions" = "Answer your friends’ questions";
+"Decision-making gone social for the indecisive, the curious, and the practical." = "Decision-making gone social for the indecisive, the curious, and the practical. ";
+"Username or Email" = "Username or Email";
+"Password" = "Password" ;
+"Username" = "Username";
+"Email" = "Email";
+"Login Failed" = "Login Failed";
+"Register Failed" = "Register Failed";
+"Ok" = "Ok";
+"Enter an answer..." = "Enter an answer...";
+"mins" = "mins";
+"hrs" = "hrs";
+"days" = "days";
+"Options:" = "Options:";
+"Phone" = "Phone";
+"Confirm password" = "Confirm password";
+"Last Name" = "Last Name";
+"Skip" = "Skip";
+"Next" = "Next";
+"Find Friends" = "Find Friends";
+"Find Contacts" = "Find Contacts";
+"SMS" = "SMS";
+"Email" = "Email";
+"Join Otta" = "Join Otta";
+"Can not send SMS" = "Can not send SMS";
+"Join Otta to have fun!" = "Join Otta to have fun!";
+"Could not send email" = "Could not send email";
+"Invite" = "Invite";
+"Connect" = "Connect";
+"Cannot invite friend" = "Cannot invite friend";
+"Invite friends success" = "Invite friends success";
+"INVITE" = "INVITE";
+"CONNECT" = "CONNECT";
+"Your device cannot send SMS at this time" = "Your device cannot send SMS at this time";
+"Cannot login Facebook" = "Cannot login Facebook" ;
+"This user cannot be accessed phone number" = "This user cannot be accessed phone number";
+"This user cannot be accessed email" = "This user cannot be accessed email";
+"Please choose deadline" = "Please choose deadline";
+"Please provide option" = "Please provide option";
+"Please provide question" = "Please enter question content";
+"Ask completed" = "Ask completed";
+"Ask failed" = "Ask failed";
+"Please select your friends" = "Please select your friends";
+"Email sent success" = "Email sent success";
+"Email cancelled" = "Email cancelled";
+"Email saved" = "Email saved";
+"Email sent failed" = "Email sent failed";
+"SMS sent success" = "SMS sent success";
+"SMS sent falied" = "SMS sent falied";
+"SMS sent cancelled" = "SMS sent cancelled";
+"Sent" = "Sent";
+"We need more options" = "We need more options";
+"Do you want to follow %@?" = "Do you want to follow %@?";
+"No network connection" = "No network connection";
+"Do you want to delete?" = "Do you want to delete?";
+"Add a caption?" = "Add a caption?";
+"Select?" = "Select?";
+"Selected" = "Selected";
+"%d answers so far" = "%d answers so far";

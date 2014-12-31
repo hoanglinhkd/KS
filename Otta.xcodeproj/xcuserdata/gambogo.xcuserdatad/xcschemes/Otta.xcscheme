@@ -51,6 +51,11 @@
                BlueprintName = "OttaTests"
                ReferencedContainer = "container:Otta.xcodeproj">
             </BuildableReference>
+            <SkippedTests>
+               <Test
+                  Identifier = "OttaTests/testExample">
+               </Test>
+            </SkippedTests>
          </TestableReference>
       </Testables>
       <MacroExpansion>

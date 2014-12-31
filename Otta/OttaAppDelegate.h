@@ -7,10 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "OttaSessionManager.h"
 #import <Parse/Parse.h>
 @interface OttaAppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
-@property (strong, nonatomic) OttaSessionManager * sessionManager; 
 @end

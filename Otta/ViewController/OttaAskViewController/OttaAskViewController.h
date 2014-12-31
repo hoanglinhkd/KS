@@ -10,14 +10,29 @@
 #import "OttaAnswerTableController.h"
 #import "CZPhotoPickerController.h"
 #import "TPKeyboardAvoidingTableView.h"
+#import "OttaOptionCell.h"
+#import "OttaAddCaptionImageViewController.h"
+#import "OttaTransitionViewController.h"
+#import "SZTextView.h"
+#import "OttaAnswerersViewController.h"
 
-@interface OttaAskViewController : UIViewController
-@property (nonatomic,strong)OttaAnswerTableController * answerViewController;
-@property (nonatomic,strong)IBOutlet TPKeyboardAvoidingTableView * answerTableView;
--(IBAction)addQuestionButtonText:(id)sender;
-@property (nonatomic,strong)CZPhotoPickerController * photoPicker;
-@property (nonatomic,strong) IBOutlet UITextView * itsTextView;
-@property (nonatomic,strong)UITextView *activeTextField;
-@property (nonatomic,strong)IBOutlet UIScrollView *theScrollView;
-@property (nonatomic,assign) NSNumber * currentQustion;
+@interface OttaAskViewController : OttaTransitionViewController <UITableViewDataSource, UITableViewDelegate, OttaOptionCellDelegate, OttaAddCaptionDelegate, OttaAnswerersViewControllerDelegate, UITextFieldDelegate>
+
+//@property (nonatomic,strong) OttaAnswerTableController * answerViewController;
+//@property (nonatomic,strong) IBOutlet TPKeyboardAvoidingTableView * answerTableView;
+@property (nonatomic,strong) CZPhotoPickerController * photoPicker;
+@property (nonatomic,strong) IBOutlet SZTextView * itsTextView;
+@property (nonatomic,strong) UITextView *activeTextField;
+@property (nonatomic,strong) IBOutlet UITableView *tableAsk;
+@property (nonatomic,strong) IBOutlet NSLayoutConstraint *heightAskContent;
+@property (nonatomic, strong) NSMutableArray* optionsArray;
+@property (weak, nonatomic) IBOutlet UIButton *btnNext;
+
+
+
+
+- (IBAction)btnNextPress:(id)sender;
+
+- (IBAction)pressBtnLogo:(id)sender;
+
 @end

@@ -1,0 +1,479 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="14C78c" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="OpenSans-Bold.ttf">
+            <string>OpenSans-Bold</string>
+            <string>OpenSans-Bold</string>
+            <string>OpenSans-Bold</string>
+            <string>OpenSans-Bold</string>
+        </mutableArray>
+        <mutableArray key="OpenSans-Regular.ttf">
+            <string>OpenSans</string>
+            <string>OpenSans</string>
+            <string>OpenSans</string>
+        </mutableArray>
+        <mutableArray key="OpenSans-Semibold.ttf">
+            <string>OpenSans-Semibold</string>
+            <string>OpenSans-Semibold</string>
+            <string>OpenSans-Semibold</string>
+            <string>OpenSans-Semibold</string>
+            <string>OpenSans-Semibold</string>
+            <string>OpenSans-Semibold</string>
+            <string>OpenSans-Semibold</string>
+        </mutableArray>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="OttaAlertManager">
+            <connections>
+                <outlet property="btnBlock" destination="srp-7H-xrO" id="3Pt-9d-2wf"/>
+                <outlet property="emailAlertView" destination="l7x-A0-XT3" id="5D4-1l-ow5"/>
+                <outlet property="friendAlertView" destination="G4Z-6t-Gdv" id="ACr-ko-GV4"/>
+                <outlet property="friendNoBlockAlertView" destination="agv-5A-3p2" id="y19-ff-2ro"/>
+                <outlet property="imagePicker" destination="34" id="69"/>
+                <outlet property="lblFriendName" destination="GA4-tV-9bD" id="ToE-O8-jFX"/>
+                <outlet property="lblFriendName2" destination="mE3-vx-QvN" id="eVE-Tl-n9i"/>
+                <outlet property="lblSimpleContent" destination="19" id="56"/>
+                <outlet property="lblYesNoContent" destination="59" id="66"/>
+                <outlet property="limitTimerAlertView" destination="31" id="52"/>
+                <outlet property="simpleAlertView" destination="9" id="47"/>
+                <outlet property="txtEmail" destination="kHE-FD-6Dt" id="5G7-yU-Zkx"/>
+                <outlet property="view" destination="38" id="40"/>
+                <outlet property="yesNoAlertView" destination="57" id="65"/>
+            </connections>
+        </placeholder>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="38">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view alpha="0.30000001192092896" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="70">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="70" firstAttribute="top" secondItem="38" secondAttribute="top" id="71"/>
+                <constraint firstAttribute="bottom" secondItem="70" secondAttribute="bottom" id="72"/>
+                <constraint firstItem="70" firstAttribute="leading" secondItem="38" secondAttribute="leading" id="73"/>
+                <constraint firstAttribute="trailing" secondItem="70" secondAttribute="trailing" id="74"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="176" y="193"/>
+        </view>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="9">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="200"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bgalert_white.png" translatesAutoresizingMaskIntoConstraints="NO" id="29">
+                    <rect key="frame" x="20" y="38" width="280" height="111"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="111" id="85"/>
+                        <constraint firstAttribute="width" constant="280" id="86"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Alert content：An armed gang barged onto the train." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="240" translatesAutoresizingMaskIntoConstraints="NO" id="19">
+                    <rect key="frame" x="30" y="57" width="260" height="58"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="260" id="75"/>
+                        <constraint firstAttribute="height" constant="58" id="76"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="15"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="20">
+                    <rect key="frame" x="20" y="126" width="280" height="35"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="35" id="84"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                    <state key="normal" image="btn_alert_ok.png">
+                        <color key="titleColor" red="0.050980396570000003" green="0.47843140360000003" blue="1" alpha="1" colorSpace="deviceRGB"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <state key="highlighted">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="simpleDonePressed:" destination="-1" eventType="touchUpInside" id="46"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="29" firstAttribute="top" secondItem="9" secondAttribute="top" constant="38" id="77"/>
+                <constraint firstItem="20" firstAttribute="trailing" secondItem="29" secondAttribute="trailing" id="78"/>
+                <constraint firstItem="29" firstAttribute="leading" secondItem="20" secondAttribute="leading" id="79"/>
+                <constraint firstItem="29" firstAttribute="centerX" secondItem="9" secondAttribute="centerX" id="80"/>
+                <constraint firstItem="19" firstAttribute="top" secondItem="9" secondAttribute="top" constant="57" id="81"/>
+                <constraint firstAttribute="bottom" secondItem="20" secondAttribute="bottom" constant="39" id="82"/>
+                <constraint firstItem="19" firstAttribute="centerX" secondItem="20" secondAttribute="centerX" id="83"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="-283" y="12"/>
+        </view>
+        <view contentMode="scaleToFill" id="57">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="200"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bgalert_white.png" translatesAutoresizingMaskIntoConstraints="NO" id="60">
+                    <rect key="frame" x="20" y="36" width="280" height="111"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="280" id="87"/>
+                        <constraint firstAttribute="height" constant="111" id="88"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Alert content：An armed gang barged onto the train." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="240" translatesAutoresizingMaskIntoConstraints="NO" id="59">
+                    <rect key="frame" x="30" y="50" width="260" height="70"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="260" id="89"/>
+                        <constraint firstAttribute="height" constant="70" id="90"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="15"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="58">
+                    <rect key="frame" x="20" y="126" width="142" height="35"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="35" id="100"/>
+                        <constraint firstAttribute="width" constant="142" id="101"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="OpenSans-Bold" family="Open Sans" pointSize="19"/>
+                    <state key="normal" image="btn_alert_yes.png">
+                        <color key="titleColor" red="0.050980396570000003" green="0.47843140360000003" blue="1" alpha="1" colorSpace="deviceRGB"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <state key="highlighted">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="yesButtonPressed:" destination="-1" eventType="touchUpInside" id="67"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="63">
+                    <rect key="frame" x="162" y="126" width="138" height="35"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="138" id="102"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="OpenSans-Bold" family="Open Sans" pointSize="19"/>
+                    <state key="normal" image="btn_alert_no.png">
+                        <color key="titleColor" red="0.050980396570000003" green="0.47843140360000003" blue="1" alpha="1" colorSpace="deviceRGB"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <state key="highlighted">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="noButtonPressed:" destination="-1" eventType="touchUpInside" id="68"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="60" firstAttribute="top" secondItem="57" secondAttribute="top" constant="36" id="91"/>
+                <constraint firstItem="63" firstAttribute="top" secondItem="58" secondAttribute="top" id="92"/>
+                <constraint firstItem="59" firstAttribute="centerX" secondItem="57" secondAttribute="centerX" id="93"/>
+                <constraint firstItem="59" firstAttribute="top" secondItem="57" secondAttribute="top" constant="50" id="94"/>
+                <constraint firstItem="58" firstAttribute="bottom" secondItem="63" secondAttribute="bottom" id="95"/>
+                <constraint firstItem="60" firstAttribute="leading" secondItem="58" secondAttribute="leading" id="96"/>
+                <constraint firstItem="60" firstAttribute="centerX" secondItem="59" secondAttribute="centerX" id="97"/>
+                <constraint firstItem="60" firstAttribute="trailing" secondItem="63" secondAttribute="trailing" id="98"/>
+                <constraint firstAttribute="bottom" secondItem="58" secondAttribute="bottom" constant="39" id="99"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="-283" y="328"/>
+        </view>
+        <view contentMode="scaleToFill" id="31">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="219"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bgalert_white_big.png" translatesAutoresizingMaskIntoConstraints="NO" id="34">
+                    <rect key="frame" x="20" y="0.0" width="280" height="206"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="206" id="110"/>
+                    </constraints>
+                </imageView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="32">
+                    <rect key="frame" x="20" y="153" width="280" height="35"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="280" id="108"/>
+                        <constraint firstAttribute="height" constant="35" id="109"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                    <state key="normal" image="btn_alert_done.png">
+                        <color key="titleColor" red="0.050980396570000003" green="0.47843140360000003" blue="1" alpha="1" colorSpace="deviceRGB"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <state key="highlighted">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="timeSelectionDonePressed:" destination="-1" eventType="touchUpInside" id="53"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="32" firstAttribute="trailing" secondItem="34" secondAttribute="trailing" id="103"/>
+                <constraint firstItem="32" firstAttribute="centerX" secondItem="31" secondAttribute="centerX" id="104"/>
+                <constraint firstAttribute="bottom" secondItem="32" secondAttribute="bottom" constant="31" id="105"/>
+                <constraint firstItem="34" firstAttribute="leading" secondItem="32" secondAttribute="leading" id="106"/>
+                <constraint firstItem="34" firstAttribute="top" secondItem="31" secondAttribute="top" id="107"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="-705" y="326.5"/>
+        </view>
+        <view contentMode="scaleToFill" id="G4Z-6t-Gdv">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="254"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Otta_friends_shape_popup.png" translatesAutoresizingMaskIntoConstraints="NO" id="8nw-Hn-mEm">
+                    <rect key="frame" x="10" y="21" width="301" height="211"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="301" id="bXN-XO-sa4"/>
+                        <constraint firstAttribute="height" constant="211" id="jHQ-g2-LDt"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Chloe Fulton" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GA4-tV-9bD">
+                    <rect key="frame" x="32" y="35" width="257" height="28"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="257" id="2KK-C3-Lb5"/>
+                        <constraint firstAttribute="height" constant="28" id="Ez4-zi-Vlt"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="OpenSans-Bold" family="Open Sans" pointSize="19"/>
+                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="srp-7H-xrO">
+                    <rect key="frame" x="22" y="127" width="277" height="50"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="277" id="Tdg-ZL-4hr"/>
+                        <constraint firstAttribute="height" constant="50" id="Xf5-Wz-lyO"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="OpenSans-Semibold" family="Open Sans" pointSize="18"/>
+                    <state key="normal" title="Block">
+                        <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="blockFriend:" destination="-1" eventType="touchUpInside" id="Vdi-LT-ARB"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8yV-cn-fm7">
+                    <rect key="frame" x="22" y="180" width="277" height="50"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="Fos-dW-skd"/>
+                        <constraint firstAttribute="width" constant="277" id="Xgq-ao-owe"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="OpenSans-Semibold" family="Open Sans" pointSize="18"/>
+                    <state key="normal" title="Cancel">
+                        <color key="titleColor" red="0.97254901960784312" green="0.62352941176470589" blue="0.082352941176470587" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="cancelFriend:" destination="-1" eventType="touchUpInside" id="YaH-cD-e9T"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X9Z-4g-q1k">
+                    <rect key="frame" x="22" y="76" width="277" height="50"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="277" id="IZ4-EF-iiN"/>
+                        <constraint firstAttribute="height" constant="50" id="zWc-T3-87Z"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="OpenSans-Semibold" family="Open Sans" pointSize="18"/>
+                    <state key="normal" title="Remove">
+                        <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="removeFriend:" destination="-1" eventType="touchUpInside" id="ftz-bp-YUh"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="centerX" secondItem="8nw-Hn-mEm" secondAttribute="centerX" id="2nb-du-Ifh"/>
+                <constraint firstItem="GA4-tV-9bD" firstAttribute="centerX" secondItem="8yV-cn-fm7" secondAttribute="centerX" id="4AD-Cr-x3i"/>
+                <constraint firstItem="X9Z-4g-q1k" firstAttribute="top" secondItem="GA4-tV-9bD" secondAttribute="bottom" constant="13" id="KOt-xb-eEz"/>
+                <constraint firstAttribute="centerX" secondItem="GA4-tV-9bD" secondAttribute="centerX" constant="-0.5" id="LZu-E4-esD"/>
+                <constraint firstItem="X9Z-4g-q1k" firstAttribute="centerX" secondItem="GA4-tV-9bD" secondAttribute="centerX" id="b7s-yN-GxC"/>
+                <constraint firstItem="8nw-Hn-mEm" firstAttribute="top" secondItem="G4Z-6t-Gdv" secondAttribute="top" constant="21" id="ggt-R6-ID9"/>
+                <constraint firstItem="GA4-tV-9bD" firstAttribute="top" secondItem="G4Z-6t-Gdv" secondAttribute="top" constant="35" id="mYh-XB-a34"/>
+                <constraint firstItem="8yV-cn-fm7" firstAttribute="top" secondItem="srp-7H-xrO" secondAttribute="bottom" constant="3" id="msb-ya-7Qm"/>
+                <constraint firstItem="srp-7H-xrO" firstAttribute="top" secondItem="X9Z-4g-q1k" secondAttribute="bottom" constant="1" id="w17-cn-AEF"/>
+                <constraint firstItem="srp-7H-xrO" firstAttribute="centerX" secondItem="GA4-tV-9bD" secondAttribute="centerX" id="ylD-OX-Fwg"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="-293" y="630"/>
+        </view>
+        <view contentMode="scaleToFill" id="l7x-A0-XT3">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="200"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Otta_intro_popup_yesorno.png" translatesAutoresizingMaskIntoConstraints="NO" id="ACX-si-yOO">
+                    <rect key="frame" x="20" y="4" width="280" height="111"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="280" id="0eE-Cc-3kV"/>
+                        <constraint firstAttribute="height" constant="111" id="p6U-IQ-lPr"/>
+                    </constraints>
+                </imageView>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter your Email" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kHE-FD-6Dt">
+                    <rect key="frame" x="29" y="28" width="263" height="30"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="263" id="vWO-CZ-HQG"/>
+                        <constraint firstAttribute="height" constant="30" id="yLC-Yr-T8B"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="16"/>
+                    <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
+                </textField>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P8l-EY-HyN">
+                    <rect key="frame" x="163" y="74" width="137" height="33"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="137" id="9Ov-iZ-YaS"/>
+                        <constraint firstAttribute="height" constant="33" id="HoN-ww-d0A"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="OpenSans-Semibold" family="Open Sans" pointSize="17"/>
+                    <state key="normal" title="Cancel">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <state key="highlighted">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="btnCancelEmail:" destination="-1" eventType="touchUpInside" id="Y9Y-l0-1of"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hRu-75-8q2">
+                    <rect key="frame" x="20" y="74" width="142" height="33"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="33" id="oon-hV-ZDh"/>
+                        <constraint firstAttribute="width" constant="142" id="pl7-CT-0at"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="OpenSans-Semibold" family="Open Sans" pointSize="17"/>
+                    <state key="normal" title="Send">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <state key="highlighted">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="btnSendEmail:" destination="-1" eventType="touchUpInside" id="vVm-5z-Vph"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="ACX-si-yOO" firstAttribute="top" secondItem="l7x-A0-XT3" secondAttribute="top" constant="4" id="AnU-LA-rMz"/>
+                <constraint firstItem="P8l-EY-HyN" firstAttribute="top" secondItem="kHE-FD-6Dt" secondAttribute="bottom" constant="16" id="E55-zy-pYA"/>
+                <constraint firstItem="kHE-FD-6Dt" firstAttribute="top" secondItem="l7x-A0-XT3" secondAttribute="top" constant="28" id="U9a-6D-Wke"/>
+                <constraint firstAttribute="centerX" secondItem="kHE-FD-6Dt" secondAttribute="centerX" id="WQl-Dy-zxH"/>
+                <constraint firstItem="hRu-75-8q2" firstAttribute="top" secondItem="kHE-FD-6Dt" secondAttribute="bottom" constant="16" id="bxo-vf-FvF"/>
+                <constraint firstItem="hRu-75-8q2" firstAttribute="leading" secondItem="l7x-A0-XT3" secondAttribute="leading" constant="20" id="gmP-cc-0g3"/>
+                <constraint firstAttribute="centerX" secondItem="ACX-si-yOO" secondAttribute="centerX" id="oxs-zi-6Zh"/>
+                <constraint firstItem="P8l-EY-HyN" firstAttribute="leading" secondItem="hRu-75-8q2" secondAttribute="trailing" constant="1" id="v8n-7j-3wa"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="-705" y="12"/>
+        </view>
+        <view contentMode="scaleToFill" id="agv-5A-3p2">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="211"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Otta_friends_shape_popup2.png" translatesAutoresizingMaskIntoConstraints="NO" id="Jh1-WX-0t4">
+                    <rect key="frame" x="10" y="0.0" width="301" height="211"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="211" id="UWN-AK-psh"/>
+                        <constraint firstAttribute="width" constant="301" id="fJY-hR-ck7"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Chloe Fulton" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mE3-vx-QvN">
+                    <rect key="frame" x="32" y="35" width="257" height="28"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="28" id="3el-yr-2m5"/>
+                        <constraint firstAttribute="width" constant="257" id="P4S-Xg-RVn"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="OpenSans-Bold" family="Open Sans" pointSize="19"/>
+                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UqS-Wb-F45">
+                    <rect key="frame" x="22" y="136" width="277" height="50"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="GNT-vm-DlJ"/>
+                        <constraint firstAttribute="width" constant="277" id="e9B-CM-zKe"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="OpenSans-Semibold" family="Open Sans" pointSize="18"/>
+                    <state key="normal" title="Cancel">
+                        <color key="titleColor" red="0.97254901959999995" green="0.62352941179999999" blue="0.08235294118" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="cancelFriend2:" destination="-1" eventType="touchUpInside" id="iJb-if-Z5s"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rse-Jd-Xpx">
+                    <rect key="frame" x="22" y="81" width="277" height="50"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="277" id="rf3-eH-GBi"/>
+                        <constraint firstAttribute="height" constant="50" id="yw8-JV-iAR"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="OpenSans-Semibold" family="Open Sans" pointSize="18"/>
+                    <state key="normal" title="Remove">
+                        <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="removeFriend2:" destination="-1" eventType="touchUpInside" id="Heg-Qt-YpG"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="Jh1-WX-0t4" firstAttribute="top" secondItem="agv-5A-3p2" secondAttribute="top" id="3Sb-iJ-mpL"/>
+                <constraint firstItem="mE3-vx-QvN" firstAttribute="top" secondItem="agv-5A-3p2" secondAttribute="top" constant="35" id="6dc-zK-Max"/>
+                <constraint firstItem="rse-Jd-Xpx" firstAttribute="top" secondItem="mE3-vx-QvN" secondAttribute="bottom" constant="18" id="ATK-5w-UiP"/>
+                <constraint firstItem="rse-Jd-Xpx" firstAttribute="centerX" secondItem="mE3-vx-QvN" secondAttribute="centerX" id="OVO-Ib-Fxy"/>
+                <constraint firstAttribute="centerX" secondItem="Jh1-WX-0t4" secondAttribute="centerX" id="TH2-KO-Yot"/>
+                <constraint firstItem="mE3-vx-QvN" firstAttribute="centerX" secondItem="UqS-Wb-F45" secondAttribute="centerX" id="cgB-LG-dxA"/>
+                <constraint firstAttribute="centerX" secondItem="mE3-vx-QvN" secondAttribute="centerX" constant="-0.5" id="fSh-dp-G2d"/>
+                <constraint firstItem="UqS-Wb-F45" firstAttribute="top" secondItem="agv-5A-3p2" secondAttribute="top" constant="136" id="qlT-M4-NFY"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="-705" y="608.5"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="Otta_friends_shape_popup.png" width="2304" height="1745"/>
+        <image name="Otta_friends_shape_popup2.png" width="2304" height="1308"/>
+        <image name="Otta_intro_popup_yesorno.png" width="2304" height="787"/>
+        <image name="bgalert_white.png" width="535" height="194"/>
+        <image name="bgalert_white_big.png" width="535" height="292"/>
+        <image name="btn_alert_done.png" width="535" height="66"/>
+        <image name="btn_alert_no.png" width="263" height="66"/>
+        <image name="btn_alert_ok.png" width="535" height="66"/>
+        <image name="btn_alert_yes.png" width="272" height="66"/>
+    </resources>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
+</document>

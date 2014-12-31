@@ -2,18 +2,29 @@
 //  OttAddFriendViewController.h
 //  Otta
 //
-//  Created by ThienHuyen on 11/11/14.
+//  Created by Thien Chau on 11/11/14.
 //  Copyright (c) 2014 SojoDigital. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
-
-@interface OttAddFriendViewController : UIViewController
+@class TPKeyboardAvoidingScrollView;
+@interface OttAddFriendViewController : UIViewController<UITableViewDataSource, UITableViewDelegate>
 
 @property (assign, nonatomic) BOOL doesAccessContact;
 
+@property (weak, nonatomic) IBOutlet UITextField *findFriendTextField;
 @property (weak, nonatomic) IBOutlet UIButton *btnCheck;
+@property (weak, nonatomic) IBOutlet TPKeyboardAvoidingScrollView *scrlFindFriend;
+@property (weak, nonatomic) IBOutlet UITableView *searchResultTableView;
+@property (weak, nonatomic) IBOutlet UIButton *btnSkipNext;
+@property (weak, nonatomic) IBOutlet UILabel *viewNameLbl;
+@property (weak, nonatomic) IBOutlet UIImageView *imgSearch;
+@property (weak, nonatomic) IBOutlet UITextField *txtSearch;
+
+@property (assign) BOOL isInviteMode;
+@property (assign, nonatomic) BOOL isFromInApp;
 
 - (IBAction)backButtonPressed:(id)sender;
-- (IBAction)checkButtonPressed:(id)sender;
+- (IBAction)nextButtonPressed:(id)sender;
+
 @end

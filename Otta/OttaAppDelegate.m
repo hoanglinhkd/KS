@@ -13,14 +13,13 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     [TestFlight takeOff:@"975d26e9-a545-4c2b-9aa8-2193aeabcf78"];
-
-    // Override point for customization after application launch.
-    self.sessionManager = [OttaSessionManager sharedManager];
     
     [Parse setApplicationId:@"g6FEYOAkQBfyBddmQIoj0HlIoMxA1PsngqwBpKex"
                   clientKey:@"skHKpIXBu697YzryNCqyw13BdJiCtz3P0E2HONMY"];
     [PFFacebookUtils initializeFacebook];
 
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+    
     return YES;
 }
 							
@@ -52,6 +51,11 @@
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
     [FBAppCall handleDidBecomeActiveWithSession:[PFFacebookUtils session]];
+}
+
+- (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url
+{
+    return [FBSession.activeSession handleOpenURL:url];
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application
