@@ -103,6 +103,8 @@
         indicator.center = imageView.center;
         indicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyleWhiteLarge;
         [indicator startAnimating];
+        [indicator setHidesWhenStopped:YES];
+        indicator.color = [UIColor orangeColor];
         if (((PFFile*)answer[kImage]).url.length > 0){
             //Lazy loading image
             [imageView setImageWithURLRequest:request

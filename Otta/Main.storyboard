@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="jFH-gY-aPy">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C81f" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="jFH-gY-aPy">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -106,7 +106,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8b0-wb-akz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="151" y="-757"/>
+            <point key="canvasLocation" x="138" y="-801"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="spb-3L-BgH">
@@ -122,7 +122,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7TB-dE-zmc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="649" y="640"/>
+            <point key="canvasLocation" x="-275" y="553"/>
         </scene>
         <!--Otta Ask View Controller-->
         <scene sceneID="0A0-dA-ezo">
@@ -500,7 +500,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HOd-FJ-vaq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1061" y="1282"/>
+            <point key="canvasLocation" x="-910" y="1278"/>
         </scene>
         <!--About View Controller-->
         <scene sceneID="mOX-io-JSa">
@@ -520,16 +520,16 @@
                                 <color key="textColor" red="0.48627450980392156" green="0.74117647058823533" blue="0.19215686274509805" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleAspectFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sbm-ms-GQv">
+                            <view contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="sbm-ms-GQv">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="80"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="Otta_header_shape_bar.png" translatesAutoresizingMaskIntoConstraints="NO" id="lVD-q7-Z3Z">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Otta_header_shape_bar.png" translatesAutoresizingMaskIntoConstraints="NO" id="lVD-q7-Z3Z">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="80"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="80" id="Dbj-ym-9yX"/>
                                         </constraints>
                                     </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="Otta_header_brand_name.png" translatesAutoresizingMaskIntoConstraints="NO" id="UbD-mc-Aim">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Otta_header_brand_name.png" translatesAutoresizingMaskIntoConstraints="NO" id="UbD-mc-Aim">
                                         <rect key="frame" x="105" y="35" width="111" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="3od-lE-D37"/>
@@ -572,7 +572,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0Uf-LH-bK0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2297" y="-107"/>
+            <point key="canvasLocation" x="-2633" y="-170"/>
         </scene>
         <!--Setting View Controller-->
         <scene sceneID="11z-7q-XrZ">
@@ -645,7 +645,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Oby-q9-Q4N" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3029" y="1258"/>
+            <point key="canvasLocation" x="-3163" y="640"/>
         </scene>
         <!--Side Menu View Controller-->
         <scene sceneID="U7e-sd-NBW">
@@ -774,7 +774,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CcS-Hm-vcd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-992" y="284"/>
+            <point key="canvasLocation" x="-1576" y="-170"/>
         </scene>
         <!--Otta Answerers View Controller-->
         <scene sceneID="PpF-Dz-7bu">
@@ -981,7 +981,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yU0-hc-Iix" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1477" y="1291"/>
+            <point key="canvasLocation" x="-345" y="1278"/>
         </scene>
         <!--Otta Find Friends View Controller-->
         <scene sceneID="pA0-3F-NdA">
@@ -1237,7 +1237,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="InE-Rq-9wN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="691" y="-102"/>
+            <point key="canvasLocation" x="323" y="-170"/>
         </scene>
         <!--Ott Add Friend View Controller-->
         <scene sceneID="WhE-YP-WF0">
@@ -1438,7 +1438,7 @@ EE5leHQ
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HpG-K3-5ZQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-179" y="-81"/>
+            <point key="canvasLocation" x="-275" y="-170"/>
         </scene>
         <!--Answerers Asker View Controller-->
         <scene sceneID="0s8-rw-yG7">
@@ -1770,7 +1770,7 @@ EE5leHQ
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="v8p-AU-RSb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-81" y="1211"/>
+            <point key="canvasLocation" x="-910" y="553"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="sWr-Tv-fg3">
@@ -1788,7 +1788,7 @@ EE5leHQ
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HWf-ay-P0T" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-564" y="1053"/>
+            <point key="canvasLocation" x="-910" y="-170"/>
         </scene>
         <!--Otta Join Detail View Controller-->
         <scene sceneID="vnu-0B-n1Z">
@@ -1933,7 +1933,7 @@ EE5leHQ
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="map-vu-hw7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-291" y="-2303"/>
+            <point key="canvasLocation" x="-259" y="-2213"/>
         </scene>
         <!--Otta Login Container View Controller-->
         <scene sceneID="Nly-sg-RVk">
@@ -1958,7 +1958,7 @@ EE5leHQ
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZMW-Eb-dl4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-731" y="-1369"/>
+            <point key="canvasLocation" x="-701" y="-1565"/>
         </scene>
         <!--Otta View Controller-->
         <scene sceneID="Php-oc-WkQ">
@@ -2104,7 +2104,7 @@ EE5leHQ
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bYC-7Y-DrL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1244" y="-801"/>
+            <point key="canvasLocation" x="-1139" y="-801"/>
         </scene>
         <!--Otta Facebook Detail View Controller-->
         <scene sceneID="MTW-qG-Jeh">
@@ -2118,7 +2118,7 @@ EE5leHQ
                         <rect key="frame" x="0.0" y="0.0" width="320" height="442"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="I8g-YS-BJD" userLabel="FaceBookDetailView" customClass="TPKeyboardAvoidingScrollView">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="I8g-YS-BJD" userLabel="FaceBookDetailView" customClass="TPKeyboardAvoidingScrollView">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="247"/>
                                 <subviews>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Hba-ng-RCr">
@@ -2184,7 +2184,7 @@ EE5leHQ
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="T8p-IW-7f5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="151" y="-1369"/>
+            <point key="canvasLocation" x="151" y="-1565"/>
         </scene>
         <!--Otta Login Detail View Controller-->
         <scene sceneID="IY3-5w-Ulg">
@@ -2305,7 +2305,7 @@ EE5leHQ
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Z4R-hM-Eyf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="159" y="-1975"/>
+            <point key="canvasLocation" x="151" y="-2213"/>
         </scene>
         <!--QuestionFeedController-->
         <scene sceneID="7jg-8K-CGZ">
@@ -2690,7 +2690,7 @@ EE5leHQ
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jVK-Al-NCL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1508" y="1921"/>
+            <point key="canvasLocation" x="-1490" y="2055"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="OAq-PP-pHB">
@@ -2709,7 +2709,7 @@ EE5leHQ
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sra-b4-eQu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-553" y="1961"/>
+            <point key="canvasLocation" x="-910" y="2055"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="EJE-7h-oLa">
@@ -2727,7 +2727,7 @@ EE5leHQ
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="d3V-ap-v2H" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2525" y="1258"/>
+            <point key="canvasLocation" x="-2126" y="640"/>
         </scene>
         <!--OttaMediaQuestionDetail-->
         <scene sceneID="M5U-Fb-rYH">
@@ -2851,7 +2851,7 @@ EE5leHQ
                             </view>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e5c-Qn-XPe">
                                 <rect key="frame" x="0.0" y="140" width="320" height="328"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="delegate" destination="yV0-Wg-ikO" id="gZe-55-0cg"/>
                                 </connections>
@@ -2976,7 +2976,7 @@ EE5leHQ
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GhC-CR-nu9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1931" y="2564"/>
+            <point key="canvasLocation" x="-2126" y="2682"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="XaX-UK-gbe">
@@ -2994,7 +2994,7 @@ EE5leHQ
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1fJ-85-BpV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2723" y="580"/>
+            <point key="canvasLocation" x="-2633" y="640"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="n68-0y-8qU">
@@ -3013,7 +3013,7 @@ EE5leHQ
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Mp0-gN-OtQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1787" y="-115"/>
+            <point key="canvasLocation" x="-2085" y="-170"/>
         </scene>
         <!--Otta Add Caption Image View Controller-->
         <scene sceneID="oBG-qY-Buc">
@@ -3165,7 +3165,7 @@ EE5leHQ
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sjB-0a-OxL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1352" y="1931"/>
+            <point key="canvasLocation" x="-345" y="2055"/>
         </scene>
         <!--My Question -->
         <scene sceneID="mHI-Nm-HKR">
@@ -3533,7 +3533,7 @@ EE5leHQ
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="H8g-Bq-w5m" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1922" y="1271"/>
+            <point key="canvasLocation" x="-2126" y="1409"/>
         </scene>
     </scenes>
     <resources>
@@ -3582,8 +3582,8 @@ EE5leHQ
     <inferredMetricsTieBreakers>
         <segue reference="3Iu-Ui-5LO"/>
         <segue reference="Q7F-7b-5wm"/>
+        <segue reference="Ycj-BK-uJz"/>
+        <segue reference="DqQ-3n-mLc"/>
         <segue reference="E1q-wn-UAr"/>
-        <segue reference="9wb-bJ-bBU"/>
-        <segue reference="hio-Ea-4qw"/>
     </inferredMetricsTieBreakers>
 </document>
