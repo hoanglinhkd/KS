@@ -1,0 +1,143 @@
+//
+//  TPLMacros.h
+//  MusicPlayer
+//
+//  Created by Hoang Ho on 12/6/12.
+//  Copyright (c) 2012 Tech Propulsion Labs. All rights reserved.
+//
+
+
+#import <Foundation/Foundation.h>
+#include <CoreGraphics/CGGeometry.h>
+#import <Foundation/Foundation.h>
+#import <CoreGraphics/CoreGraphics.h>
+#import <CoreImage/CoreImage.h>
+#import <UIKit/UIKitDefines.h>
+#import <UIKit/UIKit.h>
+
+// BOXING
+NSNumber *BOX_BOOL(BOOL x);
+NSNumber *BOX_INT(NSInteger x);
+NSNumber *BOX_SHORT(short x);
+NSNumber *BOX_LONG(long x);
+NSNumber *BOX_UINT(NSUInteger x);
+NSNumber *BOX_FLOAT(float x);
+NSNumber *BOX_DOUBLE(double x);
+NSInteger KEYBOARD_HEIGHT_IPHONE();
+
+// UNBOXING
+BOOL UNBOX_BOOL(NSNumber *x);
+NSInteger UNBOX_INT(NSNumber *x);
+short UNBOX_SHORT(NSNumber *x);
+long UNBOX_LONG(NSNumber *x);
+NSUInteger UNBOX_UINT(NSNumber *x);
+float UNBOX_FLOAT(NSNumber *x);
+double UNBOX_DOUBLE(NSNumber *x);
+
+// STRINGIFY
+NSString *STRINGIFY_BOOL(BOOL x);
+NSString *STRINGIFY_INT(NSInteger x);
+NSString *STRINGIFY_SHORT(short x);
+NSString *STRINGIFY_LONG(long x);
+NSString *STRINGIFY_UINT(NSUInteger x);
+NSString *STRINGIFY_FLOAT(float x);
+NSString *STRINGIFY_DOUBLE(double x);
+
+
+// BOUNDS
+CGRect RECT_WITH_X(CGRect rect, float x);
+CGRect RECT_WITH_Y(CGRect rect, float y);
+CGRect RECT_WITH_X_Y(CGRect rect, float x, float y);
+
+CGRect RECT_WITH_X_WIDTH(CGRect rect, float x, float width);
+CGRect RECT_WITH_Y_HEIGHT(CGRect rect, float y, float height);
+
+CGRect RECT_WITH_WIDTH_HEIGHT(CGRect rect, float width, float height);
+CGRect RECT_WITH_WIDTH(CGRect rect, float width);
+CGRect RECT_WITH_HEIGHT(CGRect rect, float height);
+CGRect RECT_WITH_HEIGHT_FROM_BOTTOM(CGRect rect, float height);
+
+CGRect RECT_INSET_BY_LEFT_TOP_RIGHT_BOTTOM(CGRect rect, float left, float top, float right, float bottom);
+CGRect RECT_INSET_BY_TOP_BOTTOM(CGRect rect, float top, float bottom);
+CGRect RECT_INSET_BY_LEFT_RIGHT(CGRect rect, float left, float right);
+
+CGRect RECT_STACKED_OFFSET_BY_X(CGRect rect, float offset);
+CGRect RECT_STACKED_OFFSET_BY_Y(CGRect rect, float offset);
+
+CGRect RECT_ADD_X(CGRect rect, float value);
+CGRect RECT_ADD_Y(CGRect rect, float value);
+CGRect RECT_ADD_WIDTH(CGRect rect, float value);
+CGRect RECT_ADD_HEIGHT(CGRect rect, float value);
+// MATH
+double DEG_TO_RAD(double degrees);
+double RAD_TO_DEG(double radians);
+
+// COMPARES
+BOOL fequal(double a, double b);
+BOOL fequalf(float a, float b);
+BOOL fequalzero(double a);
+BOOL fequalzerof(float a);
+
+
+// DUMPS
+NSString *RECT_TO_STR(CGRect r);
+NSString *POINT_TO_STR(CGPoint p);
+NSString *SIZE_TO_STR(CGSize s);
+
+// DIRECTORIES
+NSString *DOCUMENTS_DIR(void);
+NSString *LIBRARY_DIR(void);
+NSString *TEMP_DIR(void);
+NSString *BUNDLE_DIR(void);
+NSString *NSDCIM_DIR(void);
+
+BOOL IS_MULTITASKING_AVAILABLE(void);
+BOOL IS_CAMERA_AVAILABLE(void);
+BOOL IS_GAME_CENTER_AVAILABLE(void);
+BOOL IS_EMAIL_ACCOUNT_AVAILABLE(void);
+BOOL IS_GPS_ENABLED(void);
+BOOL IS_GPS_ENABLED_ON_DEVICE(void);
+BOOL IS_GPS_ENABLED_FOR_APP(void);
+
+// DISPATCHERS
+void DISPATCH_TO_MAIN_QUEUE(BOOL isAsync, void (^block)());
+void DISPATCH_TO_GLOBAL_QUEUE(dispatch_queue_priority_t priority, BOOL isAsync, void (^block)());
+void DISPATCH_TO_CURRENT_QUEUE(BOOL isAsync, void (^block)());
+void DISPATCH_TO_QUEUE(dispatch_queue_t queue, BOOL isAsync, void (^block)());
+void DISPATCH_TO_MAIN_QUEUE_AFTER(NSTimeInterval delay, void (^block)());
+void DISPATCH_TO_GLOBAL_QUEUE_AFTER(NSTimeInterval delay, dispatch_queue_priority_t priority, void (^block)());
+void DISPATCH_TO_CURRENT_QUEUE_AFTER(NSTimeInterval delay, void (^block)());
+void DISPATCH_TO_QUEUE_AFTER(NSTimeInterval delay, dispatch_queue_t queue, void (^block)());
+
+
+// LOG Trace
+void printRect(CGRect);
+
+// COLOR
+UIColor* RGB(int r,int g, int b);
+UIColor* RGBA(int r,int g, int b,float a);
+UIColor* HEX_COLOR_STRING(NSString *string);
+UIColor* HEX_COLOR_STRING_A(NSString *string, float a);
+UIImage* IMAGE_FROM_COLOR(UIColor *color);
+UIImage* IMAGE_FROM_COLOR_RECT(UIColor *color, CGRect rect);
+//UIImage* BUY_IMAGE_COLOR();
+//UIImage* SELL_IMAGE_COLOR();
+UIImage* SCALE_IMAGE_TO_SIZE(UIImage* image, CGSize size);
+NSString* localizedString(NSString *string);
+NSInteger AVERAGE_TIME(int time1, int time2);
+
+UIImage *navigationBarBGImage_Portrait();
+UIImage *navigationBarBGImage_Landscape();
+UIImage *toolBarBGImage();
+//System Version
+
+#define SYSTEM_VERSION_EQUAL_TO(v) ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedSame)
+#define SYSTEM_VERSION_GREATER_THAN(v) ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedDescending)
+#define SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(v) ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedAscending)
+#define SYSTEM_VERSION_LESS_THAN(v) ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedAscending)
+#define SYSTEM_VERSION_LESS_THAN_OR_EQUAL_TO(v) ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedDescending)
+
+#define IS_PORTRAIT UIDeviceOrientationIsPortrait([[UIApplication sharedApplication]statusBarOrientation])
+
+#define IS_LANDSCAPE  UIDeviceOrientationIsLandscape([[UIApplication sharedApplication]statusBarOrientation])
+

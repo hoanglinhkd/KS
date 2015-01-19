@@ -1,0 +1,32 @@
+//
+//  CLConsts.h
+//  TestAFNetWorking
+//
+//  Created by Linh.Nguyen on 8/26/14.
+//  Copyright (c) 2014 CSC. All rights reserved.
+//
+
+#ifndef TestAFNetWorking_CLConsts_h
+#define TestAFNetWorking_CLConsts_h
+
+#define CL_NOTIF_DEMODATA @"ColaNotificationDemoData"
+#define CL_NOTIF_AUTOCOMPLETE_ADDRESS @"ColaNotificationAutocomplete"
+
+
+#define CL_URL_LOCATION_DEMO  @"http://chatvoinguoila.vn/branchlocation/sevice/getbranchs.jsp?id=111"
+
+#define CL_URL_LOCAL                                @"http://192.168.0.105:8999/motel-war/services/v2/motelQS/getMotelByProvinceHasPaging?provinceCode=HCM&loadCfg={%22offset%22:0,%22limit%22:10,%22sortDir%22:%22NONE%22,%22filters%22:[],%22sortField%22:null}"
+#define CL_URL_GetMotelByProvinceHasPagingShort @"http://motel-smartlake.rhcloud.com/motel/services/v2/motelQS/getMotelByProvinceHasPaging?provinceCode=HCM"
+
+#define CL_URL_SHORT @"http://motel-smartlake.rhcloud.com/motel/services/v2/motelQS/getMotelByProvinceHasPaging?provinceCode=HCM"
+
+
+#define DEMO_URL_JSON @"http://www.raywenderlich.com/demos/weather_sample/weather.php?format=json"
+
+/*** Define const string***/
+#define CL_UnKnown  @"Unknown"
+#define CL_Currency @"VND"
+
+
+
+#endif

@@ -1,0 +1,59 @@
+//
+//  ColaDataManager.m
+//  TestAFNetWorking
+//
+//  Created by Linh.Nguyen on 8/26/14.
+//  Copyright (c) 2014 CSC. All rights reserved.
+//
+
+#import "ColaDataManager.h"
+#import "NetworkConnection.h"
+#import "MotelDTO.h"
+
+@implementation ColaDataManager
++ (ColaDataManager*) sharedInstance{
+    static dispatch_once_t onceToken = 0;
+    __strong static id _sharedObject = nil;
+    dispatch_once(&onceToken, ^{
+        _sharedObject = [[self alloc] init];
+    });
+    return _sharedObject;
+}
+
+- (ColaDataManager*) init{
+    self = [super init];
+    if (self) {
+        
+    }
+    return self;
+}
+
+- (void)requestDemoData{
+    NetworkConnection *clientCnn = [[NetworkConnection alloc] init];
+    [clientCnn requestAPI:CL_URL_GetMotelByProvinceHasPaging onSuccessed:^(NSArray *object) {
+        NSDictionary *dict = [object objectAtIndex:0];
+        dict = [dict objectForKey:@"data"];
+        //NSLog(@"%d",[[dict objectForKey:@"status"] intValue]);
+        NSArray *data = [dict objectForKey:@"data"];
+        
+        MotelDTO *dto;
+        NSMutableArray *arrObj = [[NSMutableArray alloc] initWithCapacity:data.count];
+        for (NSDictionary *tmpDict in data) {
+            dto = [MotelDTO setDictInfo:tmpDict];
+            [arrObj addObject:dto];
+        }
+        
+        // Notification Data for other views
+        NSDictionary *dictNtf = [[NSDictionary alloc] initWithObjectsAndKeys:arrObj,@"data", nil];
+        [[NSNotificationCenter defaultCenter] postNotificationName:CL_NOTIF_DEMODATA object:nil userInfo:dictNtf];
+
+    } onFail:^(NSError *error) {
+        
+    }];
+}
+
+- (void)autocompleteAddressWithKey:(NSString*)inputStr{
+    
+}
+
+@end
