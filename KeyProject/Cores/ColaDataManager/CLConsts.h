@@ -13,7 +13,7 @@
 #define CL_NOTIF_AUTOCOMPLETE_ADDRESS @"ColaNotificationAutocomplete"
 
 
-#define CL_URL_LOCATION_DEMO  @"http://chatvoinguoila.vn/branchlocation/sevice/getbranchs.jsp?id=111"
+#define CL_URL_LOCATION_DEMO  @"http://chatvoinguoila.vn/branchlocation/sevice/getbranchs.jsp?id=123"
 
 #define CL_URL_LOCAL                                @""
 #define CL_URL_GetMotelByProvinceHasPagingShort @""

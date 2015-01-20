@@ -44,7 +44,7 @@
     // Make sure to set the responseSerializer correctly --> for Json
     operation.responseSerializer = [AFJSONResponseSerializer serializer];
     // For content type need to accept
-    operation.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"text/html", nil];
+    operation.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"text/html",@"application/json", nil];
     
     [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
         

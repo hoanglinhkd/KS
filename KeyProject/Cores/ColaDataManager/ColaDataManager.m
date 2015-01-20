@@ -29,9 +29,7 @@
     }
     return self;
 }
-- (void) requestDemoData{
-    
-}
+
 /*
 static NSString * const BaseURLString = @"http://www.raywenderlich.com/demos/weather_sample/";
 - (void)requestDemoData{
@@ -70,6 +68,7 @@ static NSString * const BaseURLString = @"http://www.raywenderlich.com/demos/wea
     // 5
     [operation start];
 }
+*/
 
 - (void)requestDemoData{
     NetworkConnection *clientCnn = [[NetworkConnection alloc] init];
@@ -94,7 +93,7 @@ static NSString * const BaseURLString = @"http://www.raywenderlich.com/demos/wea
         
     }];
 }
-*/
+
 - (void)autocompleteAddressWithKey:(NSString*)inputStr{
     
 }
