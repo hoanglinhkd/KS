@@ -9,6 +9,8 @@
 #import "ColaDataManager.h"
 #import "NetworkConnection.h"
 #import "MotelDTO.h"
+#import "AFHTTPRequestOperation.h"
+#import "AFURLRequestSerialization.h"
 
 @implementation ColaDataManager
 + (ColaDataManager*) sharedInstance{
@@ -26,6 +28,47 @@
         
     }
     return self;
+}
+- (void) requestDemoData{
+    
+}
+/*
+static NSString * const BaseURLString = @"http://www.raywenderlich.com/demos/weather_sample/";
+- (void)requestDemoData{
+    
+    // 1
+    //NSString *string = [NSString stringWithFormat:@"%@weather.php?format=json", BaseURLString];
+    NSString *string = [NSString stringWithFormat:CL_URL_LOCATION_DEMO];
+    NSURL *url = [NSURL URLWithString:string];
+    NSURLRequest *request = [NSURLRequest requestWithURL:url];
+    
+    // 2
+    AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
+    operation.responseSerializer = [AFJSONResponseSerializer serializer];
+    
+    // For content type need to accept
+    operation.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"text/html", nil];
+    
+    [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+        
+        // 3
+        NSDictionary *myDict = (NSDictionary *)responseObject;
+        //self.title = @"JSON Retrieved";
+        //[self.tableView reloadData];
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        
+        // 4
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Error Retrieving Weather"
+                                                            message:[error localizedDescription]
+                                                           delegate:nil
+                                                  cancelButtonTitle:@"Ok"
+                                                  otherButtonTitles:nil];
+        [alertView show];
+    }];
+    
+    // 5
+    [operation start];
 }
 
 - (void)requestDemoData{
@@ -51,7 +94,7 @@
         
     }];
 }
-
+*/
 - (void)autocompleteAddressWithKey:(NSString*)inputStr{
     
 }

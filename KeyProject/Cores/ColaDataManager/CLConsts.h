@@ -15,10 +15,10 @@
 
 #define CL_URL_LOCATION_DEMO  @"http://chatvoinguoila.vn/branchlocation/sevice/getbranchs.jsp?id=111"
 
-#define CL_URL_LOCAL                                @"http://192.168.0.105:8999/motel-war/services/v2/motelQS/getMotelByProvinceHasPaging?provinceCode=HCM&loadCfg={%22offset%22:0,%22limit%22:10,%22sortDir%22:%22NONE%22,%22filters%22:[],%22sortField%22:null}"
-#define CL_URL_GetMotelByProvinceHasPagingShort @"http://motel-smartlake.rhcloud.com/motel/services/v2/motelQS/getMotelByProvinceHasPaging?provinceCode=HCM"
+#define CL_URL_LOCAL                                @""
+#define CL_URL_GetMotelByProvinceHasPagingShort @""
 
-#define CL_URL_SHORT @"http://motel-smartlake.rhcloud.com/motel/services/v2/motelQS/getMotelByProvinceHasPaging?provinceCode=HCM"
+#define CL_URL_SHORT @""
 
 
 #define DEMO_URL_JSON @"http://www.raywenderlich.com/demos/weather_sample/weather.php?format=json"
